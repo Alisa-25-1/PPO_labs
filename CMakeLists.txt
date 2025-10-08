@@ -15,12 +15,13 @@ include_directories(src)
 
 # Main library - ВКЛЮЧАЕМ ВСЕ .CPP ФАЙЛЫ
 add_library(BookingCore
+    src/types/uuid.cpp
     src/models/TimeSlot.cpp
     src/models/Booking.cpp
     src/models/Client.cpp
     src/models/Hall.cpp
     src/services/BookingService.cpp
-    src/dtos/BookingDTO.cpp      # <- ДОБАВЛЕНО
+    src/dtos/BookingDTO.cpp
 )
 
 # Tests executable

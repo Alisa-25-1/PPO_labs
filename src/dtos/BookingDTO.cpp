@@ -2,15 +2,14 @@
 #include <sstream>
 #include <iomanip>
 
-BookingRequestDTO::BookingRequestDTO(int clientId, int hallId, const TimeSlot& timeSlot, const std::string& purpose)
+BookingRequestDTO::BookingRequestDTO(const UUID& clientId, const UUID& hallId, const TimeSlot& timeSlot, const std::string& purpose)
     : clientId(clientId), hallId(hallId), timeSlot(timeSlot), purpose(purpose) {}
 
 bool BookingRequestDTO::validate() const {
-    return clientId > 0 && 
-           hallId > 0 && 
+    return !clientId.isNull() && clientId.isValid() &&
+           !hallId.isNull() && hallId.isValid() && 
            timeSlot.isValid() && 
-           !purpose.empty() && 
-           purpose.length() <= 255;
+           !purpose.empty() && purpose.length() <= 255;
 }
 
 BookingResponseDTO::BookingResponseDTO(const Booking& booking) {

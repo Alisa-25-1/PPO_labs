@@ -14,6 +14,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Hall.cpp" "CMakeFiles/BookingCore.dir/src/models/Hall.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/models/Hall.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.cpp" "CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.cpp" "CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o.d"
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.cpp" "CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

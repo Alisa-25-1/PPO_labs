@@ -11,6 +11,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o.d"
   "CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o"
   "CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o.d"
+  "CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o"
+  "CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o.d"
   "libBookingCore.a"
   "libBookingCore.pdb"
 )

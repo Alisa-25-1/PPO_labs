@@ -320,6 +320,30 @@ src/tests/BookingServiceTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.s
 .PHONY : src/tests/BookingServiceTest.cpp.s
 
+src/types/uuid.o: src/types/uuid.cpp.o
+.PHONY : src/types/uuid.o
+
+# target to build an object file
+src/types/uuid.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o
+.PHONY : src/types/uuid.cpp.o
+
+src/types/uuid.i: src/types/uuid.cpp.i
+.PHONY : src/types/uuid.i
+
+# target to preprocess a source file
+src/types/uuid.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/types/uuid.cpp.i
+.PHONY : src/types/uuid.cpp.i
+
+src/types/uuid.s: src/types/uuid.cpp.s
+.PHONY : src/types/uuid.s
+
+# target to generate assembly for a file
+src/types/uuid.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/types/uuid.cpp.s
+.PHONY : src/types/uuid.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -352,6 +376,9 @@ help:
 	@echo "... src/tests/BookingServiceTest.o"
 	@echo "... src/tests/BookingServiceTest.i"
 	@echo "... src/tests/BookingServiceTest.s"
+	@echo "... src/types/uuid.o"
+	@echo "... src/types/uuid.i"
+	@echo "... src/types/uuid.s"
 .PHONY : help
 
 

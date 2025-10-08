@@ -321,16 +321,25 @@ CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o: \
  /usr/include/gmock/gmock-nice-strict.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/BookingService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../repositories/IBookingRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../repositories/../types/uuid.hpp \
+ /usr/include/c++/13/random /usr/include/c++/13/bits/random.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/opt_random.h \
+ /usr/include/c++/13/bits/random.tcc /usr/include/c++/13/numeric \
+ /usr/include/c++/13/bits/stl_numeric.h \
+ /usr/include/c++/13/pstl/glue_numeric_defs.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../repositories/../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../repositories/../models/TimeSlot.hpp \
  /usr/include/c++/13/chrono \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../repositories/../models/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../repositories/IClientRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../repositories/../models/Client.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../repositories/IHallRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../repositories/../models/Hall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../dtos/BookingDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../dtos/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../dtos/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../dtos/../models/Booking.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/exceptions/BookingException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/../services/exceptions/ValidationException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/mocks/MockBookingRepository.hpp \

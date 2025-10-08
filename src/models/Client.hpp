@@ -1,6 +1,7 @@
 #ifndef CLIENT_HPP
 #define CLIENT_HPP
 
+#include "../types/uuid.hpp"
 #include <string>
 #include <chrono>
 
@@ -12,7 +13,7 @@ enum class AccountStatus {
 
 class Client {
 private:
-    int id_;
+    UUID id_;
     std::string name_;
     std::string email_;
     std::string passwordHash_;
@@ -22,9 +23,10 @@ private:
 
 public:
     Client();
-    Client(int id, std::string name, std::string email, std::string phone);
+    Client(const UUID& id, const std::string& name, const std::string& email, const std::string& phone);
+    public:
     
-    int getId() const;
+    UUID getId() const;
     std::string getName() const;
     std::string getEmail() const;
     std::string getPhone() const;

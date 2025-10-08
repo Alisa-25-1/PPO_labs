@@ -1,24 +1,26 @@
 #ifndef BOOKINGDTO_HPP
 #define BOOKINGDTO_HPP
 
+#include "../types/uuid.hpp"
 #include "../models/TimeSlot.hpp"
 #include "../models/Booking.hpp"
 #include <string>
 
 struct BookingRequestDTO {
-    int clientId;
-    int hallId;
+    UUID clientId;
+    UUID hallId;
     TimeSlot timeSlot;
     std::string purpose;
     
-    BookingRequestDTO(int clientId, int hallId, const TimeSlot& timeSlot, const std::string& purpose);
+    BookingRequestDTO(const UUID& clientId, const UUID& hallId, 
+                     const TimeSlot& timeSlot, const std::string& purpose);
     bool validate() const;
 };
 
 struct BookingResponseDTO {
-    int bookingId;
-    int clientId;
-    int hallId;
+    UUID bookingId;
+    UUID clientId;
+    UUID hallId;
     TimeSlot timeSlot;
     std::string status;
     std::string purpose;

@@ -2,16 +2,16 @@
 #include <chrono>
 
 Client::Client() 
-    : id_(0), name_(""), email_(""), passwordHash_(""), phone_(""), 
+    : id_(UUID()), name_(""), email_(""), passwordHash_(""), phone_(""), 
       registrationDate_(std::chrono::system_clock::now()), 
       status_(AccountStatus::INACTIVE) {}
 
-Client::Client(int id, std::string name, std::string email, std::string phone)
+Client::Client(const UUID& id, const std::string& name, const std::string& email, const std::string& phone)
     : id_(id), name_(name), email_(email), passwordHash_(""), phone_(phone),
       registrationDate_(std::chrono::system_clock::now()), 
       status_(AccountStatus::ACTIVE) {}
 
-int Client::getId() const { return id_; }
+UUID Client::getId() const { return id_; }
 std::string Client::getName() const { return name_; }
 std::string Client::getEmail() const { return email_; }
 std::string Client::getPhone() const { return phone_; }
@@ -43,7 +43,9 @@ void Client::suspend() {
 }
 
 bool Client::isValid() const {
-    return id_ > 0 && !name_.empty() && !email_.empty();
+    return !id_.isNull() && id_.isValid() && 
+           !name_.empty() && !email_.empty() && 
+           !phone_.empty();
 }
 
 // Операторы сравнения

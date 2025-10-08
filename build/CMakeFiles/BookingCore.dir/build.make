@@ -69,10 +69,24 @@ include CMakeFiles/BookingCore.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/BookingCore.dir/flags.make
 
+CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: CMakeFiles/BookingCore.dir/flags.make
+CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.cpp
+CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: CMakeFiles/BookingCore.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o -MF CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o.d -o CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.cpp
+
+CMakeFiles/BookingCore.dir/src/types/uuid.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/BookingCore.dir/src/types/uuid.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.cpp > CMakeFiles/BookingCore.dir/src/types/uuid.cpp.i
+
+CMakeFiles/BookingCore.dir/src/types/uuid.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/BookingCore.dir/src/types/uuid.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.cpp -o CMakeFiles/BookingCore.dir/src/types/uuid.cpp.s
+
 CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o: CMakeFiles/BookingCore.dir/flags.make
 CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.cpp
 CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o: CMakeFiles/BookingCore.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o -MF CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o.d -o CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.cpp
 
 CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.i: cmake_force
@@ -86,7 +100,7 @@ CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.s: cmake_force
 CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o: CMakeFiles/BookingCore.dir/flags.make
 CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.cpp
 CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o: CMakeFiles/BookingCore.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o -MF CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o.d -o CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.cpp
 
 CMakeFiles/BookingCore.dir/src/models/Booking.cpp.i: cmake_force
@@ -100,7 +114,7 @@ CMakeFiles/BookingCore.dir/src/models/Booking.cpp.s: cmake_force
 CMakeFiles/BookingCore.dir/src/models/Client.cpp.o: CMakeFiles/BookingCore.dir/flags.make
 CMakeFiles/BookingCore.dir/src/models/Client.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.cpp
 CMakeFiles/BookingCore.dir/src/models/Client.cpp.o: CMakeFiles/BookingCore.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/BookingCore.dir/src/models/Client.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/BookingCore.dir/src/models/Client.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BookingCore.dir/src/models/Client.cpp.o -MF CMakeFiles/BookingCore.dir/src/models/Client.cpp.o.d -o CMakeFiles/BookingCore.dir/src/models/Client.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.cpp
 
 CMakeFiles/BookingCore.dir/src/models/Client.cpp.i: cmake_force
@@ -114,7 +128,7 @@ CMakeFiles/BookingCore.dir/src/models/Client.cpp.s: cmake_force
 CMakeFiles/BookingCore.dir/src/models/Hall.cpp.o: CMakeFiles/BookingCore.dir/flags.make
 CMakeFiles/BookingCore.dir/src/models/Hall.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Hall.cpp
 CMakeFiles/BookingCore.dir/src/models/Hall.cpp.o: CMakeFiles/BookingCore.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/BookingCore.dir/src/models/Hall.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/BookingCore.dir/src/models/Hall.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BookingCore.dir/src/models/Hall.cpp.o -MF CMakeFiles/BookingCore.dir/src/models/Hall.cpp.o.d -o CMakeFiles/BookingCore.dir/src/models/Hall.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Hall.cpp
 
 CMakeFiles/BookingCore.dir/src/models/Hall.cpp.i: cmake_force
@@ -128,7 +142,7 @@ CMakeFiles/BookingCore.dir/src/models/Hall.cpp.s: cmake_force
 CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: CMakeFiles/BookingCore.dir/flags.make
 CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.cpp
 CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: CMakeFiles/BookingCore.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o -MF CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o.d -o CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.cpp
 
 CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.s: cmake_force
 CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o: CMakeFiles/BookingCore.dir/flags.make
 CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.cpp
 CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o: CMakeFiles/BookingCore.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o -MF CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o.d -o CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.cpp
 
 CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.i: cmake_force
@@ -155,6 +169,7 @@ CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.s: cmake_force
 
 # Object files for target BookingCore
 BookingCore_OBJECTS = \
+"CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o" \
 "CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o" \
 "CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o" \
 "CMakeFiles/BookingCore.dir/src/models/Client.cpp.o" \
@@ -165,6 +180,7 @@ BookingCore_OBJECTS = \
 # External object files for target BookingCore
 BookingCore_EXTERNAL_OBJECTS =
 
+libBookingCore.a: CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o
 libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o
 libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o
 libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Client.cpp.o
@@ -173,7 +189,7 @@ libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o
 libBookingCore.a: CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o
 libBookingCore.a: CMakeFiles/BookingCore.dir/build.make
 libBookingCore.a: CMakeFiles/BookingCore.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX static library libBookingCore.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library libBookingCore.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/BookingCore.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BookingCore.dir/link.txt --verbose=$(VERBOSE)
 

@@ -1,29 +1,30 @@
 #ifndef HALL_HPP
 #define HALL_HPP
 
+#include "../types/uuid.hpp"
 #include <string>
 
 class Hall {
 private:
-    int id_;
+    UUID id_;
     std::string name_;
     std::string description_;
     int capacity_;
     std::string floorType_;
     std::string equipment_;
-    int branchId_;
+    UUID branchId_;
 
 public:
     Hall();
-    Hall(int id, std::string name, int capacity, int branchId);
+    Hall(const UUID& id, const std::string& name, int capacity, const UUID& branchId);
     
-    int getId() const;
+    UUID getId() const;
     std::string getName() const;
     std::string getDescription() const;
     int getCapacity() const;
     std::string getFloorType() const;
     std::string getEquipment() const;
-    int getBranchId() const;
+    UUID getBranchId() const;
     
     void setDescription(const std::string& description);
     void setFloorType(const std::string& floorType);

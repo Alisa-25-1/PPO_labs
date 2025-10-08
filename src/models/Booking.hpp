@@ -2,6 +2,7 @@
 #define BOOKING_HPP
 
 #include "TimeSlot.hpp"
+#include "../types/uuid.hpp"
 #include <string>
 
 enum class BookingStatus {
@@ -13,9 +14,9 @@ enum class BookingStatus {
 
 class Booking {
 private:
-    int id_;
-    int clientId_;
-    int hallId_;
+    UUID id_;
+    UUID clientId_;
+    UUID hallId_;
     TimeSlot timeSlot_;
     BookingStatus status_;
     std::string purpose_;
@@ -23,11 +24,11 @@ private:
 
 public:
     Booking();
-    Booking(int id, int clientId, int hallId, const TimeSlot& timeSlot, const std::string& purpose);
+    Booking(const UUID& id, const UUID& clientId, const UUID& hallId, const TimeSlot& timeSlot, const std::string& purpose);
     
-    int getId() const;
-    int getClientId() const;
-    int getHallId() const;
+    UUID getId() const;
+    UUID getClientId() const;
+    UUID getHallId() const;
     TimeSlot getTimeSlot() const;
     BookingStatus getStatus() const;
     std::string getPurpose() const;

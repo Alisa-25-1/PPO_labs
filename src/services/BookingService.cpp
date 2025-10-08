@@ -25,7 +25,7 @@ void BookingService::validateBookingRequest(const BookingRequestDTO& request) co
     }
 }
 
-void BookingService::validateClient(int clientId) const {
+void BookingService::validateClient(const UUID& clientId) const {
     auto client = clientRepository_->findById(clientId);
     if (!client) {
         throw ValidationException("Client not found");
@@ -36,7 +36,7 @@ void BookingService::validateClient(int clientId) const {
     }
 }
 
-void BookingService::validateHall(int hallId) const {
+void BookingService::validateHall(const UUID& hallId) const {
     if (!hallRepository_->exists(hallId)) {
         throw ValidationException("Hall not found");
     }
@@ -52,11 +52,11 @@ void BookingService::validateTimeSlot(const TimeSlot& timeSlot) const {
     }
 }
 
-void BookingService::checkBookingConflicts(int hallId, const TimeSlot& timeSlot, int excludeBookingId) const {
+void BookingService::checkBookingConflicts(const UUID& hallId, const TimeSlot& timeSlot, const UUID& excludeBookingId) const {
     auto conflictingBookings = bookingRepository_->findConflictingBookings(hallId, timeSlot);
     
     // Filter out the excluded booking (for updates)
-    if (excludeBookingId > 0) {
+    if (!excludeBookingId.isNull()) {
         conflictingBookings.erase(
             std::remove_if(conflictingBookings.begin(), conflictingBookings.end(),
                 [excludeBookingId](const Booking& booking) {
@@ -85,7 +85,7 @@ BookingResponseDTO BookingService::createBooking(const BookingRequestDTO& reques
     checkBookingConflicts(request.hallId, request.timeSlot);
     
     // Create booking
-    int newId = 1; // In real implementation, this would be generated
+    UUID newId = UUID::generate(); // In real implementation, this would be generated
     Booking booking(newId, request.clientId, request.hallId, request.timeSlot, request.purpose);
     booking.confirm();
     
@@ -96,7 +96,7 @@ BookingResponseDTO BookingService::createBooking(const BookingRequestDTO& reques
     return BookingResponseDTO(booking);
 }
 
-BookingResponseDTO BookingService::cancelBooking(int bookingId, int clientId) {
+BookingResponseDTO BookingService::cancelBooking(const UUID& bookingId, const UUID& clientId) {
     auto booking = bookingRepository_->findById(bookingId);
     if (!booking) {
         throw BookingNotFoundException("Booking not found");
@@ -123,7 +123,7 @@ BookingResponseDTO BookingService::cancelBooking(int bookingId, int clientId) {
     return BookingResponseDTO(*booking);
 }
 
-BookingResponseDTO BookingService::getBooking(int bookingId) {
+BookingResponseDTO BookingService::getBooking(const UUID& bookingId) {
     auto booking = bookingRepository_->findById(bookingId);
     if (!booking) {
         throw BookingNotFoundException("Booking not found");
@@ -132,7 +132,7 @@ BookingResponseDTO BookingService::getBooking(int bookingId) {
     return BookingResponseDTO(*booking);
 }
 
-std::vector<BookingResponseDTO> BookingService::getClientBookings(int clientId) {
+std::vector<BookingResponseDTO> BookingService::getClientBookings(const UUID& clientId) {
     validateClient(clientId);
     
     auto bookings = bookingRepository_->findByClientId(clientId);
@@ -145,7 +145,7 @@ std::vector<BookingResponseDTO> BookingService::getClientBookings(int clientId) 
     return result;
 }
 
-std::vector<BookingResponseDTO> BookingService::getHallBookings(int hallId) {
+std::vector<BookingResponseDTO> BookingService::getHallBookings(const UUID& hallId) {
     validateHall(hallId);
     
     auto bookings = bookingRepository_->findByHallId(hallId);
@@ -158,7 +158,7 @@ std::vector<BookingResponseDTO> BookingService::getHallBookings(int hallId) {
     return result;
 }
 
-bool BookingService::isTimeSlotAvailable(int hallId, const TimeSlot& timeSlot) const {
+bool BookingService::isTimeSlotAvailable(const UUID& hallId, const TimeSlot& timeSlot) const {
     // Проверяем существование зала
     if (!hallRepository_->exists(hallId)) {
         return false;
@@ -174,12 +174,12 @@ bool BookingService::isTimeSlotAvailable(int hallId, const TimeSlot& timeSlot) c
 }
 
 // Business rules
-bool BookingService::canClientBook(int clientId) const {
+bool BookingService::canClientBook(const UUID& clientId) const {
     // Business rule: client can have maximum 3 active bookings
     return getClientActiveBookingsCount(clientId) < 3;
 }
 
-int BookingService::getClientActiveBookingsCount(int clientId) const {
+int BookingService::getClientActiveBookingsCount(const UUID& clientId) const {
     auto bookings = bookingRepository_->findByClientId(clientId);
     int activeCount = 0;
     
