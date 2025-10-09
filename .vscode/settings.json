@@ -63,6 +63,11 @@
         "thread": "cpp",
         "cinttypes": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "codecvt": "cpp",
+        "cstring": "cpp",
+        "list": "cpp",
+        "source_location": "cpp",
+        "ranges": "cpp"
     }
 }

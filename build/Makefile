@@ -65,16 +65,6 @@ CMAKE_BINARY_DIR = /home/nikita/Общедоступные/PPO/PPO_labs/build
 #=============================================================================
 # Targets provided globally by CMake.
 
-# Special rule for the target test
-test:
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running tests..."
-	/usr/bin/ctest --force-new-ctest-process $(ARGS)
-.PHONY : test
-
-# Special rule for the target test
-test/fast: test
-.PHONY : test/fast
-
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -140,6 +130,19 @@ BookingCore/fast:
 .PHONY : BookingCore/fast
 
 #=============================================================================
+# Target rules for targets named DataAccess
+
+# Build rule for target.
+DataAccess: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DataAccess
+.PHONY : DataAccess
+
+# fast build rule for target.
+DataAccess/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/build
+.PHONY : DataAccess/fast
+
+#=============================================================================
 # Target rules for targets named BookingTests
 
 # Build rule for target.
@@ -151,6 +154,80 @@ BookingTests: cmake_check_build_system
 BookingTests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/build
 .PHONY : BookingTests/fast
+
+#=============================================================================
+# Target rules for targets named IntegrationTests
+
+# Build rule for target.
+IntegrationTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 IntegrationTests
+.PHONY : IntegrationTests
+
+# fast build rule for target.
+IntegrationTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/build
+.PHONY : IntegrationTests/fast
+
+#=============================================================================
+# Target rules for targets named TechUI
+
+# Build rule for target.
+TechUI: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TechUI
+.PHONY : TechUI
+
+# fast build rule for target.
+TechUI/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/build
+.PHONY : TechUI/fast
+
+src/data/DatabaseConnection.o: src/data/DatabaseConnection.cpp.o
+.PHONY : src/data/DatabaseConnection.o
+
+# target to build an object file
+src/data/DatabaseConnection.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o
+.PHONY : src/data/DatabaseConnection.cpp.o
+
+src/data/DatabaseConnection.i: src/data/DatabaseConnection.cpp.i
+.PHONY : src/data/DatabaseConnection.i
+
+# target to preprocess a source file
+src/data/DatabaseConnection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.i
+.PHONY : src/data/DatabaseConnection.cpp.i
+
+src/data/DatabaseConnection.s: src/data/DatabaseConnection.cpp.s
+.PHONY : src/data/DatabaseConnection.s
+
+# target to generate assembly for a file
+src/data/DatabaseConnection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.s
+.PHONY : src/data/DatabaseConnection.cpp.s
+
+src/data/DateTimeUtils.o: src/data/DateTimeUtils.cpp.o
+.PHONY : src/data/DateTimeUtils.o
+
+# target to build an object file
+src/data/DateTimeUtils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.o
+.PHONY : src/data/DateTimeUtils.cpp.o
+
+src/data/DateTimeUtils.i: src/data/DateTimeUtils.cpp.i
+.PHONY : src/data/DateTimeUtils.i
+
+# target to preprocess a source file
+src/data/DateTimeUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.i
+.PHONY : src/data/DateTimeUtils.cpp.i
+
+src/data/DateTimeUtils.s: src/data/DateTimeUtils.cpp.s
+.PHONY : src/data/DateTimeUtils.s
+
+# target to generate assembly for a file
+src/data/DateTimeUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.s
+.PHONY : src/data/DateTimeUtils.cpp.s
 
 src/dtos/BookingDTO.o: src/dtos/BookingDTO.cpp.o
 .PHONY : src/dtos/BookingDTO.o
@@ -175,6 +252,30 @@ src/dtos/BookingDTO.s: src/dtos/BookingDTO.cpp.s
 src/dtos/BookingDTO.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.s
 .PHONY : src/dtos/BookingDTO.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 src/models/Booking.o: src/models/Booking.cpp.o
 .PHONY : src/models/Booking.o
@@ -272,6 +373,78 @@ src/models/TimeSlot.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.s
 .PHONY : src/models/TimeSlot.cpp.s
 
+src/repositories/impl/PostgreSQLBookingRepository.o: src/repositories/impl/PostgreSQLBookingRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLBookingRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLBookingRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLBookingRepository.cpp.o
+
+src/repositories/impl/PostgreSQLBookingRepository.i: src/repositories/impl/PostgreSQLBookingRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLBookingRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLBookingRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLBookingRepository.cpp.i
+
+src/repositories/impl/PostgreSQLBookingRepository.s: src/repositories/impl/PostgreSQLBookingRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLBookingRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLBookingRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLBookingRepository.cpp.s
+
+src/repositories/impl/PostgreSQLClientRepository.o: src/repositories/impl/PostgreSQLClientRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLClientRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLClientRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLClientRepository.cpp.o
+
+src/repositories/impl/PostgreSQLClientRepository.i: src/repositories/impl/PostgreSQLClientRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLClientRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLClientRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLClientRepository.cpp.i
+
+src/repositories/impl/PostgreSQLClientRepository.s: src/repositories/impl/PostgreSQLClientRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLClientRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLClientRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLClientRepository.cpp.s
+
+src/repositories/impl/PostgreSQLHallRepository.o: src/repositories/impl/PostgreSQLHallRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLHallRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLHallRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLHallRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLHallRepository.cpp.o
+
+src/repositories/impl/PostgreSQLHallRepository.i: src/repositories/impl/PostgreSQLHallRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLHallRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLHallRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLHallRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLHallRepository.cpp.i
+
+src/repositories/impl/PostgreSQLHallRepository.s: src/repositories/impl/PostgreSQLHallRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLHallRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLHallRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLHallRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLHallRepository.cpp.s
+
 src/services/BookingService.o: src/services/BookingService.cpp.o
 .PHONY : src/services/BookingService.o
 
@@ -296,6 +469,30 @@ src/services/BookingService.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.s
 .PHONY : src/services/BookingService.cpp.s
 
+src/tech_ui/TechUI.o: src/tech_ui/TechUI.cpp.o
+.PHONY : src/tech_ui/TechUI.o
+
+# target to build an object file
+src/tech_ui/TechUI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
+.PHONY : src/tech_ui/TechUI.cpp.o
+
+src/tech_ui/TechUI.i: src/tech_ui/TechUI.cpp.i
+.PHONY : src/tech_ui/TechUI.i
+
+# target to preprocess a source file
+src/tech_ui/TechUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.i
+.PHONY : src/tech_ui/TechUI.cpp.i
+
+src/tech_ui/TechUI.s: src/tech_ui/TechUI.cpp.s
+.PHONY : src/tech_ui/TechUI.s
+
+# target to generate assembly for a file
+src/tech_ui/TechUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.s
+.PHONY : src/tech_ui/TechUI.cpp.s
+
 src/tests/BookingServiceTest.o: src/tests/BookingServiceTest.cpp.o
 .PHONY : src/tests/BookingServiceTest.o
 
@@ -319,6 +516,30 @@ src/tests/BookingServiceTest.s: src/tests/BookingServiceTest.cpp.s
 src/tests/BookingServiceTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.s
 .PHONY : src/tests/BookingServiceTest.cpp.s
+
+src/tests/integration/RepositoryIntegrationTests.o: src/tests/integration/RepositoryIntegrationTests.cpp.o
+.PHONY : src/tests/integration/RepositoryIntegrationTests.o
+
+# target to build an object file
+src/tests/integration/RepositoryIntegrationTests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.o
+.PHONY : src/tests/integration/RepositoryIntegrationTests.cpp.o
+
+src/tests/integration/RepositoryIntegrationTests.i: src/tests/integration/RepositoryIntegrationTests.cpp.i
+.PHONY : src/tests/integration/RepositoryIntegrationTests.i
+
+# target to preprocess a source file
+src/tests/integration/RepositoryIntegrationTests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.i
+.PHONY : src/tests/integration/RepositoryIntegrationTests.cpp.i
+
+src/tests/integration/RepositoryIntegrationTests.s: src/tests/integration/RepositoryIntegrationTests.cpp.s
+.PHONY : src/tests/integration/RepositoryIntegrationTests.s
+
+# target to generate assembly for a file
+src/tests/integration/RepositoryIntegrationTests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.s
+.PHONY : src/tests/integration/RepositoryIntegrationTests.cpp.s
 
 src/types/uuid.o: src/types/uuid.cpp.o
 .PHONY : src/types/uuid.o
@@ -352,12 +573,23 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... test"
 	@echo "... BookingCore"
 	@echo "... BookingTests"
+	@echo "... DataAccess"
+	@echo "... IntegrationTests"
+	@echo "... TechUI"
+	@echo "... src/data/DatabaseConnection.o"
+	@echo "... src/data/DatabaseConnection.i"
+	@echo "... src/data/DatabaseConnection.s"
+	@echo "... src/data/DateTimeUtils.o"
+	@echo "... src/data/DateTimeUtils.i"
+	@echo "... src/data/DateTimeUtils.s"
 	@echo "... src/dtos/BookingDTO.o"
 	@echo "... src/dtos/BookingDTO.i"
 	@echo "... src/dtos/BookingDTO.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 	@echo "... src/models/Booking.o"
 	@echo "... src/models/Booking.i"
 	@echo "... src/models/Booking.s"
@@ -370,12 +602,27 @@ help:
 	@echo "... src/models/TimeSlot.o"
 	@echo "... src/models/TimeSlot.i"
 	@echo "... src/models/TimeSlot.s"
+	@echo "... src/repositories/impl/PostgreSQLBookingRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLBookingRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLBookingRepository.s"
+	@echo "... src/repositories/impl/PostgreSQLClientRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLClientRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLClientRepository.s"
+	@echo "... src/repositories/impl/PostgreSQLHallRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLHallRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLHallRepository.s"
 	@echo "... src/services/BookingService.o"
 	@echo "... src/services/BookingService.i"
 	@echo "... src/services/BookingService.s"
+	@echo "... src/tech_ui/TechUI.o"
+	@echo "... src/tech_ui/TechUI.i"
+	@echo "... src/tech_ui/TechUI.s"
 	@echo "... src/tests/BookingServiceTest.o"
 	@echo "... src/tests/BookingServiceTest.i"
 	@echo "... src/tests/BookingServiceTest.s"
+	@echo "... src/tests/integration/RepositoryIntegrationTests.o"
+	@echo "... src/tests/integration/RepositoryIntegrationTests.i"
+	@echo "... src/tests/integration/RepositoryIntegrationTests.s"
 	@echo "... src/types/uuid.o"
 	@echo "... src/types/uuid.i"
 	@echo "... src/types/uuid.s"

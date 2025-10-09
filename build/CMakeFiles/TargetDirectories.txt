@@ -1,5 +1,7 @@
 /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles/BookingCore.dir
+/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles/DataAccess.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles/BookingTests.dir
-/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles/test.dir
+/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles/IntegrationTests.dir
+/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles/TechUI.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles/edit_cache.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles/rebuild_cache.dir

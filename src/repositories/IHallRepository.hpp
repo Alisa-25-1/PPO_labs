@@ -13,4 +13,6 @@ public:
     virtual std::vector<Hall> findByBranchId(const UUID& branchId) = 0;
     virtual bool exists(const UUID& id) = 0;
     virtual std::vector<Hall> findAll() = 0;
+    virtual bool save(const Hall& hall) = 0;
+    virtual bool update(const Hall& hall) = 0;
 };
