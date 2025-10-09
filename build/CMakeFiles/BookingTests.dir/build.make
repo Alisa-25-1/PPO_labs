@@ -96,6 +96,7 @@ BookingTests: libBookingCore.a
 BookingTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 BookingTests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 BookingTests: /usr/lib/x86_64-linux-gnu/libgmock.a
+BookingTests: /usr/lib/x86_64-linux-gnu/libuuid.so
 BookingTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 BookingTests: CMakeFiles/BookingTests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable BookingTests"

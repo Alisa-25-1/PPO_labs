@@ -274,7 +274,33 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/gtest/gtest-test-part.h \
  /usr/include/gtest/gtest-typed-test.h \
  /usr/include/gtest/gtest_pred_impl.h /usr/include/gtest/gtest_prod.h \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../data/DatabaseConnection.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../models/Client.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../models/../types/uuid.hpp \
+ /usr/include/c++/13/regex /usr/include/c++/13/bitset \
+ /usr/include/c++/13/stack /usr/include/c++/13/deque \
+ /usr/include/c++/13/bits/stl_deque.h /usr/include/c++/13/bits/deque.tcc \
+ /usr/include/c++/13/bits/stl_stack.h \
+ /usr/include/c++/13/bits/regex_constants.h \
+ /usr/include/c++/13/bits/regex_error.h \
+ /usr/include/c++/13/bits/regex_automaton.h \
+ /usr/include/c++/13/bits/regex_automaton.tcc \
+ /usr/include/c++/13/bits/regex_scanner.h \
+ /usr/include/c++/13/bits/regex_scanner.tcc \
+ /usr/include/c++/13/bits/regex_compiler.h \
+ /usr/include/c++/13/bits/regex_compiler.tcc \
+ /usr/include/c++/13/bits/regex.h /usr/include/c++/13/bits/regex.tcc \
+ /usr/include/c++/13/bits/regex_executor.h \
+ /usr/include/c++/13/bits/regex_executor.tcc /usr/include/uuid/uuid.h \
+ /usr/include/x86_64-linux-gnu/sys/time.h /usr/include/c++/13/chrono \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../models/Hall.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../models/Booking.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../models/TimeSlot.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../models/TimeSlot.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/PostgreSQLClientRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../IClientRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../models/Client.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../data/DatabaseConnection.hpp \
  /usr/include/pqxx/pqxx /usr/include/pqxx/internal/header-pre.hxx \
  /usr/include/c++/13/version /usr/include/pqxx/internal/cxx-features.hxx \
  /usr/include/pqxx/config-public-compiler.h /usr/include/c++/13/ciso646 \
@@ -323,39 +349,8 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/pqxx/robusttransaction.hxx \
  /usr/include/pqxx/stream_from.hxx /usr/include/pqxx/stream_to.hxx \
  /usr/include/pqxx/subtransaction.hxx /usr/include/pqxx/time.hxx \
- /usr/include/c++/13/chrono /usr/include/pqxx/transactor.hxx \
+ /usr/include/pqxx/transactor.hxx \
  /usr/include/pqxx/internal/header-post.hxx \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/PostgreSQLClientRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../IClientRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../types/uuid.hpp \
- /usr/include/c++/13/random /usr/include/c++/13/cmath /usr/include/math.h \
- /usr/include/x86_64-linux-gnu/bits/math-vector.h \
- /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
- /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
- /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
- /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
- /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
- /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
- /usr/include/c++/13/bits/specfun.h /usr/include/c++/13/tr1/gamma.tcc \
- /usr/include/c++/13/tr1/special_function_util.h \
- /usr/include/c++/13/tr1/bessel_function.tcc \
- /usr/include/c++/13/tr1/beta_function.tcc \
- /usr/include/c++/13/tr1/ell_integral.tcc \
- /usr/include/c++/13/tr1/exp_integral.tcc \
- /usr/include/c++/13/tr1/hypergeometric.tcc \
- /usr/include/c++/13/tr1/legendre_function.tcc \
- /usr/include/c++/13/tr1/modified_bessel_func.tcc \
- /usr/include/c++/13/tr1/poly_hermite.tcc \
- /usr/include/c++/13/tr1/poly_laguerre.tcc \
- /usr/include/c++/13/tr1/riemann_zeta.tcc \
- /usr/include/c++/13/bits/random.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/opt_random.h \
- /usr/include/c++/13/bits/random.tcc \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../models/Client.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../models/../types/uuid.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../data/DatabaseConnection.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../data/exceptions/DataAccessException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/PostgreSQLHallRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../IHallRepository.hpp \
@@ -363,4 +358,4 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/PostgreSQLBookingRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../IBookingRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../models/Booking.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../models/TimeSlot.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../data/DatabaseConnection.hpp

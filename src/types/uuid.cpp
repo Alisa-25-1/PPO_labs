@@ -1,32 +1,40 @@
 #include "uuid.hpp"
 #include <regex>
+#include <stdexcept>
+#include <sstream>
+#include <iomanip>
 
 UUID::UUID() : value_("00000000-0000-0000-0000-000000000000") {}
 
-UUID::UUID(const std::string& uuid) : value_(uuid) {}
+UUID::UUID(const std::string& uuid) : value_(uuid) {
+    if (!isValidUUIDFormat(uuid) && uuid != "00000000-0000-0000-0000-000000000000") {
+        throw std::invalid_argument("Invalid UUID format: " + uuid);
+    }
+}
 
 UUID UUID::generate() {
-    std::random_device rd;
-    std::mt19937 gen(rd());
-    std::uniform_int_distribution<> dis(0, 15);
-    std::uniform_int_distribution<> dis2(8, 11);
-
-    std::stringstream ss;
-    ss << std::hex;
+#ifdef _WIN32
+    // Реализация для Windows с использованием UuidCreate
+    UUID uuid;
+    UuidCreate((UUID*)&uuid);
     
-    // Генерация UUID v4
-    for (int i = 0; i < 8; i++) ss << dis(gen);
-    ss << "-";
-    for (int i = 0; i < 4; i++) ss << dis(gen);
-    ss << "-4"; // version 4
-    for (int i = 0; i < 3; i++) ss << dis(gen);
-    ss << "-";
-    ss << dis2(gen); // variant
-    for (int i = 0; i < 3; i++) ss << dis(gen);
-    ss << "-";
-    for (int i = 0; i < 12; i++) ss << dis(gen);
+    // Преобразуем UUID в строку
+    RPC_CSTR str;
+    UuidToStringA((UUID*)&uuid, &str);
+    std::string result((char*)str);
+    RpcStringFreeA(&str);
     
-    return UUID(ss.str());
+    return UUID(result);
+#else
+    // Реализация для Linux с использованием libuuid
+    uuid_t native_uuid;
+    uuid_generate(native_uuid);
+    
+    char str[37]; // 36 символов + null terminator
+    uuid_unparse(native_uuid, str);
+    
+    return UUID(std::string(str));
+#endif
 }
 
 UUID UUID::fromString(const std::string& str) {
@@ -38,10 +46,23 @@ const std::string& UUID::toString() const {
 }
 
 bool UUID::isValid() const {
+    return isValidUUIDFormat(value_);
+}
+
+bool UUID::isValidUUIDFormat(const std::string& str) {
     static const std::regex uuidRegex(
         "^[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}$"
     );
-    return std::regex_match(value_, uuidRegex);
+    return std::regex_match(str, uuidRegex);
+}
+
+bool UUID::isUUIDv4(const std::string& str) {
+    if (!isValidUUIDFormat(str)) {
+        return false;
+    }
+    
+    // Проверка версии (4-й бит 4-й группы должен быть '4')
+    return str[14] == '4' && (str[19] == '8' || str[19] == '9' || str[19] == 'a' || str[19] == 'b');
 }
 
 bool UUID::operator==(const UUID& other) const {

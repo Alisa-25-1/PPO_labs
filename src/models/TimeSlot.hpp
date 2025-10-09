@@ -20,6 +20,10 @@ public:
     bool overlapsWith(const TimeSlot& other) const;
     bool isValid() const;
     std::string toString() const;
+    
+    // Валидация
+    static bool isValidDuration(int durationMinutes);
+    static bool isReasonableTimeSlot(const std::chrono::system_clock::time_point& startTime, int duration);
 
     // Операторы сравнения
     bool operator==(const TimeSlot& other) const;

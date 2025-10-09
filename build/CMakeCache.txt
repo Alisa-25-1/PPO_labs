@@ -258,6 +258,9 @@ PPO_labs_IS_TOP_LEVEL:STATIC=ON
 PPO_labs_SOURCE_DIR:STATIC=/home/nikita/Общедоступные/PPO/PPO_labs
 
 //Path to a library.
+UUID_LIBRARY:FILEPATH=/usr/lib/x86_64-linux-gnu/libuuid.so
+
+//Path to a library.
 pkgcfg_lib_LIBPQXX_pqxx:FILEPATH=/usr/lib/x86_64-linux-gnu/libpqxx.so
 
 

@@ -1,15 +1,24 @@
 #include "Booking.hpp"
 #include <chrono>
+#include <regex>
+#include <stdexcept>
 
 Booking::Booking() 
     : id_(UUID()), clientId_(UUID()), hallId_(UUID()), timeSlot_(TimeSlot()), 
       status_(BookingStatus::PENDING), purpose_(""),
       createdAt_(std::chrono::system_clock::now()) {}
 
-Booking::Booking(const UUID& id, const UUID& clientId, const UUID& hallId, const TimeSlot& timeSlot, const std::string& purpose)
+Booking::Booking(const UUID& id, const UUID& clientId, const UUID& hallId, 
+                 const TimeSlot& timeSlot, const std::string& purpose)
     : id_(id), clientId_(clientId), hallId_(hallId), timeSlot_(timeSlot), 
       purpose_(purpose), status_(BookingStatus::PENDING),
-      createdAt_(std::chrono::system_clock::now()) {}
+      createdAt_(std::chrono::system_clock::now()) {
+    
+    // Валидация при создании
+    if (!isValid()) {
+        throw std::invalid_argument("Invalid booking data provided");
+    }
+}
 
 UUID Booking::getId() const { return id_; }
 UUID Booking::getClientId() const { return clientId_; }
@@ -32,14 +41,23 @@ bool Booking::isCompleted() const {
 }
 
 void Booking::confirm() {
+    if (!isValidStatusTransition(status_, BookingStatus::CONFIRMED)) {
+        throw std::logic_error("Invalid status transition to CONFIRMED");
+    }
     status_ = BookingStatus::CONFIRMED;
 }
 
 void Booking::cancel() {
+    if (!isValidStatusTransition(status_, BookingStatus::CANCELLED)) {
+        throw std::logic_error("Invalid status transition to CANCELLED");
+    }
     status_ = BookingStatus::CANCELLED;
 }
 
 void Booking::complete() {
+    if (!isValidStatusTransition(status_, BookingStatus::COMPLETED)) {
+        throw std::logic_error("Invalid status transition to COMPLETED");
+    }
     status_ = BookingStatus::COMPLETED;
 }
 
@@ -51,15 +69,52 @@ bool Booking::isValid() const {
     return !id_.isNull() && id_.isValid() && 
            !clientId_.isNull() && clientId_.isValid() && 
            !hallId_.isNull() && hallId_.isValid() && 
-           timeSlot_.isValid() && isValidPurpose(purpose_);
+           timeSlot_.isValid() && 
+           isValidPurpose(purpose_) &&
+           createdAt_ <= std::chrono::system_clock::now();
 }
 
 bool Booking::isValidPurpose(const std::string& purpose) {
-    return !purpose.empty() && purpose.length() <= 255;
+    // Проверка: не пустое, не слишком длинное, только допустимые символы
+    if (purpose.empty() || purpose.length() > 255) {
+        return false;
+    }
+    
+    // Проверка на допустимые символы (буквы, цифры, пробелы, пунктуация)
+    std::regex validChars(R"([a-zA-Z0-9\s\.,!?\-_()]+)");
+    if (!std::regex_match(purpose, validChars)) {
+        return false;
+    }
+    
+    // Проверка на минимальную длину осмысленного текста
+    if (purpose.length() < 3) {
+        return false;
+    }
+    
+    return true;
 }
 
 bool Booking::isFutureBooking(const TimeSlot& timeSlot) {
     return timeSlot.getStartTime() > std::chrono::system_clock::now();
+}
+
+bool Booking::isValidDuration(int durationMinutes) {
+    return durationMinutes > 0 && durationMinutes <= 8 * 60; // Максимум 8 часов
+}
+
+bool Booking::isValidStatusTransition(BookingStatus from, BookingStatus to) {
+    switch (from) {
+        case BookingStatus::PENDING:
+            return to == BookingStatus::CONFIRMED || to == BookingStatus::CANCELLED;
+        case BookingStatus::CONFIRMED:
+            return to == BookingStatus::COMPLETED || to == BookingStatus::CANCELLED;
+        case BookingStatus::CANCELLED:
+            return false; // Отмененное бронирование нельзя изменить
+        case BookingStatus::COMPLETED:
+            return false; // Завершенное бронирование нельзя изменить
+        default:
+            return false;
+    }
 }
 
 // Операторы сравнения

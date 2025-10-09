@@ -2,9 +2,15 @@
 #define UUID_HPP
 
 #include <string>
-#include <random>
-#include <sstream>
-#include <iomanip>
+#include <regex>
+
+#ifdef _WIN32
+    #include <windows.h>
+    #include <rpcdce.h>
+    #pragma comment(lib, "rpcrt4.lib")
+#else
+    #include <uuid/uuid.h>
+#endif
 
 class UUID {
 private:
@@ -20,6 +26,10 @@ public:
     const std::string& toString() const;
     bool isValid() const;
     bool isNull() const { return value_ == "00000000-0000-0000-0000-000000000000"; }
+    
+    // Валидация
+    static bool isValidUUIDFormat(const std::string& str);
+    static bool isUUIDv4(const std::string& str);
     
     // Операторы сравнения
     bool operator==(const UUID& other) const;

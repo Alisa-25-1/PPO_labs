@@ -1,1 +1,1 @@
-/usr/bin/c++ CMakeFiles/TechUI.dir/src/main.cpp.o CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o -o TechUI  libBookingCore.a libDataAccess.a -lpqxx libBookingCore.a 
+/usr/bin/c++ CMakeFiles/TechUI.dir/src/main.cpp.o CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o -o TechUI  libBookingCore.a libDataAccess.a -lpqxx libBookingCore.a /usr/lib/x86_64-linux-gnu/libuuid.so 

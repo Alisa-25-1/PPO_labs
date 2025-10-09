@@ -111,6 +111,7 @@ TechUI: CMakeFiles/TechUI.dir/build.make
 TechUI: libBookingCore.a
 TechUI: libDataAccess.a
 TechUI: libBookingCore.a
+TechUI: /usr/lib/x86_64-linux-gnu/libuuid.so
 TechUI: CMakeFiles/TechUI.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable TechUI"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TechUI.dir/link.txt --verbose=$(VERBOSE)

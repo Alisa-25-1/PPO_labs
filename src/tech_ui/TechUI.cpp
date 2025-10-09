@@ -151,10 +151,30 @@ void TechUI::handleLessonManagement() {
 
 // Методы для работы с клиентами
 void TechUI::createClient() {
-    std::cout << "\n--- СОЗДАНИЕ КЛИЕНТА ---" << std::endl;
-    std::cout << "🚧 Функционал в разработке" << std::endl;
-    std::cout << "Нажмите Enter для продолжения...";
-    std::cin.get();
+    try {
+        std::cout << "\n--- СОЗДАНИЕ КЛИЕНТА ---" << std::endl;
+        
+        std::string name = readString("Введите ФИО: ");
+        std::string email = readString("Введите email: ");
+        std::string phone = readString("Введите телефон: ");
+        
+        UUID clientId = UUID::generate();
+        Client client(clientId, name, email, phone);
+        
+        // Используем репозиторий напрямую для демонстрации
+        auto clientRepo = std::make_unique<PostgreSQLClientRepository>(dbConnection_);
+        bool success = clientRepo->save(client);
+        
+        if (success) {
+            std::cout << "✅ Клиент успешно создан!" << std::endl;
+            std::cout << "ID клиента: " << clientId.toString() << std::endl;
+        } else {
+            std::cout << "❌ Ошибка при создании клиента" << std::endl;
+        }
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка: " << e.what() << std::endl;
+    }
 }
 
 void TechUI::listClients() {
@@ -199,7 +219,7 @@ void TechUI::createBooking() {
         std::cout << "\n--- СОЗДАНИЕ БРОНИРОВАНИЯ ---" << std::endl;
         std::cout << "🚧 Демонстрационный режим" << std::endl;
         
-        // Создаем тестовые данные
+        // Создаем тестовые данные с валидными значениями
         UUID clientId = UUID::generate();
         UUID hallId = UUID::generate();
         
@@ -210,7 +230,7 @@ void TechUI::createBooking() {
         std::cout << "- Client ID: " << clientId.toString() << std::endl;
         std::cout << "- Hall ID: " << hallId.toString() << std::endl;
         std::cout << "- Время: через 1 час на 120 минут" << std::endl;
-        std::cout << "- Цель: тестовое бронирование" << std::endl;
+        std::cout << "- Цель: тестовое бронирование сессия" << std::endl;
         
         std::cout << "✅ Тест создания бронирования выполнен" << std::endl;
         
@@ -219,7 +239,7 @@ void TechUI::createBooking() {
     }
     
     std::cout << "Нажмите Enter для продолжения...";
-    std::cin.get();
+     std::cin.get();
 }
 
 void TechUI::listBookings() {

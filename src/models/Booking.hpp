@@ -4,6 +4,7 @@
 #include "TimeSlot.hpp"
 #include "../types/uuid.hpp"
 #include <string>
+#include <chrono>
 
 enum class BookingStatus {
     PENDING,
@@ -24,8 +25,10 @@ private:
 
 public:
     Booking();
-    Booking(const UUID& id, const UUID& clientId, const UUID& hallId, const TimeSlot& timeSlot, const std::string& purpose);
+    Booking(const UUID& id, const UUID& clientId, const UUID& hallId, 
+            const TimeSlot& timeSlot, const std::string& purpose);
     
+    // Геттеры
     UUID getId() const;
     UUID getClientId() const;
     UUID getHallId() const;
@@ -34,6 +37,7 @@ public:
     std::string getPurpose() const;
     std::chrono::system_clock::time_point getCreatedAt() const;
     
+    // Бизнес-логика
     bool isActive() const;
     bool isCancelled() const;
     bool isCompleted() const;
@@ -43,8 +47,11 @@ public:
     bool overlapsWith(const Booking& other) const;
     bool isValid() const;
     
+    // Валидация
     static bool isValidPurpose(const std::string& purpose);
     static bool isFutureBooking(const TimeSlot& timeSlot);
+    static bool isValidDuration(int durationMinutes);
+    static bool isValidStatusTransition(BookingStatus from, BookingStatus to);
 
     // Операторы сравнения
     bool operator==(const Booking& other) const;

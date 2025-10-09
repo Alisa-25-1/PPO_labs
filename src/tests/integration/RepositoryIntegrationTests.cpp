@@ -1,13 +1,25 @@
 #include <gtest/gtest.h>
 #include <memory>
-#include "../../data/DatabaseConnection.hpp"
+#include <iostream>
+
+// Включения для моделей
+#include "../../models/Client.hpp"
+#include "../../models/Hall.hpp"
+#include "../../models/Booking.hpp"
+#include "../../models/TimeSlot.hpp"
+
+// Включения для репозиториев
 #include "../../repositories/impl/PostgreSQLClientRepository.hpp"
 #include "../../repositories/impl/PostgreSQLHallRepository.hpp"
 #include "../../repositories/impl/PostgreSQLBookingRepository.hpp"
 
+// Включения для данных
+#include "../../data/DatabaseConnection.hpp"
+
 class RepositoryIntegrationTest : public ::testing::Test {
 protected:
     void SetUp() override {
+        // Используем тестовую базу данных
         std::string connectionString = "postgresql://dance_user:dance_password@localhost/test_dance_studio";
         dbConnection = std::make_shared<DatabaseConnection>(connectionString);
         
@@ -18,8 +30,8 @@ protected:
         // Очищаем тестовые данные перед каждым тестом
         clearTestData();
         
-        // Создаем тестовые данные, которые будут использоваться в нескольких тестах
-        setupTestData();
+        // Создаем тестовые залы, которые будут использоваться в нескольких тестах
+        setupTestHalls();
     }
 
     void TearDown() override {
@@ -38,15 +50,24 @@ protected:
         }
     }
 
-    void setupTestData() {
-        // Создаем тестовый зал, который будет использоваться в тестах
-        testHallId = UUID::generate();
-        Hall hall(testHallId, "Test Hall", 50, UUID::generate()); // branchId тоже генерируем
-        hall.setDescription("Test hall for integration tests");
-        hall.setFloorType("wooden");
-        hall.setEquipment("mirrors, sound system");
+    void setupTestHalls() {
+        // Создаем тестовые залы для использования в тестах
+        testHallId1 = UUID::generate();
+        testHallId2 = UUID::generate();
+        UUID branchId = UUID::generate();
         
-        hallRepository->save(hall);
+        Hall hall1(testHallId1, "Test Hall 1", 50, branchId);
+        hall1.setDescription("Test hall for integration tests");
+        hall1.setFloorType("wooden");
+        hall1.setEquipment("mirrors, sound system");
+        
+        Hall hall2(testHallId2, "Test Hall 2", 30, branchId);
+        hall2.setDescription("Another test hall for integration tests");
+        hall2.setFloorType("marley");
+        hall2.setEquipment("mirrors, barre");
+        
+        hallRepository->save(hall1);
+        hallRepository->save(hall2);
     }
 
     std::shared_ptr<DatabaseConnection> dbConnection;
@@ -54,14 +75,15 @@ protected:
     std::unique_ptr<IHallRepository> hallRepository;
     std::unique_ptr<IBookingRepository> bookingRepository;
     
-    UUID testHallId; // Будет использоваться в нескольких тестах
+    UUID testHallId1;
+    UUID testHallId2;
 };
 
 // Тест 1: Сохранение и извлечение клиента
 TEST_F(RepositoryIntegrationTest, ClientRepository_SaveAndFind) {
     // Arrange
     UUID clientId = UUID::generate();
-    Client client(clientId, "Integration Test User", "integration@test.com", "+123456789");
+    Client client(clientId, "Integration Test User", "integration@example.com", "+12345678901");
     
     // Act
     bool saveResult = clientRepository->save(client);
@@ -72,7 +94,7 @@ TEST_F(RepositoryIntegrationTest, ClientRepository_SaveAndFind) {
     ASSERT_TRUE(foundClient.has_value());
     EXPECT_EQ(foundClient->getId(), clientId);
     EXPECT_EQ(foundClient->getName(), "Integration Test User");
-    EXPECT_EQ(foundClient->getEmail(), "integration@test.com");
+    EXPECT_EQ(foundClient->getEmail(), "integration@example.com");
 }
 
 // Тест 2: Сохранение и обновление бронирования
@@ -82,12 +104,14 @@ TEST_F(RepositoryIntegrationTest, BookingRepository_SaveAndUpdate) {
     UUID bookingId = UUID::generate();
     
     // Создаем и сохраняем клиента
-    Client client(clientId, "Test Client", "client@test.com", "+123456789");
+    Client client(clientId, "Test Client", "client@example.com", "+12345678901");
     clientRepository->save(client);
     
     auto startTime = std::chrono::system_clock::now() + std::chrono::hours(1);
     TimeSlot timeSlot(startTime, 120);
-    Booking booking(bookingId, clientId, testHallId, timeSlot, "Integration Test");
+    
+    // Используем существующий зал из setupTestHalls()
+    Booking booking(bookingId, clientId, testHallId1, timeSlot, "Integration Test Booking");
     
     // Act - Сохраняем бронирование
     bool saveResult = bookingRepository->save(booking);
@@ -96,7 +120,7 @@ TEST_F(RepositoryIntegrationTest, BookingRepository_SaveAndUpdate) {
     // Assert - Проверяем сохранение
     EXPECT_TRUE(saveResult);
     ASSERT_TRUE(foundBooking.has_value());
-    EXPECT_EQ(foundBooking->getPurpose(), "Integration Test");
+    EXPECT_EQ(foundBooking->getPurpose(), "Integration Test Booking");
     EXPECT_EQ(foundBooking->getStatus(), BookingStatus::PENDING);
     
     // Act - Обновляем бронирование
@@ -116,7 +140,7 @@ TEST_F(RepositoryIntegrationTest, BookingRepository_FindConflictingBookings) {
     UUID clientId = UUID::generate();
     
     // Создаем и сохраняем клиента
-    Client client(clientId, "Conflict Test User", "conflict@test.com", "+123456789");
+    Client client(clientId, "Conflict Test User", "conflict@example.com", "+12345678901");
     clientRepository->save(client);
     
     auto startTime = std::chrono::system_clock::now() + std::chrono::hours(2);
@@ -124,17 +148,20 @@ TEST_F(RepositoryIntegrationTest, BookingRepository_FindConflictingBookings) {
     TimeSlot timeSlot2(startTime + std::chrono::minutes(30), 60); // 14:30 - 15:30 (конфликт)
     TimeSlot timeSlot3(startTime + std::chrono::hours(2), 60); // 16:00 - 17:00 (нет конфликта)
     
-    Booking booking1(UUID::generate(), clientId, testHallId, timeSlot1, "First Booking");
+    // Используем существующий зал из setupTestHalls()
+    Booking booking1(UUID::generate(), clientId, testHallId1, timeSlot1, "First Booking Session");
     booking1.confirm();
     bookingRepository->save(booking1);
     
     // Act - Ищем конфликтующие бронирования
-    auto conflicts = bookingRepository->findConflictingBookings(testHallId, timeSlot2);
-    auto noConflicts = bookingRepository->findConflictingBookings(testHallId, timeSlot3);
+    auto conflicts = bookingRepository->findConflictingBookings(testHallId1, timeSlot2);
+    auto noConflicts = bookingRepository->findConflictingBookings(testHallId1, timeSlot3);
     
     // Assert
     EXPECT_EQ(conflicts.size(), 1);
-    EXPECT_EQ(conflicts[0].getId(), booking1.getId());
+    if (!conflicts.empty()) {
+        EXPECT_EQ(conflicts[0].getId(), booking1.getId());
+    }
     EXPECT_TRUE(noConflicts.empty());
 }
 
@@ -144,8 +171,8 @@ TEST_F(RepositoryIntegrationTest, HallRepository_BasicOperations) {
     UUID hallId = UUID::generate();
     UUID branchId = UUID::generate();
     Hall hall(hallId, "New Test Hall", 30, branchId);
-    hall.setDescription("Another test hall");
-    hall.setFloorType("marley");
+    hall.setDescription("Another test hall description");
+    hall.setFloorType("wooden");
     hall.setEquipment("mirrors, barre");
     
     // Act

@@ -24,8 +24,8 @@ private:
 public:
     Client();
     Client(const UUID& id, const std::string& name, const std::string& email, const std::string& phone);
-    public:
     
+    // Геттеры
     UUID getId() const;
     std::string getName() const;
     std::string getEmail() const;
@@ -33,6 +33,7 @@ public:
     std::chrono::system_clock::time_point getRegistrationDate() const;
     AccountStatus getStatus() const;
     
+    // Бизнес-логика
     bool validatePassword(const std::string& password) const;
     void changePassword(const std::string& newPassword);
     bool isActive() const;
@@ -40,7 +41,12 @@ public:
     void deactivate();
     void suspend();
     
+    // Валидация
     bool isValid() const;
+    static bool isValidName(const std::string& name);
+    static bool isValidEmail(const std::string& email);
+    static bool isValidPhone(const std::string& phone);
+    static bool isValidPassword(const std::string& password);
 
     // Операторы сравнения
     bool operator==(const Client& other) const;

@@ -81,7 +81,6 @@ std::vector<Booking> PostgreSQLBookingRepository::findConflictingBookings(
     try {
         auto work = dbConnection_->beginTransaction();
         
-        // Правильный запрос с явным приведением типов
         std::string query = 
             "SELECT id, client_id, hall_id, start_time, duration_minutes, purpose, status, created_at "
             "FROM bookings "

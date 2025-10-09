@@ -1,12 +1,19 @@
 #include "TimeSlot.hpp"
 #include <sstream>
 #include <iomanip>
+#include <stdexcept>
 
 TimeSlot::TimeSlot() 
     : startTime_(std::chrono::system_clock::now()), durationMinutes_(60) {}
 
 TimeSlot::TimeSlot(std::chrono::system_clock::time_point startTime, int durationMinutes)
-    : startTime_(startTime), durationMinutes_(durationMinutes) {}
+    : startTime_(startTime), durationMinutes_(durationMinutes) {
+    
+    // Валидация при создании
+    if (!isValid()) {
+        throw std::invalid_argument("Invalid time slot data provided");
+    }
+}
 
 std::chrono::system_clock::time_point TimeSlot::getStartTime() const {
     return startTime_;
@@ -30,7 +37,29 @@ bool TimeSlot::overlapsWith(const TimeSlot& other) const {
 }
 
 bool TimeSlot::isValid() const {
-    return durationMinutes_ > 0 && durationMinutes_ <= 24 * 60; // max 24 hours
+    return isValidDuration(durationMinutes_) && 
+           isReasonableTimeSlot(startTime_, durationMinutes_);
+}
+
+bool TimeSlot::isValidDuration(int durationMinutes) {
+    return durationMinutes > 0 && durationMinutes <= 24 * 60; // max 24 hours
+}
+
+bool TimeSlot::isReasonableTimeSlot(const std::chrono::system_clock::time_point& startTime, int duration) {
+    auto now = std::chrono::system_clock::now();
+    
+    // Максимальное время бронирования вперед - 1 год
+    auto maxFuture = now + std::chrono::hours(24 * 365);
+    if (startTime > maxFuture) {
+        return false;
+    }
+    
+    // Минимальная продолжительность - 15 минут
+    if (duration < 15) {
+        return false;
+    }
+    
+    return true;
 }
 
 std::string TimeSlot::toString() const {

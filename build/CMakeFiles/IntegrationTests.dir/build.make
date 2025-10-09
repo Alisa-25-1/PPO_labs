@@ -97,6 +97,7 @@ IntegrationTests: libDataAccess.a
 IntegrationTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 IntegrationTests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 IntegrationTests: libBookingCore.a
+IntegrationTests: /usr/lib/x86_64-linux-gnu/libuuid.so
 IntegrationTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 IntegrationTests: CMakeFiles/IntegrationTests.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable IntegrationTests"

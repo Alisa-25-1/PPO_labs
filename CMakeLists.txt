@@ -13,6 +13,16 @@ pkg_check_modules(LIBPQXX REQUIRED libpqxx)
 # Указываем корневую директорию исходников
 set(SOURCE_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
+# Поиск библиотеки uuid для Linux
+if(UNIX AND NOT APPLE)
+    find_library(UUID_LIBRARY uuid)
+    if(UUID_LIBRARY)
+        message(STATUS "Found UUID library: ${UUID_LIBRARY}")
+    else()
+        message(FATAL_ERROR "UUID library not found. On Ubuntu/Debian, install with: sudo apt-get install uuid-dev")
+    endif()
+endif()
+
 # Основная библиотека бизнес-логики
 add_library(BookingCore
     ${SOURCE_ROOT}/models/TimeSlot.cpp
@@ -23,6 +33,11 @@ add_library(BookingCore
     ${SOURCE_ROOT}/services/BookingService.cpp
     ${SOURCE_ROOT}/dtos/BookingDTO.cpp
 )
+
+# Для Linux линкуем библиотеку uuid
+if(UNIX AND NOT APPLE)
+    target_link_libraries(BookingCore PRIVATE ${UUID_LIBRARY})
+endif()
 
 # Явно указываем пути включения для BookingCore
 target_include_directories(BookingCore PUBLIC 
