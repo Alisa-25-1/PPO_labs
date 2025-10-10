@@ -62,8 +62,9 @@ set(CMAKE_MAKEFILE_PRODUCTS
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/BookingCore.dir/DependInfo.cmake"
-  "CMakeFiles/DataAccess.dir/DependInfo.cmake"
   "CMakeFiles/BookingTests.dir/DependInfo.cmake"
-  "CMakeFiles/IntegrationTests.dir/DependInfo.cmake"
-  "CMakeFiles/TechUI.dir/DependInfo.cmake"
+  "CMakeFiles/AuthServiceTests.dir/DependInfo.cmake"
+  "CMakeFiles/LessonServiceTests.dir/DependInfo.cmake"
+  "CMakeFiles/SubscriptionServiceTests.dir/DependInfo.cmake"
+  "CMakeFiles/ReviewServiceTests.dir/DependInfo.cmake"
   )

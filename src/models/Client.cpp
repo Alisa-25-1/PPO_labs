@@ -24,6 +24,7 @@ UUID Client::getId() const { return id_; }
 std::string Client::getName() const { return name_; }
 std::string Client::getEmail() const { return email_; }
 std::string Client::getPhone() const { return phone_; }
+std::string Client::getPasswordHash() const { return passwordHash_; }
 std::chrono::system_clock::time_point Client::getRegistrationDate() const { return registrationDate_; }
 AccountStatus Client::getStatus() const { return status_; }
 

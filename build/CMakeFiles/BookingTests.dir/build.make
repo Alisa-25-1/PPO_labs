@@ -69,28 +69,28 @@ include CMakeFiles/BookingTests.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/BookingTests.dir/flags.make
 
-CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o: CMakeFiles/BookingTests.dir/flags.make
-CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/BookingServiceTest.cpp
-CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o: CMakeFiles/BookingTests.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o -MF CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o.d -o CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/BookingServiceTest.cpp
+CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: CMakeFiles/BookingTests.dir/flags.make
+CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/BookingServiceTest.cpp
+CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: CMakeFiles/BookingTests.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o -MF CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o.d -o CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/BookingServiceTest.cpp
 
-CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/BookingServiceTest.cpp > CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.i
+CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/BookingServiceTest.cpp > CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.i
 
-CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/BookingServiceTest.cpp -o CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.s
+CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/BookingServiceTest.cpp -o CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.s
 
 # Object files for target BookingTests
 BookingTests_OBJECTS = \
-"CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o"
+"CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o"
 
 # External object files for target BookingTests
 BookingTests_EXTERNAL_OBJECTS =
 
-BookingTests: CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o
+BookingTests: CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o
 BookingTests: CMakeFiles/BookingTests.dir/build.make
 BookingTests: libBookingCore.a
 BookingTests: /usr/lib/x86_64-linux-gnu/libgtest.a

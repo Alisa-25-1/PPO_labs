@@ -203,4 +203,5 @@ CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/../models/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/../models/../types/enums.hpp \
  /usr/include/c++/13/iomanip /usr/include/c++/13/bits/quoted_string.h

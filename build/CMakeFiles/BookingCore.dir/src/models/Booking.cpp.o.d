@@ -198,4 +198,5 @@ CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o: \
  /usr/include/c++/13/bits/regex.h /usr/include/c++/13/bits/regex.tcc \
  /usr/include/c++/13/bits/regex_executor.h \
  /usr/include/c++/13/bits/regex_executor.tcc /usr/include/uuid/uuid.h \
- /usr/include/x86_64-linux-gnu/sys/time.h
+ /usr/include/x86_64-linux-gnu/sys/time.h \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/../types/enums.hpp

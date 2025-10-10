@@ -3,15 +3,9 @@
 
 #include "TimeSlot.hpp"
 #include "../types/uuid.hpp"
+#include "../types/enums.hpp"
 #include <string>
 #include <chrono>
-
-enum class BookingStatus {
-    PENDING,
-    CONFIRMED,
-    CANCELLED,
-    COMPLETED
-};
 
 class Booking {
 private:

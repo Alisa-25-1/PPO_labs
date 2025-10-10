@@ -5,7 +5,7 @@
 BookingService::BookingService(
     std::unique_ptr<IBookingRepository> bookingRepo,
     std::unique_ptr<IClientRepository> clientRepo,
-    std::unique_ptr<IHallRepository> hallRepo
+    std::unique_ptr<IDanceHallRepository> hallRepo
 ) : bookingRepository_(std::move(bookingRepo)),
     clientRepository_(std::move(clientRepo)),
     hallRepository_(std::move(hallRepo)) {}
@@ -17,7 +17,7 @@ void BookingService::validateBookingRequest(const BookingRequestDTO& request) co
     }
     
     validateClient(request.clientId);
-    validateHall(request.hallId);
+    validateDanceHall(request.hallId);  // Исправлено
     validateTimeSlot(request.timeSlot);
     
     if (!Booking::isValidPurpose(request.purpose)) {
@@ -36,9 +36,9 @@ void BookingService::validateClient(const UUID& clientId) const {
     }
 }
 
-void BookingService::validateHall(const UUID& hallId) const {
+void BookingService::validateDanceHall(const UUID& hallId) const {  // Исправлено
     if (!hallRepository_->exists(hallId)) {
-        throw ValidationException("Hall not found");
+        throw ValidationException("Dance hall not found");
     }
 }
 
@@ -85,7 +85,7 @@ BookingResponseDTO BookingService::createBooking(const BookingRequestDTO& reques
     checkBookingConflicts(request.hallId, request.timeSlot);
     
     // Create booking
-    UUID newId = UUID::generate(); // In real implementation, this would be generated
+    UUID newId = UUID::generate();
     Booking booking(newId, request.clientId, request.hallId, request.timeSlot, request.purpose);
     booking.confirm();
     
@@ -145,8 +145,8 @@ std::vector<BookingResponseDTO> BookingService::getClientBookings(const UUID& cl
     return result;
 }
 
-std::vector<BookingResponseDTO> BookingService::getHallBookings(const UUID& hallId) {
-    validateHall(hallId);
+std::vector<BookingResponseDTO> BookingService::getDanceHallBookings(const UUID& hallId) {  // Исправлено
+    validateDanceHall(hallId);  // Исправлено
     
     auto bookings = bookingRepository_->findByHallId(hallId);
     std::vector<BookingResponseDTO> result;
@@ -190,4 +190,48 @@ int BookingService::getClientActiveBookingsCount(const UUID& clientId) const {
     }
     
     return activeCount;
+}
+
+std::vector<TimeSlot> BookingService::getAvailableTimeSlots(const UUID& hallId, 
+                                                           const std::chrono::system_clock::time_point& date) const {
+    validateDanceHall(hallId);
+    
+    // Получаем все бронирования для зала на указанную дату
+    auto bookings = bookingRepository_->findByHallId(hallId);
+    
+    // Фильтруем бронирования по дате
+    std::vector<Booking> dayBookings;
+    std::copy_if(bookings.begin(), bookings.end(), std::back_inserter(dayBookings),
+        [&date](const Booking& booking) {
+            auto bookingTime = std::chrono::system_clock::to_time_t(booking.getTimeSlot().getStartTime());
+            auto targetTime = std::chrono::system_clock::to_time_t(date);
+            
+            std::tm bookingTm = *std::localtime(&bookingTime);
+            std::tm targetTm = *std::localtime(&targetTime);
+            
+            return bookingTm.tm_year == targetTm.tm_year &&
+                   bookingTm.tm_mon == targetTm.tm_mon &&
+                   bookingTm.tm_mday == targetTm.tm_mday;
+        });
+    
+        // Генерируем доступные слоты (упрощенная логика)
+    std::vector<TimeSlot> availableSlots;
+    auto startTime = std::chrono::system_clock::to_time_t(date);
+    std::tm tm = *std::localtime(&startTime);
+    
+    // Рабочие часы: 9:00 - 22:00
+    for (int hour = 9; hour < 22; hour++) {
+        tm.tm_hour = hour;
+        tm.tm_min = 0;
+        auto slotStart = std::chrono::system_clock::from_time_t(std::mktime(&tm));
+        
+        TimeSlot slot(slotStart, 60); // 1 час слот
+        
+        // Проверяем, нет ли конфликтов
+        if (isTimeSlotAvailable(hallId, slot)) {
+            availableSlots.push_back(slot);
+        }
+    }
+    
+    return availableSlots;
 }

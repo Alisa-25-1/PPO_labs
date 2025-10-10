@@ -64,10 +64,11 @@ CMAKE_BINARY_DIR = /home/nikita/Общедоступные/PPO/PPO_labs/build
 
 # The main recursive "all" target.
 all: CMakeFiles/BookingCore.dir/all
-all: CMakeFiles/DataAccess.dir/all
 all: CMakeFiles/BookingTests.dir/all
-all: CMakeFiles/IntegrationTests.dir/all
-all: CMakeFiles/TechUI.dir/all
+all: CMakeFiles/AuthServiceTests.dir/all
+all: CMakeFiles/LessonServiceTests.dir/all
+all: CMakeFiles/SubscriptionServiceTests.dir/all
+all: CMakeFiles/ReviewServiceTests.dir/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -76,10 +77,11 @@ preinstall:
 
 # The main recursive "clean" target.
 clean: CMakeFiles/BookingCore.dir/clean
-clean: CMakeFiles/DataAccess.dir/clean
 clean: CMakeFiles/BookingTests.dir/clean
-clean: CMakeFiles/IntegrationTests.dir/clean
-clean: CMakeFiles/TechUI.dir/clean
+clean: CMakeFiles/AuthServiceTests.dir/clean
+clean: CMakeFiles/LessonServiceTests.dir/clean
+clean: CMakeFiles/SubscriptionServiceTests.dir/clean
+clean: CMakeFiles/ReviewServiceTests.dir/clean
 .PHONY : clean
 
 #=============================================================================
@@ -89,12 +91,12 @@ clean: CMakeFiles/TechUI.dir/clean
 CMakeFiles/BookingCore.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=1,2,3,4,5,6,7,8 "Built target BookingCore"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27 "Built target BookingCore"
 .PHONY : CMakeFiles/BookingCore.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/BookingCore.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 8
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 25
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/BookingCore.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 0
 .PHONY : CMakeFiles/BookingCore.dir/rule
@@ -109,44 +111,18 @@ CMakeFiles/BookingCore.dir/clean:
 .PHONY : CMakeFiles/BookingCore.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/DataAccess.dir
-
-# All Build rule for target.
-CMakeFiles/DataAccess.dir/all: CMakeFiles/BookingCore.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=11,12,13,14,15,16 "Built target DataAccess"
-.PHONY : CMakeFiles/DataAccess.dir/all
-
-# Build rule for subdir invocation for target.
-CMakeFiles/DataAccess.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 14
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/DataAccess.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 0
-.PHONY : CMakeFiles/DataAccess.dir/rule
-
-# Convenience name for target.
-DataAccess: CMakeFiles/DataAccess.dir/rule
-.PHONY : DataAccess
-
-# clean rule for target.
-CMakeFiles/DataAccess.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/clean
-.PHONY : CMakeFiles/DataAccess.dir/clean
-
-#=============================================================================
 # Target rules for target CMakeFiles/BookingTests.dir
 
 # All Build rule for target.
 CMakeFiles/BookingTests.dir/all: CMakeFiles/BookingCore.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=9,10 "Built target BookingTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=28,29 "Built target BookingTests"
 .PHONY : CMakeFiles/BookingTests.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/BookingTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 10
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 27
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/BookingTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 0
 .PHONY : CMakeFiles/BookingTests.dir/rule
@@ -161,58 +137,108 @@ CMakeFiles/BookingTests.dir/clean:
 .PHONY : CMakeFiles/BookingTests.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/IntegrationTests.dir
+# Target rules for target CMakeFiles/AuthServiceTests.dir
 
 # All Build rule for target.
-CMakeFiles/IntegrationTests.dir/all: CMakeFiles/BookingCore.dir/all
-CMakeFiles/IntegrationTests.dir/all: CMakeFiles/DataAccess.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=17,18 "Built target IntegrationTests"
-.PHONY : CMakeFiles/IntegrationTests.dir/all
+CMakeFiles/AuthServiceTests.dir/all: CMakeFiles/BookingCore.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AuthServiceTests.dir/build.make CMakeFiles/AuthServiceTests.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AuthServiceTests.dir/build.make CMakeFiles/AuthServiceTests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=1,2 "Built target AuthServiceTests"
+.PHONY : CMakeFiles/AuthServiceTests.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/IntegrationTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 16
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/IntegrationTests.dir/all
+CMakeFiles/AuthServiceTests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 27
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/AuthServiceTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 0
-.PHONY : CMakeFiles/IntegrationTests.dir/rule
+.PHONY : CMakeFiles/AuthServiceTests.dir/rule
 
 # Convenience name for target.
-IntegrationTests: CMakeFiles/IntegrationTests.dir/rule
-.PHONY : IntegrationTests
+AuthServiceTests: CMakeFiles/AuthServiceTests.dir/rule
+.PHONY : AuthServiceTests
 
 # clean rule for target.
-CMakeFiles/IntegrationTests.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/clean
-.PHONY : CMakeFiles/IntegrationTests.dir/clean
+CMakeFiles/AuthServiceTests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AuthServiceTests.dir/build.make CMakeFiles/AuthServiceTests.dir/clean
+.PHONY : CMakeFiles/AuthServiceTests.dir/clean
 
 #=============================================================================
-# Target rules for target CMakeFiles/TechUI.dir
+# Target rules for target CMakeFiles/LessonServiceTests.dir
 
 # All Build rule for target.
-CMakeFiles/TechUI.dir/all: CMakeFiles/BookingCore.dir/all
-CMakeFiles/TechUI.dir/all: CMakeFiles/DataAccess.dir/all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/depend
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=19,20,21 "Built target TechUI"
-.PHONY : CMakeFiles/TechUI.dir/all
+CMakeFiles/LessonServiceTests.dir/all: CMakeFiles/BookingCore.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LessonServiceTests.dir/build.make CMakeFiles/LessonServiceTests.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LessonServiceTests.dir/build.make CMakeFiles/LessonServiceTests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=30,31 "Built target LessonServiceTests"
+.PHONY : CMakeFiles/LessonServiceTests.dir/all
 
 # Build rule for subdir invocation for target.
-CMakeFiles/TechUI.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 17
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TechUI.dir/all
+CMakeFiles/LessonServiceTests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 27
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/LessonServiceTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 0
-.PHONY : CMakeFiles/TechUI.dir/rule
+.PHONY : CMakeFiles/LessonServiceTests.dir/rule
 
 # Convenience name for target.
-TechUI: CMakeFiles/TechUI.dir/rule
-.PHONY : TechUI
+LessonServiceTests: CMakeFiles/LessonServiceTests.dir/rule
+.PHONY : LessonServiceTests
 
 # clean rule for target.
-CMakeFiles/TechUI.dir/clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/clean
-.PHONY : CMakeFiles/TechUI.dir/clean
+CMakeFiles/LessonServiceTests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/LessonServiceTests.dir/build.make CMakeFiles/LessonServiceTests.dir/clean
+.PHONY : CMakeFiles/LessonServiceTests.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/SubscriptionServiceTests.dir
+
+# All Build rule for target.
+CMakeFiles/SubscriptionServiceTests.dir/all: CMakeFiles/BookingCore.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SubscriptionServiceTests.dir/build.make CMakeFiles/SubscriptionServiceTests.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SubscriptionServiceTests.dir/build.make CMakeFiles/SubscriptionServiceTests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=34,35 "Built target SubscriptionServiceTests"
+.PHONY : CMakeFiles/SubscriptionServiceTests.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/SubscriptionServiceTests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 27
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/SubscriptionServiceTests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 0
+.PHONY : CMakeFiles/SubscriptionServiceTests.dir/rule
+
+# Convenience name for target.
+SubscriptionServiceTests: CMakeFiles/SubscriptionServiceTests.dir/rule
+.PHONY : SubscriptionServiceTests
+
+# clean rule for target.
+CMakeFiles/SubscriptionServiceTests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/SubscriptionServiceTests.dir/build.make CMakeFiles/SubscriptionServiceTests.dir/clean
+.PHONY : CMakeFiles/SubscriptionServiceTests.dir/clean
+
+#=============================================================================
+# Target rules for target CMakeFiles/ReviewServiceTests.dir
+
+# All Build rule for target.
+CMakeFiles/ReviewServiceTests.dir/all: CMakeFiles/BookingCore.dir/all
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReviewServiceTests.dir/build.make CMakeFiles/ReviewServiceTests.dir/depend
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReviewServiceTests.dir/build.make CMakeFiles/ReviewServiceTests.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles --progress-num=32,33 "Built target ReviewServiceTests"
+.PHONY : CMakeFiles/ReviewServiceTests.dir/all
+
+# Build rule for subdir invocation for target.
+CMakeFiles/ReviewServiceTests.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 27
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/ReviewServiceTests.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/build/CMakeFiles 0
+.PHONY : CMakeFiles/ReviewServiceTests.dir/rule
+
+# Convenience name for target.
+ReviewServiceTests: CMakeFiles/ReviewServiceTests.dir/rule
+.PHONY : ReviewServiceTests
+
+# clean rule for target.
+CMakeFiles/ReviewServiceTests.dir/clean:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReviewServiceTests.dir/build.make CMakeFiles/ReviewServiceTests.dir/clean
+.PHONY : CMakeFiles/ReviewServiceTests.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

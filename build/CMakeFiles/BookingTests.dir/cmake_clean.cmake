@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "BookingTests"
   "BookingTests.pdb"
-  "CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o"
-  "CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o.d"
+  "CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o"
+  "CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

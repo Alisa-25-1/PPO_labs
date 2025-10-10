@@ -1,23 +1,24 @@
 #pragma once
 #include "../repositories/IBookingRepository.hpp"
 #include "../repositories/IClientRepository.hpp"
-#include "../repositories/IHallRepository.hpp"
+#include "../repositories/IDanceHallRepository.hpp"
 #include "../dtos/BookingDTO.hpp"
 #include "../types/uuid.hpp"
 #include "exceptions/BookingException.hpp"
 #include "exceptions/ValidationException.hpp"
 #include <memory>
+#include <vector>
 
 class BookingService {
 private:
     std::unique_ptr<IBookingRepository> bookingRepository_;
     std::unique_ptr<IClientRepository> clientRepository_;
-    std::unique_ptr<IHallRepository> hallRepository_;
+    std::unique_ptr<IDanceHallRepository> hallRepository_;
 
     // Validation methods
     void validateBookingRequest(const BookingRequestDTO& request) const;
     void validateClient(const UUID& clientId) const;
-    void validateHall(const UUID& hallId) const;
+    void validateDanceHall(const UUID& hallId) const;  // Исправлено с validateHall
     void validateTimeSlot(const TimeSlot& timeSlot) const;
     void checkBookingConflicts(const UUID& hallId, const TimeSlot& timeSlot, 
                               const UUID& excludeBookingId = UUID()) const;
@@ -27,7 +28,7 @@ public:
     BookingService(
         std::unique_ptr<IBookingRepository> bookingRepo,
         std::unique_ptr<IClientRepository> clientRepo,
-        std::unique_ptr<IHallRepository> hallRepo
+        std::unique_ptr<IDanceHallRepository> hallRepo
     );
 
     // Main business logic methods
@@ -35,8 +36,9 @@ public:
     BookingResponseDTO cancelBooking(const UUID& bookingId, const UUID& clientId);
     BookingResponseDTO getBooking(const UUID& bookingId);
     std::vector<BookingResponseDTO> getClientBookings(const UUID& clientId);
-    std::vector<BookingResponseDTO> getHallBookings(const UUID& hallId);
+    std::vector<BookingResponseDTO> getDanceHallBookings(const UUID& hallId); 
     bool isTimeSlotAvailable(const UUID& hallId, const TimeSlot& timeSlot) const;
+    std::vector<TimeSlot> getAvailableTimeSlots(const UUID& hallId, const std::chrono::system_clock::time_point& date) const;
 
     // Business rules
     bool canClientBook(const UUID& clientId) const;

@@ -2,14 +2,10 @@
 #define CLIENT_HPP
 
 #include "../types/uuid.hpp"
+#include "../types/enums.hpp"
 #include <string>
 #include <chrono>
 
-enum class AccountStatus {
-    ACTIVE,
-    INACTIVE,
-    SUSPENDED
-};
 
 class Client {
 private:
@@ -30,6 +26,7 @@ public:
     std::string getName() const;
     std::string getEmail() const;
     std::string getPhone() const;
+    std::string getPasswordHash() const;
     std::chrono::system_clock::time_point getRegistrationDate() const;
     AccountStatus getStatus() const;
     

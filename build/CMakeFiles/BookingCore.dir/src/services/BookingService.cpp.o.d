@@ -203,6 +203,7 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
  /usr/include/c++/13/limits /usr/include/c++/13/bits/parse_numbers.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/../types/enums.hpp \
  /usr/include/c++/13/memory \
  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
  /usr/include/c++/13/bits/align.h \
@@ -216,8 +217,8 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: \
  /usr/include/c++/13/vector \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IClientRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Client.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IHallRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Hall.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IDanceHallRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/DanceHall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/BookingDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/../models/TimeSlot.hpp \

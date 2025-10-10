@@ -8,7 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
-  "/home/nikita/Общедоступные/PPO/PPO_labs/src/tests/BookingServiceTest.cpp" "CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o" "gcc" "CMakeFiles/BookingTests.dir/src/tests/BookingServiceTest.cpp.o.d"
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/BookingServiceTest.cpp" "CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o" "gcc" "CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.
