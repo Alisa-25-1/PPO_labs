@@ -18,6 +18,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp \
@@ -26,6 +27,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ScheduleDTO.hpp \
@@ -55,12 +57,14 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ReviewService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ScheduleService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/EnrollmentException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ReviewException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
@@ -440,6 +444,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp \
@@ -448,6 +453,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ScheduleDTO.hpp \
@@ -477,12 +483,14 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ReviewService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ScheduleService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/EnrollmentException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ReviewException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
@@ -1030,11 +1038,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/pqxx/internal/cxx-features.hxx:
 
-/usr/include/c++/13/bits/shared_ptr_atomic.h:
-
-/usr/include/pqxx/composite.hxx:
-
-/usr/include/c++/13/bits/shared_ptr.h:
+/usr/include/pqxx/internal/callgate.hxx:
 
 /usr/include/c++/13/bits/stl_map.h:
 
@@ -1144,11 +1148,19 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/deque.tcc:
 
-/usr/include/x86_64-linux-gnu/bits/endianness.h:
-
-/usr/include/c++/13/bits/chrono.h:
-
 /usr/include/c++/13/bits/hashtable_policy.h:
+
+/usr/include/c++/13/bits/regex_error.h:
+
+/usr/include/c++/13/bits/basic_ios.h:
+
+/usr/include/c++/13/bits/basic_string.h:
+
+/usr/include/c++/13/ciso646:
+
+/usr/include/c++/13/bits/concept_check.h:
+
+/usr/include/c++/13/bits/alloc_traits.h:
 
 /usr/include/c++/13/bits/exception.h:
 
@@ -1164,29 +1176,17 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/pstl/glue_algorithm_defs.h:
 
-/usr/include/pqxx/range.hxx:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp:
-
-/usr/include/c++/13/bits/regex_executor.tcc:
-
-/usr/include/c++/13/bits/istream.tcc:
-
-/usr/include/c++/13/bits/locale_conv.h:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp:
-
-/usr/include/c++/13/version:
-
 /usr/include/pqxx/internal/stream_iterator.hxx:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp:
 
-/usr/include/c++/13/bits/concept_check.h:
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
 
-/usr/include/c++/13/bits/alloc_traits.h:
+/usr/include/c++/13/bits/chrono.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/EnrollmentException.hpp:
 
 /usr/include/c++/13/bits/postypes.h:
 
@@ -1219,6 +1219,30 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/pqxx/array.hxx:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp:
+
+/usr/include/c++/13/bits/regex_executor.tcc:
+
+/usr/include/c++/13/bits/istream.tcc:
+
+/usr/include/c++/13/bits/locale_conv.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp:
+
+/usr/include/c++/13/version:
+
+/usr/include/c++/13/bits/shared_ptr_atomic.h:
+
+/usr/include/pqxx/composite.hxx:
+
+/usr/include/pqxx/range.hxx:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp:
+
+/usr/include/c++/13/bits/atomic_lockfree_defines.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp:
+
+/usr/include/pqxx/connection.hxx:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
@@ -1328,8 +1352,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/algorithm:
 
-/usr/include/pqxx/internal/callgate.hxx:
-
 /usr/include/c++/13/bits/hash_bytes.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_funcs.h:
@@ -1364,19 +1386,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/unique_ptr.h:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp:
-
-/usr/include/pqxx/connection.hxx:
-
-/usr/include/c++/13/bits/atomic_lockfree_defines.h:
-
-/usr/include/c++/13/bits/regex_error.h:
-
-/usr/include/c++/13/bits/basic_ios.h:
-
-/usr/include/c++/13/bits/basic_string.h:
-
-/usr/include/c++/13/ciso646:
+/usr/include/c++/13/bits/shared_ptr.h:
 
 /usr/include/wchar.h:
 
@@ -1409,6 +1419,8 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/c++/13/bits/stl_algo.h:
 
 /usr/include/c++/13/cstddef:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp:
 
 /usr/include/c++/13/bits/stl_construct.h:
 
@@ -1569,6 +1581,8 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/c++/13/initializer_list:
 
 /usr/include/c++/13/ios:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp:
 
 /usr/include/c++/13/iostream:
 

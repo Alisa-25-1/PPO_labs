@@ -235,13 +235,19 @@ void TechUI::cancelBooking() {
 void TechUI::handleClientLessons() {
     while (true) {
         std::cout << "\n=== ЗАНЯТИЯ ===" << std::endl;
-        std::cout << "1. Расписание" << std::endl;
+        std::cout << "1. Расписание занятий" << std::endl;
+        std::cout << "2. Записаться на занятие" << std::endl;
+        std::cout << "3. Мои записи" << std::endl;
+        std::cout << "4. Отменить запись" << std::endl;
         std::cout << "0. Назад" << std::endl;
         
-        int choice = InputHandlers::readInt("Выберите опцию: ", 0, 1);
+        int choice = InputHandlers::readInt("Выберите опцию: ", 0, 4);
         
         switch (choice) {
             case 1: viewSchedule(); break;
+            case 2: enrollInLesson(); break;
+            case 3: viewClientEnrollments(); break;
+            case 4: cancelEnrollment(); break;
             case 0: return;
         }
     }
@@ -265,6 +271,143 @@ void TechUI::viewSchedule() {
     } catch (const std::exception& e) {
         std::cerr << "❌ Ошибка при получении расписания: " << e.what() << std::endl;
     }
+}
+
+void TechUI::enrollInLesson() {
+    try {
+        std::cout << "\n--- ЗАПИСЬ НА ЗАНЯТИЕ ---" << std::endl;
+        
+        // Показываем доступные занятия
+        auto lessons = managers_->getUpcomingLessons(7);
+        if (lessons.empty()) {
+            std::cout << "❌ Нет доступных занятий на ближайшую неделю." << std::endl;
+            return;
+        }
+        
+        // Фильтруем занятия, на которые можно записаться
+        std::vector<Lesson> availableLessons;
+        for (const auto& lesson : lessons) {
+            if (lesson.canBeBooked() && 
+                !managers_->getEnrollmentService()->isClientEnrolled(currentClientId_, lesson.getId())) {
+                availableLessons.push_back(lesson);
+            }
+        }
+        
+        if (availableLessons.empty()) {
+            std::cout << "❌ Нет доступных занятий для записи." << std::endl;
+            return;
+        }
+        
+        std::cout << "Доступные занятия для записи:" << std::endl;
+        for (size_t i = 0; i < availableLessons.size(); ++i) {
+            const auto& lesson = availableLessons[i];
+            std::cout << (i + 1) << ". " << lesson.getName() 
+                      << " (ID: " << lesson.getId().toString() << ")"
+                      << " - " << EnumUtils::lessonTypeToString(lesson.getType())
+                      << " - Свободных мест: " 
+                      << (lesson.getMaxParticipants() - lesson.getCurrentParticipants())
+                      << std::endl;
+        }
+        
+        int choice = InputHandlers::readInt("Выберите номер занятия: ", 1, availableLessons.size());
+        UUID lessonId = availableLessons[choice - 1].getId();
+        
+        EnrollmentRequestDTO request{currentClientId_, lessonId};
+        auto response = managers_->getEnrollmentService()->enrollClient(request);
+        
+        std::cout << "✅ Вы успешно записались на занятие! ID записи: " 
+                  << response.enrollmentId.toString() << std::endl;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка при записи на занятие: " << e.what() << std::endl;
+    }
+}
+
+void TechUI::viewClientEnrollments() {
+    try {
+        std::cout << "\n--- МОИ ЗАПИСИ ---" << std::endl;
+        
+        auto enrollments = managers_->getEnrollmentService()->getClientEnrollments(currentClientId_);
+        
+        if (enrollments.empty()) {
+            std::cout << "У вас нет активных записей на занятия." << std::endl;
+            return;
+        }
+        
+        for (const auto& enrollment : enrollments) {
+            displayEnrollment(enrollment);
+        }
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка при получении записей: " << e.what() << std::endl;
+    }
+}
+
+void TechUI::cancelEnrollment() {
+    try {
+        std::cout << "\n--- ОТМЕНА ЗАПИСИ ---" << std::endl;
+        
+        // Сначала показываем текущие записи
+        auto enrollments = managers_->getEnrollmentService()->getClientEnrollments(currentClientId_);
+        
+        if (enrollments.empty()) {
+            std::cout << "У вас нет активных записей на занятия." << std::endl;
+            return;
+        }
+        
+        // Фильтруем только записи, которые можно отменить
+        std::vector<EnrollmentResponseDTO> cancellableEnrollments;
+        for (const auto& enrollment : enrollments) {
+            // Получаем детали занятия
+            auto lesson = managers_->getLessonRepo()->findById(enrollment.lessonId);
+            if (lesson && lesson->canBeBooked()) {
+                cancellableEnrollments.push_back(enrollment);
+            }
+        }
+        
+        if (cancellableEnrollments.empty()) {
+            std::cout << "❌ Нет записей, которые можно отменить." << std::endl;
+            return;
+        }
+        
+        std::cout << "Ваши записи, которые можно отменить:" << std::endl;
+        for (size_t i = 0; i < cancellableEnrollments.size(); ++i) {
+            const auto& enrollment = cancellableEnrollments[i];
+            auto lesson = managers_->getLessonRepo()->findById(enrollment.lessonId);
+            if (lesson) {
+                std::cout << (i + 1) << ". " << lesson->getName() 
+                          << " (ID записи: " << enrollment.enrollmentId.toString() << ")"
+                          << std::endl;
+            }
+        }
+        
+        int choice = InputHandlers::readInt("Выберите номер записи для отмены: ", 1, cancellableEnrollments.size());
+        UUID enrollmentId = cancellableEnrollments[choice - 1].enrollmentId;
+        
+        auto response = managers_->getEnrollmentService()->cancelEnrollment(enrollmentId, currentClientId_);
+        
+        std::cout << "✅ Запись на занятие отменена! Статус: " << response.status << std::endl;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка при отмене записи: " << e.what() << std::endl;
+    }
+}
+
+void TechUI::displayEnrollment(const EnrollmentResponseDTO& enrollment) {
+    std::cout << "📝 ЗАПИСЬ " << enrollment.enrollmentId.toString() << std::endl;
+    std::cout << "   Занятие: " << enrollment.lessonId.toString() << std::endl;
+    std::cout << "   Статус: " << enrollment.status << std::endl;
+    std::cout << "   Дата записи: " << enrollment.enrollmentDate << std::endl;
+    
+    // Получаем дополнительную информацию о занятии
+    auto lesson = managers_->getLessonRepo()->findById(enrollment.lessonId);
+    if (lesson) {
+        std::cout << "   Название: " << lesson->getName() << std::endl;
+        auto time_t = std::chrono::system_clock::to_time_t(lesson->getStartTime());
+        std::tm* tm = std::localtime(&time_t);
+        std::cout << "   Время: " << std::put_time(tm, "%d.%m.%Y %H:%M") << std::endl;
+    }
+    std::cout << "---" << std::endl;
 }
 
 void TechUI::handleClientSubscriptions() {
@@ -412,6 +555,7 @@ void TechUI::handleAdminMenu() {
         std::cout << "5. Управление преподавателями" << std::endl;
         std::cout << "6. Управление абонементами" << std::endl;
         std::cout << "7. Модерация отзывов" << std::endl;
+        std::cout << "8. Управление записями на занятия" << std::endl;
         std::cout << "0. Назад" << std::endl;
         
         int choice = InputHandlers::readInt("Выберите опцию: ", 0, 7);
@@ -424,6 +568,7 @@ void TechUI::handleAdminMenu() {
             case 5: handleAdminTrainers(); break;
             case 6: handleAdminSubscriptions(); break;
             case 7: handleAdminReviews(); break;
+            case 8: handleAdminEnrollments(); break;
             case 0: return;
         }
     }
@@ -1019,4 +1164,91 @@ void TechUI::displayTrainer(const Trainer& trainer) {
         std::cout << "   Биография: " << trainer.getBiography() << std::endl;
     }
     std::cout << "---" << std::endl;
+}
+
+void TechUI::handleAdminEnrollments() {
+    while (true) {
+        std::cout << "\n=== УПРАВЛЕНИЕ ЗАПИСЯМИ ===" << std::endl;
+        std::cout << "1. Записи клиента" << std::endl;
+        std::cout << "2. Записи на занятие" << std::endl;
+        std::cout << "3. Отметить посещение" << std::endl;
+        std::cout << "0. Назад" << std::endl;
+        
+        int choice = InputHandlers::readInt("Выберите опцию: ", 0, 3);
+        
+        switch (choice) {
+            case 1: viewClientEnrollmentsAdmin(); break;
+            case 2: viewLessonEnrollments(); break;
+            case 3: markAttendanceAdmin(); break;
+            case 0: return;
+        }
+    }
+}
+
+void TechUI::viewClientEnrollmentsAdmin() {
+    try {
+        std::cout << "\n--- ЗАПИСИ КЛИЕНТА ---" << std::endl;
+        
+        UUID clientId = InputHandlers::readUUID("Введите ID клиента: ");
+        
+        auto enrollments = managers_->getEnrollmentService()->getClientEnrollments(clientId);
+        
+        if (enrollments.empty()) {
+            std::cout << "У клиента нет записей на занятия." << std::endl;
+            return;
+        }
+        
+        for (const auto& enrollment : enrollments) {
+            displayEnrollment(enrollment);
+        }
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка при получении записей: " << e.what() << std::endl;
+    }
+}
+
+void TechUI::viewLessonEnrollments() {
+    try {
+        std::cout << "\n--- ЗАПИСИ НА ЗАНЯТИЕ ---" << std::endl;
+        
+        UUID lessonId = InputHandlers::readUUID("Введите ID занятия: ");
+        
+        auto enrollments = managers_->getEnrollmentService()->getLessonEnrollments(lessonId);
+        
+        if (enrollments.empty()) {
+            std::cout << "На это занятие нет записей." << std::endl;
+            return;
+        }
+        
+        for (const auto& enrollment : enrollments) {
+            displayEnrollment(enrollment);
+        }
+        
+        std::cout << "📊 Всего записей: " << enrollments.size() << std::endl;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка при получении записей: " << e.what() << std::endl;
+    }
+}
+
+void TechUI::markAttendanceAdmin() {
+    try {
+        std::cout << "\n--- ОТМЕТКА ПОСЕЩЕНИЯ ---" << std::endl;
+        
+        UUID enrollmentId = InputHandlers::readUUID("Введите ID записи: ");
+        
+        std::cout << "Отметить как:" << std::endl;
+        std::cout << "1. Посещено" << std::endl;
+        std::cout << "2. Пропущено" << std::endl;
+        
+        int choice = InputHandlers::readInt("Выберите опцию: ", 1, 2);
+        bool attended = (choice == 1);
+        
+        auto response = managers_->getEnrollmentService()->markAttendance(enrollmentId, attended);
+        
+        std::cout << "✅ Посещение отмечено! Статус: " << response.status << std::endl;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка при отметке посещения: " << e.what() << std::endl;
+    }
 }

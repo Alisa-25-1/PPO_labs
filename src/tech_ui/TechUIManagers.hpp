@@ -10,6 +10,7 @@
 #include "../services/SubscriptionService.hpp"
 #include "../services/ReviewService.hpp"
 #include "../services/ScheduleService.hpp"
+#include "../services/EnrollmentService.hpp"
 #include "../data/DatabaseConnection.hpp"
 #include "../models/DanceHall.hpp"
 #include "../models/Trainer.hpp"
@@ -53,6 +54,7 @@ private:
     std::unique_ptr<SubscriptionService> subscriptionService_;
     std::unique_ptr<ReviewService> reviewService_;
     std::unique_ptr<ScheduleService> scheduleService_;
+    std::unique_ptr<EnrollmentService> enrollmentService_;
 
 public:
     TechUIManagers(const std::string& connectionString);
@@ -64,6 +66,7 @@ public:
     SubscriptionService* getSubscriptionService() { return subscriptionService_.get(); }
     ReviewService* getReviewService() { return reviewService_.get(); }
     ScheduleService* getScheduleService() { return scheduleService_.get(); }
+    EnrollmentService* getEnrollmentService() { return enrollmentService_.get(); }
     
     // Геттеры для репозиториев
     std::shared_ptr<IClientRepository> getClientRepo() { return clientRepo_; }

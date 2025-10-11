@@ -46,12 +46,13 @@ add_library(BookingCore
     ${SOURCE_ROOT}/services/SubscriptionService.cpp
     ${SOURCE_ROOT}/services/ReviewService.cpp
     ${SOURCE_ROOT}/services/ScheduleService.cpp
+    ${SOURCE_ROOT}/services/EnrollmentService.cpp
     ${SOURCE_ROOT}/dtos/BookingDTO.cpp
     ${SOURCE_ROOT}/dtos/LessonDTO.cpp
     ${SOURCE_ROOT}/dtos/SubscriptionDTO.cpp
-    ${SOURCE_ROOT}/dtos/ReviewDTO.cpp      # Добавляем
-    ${SOURCE_ROOT}/dtos/AuthDTO.cpp        # Добавляем
-    # Добавляем файлы технологического UI
+    ${SOURCE_ROOT}/dtos/ReviewDTO.cpp     
+    ${SOURCE_ROOT}/dtos/AuthDTO.cpp        
+     ${SOURCE_ROOT}/dtos/EnrollmentDTO.cpp  
     ${SOURCE_ROOT}/tech_ui/InputHandlers.cpp
     ${SOURCE_ROOT}/tech_ui/TechUIManagers.cpp
 )

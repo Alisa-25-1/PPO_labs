@@ -329,6 +329,30 @@ src/dtos/BookingDTO.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.s
 .PHONY : src/dtos/BookingDTO.cpp.s
 
+src/dtos/EnrollmentDTO.o: src/dtos/EnrollmentDTO.cpp.o
+.PHONY : src/dtos/EnrollmentDTO.o
+
+# target to build an object file
+src/dtos/EnrollmentDTO.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/EnrollmentDTO.cpp.o
+.PHONY : src/dtos/EnrollmentDTO.cpp.o
+
+src/dtos/EnrollmentDTO.i: src/dtos/EnrollmentDTO.cpp.i
+.PHONY : src/dtos/EnrollmentDTO.i
+
+# target to preprocess a source file
+src/dtos/EnrollmentDTO.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/EnrollmentDTO.cpp.i
+.PHONY : src/dtos/EnrollmentDTO.cpp.i
+
+src/dtos/EnrollmentDTO.s: src/dtos/EnrollmentDTO.cpp.s
+.PHONY : src/dtos/EnrollmentDTO.s
+
+# target to generate assembly for a file
+src/dtos/EnrollmentDTO.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/EnrollmentDTO.cpp.s
+.PHONY : src/dtos/EnrollmentDTO.cpp.s
+
 src/dtos/LessonDTO.o: src/dtos/LessonDTO.cpp.o
 .PHONY : src/dtos/LessonDTO.o
 
@@ -1049,6 +1073,30 @@ src/services/BookingService.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.s
 .PHONY : src/services/BookingService.cpp.s
 
+src/services/EnrollmentService.o: src/services/EnrollmentService.cpp.o
+.PHONY : src/services/EnrollmentService.o
+
+# target to build an object file
+src/services/EnrollmentService.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.o
+.PHONY : src/services/EnrollmentService.cpp.o
+
+src/services/EnrollmentService.i: src/services/EnrollmentService.cpp.i
+.PHONY : src/services/EnrollmentService.i
+
+# target to preprocess a source file
+src/services/EnrollmentService.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.i
+.PHONY : src/services/EnrollmentService.cpp.i
+
+src/services/EnrollmentService.s: src/services/EnrollmentService.cpp.s
+.PHONY : src/services/EnrollmentService.s
+
+# target to generate assembly for a file
+src/services/EnrollmentService.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.s
+.PHONY : src/services/EnrollmentService.cpp.s
+
 src/services/LessonService.o: src/services/LessonService.cpp.o
 .PHONY : src/services/LessonService.o
 
@@ -1438,6 +1486,9 @@ help:
 	@echo "... src/dtos/BookingDTO.o"
 	@echo "... src/dtos/BookingDTO.i"
 	@echo "... src/dtos/BookingDTO.s"
+	@echo "... src/dtos/EnrollmentDTO.o"
+	@echo "... src/dtos/EnrollmentDTO.i"
+	@echo "... src/dtos/EnrollmentDTO.s"
 	@echo "... src/dtos/LessonDTO.o"
 	@echo "... src/dtos/LessonDTO.i"
 	@echo "... src/dtos/LessonDTO.s"
@@ -1528,6 +1579,9 @@ help:
 	@echo "... src/services/BookingService.o"
 	@echo "... src/services/BookingService.i"
 	@echo "... src/services/BookingService.s"
+	@echo "... src/services/EnrollmentService.o"
+	@echo "... src/services/EnrollmentService.i"
+	@echo "... src/services/EnrollmentService.s"
 	@echo "... src/services/LessonService.o"
 	@echo "... src/services/LessonService.i"
 	@echo "... src/services/LessonService.s"

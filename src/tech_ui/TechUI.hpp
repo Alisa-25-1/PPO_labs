@@ -1,3 +1,4 @@
+// tech_ui/TechUI.hpp
 #ifndef TECHUI_HPP
 #define TECHUI_HPP
 
@@ -19,6 +20,7 @@
 #include "../dtos/LessonDTO.hpp"
 #include "../dtos/SubscriptionDTO.hpp"
 #include "../dtos/ReviewDTO.hpp"
+#include "../dtos/EnrollmentDTO.hpp" // Добавляем этот include
 
 class TechUI {
 private:
@@ -49,7 +51,12 @@ private:
     void viewClientSubscriptions();
     void createReview();
     void viewClientReviews();
-    void checkTimeSlotAvailability();
+    
+    // Новые методы для записи на занятия
+    void enrollInLesson();
+    void viewClientEnrollments();
+    void cancelEnrollment();
+    void displayEnrollment(const EnrollmentResponseDTO& enrollment);
     
     // Режим администратора
     void handleAdminMenu();
@@ -60,6 +67,7 @@ private:
     void handleAdminSubscriptions();
     void handleAdminReviews();
     void handleAdminTrainers();
+    void handleAdminEnrollments(); // Новый метод для управления записями
     
     // Административные операции
     void findClientById();
@@ -78,6 +86,11 @@ private:
     void viewPendingReviews();
     void approveReview();
     void rejectReview();
+    
+    // Новые административные методы для записей
+    void viewClientEnrollmentsAdmin();
+    void viewLessonEnrollments();
+    void markAttendanceAdmin();
     
     // Вспомогательные методы отображения
     void displayBooking(const BookingResponseDTO& booking);

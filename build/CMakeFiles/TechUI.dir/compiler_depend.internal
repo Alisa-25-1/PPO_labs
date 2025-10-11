@@ -19,6 +19,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp
@@ -27,6 +28,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ScheduleDTO.hpp
@@ -56,12 +58,14 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ReviewService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ScheduleService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/EnrollmentException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ReviewException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
@@ -442,6 +446,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp
@@ -450,6 +455,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ScheduleDTO.hpp
@@ -479,12 +485,14 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ReviewService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ScheduleService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/EnrollmentException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ReviewException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp

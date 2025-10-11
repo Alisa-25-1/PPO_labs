@@ -258,6 +258,10 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/exceptions/ReviewException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/ScheduleService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../dtos/ScheduleDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/EnrollmentService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../dtos/EnrollmentDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../dtos/../models/Enrollment.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/exceptions/EnrollmentException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/DatabaseConnection.hpp \
  /usr/include/pqxx/pqxx /usr/include/pqxx/internal/header-pre.hxx \
  /usr/include/c++/13/version /usr/include/pqxx/internal/cxx-features.hxx \
@@ -334,4 +338,5 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/BookingDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/LessonDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/SubscriptionDTO.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/ReviewDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/ReviewDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/EnrollmentDTO.hpp

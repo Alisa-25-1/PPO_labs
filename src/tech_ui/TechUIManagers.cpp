@@ -64,6 +64,12 @@ TechUIManagers::TechUIManagers(const std::string& connectionString) {
             std::make_unique<PostgreSQLBookingRepository>(dbConnection_),
             std::make_unique<PostgreSQLDanceHallRepository>(dbConnection_)
         );
+
+        enrollmentService_ = std::make_unique<EnrollmentService>(
+            std::make_unique<PostgreSQLEnrollmentRepository>(dbConnection_),
+            std::make_unique<PostgreSQLClientRepository>(dbConnection_),
+            std::make_unique<PostgreSQLLessonRepository>(dbConnection_)
+        );
         
         std::cout << "✅ Все менеджеры TechUI инициализированы" << std::endl;
         
