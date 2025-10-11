@@ -4,20 +4,17 @@
 AuthService::AuthService(std::unique_ptr<IClientRepository> clientRepo)
     : clientRepository_(std::move(clientRepo)) {}
 
-std::string AuthService::hashPassword(const std::string& password) const {
-    // В реальной системе здесь должно быть хэширование, например, bcrypt
-    // Для примера используем упрощенный вариант (не безопасно!)
-    return password; // Заглушка
-}
-
-bool AuthService::verifyPassword(const std::string& password, const std::string& hash) const {
-    // В реальной системе здесь должно быть проверка хэша
-    return password == hash; // Заглушка
-}
-
 AuthResponseDTO AuthService::registerClient(const AuthRequestDTO& request) {
+    // Дополнительная валидация для регистрации
+    if (request.name.empty()) {
+        throw ValidationException("Имя не может быть пустым");
+    }
+    if (request.phone.empty()) {
+        throw ValidationException("Телефон не может быть пустым");
+    }
+    
     if (!request.validate()) {
-        throw ValidationException("Invalid registration data");
+        throw ValidationException("Неверные данные для регистрации");
     }
     
     // Проверяем, что email еще не зарегистрирован
@@ -28,12 +25,14 @@ AuthResponseDTO AuthService::registerClient(const AuthRequestDTO& request) {
     
     // Создаем нового клиента
     UUID newId = UUID::generate();
-    Client client(newId, request.email, request.email, ""); // Имя и телефон пока пустые
-    client.changePassword(hashPassword(request.password));
+    
+    Client client(newId, request.name, request.email, request.phone);
+    // Сохраняем пароль напрямую без хэширования
+    client.changePassword(request.password);
     client.activate();
     
     if (!clientRepository_->save(client)) {
-        throw std::runtime_error("Failed to save client");
+        throw std::runtime_error("Не удалось сохранить клиента");
     }
     
     return AuthResponseDTO(newId, client.getName(), client.getEmail(), "ACTIVE");
@@ -41,7 +40,7 @@ AuthResponseDTO AuthService::registerClient(const AuthRequestDTO& request) {
 
 AuthResponseDTO AuthService::login(const AuthRequestDTO& request) {
     if (!request.validate()) {
-        throw ValidationException("Invalid login data");
+        throw ValidationException("Неверный email или пароль");
     }
     
     auto client = clientRepository_->findByEmail(request.email);
@@ -53,7 +52,8 @@ AuthResponseDTO AuthService::login(const AuthRequestDTO& request) {
         throw AccountInactiveException();
     }
     
-    if (!verifyPassword(request.password, client->getPasswordHash())) {
+    // Прямое сравнение паролей без хэширования
+    if (request.password != client->getPasswordHash()) {
         throw InvalidCredentialsException();
     }
     
@@ -66,11 +66,13 @@ bool AuthService::changePassword(const UUID& clientId, const std::string& oldPas
         return false;
     }
     
-    if (!verifyPassword(oldPassword, client->getPasswordHash())) {
+    // Прямое сравнение старого пароля
+    if (oldPassword != client->getPasswordHash()) {
         return false;
     }
     
-    client->changePassword(hashPassword(newPassword));
+    // Сохраняем новый пароль напрямую
+    client->changePassword(newPassword);
     return clientRepository_->update(*client);
 }
 
@@ -81,10 +83,9 @@ void AuthService::resetPassword(const std::string& email) {
         return;
     }
     
-    // Генерируем временный пароль и отправляем по email
-    // В реальной системе здесь должна быть отправка email
+    // Генерируем временный пароль и сохраняем напрямую
     std::string tempPassword = "temp123"; // Временный пароль
-    client->changePassword(hashPassword(tempPassword));
+    client->changePassword(tempPassword);
     clientRepository_->update(*client);
 }
 

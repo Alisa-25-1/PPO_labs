@@ -141,6 +141,7 @@ TEST_F(BookingServiceTest, CreateBooking_HallNotFound) {
 TEST_F(BookingServiceTest, CreateBooking_InactiveClient) {
     // Создаем неактивного клиента специально для этого теста
     auto inactiveClient = Client(testClientId_, "Inactive John", "inactive@example.com", "+12345678901");
+    inactiveClient.changePassword("password123"); // Пароль устанавливаем напрямую
     inactiveClient.deactivate();
     
     BookingRequestDTO request(testClientId_, testHallId_, *testTimeSlot_, "Dance practice session");

@@ -6,7 +6,6 @@
 #include <string>
 #include <chrono>
 
-
 class Client {
 private:
     UUID id_;
@@ -26,7 +25,7 @@ public:
     std::string getName() const;
     std::string getEmail() const;
     std::string getPhone() const;
-    std::string getPasswordHash() const;
+    std::string getPasswordHash() const;  // Добавляем публичный геттер
     std::chrono::system_clock::time_point getRegistrationDate() const;
     AccountStatus getStatus() const;
     

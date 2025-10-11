@@ -69,4 +69,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/SubscriptionServiceTests.dir/DependInfo.cmake"
   "CMakeFiles/ReviewServiceTests.dir/DependInfo.cmake"
   "CMakeFiles/IntegrationTests.dir/DependInfo.cmake"
+  "CMakeFiles/TechUI.dir/DependInfo.cmake"
   )

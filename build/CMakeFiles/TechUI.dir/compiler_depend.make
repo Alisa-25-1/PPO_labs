@@ -3,29 +3,71 @@
 
 CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/main.cpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/exceptions/DataAccessException.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLBookingRepository.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLClientRepository.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLHallRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/SubscriptionType.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/SubscriptionType.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ScheduleDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Hall.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/SubscriptionType.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBookingRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IHallRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IEnrollmentRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ILessonRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IReviewRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionTypeRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ReviewService.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ScheduleService.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ReviewException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUI.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -94,8 +136,6 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/quoted_string.h \
-  /usr/include/c++/13/bits/random.h \
-  /usr/include/c++/13/bits/random.tcc \
   /usr/include/c++/13/bits/range_access.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/regex.h \
@@ -114,7 +154,6 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
-  /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
@@ -160,7 +199,6 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/c++/13/chrono \
   /usr/include/c++/13/ciso646 \
   /usr/include/c++/13/clocale \
-  /usr/include/c++/13/cmath \
   /usr/include/c++/13/codecvt \
   /usr/include/c++/13/compare \
   /usr/include/c++/13/cstddef \
@@ -205,7 +243,6 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/glue_numeric_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
-  /usr/include/c++/13/random \
   /usr/include/c++/13/ratio \
   /usr/include/c++/13/regex \
   /usr/include/c++/13/sstream \
@@ -215,18 +252,6 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
-  /usr/include/c++/13/tr1/bessel_function.tcc \
-  /usr/include/c++/13/tr1/beta_function.tcc \
-  /usr/include/c++/13/tr1/ell_integral.tcc \
-  /usr/include/c++/13/tr1/exp_integral.tcc \
-  /usr/include/c++/13/tr1/gamma.tcc \
-  /usr/include/c++/13/tr1/hypergeometric.tcc \
-  /usr/include/c++/13/tr1/legendre_function.tcc \
-  /usr/include/c++/13/tr1/modified_bessel_func.tcc \
-  /usr/include/c++/13/tr1/poly_hermite.tcc \
-  /usr/include/c++/13/tr1/poly_laguerre.tcc \
-  /usr/include/c++/13/tr1/riemann_zeta.tcc \
-  /usr/include/c++/13/tr1/special_function_util.h \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
@@ -243,7 +268,6 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/libintl.h \
   /usr/include/linux/errno.h \
   /usr/include/locale.h \
-  /usr/include/math.h \
   /usr/include/pqxx/array.hxx \
   /usr/include/pqxx/binarystring.hxx \
   /usr/include/pqxx/blob.hxx \
@@ -310,6 +334,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/string.h \
   /usr/include/strings.h \
   /usr/include/time.h \
+  /usr/include/uuid/uuid.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
@@ -321,18 +346,9 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
-  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
-  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
-  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
-  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
-  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
-  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -394,7 +410,6 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/opt_random.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
@@ -402,6 +417,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
@@ -409,29 +425,71 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
 
 CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUI.cpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/exceptions/DataAccessException.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLBookingRepository.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLClientRepository.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLHallRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/SubscriptionType.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/SubscriptionType.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ScheduleDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Hall.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/SubscriptionType.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBookingRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IHallRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IEnrollmentRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ILessonRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IReviewRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionTypeRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ReviewService.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ScheduleService.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ReviewException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUI.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -500,8 +558,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/c++/13/bits/predefined_ops.h \
   /usr/include/c++/13/bits/ptr_traits.h \
   /usr/include/c++/13/bits/quoted_string.h \
-  /usr/include/c++/13/bits/random.h \
-  /usr/include/c++/13/bits/random.tcc \
   /usr/include/c++/13/bits/range_access.h \
   /usr/include/c++/13/bits/refwrap.h \
   /usr/include/c++/13/bits/regex.h \
@@ -520,7 +576,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/c++/13/bits/shared_ptr.h \
   /usr/include/c++/13/bits/shared_ptr_atomic.h \
   /usr/include/c++/13/bits/shared_ptr_base.h \
-  /usr/include/c++/13/bits/specfun.h \
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
@@ -566,7 +621,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/c++/13/chrono \
   /usr/include/c++/13/ciso646 \
   /usr/include/c++/13/clocale \
-  /usr/include/c++/13/cmath \
   /usr/include/c++/13/codecvt \
   /usr/include/c++/13/compare \
   /usr/include/c++/13/cstddef \
@@ -611,7 +665,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/glue_numeric_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
-  /usr/include/c++/13/random \
   /usr/include/c++/13/ratio \
   /usr/include/c++/13/regex \
   /usr/include/c++/13/sstream \
@@ -621,18 +674,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
-  /usr/include/c++/13/tr1/bessel_function.tcc \
-  /usr/include/c++/13/tr1/beta_function.tcc \
-  /usr/include/c++/13/tr1/ell_integral.tcc \
-  /usr/include/c++/13/tr1/exp_integral.tcc \
-  /usr/include/c++/13/tr1/gamma.tcc \
-  /usr/include/c++/13/tr1/hypergeometric.tcc \
-  /usr/include/c++/13/tr1/legendre_function.tcc \
-  /usr/include/c++/13/tr1/modified_bessel_func.tcc \
-  /usr/include/c++/13/tr1/poly_hermite.tcc \
-  /usr/include/c++/13/tr1/poly_laguerre.tcc \
-  /usr/include/c++/13/tr1/riemann_zeta.tcc \
-  /usr/include/c++/13/tr1/special_function_util.h \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
@@ -649,7 +690,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/libintl.h \
   /usr/include/linux/errno.h \
   /usr/include/locale.h \
-  /usr/include/math.h \
   /usr/include/pqxx/array.hxx \
   /usr/include/pqxx/binarystring.hxx \
   /usr/include/pqxx/blob.hxx \
@@ -716,6 +756,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/string.h \
   /usr/include/strings.h \
   /usr/include/time.h \
+  /usr/include/uuid/uuid.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
@@ -727,18 +768,9 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
-  /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h \
-  /usr/include/x86_64-linux-gnu/bits/fp-fast.h \
-  /usr/include/x86_64-linux-gnu/bits/fp-logb.h \
-  /usr/include/x86_64-linux-gnu/bits/iscanonical.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
-  /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
-  /usr/include/x86_64-linux-gnu/bits/math-vector.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h \
-  /usr/include/x86_64-linux-gnu/bits/mathcalls.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -800,7 +832,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h \
-  /usr/include/x86_64-linux-gnu/c++/13/bits/opt_random.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
@@ -808,6 +839,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
+  /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
@@ -820,9 +852,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
 
+/usr/include/x86_64-linux-gnu/sys/time.h:
+
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
-/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h:
 
@@ -846,8 +880,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
 
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
-
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
@@ -858,9 +890,9 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
 
@@ -871,6 +903,8 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
@@ -904,21 +938,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
-/usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h:
-
-/usr/include/x86_64-linux-gnu/bits/math-vector.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
-
-/usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h:
-
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
-
-/usr/include/x86_64-linux-gnu/bits/fp-logb.h:
-
-/usr/include/x86_64-linux-gnu/bits/fp-fast.h:
 
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
@@ -936,8 +956,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/time.h:
 
-/usr/include/string.h:
-
 /usr/include/stdlib.h:
 
 /usr/include/stdc-predef.h:
@@ -948,7 +966,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/pthread.h:
 
+/usr/include/pqxx/util.hxx:
+
 /usr/include/pqxx/transaction_base.hxx:
+
+/usr/include/pqxx/transaction.hxx:
 
 /usr/include/pqxx/time.hxx:
 
@@ -965,8 +987,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/pqxx/robusttransaction.hxx:
 
 /usr/include/pqxx/result.hxx:
-
-/usr/include/pqxx/range.hxx:
 
 /usr/include/pqxx/prepared_statement.hxx:
 
@@ -994,65 +1014,29 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/pqxx/internal/result_iterator.hxx:
 
+/usr/include/pqxx/internal/libpq-forward.hxx:
+
 /usr/include/pqxx/internal/header-pre.hxx:
 
-/usr/include/c++/13/bits/stl_numeric.h:
+/usr/include/pqxx/internal/header-post.hxx:
 
-/usr/include/c++/13/bits/stl_map.h:
-
-/usr/include/c++/13/locale:
+/usr/include/pqxx/internal/gates/connection-stream_from.hxx:
 
 /usr/include/pqxx/nontransaction.hxx:
 
 /usr/include/pqxx/internal/encoding_group.hxx:
 
-/usr/include/c++/13/debug/assertions.h:
+/usr/include/x86_64-linux-gnu/bits/locale.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
-
-/usr/include/asm-generic/errno.h:
-
-/usr/include/c++/13/bits/functexcept.h:
-
-/usr/include/c++/13/bits/stl_construct.h:
-
-/usr/include/c++/13/bits/stl_bvector.h:
-
-/usr/include/pqxx/internal/ignore-deprecated-post.hxx:
-
-/usr/include/c++/13/cstdint:
-
-/usr/include/c++/13/bits/regex_scanner.h:
-
-/usr/include/c++/13/cstdlib:
-
-/usr/include/c++/13/bits/sstream.tcc:
-
-/usr/include/c++/13/cwctype:
-
-/usr/include/c++/13/ratio:
+/usr/include/pqxx/internal/cxx-features.hxx:
 
 /usr/include/c++/13/bits/shared_ptr_atomic.h:
-
-/usr/include/pqxx/zview.hxx:
-
-/usr/include/c++/13/bits/stl_list.h:
-
-/usr/include/c++/13/bits/erase_if.h:
 
 /usr/include/pqxx/composite.hxx:
 
 /usr/include/c++/13/bits/shared_ptr.h:
 
-/usr/include/c++/13/bits/postypes.h:
-
-/usr/include/c++/13/bits/uses_allocator.h:
-
-/usr/include/strings.h:
-
-/usr/include/c++/13/iomanip:
-
-/usr/include/c++/13/bits/unordered_map.h:
+/usr/include/c++/13/bits/stl_map.h:
 
 /usr/include/c++/13/bits/regex_constants.h:
 
@@ -1060,59 +1044,49 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/regex_compiler.tcc:
 
-/usr/include/c++/13/bits/allocator.h:
-
-/usr/include/c++/13/unordered_map:
+/usr/include/c++/13/bits/atomic_base.h:
 
 /usr/include/c++/13/bits/stl_uninitialized.h:
 
 /usr/include/c++/13/bits/new_allocator.h:
 
-/usr/include/c++/13/bits/atomic_base.h:
-
 /usr/include/c++/13/bits/uses_allocator_args.h:
+
+/usr/include/c++/13/bits/exception_ptr.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
 /usr/include/c++/13/bits/stl_multimap.h:
 
-/usr/include/c++/13/bits/exception_ptr.h:
-
-/usr/include/c++/13/bits/regex.tcc:
-
-/usr/include/pqxx/util.hxx:
-
-/usr/include/c++/13/tr1/poly_laguerre.tcc:
-
 /usr/include/libintl.h:
 
 /usr/include/c++/13/bits/refwrap.h:
+
+/usr/include/c++/13/bits/range_access.h:
+
+/usr/include/c++/13/bits/quoted_string.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/SubscriptionType.hpp:
+
+/usr/include/c++/13/bits/unordered_map.h:
+
+/usr/include/c++/13/bits/ptr_traits.h:
 
 /usr/include/pqxx/internal/stream_query.hxx:
 
 /usr/include/c++/13/bits/ostream_insert.h:
 
-/usr/include/c++/13/bits/ostream.tcc:
+/usr/include/c++/13/bits/move.h:
 
-/usr/include/pqxx/except.hxx:
-
-/usr/include/c++/13/bits/stl_function.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
-
-/usr/include/c++/13/bits/utility.h:
-
-/usr/include/c++/13/tr1/beta_function.tcc:
+/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ScheduleDTO.hpp:
 
 /usr/include/c++/13/bits/memoryfwd.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ILessonRepository.hpp:
+
 /usr/include/c++/13/bits/fs_fwd.h:
-
-/usr/include/c++/13/bits/locale_facets_nonio.tcc:
-
-/usr/include/c++/13/bits/stl_heap.h:
-
-/usr/include/c++/13/utility:
 
 /usr/include/c++/13/bits/locale_facets.tcc:
 
@@ -1124,9 +1098,9 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/locale_facets.h:
 
-/usr/include/c++/13/bits/quoted_string.h:
+/usr/include/c++/13/locale:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLClientRepository.hpp:
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
@@ -1136,37 +1110,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/hashtable.h:
 
-/usr/include/c++/13/bits/invoke.h:
-
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
-
-/usr/include/c++/13/bits/algorithmfwd.h:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp:
-
-/usr/include/c++/13/bits/alloc_traits.h:
-
-/usr/include/c++/13/bits/concept_check.h:
-
-/usr/include/pqxx/transaction_focus.hxx:
-
-/usr/include/c++/13/bits/enable_special_members.h:
-
-/usr/include/pqxx/version.hxx:
-
-/usr/include/c++/13/bits/stream_iterator.h:
-
-/usr/include/c++/13/bits/stl_algo.h:
-
-/usr/include/c++/13/cstddef:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUI.hpp:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp:
-
-/usr/include/c++/13/bits/stl_deque.h:
+/usr/include/c++/13/bits/functional_hash.h:
 
 /usr/include/c++/13/bits/fs_path.h:
 
@@ -1180,87 +1124,49 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/cstdio:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp:
+/usr/include/c++/13/bits/locale_facets_nonio.h:
 
-/usr/include/c++/13/bits/cxxabi_forced.h:
+/usr/include/c++/13/bits/fs_dir.h:
 
-/usr/include/c++/13/bits/std_abs.h:
+/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
 
-/usr/include/c++/13/bits/parse_numbers.h:
+/usr/include/c++/13/sstream:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBookingRepository.hpp:
+/usr/include/pqxx/internal/array-composite.hxx:
 
-/usr/include/c++/13/bits/functional_hash.h:
+/usr/include/pqxx/transaction_focus.hxx:
 
-/usr/include/errno.h:
+/usr/include/c++/13/bits/enable_special_members.h:
 
-/usr/include/c++/13/bits/regex_automaton.tcc:
+/usr/include/pqxx/version.hxx:
 
-/usr/include/c++/13/backward/auto_ptr.h:
-
-/usr/include/assert.h:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp:
-
-/usr/include/pqxx/internal/libpq-forward.hxx:
-
-/usr/include/c++/13/bits/random.h:
-
-/usr/include/c++/13/bits/hash_bytes.h:
-
-/usr/include/c++/13/array:
-
-/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
-
-/usr/include/asm-generic/errno-base.h:
-
-/usr/include/pqxx/internal/stream_iterator.hxx:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp:
-
-/usr/include/stdio.h:
-
-/usr/include/c++/13/bits/regex_compiler.h:
-
-/usr/include/c++/13/bits/stl_iterator_base_types.h:
+/usr/include/c++/13/bits/stream_iterator.h:
 
 /usr/include/c++/13/bits/deque.tcc:
 
-/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/data/exceptions/DataAccessException.hpp:
+/usr/include/c++/13/bits/chrono.h:
 
-/usr/include/c++/13/pstl/glue_numeric_defs.h:
+/usr/include/c++/13/bits/hashtable_policy.h:
 
-/usr/include/pqxx/transaction.hxx:
+/usr/include/c++/13/bits/exception.h:
 
-/usr/include/c++/13/bits/random.tcc:
+/usr/include/c++/13/bits/cxxabi_init_exception.h:
 
-/usr/include/c++/13/random:
+/usr/include/c++/13/typeinfo:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp:
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp:
 
-/usr/include/c++/13/bits/basic_ios.tcc:
+/usr/include/pqxx/types.hxx:
 
-/usr/include/c++/13/pstl/execution_defs.h:
+/usr/include/c++/13/ext/concurrence.h:
 
-/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+/usr/include/c++/13/pstl/glue_algorithm_defs.h:
 
-/usr/include/c++/13/bits/node_handle.h:
+/usr/include/pqxx/range.hxx:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp:
-
-/usr/include/c++/13/bits/stl_raw_storage_iter.h:
-
-/usr/include/c++/13/algorithm:
-
-/usr/include/pqxx/internal/callgate.hxx:
-
-/usr/include/c++/13/bits/ptr_traits.h:
-
-/usr/include/c++/13/bits/move.h:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IHallRepository.hpp:
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp:
 
 /usr/include/c++/13/bits/regex_executor.tcc:
 
@@ -1272,7 +1178,181 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/version:
 
+/usr/include/pqxx/internal/stream_iterator.hxx:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp:
+
+/usr/include/c++/13/bits/concept_check.h:
+
+/usr/include/c++/13/bits/alloc_traits.h:
+
+/usr/include/c++/13/bits/postypes.h:
+
+/usr/include/c++/13/bits/parse_numbers.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBookingRepository.hpp:
+
+/usr/include/c++/13/bits/std_abs.h:
+
+/usr/include/c++/13/bits/uses_allocator.h:
+
+/usr/include/strings.h:
+
+/usr/include/c++/13/iomanip:
+
+/usr/include/c++/13/bits/locale_facets_nonio.tcc:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp:
+
+/usr/include/c++/13/bits/stl_deque.h:
+
+/usr/include/c++/13/streambuf:
+
+/usr/include/c++/13/bits/memory_resource.h:
+
+/usr/include/c++/13/bits/invoke.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IReviewRepository.hpp:
+
+/usr/include/pqxx/array.hxx:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.hpp:
+
+/usr/include/c++/13/bits/node_handle.h:
+
+/usr/include/c++/13/bits/functexcept.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionRepository.hpp:
+
+/usr/include/c++/13/bits/stl_numeric.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp:
+
+/usr/include/c++/13/bits/ostream.tcc:
+
+/usr/include/pqxx/except.hxx:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp:
+
+/usr/include/c++/13/bits/basic_ios.tcc:
+
+/usr/include/c++/13/pstl/execution_defs.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp:
+
+/usr/include/errno.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/c++/13/bits/regex.tcc:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp:
+
+/usr/include/c++/13/bits/ios_base.h:
+
+/usr/include/c++/13/iterator:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUI.hpp:
+
+/usr/include/string.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/ReviewService.hpp:
+
+/usr/include/c++/13/bits/localefwd.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/ScheduleService.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/c++/13/bits/exception_defines.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp:
+
+/usr/include/c++/13/bits/cxxabi_forced.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+
+/usr/include/c++/13/bits/algorithmfwd.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ReviewException.hpp:
+
+/usr/include/c++/13/bits/basic_string.tcc:
+
+/usr/include/pqxx/internal/encodings.hxx:
+
+/usr/include/c++/13/bits/allocated_ptr.h:
+
+/usr/include/c++/13/bit:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.hpp:
+
+/usr/include/alloca.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionTypeRepository.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+/usr/include/c++/13/string:
+
+/usr/include/c++/13/algorithm:
+
+/usr/include/pqxx/internal/callgate.hxx:
+
+/usr/include/c++/13/bits/hash_bytes.h:
+
+/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/c++/13/array:
+
+/usr/include/c++/13/bits/regex_automaton.tcc:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp:
+
+/usr/include/assert.h:
+
+/usr/include/c++/13/backward/auto_ptr.h:
+
 /usr/include/c++/13/bits/regex.h:
+
+/usr/include/c++/13/unordered_map:
+
+/usr/include/c++/13/bits/allocator.h:
+
+/usr/include/c++/13/bits/stl_bvector.h:
 
 /usr/include/c++/13/bits/predefined_ops.h:
 
@@ -1284,81 +1364,81 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/unique_ptr.h:
 
+/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp:
+
 /usr/include/pqxx/connection.hxx:
 
 /usr/include/c++/13/bits/atomic_lockfree_defines.h:
 
-/usr/include/c++/13/bits/basic_string.tcc:
+/usr/include/c++/13/bits/regex_error.h:
 
-/usr/include/wchar.h:
-
-/usr/include/c++/13/bits/shared_ptr_base.h:
+/usr/include/c++/13/bits/basic_ios.h:
 
 /usr/include/c++/13/bits/basic_string.h:
 
 /usr/include/c++/13/ciso646:
 
-/usr/include/alloca.h:
+/usr/include/wchar.h:
+
+/usr/include/c++/13/bits/shared_ptr_base.h:
+
+/usr/include/c++/13/bits/sstream.tcc:
+
+/usr/include/c++/13/cwctype:
+
+/usr/include/c++/13/ratio:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
 
 /usr/include/pqxx/subtransaction.hxx:
 
-/usr/include/c++/13/bits/std_function.h:
-
 /usr/include/c++/13/bits/char_traits.h:
 
-/usr/include/c++/13/bits/hashtable_policy.h:
+/usr/include/c++/13/bits/std_function.h:
 
-/usr/include/x86_64-linux-gnu/bits/endianness.h:
+/usr/include/pqxx/internal/ignore-deprecated-post.hxx:
 
-/usr/include/c++/13/bits/chrono.h:
+/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.hpp:
 
-/usr/include/c++/13/bits/localefwd.h:
+/usr/include/c++/13/cstdint:
 
-/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+/usr/include/c++/13/bits/regex_scanner.h:
 
-/usr/include/c++/13/bits/exception_defines.h:
+/usr/include/c++/13/cstdlib:
 
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+/usr/include/c++/13/bits/stl_algo.h:
 
-/usr/include/math.h:
+/usr/include/c++/13/cstddef:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp:
+/usr/include/c++/13/bits/stl_construct.h:
 
-/usr/include/pqxx/types.hxx:
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp:
 
-/usr/include/c++/13/ext/concurrence.h:
+/usr/include/c++/13/bits/stl_function.h:
 
-/usr/include/c++/13/pstl/glue_algorithm_defs.h:
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
 
-/usr/include/c++/13/bits/cxxabi_init_exception.h:
+/usr/include/c++/13/bits/utility.h:
 
-/usr/include/c++/13/typeinfo:
+/usr/include/c++/13/utility:
 
-/usr/include/c++/13/bits/exception.h:
+/usr/include/c++/13/bits/stl_heap.h:
 
-/usr/include/c++/13/bits/memory_resource.h:
+/usr/include/stdio.h:
 
-/usr/include/c++/13/streambuf:
+/usr/include/c++/13/bits/regex_compiler.h:
 
-/usr/include/c++/13/bits/basic_ios.h:
+/usr/include/c++/13/bits/stl_iterator_base_types.h:
 
-/usr/include/c++/13/bits/regex_error.h:
+/usr/include/pqxx/zview.hxx:
 
-/usr/include/c++/13/bits/locale_facets_nonio.h:
+/usr/include/c++/13/bits/erase_if.h:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Hall.hpp:
+/usr/include/c++/13/bits/stl_list.h:
 
-/usr/include/c++/13/bits/fs_dir.h:
+/usr/include/c++/13/debug/assertions.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
-
-/usr/include/c++/13/sstream:
-
-/usr/include/pqxx/internal/array-composite.hxx:
-
-/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+/usr/include/c++/13/bits/stl_raw_storage_iter.h:
 
 /usr/include/c++/13/stack:
 
@@ -1384,23 +1464,15 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/stl_vector.h:
 
-/usr/include/c++/13/bits/specfun.h:
-
 /usr/include/c++/13/bits/streambuf.tcc:
 
 /usr/include/stdint.h:
 
 /usr/include/endian.h:
 
-/usr/include/x86_64-linux-gnu/bits/flt-eval-method.h:
-
 /usr/include/c++/13/bits/streambuf_iterator.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/opt_random.h:
-
 /usr/include/c++/13/ostream:
-
-/usr/include/c++/13/tr1/riemann_zeta.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
@@ -1414,19 +1486,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bitset:
 
-/usr/include/c++/13/bits/range_access.h:
-
-/usr/include/c++/13/tr1/hypergeometric.tcc:
-
 /usr/include/c++/13/type_traits:
 
 /usr/include/c++/13/bits/cpp_type_traits.h:
 
 /usr/include/c++/13/cassert:
-
-/usr/include/pqxx/internal/header-post.hxx:
-
-/usr/include/c++/13/tr1/poly_hermite.tcc:
 
 /usr/include/c++/13/bits/fs_ops.h:
 
@@ -1440,10 +1504,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/ext/atomicity.h:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLHallRepository.hpp:
-
-/usr/include/c++/13/tr1/gamma.tcc:
-
 /usr/include/pqxx/internal/result_iter.hxx:
 
 /usr/include/c++/13/cerrno:
@@ -1452,11 +1512,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/charconv:
 
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IEnrollmentRepository.hpp:
+
 /usr/include/c++/13/chrono:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp:
-
-/usr/include/c++/13/cmath:
+/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp:
 
 /usr/include/c++/13/codecvt:
 
@@ -1480,21 +1540,9 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/cwchar:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLBookingRepository.hpp:
-
-/usr/include/linux/errno.h:
-
-/usr/include/c++/13/debug/debug.h:
-
-/usr/include/c++/13/pstl/glue_memory_defs.h:
-
-/usr/include/c++/13/exception:
-
 /usr/include/c++/13/ext/aligned_buffer.h:
 
 /usr/include/locale.h:
-
-/usr/include/pqxx/internal/gates/connection-stream_from.hxx:
 
 /usr/include/c++/13/new:
 
@@ -1514,9 +1562,9 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/functional:
 
-/usr/include/pqxx/pipeline.hxx:
+/usr/include/uuid/uuid.h:
 
-/usr/include/c++/13/tr1/bessel_function.tcc:
+/usr/include/pqxx/pipeline.hxx:
 
 /usr/include/c++/13/initializer_list:
 
@@ -1527,10 +1575,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/c++/13/bits/regex_scanner.tcc:
 
 /usr/include/c++/13/istream:
-
-/usr/include/c++/13/bits/ios_base.h:
-
-/usr/include/c++/13/iterator:
 
 /usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
@@ -1546,6 +1590,12 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/numeric:
 
+/usr/include/c++/13/exception:
+
+/usr/include/c++/13/pstl/glue_memory_defs.h:
+
+/usr/include/c++/13/pstl/glue_numeric_defs.h:
+
 /usr/include/c++/13/bits/regex_automaton.h:
 
 /usr/include/c++/13/pstl/pstl_config.h:
@@ -1556,27 +1606,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/stdexcept:
 
-/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
-
-/usr/include/c++/13/string:
-
-/usr/include/x86_64-linux-gnu/bits/iscanonical.h:
-
 /usr/include/c++/13/map:
 
 /usr/include/c++/13/string_view:
 
 /usr/include/features-time64.h:
-
-/usr/include/c++/13/tr1/ell_integral.tcc:
-
-/usr/include/c++/13/tr1/exp_integral.tcc:
-
-/usr/include/c++/13/tr1/legendre_function.tcc:
-
-/usr/include/c++/13/tr1/modified_bessel_func.tcc:
-
-/usr/include/c++/13/tr1/special_function_util.h:
 
 /usr/include/c++/13/bits/regex_executor.h:
 
@@ -1592,7 +1626,9 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/features.h:
 
-/usr/include/pqxx/array.hxx:
+/usr/include/c++/13/debug/debug.h:
+
+/usr/include/linux/errno.h:
 
 /usr/include/pqxx/binarystring.hxx:
 
@@ -1603,13 +1639,3 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/pqxx/dbtransaction.hxx:
 
 /usr/include/pqxx/field.hxx:
-
-/usr/include/x86_64-linux-gnu/bits/locale.h:
-
-/usr/include/pqxx/internal/cxx-features.hxx:
-
-/usr/include/c++/13/bits/allocated_ptr.h:
-
-/usr/include/c++/13/bit:
-
-/usr/include/pqxx/internal/encodings.hxx:

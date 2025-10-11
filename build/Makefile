@@ -220,6 +220,19 @@ IntegrationTests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/build
 .PHONY : IntegrationTests/fast
 
+#=============================================================================
+# Target rules for targets named TechUI
+
+# Build rule for target.
+TechUI: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TechUI
+.PHONY : TechUI
+
+# fast build rule for target.
+TechUI/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/build
+.PHONY : TechUI/fast
+
 src/data/DatabaseConnection.o: src/data/DatabaseConnection.cpp.o
 .PHONY : src/data/DatabaseConnection.o
 
@@ -267,6 +280,30 @@ src/data/DateTimeUtils.s: src/data/DateTimeUtils.cpp.s
 src/data/DateTimeUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.s
 .PHONY : src/data/DateTimeUtils.cpp.s
+
+src/dtos/AuthDTO.o: src/dtos/AuthDTO.cpp.o
+.PHONY : src/dtos/AuthDTO.o
+
+# target to build an object file
+src/dtos/AuthDTO.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.o
+.PHONY : src/dtos/AuthDTO.cpp.o
+
+src/dtos/AuthDTO.i: src/dtos/AuthDTO.cpp.i
+.PHONY : src/dtos/AuthDTO.i
+
+# target to preprocess a source file
+src/dtos/AuthDTO.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.i
+.PHONY : src/dtos/AuthDTO.cpp.i
+
+src/dtos/AuthDTO.s: src/dtos/AuthDTO.cpp.s
+.PHONY : src/dtos/AuthDTO.s
+
+# target to generate assembly for a file
+src/dtos/AuthDTO.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.s
+.PHONY : src/dtos/AuthDTO.cpp.s
 
 src/dtos/BookingDTO.o: src/dtos/BookingDTO.cpp.o
 .PHONY : src/dtos/BookingDTO.o
@@ -316,6 +353,30 @@ src/dtos/LessonDTO.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/LessonDTO.cpp.s
 .PHONY : src/dtos/LessonDTO.cpp.s
 
+src/dtos/ReviewDTO.o: src/dtos/ReviewDTO.cpp.o
+.PHONY : src/dtos/ReviewDTO.o
+
+# target to build an object file
+src/dtos/ReviewDTO.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/ReviewDTO.cpp.o
+.PHONY : src/dtos/ReviewDTO.cpp.o
+
+src/dtos/ReviewDTO.i: src/dtos/ReviewDTO.cpp.i
+.PHONY : src/dtos/ReviewDTO.i
+
+# target to preprocess a source file
+src/dtos/ReviewDTO.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/ReviewDTO.cpp.i
+.PHONY : src/dtos/ReviewDTO.cpp.i
+
+src/dtos/ReviewDTO.s: src/dtos/ReviewDTO.cpp.s
+.PHONY : src/dtos/ReviewDTO.s
+
+# target to generate assembly for a file
+src/dtos/ReviewDTO.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/ReviewDTO.cpp.s
+.PHONY : src/dtos/ReviewDTO.cpp.s
+
 src/dtos/SubscriptionDTO.o: src/dtos/SubscriptionDTO.cpp.o
 .PHONY : src/dtos/SubscriptionDTO.o
 
@@ -339,6 +400,30 @@ src/dtos/SubscriptionDTO.s: src/dtos/SubscriptionDTO.cpp.s
 src/dtos/SubscriptionDTO.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/SubscriptionDTO.cpp.s
 .PHONY : src/dtos/SubscriptionDTO.cpp.s
+
+src/main.o: src/main.cpp.o
+.PHONY : src/main.o
+
+# target to build an object file
+src/main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/main.cpp.o
+.PHONY : src/main.cpp.o
+
+src/main.i: src/main.cpp.i
+.PHONY : src/main.i
+
+# target to preprocess a source file
+src/main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/main.cpp.i
+.PHONY : src/main.cpp.i
+
+src/main.s: src/main.cpp.s
+.PHONY : src/main.s
+
+# target to generate assembly for a file
+src/main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/main.cpp.s
+.PHONY : src/main.cpp.s
 
 src/models/Booking.o: src/models/Booking.cpp.o
 .PHONY : src/models/Booking.o
@@ -1060,6 +1145,78 @@ src/services/SubscriptionService.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/SubscriptionService.cpp.s
 .PHONY : src/services/SubscriptionService.cpp.s
 
+src/tech_ui/InputHandlers.o: src/tech_ui/InputHandlers.cpp.o
+.PHONY : src/tech_ui/InputHandlers.o
+
+# target to build an object file
+src/tech_ui/InputHandlers.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o
+.PHONY : src/tech_ui/InputHandlers.cpp.o
+
+src/tech_ui/InputHandlers.i: src/tech_ui/InputHandlers.cpp.i
+.PHONY : src/tech_ui/InputHandlers.i
+
+# target to preprocess a source file
+src/tech_ui/InputHandlers.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.i
+.PHONY : src/tech_ui/InputHandlers.cpp.i
+
+src/tech_ui/InputHandlers.s: src/tech_ui/InputHandlers.cpp.s
+.PHONY : src/tech_ui/InputHandlers.s
+
+# target to generate assembly for a file
+src/tech_ui/InputHandlers.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.s
+.PHONY : src/tech_ui/InputHandlers.cpp.s
+
+src/tech_ui/TechUI.o: src/tech_ui/TechUI.cpp.o
+.PHONY : src/tech_ui/TechUI.o
+
+# target to build an object file
+src/tech_ui/TechUI.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
+.PHONY : src/tech_ui/TechUI.cpp.o
+
+src/tech_ui/TechUI.i: src/tech_ui/TechUI.cpp.i
+.PHONY : src/tech_ui/TechUI.i
+
+# target to preprocess a source file
+src/tech_ui/TechUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.i
+.PHONY : src/tech_ui/TechUI.cpp.i
+
+src/tech_ui/TechUI.s: src/tech_ui/TechUI.cpp.s
+.PHONY : src/tech_ui/TechUI.s
+
+# target to generate assembly for a file
+src/tech_ui/TechUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.s
+.PHONY : src/tech_ui/TechUI.cpp.s
+
+src/tech_ui/TechUIManagers.o: src/tech_ui/TechUIManagers.cpp.o
+.PHONY : src/tech_ui/TechUIManagers.o
+
+# target to build an object file
+src/tech_ui/TechUIManagers.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o
+.PHONY : src/tech_ui/TechUIManagers.cpp.o
+
+src/tech_ui/TechUIManagers.i: src/tech_ui/TechUIManagers.cpp.i
+.PHONY : src/tech_ui/TechUIManagers.i
+
+# target to preprocess a source file
+src/tech_ui/TechUIManagers.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.i
+.PHONY : src/tech_ui/TechUIManagers.cpp.i
+
+src/tech_ui/TechUIManagers.s: src/tech_ui/TechUIManagers.cpp.s
+.PHONY : src/tech_ui/TechUIManagers.s
+
+# target to generate assembly for a file
+src/tech_ui/TechUIManagers.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.s
+.PHONY : src/tech_ui/TechUIManagers.cpp.s
+
 src/tests/integration/RepositoryIntegrationTests.o: src/tests/integration/RepositoryIntegrationTests.cpp.o
 .PHONY : src/tests/integration/RepositoryIntegrationTests.o
 
@@ -1268,21 +1425,31 @@ help:
 	@echo "... LessonServiceTests"
 	@echo "... ReviewServiceTests"
 	@echo "... SubscriptionServiceTests"
+	@echo "... TechUI"
 	@echo "... src/data/DatabaseConnection.o"
 	@echo "... src/data/DatabaseConnection.i"
 	@echo "... src/data/DatabaseConnection.s"
 	@echo "... src/data/DateTimeUtils.o"
 	@echo "... src/data/DateTimeUtils.i"
 	@echo "... src/data/DateTimeUtils.s"
+	@echo "... src/dtos/AuthDTO.o"
+	@echo "... src/dtos/AuthDTO.i"
+	@echo "... src/dtos/AuthDTO.s"
 	@echo "... src/dtos/BookingDTO.o"
 	@echo "... src/dtos/BookingDTO.i"
 	@echo "... src/dtos/BookingDTO.s"
 	@echo "... src/dtos/LessonDTO.o"
 	@echo "... src/dtos/LessonDTO.i"
 	@echo "... src/dtos/LessonDTO.s"
+	@echo "... src/dtos/ReviewDTO.o"
+	@echo "... src/dtos/ReviewDTO.i"
+	@echo "... src/dtos/ReviewDTO.s"
 	@echo "... src/dtos/SubscriptionDTO.o"
 	@echo "... src/dtos/SubscriptionDTO.i"
 	@echo "... src/dtos/SubscriptionDTO.s"
+	@echo "... src/main.o"
+	@echo "... src/main.i"
+	@echo "... src/main.s"
 	@echo "... src/models/Booking.o"
 	@echo "... src/models/Booking.i"
 	@echo "... src/models/Booking.s"
@@ -1373,6 +1540,15 @@ help:
 	@echo "... src/services/SubscriptionService.o"
 	@echo "... src/services/SubscriptionService.i"
 	@echo "... src/services/SubscriptionService.s"
+	@echo "... src/tech_ui/InputHandlers.o"
+	@echo "... src/tech_ui/InputHandlers.i"
+	@echo "... src/tech_ui/InputHandlers.s"
+	@echo "... src/tech_ui/TechUI.o"
+	@echo "... src/tech_ui/TechUI.i"
+	@echo "... src/tech_ui/TechUI.s"
+	@echo "... src/tech_ui/TechUIManagers.o"
+	@echo "... src/tech_ui/TechUIManagers.i"
+	@echo "... src/tech_ui/TechUIManagers.s"
 	@echo "... src/tests/integration/RepositoryIntegrationTests.o"
 	@echo "... src/tests/integration/RepositoryIntegrationTests.i"
 	@echo "... src/tests/integration/RepositoryIntegrationTests.s"

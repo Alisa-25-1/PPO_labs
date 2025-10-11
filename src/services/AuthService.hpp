@@ -1,4 +1,6 @@
-#pragma once
+#ifndef AUTHSERVICE_HPP
+#define AUTHSERVICE_HPP
+
 #include "../repositories/IClientRepository.hpp"
 #include "../dtos/AuthDTO.hpp"
 #include "../types/uuid.hpp"
@@ -10,9 +12,6 @@
 class AuthService {
 private:
     std::unique_ptr<IClientRepository> clientRepository_;
-    
-    std::string hashPassword(const std::string& password) const;
-    bool verifyPassword(const std::string& password, const std::string& hash) const;
 
 public:
     explicit AuthService(std::unique_ptr<IClientRepository> clientRepo);
@@ -23,3 +22,5 @@ public:
     void resetPassword(const std::string& email);
     bool validateSession(const UUID& clientId) const;
 };
+
+#endif // AUTHSERVICE_HPP

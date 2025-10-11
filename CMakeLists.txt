@@ -47,9 +47,13 @@ add_library(BookingCore
     ${SOURCE_ROOT}/services/ReviewService.cpp
     ${SOURCE_ROOT}/services/ScheduleService.cpp
     ${SOURCE_ROOT}/dtos/BookingDTO.cpp
-    #${SOURCE_ROOT}/dtos/AuthDTO.cpp
     ${SOURCE_ROOT}/dtos/LessonDTO.cpp
     ${SOURCE_ROOT}/dtos/SubscriptionDTO.cpp
+    ${SOURCE_ROOT}/dtos/ReviewDTO.cpp      # Добавляем
+    ${SOURCE_ROOT}/dtos/AuthDTO.cpp        # Добавляем
+    # Добавляем файлы технологического UI
+    ${SOURCE_ROOT}/tech_ui/InputHandlers.cpp
+    ${SOURCE_ROOT}/tech_ui/TechUIManagers.cpp
 )
 
 # Для Linux линкуем библиотеку uuid
@@ -65,6 +69,7 @@ target_include_directories(BookingCore PUBLIC
     ${SOURCE_ROOT}/services
     ${SOURCE_ROOT}/dtos
     ${SOURCE_ROOT}/repositories
+    ${SOURCE_ROOT}/tech_ui
 )
 
 add_library(DataAccess
@@ -154,7 +159,6 @@ target_link_libraries(ReviewServiceTests
     GTest::gmock
 )
 
-# # Интеграционные тесты
 # Интеграционные тесты
 add_executable(IntegrationTests
     ${SOURCE_ROOT}/tests/integration/RepositoryIntegrationTests.cpp
@@ -169,15 +173,15 @@ target_link_libraries(IntegrationTests
     ${LIBPQXX_LIBRARIES}
 )
 
-# # Технологический UI - ЕДИНСТВЕННОЕ основное приложение
-# add_executable(TechUI
-#     ${SOURCE_ROOT}/main.cpp
-#     ${SOURCE_ROOT}/tech_ui/TechUI.cpp
-# )
+# Технологический UI 
+add_executable(TechUI
+    ${SOURCE_ROOT}/main.cpp
+    ${SOURCE_ROOT}/tech_ui/TechUI.cpp
+)
 
-# target_include_directories(TechUI PRIVATE ${SOURCE_ROOT})
-# target_link_libraries(TechUI 
-#     BookingCore 
-#     DataAccess 
-#     ${LIBPQXX_LIBRARIES}
-# )
+target_include_directories(TechUI PRIVATE ${SOURCE_ROOT})
+target_link_libraries(TechUI 
+    BookingCore 
+    DataAccess 
+    ${LIBPQXX_LIBRARIES}
+)

@@ -29,14 +29,16 @@ std::chrono::system_clock::time_point Client::getRegistrationDate() const { retu
 AccountStatus Client::getStatus() const { return status_; }
 
 bool Client::validatePassword(const std::string& password) const {
-    return !password.empty() && passwordHash_ == password; // В реальном приложении - хэширование
+    // Прямое сравнение паролей без хэширования
+    return !password.empty() && passwordHash_ == password;
 }
 
 void Client::changePassword(const std::string& newPassword) {
     if (!isValidPassword(newPassword)) {
         throw std::invalid_argument("Invalid password format");
     }
-    passwordHash_ = newPassword; // В реальном приложении - хэширование
+    // Сохраняем пароль напрямую без хэширования
+    passwordHash_ = newPassword;
 }
 
 bool Client::isActive() const {
@@ -56,7 +58,7 @@ void Client::suspend() {
 }
 
 bool Client::isValid() const {
-    return !id_.isNull() && id_.isValid() && 
+    return !id_.isNull() && id_.isValid() &&
            isValidName(name_) && 
            isValidEmail(email_) && 
            isValidPhone(phone_) &&
@@ -64,8 +66,12 @@ bool Client::isValid() const {
 }
 
 bool Client::isValidName(const std::string& name) {
-    // Проверка: не пустое, разумная длина, только буквы и пробелы
-    if (name.empty() || name.length() > 100 || name.length() < 2) {
+    // Разрешаем пустое имя при регистрации - ИЗМЕНИМ ЭТО
+    if (name.empty()) {
+        return false; // Теперь имя не может быть пустым
+    }
+    
+    if (name.length() > 100 || name.length() < 2) {
         return false;
     }
     
@@ -113,12 +119,15 @@ bool Client::isValidEmail(const std::string& email) {
 }
 
 bool Client::isValidPhone(const std::string& phone) {
-    // Проверка: не пустое, разумная длина
-    if (phone.empty() || phone.length() < 10 || phone.length() > 20) {
+    // Разрешаем пустой телефон при регистрации
+    if (phone.empty()) {
+        return true;
+    }
+    
+    if (phone.length() < 10 || phone.length() > 20) {
         return false;
     }
     
-    // Удаляем все нецифровые символы кроме + в начале
     std::string cleanPhone;
     for (size_t i = 0; i < phone.length(); ++i) {
         char c = phone[i];
@@ -129,14 +138,12 @@ bool Client::isValidPhone(const std::string& phone) {
         }
     }
     
-    // Проверка минимальной длины после очистки
     if (cleanPhone.empty() || 
-        (cleanPhone[0] == '+' && cleanPhone.length() < 11) || // + и 10 цифр
-        (cleanPhone[0] != '+' && cleanPhone.length() < 10)) { // 10 цифр
+        (cleanPhone[0] == '+' && cleanPhone.length() < 11) ||
+        (cleanPhone[0] != '+' && cleanPhone.length() < 10)) {
         return false;
     }
     
-    // Проверка на только цифры и возможный + в начале
     std::regex phonePattern(R"(^\+?[0-9]{10,15}$)");
     return std::regex_match(cleanPhone, phonePattern);
 }

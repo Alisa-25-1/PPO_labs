@@ -3,19 +3,20 @@
 #include "tech_ui/TechUI.hpp"
 
 int main() {
-    std::cout << "=== Dance Studio Tech UI System ===" << std::endl;
-    
     try {
-        // Создаем технологический UI
-        TechUI techUI("postgresql://dance_user:dance_password@localhost/dance_studio");
+        std::string connectionString = "postgresql://dance_user:dance_password@localhost/dance_studio";
         
-        // Запускаем основной цикл
+        std::cout << "🚀 Запуск технологического UI танцевальной студии" << std::endl;
+        std::cout << "📡 Подключение к БД: " << connectionString << std::endl;
+        
+        TechUI techUI(connectionString);
         techUI.run();
         
+        std::cout << "👋 Завершение работы технологического UI" << std::endl;
         return 0;
         
     } catch (const std::exception& e) {
-        std::cerr << "❌ Fatal error: " << e.what() << std::endl;
+        std::cerr << "💥 Критическая ошибка: " << e.what() << std::endl;
         return 1;
     }
 }

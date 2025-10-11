@@ -25,7 +25,7 @@ public:
     std::string getDescription() const;
     int getValidityDays() const;
     int getVisitCount() const;
-    bool isUnlimited() const; 
+    bool isUnlimited() const;  // Один раз объявляем
     double getPrice() const;
     
     // Сеттеры

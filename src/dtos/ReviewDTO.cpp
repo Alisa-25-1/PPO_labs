@@ -1,4 +1,5 @@
 #include "ReviewDTO.hpp"
+#include <regex>
 
 bool ReviewRequestDTO::validate() const {
     return !clientId.isNull() && clientId.isValid() &&

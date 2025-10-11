@@ -8,8 +8,10 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.cpp" "CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.cpp" "CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.cpp" "CMakeFiles/BookingCore.dir/src/dtos/LessonDTO.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/dtos/LessonDTO.cpp.o.d"
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.cpp" "CMakeFiles/BookingCore.dir/src/dtos/ReviewDTO.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/dtos/ReviewDTO.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.cpp" "CMakeFiles/BookingCore.dir/src/dtos/SubscriptionDTO.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/dtos/SubscriptionDTO.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.cpp" "CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.cpp" "CMakeFiles/BookingCore.dir/src/models/Branch.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/models/Branch.cpp.o.d"
@@ -30,6 +32,8 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/services/ReviewService.cpp" "CMakeFiles/BookingCore.dir/src/services/ReviewService.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/services/ReviewService.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/services/ScheduleService.cpp" "CMakeFiles/BookingCore.dir/src/services/ScheduleService.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/services/ScheduleService.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.cpp" "CMakeFiles/BookingCore.dir/src/services/SubscriptionService.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/services/SubscriptionService.cpp.o.d"
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.cpp" "CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o.d"
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.cpp" "CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.cpp" "CMakeFiles/BookingCore.dir/src/types/enums.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/types/enums.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.cpp" "CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o.d"
   )

@@ -68,7 +68,7 @@ bool PostgreSQLClientRepository::save(const Client& client) {
             client.getName(),
             client.getEmail(),
             client.getPhone(),
-            "hashed_password", // В реальном приложении нужно хэшировать
+            client.getPasswordHash(), // Сохраняем пароль напрямую
             DateTimeUtils::formatTimeForPostgres(client.getRegistrationDate()),
             "ACTIVE" // Упрощенно
         );
@@ -88,7 +88,7 @@ bool PostgreSQLClientRepository::update(const Client& client) {
         auto work = dbConnection_->beginTransaction();
         
         std::string query = 
-            "UPDATE clients SET name = $2, email = $3, phone = $4, status = $5 "
+            "UPDATE clients SET name = $2, email = $3, phone = $4, password_hash = $5, status = $6 "
             "WHERE id = $1";
         
         auto result = work.exec_params(
@@ -97,6 +97,7 @@ bool PostgreSQLClientRepository::update(const Client& client) {
             client.getName(),
             client.getEmail(),
             client.getPhone(),
+            client.getPasswordHash(), // Обновляем пароль напрямую
             "ACTIVE" // Упрощенно
         );
         
@@ -144,7 +145,13 @@ Client PostgreSQLClientRepository::mapResultToClient(const pqxx::row& row) const
     std::string email = row["email"].c_str();
     std::string phone = row["phone"].c_str();
     
-    return Client(id, name, email, phone);
+    Client client(id, name, email, phone);
+    
+    // Устанавливаем пароль напрямую из базы данных
+    std::string passwordHash = row["password_hash"].c_str();
+    client.changePassword(passwordHash);
+    
+    return client;
 }
 
 void PostgreSQLClientRepository::validateClient(const Client& client) const {

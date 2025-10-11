@@ -12,12 +12,7 @@ struct ReviewRequestDTO {
     int rating;
     std::string comment;
     
-    bool validate() const {
-        return !clientId.isNull() && clientId.isValid() &&
-               !lessonId.isNull() && lessonId.isValid() &&
-               rating >= 1 && rating <= 5 &&
-               comment.length() <= 1000;
-    }
+    bool validate() const;
 };
 
 struct ReviewResponseDTO {

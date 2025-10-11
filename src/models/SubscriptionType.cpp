@@ -21,7 +21,7 @@ std::string SubscriptionType::getName() const { return name_; }
 std::string SubscriptionType::getDescription() const { return description_; }
 int SubscriptionType::getValidityDays() const { return validityDays_; }
 int SubscriptionType::getVisitCount() const { return visitCount_; }
-bool SubscriptionType::isUnlimited() const { return unlimited_; }
+bool SubscriptionType::isUnlimited() const { return unlimited_; }  // Одна реализация
 double SubscriptionType::getPrice() const { return price_; }
 
 void SubscriptionType::setDescription(const std::string& description) {
