@@ -22,7 +22,6 @@ DatabaseConnection::~DatabaseConnection() {
 pqxx::connection& DatabaseConnection::getConnection() {
     if (!connection_ || !connection_->is_open()) {
         try {
-            // Попытка переподключения
             connection_ = std::make_unique<pqxx::connection>(connectionString_);
             if (!connection_->is_open()) {
                 throw std::runtime_error("Failed to reconnect to database");
@@ -39,7 +38,7 @@ bool DatabaseConnection::isConnected() const {
 }
 
 pqxx::work DatabaseConnection::beginTransaction() {
-    return pqxx::work(getConnection());
+    return pqxx::work(getConnection()); 
 }
 
 void DatabaseConnection::commitTransaction(pqxx::work& transaction) {

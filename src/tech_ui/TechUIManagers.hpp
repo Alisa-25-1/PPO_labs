@@ -11,7 +11,7 @@
 #include "../services/ReviewService.hpp"
 #include "../services/ScheduleService.hpp"
 #include "../services/EnrollmentService.hpp"
-#include "../data/DatabaseConnection.hpp"
+#include "../data/ResilientDatabaseConnection.hpp"
 #include "../models/DanceHall.hpp"
 #include "../models/Trainer.hpp"
 #include "../models/Lesson.hpp"
@@ -32,7 +32,7 @@ class IStudioRepository;
 
 class TechUIManagers {
 private:
-    std::shared_ptr<DatabaseConnection> dbConnection_;
+    std::shared_ptr<ResilientDatabaseConnection> dbConnection_;
     
     // Репозитории
     std::shared_ptr<IClientRepository> clientRepo_;

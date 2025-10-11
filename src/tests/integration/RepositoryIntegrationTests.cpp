@@ -30,20 +30,104 @@
 #include "../../repositories/impl/PostgreSQLEnrollmentRepository.hpp"
 #include "../../repositories/impl/PostgreSQLReviewRepository.hpp"
 
-// Данные
-#include "../../data/DatabaseConnection.hpp"
+#include "../../data/ResilientDatabaseConnection.hpp"
 
 class RepositoryIntegrationTest : public ::testing::Test {
 protected:
-    void SetUp() override;
-    void TearDown() override;
-
-    void clearTestData();
-    void setupTestData();
-
-    std::shared_ptr<DatabaseConnection> dbConnection;
+    static std::shared_ptr<ResilientDatabaseConnection> dbConnection;
     
-    // Все репозитории
+
+    static void SetUpTestSuite() {
+        std::cout << "🔧 Setting up resilient database connection for test suite..." << std::endl;
+        
+        std::string connectionString = "postgresql://dance_user:dance_password@localhost/test_dance_studio";
+        dbConnection = std::make_shared<ResilientDatabaseConnection>(connectionString);
+        
+        dbConnection->setRetryPolicy(5, std::chrono::milliseconds(2000));
+    
+        // Проверяем подключение
+        if (!dbConnection->isConnected()) {
+            throw std::runtime_error("Failed to connect to test database");
+        }
+        
+        std::cout << "✅ Resilient database connection ready for testing" << std::endl;
+}
+    
+    static void TearDownTestSuite() {
+        std::cout << "🧹 Cleaning up test suite..." << std::endl;
+        dbConnection.reset();
+        std::cout << "✅ Test suite cleanup complete" << std::endl;
+    }
+
+    void SetUp() override {
+        clientRepository = std::make_unique<PostgreSQLClientRepository>(dbConnection);
+        hallRepository = std::make_unique<PostgreSQLDanceHallRepository>(dbConnection);
+        bookingRepository = std::make_unique<PostgreSQLBookingRepository>(dbConnection);
+        subscriptionRepository = std::make_unique<PostgreSQLSubscriptionRepository>(dbConnection);
+        subscriptionTypeRepository = std::make_unique<PostgreSQLSubscriptionTypeRepository>(dbConnection);
+        studioRepository = std::make_unique<PostgreSQLStudioRepository>(dbConnection);
+        branchRepository = std::make_unique<PostgreSQLBranchRepository>(dbConnection);
+        trainerRepository = std::make_unique<PostgreSQLTrainerRepository>(dbConnection);
+        lessonRepository = std::make_unique<PostgreSQLLessonRepository>(dbConnection);
+        enrollmentRepository = std::make_unique<PostgreSQLEnrollmentRepository>(dbConnection);
+        reviewRepository = std::make_unique<PostgreSQLReviewRepository>(dbConnection);
+        
+        // Очищаем и готовим данные для КАЖДОГО теста
+        clearTestData();
+        setupTestData();
+        
+        std::cout << "✅ Test data prepared for: " << ::testing::UnitTest::GetInstance()->current_test_info()->name() << std::endl;
+    }
+
+    void TearDown() override {
+        clearTestData();
+    }
+
+    void clearTestData() {
+    try {
+        auto work = dbConnection->beginTransaction(); 
+        work.exec("TRUNCATE TABLE reviews, enrollments, lessons, trainer_specializations, "
+                 "trainers, bookings, subscriptions, subscription_types, "
+                 "clients, dance_halls, branches, studios CASCADE");
+        dbConnection->commitTransaction(work); 
+    } catch (const std::exception& e) {
+        std::cerr << "⚠️ Warning: Failed to clear test data: " << e.what() << std::endl;
+    }
+}
+    void setupTestData() {
+        try {
+            auto work = dbConnection->beginTransaction();
+
+            // Создаем тестовые данные
+            work.exec("INSERT INTO studios (id, name, contact_email) VALUES "
+                    "('11111111-1111-1111-1111-111111111111', 'Test Studio', 'studio@test.com')");
+            
+            work.exec("INSERT INTO branches (id, name, address, phone, open_time, close_time, studio_id) VALUES "
+                    "('22222222-2222-2222-2222-222222222222', 'Test Branch', 'Test Address', '+1234567890', 9, 22, '11111111-1111-1111-1111-111111111111')");
+            
+            work.exec("INSERT INTO dance_halls (id, name, description, capacity, floor_type, equipment, branch_id) VALUES "
+                    "('33333333-3333-3333-3333-333333333333', 'Test Hall 1', 'Large hall', 50, 'wooden', 'mirrors', '22222222-2222-2222-2222-222222222222'),"
+                    "('44444444-4444-4444-4444-444444444444', 'Test Hall 2', 'Small hall', 30, 'marley', 'sound system', '22222222-2222-2222-2222-222222222222')");
+            
+            work.exec("INSERT INTO subscription_types (id, name, description, validity_days, visit_count, unlimited, price) VALUES "
+                    "('55555555-5555-5555-5555-555555555555', 'Monthly', 'Monthly subscription', 30, 8, false, 100.0),"
+                    "('66666666-6666-6666-6666-666666666666', 'Unlimited', 'Unlimited monthly', 30, 0, true, 200.0)");
+            
+            work.exec("INSERT INTO trainers (id, name, biography, qualification_level, is_active) VALUES "
+                    "('77777777-7777-7777-7777-777777777777', 'Test Trainer', 'Experienced trainer', 'senior', true)");
+            
+            work.exec("INSERT INTO trainer_specializations (trainer_id, specialization) VALUES "
+                    "('77777777-7777-7777-7777-777777777777', 'Ballet'),"
+                    "('77777777-7777-7777-7777-777777777777', 'Contemporary')");
+            
+            dbConnection->commitTransaction(work);
+        } catch (const std::exception& e) {
+            std::cerr << "❌ Failed to setup test data: " << e.what() << std::endl;
+            throw;
+        }
+    }
+
+
     std::unique_ptr<IClientRepository> clientRepository;
     std::unique_ptr<IDanceHallRepository> hallRepository;
     std::unique_ptr<IBookingRepository> bookingRepository;
@@ -57,108 +141,17 @@ protected:
     std::unique_ptr<IReviewRepository> reviewRepository;
 };
 
-void RepositoryIntegrationTest::SetUp() {
-    // Используем тестовую базу данных
-    std::string connectionString = "postgresql://dance_user:dance_password@localhost/test_dance_studio";
-    dbConnection = std::make_shared<DatabaseConnection>(connectionString);
-    
-    // Инициализация всех репозиториев
-    clientRepository = std::make_unique<PostgreSQLClientRepository>(dbConnection);
-    hallRepository = std::make_unique<PostgreSQLDanceHallRepository>(dbConnection);
-    bookingRepository = std::make_unique<PostgreSQLBookingRepository>(dbConnection);
-    subscriptionRepository = std::make_unique<PostgreSQLSubscriptionRepository>(dbConnection);
-    subscriptionTypeRepository = std::make_unique<PostgreSQLSubscriptionTypeRepository>(dbConnection);
-    studioRepository = std::make_unique<PostgreSQLStudioRepository>(dbConnection);
-    branchRepository = std::make_unique<PostgreSQLBranchRepository>(dbConnection);
-    trainerRepository = std::make_unique<PostgreSQLTrainerRepository>(dbConnection);
-    lessonRepository = std::make_unique<PostgreSQLLessonRepository>(dbConnection);
-    enrollmentRepository = std::make_unique<PostgreSQLEnrollmentRepository>(dbConnection);
-    reviewRepository = std::make_unique<PostgreSQLReviewRepository>(dbConnection);
-    
-    // Очищаем тестовые данные перед каждым тестом
-    clearTestData();
-    
-    // Создаем тестовые данные
-    setupTestData();
-}
-
-void RepositoryIntegrationTest::TearDown() {
-    clearTestData();
-}
-
-void RepositoryIntegrationTest::clearTestData() {
-    try {
-        auto work = dbConnection->beginTransaction();
-        work.exec("DELETE FROM reviews");
-        work.exec("DELETE FROM enrollments");
-        work.exec("DELETE FROM lessons");
-        work.exec("DELETE FROM trainer_specializations");
-        work.exec("DELETE FROM trainers");
-        work.exec("DELETE FROM bookings");
-        work.exec("DELETE FROM subscriptions");
-        work.exec("DELETE FROM subscription_types");
-        work.exec("DELETE FROM clients");
-        work.exec("DELETE FROM dance_halls");
-        work.exec("DELETE FROM branches");
-        work.exec("DELETE FROM studios");
-        dbConnection->commitTransaction(work);
-    } catch (...) {
-        // Игнорируем ошибки очистки
-    }
-}
-
-void RepositoryIntegrationTest::setupTestData() {
-    auto work = dbConnection->beginTransaction();
-
-    // Создаем студию
-    work.exec("INSERT INTO studios (id, name, contact_email) VALUES "
-            "('11111111-1111-1111-1111-111111111111', 'Test Studio', 'studio@test.com')");
-    
-    // Создаем филиал - ИСПРАВЛЕНО: используем целые числа для времени
-    work.exec("INSERT INTO branches (id, name, address, phone, open_time, close_time, studio_id) VALUES "
-            "('22222222-2222-2222-2222-222222222222', 'Test Branch', 'Test Address', '+1234567890', "
-            "9, 22, '11111111-1111-1111-1111-111111111111')");
-    
-    // Создаем залы
-    work.exec("INSERT INTO dance_halls (id, name, description, capacity, floor_type, equipment, branch_id) VALUES "
-            "('33333333-3333-3333-3333-333333333333', 'Test Hall 1', 'Test hall for integration tests', "
-            "50, 'wooden', 'mirrors, sound system', '22222222-2222-2222-2222-222222222222')");
-    
-    work.exec("INSERT INTO dance_halls (id, name, description, capacity, floor_type, equipment, branch_id) VALUES "
-            "('44444444-4444-4444-4444-444444444444', 'Test Hall 2', 'Another test hall', "
-            "30, 'marley', 'mirrors, barre', '22222222-2222-2222-2222-222222222222')");
-    
-    // Создаем тип абонемента
-    work.exec("INSERT INTO subscription_types (id, name, description, validity_days, visit_count, unlimited, price) VALUES "
-            "('55555555-5555-5555-5555-555555555555', 'Monthly Test', 'Test subscription type', "
-            "30, 8, false, 100.00)");
-    
-    // Создаем тренера
-    work.exec("INSERT INTO trainers (id, name, biography, qualification_level, is_active) VALUES "
-            "('66666666-6666-6666-6666-666666666666', 'Test Trainer', 'Test biography', 'senior', true)");
-    
-    // Добавляем специализации тренера
-    work.exec("INSERT INTO trainer_specializations (trainer_id, specialization) VALUES "
-            "('66666666-6666-6666-6666-666666666666', 'Ballet')");
-    work.exec("INSERT INTO trainer_specializations (trainer_id, specialization) VALUES "
-            "('66666666-6666-6666-6666-666666666666', 'Contemporary')");
-    
-    // Создаем занятие
-    work.exec("INSERT INTO lessons (id, type, name, description, start_time, duration_minutes, "
-            "difficulty, max_participants, current_participants, price, status, trainer_id, hall_id) VALUES "
-            "('77777777-7777-7777-7777-777777777777', 'OPEN_CLASS', 'Test Lesson', 'Test lesson description', "
-            "CURRENT_TIMESTAMP + INTERVAL '1 hour', 60, 'BEGINNER', 10, 0, 25.00, 'SCHEDULED', "
-            "'66666666-6666-6666-6666-666666666666', '33333333-3333-3333-3333-333333333333')");
-    
-    dbConnection->commitTransaction(work);
-}
-
-// === СУЩЕСТВУЮЩИЕ ТЕСТЫ ===
+// Статическая инициализация
+std::shared_ptr<ResilientDatabaseConnection> RepositoryIntegrationTest::dbConnection = nullptr;
 
 TEST_F(RepositoryIntegrationTest, ClientRepository_SaveAndFind) {
     // Arrange
     UUID clientId = UUID::generate();
     Client client(clientId, "Integration Test User", "integration@example.com", "+12345678901");
+    
+    // Устанавливаем валидный пароль
+    client.changePassword("ValidPass123");
+    client.activate();
     
     // Act
     bool saveResult = clientRepository->save(client);
@@ -184,6 +177,8 @@ TEST_F(RepositoryIntegrationTest, BookingRepository_FullCycle) {
     
     // Создаем клиента
     Client client(clientId, "Booking Test User", "booking@example.com", "+12345678901");
+    client.changePassword("ValidPass123");
+    client.activate();
     clientRepository->save(client);
     
     auto startTime = std::chrono::system_clock::now() + std::chrono::hours(1);
@@ -225,6 +220,8 @@ TEST_F(RepositoryIntegrationTest, SubscriptionRepository_CreateAndFind) {
     
     // Создаем клиента
     Client client(clientId, "Subscription Test User", "subscription@example.com", "+12345678901");
+    client.changePassword("ValidPass123");
+    client.activate();
     clientRepository->save(client);
     
     auto startDate = std::chrono::system_clock::now();
@@ -318,8 +315,13 @@ TEST_F(RepositoryIntegrationTest, SubscriptionTypeRepository_CreateAndFind) {
 int main(int argc, char **argv) {
     ::testing::InitGoogleTest(&argc, argv);
     
-    std::cout << "Running integration tests. Ensure test database is running." << std::endl;
-    std::cout << "Connection string: postgresql://dance_user:dance_password@localhost/test_dance_studio" << std::endl;
+    std::cout << "🚀 Running integration tests with database connection" << std::endl;
+    std::cout << "📊 Connection: postgresql://dance_user:dance_password@localhost/test_dance_studio" << std::endl;
     
-    return RUN_ALL_TESTS();
+    try {
+        return RUN_ALL_TESTS();
+    } catch (const std::exception& e) {
+        std::cerr << "💥 Test suite failed with exception: " << e.what() << std::endl;
+        return 1;
+    }
 }

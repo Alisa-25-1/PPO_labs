@@ -393,4 +393,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/PostgreSQLReviewRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../IReviewRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../models/Review.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../data/DatabaseConnection.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../data/ResilientDatabaseConnection.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../data/DatabaseConnection.hpp \
+ /usr/include/c++/13/thread /usr/include/c++/13/bits/std_thread.h \
+ /usr/include/c++/13/bits/this_thread_sleep.h

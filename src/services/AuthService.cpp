@@ -83,8 +83,9 @@ void AuthService::resetPassword(const std::string& email) {
         return;
     }
     
-    // Генерируем временный пароль и сохраняем напрямую
-    std::string tempPassword = "temp123"; // Временный пароль
+    // Генерируем временный пароль и отправляем по email
+    // В реальной системе здесь должна быть отправка email
+    std::string tempPassword = "TempPass123"; // Валидный временный пароль
     client->changePassword(tempPassword);
     clientRepository_->update(*client);
 }

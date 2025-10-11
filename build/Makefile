@@ -281,6 +281,30 @@ src/data/DateTimeUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.s
 .PHONY : src/data/DateTimeUtils.cpp.s
 
+src/data/ResilientDatabaseConnection.o: src/data/ResilientDatabaseConnection.cpp.o
+.PHONY : src/data/ResilientDatabaseConnection.o
+
+# target to build an object file
+src/data/ResilientDatabaseConnection.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o
+.PHONY : src/data/ResilientDatabaseConnection.cpp.o
+
+src/data/ResilientDatabaseConnection.i: src/data/ResilientDatabaseConnection.cpp.i
+.PHONY : src/data/ResilientDatabaseConnection.i
+
+# target to preprocess a source file
+src/data/ResilientDatabaseConnection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.i
+.PHONY : src/data/ResilientDatabaseConnection.cpp.i
+
+src/data/ResilientDatabaseConnection.s: src/data/ResilientDatabaseConnection.cpp.s
+.PHONY : src/data/ResilientDatabaseConnection.s
+
+# target to generate assembly for a file
+src/data/ResilientDatabaseConnection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.s
+.PHONY : src/data/ResilientDatabaseConnection.cpp.s
+
 src/dtos/AuthDTO.o: src/dtos/AuthDTO.cpp.o
 .PHONY : src/dtos/AuthDTO.o
 
@@ -1480,6 +1504,9 @@ help:
 	@echo "... src/data/DateTimeUtils.o"
 	@echo "... src/data/DateTimeUtils.i"
 	@echo "... src/data/DateTimeUtils.s"
+	@echo "... src/data/ResilientDatabaseConnection.o"
+	@echo "... src/data/ResilientDatabaseConnection.i"
+	@echo "... src/data/ResilientDatabaseConnection.s"
 	@echo "... src/dtos/AuthDTO.o"
 	@echo "... src/dtos/AuthDTO.i"
 	@echo "... src/dtos/AuthDTO.s"

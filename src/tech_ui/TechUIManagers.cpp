@@ -13,7 +13,9 @@
 
 TechUIManagers::TechUIManagers(const std::string& connectionString) {
     try {
-        dbConnection_ = std::make_shared<DatabaseConnection>(connectionString);
+        auto resilientConnection = std::make_shared<ResilientDatabaseConnection>(connectionString);
+        resilientConnection->setRetryPolicy(3, std::chrono::milliseconds(1000));
+        dbConnection_ = resilientConnection;  // Присваиваем базовому классу
         
         // Инициализация репозиториев
         clientRepo_ = std::make_shared<PostgreSQLClientRepository>(dbConnection_);

@@ -5,6 +5,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp \
@@ -431,6 +432,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp \

@@ -6396,6 +6396,7 @@ CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o: /home/nikita/Общ�
 
 CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.cpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/SubscriptionType.hpp \
@@ -6476,6 +6477,7 @@ CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o: /home/nikita/Общ
   /usr/include/assert.h \
   /usr/include/c++/13/algorithm \
   /usr/include/c++/13/array \
+  /usr/include/c++/13/atomic \
   /usr/include/c++/13/backward/auto_ptr.h \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
@@ -6559,6 +6561,7 @@ CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o: /home/nikita/Общ
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_thread.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -6586,6 +6589,7 @@ CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o: /home/nikita/Общ
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/this_thread_sleep.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
@@ -6654,6 +6658,7 @@ CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o: /home/nikita/Общ
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
+  /usr/include/c++/13/thread \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
@@ -7273,6 +7278,8 @@ CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: /home/nikita/Общедосту
 
 /usr/include/c++/13/variant:
 
+/usr/include/c++/13/thread:
+
 /usr/include/c++/13/pstl/glue_numeric_defs.h:
 
 /usr/include/c++/13/functional:
@@ -7309,6 +7316,8 @@ CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: /home/nikita/Общедосту
 
 /usr/include/c++/13/bits/erase_if.h:
 
+/usr/include/c++/13/atomic:
+
 /usr/include/c++/13/array:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.hpp:
@@ -7322,6 +7331,8 @@ CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: /home/nikita/Общедосту
 /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLDanceHallRepository.hpp:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.hpp:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp:
 
@@ -7607,6 +7618,8 @@ CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: /home/nikita/Общедосту
 
 /usr/include/c++/13/bits/algorithmfwd.h:
 
+/usr/include/c++/13/bits/this_thread_sleep.h:
+
 /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp:
 
 /usr/include/c++/13/bits/alloc_traits.h:
@@ -7774,6 +7787,8 @@ CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: /home/nikita/Общедосту
 /usr/include/c++/13/bits/ostream.tcc:
 
 /usr/include/pqxx/pipeline.hxx:
+
+/usr/include/c++/13/bits/std_thread.h:
 
 /usr/include/c++/13/initializer_list:
 

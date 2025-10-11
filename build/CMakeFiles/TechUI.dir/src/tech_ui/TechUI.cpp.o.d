@@ -262,6 +262,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../dtos/EnrollmentDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../dtos/../models/Enrollment.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/exceptions/EnrollmentException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/ResilientDatabaseConnection.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/DatabaseConnection.hpp \
  /usr/include/pqxx/pqxx /usr/include/pqxx/internal/header-pre.hxx \
  /usr/include/c++/13/version /usr/include/pqxx/internal/cxx-features.hxx \
@@ -321,7 +322,9 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: \
  /usr/include/pqxx/stream_from.hxx /usr/include/pqxx/stream_to.hxx \
  /usr/include/pqxx/subtransaction.hxx /usr/include/pqxx/time.hxx \
  /usr/include/pqxx/transactor.hxx \
- /usr/include/pqxx/internal/header-post.hxx \
+ /usr/include/pqxx/internal/header-post.hxx /usr/include/c++/13/thread \
+ /usr/include/c++/13/bits/std_thread.h \
+ /usr/include/c++/13/bits/this_thread_sleep.h /usr/include/c++/13/atomic \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/DanceHall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/Trainer.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/Lesson.hpp \

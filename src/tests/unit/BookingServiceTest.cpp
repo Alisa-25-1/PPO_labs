@@ -38,6 +38,7 @@ protected:
 
         // Создаем объекты через указатели (отложенная инициализация)
         testClient_ = std::make_unique<Client>(testClientId_, "John Doe", "john@example.com", "+12345678901");
+        testClient_->changePassword("ValidPass123");
         testHall_ = std::make_unique<DanceHall>(testHallId_, "Main Hall", 50, testBranchId_);  // Исправлено на DanceHall
         testTimeSlot_ = std::make_unique<TimeSlot>(std::chrono::system_clock::now() + std::chrono::hours(1), 120);
         testBooking_ = std::make_unique<Booking>(testBookingId_, testClientId_, testHallId_, *testTimeSlot_, "Test practice session");
@@ -141,8 +142,9 @@ TEST_F(BookingServiceTest, CreateBooking_HallNotFound) {
 TEST_F(BookingServiceTest, CreateBooking_InactiveClient) {
     // Создаем неактивного клиента специально для этого теста
     auto inactiveClient = Client(testClientId_, "Inactive John", "inactive@example.com", "+12345678901");
-    inactiveClient.changePassword("password123"); // Пароль устанавливаем напрямую
     inactiveClient.deactivate();
+    
+    inactiveClient.changePassword("ValidPass123");
     
     BookingRequestDTO request(testClientId_, testHallId_, *testTimeSlot_, "Dance practice session");
     

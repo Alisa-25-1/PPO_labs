@@ -36,26 +36,16 @@ protected:
             std::move(mockHallRepo)
         );
 
-        // Создаем валидного тренера с полными данными
-        std::vector<std::string> specializations = {"Ballet", "Contemporary"};
-        testTrainer_ = std::make_unique<Trainer>(testTrainerId_, "John Trainer", specializations);
-        testTrainer_->setQualificationLevel("senior");
-        testTrainer_->setBiography("Experienced trainer with 10 years of experience");
-        
-        // Создаем валидный зал
+        // ИСПРАВЛЕНИЕ: устанавливаем уровень квалификации для преподавателя
+        testTrainer_ = std::make_unique<Trainer>(testTrainerId_, "John Trainer", std::vector<std::string>{"Ballet"});
+        testTrainer_->setQualificationLevel("senior"); // ДОБАВЛЕНО
+        testTrainer_->setActive(true); // ДОБАВЛЕНО для надежности
+
         testHall_ = std::make_unique<DanceHall>(testHallId_, "Main Hall", 50, testBranchId_);
-        testHall_->setDescription("Large dance hall with mirrors and sound system");
-        testHall_->setFloorType("wooden");
-        testHall_->setEquipment("Mirrors, sound system, ballet barres");
-        
-        // Создаем временной слот
-        testTimeSlot_ = std::make_unique<TimeSlot>(std::chrono::system_clock::now() + std::chrono::hours(2), 60);
-        
-        // Создаем урок
+        testTimeSlot_ = std::make_unique<TimeSlot>(std::chrono::system_clock::now() + std::chrono::hours(1), 60);
         testLesson_ = std::make_unique<Lesson>(testLessonId_, LessonType::OPEN_CLASS, "Ballet Class", 
                                               testTimeSlot_->getStartTime(), testTimeSlot_->getDurationMinutes(),
                                               DifficultyLevel::BEGINNER, 10, 25.0, testTrainerId_, testHallId_);
-        testLesson_->setDescription("Beginner ballet class for all ages");
     }
 
     void TearDown() override {
