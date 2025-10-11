@@ -1,27 +1,29 @@
-#ifndef POSTGRESQL_HALL_REPOSITORY_HPP
-#define POSTGRESQL_HALL_REPOSITORY_HPP
+#ifndef POSTGRESQL_DANCEHALL_REPOSITORY_HPP
+#define POSTGRESQL_DANCEHALL_REPOSITORY_HPP
 
-#include "../IHallRepository.hpp"
+#include "../IDanceHallRepository.hpp"
 #include "../../data/DatabaseConnection.hpp"
 #include "../../data/exceptions/DataAccessException.hpp"
 #include <memory>
 
-class PostgreSQLHallRepository : public IHallRepository {
+class PostgreSQLDanceHallRepository : public IDanceHallRepository {
 public:
-    explicit PostgreSQLHallRepository(std::shared_ptr<DatabaseConnection> dbConnection);
+    explicit PostgreSQLDanceHallRepository(std::shared_ptr<DatabaseConnection> dbConnection);
     
-    std::optional<Hall> findById(const UUID& id) override;
-    std::vector<Hall> findByBranchId(const UUID& branchId) override;
+    std::optional<DanceHall> findById(const UUID& id) override;
+    std::vector<DanceHall> findByBranchId(const UUID& branchId) override;
     bool exists(const UUID& id) override;
-    std::vector<Hall> findAll() override;
-    bool save(const Hall& hall) override;
-    bool update(const Hall& hall) override;
+    std::vector<DanceHall> findAll() override;
+    bool save(const DanceHall& hall) override;
+    bool update(const DanceHall& hall) override;
+    bool remove(const UUID& id) override;
 
 private:
     std::shared_ptr<DatabaseConnection> dbConnection_;
     
-    Hall mapResultToHall(const pqxx::row& row) const;
-    void validateHall(const Hall& hall) const;
+    // ИСПРАВЛЕНО: правильные имена методов
+    DanceHall mapResultToDanceHall(const pqxx::row& row) const;
+    void validateDanceHall(const DanceHall& hall) const;
 };
 
-#endif // POSTGRESQL_HALL_REPOSITORY_HPP
+#endif // POSTGRESQL_DANCEHALL_REPOSITORY_HPP

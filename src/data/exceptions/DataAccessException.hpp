@@ -28,4 +28,22 @@ public:
         : DataAccessException(message) {}
 };
 
+class ConstraintViolationException : public DataAccessException {
+public:
+    explicit ConstraintViolationException(const std::string& message)
+        : DataAccessException(message) {}
+};
+
+class ForeignKeyViolationException : public ConstraintViolationException {
+public:
+    explicit ForeignKeyViolationException(const std::string& message)
+        : ConstraintViolationException(message) {}
+};
+
+class UniqueViolationException : public ConstraintViolationException {
+public:
+    explicit UniqueViolationException(const std::string& message)
+        : ConstraintViolationException(message) {}
+};
+
 #endif // DATAACCESSEXCEPTION_HPP

@@ -10,4 +10,5 @@ public:
     MOCK_METHOD(std::vector<DanceHall>, findAll, (), (override)); 
     MOCK_METHOD(bool, save, (const DanceHall& hall), (override));  
     MOCK_METHOD(bool, update, (const DanceHall& hall), (override));  
+    MOCK_METHOD(bool, remove, (const UUID& id), (override));
 };

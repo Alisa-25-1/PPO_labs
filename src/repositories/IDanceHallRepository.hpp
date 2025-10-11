@@ -15,4 +15,5 @@ public:
     virtual std::vector<DanceHall> findAll() = 0; 
     virtual bool save(const DanceHall& hall) = 0;  
     virtual bool update(const DanceHall& hall) = 0; 
+    virtual bool remove(const UUID& id) = 0; 
 };

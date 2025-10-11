@@ -4,23 +4,57 @@
 CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/RepositoryIntegrationTests.cpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Hall.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Studio.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/SubscriptionType.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/exceptions/DataAccessException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Hall.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Studio.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/SubscriptionType.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBookingRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IHallRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IEnrollmentRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ILessonRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IReviewRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IStudioRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionTypeRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLBookingRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLBranchRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLClientRepository.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLHallRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLDanceHallRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLEnrollmentRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLLessonRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLReviewRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLStudioRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLSubscriptionRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLTrainerRepository.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/bitsperlong.h
  /usr/include/asm-generic/errno-base.h
@@ -95,8 +129,6 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/c++/13/bits/predefined_ops.h
  /usr/include/c++/13/bits/ptr_traits.h
  /usr/include/c++/13/bits/quoted_string.h
- /usr/include/c++/13/bits/random.h
- /usr/include/c++/13/bits/random.tcc
  /usr/include/c++/13/bits/range_access.h
  /usr/include/c++/13/bits/refwrap.h
  /usr/include/c++/13/bits/regex.h
@@ -115,7 +147,6 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/c++/13/bits/shared_ptr.h
  /usr/include/c++/13/bits/shared_ptr_atomic.h
  /usr/include/c++/13/bits/shared_ptr_base.h
- /usr/include/c++/13/bits/specfun.h
  /usr/include/c++/13/bits/sstream.tcc
  /usr/include/c++/13/bits/std_abs.h
  /usr/include/c++/13/bits/std_function.h
@@ -165,7 +196,6 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/c++/13/chrono
  /usr/include/c++/13/ciso646
  /usr/include/c++/13/clocale
- /usr/include/c++/13/cmath
  /usr/include/c++/13/codecvt
  /usr/include/c++/13/compare
  /usr/include/c++/13/condition_variable
@@ -213,7 +243,6 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/c++/13/pstl/glue_memory_defs.h
  /usr/include/c++/13/pstl/glue_numeric_defs.h
  /usr/include/c++/13/pstl/pstl_config.h
- /usr/include/c++/13/random
  /usr/include/c++/13/ratio
  /usr/include/c++/13/regex
  /usr/include/c++/13/set
@@ -225,18 +254,6 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/c++/13/string
  /usr/include/c++/13/string_view
  /usr/include/c++/13/system_error
- /usr/include/c++/13/tr1/bessel_function.tcc
- /usr/include/c++/13/tr1/beta_function.tcc
- /usr/include/c++/13/tr1/ell_integral.tcc
- /usr/include/c++/13/tr1/exp_integral.tcc
- /usr/include/c++/13/tr1/gamma.tcc
- /usr/include/c++/13/tr1/hypergeometric.tcc
- /usr/include/c++/13/tr1/legendre_function.tcc
- /usr/include/c++/13/tr1/modified_bessel_func.tcc
- /usr/include/c++/13/tr1/poly_hermite.tcc
- /usr/include/c++/13/tr1/poly_laguerre.tcc
- /usr/include/c++/13/tr1/riemann_zeta.tcc
- /usr/include/c++/13/tr1/special_function_util.h
  /usr/include/c++/13/tuple
  /usr/include/c++/13/type_traits
  /usr/include/c++/13/typeinfo
@@ -279,7 +296,6 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/linux/stddef.h
  /usr/include/linux/types.h
  /usr/include/locale.h
- /usr/include/math.h
  /usr/include/pqxx/array.hxx
  /usr/include/pqxx/binarystring.hxx
  /usr/include/pqxx/blob.hxx
@@ -349,6 +365,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/strings.h
  /usr/include/time.h
  /usr/include/unistd.h
+ /usr/include/uuid/uuid.h
  /usr/include/wchar.h
  /usr/include/wctype.h
  /usr/include/x86_64-linux-gnu/asm/bitsperlong.h
@@ -366,20 +383,11 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/x86_64-linux-gnu/bits/errno.h
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
- /usr/include/x86_64-linux-gnu/bits/flt-eval-method.h
- /usr/include/x86_64-linux-gnu/bits/fp-fast.h
- /usr/include/x86_64-linux-gnu/bits/fp-logb.h
  /usr/include/x86_64-linux-gnu/bits/getopt_core.h
  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h
- /usr/include/x86_64-linux-gnu/bits/iscanonical.h
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h
- /usr/include/x86_64-linux-gnu/bits/libm-simd-decl-stubs.h
  /usr/include/x86_64-linux-gnu/bits/locale.h
  /usr/include/x86_64-linux-gnu/bits/long-double.h
- /usr/include/x86_64-linux-gnu/bits/math-vector.h
- /usr/include/x86_64-linux-gnu/bits/mathcalls-helper-functions.h
- /usr/include/x86_64-linux-gnu/bits/mathcalls-narrow.h
- /usr/include/x86_64-linux-gnu/bits/mathcalls.h
  /usr/include/x86_64-linux-gnu/bits/posix_opt.h
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h
@@ -471,7 +479,6 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h
- /usr/include/x86_64-linux-gnu/c++/13/bits/opt_random.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h
@@ -480,6 +487,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/x86_64-linux-gnu/sys/select.h
  /usr/include/x86_64-linux-gnu/sys/single_threaded.h
  /usr/include/x86_64-linux-gnu/sys/stat.h
+ /usr/include/x86_64-linux-gnu/sys/time.h
  /usr/include/x86_64-linux-gnu/sys/types.h
  /usr/include/x86_64-linux-gnu/sys/ucontext.h
  /usr/include/x86_64-linux-gnu/sys/wait.h

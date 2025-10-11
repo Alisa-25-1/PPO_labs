@@ -130,6 +130,19 @@ BookingCore/fast:
 .PHONY : BookingCore/fast
 
 #=============================================================================
+# Target rules for targets named DataAccess
+
+# Build rule for target.
+DataAccess: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DataAccess
+.PHONY : DataAccess
+
+# fast build rule for target.
+DataAccess/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/build
+.PHONY : DataAccess/fast
+
+#=============================================================================
 # Target rules for targets named BookingTests
 
 # Build rule for target.
@@ -193,6 +206,67 @@ ReviewServiceTests: cmake_check_build_system
 ReviewServiceTests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReviewServiceTests.dir/build.make CMakeFiles/ReviewServiceTests.dir/build
 .PHONY : ReviewServiceTests/fast
+
+#=============================================================================
+# Target rules for targets named IntegrationTests
+
+# Build rule for target.
+IntegrationTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 IntegrationTests
+.PHONY : IntegrationTests
+
+# fast build rule for target.
+IntegrationTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/build
+.PHONY : IntegrationTests/fast
+
+src/data/DatabaseConnection.o: src/data/DatabaseConnection.cpp.o
+.PHONY : src/data/DatabaseConnection.o
+
+# target to build an object file
+src/data/DatabaseConnection.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o
+.PHONY : src/data/DatabaseConnection.cpp.o
+
+src/data/DatabaseConnection.i: src/data/DatabaseConnection.cpp.i
+.PHONY : src/data/DatabaseConnection.i
+
+# target to preprocess a source file
+src/data/DatabaseConnection.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.i
+.PHONY : src/data/DatabaseConnection.cpp.i
+
+src/data/DatabaseConnection.s: src/data/DatabaseConnection.cpp.s
+.PHONY : src/data/DatabaseConnection.s
+
+# target to generate assembly for a file
+src/data/DatabaseConnection.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.s
+.PHONY : src/data/DatabaseConnection.cpp.s
+
+src/data/DateTimeUtils.o: src/data/DateTimeUtils.cpp.o
+.PHONY : src/data/DateTimeUtils.o
+
+# target to build an object file
+src/data/DateTimeUtils.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.o
+.PHONY : src/data/DateTimeUtils.cpp.o
+
+src/data/DateTimeUtils.i: src/data/DateTimeUtils.cpp.i
+.PHONY : src/data/DateTimeUtils.i
+
+# target to preprocess a source file
+src/data/DateTimeUtils.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.i
+.PHONY : src/data/DateTimeUtils.cpp.i
+
+src/data/DateTimeUtils.s: src/data/DateTimeUtils.cpp.s
+.PHONY : src/data/DateTimeUtils.s
+
+# target to generate assembly for a file
+src/data/DateTimeUtils.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.s
+.PHONY : src/data/DateTimeUtils.cpp.s
 
 src/dtos/BookingDTO.o: src/dtos/BookingDTO.cpp.o
 .PHONY : src/dtos/BookingDTO.o
@@ -578,6 +652,270 @@ src/models/Trainer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.s
 .PHONY : src/models/Trainer.cpp.s
 
+src/repositories/impl/PostgreSQLBookingRepository.o: src/repositories/impl/PostgreSQLBookingRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLBookingRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLBookingRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLBookingRepository.cpp.o
+
+src/repositories/impl/PostgreSQLBookingRepository.i: src/repositories/impl/PostgreSQLBookingRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLBookingRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLBookingRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLBookingRepository.cpp.i
+
+src/repositories/impl/PostgreSQLBookingRepository.s: src/repositories/impl/PostgreSQLBookingRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLBookingRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLBookingRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLBookingRepository.cpp.s
+
+src/repositories/impl/PostgreSQLBranchRepository.o: src/repositories/impl/PostgreSQLBranchRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLBranchRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLBranchRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLBranchRepository.cpp.o
+
+src/repositories/impl/PostgreSQLBranchRepository.i: src/repositories/impl/PostgreSQLBranchRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLBranchRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLBranchRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLBranchRepository.cpp.i
+
+src/repositories/impl/PostgreSQLBranchRepository.s: src/repositories/impl/PostgreSQLBranchRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLBranchRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLBranchRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLBranchRepository.cpp.s
+
+src/repositories/impl/PostgreSQLClientRepository.o: src/repositories/impl/PostgreSQLClientRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLClientRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLClientRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLClientRepository.cpp.o
+
+src/repositories/impl/PostgreSQLClientRepository.i: src/repositories/impl/PostgreSQLClientRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLClientRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLClientRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLClientRepository.cpp.i
+
+src/repositories/impl/PostgreSQLClientRepository.s: src/repositories/impl/PostgreSQLClientRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLClientRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLClientRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLClientRepository.cpp.s
+
+src/repositories/impl/PostgreSQLDanceHallRepository.o: src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLDanceHallRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o
+
+src/repositories/impl/PostgreSQLDanceHallRepository.i: src/repositories/impl/PostgreSQLDanceHallRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLDanceHallRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLDanceHallRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLDanceHallRepository.cpp.i
+
+src/repositories/impl/PostgreSQLDanceHallRepository.s: src/repositories/impl/PostgreSQLDanceHallRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLDanceHallRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLDanceHallRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLDanceHallRepository.cpp.s
+
+src/repositories/impl/PostgreSQLEnrollmentRepository.o: src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLEnrollmentRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o
+
+src/repositories/impl/PostgreSQLEnrollmentRepository.i: src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLEnrollmentRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.i
+
+src/repositories/impl/PostgreSQLEnrollmentRepository.s: src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLEnrollmentRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.s
+
+src/repositories/impl/PostgreSQLLessonRepository.o: src/repositories/impl/PostgreSQLLessonRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLLessonRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLLessonRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLLessonRepository.cpp.o
+
+src/repositories/impl/PostgreSQLLessonRepository.i: src/repositories/impl/PostgreSQLLessonRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLLessonRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLLessonRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLLessonRepository.cpp.i
+
+src/repositories/impl/PostgreSQLLessonRepository.s: src/repositories/impl/PostgreSQLLessonRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLLessonRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLLessonRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLLessonRepository.cpp.s
+
+src/repositories/impl/PostgreSQLReviewRepository.o: src/repositories/impl/PostgreSQLReviewRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLReviewRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLReviewRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLReviewRepository.cpp.o
+
+src/repositories/impl/PostgreSQLReviewRepository.i: src/repositories/impl/PostgreSQLReviewRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLReviewRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLReviewRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLReviewRepository.cpp.i
+
+src/repositories/impl/PostgreSQLReviewRepository.s: src/repositories/impl/PostgreSQLReviewRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLReviewRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLReviewRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLReviewRepository.cpp.s
+
+src/repositories/impl/PostgreSQLStudioRepository.o: src/repositories/impl/PostgreSQLStudioRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLStudioRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLStudioRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLStudioRepository.cpp.o
+
+src/repositories/impl/PostgreSQLStudioRepository.i: src/repositories/impl/PostgreSQLStudioRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLStudioRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLStudioRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLStudioRepository.cpp.i
+
+src/repositories/impl/PostgreSQLStudioRepository.s: src/repositories/impl/PostgreSQLStudioRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLStudioRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLStudioRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLStudioRepository.cpp.s
+
+src/repositories/impl/PostgreSQLSubscriptionRepository.o: src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLSubscriptionRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o
+
+src/repositories/impl/PostgreSQLSubscriptionRepository.i: src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLSubscriptionRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.i
+
+src/repositories/impl/PostgreSQLSubscriptionRepository.s: src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLSubscriptionRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.s
+
+src/repositories/impl/PostgreSQLSubscriptionTypeRepository.o: src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLSubscriptionTypeRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o
+
+src/repositories/impl/PostgreSQLSubscriptionTypeRepository.i: src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLSubscriptionTypeRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.i
+
+src/repositories/impl/PostgreSQLSubscriptionTypeRepository.s: src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLSubscriptionTypeRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.s
+
+src/repositories/impl/PostgreSQLTrainerRepository.o: src/repositories/impl/PostgreSQLTrainerRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLTrainerRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLTrainerRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLTrainerRepository.cpp.o
+
+src/repositories/impl/PostgreSQLTrainerRepository.i: src/repositories/impl/PostgreSQLTrainerRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLTrainerRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLTrainerRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLTrainerRepository.cpp.i
+
+src/repositories/impl/PostgreSQLTrainerRepository.s: src/repositories/impl/PostgreSQLTrainerRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLTrainerRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLTrainerRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLTrainerRepository.cpp.s
+
 src/services/AuthService.o: src/services/AuthService.cpp.o
 .PHONY : src/services/AuthService.o
 
@@ -721,6 +1059,30 @@ src/services/SubscriptionService.s: src/services/SubscriptionService.cpp.s
 src/services/SubscriptionService.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/SubscriptionService.cpp.s
 .PHONY : src/services/SubscriptionService.cpp.s
+
+src/tests/integration/RepositoryIntegrationTests.o: src/tests/integration/RepositoryIntegrationTests.cpp.o
+.PHONY : src/tests/integration/RepositoryIntegrationTests.o
+
+# target to build an object file
+src/tests/integration/RepositoryIntegrationTests.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.o
+.PHONY : src/tests/integration/RepositoryIntegrationTests.cpp.o
+
+src/tests/integration/RepositoryIntegrationTests.i: src/tests/integration/RepositoryIntegrationTests.cpp.i
+.PHONY : src/tests/integration/RepositoryIntegrationTests.i
+
+# target to preprocess a source file
+src/tests/integration/RepositoryIntegrationTests.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.i
+.PHONY : src/tests/integration/RepositoryIntegrationTests.cpp.i
+
+src/tests/integration/RepositoryIntegrationTests.s: src/tests/integration/RepositoryIntegrationTests.cpp.s
+.PHONY : src/tests/integration/RepositoryIntegrationTests.s
+
+# target to generate assembly for a file
+src/tests/integration/RepositoryIntegrationTests.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.s
+.PHONY : src/tests/integration/RepositoryIntegrationTests.cpp.s
 
 src/tests/unit/AuthServiceTest.o: src/tests/unit/AuthServiceTest.cpp.o
 .PHONY : src/tests/unit/AuthServiceTest.o
@@ -901,9 +1263,17 @@ help:
 	@echo "... AuthServiceTests"
 	@echo "... BookingCore"
 	@echo "... BookingTests"
+	@echo "... DataAccess"
+	@echo "... IntegrationTests"
 	@echo "... LessonServiceTests"
 	@echo "... ReviewServiceTests"
 	@echo "... SubscriptionServiceTests"
+	@echo "... src/data/DatabaseConnection.o"
+	@echo "... src/data/DatabaseConnection.i"
+	@echo "... src/data/DatabaseConnection.s"
+	@echo "... src/data/DateTimeUtils.o"
+	@echo "... src/data/DateTimeUtils.i"
+	@echo "... src/data/DateTimeUtils.s"
 	@echo "... src/dtos/BookingDTO.o"
 	@echo "... src/dtos/BookingDTO.i"
 	@echo "... src/dtos/BookingDTO.s"
@@ -952,6 +1322,39 @@ help:
 	@echo "... src/models/Trainer.o"
 	@echo "... src/models/Trainer.i"
 	@echo "... src/models/Trainer.s"
+	@echo "... src/repositories/impl/PostgreSQLBookingRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLBookingRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLBookingRepository.s"
+	@echo "... src/repositories/impl/PostgreSQLBranchRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLBranchRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLBranchRepository.s"
+	@echo "... src/repositories/impl/PostgreSQLClientRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLClientRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLClientRepository.s"
+	@echo "... src/repositories/impl/PostgreSQLDanceHallRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLDanceHallRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLDanceHallRepository.s"
+	@echo "... src/repositories/impl/PostgreSQLEnrollmentRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLEnrollmentRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLEnrollmentRepository.s"
+	@echo "... src/repositories/impl/PostgreSQLLessonRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLLessonRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLLessonRepository.s"
+	@echo "... src/repositories/impl/PostgreSQLReviewRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLReviewRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLReviewRepository.s"
+	@echo "... src/repositories/impl/PostgreSQLStudioRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLStudioRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLStudioRepository.s"
+	@echo "... src/repositories/impl/PostgreSQLSubscriptionRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLSubscriptionRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLSubscriptionRepository.s"
+	@echo "... src/repositories/impl/PostgreSQLSubscriptionTypeRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLSubscriptionTypeRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLSubscriptionTypeRepository.s"
+	@echo "... src/repositories/impl/PostgreSQLTrainerRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLTrainerRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLTrainerRepository.s"
 	@echo "... src/services/AuthService.o"
 	@echo "... src/services/AuthService.i"
 	@echo "... src/services/AuthService.s"
@@ -970,6 +1373,9 @@ help:
 	@echo "... src/services/SubscriptionService.o"
 	@echo "... src/services/SubscriptionService.i"
 	@echo "... src/services/SubscriptionService.s"
+	@echo "... src/tests/integration/RepositoryIntegrationTests.o"
+	@echo "... src/tests/integration/RepositoryIntegrationTests.i"
+	@echo "... src/tests/integration/RepositoryIntegrationTests.s"
 	@echo "... src/tests/unit/AuthServiceTest.o"
 	@echo "... src/tests/unit/AuthServiceTest.i"
 	@echo "... src/tests/unit/AuthServiceTest.s"

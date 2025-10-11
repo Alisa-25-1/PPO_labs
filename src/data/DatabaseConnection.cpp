@@ -21,7 +21,15 @@ DatabaseConnection::~DatabaseConnection() {
 
 pqxx::connection& DatabaseConnection::getConnection() {
     if (!connection_ || !connection_->is_open()) {
-        throw std::runtime_error("Database connection is not available");
+        try {
+            // Попытка переподключения
+            connection_ = std::make_unique<pqxx::connection>(connectionString_);
+            if (!connection_->is_open()) {
+                throw std::runtime_error("Failed to reconnect to database");
+            }
+        } catch (const std::exception& e) {
+            throw std::runtime_error(std::string("Database reconnection failed: ") + e.what());
+        }
     }
     return *connection_;
 }
