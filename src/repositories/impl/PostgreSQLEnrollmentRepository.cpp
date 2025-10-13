@@ -1,6 +1,7 @@
 #include "PostgreSQLEnrollmentRepository.hpp"
-#include <pqxx/pqxx>
+#include "../../data/SqlQueryBuilder.hpp"
 #include "../../data/DateTimeUtils.hpp"
+#include "../../data/QueryFactory.hpp"
 
 PostgreSQLEnrollmentRepository::PostgreSQLEnrollmentRepository(
     std::shared_ptr<DatabaseConnection> dbConnection)
@@ -10,9 +11,12 @@ std::optional<Enrollment> PostgreSQLEnrollmentRepository::findById(const UUID& i
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, client_id, lesson_id, status, enrollment_date "
-            "FROM enrollments WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "lesson_id", "status", "enrollment_date"})
+            .from("enrollments")
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(query, id.toString());
         
@@ -33,9 +37,12 @@ std::vector<Enrollment> PostgreSQLEnrollmentRepository::findByClientId(const UUI
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, client_id, lesson_id, status, enrollment_date "
-            "FROM enrollments WHERE client_id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "lesson_id", "status", "enrollment_date"})
+            .from("enrollments")
+            .where("client_id = $1")
+            .build();
         
         auto result = work.exec_params(query, clientId.toString());
         
@@ -56,9 +63,12 @@ std::vector<Enrollment> PostgreSQLEnrollmentRepository::findByLessonId(const UUI
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, client_id, lesson_id, status, enrollment_date "
-            "FROM enrollments WHERE lesson_id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "lesson_id", "status", "enrollment_date"})
+            .from("enrollments")
+            .where("lesson_id = $1")
+            .build();
         
         auto result = work.exec_params(query, lessonId.toString());
         
@@ -81,9 +91,12 @@ std::optional<Enrollment> PostgreSQLEnrollmentRepository::findByClientAndLesson(
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, client_id, lesson_id, status, enrollment_date "
-            "FROM enrollments WHERE client_id = $1 AND lesson_id = $2";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "lesson_id", "status", "enrollment_date"})
+            .from("enrollments")
+            .where("client_id = $1 AND lesson_id = $2")
+            .build();
         
         auto result = work.exec_params(query, clientId.toString(), lessonId.toString());
         
@@ -104,9 +117,7 @@ int PostgreSQLEnrollmentRepository::countByLessonId(const UUID& lessonId) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT COUNT(*) as count FROM enrollments WHERE lesson_id = $1 AND status = 'REGISTERED'";
-        
+        std::string query = QueryFactory::createCountEnrollmentsByLessonQuery();
         auto result = work.exec_params(query, lessonId.toString());
         
         int count = 0;
@@ -128,9 +139,19 @@ bool PostgreSQLEnrollmentRepository::save(const Enrollment& enrollment) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "INSERT INTO enrollments (id, client_id, lesson_id, status, enrollment_date) "
-            "VALUES ($1, $2, $3, $4, $5)";
+        std::map<std::string, std::string> values = {
+            {"id", "$1"},
+            {"client_id", "$2"},
+            {"lesson_id", "$3"},
+            {"status", "$4"},
+            {"enrollment_date", "$5"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .insertInto("enrollments")
+            .values(values)
+            .build();
         
         work.exec_params(
             query,
@@ -155,9 +176,18 @@ bool PostgreSQLEnrollmentRepository::update(const Enrollment& enrollment) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "UPDATE enrollments SET client_id = $2, lesson_id = $3, status = $4 "
-            "WHERE id = $1";
+        std::map<std::string, std::string> values = {
+            {"client_id", "$2"},
+            {"lesson_id", "$3"},
+            {"status", "$4"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .update("enrollments")
+            .set(values)
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(
             query,
@@ -179,7 +209,12 @@ bool PostgreSQLEnrollmentRepository::remove(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "DELETE FROM enrollments WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .deleteFrom("enrollments")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
@@ -194,7 +229,13 @@ bool PostgreSQLEnrollmentRepository::exists(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "SELECT 1 FROM enrollments WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"1"})
+            .from("enrollments")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);

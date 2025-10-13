@@ -4,6 +4,7 @@
 CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/RepositoryIntegrationTests.cpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
@@ -19,6 +20,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/SqlQueryBuilder.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/exceptions/DataAccessException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
@@ -151,6 +153,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/c++/13/bits/std_abs.h
  /usr/include/c++/13/bits/std_function.h
  /usr/include/c++/13/bits/std_mutex.h
+ /usr/include/c++/13/bits/std_thread.h
  /usr/include/c++/13/bits/stl_algo.h
  /usr/include/c++/13/bits/stl_algobase.h
  /usr/include/c++/13/bits/stl_bvector.h
@@ -180,6 +183,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/c++/13/bits/streambuf_iterator.h
  /usr/include/c++/13/bits/string_view.tcc
  /usr/include/c++/13/bits/stringfwd.h
+ /usr/include/c++/13/bits/this_thread_sleep.h
  /usr/include/c++/13/bits/uniform_int_dist.h
  /usr/include/c++/13/bits/unique_lock.h
  /usr/include/c++/13/bits/unique_ptr.h
@@ -254,6 +258,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/c++/13/string
  /usr/include/c++/13/string_view
  /usr/include/c++/13/system_error
+ /usr/include/c++/13/thread
  /usr/include/c++/13/tuple
  /usr/include/c++/13/type_traits
  /usr/include/c++/13/typeinfo

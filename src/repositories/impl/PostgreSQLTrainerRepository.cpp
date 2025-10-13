@@ -1,5 +1,6 @@
 #include "PostgreSQLTrainerRepository.hpp"
 #include <pqxx/pqxx>
+#include "../../data/QueryFactory.hpp"
 
 PostgreSQLTrainerRepository::PostgreSQLTrainerRepository(
     std::shared_ptr<DatabaseConnection> dbConnection)
@@ -9,9 +10,12 @@ std::optional<Trainer> PostgreSQLTrainerRepository::findById(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, name, biography, qualification_level, is_active "
-            "FROM trainers WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "biography", "qualification_level", "is_active"})
+            .from("trainers")
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(query, id.toString());
         
@@ -38,11 +42,7 @@ std::vector<Trainer> PostgreSQLTrainerRepository::findBySpecialization(const std
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT t.id, t.name, t.biography, t.qualification_level, t.is_active "
-            "FROM trainers t "
-            "JOIN trainer_specializations ts ON t.id = ts.trainer_id "
-            "WHERE ts.specialization = $1 AND t.is_active = true";
+        std::string query = QueryFactory::createFindBySpecializationQuery();
         
         auto result = work.exec_params(query, specialization);
         
@@ -68,9 +68,12 @@ std::vector<Trainer> PostgreSQLTrainerRepository::findActiveTrainers() {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, name, biography, qualification_level, is_active "
-            "FROM trainers WHERE is_active = true";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "biography", "qualification_level", "is_active"})
+            .from("trainers")
+            .where("is_active = true")
+            .build();
         
         auto result = work.exec(query);
         
@@ -96,9 +99,11 @@ std::vector<Trainer> PostgreSQLTrainerRepository::findAll() {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, name, biography, qualification_level, is_active "
-            "FROM trainers";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "biography", "qualification_level", "is_active"})
+            .from("trainers")
+            .build();
         
         auto result = work.exec(query);
         
@@ -127,9 +132,19 @@ bool PostgreSQLTrainerRepository::save(const Trainer& trainer) {
         auto work = dbConnection_->beginTransaction();
         
         // Сохраняем основную информацию о тренере
-        std::string query = 
-            "INSERT INTO trainers (id, name, biography, qualification_level, is_active) "
-            "VALUES ($1, $2, $3, $4, $5)";
+        std::map<std::string, std::string> values = {
+            {"id", "$1"},
+            {"name", "$2"},
+            {"biography", "$3"},
+            {"qualification_level", "$4"},
+            {"is_active", "$5"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .insertInto("trainers")
+            .values(values)
+            .build();
         
         work.exec_params(
             query,
@@ -164,10 +179,19 @@ bool PostgreSQLTrainerRepository::update(const Trainer& trainer) {
         auto work = dbConnection_->beginTransaction();
         
         // Обновляем основную информацию о тренере
-        std::string query = 
-            "UPDATE trainers SET name = $2, biography = $3, "
-            "qualification_level = $4, is_active = $5 "
-            "WHERE id = $1";
+        std::map<std::string, std::string> values = {
+            {"name", "$2"},
+            {"biography", "$3"},
+            {"qualification_level", "$4"},
+            {"is_active", "$5"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .update("trainers")
+            .set(values)
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(
             query,
@@ -207,8 +231,13 @@ bool PostgreSQLTrainerRepository::remove(const UUID& id) {
                          id.toString());
         
         // Затем удаляем тренера
-        std::string query = "DELETE FROM trainers WHERE id = $1";
-        auto result = work.exec_params(query, id.toString());
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .deleteFrom("trainers")
+            .where("id = $1")
+            .build();
+        
+            auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
         return result.affected_rows() > 0;
@@ -222,7 +251,13 @@ bool PostgreSQLTrainerRepository::exists(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "SELECT 1 FROM trainers WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"1"})
+            .from("trainers")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
@@ -253,8 +288,7 @@ std::vector<std::string> PostgreSQLTrainerRepository::getTrainerSpecializations(
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT specialization FROM trainer_specializations WHERE trainer_id = $1";
+        std::string query = QueryFactory::createGetTrainerSpecializationsQuery();
         
         auto result = work.exec_params(query, trainerId.toString());
         

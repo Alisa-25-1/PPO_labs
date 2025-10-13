@@ -77,6 +77,10 @@ add_library(DataAccess
     ${SOURCE_ROOT}/data/DatabaseConnection.cpp
     ${SOURCE_ROOT}/data/ResilientDatabaseConnection.cpp
     ${SOURCE_ROOT}/data/DateTimeUtils.cpp
+
+    ${SOURCE_ROOT}/data/QueryFactory.cpp
+    ${SOURCE_ROOT}/data/SqlQueryBuilder.cpp
+
     ${SOURCE_ROOT}/repositories/impl/PostgreSQLClientRepository.cpp
     ${SOURCE_ROOT}/repositories/impl/PostgreSQLDanceHallRepository.cpp
     ${SOURCE_ROOT}/repositories/impl/PostgreSQLBookingRepository.cpp

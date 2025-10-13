@@ -4,6 +4,7 @@
 #include "../IClientRepository.hpp"
 #include "../../data/DatabaseConnection.hpp"           
 #include "../../data/exceptions/DataAccessException.hpp" 
+#include "../../data/SqlQueryBuilder.hpp"
 #include <memory>
 
 class PostgreSQLClientRepository : public IClientRepository {
@@ -22,6 +23,10 @@ private:
     
     Client mapResultToClient(const pqxx::row& row) const;
     void validateClient(const Client& client) const;
+    
+    // Добавляем объявления вспомогательных методов
+    std::string clientStatusToString(AccountStatus status) const;
+    AccountStatus stringToClientStatus(const std::string& status) const;
 };
 
 #endif // POSTGRESQLCLIENTREPOSITORY_HPP

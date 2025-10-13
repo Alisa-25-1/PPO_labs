@@ -1,6 +1,7 @@
 #include "PostgreSQLReviewRepository.hpp"
-#include <pqxx/pqxx>
+#include "../../data/SqlQueryBuilder.hpp"
 #include "../../data/DateTimeUtils.hpp"
+#include "../../data/QueryFactory.hpp"
 
 PostgreSQLReviewRepository::PostgreSQLReviewRepository(
     std::shared_ptr<DatabaseConnection> dbConnection)
@@ -10,9 +11,12 @@ std::optional<Review> PostgreSQLReviewRepository::findById(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, client_id, lesson_id, rating, comment, publication_date, status "
-            "FROM reviews WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "lesson_id", "rating", "comment", "publication_date", "status"})
+            .from("reviews")
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(query, id.toString());
         
@@ -33,9 +37,12 @@ std::vector<Review> PostgreSQLReviewRepository::findByClientId(const UUID& clien
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, client_id, lesson_id, rating, comment, publication_date, status "
-            "FROM reviews WHERE client_id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "lesson_id", "rating", "comment", "publication_date", "status"})
+            .from("reviews")
+            .where("client_id = $1")
+            .build();
         
         auto result = work.exec_params(query, clientId.toString());
         
@@ -56,9 +63,12 @@ std::vector<Review> PostgreSQLReviewRepository::findByLessonId(const UUID& lesso
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, client_id, lesson_id, rating, comment, publication_date, status "
-            "FROM reviews WHERE lesson_id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "lesson_id", "rating", "comment", "publication_date", "status"})
+            .from("reviews")
+            .where("lesson_id = $1")
+            .build();
         
         auto result = work.exec_params(query, lessonId.toString());
         
@@ -81,9 +91,12 @@ std::optional<Review> PostgreSQLReviewRepository::findByClientAndLesson(
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, client_id, lesson_id, rating, comment, publication_date, status "
-            "FROM reviews WHERE client_id = $1 AND lesson_id = $2";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "lesson_id", "rating", "comment", "publication_date", "status"})
+            .from("reviews")
+            .where("client_id = $1 AND lesson_id = $2")
+            .build();
         
         auto result = work.exec_params(query, clientId.toString(), lessonId.toString());
         
@@ -103,10 +116,12 @@ std::optional<Review> PostgreSQLReviewRepository::findByClientAndLesson(
 std::vector<Review> PostgreSQLReviewRepository::findPendingModeration() {
     try {
         auto work = dbConnection_->beginTransaction();
-        
-        std::string query = 
-            "SELECT id, client_id, lesson_id, rating, comment, publication_date, status "
-            "FROM reviews WHERE status = 'PENDING_MODERATION'";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "lesson_id", "rating", "comment", "publication_date", "status"})
+            .from("reviews")
+            .where("status = 'PENDING_MODERATION'")
+            .build();
         
         auto result = work.exec(query);
         
@@ -127,12 +142,7 @@ double PostgreSQLReviewRepository::getAverageRatingForTrainer(const UUID& traine
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT AVG(r.rating) as avg_rating "
-            "FROM reviews r "
-            "JOIN lessons l ON r.lesson_id = l.id "
-            "WHERE l.trainer_id = $1 AND r.status = 'APPROVED'";
-        
+        std::string query = QueryFactory::createGetAverageRatingForTrainerQuery();
         auto result = work.exec_params(query, trainerId.toString());
         
         if (result.empty() || result[0]["avg_rating"].is_null()) {
@@ -154,16 +164,28 @@ bool PostgreSQLReviewRepository::save(const Review& review) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "INSERT INTO reviews (id, client_id, lesson_id, rating, comment, publication_date, status) "
-            "VALUES ($1, $2, $3, $4, $5, $6, $7)";
+        std::map<std::string, std::string> values = {
+            {"id", "$1"},
+            {"client_id", "$2"},
+            {"lesson_id", "$3"},
+            {"rating", "$4"},
+            {"comment", "$5"},
+            {"publication_date", "$6"},
+            {"status", "$7"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .insertInto("reviews")
+            .values(values)
+            .build();
         
         work.exec_params(
             query,
             review.getId().toString(),
             review.getClientId().toString(),
             review.getLessonId().toString(),
-            review.getRating(),
+            std::to_string(review.getRating()),
             review.getComment(),
             DateTimeUtils::formatTimeForPostgres(review.getPublicationDate()),
             reviewStatusToString(review.getStatus())
@@ -183,17 +205,27 @@ bool PostgreSQLReviewRepository::update(const Review& review) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "UPDATE reviews SET client_id = $2, lesson_id = $3, rating = $4, "
-            "comment = $5, status = $6 "
-            "WHERE id = $1";
+        std::map<std::string, std::string> values = {
+            {"client_id", "$2"},
+            {"lesson_id", "$3"},
+            {"rating", "$4"},
+            {"comment", "$5"},
+            {"status", "$6"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .update("reviews")
+            .set(values)
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(
             query,
             review.getId().toString(),
             review.getClientId().toString(),
             review.getLessonId().toString(),
-            review.getRating(),
+            std::to_string(review.getRating()),
             review.getComment(),
             reviewStatusToString(review.getStatus())
         );
@@ -210,7 +242,12 @@ bool PostgreSQLReviewRepository::remove(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "DELETE FROM reviews WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .deleteFrom("reviews")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
@@ -225,7 +262,13 @@ bool PostgreSQLReviewRepository::exists(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "SELECT 1 FROM reviews WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"1"})
+            .from("reviews")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
@@ -242,10 +285,11 @@ Review PostgreSQLReviewRepository::mapResultToReview(const pqxx::row& row) const
     UUID lessonId = UUID::fromString(row["lesson_id"].c_str());
     int rating = row["rating"].as<int>();
     std::string comment = row["comment"].c_str();
-    auto publicationDate = DateTimeUtils::parseTimeFromPostgres(row["publication_date"].c_str());
     ReviewStatus status = stringToReviewStatus(row["status"].c_str());
     
+    // Создаем Review с помощью конструктора
     Review review(id, clientId, lessonId, rating, comment);
+    
     // Восстанавливаем статус
     switch (status) {
         case ReviewStatus::APPROVED:

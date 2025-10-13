@@ -362,6 +362,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /usr/include/pqxx/transactor.hxx \
  /usr/include/pqxx/internal/header-post.hxx \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../data/exceptions/DataAccessException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../data/SqlQueryBuilder.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/PostgreSQLDanceHallRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../IDanceHallRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../repositories/impl/../../models/DanceHall.hpp \

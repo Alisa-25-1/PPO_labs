@@ -1,5 +1,6 @@
 #include "PostgreSQLStudioRepository.hpp"
-#include <pqxx/pqxx>
+#include "../../data/SqlQueryBuilder.hpp"
+#include "../../data/DateTimeUtils.hpp"
 
 PostgreSQLStudioRepository::PostgreSQLStudioRepository(
     std::shared_ptr<DatabaseConnection> dbConnection)
@@ -9,9 +10,12 @@ std::optional<Studio> PostgreSQLStudioRepository::findById(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, name, description, contact_email "
-            "FROM studios WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "description", "contact_email"})
+            .from("studios")
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(query, id.toString());
         
@@ -32,10 +36,13 @@ std::optional<Studio> PostgreSQLStudioRepository::findMainStudio() {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        // Предполагаем, что основная студия - первая в таблице
-        std::string query = 
-            "SELECT id, name, description, contact_email "
-            "FROM studios ORDER BY id LIMIT 1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "description", "contact_email"})
+            .from("studios")
+            .orderBy("id", true)
+            .limit(1)
+            .build();
         
         auto result = work.exec(query);
         
@@ -56,9 +63,11 @@ std::vector<Studio> PostgreSQLStudioRepository::findAll() {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, name, description, contact_email "
-            "FROM studios";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "description", "contact_email"})
+            .from("studios")
+            .build();
         
         auto result = work.exec(query);
         
@@ -81,9 +90,18 @@ bool PostgreSQLStudioRepository::save(const Studio& studio) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "INSERT INTO studios (id, name, description, contact_email) "
-            "VALUES ($1, $2, $3, $4)";
+        std::map<std::string, std::string> values = {
+            {"id", "$1"},
+            {"name", "$2"},
+            {"description", "$3"},
+            {"contact_email", "$4"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .insertInto("studios")
+            .values(values)
+            .build();
         
         work.exec_params(
             query,
@@ -107,9 +125,18 @@ bool PostgreSQLStudioRepository::update(const Studio& studio) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "UPDATE studios SET name = $2, description = $3, contact_email = $4 "
-            "WHERE id = $1";
+        std::map<std::string, std::string> values = {
+            {"name", "$2"},
+            {"description", "$3"},
+            {"contact_email", "$4"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .update("studios")
+            .set(values)
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(
             query,
@@ -131,7 +158,12 @@ bool PostgreSQLStudioRepository::remove(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "DELETE FROM studios WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .deleteFrom("studios")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
@@ -146,7 +178,13 @@ bool PostgreSQLStudioRepository::exists(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "SELECT 1 FROM studios WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"1"})
+            .from("studios")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);

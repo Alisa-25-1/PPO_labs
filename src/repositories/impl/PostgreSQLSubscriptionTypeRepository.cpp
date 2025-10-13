@@ -1,5 +1,5 @@
 #include "PostgreSQLSubscriptionTypeRepository.hpp"
-#include <pqxx/pqxx>
+#include "../../data/SqlQueryBuilder.hpp"
 
 PostgreSQLSubscriptionTypeRepository::PostgreSQLSubscriptionTypeRepository(
     std::shared_ptr<DatabaseConnection> dbConnection)
@@ -9,9 +9,12 @@ std::optional<SubscriptionType> PostgreSQLSubscriptionTypeRepository::findById(c
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, name, description, validity_days, visit_count, unlimited, price "
-            "FROM subscription_types WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "description", "validity_days", "visit_count", "unlimited", "price"})
+            .from("subscription_types")
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(query, id.toString());
         
@@ -32,9 +35,12 @@ std::vector<SubscriptionType> PostgreSQLSubscriptionTypeRepository::findAllActiv
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, name, description, validity_days, visit_count, unlimited, price "
-            "FROM subscription_types WHERE unlimited = true OR visit_count > 0";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "description", "validity_days", "visit_count", "unlimited", "price"})
+            .from("subscription_types")
+            .where("unlimited = true OR visit_count > 0")
+            .build();
         
         auto result = work.exec(query);
         
@@ -55,9 +61,11 @@ std::vector<SubscriptionType> PostgreSQLSubscriptionTypeRepository::findAll() {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, name, description, validity_days, visit_count, unlimited, price "
-            "FROM subscription_types";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "description", "validity_days", "visit_count", "unlimited", "price"})
+            .from("subscription_types")
+            .build();
         
         auto result = work.exec(query);
         
@@ -80,19 +88,31 @@ bool PostgreSQLSubscriptionTypeRepository::save(const SubscriptionType& subscrip
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "INSERT INTO subscription_types (id, name, description, validity_days, visit_count, unlimited, price) "
-            "VALUES ($1, $2, $3, $4, $5, $6, $7)";
+        std::map<std::string, std::string> values = {
+            {"id", "$1"},
+            {"name", "$2"},
+            {"description", "$3"},
+            {"validity_days", "$4"},
+            {"visit_count", "$5"},
+            {"unlimited", "$6"},
+            {"price", "$7"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .insertInto("subscription_types")
+            .values(values)
+            .build();
         
         work.exec_params(
             query,
             subscriptionType.getId().toString(),
             subscriptionType.getName(),
             subscriptionType.getDescription(),
-            subscriptionType.getValidityDays(),
-            subscriptionType.getVisitCount(),
-            subscriptionType.isUnlimited(),
-            subscriptionType.getPrice()
+            std::to_string(subscriptionType.getValidityDays()),
+            std::to_string(subscriptionType.getVisitCount()),
+            subscriptionType.isUnlimited() ? "true" : "false",
+            std::to_string(subscriptionType.getPrice())
         );
         
         dbConnection_->commitTransaction(work);
@@ -109,20 +129,31 @@ bool PostgreSQLSubscriptionTypeRepository::update(const SubscriptionType& subscr
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "UPDATE subscription_types SET name = $2, description = $3, validity_days = $4, "
-            "visit_count = $5, unlimited = $6, price = $7 "
-            "WHERE id = $1";
+        std::map<std::string, std::string> values = {
+            {"name", "$2"},
+            {"description", "$3"},
+            {"validity_days", "$4"},
+            {"visit_count", "$5"},
+            {"unlimited", "$6"},
+            {"price", "$7"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .update("subscription_types")
+            .set(values)
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(
             query,
             subscriptionType.getId().toString(),
             subscriptionType.getName(),
             subscriptionType.getDescription(),
-            subscriptionType.getValidityDays(),
-            subscriptionType.getVisitCount(),
-            subscriptionType.isUnlimited(),
-            subscriptionType.getPrice()
+            std::to_string(subscriptionType.getValidityDays()),
+            std::to_string(subscriptionType.getVisitCount()),
+            subscriptionType.isUnlimited() ? "true" : "false",
+            std::to_string(subscriptionType.getPrice())
         );
         
         dbConnection_->commitTransaction(work);
@@ -137,7 +168,12 @@ bool PostgreSQLSubscriptionTypeRepository::remove(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "DELETE FROM subscription_types WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .deleteFrom("subscription_types")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
@@ -152,7 +188,13 @@ bool PostgreSQLSubscriptionTypeRepository::exists(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "SELECT 1 FROM subscription_types WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"1"})
+            .from("subscription_types")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);

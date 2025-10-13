@@ -281,6 +281,30 @@ src/data/DateTimeUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.s
 .PHONY : src/data/DateTimeUtils.cpp.s
 
+src/data/QueryFactory.o: src/data/QueryFactory.cpp.o
+.PHONY : src/data/QueryFactory.o
+
+# target to build an object file
+src/data/QueryFactory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.o
+.PHONY : src/data/QueryFactory.cpp.o
+
+src/data/QueryFactory.i: src/data/QueryFactory.cpp.i
+.PHONY : src/data/QueryFactory.i
+
+# target to preprocess a source file
+src/data/QueryFactory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.i
+.PHONY : src/data/QueryFactory.cpp.i
+
+src/data/QueryFactory.s: src/data/QueryFactory.cpp.s
+.PHONY : src/data/QueryFactory.s
+
+# target to generate assembly for a file
+src/data/QueryFactory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.s
+.PHONY : src/data/QueryFactory.cpp.s
+
 src/data/ResilientDatabaseConnection.o: src/data/ResilientDatabaseConnection.cpp.o
 .PHONY : src/data/ResilientDatabaseConnection.o
 
@@ -304,6 +328,30 @@ src/data/ResilientDatabaseConnection.s: src/data/ResilientDatabaseConnection.cpp
 src/data/ResilientDatabaseConnection.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.s
 .PHONY : src/data/ResilientDatabaseConnection.cpp.s
+
+src/data/SqlQueryBuilder.o: src/data/SqlQueryBuilder.cpp.o
+.PHONY : src/data/SqlQueryBuilder.o
+
+# target to build an object file
+src/data/SqlQueryBuilder.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/SqlQueryBuilder.cpp.o
+.PHONY : src/data/SqlQueryBuilder.cpp.o
+
+src/data/SqlQueryBuilder.i: src/data/SqlQueryBuilder.cpp.i
+.PHONY : src/data/SqlQueryBuilder.i
+
+# target to preprocess a source file
+src/data/SqlQueryBuilder.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/SqlQueryBuilder.cpp.i
+.PHONY : src/data/SqlQueryBuilder.cpp.i
+
+src/data/SqlQueryBuilder.s: src/data/SqlQueryBuilder.cpp.s
+.PHONY : src/data/SqlQueryBuilder.s
+
+# target to generate assembly for a file
+src/data/SqlQueryBuilder.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/SqlQueryBuilder.cpp.s
+.PHONY : src/data/SqlQueryBuilder.cpp.s
 
 src/dtos/AuthDTO.o: src/dtos/AuthDTO.cpp.o
 .PHONY : src/dtos/AuthDTO.o
@@ -1504,9 +1552,15 @@ help:
 	@echo "... src/data/DateTimeUtils.o"
 	@echo "... src/data/DateTimeUtils.i"
 	@echo "... src/data/DateTimeUtils.s"
+	@echo "... src/data/QueryFactory.o"
+	@echo "... src/data/QueryFactory.i"
+	@echo "... src/data/QueryFactory.s"
 	@echo "... src/data/ResilientDatabaseConnection.o"
 	@echo "... src/data/ResilientDatabaseConnection.i"
 	@echo "... src/data/ResilientDatabaseConnection.s"
+	@echo "... src/data/SqlQueryBuilder.o"
+	@echo "... src/data/SqlQueryBuilder.i"
+	@echo "... src/data/SqlQueryBuilder.s"
 	@echo "... src/dtos/AuthDTO.o"
 	@echo "... src/dtos/AuthDTO.i"
 	@echo "... src/dtos/AuthDTO.s"

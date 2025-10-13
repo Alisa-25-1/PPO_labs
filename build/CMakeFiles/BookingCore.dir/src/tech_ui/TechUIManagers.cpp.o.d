@@ -331,6 +331,7 @@ CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLClientRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/../../data/DatabaseConnection.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/../../data/exceptions/DataAccessException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/../../data/SqlQueryBuilder.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLDanceHallRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLBookingRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLLessonRepository.hpp \

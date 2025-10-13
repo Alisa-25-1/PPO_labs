@@ -68,6 +68,7 @@
         "cstring": "cpp",
         "list": "cpp",
         "source_location": "cpp",
-        "ranges": "cpp"
+        "ranges": "cpp",
+        "pqxx": "cpp"
     }
 }

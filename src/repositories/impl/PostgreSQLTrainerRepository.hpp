@@ -4,6 +4,7 @@
 #include "../ITrainerRepository.hpp"
 #include "../../data/DatabaseConnection.hpp"
 #include "../../data/exceptions/DataAccessException.hpp"
+#include "../../data/SqlQueryBuilder.hpp"
 #include <memory>
 
 class PostgreSQLTrainerRepository : public ITrainerRepository {

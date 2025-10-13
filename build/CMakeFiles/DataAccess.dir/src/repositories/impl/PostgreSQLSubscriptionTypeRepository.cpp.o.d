@@ -273,4 +273,5 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeReposi
  /usr/include/pqxx/subtransaction.hxx /usr/include/pqxx/time.hxx \
  /usr/include/c++/13/chrono /usr/include/pqxx/transactor.hxx \
  /usr/include/pqxx/internal/header-post.hxx \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/exceptions/DataAccessException.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/exceptions/DataAccessException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/SqlQueryBuilder.hpp

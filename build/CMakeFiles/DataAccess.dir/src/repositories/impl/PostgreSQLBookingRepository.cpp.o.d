@@ -277,4 +277,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.
  /usr/include/pqxx/transactor.hxx \
  /usr/include/pqxx/internal/header-post.hxx \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/exceptions/DataAccessException.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/DateTimeUtils.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/SqlQueryBuilder.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/DateTimeUtils.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/QueryFactory.hpp

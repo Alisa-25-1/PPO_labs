@@ -3,8 +3,8 @@
 
 #include "../types/uuid.hpp"
 #include "../types/enums.hpp"
-#include <string>
 #include <chrono>
+#include <string>
 
 class Review {
 private:
@@ -17,7 +17,7 @@ private:
     ReviewStatus status_;
 
 public:
-    Review();
+    // Конструкторы
     Review(const UUID& id, const UUID& clientId, const UUID& lessonId, 
            int rating, const std::string& comment);
     
@@ -30,14 +30,19 @@ public:
     std::chrono::system_clock::time_point getPublicationDate() const;
     ReviewStatus getStatus() const;
     
-    // Бизнес-логика
+    // Методы управления статусом
     void approve();
     void reject();
+    
+    // Проверки статуса
     bool isApproved() const;
     bool isPending() const;
-    bool isValid() const;
+    bool isRejected() const;
     
     // Валидация
+    bool isValid() const;
+    
+    // Статические методы валидации
     static bool isValidRating(int rating);
     static bool isValidComment(const std::string& comment);
     

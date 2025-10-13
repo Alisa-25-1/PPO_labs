@@ -4,6 +4,7 @@
 #include "../IBranchRepository.hpp"
 #include "../../data/DatabaseConnection.hpp"
 #include "../../data/exceptions/DataAccessException.hpp"
+#include "../../data/SqlQueryBuilder.hpp"
 #include <memory>
 
 class PostgreSQLBranchRepository : public IBranchRepository {
@@ -22,7 +23,6 @@ private:
     std::shared_ptr<DatabaseConnection> dbConnection_;
     
     Branch mapResultToBranch(const pqxx::row& row) const;
-    WorkingHours mapResultToWorkingHours(const pqxx::row& row) const;
     void validateBranch(const Branch& branch) const;
 };
 

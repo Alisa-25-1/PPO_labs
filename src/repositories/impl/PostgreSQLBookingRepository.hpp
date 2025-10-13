@@ -4,8 +4,7 @@
 #include "../IBookingRepository.hpp"
 #include "../../data/DatabaseConnection.hpp"           
 #include "../../data/exceptions/DataAccessException.hpp" 
-
-
+#include "../../data/SqlQueryBuilder.hpp"
 #include <memory>
 
 class PostgreSQLBookingRepository : public IBookingRepository {
@@ -25,7 +24,6 @@ private:
     std::shared_ptr<DatabaseConnection> dbConnection_;
     
     Booking mapResultToBooking(const pqxx::row& row) const;
-    TimeSlot mapResultToTimeSlot(const pqxx::row& row) const;
     std::string bookingStatusToString(BookingStatus status) const;
     BookingStatus stringToBookingStatus(const std::string& status) const;
     void validateBooking(const Booking& booking) const;

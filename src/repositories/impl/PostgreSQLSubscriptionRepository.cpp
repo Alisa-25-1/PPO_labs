@@ -1,6 +1,7 @@
 #include "PostgreSQLSubscriptionRepository.hpp"
-#include <pqxx/pqxx>
+#include "../../data/SqlQueryBuilder.hpp"
 #include "../../data/DateTimeUtils.hpp"
+#include "../../data/QueryFactory.hpp"
 
 PostgreSQLSubscriptionRepository::PostgreSQLSubscriptionRepository(
     std::shared_ptr<DatabaseConnection> dbConnection)
@@ -10,10 +11,13 @@ std::optional<Subscription> PostgreSQLSubscriptionRepository::findById(const UUI
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, client_id, subscription_type_id, start_date, end_date, "
-            "remaining_visits, status, purchase_date "
-            "FROM subscriptions WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "subscription_type_id", "start_date", "end_date", 
+                     "remaining_visits", "status", "purchase_date"})
+            .from("subscriptions")
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(query, id.toString());
         
@@ -34,10 +38,13 @@ std::vector<Subscription> PostgreSQLSubscriptionRepository::findByClientId(const
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, client_id, subscription_type_id, start_date, end_date, "
-            "remaining_visits, status, purchase_date "
-            "FROM subscriptions WHERE client_id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "subscription_type_id", "start_date", "end_date", 
+                     "remaining_visits", "status", "purchase_date"})
+            .from("subscriptions")
+            .where("client_id = $1")
+            .build();
         
         auto result = work.exec_params(query, clientId.toString());
         
@@ -58,10 +65,13 @@ std::vector<Subscription> PostgreSQLSubscriptionRepository::findActiveSubscripti
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, client_id, subscription_type_id, start_date, end_date, "
-            "remaining_visits, status, purchase_date "
-            "FROM subscriptions WHERE status = 'ACTIVE'";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "subscription_type_id", "start_date", "end_date", 
+                     "remaining_visits", "status", "purchase_date"})
+            .from("subscriptions")
+            .where("status = 'ACTIVE'")
+            .build();
         
         auto result = work.exec(query);
         
@@ -82,11 +92,7 @@ std::vector<Subscription> PostgreSQLSubscriptionRepository::findExpiringSubscrip
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, client_id, subscription_type_id, start_date, end_date, "
-            "remaining_visits, status, purchase_date "
-            "FROM subscriptions WHERE status = 'ACTIVE' AND end_date BETWEEN CURRENT_DATE AND CURRENT_DATE + $1 * INTERVAL '1 day'";
-        
+        std::string query = QueryFactory::createFindExpiringSubscriptionsQuery();
         auto result = work.exec_params(query, days);
         
         std::vector<Subscription> subscriptions;
@@ -108,10 +114,22 @@ bool PostgreSQLSubscriptionRepository::save(const Subscription& subscription) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "INSERT INTO subscriptions (id, client_id, subscription_type_id, start_date, "
-            "end_date, remaining_visits, status, purchase_date) "
-            "VALUES ($1, $2, $3, $4, $5, $6, $7, $8)";
+        std::map<std::string, std::string> values = {
+            {"id", "$1"},
+            {"client_id", "$2"},
+            {"subscription_type_id", "$3"},
+            {"start_date", "$4"},
+            {"end_date", "$5"},
+            {"remaining_visits", "$6"},
+            {"status", "$7"},
+            {"purchase_date", "$8"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .insertInto("subscriptions")
+            .values(values)
+            .build();
         
         work.exec_params(
             query,
@@ -120,7 +138,7 @@ bool PostgreSQLSubscriptionRepository::save(const Subscription& subscription) {
             subscription.getSubscriptionTypeId().toString(),
             DateTimeUtils::formatTimeForPostgres(subscription.getStartDate()),
             DateTimeUtils::formatTimeForPostgres(subscription.getEndDate()),
-            subscription.getRemainingVisits(),
+            std::to_string(subscription.getRemainingVisits()),
             subscriptionStatusToString(subscription.getStatus()),
             DateTimeUtils::formatTimeForPostgres(subscription.getPurchaseDate())
         );
@@ -139,10 +157,21 @@ bool PostgreSQLSubscriptionRepository::update(const Subscription& subscription) 
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "UPDATE subscriptions SET client_id = $2, subscription_type_id = $3, start_date = $4, "
-            "end_date = $5, remaining_visits = $6, status = $7 "
-            "WHERE id = $1";
+        std::map<std::string, std::string> values = {
+            {"client_id", "$2"},
+            {"subscription_type_id", "$3"},
+            {"start_date", "$4"},
+            {"end_date", "$5"},
+            {"remaining_visits", "$6"},
+            {"status", "$7"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .update("subscriptions")
+            .set(values)
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(
             query,
@@ -151,7 +180,7 @@ bool PostgreSQLSubscriptionRepository::update(const Subscription& subscription) 
             subscription.getSubscriptionTypeId().toString(),
             DateTimeUtils::formatTimeForPostgres(subscription.getStartDate()),
             DateTimeUtils::formatTimeForPostgres(subscription.getEndDate()),
-            subscription.getRemainingVisits(),
+            std::to_string(subscription.getRemainingVisits()),
             subscriptionStatusToString(subscription.getStatus())
         );
         
@@ -167,7 +196,12 @@ bool PostgreSQLSubscriptionRepository::remove(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "DELETE FROM subscriptions WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .deleteFrom("subscriptions")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
@@ -182,7 +216,13 @@ bool PostgreSQLSubscriptionRepository::exists(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "SELECT 1 FROM subscriptions WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"1"})
+            .from("subscriptions")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
@@ -212,6 +252,11 @@ Subscription PostgreSQLSubscriptionRepository::mapResultToSubscription(const pqx
             break;
         case SubscriptionStatus::CANCELLED:
             subscription.cancel();
+            break;
+        case SubscriptionStatus::EXPIRED:
+            // Для EXPIRED статуса просто оставляем подписку как есть,
+            // так как expire() метода нет в модели Subscription
+            // Статус будет установлен автоматически при проверке дат
             break;
         default:
             break; // ACTIVE по умолчанию

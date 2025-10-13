@@ -1,6 +1,7 @@
 #include "PostgreSQLLessonRepository.hpp"
 #include <pqxx/pqxx>
 #include "../../data/DateTimeUtils.hpp"
+#include "../../data/QueryFactory.hpp"
 
 PostgreSQLLessonRepository::PostgreSQLLessonRepository(
     std::shared_ptr<DatabaseConnection> dbConnection)
@@ -10,11 +11,16 @@ std::optional<Lesson> PostgreSQLLessonRepository::findById(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, type, name, description, start_time, duration_minutes, "
-            "difficulty, max_participants, current_participants, price, status, "
-            "trainer_id, hall_id "
-            "FROM lessons WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({
+                "id", "type", "name", "description", "start_time", "duration_minutes",
+                "difficulty", "max_participants", "current_participants", "price", "status",
+                "trainer_id", "hall_id"
+            })
+            .from("lessons")
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(query, id.toString());
         
@@ -35,11 +41,16 @@ std::vector<Lesson> PostgreSQLLessonRepository::findByTrainerId(const UUID& trai
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, type, name, description, start_time, duration_minutes, "
-            "difficulty, max_participants, current_participants, price, status, "
-            "trainer_id, hall_id "
-            "FROM lessons WHERE trainer_id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({
+                "id", "type", "name", "description", "start_time", "duration_minutes",
+                "difficulty", "max_participants", "current_participants", "price", "status",
+                "trainer_id", "hall_id"
+            })
+            .from("lessons")
+            .where("trainer_id = $1")
+            .build();
         
         auto result = work.exec_params(query, trainerId.toString());
         
@@ -60,11 +71,16 @@ std::vector<Lesson> PostgreSQLLessonRepository::findByHallId(const UUID& hallId)
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, type, name, description, start_time, duration_minutes, "
-            "difficulty, max_participants, current_participants, price, status, "
-            "trainer_id, hall_id "
-            "FROM lessons WHERE hall_id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({
+                "id", "type", "name", "description", "start_time", "duration_minutes",
+                "difficulty", "max_participants", "current_participants", "price", "status",
+                "trainer_id", "hall_id"
+            })
+            .from("lessons")
+            .where("hall_id = $1")
+            .build();
         
         auto result = work.exec_params(query, hallId.toString());
         
@@ -87,15 +103,7 @@ std::vector<Lesson> PostgreSQLLessonRepository::findConflictingLessons(
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, type, name, description, start_time, duration_minutes, "
-            "difficulty, max_participants, current_participants, price, status, "
-            "trainer_id, hall_id "
-            "FROM lessons "
-            "WHERE hall_id = $1 AND status IN ('SCHEDULED', 'ONGOING') "
-            "AND (start_time, start_time + (duration_minutes * interval '1 minute')) "
-            "OVERLAPS ($2::timestamp, $2::timestamp + ($3 * interval '1 minute'))";
-        
+        std::string query = QueryFactory::createFindConflictingLessonsQuery();
         auto startTimeStr = DateTimeUtils::formatTimeForPostgres(timeSlot.getStartTime());
         auto result = work.exec_params(
             query, 
@@ -108,7 +116,7 @@ std::vector<Lesson> PostgreSQLLessonRepository::findConflictingLessons(
         for (const auto& row : result) {
             lessons.push_back(mapResultToLesson(row));
         }
-        
+
         dbConnection_->commitTransaction(work);
         return lessons;
         
@@ -121,13 +129,7 @@ std::vector<Lesson> PostgreSQLLessonRepository::findUpcomingLessons(int days) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, type, name, description, start_time, duration_minutes, "
-            "difficulty, max_participants, current_participants, price, status, "
-            "trainer_id, hall_id "
-            "FROM lessons WHERE start_time BETWEEN CURRENT_TIMESTAMP AND CURRENT_TIMESTAMP + $1 * INTERVAL '1 day' "
-            "AND status = 'SCHEDULED'";
-        
+        std::string query = QueryFactory::createFindUpcomingLessonsQuery();
         auto result = work.exec_params(query, days);
         
         std::vector<Lesson> lessons;
@@ -149,11 +151,27 @@ bool PostgreSQLLessonRepository::save(const Lesson& lesson) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "INSERT INTO lessons (id, type, name, description, start_time, duration_minutes, "
-            "difficulty, max_participants, current_participants, price, status, "
-            "trainer_id, hall_id) "
-            "VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13)";
+        std::map<std::string, std::string> values = {
+            {"id", "$1"},
+            {"type", "$2"},
+            {"name", "$3"},
+            {"description", "$4"},
+            {"start_time", "$5"},
+            {"duration_minutes", "$6"},
+            {"difficulty", "$7"},
+            {"max_participants", "$8"},
+            {"current_participants", "$9"},
+            {"price", "$10"},
+            {"status", "$11"},
+            {"trainer_id", "$12"},
+            {"hall_id", "$13"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .insertInto("lessons")
+            .values(values)
+            .build();
         
         work.exec_params(
             query,
@@ -186,11 +204,27 @@ bool PostgreSQLLessonRepository::update(const Lesson& lesson) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "UPDATE lessons SET type = $2, name = $3, description = $4, start_time = $5, "
-            "duration_minutes = $6, difficulty = $7, max_participants = $8, "
-            "current_participants = $9, price = $10, status = $11, trainer_id = $12, hall_id = $13 "
-            "WHERE id = $1";
+        std::map<std::string, std::string> values = {
+            {"type", "$2"},
+            {"name", "$3"},
+            {"description", "$4"},
+            {"start_time", "$5"},
+            {"duration_minutes", "$6"},
+            {"difficulty", "$7"},
+            {"max_participants", "$8"},
+            {"current_participants", "$9"},
+            {"price", "$10"},
+            {"status", "$11"},
+            {"trainer_id", "$12"},
+            {"hall_id", "$13"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .update("lessons")
+            .set(values)
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(
             query,
@@ -221,7 +255,12 @@ bool PostgreSQLLessonRepository::remove(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "DELETE FROM lessons WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .deleteFrom("lessons")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
@@ -236,7 +275,13 @@ bool PostgreSQLLessonRepository::exists(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "SELECT 1 FROM lessons WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"1"})
+            .from("lessons")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);

@@ -4,6 +4,7 @@
 #include "../IDanceHallRepository.hpp"
 #include "../../data/DatabaseConnection.hpp"
 #include "../../data/exceptions/DataAccessException.hpp"
+#include "../../data/SqlQueryBuilder.hpp"
 #include <memory>
 
 class PostgreSQLDanceHallRepository : public IDanceHallRepository {
@@ -21,7 +22,6 @@ public:
 private:
     std::shared_ptr<DatabaseConnection> dbConnection_;
     
-    // ИСПРАВЛЕНО: правильные имена методов
     DanceHall mapResultToDanceHall(const pqxx::row& row) const;
     void validateDanceHall(const DanceHall& hall) const;
 };

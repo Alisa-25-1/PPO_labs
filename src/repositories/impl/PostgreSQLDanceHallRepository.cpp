@@ -1,5 +1,6 @@
 #include "PostgreSQLDanceHallRepository.hpp"
 #include <pqxx/pqxx>
+#include "../../data/SqlQueryBuilder.hpp"
 
 PostgreSQLDanceHallRepository::PostgreSQLDanceHallRepository(
     std::shared_ptr<DatabaseConnection> dbConnection)
@@ -9,9 +10,12 @@ std::optional<DanceHall> PostgreSQLDanceHallRepository::findById(const UUID& id)
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, name, description, capacity, floor_type, equipment, branch_id "
-            "FROM dance_halls WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "description", "capacity", "floor_type", "equipment", "branch_id"})
+            .from("dance_halls")
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(query, id.toString());
         
@@ -32,16 +36,17 @@ std::vector<DanceHall> PostgreSQLDanceHallRepository::findByBranchId(const UUID&
     try {
         auto work = dbConnection_->beginTransaction();
         
-        // ИСПРАВЛЕНО: таблица dance_halls
-        std::string query = 
-            "SELECT id, name, description, capacity, floor_type, equipment, branch_id "
-            "FROM dance_halls WHERE branch_id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "description", "capacity", "floor_type", "equipment", "branch_id"})
+            .from("dance_halls")
+            .where("branch_id = $1")
+            .build();
         
         auto result = work.exec_params(query, branchId.toString());
         
         std::vector<DanceHall> halls;
         for (const auto& row : result) {
-            // ИСПРАВЛЕНО: правильное имя метода
             halls.push_back(mapResultToDanceHall(row));
         }
         
@@ -57,8 +62,13 @@ bool PostgreSQLDanceHallRepository::exists(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        // ИСПРАВЛЕНО: таблица dance_halls
-        std::string query = "SELECT 1 FROM dance_halls WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"1"})
+            .from("dance_halls")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
@@ -73,16 +83,16 @@ std::vector<DanceHall> PostgreSQLDanceHallRepository::findAll() {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        // ИСПРАВЛЕНО: таблица dance_halls
-        std::string query = 
-            "SELECT id, name, description, capacity, floor_type, equipment, branch_id "
-            "FROM dance_halls";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "description", "capacity", "floor_type", "equipment", "branch_id"})
+            .from("dance_halls")
+            .build();
         
         auto result = work.exec(query);
         
         std::vector<DanceHall> halls;
         for (const auto& row : result) {
-            // ИСПРАВЛЕНО: правильное имя метода
             halls.push_back(mapResultToDanceHall(row));
         }
         
@@ -94,42 +104,27 @@ std::vector<DanceHall> PostgreSQLDanceHallRepository::findAll() {
     }
 }
 
-// ИСПРАВЛЕНО: правильное имя метода
-DanceHall PostgreSQLDanceHallRepository::mapResultToDanceHall(const pqxx::row& row) const {
-    UUID id = UUID::fromString(row["id"].c_str());
-    std::string name = row["name"].c_str();
-    std::string description = row["description"].c_str();
-    int capacity = row["capacity"].as<int>();
-    std::string floorType = row["floor_type"].c_str();
-    std::string equipment = row["equipment"].c_str();
-    UUID branchId = UUID::fromString(row["branch_id"].c_str());
-    
-    DanceHall hall(id, name, capacity, branchId);
-    hall.setDescription(description);
-    hall.setFloorType(floorType);
-    hall.setEquipment(equipment);
-    
-    return hall;
-}
-
-// ИСПРАВЛЕНО: правильное имя метода
-void PostgreSQLDanceHallRepository::validateDanceHall(const DanceHall& hall) const {
-    if (!hall.isValid()) {
-        throw DataAccessException("Invalid hall data");
-    }
-}
-
 bool PostgreSQLDanceHallRepository::save(const DanceHall& hall) {
-    // ИСПРАВЛЕНО: правильное имя метода
     validateDanceHall(hall);
     
     try {
         auto work = dbConnection_->beginTransaction();
         
-        // ИСПРАВЛЕНО: таблица dance_halls
-        std::string query = 
-            "INSERT INTO dance_halls (id, name, description, capacity, floor_type, equipment, branch_id) "
-            "VALUES ($1, $2, $3, $4, $5, $6, $7)";
+        std::map<std::string, std::string> values = {
+            {"id", "$1"},
+            {"name", "$2"},
+            {"description", "$3"},
+            {"capacity", "$4"},
+            {"floor_type", "$5"},
+            {"equipment", "$6"},
+            {"branch_id", "$7"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .insertInto("dance_halls")
+            .values(values)
+            .build();
         
         work.exec_params(
             query,
@@ -151,17 +146,26 @@ bool PostgreSQLDanceHallRepository::save(const DanceHall& hall) {
 }
 
 bool PostgreSQLDanceHallRepository::update(const DanceHall& hall) {
-    // ИСПРАВЛЕНО: правильное имя метода
     validateDanceHall(hall);
     
     try {
         auto work = dbConnection_->beginTransaction();
         
-        // ИСПРАВЛЕНО: таблица dance_halls
-        std::string query = 
-            "UPDATE dance_halls SET name = $2, description = $3, capacity = $4, "
-            "floor_type = $5, equipment = $6, branch_id = $7 "
-            "WHERE id = $1";
+        std::map<std::string, std::string> values = {
+            {"name", "$2"},
+            {"description", "$3"},
+            {"capacity", "$4"},
+            {"floor_type", "$5"},
+            {"equipment", "$6"},
+            {"branch_id", "$7"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .update("dance_halls")
+            .set(values)
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(
             query,
@@ -186,8 +190,12 @@ bool PostgreSQLDanceHallRepository::remove(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        // ИСПРАВЛЕНО: таблица dance_halls
-        std::string query = "DELETE FROM dance_halls WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .deleteFrom("dance_halls")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
@@ -195,5 +203,28 @@ bool PostgreSQLDanceHallRepository::remove(const UUID& id) {
         
     } catch (const std::exception& e) {
         throw QueryException(std::string("Failed to remove hall: ") + e.what());
+    }
+}
+
+DanceHall PostgreSQLDanceHallRepository::mapResultToDanceHall(const pqxx::row& row) const {
+    UUID id = UUID::fromString(row["id"].c_str());
+    std::string name = row["name"].c_str();
+    std::string description = row["description"].c_str();
+    int capacity = row["capacity"].as<int>();
+    std::string floorType = row["floor_type"].c_str();
+    std::string equipment = row["equipment"].c_str();
+    UUID branchId = UUID::fromString(row["branch_id"].c_str());
+    
+    DanceHall hall(id, name, capacity, branchId);
+    hall.setDescription(description);
+    hall.setFloorType(floorType);
+    hall.setEquipment(equipment);
+    
+    return hall;
+}
+
+void PostgreSQLDanceHallRepository::validateDanceHall(const DanceHall& hall) const {
+    if (!hall.isValid()) {
+        throw DataAccessException("Invalid hall data");
     }
 }

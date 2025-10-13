@@ -155,16 +155,28 @@ TEST_F(RepositoryIntegrationTest, ClientRepository_SaveAndFind) {
     
     // Act
     bool saveResult = clientRepository->save(client);
-    auto foundClient = clientRepository->findById(clientId);
-    auto foundByEmail = clientRepository->findByEmail("integration@example.com");
     
-    // Assert
+    // Проверяем, что сохранение прошло успешно
     EXPECT_TRUE(saveResult);
+    
+    // Ищем клиента по ID
+    auto foundClient = clientRepository->findById(clientId);
+    
+    // Проверяем, что клиент найден
     ASSERT_TRUE(foundClient.has_value());
     EXPECT_EQ(foundClient->getId(), clientId);
     EXPECT_EQ(foundClient->getName(), "Integration Test User");
     EXPECT_EQ(foundClient->getEmail(), "integration@example.com");
+    EXPECT_EQ(foundClient->getPhone(), "+12345678901");
+    EXPECT_TRUE(foundClient->isActive());
     
+    // Проверяем, что пароль сохранился корректно
+    EXPECT_TRUE(foundClient->validatePassword("ValidPass123"));
+    
+    // Ищем клиента по email
+    auto foundByEmail = clientRepository->findByEmail("integration@example.com");
+    
+    // Проверяем, что клиент найден по email
     ASSERT_TRUE(foundByEmail.has_value());
     EXPECT_EQ(foundByEmail->getId(), clientId);
 }
@@ -310,6 +322,311 @@ TEST_F(RepositoryIntegrationTest, SubscriptionTypeRepository_CreateAndFind) {
     
     auto deletedType = subscriptionTypeRepository->findById(subscriptionTypeId);
     EXPECT_FALSE(deletedType.has_value());
+}
+
+TEST_F(RepositoryIntegrationTest, StudioRepository_FullCycle) {
+    // Arrange
+    UUID studioId = UUID::generate();
+    Studio studio(studioId, "Integration Test Studio", "integration@studio.com");
+    studio.setDescription("Test studio for integration tests");
+    
+    // Act & Assert - Сохраняем
+    bool saveResult = studioRepository->save(studio);
+    EXPECT_TRUE(saveResult);
+    
+    // Проверяем сохранение
+    auto foundStudio = studioRepository->findById(studioId);
+    ASSERT_TRUE(foundStudio.has_value());
+    EXPECT_EQ(foundStudio->getName(), "Integration Test Studio");
+    EXPECT_EQ(foundStudio->getContactEmail(), "integration@studio.com");
+    
+    // Act & Assert - Обновляем
+    studio.setDescription("Updated description");
+    bool updateResult = studioRepository->update(studio);
+    EXPECT_TRUE(updateResult);
+    
+    auto updatedStudio = studioRepository->findById(studioId);
+    ASSERT_TRUE(updatedStudio.has_value());
+    EXPECT_EQ(updatedStudio->getDescription(), "Updated description");
+    
+    // Act & Assert - Удаляем
+    bool removeResult = studioRepository->remove(studioId);
+    EXPECT_TRUE(removeResult);
+    
+    auto deletedStudio = studioRepository->findById(studioId);
+    EXPECT_FALSE(deletedStudio.has_value());
+}
+
+TEST_F(RepositoryIntegrationTest, BranchRepository_FullCycle) {
+    // Arrange
+    UUID branchId = UUID::generate();
+    UUID studioId = UUID::fromString("11111111-1111-1111-1111-111111111111");
+    
+    WorkingHours workingHours(std::chrono::hours(9), std::chrono::hours(22));
+    Branch branch(branchId, "Integration Test Branch", "Test Address", "+1234567890", workingHours, studioId);
+    
+    // Act & Assert - Сохраняем
+    bool saveResult = branchRepository->save(branch);
+    EXPECT_TRUE(saveResult);
+    
+    // Проверяем сохранение
+    auto foundBranch = branchRepository->findById(branchId);
+    ASSERT_TRUE(foundBranch.has_value());
+    EXPECT_EQ(foundBranch->getName(), "Integration Test Branch");
+    EXPECT_EQ(foundBranch->getAddress(), "Test Address");
+    
+    // Проверяем поиск по studio_id
+    auto studioBranches = branchRepository->findByStudioId(studioId);
+    EXPECT_GE(studioBranches.size(), 1);
+    
+    // Act & Assert - Обновляем
+    branch.setAddress("Updated Address");
+    bool updateResult = branchRepository->update(branch);
+    EXPECT_TRUE(updateResult);
+    
+    auto updatedBranch = branchRepository->findById(branchId);
+    ASSERT_TRUE(updatedBranch.has_value());
+    EXPECT_EQ(updatedBranch->getAddress(), "Updated Address");
+    
+    // Act & Assert - Удаляем
+    bool removeResult = branchRepository->remove(branchId);
+    EXPECT_TRUE(removeResult);
+    
+    auto deletedBranch = branchRepository->findById(branchId);
+    EXPECT_FALSE(deletedBranch.has_value());
+}
+
+TEST_F(RepositoryIntegrationTest, ReviewRepository_CreateAndFind) {
+    // Arrange
+    UUID clientId = UUID::generate();
+    UUID lessonId = UUID::generate();
+    UUID reviewId = UUID::generate();
+    
+    // Создаем клиента
+    Client client(clientId, "Review Test User", "review@example.com", "+12345678901");
+    client.changePassword("ValidPass123");
+    client.activate();
+    clientRepository->save(client);
+    
+    // Создаем урок
+    auto startTime = std::chrono::system_clock::now() + std::chrono::hours(24);
+    Lesson lesson(lessonId, LessonType::OPEN_CLASS, "Test Lesson", startTime, 60, 
+                 DifficultyLevel::BEGINNER, 20, 50.0, 
+                 UUID::fromString("77777777-7777-7777-7777-777777777777"),
+                 UUID::fromString("33333333-3333-3333-3333-333333333333"));
+    lessonRepository->save(lesson);
+    
+    Review review(reviewId, clientId, lessonId, 5, "Excellent lesson!");
+    
+    // Act
+    bool saveResult = reviewRepository->save(review);
+    auto foundReview = reviewRepository->findById(reviewId);
+    auto clientReviews = reviewRepository->findByClientId(clientId);
+    auto lessonReviews = reviewRepository->findByLessonId(lessonId);
+    auto clientLessonReview = reviewRepository->findByClientAndLesson(clientId, lessonId);
+    
+    // Assert
+    EXPECT_TRUE(saveResult);
+    ASSERT_TRUE(foundReview.has_value());
+    EXPECT_EQ(foundReview->getRating(), 5);
+    EXPECT_EQ(foundReview->getComment(), "Excellent lesson!");
+    EXPECT_EQ(foundReview->getStatus(), ReviewStatus::PENDING_MODERATION);
+    
+    EXPECT_EQ(clientReviews.size(), 1);
+    EXPECT_EQ(lessonReviews.size(), 1);
+    ASSERT_TRUE(clientLessonReview.has_value());
+    EXPECT_EQ(clientLessonReview->getId(), reviewId);
+}
+
+TEST_F(RepositoryIntegrationTest, ReviewRepository_FullCycle) {
+    // Arrange
+    UUID clientId = UUID::generate();
+    UUID lessonId = UUID::generate();
+    UUID reviewId = UUID::generate();
+    
+    // Создаем клиента
+    Client client(clientId, "Review Test User", "review@example.com", "+12345678901");
+    client.changePassword("ValidPass123");
+    client.activate();
+    clientRepository->save(client);
+    
+    // Создаем урок
+    auto startTime = std::chrono::system_clock::now() + std::chrono::hours(24);
+    Lesson lesson(lessonId, LessonType::OPEN_CLASS, "Test Lesson", startTime, 60, 
+                 DifficultyLevel::BEGINNER, 20, 50.0, 
+                 UUID::fromString("77777777-7777-7777-7777-777777777777"),
+                 UUID::fromString("33333333-3333-3333-3333-333333333333"));
+    lessonRepository->save(lesson);
+    
+    Review review(reviewId, clientId, lessonId, 5, "Excellent lesson!");
+    
+    // Act & Assert - Сохраняем
+    bool saveResult = reviewRepository->save(review);
+    EXPECT_TRUE(saveResult);
+    
+    // Проверяем сохранение
+    auto foundReview = reviewRepository->findById(reviewId);
+    ASSERT_TRUE(foundReview.has_value());
+    EXPECT_EQ(foundReview->getRating(), 5);
+    EXPECT_EQ(foundReview->getComment(), "Excellent lesson!");
+    EXPECT_EQ(foundReview->getStatus(), ReviewStatus::PENDING_MODERATION);
+    
+    // Проверяем поиск по клиенту и уроку
+    auto clientReviews = reviewRepository->findByClientId(clientId);
+    auto lessonReviews = reviewRepository->findByLessonId(lessonId);
+    auto clientLessonReview = reviewRepository->findByClientAndLesson(clientId, lessonId);
+    
+    EXPECT_EQ(clientReviews.size(), 1);
+    EXPECT_EQ(lessonReviews.size(), 1);
+    ASSERT_TRUE(clientLessonReview.has_value());
+    EXPECT_EQ(clientLessonReview->getId(), reviewId);
+    
+    // Act & Assert - Обновляем
+    foundReview->approve();
+    bool updateResult = reviewRepository->update(*foundReview);
+    EXPECT_TRUE(updateResult);
+    
+    auto updatedReview = reviewRepository->findById(reviewId);
+    ASSERT_TRUE(updatedReview.has_value());
+    EXPECT_EQ(updatedReview->getStatus(), ReviewStatus::APPROVED);
+    
+    // Act & Assert - Удаляем
+    bool removeResult = reviewRepository->remove(reviewId);
+    EXPECT_TRUE(removeResult);
+    
+    auto deletedReview = reviewRepository->findById(reviewId);
+    EXPECT_FALSE(deletedReview.has_value());
+}
+
+TEST_F(RepositoryIntegrationTest, EnrollmentRepository_FullCycle) {
+    // Arrange
+    UUID clientId = UUID::generate();
+    UUID lessonId = UUID::generate();
+    UUID enrollmentId = UUID::generate();
+    
+    // Создаем клиента
+    Client client(clientId, "Enrollment Test User", "enrollment@example.com", "+12345678901");
+    client.changePassword("ValidPass123");
+    client.activate();
+    clientRepository->save(client);
+    
+    // Создаем урок
+    auto startTime = std::chrono::system_clock::now() + std::chrono::hours(24);
+    Lesson lesson(lessonId, LessonType::OPEN_CLASS, "Test Lesson", startTime, 60, 
+                 DifficultyLevel::BEGINNER, 20, 50.0, 
+                 UUID::fromString("77777777-7777-7777-7777-777777777777"),
+                 UUID::fromString("33333333-3333-3333-3333-333333333333"));
+    lessonRepository->save(lesson);
+    
+    Enrollment enrollment(enrollmentId, clientId, lessonId);
+    
+    // Act & Assert - Сохраняем
+    bool saveResult = enrollmentRepository->save(enrollment);
+    EXPECT_TRUE(saveResult);
+    
+    // Проверяем сохранение
+    auto foundEnrollment = enrollmentRepository->findById(enrollmentId);
+    ASSERT_TRUE(foundEnrollment.has_value());
+    EXPECT_EQ(foundEnrollment->getClientId(), clientId);
+    EXPECT_EQ(foundEnrollment->getLessonId(), lessonId);
+    EXPECT_EQ(foundEnrollment->getStatus(), EnrollmentStatus::REGISTERED);
+    
+    // Проверяем поиск по клиенту и уроку
+    auto clientEnrollments = enrollmentRepository->findByClientId(clientId);
+    auto lessonEnrollments = enrollmentRepository->findByLessonId(lessonId);
+
+    auto clientLessonEnrollment = enrollmentRepository->findByClientAndLesson(clientId, lessonId);
+    
+    EXPECT_EQ(clientEnrollments.size(), 1);
+    EXPECT_EQ(lessonEnrollments.size(), 1);
+    ASSERT_TRUE(clientLessonEnrollment.has_value());
+    EXPECT_EQ(clientLessonEnrollment->getId(), enrollmentId);
+    
+    // Проверяем подсчет записей
+    int enrollmentCount = enrollmentRepository->countByLessonId(lessonId);
+    EXPECT_EQ(enrollmentCount, 1);
+    
+    // Act & Assert - Обновляем
+    foundEnrollment->markAttended();
+    bool updateResult = enrollmentRepository->update(*foundEnrollment);
+    EXPECT_TRUE(updateResult);
+    
+    auto updatedEnrollment = enrollmentRepository->findById(enrollmentId);
+    ASSERT_TRUE(updatedEnrollment.has_value());
+    EXPECT_EQ(updatedEnrollment->getStatus(), EnrollmentStatus::ATTENDED);
+    
+    // Act & Assert - Удаляем
+    bool removeResult = enrollmentRepository->remove(enrollmentId);
+    EXPECT_TRUE(removeResult);
+    
+    auto deletedEnrollment = enrollmentRepository->findById(enrollmentId);
+    EXPECT_FALSE(deletedEnrollment.has_value());
+}
+
+TEST_F(RepositoryIntegrationTest, SubscriptionRepository_FullCycle) {
+    // Arrange
+    UUID clientId = UUID::generate();
+    UUID subscriptionId = UUID::generate();
+    UUID subscriptionTypeId = UUID::fromString("55555555-5555-5555-5555-555555555555");
+    
+    // Создаем клиента
+    Client client(clientId, "Subscription Test User", "subscription@example.com", "+12345678901");
+    client.changePassword("ValidPass123");
+    client.activate();
+    clientRepository->save(client);
+    
+    auto startDate = std::chrono::system_clock::now();
+    auto endDate = startDate + std::chrono::hours(24 * 30); // 30 дней
+    Subscription subscription(subscriptionId, clientId, subscriptionTypeId, startDate, endDate, 8);
+    
+    // Act & Assert - Сохраняем
+    bool saveResult = subscriptionRepository->save(subscription);
+    EXPECT_TRUE(saveResult);
+    
+    // Проверяем сохранение
+    auto foundSubscription = subscriptionRepository->findById(subscriptionId);
+    ASSERT_TRUE(foundSubscription.has_value());
+    EXPECT_EQ(foundSubscription->getClientId(), clientId);
+    EXPECT_EQ(foundSubscription->getRemainingVisits(), 8);
+    EXPECT_EQ(foundSubscription->getStatus(), SubscriptionStatus::ACTIVE);
+    
+    // Проверяем поиск по client_id
+    auto clientSubscriptions = subscriptionRepository->findByClientId(clientId);
+    EXPECT_EQ(clientSubscriptions.size(), 1);
+    EXPECT_EQ(clientSubscriptions[0].getId(), subscriptionId);
+    
+    // Проверяем поиск активных подписок
+    auto activeSubscriptions = subscriptionRepository->findActiveSubscriptions();
+    bool foundInActive = std::any_of(activeSubscriptions.begin(), activeSubscriptions.end(),
+        [subscriptionId](const Subscription& sub) {
+            return sub.getId() == subscriptionId;
+        });
+    EXPECT_TRUE(foundInActive);
+    
+    // Act & Assert - Обновляем
+    foundSubscription->useVisit(); // Используем одно посещение
+    bool updateResult = subscriptionRepository->update(*foundSubscription);
+    EXPECT_TRUE(updateResult);
+    
+    auto updatedSubscription = subscriptionRepository->findById(subscriptionId);
+    ASSERT_TRUE(updatedSubscription.has_value());
+    EXPECT_EQ(updatedSubscription->getRemainingVisits(), 7);
+    
+    // Act & Assert - Отменяем подписку
+    updatedSubscription->cancel();
+    updateResult = subscriptionRepository->update(*updatedSubscription);
+    EXPECT_TRUE(updateResult);
+    
+    auto cancelledSubscription = subscriptionRepository->findById(subscriptionId);
+    ASSERT_TRUE(cancelledSubscription.has_value());
+    EXPECT_EQ(cancelledSubscription->getStatus(), SubscriptionStatus::CANCELLED);
+    
+    // Act & Assert - Удаляем
+    bool removeResult = subscriptionRepository->remove(subscriptionId);
+    EXPECT_TRUE(removeResult);
+    
+    auto deletedSubscription = subscriptionRepository->findById(subscriptionId);
+    EXPECT_FALSE(deletedSubscription.has_value());
 }
 
 int main(int argc, char **argv) {

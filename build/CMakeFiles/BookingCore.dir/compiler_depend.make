@@ -2512,6 +2512,7 @@ CMakeFiles/BookingCore.dir/src/models/Review.cpp.o: /home/nikita/Общедос�
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
+  /usr/include/c++/13/algorithm \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
   /usr/include/c++/13/bits/algorithmfwd.h \
@@ -2638,6 +2639,8 @@ CMakeFiles/BookingCore.dir/src/models/Review.cpp.o: /home/nikita/Общедос�
   /usr/include/c++/13/locale \
   /usr/include/c++/13/new \
   /usr/include/c++/13/ostream \
+  /usr/include/c++/13/pstl/execution_defs.h \
+  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/ratio \
   /usr/include/c++/13/regex \
@@ -6402,6 +6405,7 @@ CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o: /home/nikita/Общ
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/SubscriptionType.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/SqlQueryBuilder.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/exceptions/DataAccessException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp \
@@ -8013,6 +8017,8 @@ CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: /home/nikita/Общедосту
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
 /usr/include/pqxx/blob.hxx:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/data/SqlQueryBuilder.hpp:
 
 /usr/include/c++/13/ext/atomicity.h:
 

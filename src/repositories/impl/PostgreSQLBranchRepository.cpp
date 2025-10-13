@@ -1,5 +1,6 @@
 #include "PostgreSQLBranchRepository.hpp"
-#include <pqxx/pqxx>
+#include "../../data/SqlQueryBuilder.hpp"
+#include "../../data/DateTimeUtils.hpp"
 
 PostgreSQLBranchRepository::PostgreSQLBranchRepository(
     std::shared_ptr<DatabaseConnection> dbConnection)
@@ -9,9 +10,12 @@ std::optional<Branch> PostgreSQLBranchRepository::findById(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, name, address, phone, open_time, close_time, studio_id "
-            "FROM branches WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "address", "phone", "open_time", "close_time", "studio_id"})
+            .from("branches")
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(query, id.toString());
         
@@ -32,9 +36,12 @@ std::vector<Branch> PostgreSQLBranchRepository::findByStudioId(const UUID& studi
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, name, address, phone, open_time, close_time, studio_id "
-            "FROM branches WHERE studio_id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "address", "phone", "open_time", "close_time", "studio_id"})
+            .from("branches")
+            .where("studio_id = $1")
+            .build();
         
         auto result = work.exec_params(query, studioId.toString());
         
@@ -55,9 +62,11 @@ std::vector<Branch> PostgreSQLBranchRepository::findAll() {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "SELECT id, name, address, phone, open_time, close_time, studio_id "
-            "FROM branches";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "address", "phone", "open_time", "close_time", "studio_id"})
+            .from("branches")
+            .build();
         
         auto result = work.exec(query);
         
@@ -80,9 +89,21 @@ bool PostgreSQLBranchRepository::save(const Branch& branch) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "INSERT INTO branches (id, name, address, phone, open_time, close_time, studio_id) "
-            "VALUES ($1, $2, $3, $4, $5, $6, $7)";
+        std::map<std::string, std::string> values = {
+            {"id", "$1"},
+            {"name", "$2"},
+            {"address", "$3"},
+            {"phone", "$4"},
+            {"open_time", "$5"},
+            {"close_time", "$6"},
+            {"studio_id", "$7"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .insertInto("branches")
+            .values(values)
+            .build();
         
         work.exec_params(
             query,
@@ -90,8 +111,8 @@ bool PostgreSQLBranchRepository::save(const Branch& branch) {
             branch.getName(),
             branch.getAddress(),
             branch.getPhone(),
-            static_cast<int>(branch.getWorkingHours().openTime.count()), // ИСПРАВЛЕНО: передаем целое число
-            static_cast<int>(branch.getWorkingHours().closeTime.count()), // ИСПРАВЛЕНО: передаем целое число
+            std::to_string(static_cast<int>(branch.getWorkingHours().openTime.count())),
+            std::to_string(static_cast<int>(branch.getWorkingHours().closeTime.count())),
             branch.getStudioId().toString()
         );
         
@@ -109,10 +130,21 @@ bool PostgreSQLBranchRepository::update(const Branch& branch) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = 
-            "UPDATE branches SET name = $2, address = $3, phone = $4, "
-            "open_time = $5, close_time = $6, studio_id = $7 "
-            "WHERE id = $1";
+        std::map<std::string, std::string> values = {
+            {"name", "$2"},
+            {"address", "$3"},
+            {"phone", "$4"},
+            {"open_time", "$5"},
+            {"close_time", "$6"},
+            {"studio_id", "$7"}
+        };
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .update("branches")
+            .set(values)
+            .where("id = $1")
+            .build();
         
         auto result = work.exec_params(
             query,
@@ -120,8 +152,8 @@ bool PostgreSQLBranchRepository::update(const Branch& branch) {
             branch.getName(),
             branch.getAddress(),
             branch.getPhone(),
-            static_cast<int>(branch.getWorkingHours().openTime.count()), // ИСПРАВЛЕНО
-            static_cast<int>(branch.getWorkingHours().closeTime.count()), // ИСПРАВЛЕНО
+            std::to_string(static_cast<int>(branch.getWorkingHours().openTime.count())),
+            std::to_string(static_cast<int>(branch.getWorkingHours().closeTime.count())),
             branch.getStudioId().toString()
         );
         
@@ -137,7 +169,12 @@ bool PostgreSQLBranchRepository::remove(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "DELETE FROM branches WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .deleteFrom("branches")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
@@ -152,7 +189,13 @@ bool PostgreSQLBranchRepository::exists(const UUID& id) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::string query = "SELECT 1 FROM branches WHERE id = $1";
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"1"})
+            .from("branches")
+            .where("id = $1")
+            .build();
+            
         auto result = work.exec_params(query, id.toString());
         
         dbConnection_->commitTransaction(work);
@@ -169,7 +212,6 @@ Branch PostgreSQLBranchRepository::mapResultToBranch(const pqxx::row& row) const
     std::string address = row["address"].c_str();
     std::string phone = row["phone"].c_str();
     
-    // ИСПРАВЛЕНО: читаем целые числа для времени работы
     auto openTime = std::chrono::hours(row["open_time"].as<int>());
     auto closeTime = std::chrono::hours(row["close_time"].as<int>());
     WorkingHours workingHours(openTime, closeTime);

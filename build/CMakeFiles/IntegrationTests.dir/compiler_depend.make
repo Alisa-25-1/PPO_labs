@@ -3,6 +3,7 @@
 
 CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/RepositoryIntegrationTests.cpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
@@ -18,6 +19,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/SqlQueryBuilder.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/exceptions/DataAccessException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp \
@@ -150,6 +152,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
   /usr/include/c++/13/bits/std_mutex.h \
+  /usr/include/c++/13/bits/std_thread.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -179,6 +182,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/this_thread_sleep.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
@@ -253,6 +257,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
+  /usr/include/c++/13/thread \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
@@ -782,13 +787,21 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 
 /usr/include/gtest/gtest-test-part.h:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLDanceHallRepository.hpp:
+/usr/include/pqxx/internal/libpq-forward.hxx:
 
-/usr/include/x86_64-linux-gnu/bits/types/sigval_t.h:
+/usr/include/gtest/gtest-printers.h:
 
-/usr/include/c++/13/bits/stl_map.h:
+/usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
 
-/usr/include/c++/13/locale:
+/usr/include/gtest/gtest-param-test.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h:
+
+/usr/include/gtest/gtest-message.h:
+
+/usr/include/gtest/gtest-matchers.h:
+
+/usr/include/gtest/gtest-death-test.h:
 
 /usr/include/c++/13/bits/regex_executor.tcc:
 
@@ -800,19 +813,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 
 /usr/include/c++/13/bits/atomic_base.h:
 
-/usr/include/c++/13/bits/stl_uninitialized.h:
-
-/usr/include/c++/13/bits/new_allocator.h:
-
 /usr/include/c++/13/bits/uses_allocator_args.h:
-
-/usr/include/c++/13/bits/exception_ptr.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
-/usr/include/c++/13/bits/stl_multimap.h:
 
 /usr/include/c++/13/bits/refwrap.h:
 
@@ -829,10 +830,6 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 /usr/include/c++/13/bits/ptr_traits.h:
 
 /usr/include/c++/13/bits/ostream.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_statx_timestamp.h:
-
-/usr/include/gtest/gtest-message.h:
 
 /usr/include/c++/13/bits/move.h:
 
@@ -869,10 +866,6 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 /usr/include/c++/13/bits/requires_hosted.h:
 
 /usr/include/c++/13/bits/locale_facets.h:
-
-/usr/include/c++/13/bits/istream.tcc:
-
-/usr/include/c++/13/bits/locale_conv.h:
 
 /usr/include/c++/13/bits/quoted_string.h:
 
@@ -920,6 +913,18 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 
 /usr/include/c++/13/sstream:
 
+/usr/include/c++/13/bits/exception_ptr.h:
+
+/usr/include/c++/13/bits/locale_conv.h:
+
+/usr/include/c++/13/bits/istream.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+
+/usr/include/c++/13/bits/stl_multimap.h:
+
 /usr/include/x86_64-linux-gnu/asm/types.h:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp:
@@ -953,6 +958,16 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 /usr/include/c++/13/bits/concept_check.h:
 
 /usr/include/c++/13/bits/alloc_traits.h:
+
+/usr/include/c++/13/unordered_map:
+
+/usr/include/c++/13/bits/allocator.h:
+
+/usr/include/c++/13/bits/stl_bvector.h:
+
+/usr/include/pqxx/cursor.hxx:
+
+/usr/include/c++/13/clocale:
 
 /usr/include/c++/13/bits/invoke.h:
 
@@ -988,7 +1003,15 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 
 /usr/include/c++/13/pstl/glue_algorithm_defs.h:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLEnrollmentRepository.hpp:
+/usr/include/c++/13/bits/regex_automaton.tcc:
+
+/usr/include/pqxx/internal/encodings.hxx:
+
+/usr/include/c++/13/bits/allocated_ptr.h:
+
+/usr/include/c++/13/bit:
+
+/usr/include/c++/13/bits/basic_string.tcc:
 
 /usr/include/c++/13/bits/deque.tcc:
 
@@ -998,9 +1021,17 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp:
 
+/usr/include/asm-generic/int-ll64.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp:
+
+/usr/include/c++/13/thread:
+
 /usr/include/x86_64-linux-gnu/bits/struct_stat.h:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/RepositoryIntegrationTests.cpp:
+
+/usr/include/c++/13/bits/this_thread_sleep.h:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp:
 
@@ -1008,13 +1039,27 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 
 /usr/include/c++/13/bits/algorithmfwd.h:
 
-/usr/include/asm-generic/int-ll64.h:
+/home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.hpp:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp:
+/usr/include/pqxx/internal/conversions.hxx:
 
-/usr/include/c++/13/bits/shared_ptr_atomic.h:
+/usr/include/pqxx/internal/concat.hxx:
 
-/usr/include/c++/13/set:
+/usr/include/c++/13/bits/stl_stack.h:
+
+/usr/include/c++/13/bits/stringfwd.h:
+
+/usr/include/c++/13/bits/locale_classes.tcc:
+
+/usr/include/c++/13/bits/uniform_int_dist.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp:
+
+/usr/include/stdio.h:
+
+/usr/include/c++/13/bits/regex_compiler.h:
+
+/usr/include/c++/13/bits/stl_iterator_base_types.h:
 
 /usr/include/c++/13/bits/atomic_lockfree_defines.h:
 
@@ -1032,14 +1077,6 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp:
-
-/usr/include/stdio.h:
-
-/usr/include/c++/13/bits/regex_compiler.h:
-
-/usr/include/c++/13/bits/stl_iterator_base_types.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
 /usr/include/asm-generic/errno.h:
@@ -1052,27 +1089,23 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp:
 
-/usr/include/x86_64-linux-gnu/sys/cdefs.h:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/data/exceptions/DataAccessException.hpp:
-
-/usr/include/c++/13/pstl/glue_numeric_defs.h:
-
 /usr/include/c++/13/bits/regex.tcc:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Studio.hpp:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp:
 
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/data/exceptions/DataAccessException.hpp:
+
+/usr/include/c++/13/pstl/glue_numeric_defs.h:
+
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp:
 
 /usr/include/c++/13/bits/stl_deque.h:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp:
-
-/usr/include/pqxx/cursor.hxx:
-
-/usr/include/c++/13/clocale:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp:
 
@@ -1083,6 +1116,24 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLEnrollmentRepository.hpp:
+
+/usr/include/c++/13/set:
+
+/usr/include/c++/13/bits/shared_ptr_atomic.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLDanceHallRepository.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigval_t.h:
+
+/usr/include/c++/13/bits/stl_map.h:
+
+/usr/include/c++/13/bits/new_allocator.h:
+
+/usr/include/c++/13/bits/stl_uninitialized.h:
+
+/usr/include/c++/13/locale:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
@@ -1108,14 +1159,6 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 
 /usr/include/c++/13/iterator:
 
-/usr/include/c++/13/bits/basic_string.tcc:
-
-/usr/include/pqxx/internal/encodings.hxx:
-
-/usr/include/c++/13/bits/allocated_ptr.h:
-
-/usr/include/c++/13/bit:
-
 /usr/include/alloca.h:
 
 /usr/include/c++/13/cctype:
@@ -1124,7 +1167,25 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 
 /usr/include/pqxx/blob.hxx:
 
+/home/nikita/Общедоступные/PPO/PPO_labs/src/data/SqlQueryBuilder.hpp:
+
 /usr/include/c++/13/ext/atomicity.h:
+
+/usr/include/c++/13/bits/hash_bytes.h:
+
+/usr/include/c++/13/array:
+
+/usr/include/x86_64-linux-gnu/sys/wait.h:
+
+/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+
+/usr/include/asm-generic/bitsperlong.h:
+
+/usr/include/asm-generic/types.h:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLLessonRepository.hpp:
 
@@ -1140,25 +1201,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 
 /usr/include/asm-generic/posix_types.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
-
-/usr/include/asm-generic/bitsperlong.h:
-
-/usr/include/asm-generic/types.h:
-
-/usr/include/x86_64-linux-gnu/sys/wait.h:
-
-/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
-
-/usr/include/asm-generic/errno-base.h:
-
-/usr/include/c++/13/bits/hash_bytes.h:
-
-/usr/include/c++/13/array:
-
 /usr/include/c++/13/atomic:
-
-/usr/include/c++/13/bits/regex_automaton.tcc:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp:
 
@@ -1169,16 +1212,6 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 /usr/include/regex.h:
 
 /usr/include/c++/13/bits/regex.h:
-
-/usr/include/c++/13/unordered_map:
-
-/usr/include/c++/13/bits/allocator.h:
-
-/usr/include/c++/13/bits/stl_bvector.h:
-
-/usr/include/pqxx/internal/libpq-forward.hxx:
-
-/usr/include/gtest/gtest-printers.h:
 
 /usr/include/c++/13/bits/predefined_ops.h:
 
@@ -1267,18 +1300,6 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 /usr/include/c++/13/bits/ostream_insert.h:
 
 /usr/include/c++/13/bits/stl_set.h:
-
-/usr/include/pqxx/internal/conversions.hxx:
-
-/usr/include/pqxx/internal/concat.hxx:
-
-/usr/include/c++/13/bits/stl_stack.h:
-
-/usr/include/c++/13/bits/stringfwd.h:
-
-/usr/include/c++/13/bits/locale_classes.tcc:
-
-/usr/include/c++/13/bits/uniform_int_dist.h:
 
 /usr/include/c++/13/bits/stl_tempbuf.h:
 
@@ -1378,6 +1399,8 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 
 /usr/include/pqxx/pipeline.hxx:
 
+/usr/include/c++/13/bits/std_thread.h:
+
 /usr/include/c++/13/initializer_list:
 
 /usr/include/c++/13/ios:
@@ -1445,11 +1468,3 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
 /usr/include/features.h:
 
 /usr/include/gtest/gtest-assertion-result.h:
-
-/usr/include/gtest/gtest-death-test.h:
-
-/usr/include/gtest/gtest-matchers.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
-
-/usr/include/gtest/gtest-param-test.h:

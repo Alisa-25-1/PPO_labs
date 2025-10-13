@@ -3,6 +3,7 @@
 
 CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/main.cpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp \
@@ -79,6 +80,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/assert.h \
   /usr/include/c++/13/algorithm \
   /usr/include/c++/13/array \
+  /usr/include/c++/13/atomic \
   /usr/include/c++/13/backward/auto_ptr.h \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
@@ -162,6 +164,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_thread.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -189,6 +192,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/this_thread_sleep.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
@@ -257,6 +261,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
+  /usr/include/c++/13/thread \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
@@ -430,6 +435,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
 
 CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUI.cpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp \
@@ -506,6 +512,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/assert.h \
   /usr/include/c++/13/algorithm \
   /usr/include/c++/13/array \
+  /usr/include/c++/13/atomic \
   /usr/include/c++/13/backward/auto_ptr.h \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
@@ -589,6 +596,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_thread.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -616,6 +624,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/this_thread_sleep.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
@@ -684,6 +693,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
+  /usr/include/c++/13/thread \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
@@ -1042,7 +1052,19 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/pqxx/internal/callgate.hxx:
 
-/usr/include/c++/13/bits/stl_map.h:
+/usr/include/pqxx/internal/array-composite.hxx:
+
+/usr/include/pqxx/field.hxx:
+
+/usr/include/pqxx/except.hxx:
+
+/usr/include/pqxx/errorhandler.hxx:
+
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+
+/usr/include/pqxx/internal/ignore-deprecated-pre.hxx:
+
+/usr/include/pqxx/dbtransaction.hxx:
 
 /usr/include/c++/13/bits/regex_constants.h:
 
@@ -1052,17 +1074,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/atomic_base.h:
 
-/usr/include/c++/13/bits/stl_uninitialized.h:
-
-/usr/include/c++/13/bits/new_allocator.h:
-
 /usr/include/c++/13/bits/uses_allocator_args.h:
-
-/usr/include/c++/13/bits/exception_ptr.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
-/usr/include/c++/13/bits/stl_multimap.h:
 
 /usr/include/libintl.h:
 
@@ -1100,13 +1112,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/requires_hosted.h:
 
-/usr/include/pqxx/errorhandler.hxx:
-
 /usr/include/c++/13/bits/locale_facets.h:
-
-/usr/include/c++/13/locale:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/timesize.h:
 
@@ -1138,7 +1144,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/sstream:
 
-/usr/include/pqxx/internal/array-composite.hxx:
+/usr/include/c++/13/bits/exception_ptr.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+
+/usr/include/c++/13/bits/stl_multimap.h:
 
 /usr/include/pqxx/transaction_focus.hxx:
 
@@ -1163,6 +1173,12 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/c++/13/bits/concept_check.h:
 
 /usr/include/c++/13/bits/alloc_traits.h:
+
+/usr/include/c++/13/unordered_map:
+
+/usr/include/c++/13/bits/allocator.h:
+
+/usr/include/c++/13/bits/stl_bvector.h:
 
 /usr/include/c++/13/bits/exception.h:
 
@@ -1210,9 +1226,39 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/stl_deque.h:
 
+/usr/include/errno.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp:
+
+/usr/include/c++/13/bits/ostream.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
+
+/usr/include/asm-generic/errno.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.hpp:
+
+/usr/include/pqxx/internal/conversions.hxx:
+
+/usr/include/pqxx/internal/concat.hxx:
+
+/usr/include/c++/13/bits/stl_stack.h:
+
+/usr/include/c++/13/bits/stringfwd.h:
+
+/usr/include/c++/13/bits/locale_classes.tcc:
+
+/usr/include/c++/13/bits/uniform_int_dist.h:
+
 /usr/include/c++/13/streambuf:
 
 /usr/include/c++/13/bits/memory_resource.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp:
+
+/usr/include/c++/13/bits/this_thread_sleep.h:
 
 /usr/include/c++/13/bits/invoke.h:
 
@@ -1224,9 +1270,9 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/regex_executor.tcc:
 
-/usr/include/c++/13/bits/istream.tcc:
-
 /usr/include/c++/13/bits/locale_conv.h:
+
+/usr/include/c++/13/bits/istream.tcc:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp:
 
@@ -1243,6 +1289,8 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/c++/13/bits/atomic_lockfree_defines.h:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp:
+
+/usr/include/c++/13/thread:
 
 /usr/include/pqxx/connection.hxx:
 
@@ -1264,12 +1312,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp:
 
-/usr/include/c++/13/bits/ostream.tcc:
-
-/usr/include/pqxx/except.hxx:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp:
-
 /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp:
 
 /usr/include/c++/13/bits/basic_ios.tcc:
@@ -1279,16 +1321,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp:
-
-/usr/include/errno.h:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
-
-/usr/include/asm-generic/errno.h:
 
 /usr/include/c++/13/bits/regex.tcc:
 
@@ -1362,6 +1394,8 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/array:
 
+/usr/include/c++/13/atomic:
+
 /usr/include/c++/13/bits/regex_automaton.tcc:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp:
@@ -1372,12 +1406,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/regex.h:
 
-/usr/include/c++/13/unordered_map:
-
-/usr/include/c++/13/bits/allocator.h:
-
-/usr/include/c++/13/bits/stl_bvector.h:
-
 /usr/include/c++/13/bits/predefined_ops.h:
 
 /usr/include/c++/13/iosfwd:
@@ -1387,6 +1415,16 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
 
 /usr/include/c++/13/bits/unique_ptr.h:
+
+/usr/include/c++/13/bits/stl_map.h:
+
+/usr/include/c++/13/bits/new_allocator.h:
+
+/usr/include/c++/13/bits/stl_uninitialized.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp:
+
+/usr/include/c++/13/locale:
 
 /usr/include/c++/13/bits/shared_ptr.h:
 
@@ -1457,18 +1495,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/c++/13/stack:
 
 /usr/include/c++/13/bits/stl_relops.h:
-
-/usr/include/pqxx/internal/conversions.hxx:
-
-/usr/include/pqxx/internal/concat.hxx:
-
-/usr/include/c++/13/bits/stl_stack.h:
-
-/usr/include/c++/13/bits/stringfwd.h:
-
-/usr/include/c++/13/bits/locale_classes.tcc:
-
-/usr/include/c++/13/bits/uniform_int_dist.h:
 
 /usr/include/c++/13/bits/stl_tempbuf.h:
 
@@ -1580,6 +1606,8 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/pqxx/pipeline.hxx:
 
+/usr/include/c++/13/bits/std_thread.h:
+
 /usr/include/c++/13/initializer_list:
 
 /usr/include/c++/13/ios:
@@ -1647,11 +1675,3 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/linux/errno.h:
 
 /usr/include/pqxx/binarystring.hxx:
-
-/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
-
-/usr/include/pqxx/internal/ignore-deprecated-pre.hxx:
-
-/usr/include/pqxx/dbtransaction.hxx:
-
-/usr/include/pqxx/field.hxx:

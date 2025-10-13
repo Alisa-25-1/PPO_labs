@@ -4,6 +4,7 @@
 #include "../IStudioRepository.hpp"
 #include "../../data/DatabaseConnection.hpp"
 #include "../../data/exceptions/DataAccessException.hpp"
+#include "../../data/SqlQueryBuilder.hpp"
 #include <memory>
 
 class PostgreSQLStudioRepository : public IStudioRepository {

@@ -4,6 +4,7 @@
 #include "../ISubscriptionRepository.hpp"
 #include "../../data/DatabaseConnection.hpp"
 #include "../../data/exceptions/DataAccessException.hpp"
+#include "../../data/SqlQueryBuilder.hpp"
 #include <memory>
 
 class PostgreSQLSubscriptionRepository : public ISubscriptionRepository {
