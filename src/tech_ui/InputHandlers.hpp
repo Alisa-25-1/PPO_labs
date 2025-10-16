@@ -18,6 +18,7 @@ public:
     static std::chrono::system_clock::time_point readDateTime(const std::string& prompt);
     static TimeSlot readTimeSlot();
     static bool readYesNo(const std::string& prompt);
+    static std::string trim(const std::string& str);
     
     // Специализированные методы для конкретных сущностей
     static std::string readEmail(const std::string& prompt);
@@ -29,6 +30,7 @@ public:
     static DifficultyLevel readDifficultyLevel();
     static int readRating();
     static UUID readHallFromList(const std::vector<DanceHall>& halls, const std::string& prompt);
+    static std::string readQualificationLevel();
     
     // Валидация
     static bool isValidEmail(const std::string& email);

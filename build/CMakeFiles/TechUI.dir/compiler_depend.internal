@@ -39,6 +39,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
@@ -50,6 +51,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBookingRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IEnrollmentRepository.hpp
@@ -473,6 +475,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
@@ -484,6 +487,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBookingRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IEnrollmentRepository.hpp

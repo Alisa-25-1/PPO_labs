@@ -1,6 +1,7 @@
 #include "PostgreSQLDanceHallRepository.hpp"
 #include <pqxx/pqxx>
 #include "../../data/SqlQueryBuilder.hpp"
+#include <iostream>
 
 PostgreSQLDanceHallRepository::PostgreSQLDanceHallRepository(
     std::shared_ptr<DatabaseConnection> dbConnection)
@@ -93,7 +94,18 @@ std::vector<DanceHall> PostgreSQLDanceHallRepository::findAll() {
         
         std::vector<DanceHall> halls;
         for (const auto& row : result) {
-            halls.push_back(mapResultToDanceHall(row));
+            try {
+                auto hall = mapResultToDanceHall(row);
+                halls.push_back(hall);
+            } catch (const std::exception& e) {
+                std::cerr << "❌ Ошибка при маппинге зала: " << e.what() << std::endl;
+                std::cerr << "   ID: " << row["id"].c_str() << std::endl;
+                std::cerr << "   Название: " << row["name"].c_str() << std::endl;
+                std::cerr << "   Вместимость: " << row["capacity"].as<int>() << std::endl;
+                std::cerr << "   Тип покрытия: " << row["floor_type"].c_str() << std::endl;
+                // Продолжаем обработку остальных залов
+                continue;
+            }
         }
         
         dbConnection_->commitTransaction(work);
@@ -219,6 +231,17 @@ DanceHall PostgreSQLDanceHallRepository::mapResultToDanceHall(const pqxx::row& r
     hall.setDescription(description);
     hall.setFloorType(floorType);
     hall.setEquipment(equipment);
+    
+    // Добавим проверку валидности с информативным сообщением
+    if (!hall.isValid()) {
+        std::string error = "Invalid dance hall data: ";
+        error += "id=" + id.toString();
+        error += ", name=" + name;
+        error += ", capacity=" + std::to_string(capacity);
+        error += ", floorType=" + floorType;
+        error += ", branchId=" + branchId.toString();
+        throw std::invalid_argument(error);
+    }
     
     return hall;
 }

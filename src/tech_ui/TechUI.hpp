@@ -20,7 +20,7 @@
 #include "../dtos/LessonDTO.hpp"
 #include "../dtos/SubscriptionDTO.hpp"
 #include "../dtos/ReviewDTO.hpp"
-#include "../dtos/EnrollmentDTO.hpp" // Добавляем этот include
+#include "../dtos/EnrollmentDTO.hpp"
 
 class TechUI {
 private:

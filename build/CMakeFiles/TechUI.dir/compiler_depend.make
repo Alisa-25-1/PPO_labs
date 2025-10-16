@@ -38,6 +38,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp \
@@ -49,6 +50,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: /home/nikita/Общедоступные/PP
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBookingRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IEnrollmentRepository.hpp \
@@ -471,6 +473,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp \
@@ -482,6 +485,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBookingRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IEnrollmentRepository.hpp \
@@ -1068,6 +1072,8 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/pqxx/dbtransaction.hxx:
 
+/usr/include/pqxx/connection.hxx:
+
 /usr/include/c++/13/bits/regex_constants.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
@@ -1120,9 +1126,9 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/locale_classes.h:
 
-/usr/include/pqxx/cursor.hxx:
+/usr/include/pqxx/config-public-compiler.h:
 
-/usr/include/c++/13/clocale:
+/usr/include/c++/13/bits/fs_ops.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
@@ -1168,10 +1174,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/hashtable_policy.h:
 
-/usr/include/c++/13/bits/regex_error.h:
-
-/usr/include/c++/13/bits/basic_ios.h:
-
 /usr/include/c++/13/bits/basic_string.h:
 
 /usr/include/c++/13/ciso646:
@@ -1186,6 +1188,10 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/stl_bvector.h:
 
+/usr/include/pqxx/cursor.hxx:
+
+/usr/include/c++/13/clocale:
+
 /usr/include/c++/13/bits/exception.h:
 
 /usr/include/c++/13/bits/cxxabi_init_exception.h:
@@ -1199,6 +1205,28 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/c++/13/ext/concurrence.h:
 
 /usr/include/c++/13/pstl/glue_algorithm_defs.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp:
+
+/usr/include/stdio.h:
+
+/usr/include/c++/13/bits/regex_compiler.h:
+
+/usr/include/c++/13/bits/stl_iterator_base_types.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.hpp:
+
+/usr/include/pqxx/internal/conversions.hxx:
+
+/usr/include/pqxx/internal/concat.hxx:
+
+/usr/include/c++/13/bits/stl_stack.h:
+
+/usr/include/c++/13/bits/stringfwd.h:
+
+/usr/include/c++/13/bits/locale_classes.tcc:
+
+/usr/include/c++/13/bits/uniform_int_dist.h:
 
 /usr/include/errno.h:
 
@@ -1244,20 +1272,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/asm-generic/errno.h:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.hpp:
-
-/usr/include/pqxx/internal/conversions.hxx:
-
-/usr/include/pqxx/internal/concat.hxx:
-
-/usr/include/c++/13/bits/stl_stack.h:
-
-/usr/include/c++/13/bits/stringfwd.h:
-
-/usr/include/c++/13/bits/locale_classes.tcc:
-
-/usr/include/c++/13/bits/uniform_int_dist.h:
-
 /usr/include/c++/13/streambuf:
 
 /usr/include/c++/13/bits/memory_resource.h:
@@ -1296,8 +1310,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/thread:
 
-/usr/include/pqxx/connection.hxx:
-
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.hpp:
@@ -1314,6 +1326,16 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp:
 
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp:
+
+/usr/include/c++/13/bits/regex.tcc:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp:
+
 /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp:
 
 /usr/include/c++/13/bits/basic_ios.tcc:
@@ -1328,19 +1350,21 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/stl_numeric.h:
 
-/usr/include/c++/13/bits/regex.tcc:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp:
-
 /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp:
 
 /usr/include/c++/13/bits/ios_base.h:
 
 /usr/include/c++/13/iterator:
+
+/usr/include/c++/13/bits/predefined_ops.h:
+
+/usr/include/c++/13/iosfwd:
+
+/usr/include/c++/13/bits/align.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+
+/usr/include/c++/13/bits/unique_ptr.h:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUI.hpp:
 
@@ -1412,15 +1436,9 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/regex.h:
 
-/usr/include/c++/13/bits/predefined_ops.h:
+/usr/include/c++/13/bits/basic_ios.h:
 
-/usr/include/c++/13/iosfwd:
-
-/usr/include/c++/13/bits/align.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
-
-/usr/include/c++/13/bits/unique_ptr.h:
+/usr/include/c++/13/bits/regex_error.h:
 
 /usr/include/c++/13/bits/regex_executor.tcc:
 
@@ -1484,12 +1502,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 
 /usr/include/c++/13/bits/stl_heap.h:
 
-/usr/include/stdio.h:
-
-/usr/include/c++/13/bits/regex_compiler.h:
-
-/usr/include/c++/13/bits/stl_iterator_base_types.h:
-
 /usr/include/pqxx/zview.hxx:
 
 /usr/include/c++/13/bits/erase_if.h:
@@ -1539,10 +1551,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: /home/nikita/Общедосту�
 /usr/include/c++/13/bits/cpp_type_traits.h:
 
 /usr/include/c++/13/cassert:
-
-/usr/include/c++/13/bits/fs_ops.h:
-
-/usr/include/pqxx/config-public-compiler.h:
 
 /usr/include/c++/13/cctype:
 

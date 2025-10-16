@@ -133,9 +133,9 @@ bool InputHandlers::readYesNo(const std::string& prompt) {
         std::string input;
         std::getline(std::cin, input);
         
-        if (input == "y" || input == "Y") {
+        if (input == "y" || input == "Y" || input == "д" || input == "Д") {
             return true;
-        } else if (input == "n" || input == "N") {
+        } else if (input == "n" || input == "N" || input == "н" || input == "Н") {
             return false;
         } else {
             std::cout << "❌ Пожалуйста, введите 'y' или 'n'." << std::endl;
@@ -177,13 +177,14 @@ std::string InputHandlers::readPassword(const std::string& prompt) {
 }
 
 bool InputHandlers::isValidEmail(const std::string& email) {
-    std::regex emailPattern(R"(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)");
+    // Более гибкая проверка email с поддержкой кириллицы в локальной части
+    std::regex emailPattern(R"(^[a-zA-Z0-9а-яА-Я._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)");
     return std::regex_match(email, emailPattern);
 }
 
 bool InputHandlers::isValidPhone(const std::string& phone) {
-    // Упрощенная проверка телефона: допускаем цифры, пробелы, скобки, дефисы и знак +
-    std::regex phonePattern(R"(^\+?[0-9\s\-\(\)]{10,20}$)");
+    // Более гибкая проверка телефона с поддержкой русского формата
+    std::regex phonePattern(R"(^(\+7|8)?[\s\-]?\(?[0-9]{3}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$)");
     return std::regex_match(phone, phonePattern);
 }
 
@@ -202,6 +203,35 @@ UUID InputHandlers::readHallFromList(const std::vector<DanceHall>& halls, const 
     
     int choice = readInt("Выберите номер зала: ", 1, static_cast<int>(halls.size()));
     return halls[choice - 1].getId();
+}
+
+std::string InputHandlers::trim(const std::string& str) {
+    size_t start = str.find_first_not_of(" \t\n\r");
+    if (start == std::string::npos) return "";
+    
+    size_t end = str.find_last_not_of(" \t\n\r");
+    return str.substr(start, end - start + 1);
+}
+
+std::string InputHandlers::readQualificationLevel() {
+    while (true) {
+        std::cout << "Уровень квалификации:" << std::endl;
+        std::cout << "1. Junior" << std::endl;
+        std::cout << "2. Middle" << std::endl;
+        std::cout << "3. Senior" << std::endl;
+        std::cout << "4. Master" << std::endl;
+        
+        int choice = readInt("Выберите уровень: ", 1, 4);
+        
+        switch (choice) {
+            case 1: return "junior";
+            case 2: return "middle";
+            case 3: return "senior";
+            case 4: return "master";
+            default: 
+                std::cout << "Неверный выбор. Попробуйте снова." << std::endl;
+        }
+    }
 }
 
 LessonType InputHandlers::readLessonType() {

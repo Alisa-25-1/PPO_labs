@@ -11,11 +11,13 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBookingRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
@@ -23,6 +25,7 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockBookingRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockBranchRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockClientRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockDanceHallRepository.hpp
  /usr/include/alloca.h

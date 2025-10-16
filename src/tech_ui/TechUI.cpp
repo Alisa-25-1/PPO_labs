@@ -899,14 +899,28 @@ void TechUI::createTrainer() {
         
         std::string name = InputHandlers::readString("Имя преподавателя: ");
         std::string biography = InputHandlers::readString("Биография: ", 2000);
-        std::string qualification = InputHandlers::readString("Уровень квалификации: ");
+        std::string qualification = InputHandlers::readQualificationLevel();
         
         std::vector<std::string> specializations;
-        std::cout << "Введите специализации (пустая строка для завершения):" << std::endl;
+        std::cout << "Введите специализации (для завершения введите 'стоп' или оставьте пустую строку):" << std::endl;
         while (true) {
-            std::string spec = InputHandlers::readString("Специализация: ");
-            if (spec.empty()) break;
+            std::cout << "Специализация: ";
+            std::string spec;
+            std::getline(std::cin, spec);
+            
+            spec = InputHandlers::trim(spec);
+            
+            if (spec.empty() || spec == "стоп" || spec == "stop") {
+                break;
+            }
+            
+            if (spec.length() > 100) {
+                std::cout << "❌ Слишком длинная специализация (максимум 100 символов). Попробуйте снова." << std::endl;
+                continue;
+            }
+            
             specializations.push_back(spec);
+            std::cout << "✅ Специализация добавлена. Введите следующую или 'стоп' для завершения." << std::endl;
         }
         
         UUID trainerId = UUID::generate();
@@ -914,6 +928,11 @@ void TechUI::createTrainer() {
         trainer.setBiography(biography);
         trainer.setQualificationLevel(qualification);
         trainer.setActive(true);
+        
+        if (!trainer.isValid()) {
+            std::cout << "❌ Данные преподавателя невалидны. Проверьте введенные данные." << std::endl;
+            return;
+        }
         
         bool success = managers_->getTrainerRepo()->save(trainer);
         if (success) {

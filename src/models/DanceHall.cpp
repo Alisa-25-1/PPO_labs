@@ -25,9 +25,6 @@ std::string DanceHall::getEquipment() const { return equipment_; }
 UUID DanceHall::getBranchId() const { return branchId_; }
 
 void DanceHall::setDescription(const std::string& description) {
-    if (!isValidDescription(description)) {
-        throw std::invalid_argument("Invalid description");
-    }
     description_ = description;
 }
 
@@ -39,19 +36,14 @@ void DanceHall::setFloorType(const std::string& floorType) {
 }
 
 void DanceHall::setEquipment(const std::string& equipment) {
-    if (!isValidEquipment(equipment)) {
-        throw std::invalid_argument("Invalid equipment");
-    }
     equipment_ = equipment;
 }
 
 bool DanceHall::isValid() const {
     return !id_.isNull() && id_.isValid() && 
            isValidName(name_) && 
-           isValidDescription(description_) && 
            isValidCapacity(capacity_) && 
            isValidFloorType(floorType_) && 
-           isValidEquipment(equipment_) && 
            !branchId_.isNull() && branchId_.isValid();
 }
 
@@ -59,7 +51,8 @@ bool DanceHall::isValidName(const std::string& name) {
     if (name.empty() || name.length() > 50 || name.length() < 2) {
         return false;
     }
-    std::regex validChars(R"(^[a-zA-Zа-яА-Я0-9\s\-_]+$)");
+    // Разрешаем русские и английские буквы, цифры, пробелы, дефисы и подчеркивания
+    std::regex validChars(R"(^[a-zA-Zа-яА-ЯёЁ0-9\s\-_]+$)");
     return std::regex_match(name, validChars);
 }
 
@@ -76,7 +69,8 @@ bool DanceHall::isValidFloorType(const std::string& floorType) {
         return false;
     }
     std::vector<std::string> validTypes = {
-        "wooden", "marley", "vinyl", "concrete", "linoleum", "cork"
+        "wooden", "marley", "vinyl", "concrete", "linoleum", "cork",
+        "деревянный", "марлей", "винил", "бетон", "линолеум", "пробка"
     };
     return std::find(validTypes.begin(), validTypes.end(), floorType) != validTypes.end();
 }

@@ -2,18 +2,14 @@
 #include <regex>
 #include <stdexcept>
 #include <algorithm>
+#include <iostream>
 
 Trainer::Trainer() 
     : id_(UUID()), name_(""), biography_(""), qualificationLevel_(""), isActive_(true) {}
 
 Trainer::Trainer(const UUID& id, const std::string& name, const std::vector<std::string>& specializations)
     : id_(id), name_(name), specializations_(specializations), 
-      biography_(""), qualificationLevel_(""), isActive_(true) {
-    
-    if (!isValid()) {
-        throw std::invalid_argument("Invalid trainer data");
-    }
-}
+      biography_(""), qualificationLevel_(""), isActive_(true) {}
 
 UUID Trainer::getId() const { return id_; }
 std::string Trainer::getName() const { return name_; }
@@ -67,11 +63,26 @@ bool Trainer::isValid() const {
 }
 
 bool Trainer::isValidName(const std::string& name) {
-    if (name.empty() || name.length() > 100 || name.length() < 2) {
+    if (name.empty() && name.length() > 100 && name.length() < 2) {
+        std::cout << "❌ Имя должно быть от 2 до 100 символов" << std::endl;
         return false;
     }
-    std::regex validChars(R"(^[a-zA-Zа-яА-Я\s\-\']+$)");
-    return std::regex_match(name, validChars);
+    
+    // Простая проверка - имя не должно состоять только из пробелов
+    bool hasNonSpace = false;
+    for (char c : name) {
+        if (!std::isspace(static_cast<unsigned char>(c))) {
+            hasNonSpace = true;
+            break;
+        }
+    }
+    
+    if (!hasNonSpace) {
+        std::cout << "❌ Имя не может состоять только из пробелов" << std::endl;
+        return false;
+    }
+    
+    return true;
 }
 
 bool Trainer::isValidSpecialization(const std::string& specialization) {
@@ -83,8 +94,15 @@ bool Trainer::isValidBiography(const std::string& biography) {
 }
 
 bool Trainer::isValidQualificationLevel(const std::string& level) {
+    if (level.empty()) {
+        return false;
+    }
+    
+    std::string lowerLevel = level;
+    std::transform(lowerLevel.begin(), lowerLevel.end(), lowerLevel.begin(), ::tolower);
+    
     std::vector<std::string> validLevels = {
         "junior", "middle", "senior", "master"
     };
-    return std::find(validLevels.begin(), validLevels.end(), level) != validLevels.end();
+    return std::find(validLevels.begin(), validLevels.end(), lowerLevel) != validLevels.end();
 }
