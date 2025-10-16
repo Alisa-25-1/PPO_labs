@@ -60,6 +60,32 @@ std::optional<Client> PostgreSQLClientRepository::findByEmail(const std::string&
     }
 }
 
+std::vector<Client> PostgreSQLClientRepository::findAll() {
+    try {
+        auto work = dbConnection_->beginTransaction();
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "name", "email", "phone", "password_hash", "registration_date", "status"})
+            .from("clients")
+            .orderBy("registration_date", false) // Сначала новые
+            .build();
+        
+        auto result = work.exec(query);
+        
+        std::vector<Client> clients;
+        for (const auto& row : result) {
+            clients.push_back(mapResultToClient(row));
+        }
+        
+        dbConnection_->commitTransaction(work);
+        return clients;
+        
+    } catch (const std::exception& e) {
+        throw QueryException(std::string("Failed to find all clients: ") + e.what());
+    }
+}
+
 bool PostgreSQLClientRepository::save(const Client& client) {
     validateClient(client);
     

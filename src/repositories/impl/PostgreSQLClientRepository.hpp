@@ -13,6 +13,7 @@ public:
     
     std::optional<Client> findById(const UUID& id) override;
     std::optional<Client> findByEmail(const std::string& email) override;
+    std::vector<Client> findAll() override;
     bool save(const Client& client) override;
     bool update(const Client& client) override;
     bool remove(const UUID& id) override;

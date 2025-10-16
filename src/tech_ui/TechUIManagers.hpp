@@ -80,6 +80,8 @@ public:
     std::vector<Trainer> getActiveTrainers() const;
     std::vector<SubscriptionType> getSubscriptionTypes() const;
     std::vector<Lesson> getUpcomingLessons(int days = 7) const;
+    std::vector<Client> getAllClients() const;
+    std::vector<BookingResponseDTO> getAllBookings() const;
 };
 
 #endif // TECHUIMANAGERS_HPP

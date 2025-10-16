@@ -67,13 +67,15 @@ private:
     void handleAdminSubscriptions();
     void handleAdminReviews();
     void handleAdminTrainers();
-    void handleAdminEnrollments(); // Новый метод для управления записями
+    void handleAdminEnrollments(); 
     
     // Административные операции
     void findClientById();
+    void listAllClients();
     void createHall();
     void listAllHalls();
     void findHallById();
+    void listAllBookings();
     void viewHallBookings();
     void viewClientBookingsAdmin();
     void createLesson();

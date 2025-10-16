@@ -115,6 +115,32 @@ std::vector<Booking> PostgreSQLBookingRepository::findConflictingBookings(
     }
 }
 
+std::vector<Booking> PostgreSQLBookingRepository::findAll() {
+    try {
+        auto work = dbConnection_->beginTransaction();
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "hall_id", "start_time", "duration_minutes", "purpose", "status", "created_at"})
+            .from("bookings")
+            .orderBy("created_at", false)
+            .build();
+        
+        auto result = work.exec(query);
+        
+        std::vector<Booking> bookings;
+        for (const auto& row : result) {
+            bookings.push_back(mapResultToBooking(row));
+        }
+        
+        dbConnection_->commitTransaction(work);
+        return bookings;
+        
+    } catch (const std::exception& e) {
+        throw QueryException(std::string("Failed to find all bookings: ") + e.what());
+    }
+}
+
 bool PostgreSQLBookingRepository::save(const Booking& booking) {
     
     validateBooking(booking);

@@ -117,3 +117,29 @@ std::vector<Lesson> TechUIManagers::getUpcomingLessons(int days) const {
         return {};
     }
 }
+
+std::vector<Client> TechUIManagers::getAllClients() const {
+    try {
+        return clientRepo_->findAll();
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка получения списка клиентов: " << e.what() << std::endl;
+        return {};
+    }
+}
+
+std::vector<BookingResponseDTO> TechUIManagers::getAllBookings() const {
+    try {
+        // Получаем все бронирования через репозиторий
+        auto bookings = bookingRepo_->findAll();
+        std::vector<BookingResponseDTO> result;
+        
+        for (const auto& booking : bookings) {
+            result.push_back(BookingResponseDTO(booking));
+        }
+        
+        return result;
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка получения списка бронирований: " << e.what() << std::endl;
+        return {};
+    }
+}

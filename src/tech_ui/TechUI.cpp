@@ -600,15 +600,39 @@ void TechUI::handleAdminMenu() {
 void TechUI::handleAdminClients() {
     while (true) {
         std::cout << "\n=== УПРАВЛЕНИЕ КЛИЕНТАМИ ===" << std::endl;
-        std::cout << "1. Найти клиента по ID" << std::endl;
+        std::cout << "1. Все клиенты" << std::endl;
+        std::cout << "2. Найти клиента по ID" << std::endl;
         std::cout << "0. Назад" << std::endl;
         
-        int choice = InputHandlers::readInt("Выберите опцию: ", 0, 1);
+        int choice = InputHandlers::readInt("Выберите опцию: ", 0, 2);
         
         switch (choice) {
-            case 1: findClientById(); break;
+            case 1: listAllClients(); break;
+            case 2: findClientById(); break;
             case 0: return;
         }
+    }
+}
+
+void TechUI::listAllClients() {
+    try {
+        std::cout << "\n--- ВСЕ КЛИЕНТЫ ---" << std::endl;
+        
+        auto clients = managers_->getAllClients();
+        
+        if (clients.empty()) {
+            std::cout << "Нет зарегистрированных клиентов." << std::endl;
+            return;
+        }
+        
+        for (const auto& client : clients) {
+            displayClient(client);
+        }
+        
+        std::cout << "📊 Всего клиентов: " << clients.size() << std::endl;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка при получении клиентов: " << e.what() << std::endl;
     }
 }
 
@@ -720,17 +744,41 @@ void TechUI::findHallById() {
 void TechUI::handleAdminBookings() {
     while (true) {
         std::cout << "\n=== УПРАВЛЕНИЕ БРОНИРОВАНИЯМИ ===" << std::endl;
-        std::cout << "1. Бронирования по залу" << std::endl;
-        std::cout << "2. Бронирования по клиенту" << std::endl;
+        std::cout << "1. Все бронирования" << std::endl;
+        std::cout << "2. Бронирования по залу" << std::endl;
+        std::cout << "3. Бронирования по клиенту" << std::endl;
         std::cout << "0. Назад" << std::endl;
         
-        int choice = InputHandlers::readInt("Выберите опцию: ", 0, 2);
+        int choice = InputHandlers::readInt("Выберите опцию: ", 0, 3);
         
         switch (choice) {
-            case 1: viewHallBookings(); break;
-            case 2: viewClientBookingsAdmin(); break;
+            case 1: listAllBookings(); break;
+            case 2: viewHallBookings(); break;
+            case 3: viewClientBookingsAdmin(); break;
             case 0: return;
         }
+    }
+}
+
+void TechUI::listAllBookings() {
+    try {
+        std::cout << "\n--- ВСЕ БРОНИРОВАНИЯ ---" << std::endl;
+        
+        auto bookings = managers_->getAllBookings();
+        
+        if (bookings.empty()) {
+            std::cout << "Нет бронирований в системе." << std::endl;
+            return;
+        }
+        
+        for (const auto& booking : bookings) {
+            displayBooking(booking);
+        }
+        
+        std::cout << "📊 Всего бронирований: " << bookings.size() << std::endl;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка при получении бронирований: " << e.what() << std::endl;
     }
 }
 
@@ -738,7 +786,22 @@ void TechUI::viewHallBookings() {
     try {
         std::cout << "\n--- БРОНИРОВАНИЯ ПО ЗАЛУ ---" << std::endl;
         
-        UUID hallId = InputHandlers::readUUID("Введите ID зала: ");
+        auto halls = managers_->getAvailableHalls();
+        if (halls.empty()) {
+            std::cout << "❌ Нет доступных залов." << std::endl;
+            return;
+        }
+        
+        std::cout << "Доступные залы:" << std::endl;
+        for (size_t i = 0; i < halls.size(); ++i) {
+            const auto& hall = halls[i];
+            std::cout << (i + 1) << ". " << hall.getName() 
+                      << " (ID: " << hall.getId().toString() << ")"
+                      << " - Вместимость: " << hall.getCapacity() << " чел." << std::endl;
+        }
+        
+        int choice = InputHandlers::readInt("Выберите номер зала: ", 1, static_cast<int>(halls.size()));
+        UUID hallId = halls[choice - 1].getId();
         
         auto bookings = managers_->getBookingService()->getDanceHallBookings(hallId);
         
@@ -750,6 +813,8 @@ void TechUI::viewHallBookings() {
         for (const auto& booking : bookings) {
             displayBooking(booking);
         }
+        
+        std::cout << "📊 Всего бронирований для зала: " << bookings.size() << std::endl;
         
     } catch (const std::exception& e) {
         std::cerr << "❌ Ошибка при получении бронирований: " << e.what() << std::endl;
@@ -799,40 +864,68 @@ void TechUI::createLesson() {
     try {
         std::cout << "\n--- СОЗДАНИЕ ЗАНЯТИЯ ---" << std::endl;
         
+        // Ввод основных данных занятия
+        std::string name = InputHandlers::readString("Название занятия: ");
+        std::string description = InputHandlers::readString("Описание: ", 1000);
+        LessonType type = InputHandlers::readLessonType();
+        DifficultyLevel difficulty = InputHandlers::readDifficultyLevel();
+        
+        // Ввод времени с валидацией (как в бронированиях)
+        auto startTime = InputHandlers::readDateTime("Время начала занятия");
+        
+        // Ввод продолжительности с проверкой кратности 60 минутам
+        int duration = 0;
+        while (true) {
+            duration = InputHandlers::readInt("Продолжительность (минут, кратна 60): ", 60, 480);
+            if (duration % 60 == 0) {
+                break;
+            } else {
+                std::cout << "❌ Продолжительность должна быть кратной 60 минутам. Попробуйте снова." << std::endl;
+            }
+        }
+        
+        // Валидация максимального количества участников
+        int maxParticipants = InputHandlers::readInt("Макс. участников: ", 1, 100);
+        
+        // Валидация цены
+        double price = InputHandlers::readDouble("Цена (>= 0): ", 0.0);
+        
+        // Выбор преподавателя из пронумерованного списка
         auto trainers = managers_->getActiveTrainers();
         if (trainers.empty()) {
             std::cout << "❌ Нет доступных преподавателей." << std::endl;
             return;
         }
         
-        std::cout << "Доступные преподаватели:" << std::endl;
-        for (const auto& trainer : trainers) {
-            std::cout << "- " << trainer.getName() << " (ID: " << trainer.getId().toString() << ")" << std::endl;
+        std::cout << "\nДоступные преподаватели:" << std::endl;
+        for (size_t i = 0; i < trainers.size(); ++i) {
+            const auto& trainer = trainers[i];
+            std::cout << (i + 1) << ". " << trainer.getName() 
+                      << " (Квалификация: " << trainer.getQualificationLevel() << ")" << std::endl;
         }
         
+        int trainerChoice = InputHandlers::readInt("Выберите номер преподавателя: ", 1, static_cast<int>(trainers.size()));
+        UUID trainerId = trainers[trainerChoice - 1].getId();
+        
+        // Выбор зала из пронумерованного списка
         auto halls = managers_->getAvailableHalls();
         if (halls.empty()) {
             std::cout << "❌ Нет доступных залов." << std::endl;
             return;
         }
         
-        std::cout << "Доступные залы:" << std::endl;
-        for (const auto& hall : halls) {
-            std::cout << "- " << hall.getName() << " (ID: " << hall.getId().toString() 
-                      << ", Вместимость: " << hall.getCapacity() << ")" << std::endl;
+        std::cout << "\nДоступные залы:" << std::endl;
+        for (size_t i = 0; i < halls.size(); ++i) {
+            const auto& hall = halls[i];
+            std::cout << (i + 1) << ". " << hall.getName() 
+                      << " (Вместимость: " << hall.getCapacity() << " чел.)" 
+                      << " - " << hall.getDescription() << std::endl;
         }
         
-        std::string name = InputHandlers::readString("Название занятия: ");
-        std::string description = InputHandlers::readString("Описание: ", 1000);
-        LessonType type = InputHandlers::readLessonType();
-        DifficultyLevel difficulty = InputHandlers::readDifficultyLevel();
-        auto startTime = InputHandlers::readDateTime("Время начала занятия");
-        int duration = InputHandlers::readInt("Продолжительность (минут): ", 30, 240);
-        int maxParticipants = InputHandlers::readInt("Макс. участников: ", 1, 100);
-        double price = InputHandlers::readDouble("Цена: ", 0.0);
-        UUID trainerId = InputHandlers::readUUID("ID преподавателя: ");
-        UUID hallId = InputHandlers::readUUID("ID зала: ");
+        int hallChoice = InputHandlers::readInt("Выберите номер зала: ", 1, static_cast<int>(halls.size()));
+        UUID hallId = halls[hallChoice - 1].getId();
         
+        // Создание DTO и вызов сервиса
         LessonRequestDTO request;
         request.trainerId = trainerId;
         request.hallId = hallId;
@@ -1124,6 +1217,7 @@ void TechUI::rejectReview() {
 // Вспомогательные методы отображения
 void TechUI::displayBooking(const BookingResponseDTO& booking) {
     std::cout << "📅 БРОНИРОВАНИЕ " << booking.bookingId.toString() << std::endl;
+    std::cout << "   Клиент: " << booking.clientId.toString() << std::endl;
     std::cout << "   Зал: " << booking.hallId.toString() << std::endl;
     std::cout << "   Время: " << booking.timeSlot.toString() << std::endl;
     std::cout << "   Статус: " << booking.status << std::endl;
@@ -1173,8 +1267,13 @@ void TechUI::displayClient(const Client& client) {
     std::cout << "👤 КЛИЕНТ " << client.getId().toString() << std::endl;
     std::cout << "   Имя: " << client.getName() << std::endl;
     std::cout << "   Email: " << client.getEmail() << std::endl;
-    std::cout << "   Телефон: " << client.getPhone() << std::endl;
+    std::cout << "   Телефон: " << (client.getPhone().empty() ? "не указан" : client.getPhone()) << std::endl;
     std::cout << "   Статус: " << EnumUtils::accountStatusToString(client.getStatus()) << std::endl;
+    
+    // Форматируем дату регистрации
+    auto time_t = std::chrono::system_clock::to_time_t(client.getRegistrationDate());
+    std::tm* tm = std::localtime(&time_t);
+    std::cout << "   Зарегистрирован: " << std::put_time(tm, "%d.%m.%Y %H:%M") << std::endl;
     std::cout << "---" << std::endl;
 }
 

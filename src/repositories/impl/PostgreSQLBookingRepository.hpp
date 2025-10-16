@@ -15,6 +15,7 @@ public:
     std::vector<Booking> findByClientId(const UUID& clientId) override;
     std::vector<Booking> findByHallId(const UUID& hallId) override;
     std::vector<Booking> findConflictingBookings(const UUID& hallId, const TimeSlot& timeSlot) override;
+    std::vector<Booking> findAll() override;
     bool save(const Booking& booking) override;
     bool update(const Booking& booking) override;
     bool remove(const UUID& id) override;
