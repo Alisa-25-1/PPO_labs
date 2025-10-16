@@ -177,13 +177,8 @@ void TechUI::createBooking() {
             return;
         }
         
-        std::cout << "Доступные залы:" << std::endl;
-        for (const auto& hall : halls) {
-            std::cout << "- " << hall.getName() << " (ID: " << hall.getId().toString() 
-                      << ", Вместимость: " << hall.getCapacity() << ")" << std::endl;
-        }
-        
-        UUID hallId = InputHandlers::readUUID("Введите ID зала: ");
+        // Используем улучшенный выбор зала
+        UUID hallId = InputHandlers::readHallFromList(halls, "Доступные залы:");
         TimeSlot timeSlot = InputHandlers::readTimeSlot();
         std::string purpose = InputHandlers::readString("Цель бронирования: ");
         
@@ -221,7 +216,35 @@ void TechUI::cancelBooking() {
     try {
         std::cout << "\n--- ОТМЕНА БРОНИРОВАНИЯ ---" << std::endl;
         
-        UUID bookingId = InputHandlers::readUUID("Введите ID бронирования для отмены: ");
+        // Получаем активные бронирования клиента
+        auto bookings = managers_->getBookingService()->getClientBookings(currentClientId_);
+        
+        // Фильтруем только активные бронирования (не отмененные и не завершенные)
+        std::vector<BookingResponseDTO> activeBookings;
+        for (const auto& booking : bookings) {
+            if (booking.status == "CONFIRMED" || booking.status == "PENDING") {
+                activeBookings.push_back(booking);
+            }
+        }
+        
+        if (activeBookings.empty()) {
+            std::cout << "❌ У вас нет активных бронирований для отмены." << std::endl;
+            return;
+        }
+        
+        // Показываем список активных бронирований
+        std::cout << "Ваши активные бронирования:" << std::endl;
+        for (size_t i = 0; i < activeBookings.size(); ++i) {
+            const auto& booking = activeBookings[i];
+            std::cout << (i + 1) << ". Бронирование " << booking.bookingId.toString() << std::endl;
+            std::cout << "   Зал: " << booking.hallId.toString() << std::endl;
+            std::cout << "   Время: " << booking.timeSlot.toString() << std::endl;
+            std::cout << "   Цель: " << booking.purpose << std::endl;
+            std::cout << "---" << std::endl;
+        }
+        
+        int choice = InputHandlers::readInt("Выберите номер бронирования для отмены: ", 1, activeBookings.size());
+        UUID bookingId = activeBookings[choice - 1].bookingId;
         
         auto response = managers_->getBookingService()->cancelBooking(bookingId, currentClientId_);
         

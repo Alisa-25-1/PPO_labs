@@ -6,6 +6,7 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: /home/nikit
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
@@ -666,6 +667,10 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: /home/nikit
 
 /usr/include/gtest/internal/gtest-param-util.h:
 
+/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
+
+/usr/include/gtest/internal/gtest-filepath.h:
+
 /usr/include/c++/13/locale:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
@@ -830,6 +835,10 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: /home/nikit
 
 /usr/include/gtest/gtest_pred_impl.h:
 
+/usr/include/c++/13/bits/functional_hash.h:
+
+/usr/include/errno.h:
+
 /usr/include/x86_64-linux-gnu/sys/wait.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_funcs.h:
@@ -904,17 +913,11 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: /home/nikit
 
 /usr/include/gtest/internal/custom/gtest-port.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
+/usr/include/c++/13/bits/stl_deque.h:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp:
+/usr/include/c++/13/bits/cxxabi_forced.h:
 
-/usr/include/c++/13/tr1/poly_laguerre.tcc:
-
-/usr/include/c++/13/cxxabi.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h:
-
-/usr/include/gmock/gmock-cardinalities.h:
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp:
 
@@ -928,15 +931,13 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: /home/nikit
 
 /usr/include/c++/13/algorithm:
 
+/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+
+/usr/include/c++/13/stack:
+
+/usr/include/c++/13/bits/stl_relops.h:
+
 /usr/include/c++/13/bits/regex_executor.tcc:
-
-/usr/include/c++/13/bits/istream.tcc:
-
-/usr/include/c++/13/bits/locale_conv.h:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp:
-
-/usr/include/c++/13/bits/atomic_lockfree_defines.h:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp:
 
@@ -946,19 +947,27 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: /home/nikit
 
 /usr/include/c++/13/bits/algorithmfwd.h:
 
-/usr/include/c++/13/atomic:
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp:
+
+/usr/include/c++/13/bits/istream.tcc:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp:
+
+/usr/include/c++/13/bits/locale_conv.h:
+
+/usr/include/c++/13/tr1/poly_laguerre.tcc:
+
+/usr/include/c++/13/cxxabi.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h:
+
+/usr/include/gmock/gmock-cardinalities.h:
 
 /usr/include/c++/13/bits/stl_function.h:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp:
-
-/usr/include/c++/13/bits/stl_stack.h:
-
-/usr/include/c++/13/bits/stringfwd.h:
-
-/usr/include/c++/13/bits/locale_classes.tcc:
-
-/usr/include/c++/13/bits/uniform_int_dist.h:
 
 /usr/include/c++/13/bits/localefwd.h:
 
@@ -967,6 +976,8 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: /home/nikit
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
 /usr/include/c++/13/bits/node_handle.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp:
 
@@ -982,6 +993,24 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: /home/nikit
 
 /usr/include/c++/13/array:
 
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/c++/13/bits/enable_special_members.h:
+
+/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
+
+/usr/include/c++/13/bits/stream_iterator.h:
+
+/usr/include/c++/13/atomic:
+
+/usr/include/c++/13/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/13/bits/allocated_ptr.h:
+
+/usr/include/c++/13/bit:
+
+/usr/include/c++/13/bits/basic_string.tcc:
+
 /usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
 /usr/include/c++/13/bits/charconv.h:
@@ -993,26 +1022,6 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: /home/nikit
 /usr/include/c++/13/bits/stl_pair.h:
 
 /usr/include/c++/13/cstdio:
-
-/usr/include/c++/13/bits/allocated_ptr.h:
-
-/usr/include/c++/13/bit:
-
-/usr/include/c++/13/bits/basic_string.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
-
-/usr/include/c++/13/bits/enable_special_members.h:
-
-/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
-
-/usr/include/c++/13/bits/stream_iterator.h:
-
-/usr/include/c++/13/bits/stl_deque.h:
-
-/usr/include/c++/13/bits/cxxabi_forced.h:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp:
 
 /usr/include/c++/13/bits/regex_automaton.tcc:
 
@@ -1090,15 +1099,13 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: /home/nikit
 
 /usr/include/c++/13/bits/regex_error.h:
 
-/usr/include/c++/13/bits/functional_hash.h:
+/usr/include/c++/13/bits/stl_stack.h:
 
-/usr/include/x86_64-linux-gnu/bits/mathcalls.h:
+/usr/include/c++/13/bits/stringfwd.h:
 
-/usr/include/c++/13/bits/stl_relops.h:
+/usr/include/c++/13/bits/locale_classes.tcc:
 
-/usr/include/c++/13/stack:
-
-/usr/include/errno.h:
+/usr/include/c++/13/bits/uniform_int_dist.h:
 
 /usr/include/c++/13/bits/stl_tempbuf.h:
 
@@ -1299,7 +1306,3 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: /home/nikit
 /usr/include/gtest/gtest.h:
 
 /usr/include/gtest/internal/custom/gtest-printers.h:
-
-/usr/include/x86_64-linux-gnu/bits/sigevent-consts.h:
-
-/usr/include/gtest/internal/gtest-filepath.h:

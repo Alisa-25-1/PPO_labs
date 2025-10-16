@@ -297,6 +297,7 @@ CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../models/DanceHall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../models/TimeSlot.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../models/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../models/Subscription.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/integration/../../models/SubscriptionType.hpp \

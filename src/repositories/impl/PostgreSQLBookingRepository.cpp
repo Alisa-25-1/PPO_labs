@@ -2,6 +2,7 @@
 #include <pqxx/pqxx>
 #include "../../data/DateTimeUtils.hpp"
 #include "../../data/QueryFactory.hpp"
+#include <iostream>
 
 PostgreSQLBookingRepository::PostgreSQLBookingRepository(
     std::shared_ptr<DatabaseConnection> dbConnection)
@@ -93,6 +94,7 @@ std::vector<Booking> PostgreSQLBookingRepository::findConflictingBookings(
         
         std::string query = QueryFactory::createFindConflictingBookingsQuery();
         auto startTimeStr = DateTimeUtils::formatTimeForPostgres(timeSlot.getStartTime());
+        
         auto result = work.exec_params(
             query, 
             hallId.toString(),
@@ -114,6 +116,7 @@ std::vector<Booking> PostgreSQLBookingRepository::findConflictingBookings(
 }
 
 bool PostgreSQLBookingRepository::save(const Booking& booking) {
+    
     validateBooking(booking);
     
     try {
@@ -136,12 +139,14 @@ bool PostgreSQLBookingRepository::save(const Booking& booking) {
             .values(values)
             .build();
         
+        std::string start_time_str = DateTimeUtils::formatTimeForPostgres(booking.getTimeSlot().getStartTime());
+        
         work.exec_params(
             query,
             booking.getId().toString(),
             booking.getClientId().toString(),
             booking.getHallId().toString(),
-            DateTimeUtils::formatTimeForPostgres(booking.getTimeSlot().getStartTime()),
+            start_time_str,
             booking.getTimeSlot().getDurationMinutes(),
             booking.getPurpose(),
             bookingStatusToString(booking.getStatus()),
@@ -183,7 +188,9 @@ bool PostgreSQLBookingRepository::update(const Booking& booking) {
             booking.getId().toString(),
             booking.getClientId().toString(),
             booking.getHallId().toString(),
+            
             DateTimeUtils::formatTimeForPostgres(booking.getTimeSlot().getStartTime()),
+            
             booking.getTimeSlot().getDurationMinutes(),
             booking.getPurpose(),
             bookingStatusToString(booking.getStatus())
@@ -243,8 +250,9 @@ Booking PostgreSQLBookingRepository::mapResultToBooking(const pqxx::row& row) co
     UUID clientId = UUID::fromString(row["client_id"].c_str());
     UUID hallId = UUID::fromString(row["hall_id"].c_str());
     
-    // Используем утилиту для парсинга времени
-    auto startTime = DateTimeUtils::parseTimeFromPostgres(row["start_time"].c_str());
+    std::string start_time_str = row["start_time"].c_str();    
+    auto startTime = DateTimeUtils::parseTimeFromPostgres(start_time_str);
+    
     int duration = row["duration_minutes"].as<int>();
     TimeSlot timeSlot(startTime, duration);
     
@@ -253,7 +261,6 @@ Booking PostgreSQLBookingRepository::mapResultToBooking(const pqxx::row& row) co
     
     Booking booking(id, clientId, hallId, timeSlot, purpose);
     
-    // Восстанавливаем статус
     switch (status) {
         case BookingStatus::CONFIRMED:
             booking.confirm();
@@ -265,7 +272,7 @@ Booking PostgreSQLBookingRepository::mapResultToBooking(const pqxx::row& row) co
             booking.complete();
             break;
         default:
-            break; // PENDING по умолчанию
+            break;
     }
     
     return booking;

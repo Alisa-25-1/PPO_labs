@@ -202,6 +202,7 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
  /usr/include/c++/13/limits /usr/include/c++/13/bits/parse_numbers.h \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/../types/enums.hpp \
  /usr/include/c++/13/memory \
@@ -219,6 +220,8 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Client.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IDanceHallRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/DanceHall.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IBranchRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/BookingDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/../models/TimeSlot.hpp \
@@ -226,5 +229,5 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp \
- /usr/include/c++/13/algorithm \
+ /usr/include/c++/13/iostream /usr/include/c++/13/algorithm \
  /usr/include/c++/13/pstl/glue_algorithm_defs.h

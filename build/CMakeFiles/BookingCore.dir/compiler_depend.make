@@ -241,6 +241,7 @@ CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.o: /home/nikita/Общедост
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
 
 CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.cpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
@@ -1010,6 +1011,7 @@ CMakeFiles/BookingCore.dir/src/dtos/SubscriptionDTO.cpp.o: /home/nikita/Обще
   /usr/include/stdc-predef.h
 
 CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.cpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
@@ -2255,6 +2257,7 @@ CMakeFiles/BookingCore.dir/src/models/Enrollment.cpp.o: /home/nikita/Общед�
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 CMakeFiles/BookingCore.dir/src/models/Lesson.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.cpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp \
@@ -2759,6 +2762,7 @@ CMakeFiles/BookingCore.dir/src/models/Review.cpp.o: /home/nikita/Общедос�
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 CMakeFiles/BookingCore.dir/src/models/Schedule.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Schedule.cpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Schedule.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
@@ -3742,6 +3746,7 @@ CMakeFiles/BookingCore.dir/src/models/SubscriptionType.cpp.o: /home/nikita/Об�
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
 
 CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.cpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -3833,6 +3838,7 @@ CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o: /home/nikita/Общедо�
   /usr/include/c++/13/iomanip \
   /usr/include/c++/13/ios \
   /usr/include/c++/13/iosfwd \
+  /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/locale \
@@ -4469,14 +4475,17 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: /home/nikita/Об�
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBookingRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
@@ -4615,6 +4624,7 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: /home/nikita/Об�
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/ios \
   /usr/include/c++/13/iosfwd \
+  /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/locale \
@@ -4747,6 +4757,7 @@ CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.o: /home/nikita/О
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp \
@@ -5028,6 +5039,7 @@ CMakeFiles/BookingCore.dir/src/services/LessonService.cpp.o: /home/nikita/Общ
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp \
@@ -5307,6 +5319,7 @@ CMakeFiles/BookingCore.dir/src/services/ReviewService.cpp.o: /home/nikita/Общ
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp \
@@ -5589,6 +5602,7 @@ CMakeFiles/BookingCore.dir/src/services/ScheduleService.cpp.o: /home/nikita/Об
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ScheduleDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
@@ -6144,6 +6158,9 @@ CMakeFiles/BookingCore.dir/src/services/SubscriptionService.cpp.o: /home/nikita/
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o: /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.cpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
@@ -6408,10 +6425,8 @@ CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o: /home/nikita/Общ
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/SqlQueryBuilder.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/data/exceptions/DataAccessException.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Studio.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
-  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IStudioRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLBookingRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLBranchRepository.hpp \
@@ -6439,9 +6454,11 @@ CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o: /home/nikita/Общ
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ReviewDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/ScheduleDTO.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp \
@@ -6453,6 +6470,7 @@ CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o: /home/nikita/Общ
   /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBookingRepository.hpp \
+  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp \
   /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IEnrollmentRepository.hpp \
@@ -7334,8 +7352,6 @@ CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: /home/nikita/Общедосту
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLDanceHallRepository.hpp:
 
-/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp:
-
 /home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.hpp:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp:
@@ -7369,6 +7385,8 @@ CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: /home/nikita/Общедосту
 /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp:
 
 /usr/include/pqxx/range.hxx:
 
@@ -7455,6 +7473,8 @@ CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: /home/nikita/Общедосту
 /usr/include/c++/13/iostream:
 
 /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp:
 
 /usr/include/c++/13/ostream:
 
@@ -7603,8 +7623,6 @@ CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: /home/nikita/Общедосту
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
 /usr/include/c++/13/bits/stl_deque.h:
-
-/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp:
 
 /usr/include/c++/13/bits/locale_facets.tcc:
 
@@ -8077,6 +8095,8 @@ CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o: /home/nikita/Общедосту
 /usr/include/c++/13/numeric:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
+
+/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp:
 
 /usr/include/c++/13/bits/localefwd.h:
 

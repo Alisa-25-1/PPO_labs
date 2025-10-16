@@ -2,6 +2,7 @@
 #include <sstream>
 #include <iomanip>
 #include <stdexcept>
+#include <iostream>
 
 TimeSlot::TimeSlot() 
     : startTime_(std::chrono::system_clock::now()), durationMinutes_(60) {}
@@ -9,7 +10,6 @@ TimeSlot::TimeSlot()
 TimeSlot::TimeSlot(std::chrono::system_clock::time_point startTime, int durationMinutes)
     : startTime_(startTime), durationMinutes_(durationMinutes) {
     
-    // Валидация при создании
     if (!isValid()) {
         throw std::invalid_argument("Invalid time slot data provided");
     }
@@ -42,19 +42,17 @@ bool TimeSlot::isValid() const {
 }
 
 bool TimeSlot::isValidDuration(int durationMinutes) {
-    return durationMinutes > 0 && durationMinutes <= 24 * 60; // max 24 hours
+    return durationMinutes > 0 && durationMinutes <= 24 * 60;
 }
 
 bool TimeSlot::isReasonableTimeSlot(const std::chrono::system_clock::time_point& startTime, int duration) {
     auto now = std::chrono::system_clock::now();
     
-    // Максимальное время бронирования вперед - 1 год
     auto maxFuture = now + std::chrono::hours(24 * 365);
     if (startTime > maxFuture) {
         return false;
     }
     
-    // Минимальная продолжительность - 15 минут
     if (duration < 15) {
         return false;
     }
@@ -63,6 +61,7 @@ bool TimeSlot::isReasonableTimeSlot(const std::chrono::system_clock::time_point&
 }
 
 std::string TimeSlot::toString() const {
+    // Теперь startTime_ уже в локальном времени благодаря исправлению в parseTimeFromPostgres
     auto time_t = std::chrono::system_clock::to_time_t(startTime_);
     std::tm tm = *std::localtime(&time_t);
     
@@ -71,7 +70,6 @@ std::string TimeSlot::toString() const {
     return oss.str();
 }
 
-// Операторы сравнения
 bool TimeSlot::operator==(const TimeSlot& other) const {
     return startTime_ == other.startTime_ && durationMinutes_ == other.durationMinutes_;
 }

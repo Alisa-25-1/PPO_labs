@@ -200,6 +200,9 @@ CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o: \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
  /usr/include/c++/13/limits /usr/include/c++/13/bits/parse_numbers.h \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../types/enums.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/DanceHall.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/../types/uuid.hpp \
  /usr/include/c++/13/iostream /usr/include/c++/13/iomanip \
  /usr/include/c++/13/bits/quoted_string.h

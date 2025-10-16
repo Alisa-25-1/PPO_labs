@@ -341,12 +341,15 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/TimeSlot.hpp \
  /usr/include/c++/13/chrono \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/../types/enums.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/IClientRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/Client.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/IDanceHallRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/DanceHall.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/IBranchRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../dtos/BookingDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../dtos/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../dtos/../models/TimeSlot.hpp \
@@ -356,4 +359,5 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/exceptions/ValidationException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockBookingRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockClientRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockDanceHallRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockDanceHallRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockBranchRepository.hpp

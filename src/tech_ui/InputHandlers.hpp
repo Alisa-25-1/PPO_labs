@@ -4,6 +4,7 @@
 #include "../types/uuid.hpp"
 #include "../models/TimeSlot.hpp"
 #include "../types/enums.hpp"
+#include "../models/DanceHall.hpp"
 #include <iostream>
 #include <string>
 #include <chrono>
@@ -27,6 +28,7 @@ public:
     static LessonType readLessonType();
     static DifficultyLevel readDifficultyLevel();
     static int readRating();
+    static UUID readHallFromList(const std::vector<DanceHall>& halls, const std::string& prompt);
     
     // Валидация
     static bool isValidEmail(const std::string& email);

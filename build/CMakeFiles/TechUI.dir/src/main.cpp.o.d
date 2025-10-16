@@ -225,8 +225,11 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/IBookingRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/../models/TimeSlot.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/../models/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/IDanceHallRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/../models/DanceHall.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/IBranchRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../dtos/BookingDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../dtos/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../dtos/../models/Booking.hpp \

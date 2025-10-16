@@ -5,10 +5,12 @@
 BookingService::BookingService(
     std::unique_ptr<IBookingRepository> bookingRepo,
     std::unique_ptr<IClientRepository> clientRepo,
-    std::unique_ptr<IDanceHallRepository> hallRepo
+    std::unique_ptr<IDanceHallRepository> hallRepo,
+    std::unique_ptr<IBranchRepository> branchRepo
 ) : bookingRepository_(std::move(bookingRepo)),
     clientRepository_(std::move(clientRepo)),
-    hallRepository_(std::move(hallRepo)) {}
+    hallRepository_(std::move(hallRepo)),
+    branchRepository_(std::move(branchRepo)) {}
 
 // Validation methods
 void BookingService::validateBookingRequest(const BookingRequestDTO& request) const {
@@ -17,8 +19,10 @@ void BookingService::validateBookingRequest(const BookingRequestDTO& request) co
     }
     
     validateClient(request.clientId);
-    validateDanceHall(request.hallId);  // Исправлено
+    validateDanceHall(request.hallId);
     validateTimeSlot(request.timeSlot);
+
+    validateWorkingHours(request.hallId, request.timeSlot);
     
     if (!Booking::isValidPurpose(request.purpose)) {
         throw ValidationException("Invalid booking purpose");
@@ -52,10 +56,65 @@ void BookingService::validateTimeSlot(const TimeSlot& timeSlot) const {
     }
 }
 
+void BookingService::validateWorkingHours(const UUID& hallId, const TimeSlot& timeSlot) const {
+    // Получаем филиал для зала
+    auto branch = getBranchForHall(hallId);
+    if (!branch) {
+        throw ValidationException("Не удалось найти филиал для указанного зала");
+    }
+    
+    // Получаем время работы филиала
+    auto workingHours = branch->getWorkingHours();
+    
+    // Проверяем, что временной слот находится в пределах рабочего времени
+    if (!isWithinWorkingHours(timeSlot, workingHours.openTime, workingHours.closeTime)) {
+        std::string error = "Время бронирования выходит за пределы рабочего времени филиала. ";
+        error += "Филиал работает с " + std::to_string(workingHours.openTime.count()) + 
+                ":00 до " + std::to_string(workingHours.closeTime.count()) + ":00";
+        throw BusinessRuleException(error);
+    }
+}
+
+std::optional<Branch> BookingService::getBranchForHall(const UUID& hallId) const {
+    try {
+        // Получаем зал
+        auto hall = hallRepository_->findById(hallId);
+        if (!hall) {
+            return std::nullopt;
+        }
+        
+        // Получаем филиал зала
+        return branchRepository_->findById(hall->getBranchId());
+    } catch (const std::exception& e) {
+        // Логируем ошибку, но не прерываем выполнение
+        std::cerr << "Ошибка при получении филиала для зала: " << e.what() << std::endl;
+        return std::nullopt;
+    }
+}
+
+bool BookingService::isWithinWorkingHours(const TimeSlot& timeSlot, 
+                                        const std::chrono::hours& openTime, 
+                                        const std::chrono::hours& closeTime) const {
+    // Преобразуем время начала и окончания слота в локальное время
+    auto startTime = std::chrono::system_clock::to_time_t(timeSlot.getStartTime());
+    auto endTime = std::chrono::system_clock::to_time_t(timeSlot.getEndTime());
+    
+    std::tm startTm = *std::localtime(&startTime);
+    std::tm endTm = *std::localtime(&endTime);
+    
+    // Извлекаем час начала и окончания
+    int startHour = startTm.tm_hour;
+    int endHour = endTm.tm_hour;
+    
+    // Проверяем, что время начала не раньше времени открытия
+    // и время окончания не позже времени закрытия
+    return startHour >= openTime.count() && endHour <= closeTime.count();
+}
+
+
 void BookingService::checkBookingConflicts(const UUID& hallId, const TimeSlot& timeSlot, const UUID& excludeBookingId) const {
     auto conflictingBookings = bookingRepository_->findConflictingBookings(hallId, timeSlot);
     
-    // Filter out the excluded booking (for updates)
     if (!excludeBookingId.isNull()) {
         conflictingBookings.erase(
             std::remove_if(conflictingBookings.begin(), conflictingBookings.end(),
@@ -71,20 +130,16 @@ void BookingService::checkBookingConflicts(const UUID& hallId, const TimeSlot& t
     }
 }
 
-// Main business logic methods
 BookingResponseDTO BookingService::createBooking(const BookingRequestDTO& request) {
-    // Validate the request
+
     validateBookingRequest(request);
     
-    // Check business rules
     if (!canClientBook(request.clientId)) {
         throw BusinessRuleException("Client cannot create new booking");
     }
     
-    // Check for time conflicts
     checkBookingConflicts(request.hallId, request.timeSlot);
     
-    // Create booking
     UUID newId = UUID::generate();
     Booking booking(newId, request.clientId, request.hallId, request.timeSlot, request.purpose);
     booking.confirm();

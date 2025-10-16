@@ -38,7 +38,8 @@ TechUIManagers::TechUIManagers(const std::string& connectionString) {
         bookingService_ = std::make_unique<BookingService>(
             std::make_unique<PostgreSQLBookingRepository>(dbConnection_),
             std::make_unique<PostgreSQLClientRepository>(dbConnection_),
-            std::make_unique<PostgreSQLDanceHallRepository>(dbConnection_)
+            std::make_unique<PostgreSQLDanceHallRepository>(dbConnection_),
+            std::make_unique<PostgreSQLBranchRepository>(dbConnection_) 
         );
         
         lessonService_ = std::make_unique<LessonService>(

@@ -3,6 +3,7 @@
 
 #include <chrono>
 #include <string>
+#include "../data/DateTimeUtils.hpp"
 
 class TimeSlot {
 private:

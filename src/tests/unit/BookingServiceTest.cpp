@@ -3,7 +3,8 @@
 #include "../../services/BookingService.hpp"
 #include "mocks/MockBookingRepository.hpp"
 #include "mocks/MockClientRepository.hpp"
-#include "mocks/MockDanceHallRepository.hpp"  // Исправлено
+#include "mocks/MockDanceHallRepository.hpp"
+#include "mocks/MockBranchRepository.hpp"
 
 using ::testing::_;
 using ::testing::Return;
@@ -23,17 +24,20 @@ protected:
         // Создаем моки
         auto mockBookingRepo = std::make_unique<NiceMock<MockBookingRepository>>();
         auto mockClientRepo = std::make_unique<NiceMock<MockClientRepository>>();
-        auto mockHallRepo = std::make_unique<NiceMock<MockDanceHallRepository>>();  // Исправлено
+        auto mockHallRepo = std::make_unique<NiceMock<MockDanceHallRepository>>();
+        auto mockBranchRepo = std::make_unique<NiceMock<MockBranchRepository>>();
 
         mockBookingRepo_ = mockBookingRepo.get();
         mockClientRepo_ = mockClientRepo.get();
         mockHallRepo_ = mockHallRepo.get();
+        mockBranchRepo_ = mockBranchRepo.get();
 
         // Создаем сервис
         bookingService_ = std::make_unique<BookingService>(
             std::move(mockBookingRepo),
             std::move(mockClientRepo),
-            std::move(mockHallRepo)
+            std::move(mockHallRepo),
+            std::move(mockBranchRepo)
         );
 
         // Создаем объекты через указатели (отложенная инициализация)
@@ -66,14 +70,15 @@ protected:
     
     // Объекты как unique_ptr для отложенной инициализации
     std::unique_ptr<Client> testClient_;
-    std::unique_ptr<DanceHall> testHall_;  // Исправлено на DanceHall
+    std::unique_ptr<DanceHall> testHall_; 
     std::unique_ptr<TimeSlot> testTimeSlot_;
     std::unique_ptr<Booking> testBooking_;
 
     // Указатели на моки
     MockBookingRepository* mockBookingRepo_;
     MockClientRepository* mockClientRepo_;
-    MockDanceHallRepository* mockHallRepo_;  // Исправлено
+    MockDanceHallRepository* mockHallRepo_;
+    MockBranchRepository* mockBranchRepo_; 
 };
 
 TEST_F(BookingServiceTest, CreateBooking_Success) {

@@ -7,6 +7,7 @@ CMakeFiles/LessonServiceTests.dir/src/tests/unit/LessonServiceTest.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp

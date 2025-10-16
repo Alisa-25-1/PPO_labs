@@ -93,19 +93,38 @@ std::chrono::system_clock::time_point InputHandlers::readDateTime(const std::str
         ss >> std::get_time(&tm, "%Y-%m-%d %H:%M");
         
         if (ss.fail()) {
-            std::cout << "❌ Неверный формат даты и времени. Попробуйте снова." << std::endl;
-        } else {
-            auto timePoint = std::chrono::system_clock::from_time_t(std::mktime(&tm));
-            return timePoint;
+            std::cout << "❌ Неверный формат даты и времени. Используйте формат ГГГГ-ММ-ДД ЧЧ:ММ" << std::endl;
+            continue;
         }
+        
+        // Проверка корректности даты
+        auto timePoint = std::chrono::system_clock::from_time_t(std::mktime(&tm));
+        auto now = std::chrono::system_clock::now();
+        
+        if (timePoint < now) {
+            std::cout << "❌ Нельзя бронировать зал в прошедшем времени. Выберите будущую дату." << std::endl;
+            continue;
+        }
+        
+        return timePoint;
     }
 }
 
 TimeSlot InputHandlers::readTimeSlot() {
     std::cout << "--- Ввод временного интервала ---" << std::endl;
     auto startTime = readDateTime("Введите время начала");
-    int duration = readInt("Введите продолжительность в минутах: ", 15, 8*60);
-    return TimeSlot(startTime, duration);
+    
+    while (true) {
+        int duration = readInt("Введите продолжительность в минутах (кратно 60): ", 60, 8*60);
+        
+        if (duration % 60 != 0) {
+            std::cout << "❌ Продолжительность должна быть кратной 60 минутам (1 час)." << std::endl;
+            std::cout << "   Доступные значения: 60, 120, 180, 240, 300, 360, 420, 480 минут" << std::endl;
+            continue;
+        }
+        
+        return TimeSlot(startTime, duration);
+    }
 }
 
 bool InputHandlers::readYesNo(const std::string& prompt) {
@@ -168,7 +187,23 @@ bool InputHandlers::isValidPhone(const std::string& phone) {
     return std::regex_match(phone, phonePattern);
 }
 
-// Новые методы для специализированного ввода
+UUID InputHandlers::readHallFromList(const std::vector<DanceHall>& halls, const std::string& prompt) {
+    if (halls.empty()) {
+        throw std::runtime_error("Нет доступных залов для выбора");
+    }
+    
+    std::cout << prompt << std::endl;
+    for (size_t i = 0; i < halls.size(); ++i) {
+        const auto& hall = halls[i];
+        std::cout << (i + 1) << ". " << hall.getName() 
+                  << " (Вместимость: " << hall.getCapacity() << " чел.)"
+                  << " - " << hall.getDescription() << std::endl;
+    }
+    
+    int choice = readInt("Выберите номер зала: ", 1, static_cast<int>(halls.size()));
+    return halls[choice - 1].getId();
+}
+
 LessonType InputHandlers::readLessonType() {
     std::cout << "Тип занятия:" << std::endl;
     std::cout << "1. Открытый класс" << std::endl;
