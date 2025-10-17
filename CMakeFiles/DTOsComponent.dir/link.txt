@@ -1,0 +1,2 @@
+/usr/bin/ar qc libDTOsComponent.a CMakeFiles/DTOsComponent.dir/src/dtos/BookingDTO.cpp.o CMakeFiles/DTOsComponent.dir/src/dtos/LessonDTO.cpp.o CMakeFiles/DTOsComponent.dir/src/dtos/SubscriptionDTO.cpp.o CMakeFiles/DTOsComponent.dir/src/dtos/ReviewDTO.cpp.o CMakeFiles/DTOsComponent.dir/src/dtos/AuthDTO.cpp.o CMakeFiles/DTOsComponent.dir/src/dtos/EnrollmentDTO.cpp.o
+/usr/bin/ranlib libDTOsComponent.a

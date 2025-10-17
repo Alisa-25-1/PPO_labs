@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/LessonServiceTests.dir/src/tests/unit/LessonServiceTest.cpp.o -o LessonServiceTests  libServicesComponent.a libDTOsComponent.a libModelsComponent.a libCoreComponent.a /usr/lib/x86_64-linux-gnu/libgtest.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgmock.a /usr/lib/x86_64-linux-gnu/libuuid.so /usr/lib/x86_64-linux-gnu/libgtest.a 

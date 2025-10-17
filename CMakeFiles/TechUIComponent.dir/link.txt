@@ -1,0 +1,2 @@
+/usr/bin/ar qc libTechUIComponent.a CMakeFiles/TechUIComponent.dir/src/tech_ui/InputHandlers.cpp.o CMakeFiles/TechUIComponent.dir/src/tech_ui/TechUIManagers.cpp.o CMakeFiles/TechUIComponent.dir/src/tech_ui/TechUI.cpp.o
+/usr/bin/ranlib libTechUIComponent.a

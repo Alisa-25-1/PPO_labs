@@ -150,21 +150,6 @@ CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 //Value Computed by CMake
 CMAKE_PROJECT_NAME:STATIC=PPO_labs
 
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION:STATIC=1.0
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_MAJOR:STATIC=1
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_MINOR:STATIC=0
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_PATCH:STATIC=
-
-//Value Computed by CMake
-CMAKE_PROJECT_VERSION_TWEAK:STATIC=
-
 //Path to a program.
 CMAKE_RANLIB:FILEPATH=/usr/bin/ranlib
 
@@ -229,15 +214,6 @@ CMAKE_TAPI:FILEPATH=CMAKE_TAPI-NOTFOUND
 // during the make.  This is useful for debugging only. With Visual
 // Studio IDE projects all commands are done without /nologo.
 CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
-
-//Value Computed by CMake
-DanceStudioBooking_BINARY_DIR:STATIC=/home/nikita/Общедоступные/PPO/PPO_labs/build
-
-//Value Computed by CMake
-DanceStudioBooking_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-DanceStudioBooking_SOURCE_DIR:STATIC=/home/nikita/Общедоступные/PPO/PPO_labs
 
 //The directory containing a CMake configuration file for GTest.
 GTest_DIR:PATH=/usr/lib/x86_64-linux-gnu/cmake/GTest

@@ -1,0 +1,41 @@
+file(REMOVE_RECURSE
+  "CMakeFiles/DataAccessComponent.dir/src/data/DatabaseConnection.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/data/DatabaseConnection.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/data/DateTimeUtils.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/data/DateTimeUtils.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/data/QueryFactory.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/data/QueryFactory.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/data/ResilientDatabaseConnection.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/data/ResilientDatabaseConnection.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/data/SqlQueryBuilder.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/data/SqlQueryBuilder.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o.d"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o"
+  "CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o.d"
+  "libDataAccessComponent.a"
+  "libDataAccessComponent.pdb"
+)
+
+# Per-language clean rules from dependency scanning.
+foreach(lang CXX)
+  include(CMakeFiles/DataAccessComponent.dir/cmake_clean_${lang}.cmake OPTIONAL)
+endforeach()

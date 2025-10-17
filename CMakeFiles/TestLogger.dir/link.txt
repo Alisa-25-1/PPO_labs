@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/TestLogger.dir/src/test_logger.cpp.o CMakeFiles/TestLogger.dir/src/core/Logger.cpp.o CMakeFiles/TestLogger.dir/src/core/Config.cpp.o -o TestLogger 

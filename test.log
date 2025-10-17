@@ -1,0 +1,17 @@
+[INIT] Logger initialized
+[2025-10-16 14:52:20.315] [DEBUG] [Test] Тестовое debug сообщение
+[2025-10-16 14:52:20.315] [INFO] [Test] Тестовое info сообщение
+[2025-10-16 14:52:20.316] [WARNING] [Test] Тестовое warning сообщение
+[2025-10-16 14:52:20.316] [ERROR] [Test] Тестовое error сообщение
+[SHUTDOWN] Logger shutting down
+[INIT] Logger initialized
+[2025-10-16 15:03:26.551] [DEBUG] [Test] Тестовое debug сообщение
+[2025-10-16 15:03:26.551] [INFO] [Test] Тестовое info сообщение
+[2025-10-16 15:03:26.551] [WARNING] [Test] Тестовое warning сообщение
+[2025-10-16 15:03:26.551] [ERROR] [Test] Тестовое error сообщение
+[SHUTDOWN] Logger shutting down
+[2025-10-16 15:05:18.915] [DEBUG] [Test] Тестовое debug сообщение
+[2025-10-16 15:05:18.916] [INFO] [Test] Тестовое info сообщение
+[2025-10-16 15:05:18.916] [WARNING] [Test] Тестовое warning сообщение
+[2025-10-16 15:05:18.916] [ERROR] [Test] Тестовое error сообщение
+[SHUTDOWN] Logger shutting down

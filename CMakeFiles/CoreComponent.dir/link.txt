@@ -1,0 +1,2 @@
+/usr/bin/ar qc libCoreComponent.a CMakeFiles/CoreComponent.dir/src/types/uuid.cpp.o CMakeFiles/CoreComponent.dir/src/types/enums.cpp.o CMakeFiles/CoreComponent.dir/src/core/Logger.cpp.o CMakeFiles/CoreComponent.dir/src/core/Config.cpp.o
+/usr/bin/ranlib libCoreComponent.a

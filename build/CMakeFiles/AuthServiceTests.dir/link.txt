@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/AuthServiceTests.dir/src/tests/unit/AuthServiceTest.cpp.o -o AuthServiceTests  libBookingCore.a /usr/lib/x86_64-linux-gnu/libgtest.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgmock.a /usr/lib/x86_64-linux-gnu/libuuid.so /usr/lib/x86_64-linux-gnu/libgtest.a 

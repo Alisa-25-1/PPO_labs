@@ -581,7 +581,7 @@ void TechUI::handleAdminMenu() {
         std::cout << "8. Управление записями на занятия" << std::endl;
         std::cout << "0. Назад" << std::endl;
         
-        int choice = InputHandlers::readInt("Выберите опцию: ", 0, 7);
+        int choice = InputHandlers::readInt("Выберите опцию: ", 0, 8);
         
         switch (choice) {
             case 1: handleAdminClients(); break;

@@ -1,1 +1,0 @@
-/usr/bin/c++ CMakeFiles/SubscriptionServiceTests.dir/src/tests/unit/SubscriptionServiceTest.cpp.o -o SubscriptionServiceTests  libBookingCore.a /usr/lib/x86_64-linux-gnu/libgtest.a /usr/lib/x86_64-linux-gnu/libgtest_main.a /usr/lib/x86_64-linux-gnu/libgmock.a /usr/lib/x86_64-linux-gnu/libuuid.so /usr/lib/x86_64-linux-gnu/libgtest.a 

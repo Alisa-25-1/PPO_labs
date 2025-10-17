@@ -69,6 +69,7 @@
         "list": "cpp",
         "source_location": "cpp",
         "ranges": "cpp",
-        "pqxx": "cpp"
+        "pqxx": "cpp",
+        "fstream": "cpp"
     }
 }
