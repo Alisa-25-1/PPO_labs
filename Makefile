@@ -85,6 +85,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles /home/nikita/Общедоступные/PPO/PPO_labs//CMakeFiles/progress.marks
@@ -141,6 +186,45 @@ DataAccess: cmake_check_build_system
 DataAccess/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/build
 .PHONY : DataAccess/fast
+
+#=============================================================================
+# Target rules for targets named TechUI
+
+# Build rule for target.
+TechUI: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TechUI
+.PHONY : TechUI
+
+# fast build rule for target.
+TechUI/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/build
+.PHONY : TechUI/fast
+
+#=============================================================================
+# Target rules for targets named WebUIComponent
+
+# Build rule for target.
+WebUIComponent: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 WebUIComponent
+.PHONY : WebUIComponent
+
+# fast build rule for target.
+WebUIComponent/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/build
+.PHONY : WebUIComponent/fast
+
+#=============================================================================
+# Target rules for targets named DanceStudioWebUI
+
+# Build rule for target.
+DanceStudioWebUI: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DanceStudioWebUI
+.PHONY : DanceStudioWebUI
+
+# fast build rule for target.
+DanceStudioWebUI/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioWebUI.dir/build.make CMakeFiles/DanceStudioWebUI.dir/build
+.PHONY : DanceStudioWebUI/fast
 
 #=============================================================================
 # Target rules for targets named BookingTests
@@ -219,45 +303,6 @@ IntegrationTests: cmake_check_build_system
 IntegrationTests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/build
 .PHONY : IntegrationTests/fast
-
-#=============================================================================
-# Target rules for targets named TechUI
-
-# Build rule for target.
-TechUI: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TechUI
-.PHONY : TechUI
-
-# fast build rule for target.
-TechUI/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/build
-.PHONY : TechUI/fast
-
-#=============================================================================
-# Target rules for targets named WebUIComponent
-
-# Build rule for target.
-WebUIComponent: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 WebUIComponent
-.PHONY : WebUIComponent
-
-# fast build rule for target.
-WebUIComponent/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/build
-.PHONY : WebUIComponent/fast
-
-#=============================================================================
-# Target rules for targets named DanceStudioWebUI
-
-# Build rule for target.
-DanceStudioWebUI: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DanceStudioWebUI
-.PHONY : DanceStudioWebUI
-
-# fast build rule for target.
-DanceStudioWebUI/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioWebUI.dir/build.make CMakeFiles/DanceStudioWebUI.dir/build
-.PHONY : DanceStudioWebUI/fast
 
 src/core/Config.o: src/core/Config.cpp.o
 .PHONY : src/core/Config.o
@@ -1344,7 +1389,7 @@ src/tech_ui/InputHandlers.o: src/tech_ui/InputHandlers.cpp.o
 
 # target to build an object file
 src/tech_ui/InputHandlers.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o
 .PHONY : src/tech_ui/InputHandlers.cpp.o
 
 src/tech_ui/InputHandlers.i: src/tech_ui/InputHandlers.cpp.i
@@ -1352,7 +1397,7 @@ src/tech_ui/InputHandlers.i: src/tech_ui/InputHandlers.cpp.i
 
 # target to preprocess a source file
 src/tech_ui/InputHandlers.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.i
 .PHONY : src/tech_ui/InputHandlers.cpp.i
 
 src/tech_ui/InputHandlers.s: src/tech_ui/InputHandlers.cpp.s
@@ -1360,7 +1405,7 @@ src/tech_ui/InputHandlers.s: src/tech_ui/InputHandlers.cpp.s
 
 # target to generate assembly for a file
 src/tech_ui/InputHandlers.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.s
 .PHONY : src/tech_ui/InputHandlers.cpp.s
 
 src/tech_ui/TechUI.o: src/tech_ui/TechUI.cpp.o
@@ -1392,7 +1437,7 @@ src/tech_ui/TechUIManagers.o: src/tech_ui/TechUIManagers.cpp.o
 
 # target to build an object file
 src/tech_ui/TechUIManagers.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
 .PHONY : src/tech_ui/TechUIManagers.cpp.o
 
 src/tech_ui/TechUIManagers.i: src/tech_ui/TechUIManagers.cpp.i
@@ -1400,7 +1445,7 @@ src/tech_ui/TechUIManagers.i: src/tech_ui/TechUIManagers.cpp.i
 
 # target to preprocess a source file
 src/tech_ui/TechUIManagers.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.i
 .PHONY : src/tech_ui/TechUIManagers.cpp.i
 
 src/tech_ui/TechUIManagers.s: src/tech_ui/TechUIManagers.cpp.s
@@ -1408,7 +1453,7 @@ src/tech_ui/TechUIManagers.s: src/tech_ui/TechUIManagers.cpp.s
 
 # target to generate assembly for a file
 src/tech_ui/TechUIManagers.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.s
 .PHONY : src/tech_ui/TechUIManagers.cpp.s
 
 src/tests/integration/RepositoryIntegrationTests.o: src/tests/integration/RepositoryIntegrationTests.cpp.o
@@ -1874,6 +1919,10 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... rebuild_cache"
 	@echo "... AuthServiceTests"
 	@echo "... BookingCore"

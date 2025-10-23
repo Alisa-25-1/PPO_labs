@@ -69,24 +69,10 @@ include CMakeFiles/TechUI.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/TechUI.dir/flags.make
 
-CMakeFiles/TechUI.dir/src/main.cpp.o: CMakeFiles/TechUI.dir/flags.make
-CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp
-CMakeFiles/TechUI.dir/src/main.cpp.o: CMakeFiles/TechUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TechUI.dir/src/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TechUI.dir/src/main.cpp.o -MF CMakeFiles/TechUI.dir/src/main.cpp.o.d -o CMakeFiles/TechUI.dir/src/main.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/main.cpp
-
-CMakeFiles/TechUI.dir/src/main.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TechUI.dir/src/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/main.cpp > CMakeFiles/TechUI.dir/src/main.cpp.i
-
-CMakeFiles/TechUI.dir/src/main.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TechUI.dir/src/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/main.cpp -o CMakeFiles/TechUI.dir/src/main.cpp.s
-
 CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: CMakeFiles/TechUI.dir/flags.make
 CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp
 CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: CMakeFiles/TechUI.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o -MF CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o.d -o CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUI.cpp
 
 CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.i: cmake_force
@@ -97,27 +83,73 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUI.cpp -o CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.s
 
+CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: CMakeFiles/TechUI.dir/flags.make
+CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManagers.cpp
+CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: CMakeFiles/TechUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o -MF CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o.d -o CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.cpp
+
+CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.cpp > CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.i
+
+CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.cpp -o CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.s
+
+CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o: CMakeFiles/TechUI.dir/flags.make
+CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o: src/tech_ui/InputHandlers.cpp
+CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o: CMakeFiles/TechUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o -MF CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o.d -o CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.cpp
+
+CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.cpp > CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.i
+
+CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.cpp -o CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.s
+
+CMakeFiles/TechUI.dir/src/main.cpp.o: CMakeFiles/TechUI.dir/flags.make
+CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp
+CMakeFiles/TechUI.dir/src/main.cpp.o: CMakeFiles/TechUI.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/TechUI.dir/src/main.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/TechUI.dir/src/main.cpp.o -MF CMakeFiles/TechUI.dir/src/main.cpp.o.d -o CMakeFiles/TechUI.dir/src/main.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/main.cpp
+
+CMakeFiles/TechUI.dir/src/main.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/TechUI.dir/src/main.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/main.cpp > CMakeFiles/TechUI.dir/src/main.cpp.i
+
+CMakeFiles/TechUI.dir/src/main.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/TechUI.dir/src/main.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/main.cpp -o CMakeFiles/TechUI.dir/src/main.cpp.s
+
 # Object files for target TechUI
 TechUI_OBJECTS = \
-"CMakeFiles/TechUI.dir/src/main.cpp.o" \
-"CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o"
+"CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o" \
+"CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o" \
+"CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o" \
+"CMakeFiles/TechUI.dir/src/main.cpp.o"
 
 # External object files for target TechUI
 TechUI_EXTERNAL_OBJECTS =
 
-TechUI: CMakeFiles/TechUI.dir/src/main.cpp.o
-TechUI: CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
-TechUI: CMakeFiles/TechUI.dir/build.make
-TechUI: libBookingCore.a
-TechUI: libDataAccess.a
-TechUI: libBookingCore.a
-TechUI: /usr/lib/x86_64-linux-gnu/libuuid.so
-TechUI: CMakeFiles/TechUI.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX executable TechUI"
+bin/TechUI: CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
+bin/TechUI: CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
+bin/TechUI: CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o
+bin/TechUI: CMakeFiles/TechUI.dir/src/main.cpp.o
+bin/TechUI: CMakeFiles/TechUI.dir/build.make
+bin/TechUI: lib/libBookingCore.a
+bin/TechUI: lib/libDataAccess.a
+bin/TechUI: lib/libBookingCore.a
+bin/TechUI: /usr/lib/x86_64-linux-gnu/libuuid.so
+bin/TechUI: CMakeFiles/TechUI.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX executable bin/TechUI"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/TechUI.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/TechUI.dir/build: TechUI
+CMakeFiles/TechUI.dir/build: bin/TechUI
 .PHONY : CMakeFiles/TechUI.dir/build
 
 CMakeFiles/TechUI.dir/clean:

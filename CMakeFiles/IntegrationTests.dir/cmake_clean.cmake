@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.o"
   "CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.o.d"
-  "IntegrationTests"
-  "IntegrationTests.pdb"
+  "bin/IntegrationTests"
+  "bin/IntegrationTests.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "libWebUIComponent.a"
+  "lib/libWebUIComponent.a"
 )

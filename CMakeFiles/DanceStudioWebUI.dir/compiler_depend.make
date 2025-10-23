@@ -4,18 +4,33 @@
 CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
   src/web_ui/WebApplication.hpp \
   src/dtos/AuthDTO.hpp \
+  src/dtos/BookingDTO.hpp \
+  src/models/Booking.hpp \
+  src/models/TimeSlot.hpp \
   src/types/uuid.hpp \
   src/dtos/AuthDTO.hpp \
+  src/dtos/BookingDTO.hpp \
+  src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Booking.hpp \
+  src/models/Branch.hpp \
   src/models/Client.hpp \
+  src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/types/uuid.hpp \
+  src/repositories/IBookingRepository.hpp \
+  src/repositories/IBranchRepository.hpp \
   src/repositories/IClientRepository.hpp \
+  src/repositories/IDanceHallRepository.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
+  src/services/BookingService.hpp \
   src/services/exceptions/AuthException.hpp \
+  src/services/exceptions/BookingException.hpp \
   src/services/exceptions/ValidationException.hpp \
   src/web_ui/controllers/AuthController.hpp \
+  src/web_ui/controllers/BookingController.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -459,15 +474,27 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
 
-/usr/include/c++/13/bits/streambuf.tcc:
+/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
 
 /usr/include/c++/13/bits/stl_map.h:
 
 /usr/local/include/Wt/WCssDecorationStyle.h:
 
 /usr/include/c++/13/locale:
-
-/usr/include/c++/13/bits/stl_raw_storage_iter.h:
 
 /usr/include/c++/13/debug/assertions.h:
 
@@ -484,10 +511,6 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
 /usr/include/c++/13/bits/std_mutex.h:
 
 /usr/include/c++/13/bits/stl_bvector.h:
-
-/usr/include/c++/13/bits/stl_algo.h:
-
-/usr/include/c++/13/cstddef:
 
 /usr/include/c++/13/bits/sstream.tcc:
 
@@ -549,6 +572,10 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
 
 /usr/include/c++/13/bits/uses_allocator_args.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+
+/usr/include/c++/13/bits/stl_multimap.h:
+
 /usr/include/c++/13/bits/exception_ptr.h:
 
 /usr/include/c++/13/bits/regex.tcc:
@@ -563,13 +590,7 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
 
 /usr/include/c++/13/bits/refwrap.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
-
 /usr/include/c++/13/bits/range_access.h:
-
-/usr/include/c++/13/bits/string_view.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
 /usr/include/c++/13/bits/ptr_traits.h:
 
@@ -578,8 +599,6 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
 /usr/include/c++/13/bits/std_abs.h:
 
 /usr/include/c++/13/bits/parse_numbers.h:
-
-/usr/include/c++/13/bits/ostream.tcc:
 
 /usr/include/c++/13/bits/stl_function.h:
 
@@ -599,33 +618,27 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
 
 /usr/include/c++/13/bits/locale_conv.h:
 
-/usr/include/c++/13/bits/atomic_lockfree_defines.h:
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
 
-/usr/include/x86_64-linux-gnu/asm/errno.h:
+/usr/include/c++/13/bits/locale_classes.h:
+
+/usr/include/c++/13/bits/fs_ops.h:
+
+/usr/include/c++/13/clocale:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
 /usr/include/c++/13/bits/hashtable.h:
 
-/usr/include/c++/13/bits/stringfwd.h:
+/usr/include/c++/13/bits/ios_base.h:
 
-/usr/include/c++/13/bits/stl_stack.h:
+/usr/local/include/Wt/WStringStream.h:
 
-/usr/include/c++/13/bits/locale_classes.tcc:
+/usr/include/c++/13/bits/functional_hash.h:
 
-/usr/include/c++/13/bits/uniform_int_dist.h:
+/usr/include/c++/13/stack:
 
-/usr/include/c++/13/bits/regex.h:
-
-/usr/include/c++/13/backward/binders.h:
-
-/usr/include/c++/13/bits/alloc_traits.h:
-
-/usr/include/c++/13/bits/concept_check.h:
-
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
-
-/usr/include/c++/13/bits/algorithmfwd.h:
+/usr/include/errno.h:
 
 /usr/local/include/Wt/WGlobal.h:
 
@@ -633,19 +646,17 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
 
 /usr/include/c++/13/bits/node_handle.h:
 
-/usr/include/c++/13/bits/basic_ios.tcc:
-
-/usr/include/c++/13/pstl/execution_defs.h:
-
-/usr/include/c++/13/clocale:
-
-/usr/local/include/Wt/WBreak.h:
-
-/usr/include/x86_64-linux-gnu/bits/time64.h:
-
 /usr/include/c++/13/bits/fs_path.h:
 
+/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
+
+/usr/include/c++/13/bits/charconv.h:
+
 /usr/include/c++/13/cstdio:
+
+/usr/include/c++/13/bits/atomic_lockfree_defines.h:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
 
 /usr/include/c++/13/bits/allocated_ptr.h:
 
@@ -655,6 +666,102 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
 
 /usr/include/c++/13/bits/enable_special_members.h:
 
+/usr/include/c++/13/bits/hash_bytes.h:
+
+/usr/include/c++/13/array:
+
+/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
+
+/usr/include/asm-generic/errno-base.h:
+
+src/services/exceptions/ValidationException.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/c++/13/bits/stl_algo.h:
+
+/usr/include/c++/13/cstddef:
+
+src/dtos/BookingDTO.hpp:
+
+/usr/include/c++/13/bits/deque.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/c++/13/bits/ostream.tcc:
+
+src/services/exceptions/BookingException.hpp:
+
+src/repositories/IBookingRepository.hpp:
+
+/usr/include/c++/13/bits/concept_check.h:
+
+/usr/include/c++/13/bits/alloc_traits.h:
+
+src/repositories/IClientRepository.hpp:
+
+/usr/include/c++/13/bits/cxxabi_init_exception.h:
+
+/usr/include/c++/13/typeinfo:
+
+/usr/include/c++/13/cstdint:
+
+/usr/include/c++/13/bits/regex_scanner.h:
+
+src/web_ui/controllers/AuthController.hpp:
+
+/usr/include/c++/13/cstdlib:
+
+src/services/AuthService.hpp:
+
+/usr/include/c++/13/bits/cxxabi_forced.h:
+
+src/models/DanceHall.hpp:
+
+/usr/include/stdc-predef.h:
+
+src/data/DateTimeUtils.hpp:
+
+src/repositories/IDanceHallRepository.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
+src/repositories/IBranchRepository.hpp:
+
+/usr/include/c++/13/bits/fs_dir.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
+
+/usr/include/c++/13/sstream:
+
+src/types/enums.hpp:
+
+/usr/include/c++/13/atomic:
+
+src/web_ui/controllers/BookingController.hpp:
+
+/usr/include/c++/13/bits/regex.h:
+
+/usr/include/c++/13/backward/binders.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+src/models/Booking.hpp:
+
+src/types/uuid.hpp:
+
+src/models/Branch.hpp:
+
+src/services/BookingService.hpp:
+
+/usr/include/c++/13/bits/shared_ptr_atomic.h:
+
+/usr/include/c++/13/set:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
+
+src/web_main.cpp:
+
 /usr/include/c++/13/bits/regex_automaton.tcc:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
@@ -663,33 +770,15 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
-/usr/include/c++/13/backward/auto_ptr.h:
-
 src/models/Client.hpp:
 
 /usr/include/assert.h:
 
-/usr/include/c++/13/bits/stl_vector.h:
+/usr/include/c++/13/backward/auto_ptr.h:
 
-/usr/include/c++/13/bits/stl_tempbuf.h:
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
 
-/usr/include/c++/13/bits/stl_tree.h:
-
-/usr/include/c++/13/bits/codecvt.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
-
-src/web_main.cpp:
-
-src/repositories/IClientRepository.hpp:
-
-/usr/include/c++/13/bits/cxxabi_init_exception.h:
-
-/usr/include/c++/13/typeinfo:
-
-src/types/enums.hpp:
-
-/usr/include/c++/13/atomic:
+/usr/include/c++/13/bits/algorithmfwd.h:
 
 /usr/include/c++/13/bits/predefined_ops.h:
 
@@ -701,45 +790,23 @@ src/types/enums.hpp:
 
 /usr/include/c++/13/bits/unique_ptr.h:
 
-/usr/include/c++/13/cstdint:
+/usr/include/c++/13/bits/basic_ios.tcc:
 
-src/services/AuthService.hpp:
-
-/usr/include/c++/13/bits/cxxabi_forced.h:
-
-/usr/include/c++/13/bits/regex_scanner.h:
-
-/usr/include/c++/13/cstdlib:
-
-src/web_ui/controllers/AuthController.hpp:
-
-/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
-
-/usr/include/asm-generic/errno-base.h:
-
-src/services/exceptions/ValidationException.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
-
-/usr/include/c++/13/bits/deque.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/endian.h:
-
-/usr/include/c++/13/bits/shared_ptr_base.h:
+/usr/include/c++/13/pstl/execution_defs.h:
 
 /usr/include/wchar.h:
 
-src/types/uuid.hpp:
+/usr/include/c++/13/bits/shared_ptr_base.h:
 
 /usr/include/c++/13/bits/invoke.h:
 
+src/models/TimeSlot.hpp:
+
+/usr/local/include/Wt/WBreak.h:
+
+/usr/include/x86_64-linux-gnu/bits/time64.h:
+
 /usr/include/alloca.h:
-
-/usr/include/x86_64-linux-gnu/bits/endianness.h:
-
-/usr/include/c++/13/bits/chrono.h:
-
-/usr/include/c++/13/bits/fs_ops.h:
 
 src/services/exceptions/AuthException.hpp:
 
@@ -751,21 +818,9 @@ src/services/exceptions/AuthException.hpp:
 
 /usr/include/c++/13/bits/hashtable_policy.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
 
-/usr/include/c++/13/bits/streambuf_iterator.h:
-
-/usr/local/include/Wt/WDllDefs.h:
-
-/usr/include/c++/13/ostream:
-
-/usr/include/c++/13/bits/stl_set.h:
-
-/usr/include/c++/13/bits/ostream_insert.h:
-
-src/dtos/AuthDTO.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types.h:
+/usr/include/c++/13/bits/chrono.h:
 
 /usr/include/c++/13/bits/localefwd.h:
 
@@ -785,31 +840,43 @@ src/dtos/AuthDTO.hpp:
 
 /usr/include/c++/13/bits/regex_error.h:
 
-/usr/include/c++/13/bits/stl_multimap.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
 /usr/include/c++/13/bits/locale_facets_nonio.h:
 
-/usr/include/c++/13/bits/fs_dir.h:
+/usr/include/c++/13/bits/stl_raw_storage_iter.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
+/usr/include/c++/13/bits/ostream_insert.h:
 
-/usr/include/c++/13/sstream:
+src/dtos/AuthDTO.hpp:
 
-/usr/local/include/Wt/WStringStream.h:
+/usr/include/c++/13/bits/stl_set.h:
 
-/usr/include/c++/13/bits/functional_hash.h:
+/usr/include/c++/13/bits/stl_stack.h:
 
-/usr/include/c++/13/stack:
+/usr/include/c++/13/bits/stringfwd.h:
 
-/usr/include/errno.h:
+/usr/include/c++/13/bits/locale_classes.tcc:
 
-/usr/include/c++/13/array:
+/usr/include/c++/13/bits/uniform_int_dist.h:
 
-/usr/include/c++/13/bits/hash_bytes.h:
+/usr/include/c++/13/bits/stl_tempbuf.h:
 
-/usr/include/c++/13/bits/ios_base.h:
+/usr/include/c++/13/bits/codecvt.h:
+
+/usr/include/c++/13/bits/stl_tree.h:
+
+/usr/include/c++/13/bits/stl_vector.h:
+
+/usr/include/c++/13/bits/streambuf.tcc:
+
+/usr/include/c++/13/bits/streambuf_iterator.h:
+
+/usr/local/include/Wt/WDllDefs.h:
+
+/usr/include/c++/13/ostream:
+
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
+/usr/include/c++/13/bits/string_view.tcc:
 
 /usr/include/c++/13/bits/unique_lock.h:
 
@@ -933,10 +1000,6 @@ src/dtos/AuthDTO.hpp:
 
 /usr/include/c++/13/regex:
 
-/usr/include/c++/13/bits/shared_ptr_atomic.h:
-
-/usr/include/c++/13/set:
-
 /usr/local/include/Wt/WContainerWidget.h:
 
 /usr/include/c++/13/stdexcept:
@@ -953,9 +1016,9 @@ src/dtos/AuthDTO.hpp:
 
 /usr/include/c++/13/bits/regex_executor.h:
 
-/usr/include/c++/13/bits/nested_exception.h:
-
 /usr/include/c++/13/bits/list.tcc:
+
+/usr/include/c++/13/bits/nested_exception.h:
 
 /usr/include/c++/13/tuple:
 
@@ -972,8 +1035,6 @@ src/web_ui/WebApplication.hpp:
 /usr/include/wctype.h:
 
 /usr/include/sched.h:
-
-/usr/include/stdc-predef.h:
 
 /usr/include/endian.h:
 
@@ -1003,8 +1064,6 @@ src/web_ui/WebApplication.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
-/usr/include/x86_64-linux-gnu/bits/sched.h:
-
 /usr/include/x86_64-linux-gnu/bits/time.h:
 
 /usr/include/x86_64-linux-gnu/bits/select.h:
@@ -1013,28 +1072,8 @@ src/web_ui/WebApplication.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
-
-/usr/include/c++/13/bits/locale_classes.h:
-
-/usr/include/x86_64-linux-gnu/bits/timesize.h:
-
 /usr/local/include/Wt/WObject.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
-
-/usr/include/c++/13/bits/charconv.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:

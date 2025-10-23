@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "libBookingCore.a"
+  "lib/libBookingCore.a"
 )

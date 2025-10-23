@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
-  "AuthServiceTests"
-  "AuthServiceTests.pdb"
   "CMakeFiles/AuthServiceTests.dir/src/tests/unit/AuthServiceTest.cpp.o"
   "CMakeFiles/AuthServiceTests.dir/src/tests/unit/AuthServiceTest.cpp.o.d"
+  "bin/AuthServiceTests"
+  "bin/AuthServiceTests.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

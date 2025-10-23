@@ -461,38 +461,10 @@ CMakeFiles/BookingCore.dir/src/dtos/EnrollmentDTO.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/BookingCore.dir/src/dtos/EnrollmentDTO.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.cpp -o CMakeFiles/BookingCore.dir/src/dtos/EnrollmentDTO.cpp.s
 
-CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o: CMakeFiles/BookingCore.dir/flags.make
-CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o: src/tech_ui/InputHandlers.cpp
-CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o: CMakeFiles/BookingCore.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o -MF CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o.d -o CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.cpp
-
-CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.cpp > CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.i
-
-CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.cpp -o CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.s
-
-CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o: CMakeFiles/BookingCore.dir/flags.make
-CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManagers.cpp
-CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o: CMakeFiles/BookingCore.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o -MF CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o.d -o CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.cpp
-
-CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.cpp > CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.i
-
-CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.cpp -o CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.s
-
 CMakeFiles/BookingCore.dir/src/core/Config.cpp.o: CMakeFiles/BookingCore.dir/flags.make
 CMakeFiles/BookingCore.dir/src/core/Config.cpp.o: src/core/Config.cpp
 CMakeFiles/BookingCore.dir/src/core/Config.cpp.o: CMakeFiles/BookingCore.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/BookingCore.dir/src/core/Config.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/BookingCore.dir/src/core/Config.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BookingCore.dir/src/core/Config.cpp.o -MF CMakeFiles/BookingCore.dir/src/core/Config.cpp.o.d -o CMakeFiles/BookingCore.dir/src/core/Config.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/core/Config.cpp
 
 CMakeFiles/BookingCore.dir/src/core/Config.cpp.i: cmake_force
@@ -506,7 +478,7 @@ CMakeFiles/BookingCore.dir/src/core/Config.cpp.s: cmake_force
 CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o: CMakeFiles/BookingCore.dir/flags.make
 CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o: src/core/Logger.cpp
 CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o: CMakeFiles/BookingCore.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o -MF CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o.d -o CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/core/Logger.cpp
 
 CMakeFiles/BookingCore.dir/src/core/Logger.cpp.i: cmake_force
@@ -547,54 +519,50 @@ BookingCore_OBJECTS = \
 "CMakeFiles/BookingCore.dir/src/dtos/ReviewDTO.cpp.o" \
 "CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.o" \
 "CMakeFiles/BookingCore.dir/src/dtos/EnrollmentDTO.cpp.o" \
-"CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o" \
-"CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o" \
 "CMakeFiles/BookingCore.dir/src/core/Config.cpp.o" \
 "CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o"
 
 # External object files for target BookingCore
 BookingCore_EXTERNAL_OBJECTS =
 
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Client.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/DanceHall.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Branch.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Studio.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Lesson.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Enrollment.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Review.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Subscription.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/SubscriptionType.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Schedule.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/types/enums.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/LessonService.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/AuthService.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/SubscriptionService.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/ReviewService.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/ScheduleService.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/dtos/LessonDTO.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/dtos/SubscriptionDTO.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/dtos/ReviewDTO.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/dtos/EnrollmentDTO.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/core/Config.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o
-libBookingCore.a: CMakeFiles/BookingCore.dir/build.make
-libBookingCore.a: CMakeFiles/BookingCore.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Linking CXX static library libBookingCore.a"
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Client.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/DanceHall.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Branch.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Studio.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Lesson.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Enrollment.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Review.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Subscription.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/SubscriptionType.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/models/Schedule.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/types/enums.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/LessonService.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/AuthService.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/SubscriptionService.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/ReviewService.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/ScheduleService.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/dtos/LessonDTO.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/dtos/SubscriptionDTO.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/dtos/ReviewDTO.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/dtos/EnrollmentDTO.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/core/Config.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/build.make
+lib/libBookingCore.a: CMakeFiles/BookingCore.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Linking CXX static library lib/libBookingCore.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/BookingCore.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/BookingCore.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-CMakeFiles/BookingCore.dir/build: libBookingCore.a
+CMakeFiles/BookingCore.dir/build: lib/libBookingCore.a
 .PHONY : CMakeFiles/BookingCore.dir/build
 
 CMakeFiles/BookingCore.dir/clean:

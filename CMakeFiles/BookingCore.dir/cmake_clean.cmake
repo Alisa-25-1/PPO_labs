@@ -55,16 +55,12 @@ file(REMOVE_RECURSE
   "CMakeFiles/BookingCore.dir/src/services/ScheduleService.cpp.o.d"
   "CMakeFiles/BookingCore.dir/src/services/SubscriptionService.cpp.o"
   "CMakeFiles/BookingCore.dir/src/services/SubscriptionService.cpp.o.d"
-  "CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o"
-  "CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o.d"
-  "CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o"
-  "CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o.d"
   "CMakeFiles/BookingCore.dir/src/types/enums.cpp.o"
   "CMakeFiles/BookingCore.dir/src/types/enums.cpp.o.d"
   "CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o"
   "CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o.d"
-  "libBookingCore.a"
-  "libBookingCore.pdb"
+  "lib/libBookingCore.a"
+  "lib/libBookingCore.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

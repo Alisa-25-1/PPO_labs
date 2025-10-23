@@ -19,8 +19,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o.d"
   "CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o"
   "CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o.d"
-  "libWebUIComponent.a"
-  "libWebUIComponent.pdb"
+  "lib/libWebUIComponent.a"
+  "lib/libWebUIComponent.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

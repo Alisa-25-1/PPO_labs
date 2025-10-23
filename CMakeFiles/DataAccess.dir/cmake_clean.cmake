@@ -31,8 +31,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o.d"
   "CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o"
   "CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o.d"
-  "libDataAccess.a"
-  "libDataAccess.pdb"
+  "lib/libDataAccess.a"
+  "lib/libDataAccess.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

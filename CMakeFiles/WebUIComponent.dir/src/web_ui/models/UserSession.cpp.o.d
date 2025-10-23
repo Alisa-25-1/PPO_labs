@@ -1,6 +1,7 @@
 CMakeFiles/WebUIComponent.dir/src/web_ui/models/UserSession.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/models/UserSession.cpp \
  /usr/include/stdc-predef.h \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/models/UserSession.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/models/../../types/uuid.hpp \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \

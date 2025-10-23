@@ -1,8 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/SubscriptionServiceTests.dir/src/tests/unit/SubscriptionServiceTest.cpp.o"
   "CMakeFiles/SubscriptionServiceTests.dir/src/tests/unit/SubscriptionServiceTest.cpp.o.d"
-  "SubscriptionServiceTests"
-  "SubscriptionServiceTests.pdb"
+  "bin/SubscriptionServiceTests"
+  "bin/SubscriptionServiceTests.pdb"
 )
 
 # Per-language clean rules from dependency scanning.
