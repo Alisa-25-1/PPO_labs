@@ -1,77 +1,64 @@
 #include "TechUIManagers.hpp"
-#include "../repositories/impl/PostgreSQLClientRepository.hpp"
-#include "../repositories/impl/PostgreSQLDanceHallRepository.hpp"
-#include "../repositories/impl/PostgreSQLBookingRepository.hpp"
-#include "../repositories/impl/PostgreSQLLessonRepository.hpp"
-#include "../repositories/impl/PostgreSQLTrainerRepository.hpp"
-#include "../repositories/impl/PostgreSQLEnrollmentRepository.hpp"
-#include "../repositories/impl/PostgreSQLSubscriptionRepository.hpp"
-#include "../repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp"
-#include "../repositories/impl/PostgreSQLReviewRepository.hpp"
-#include "../repositories/impl/PostgreSQLBranchRepository.hpp"
-#include "../repositories/impl/PostgreSQLStudioRepository.hpp"
+#include "../data/PostgreSQLRepositoryFactory.hpp"
 
 TechUIManagers::TechUIManagers(const std::string& connectionString) {
     try {
-        auto resilientConnection = std::make_shared<ResilientDatabaseConnection>(connectionString);
-        resilientConnection->setRetryPolicy(3, std::chrono::milliseconds(1000));
-        dbConnection_ = resilientConnection;  // Присваиваем базовому классу
+        // Используем фабрику для создания всех репозиториев
+        auto factory = std::make_shared<PostgreSQLRepositoryFactory>(connectionString);
         
-        // Инициализация репозиториев
-        clientRepo_ = std::make_shared<PostgreSQLClientRepository>(dbConnection_);
-        hallRepo_ = std::make_shared<PostgreSQLDanceHallRepository>(dbConnection_);
-        bookingRepo_ = std::make_shared<PostgreSQLBookingRepository>(dbConnection_);
-        lessonRepo_ = std::make_shared<PostgreSQLLessonRepository>(dbConnection_);
-        trainerRepo_ = std::make_shared<PostgreSQLTrainerRepository>(dbConnection_);
-        enrollmentRepo_ = std::make_shared<PostgreSQLEnrollmentRepository>(dbConnection_);
-        subscriptionRepo_ = std::make_shared<PostgreSQLSubscriptionRepository>(dbConnection_);
-        subscriptionTypeRepo_ = std::make_shared<PostgreSQLSubscriptionTypeRepository>(dbConnection_);
-        reviewRepo_ = std::make_shared<PostgreSQLReviewRepository>(dbConnection_);
-        branchRepo_ = std::make_shared<PostgreSQLBranchRepository>(dbConnection_);
-        studioRepo_ = std::make_shared<PostgreSQLStudioRepository>(dbConnection_);
+        // Создаем все репозитории через фабрику
+        clientRepo_ = factory->createClientRepository();
+        hallRepo_ = factory->createDanceHallRepository();
+        bookingRepo_ = factory->createBookingRepository();
+        lessonRepo_ = factory->createLessonRepository();
+        trainerRepo_ = factory->createTrainerRepository();
+        enrollmentRepo_ = factory->createEnrollmentRepository();
+        subscriptionRepo_ = factory->createSubscriptionRepository();
+        subscriptionTypeRepo_ = factory->createSubscriptionTypeRepository();
+        reviewRepo_ = factory->createReviewRepository();
+        branchRepo_ = factory->createBranchRepository();
+        studioRepo_ = factory->createStudioRepository();
         
-        // Инициализация сервисов
-        authService_ = std::make_unique<AuthService>(
-            std::make_unique<PostgreSQLClientRepository>(dbConnection_)
-        );
+        // Инициализация сервисов с УЖЕ созданными репозиториями
+        authService_ = std::make_unique<AuthService>(clientRepo_);
         
         bookingService_ = std::make_unique<BookingService>(
-            std::make_unique<PostgreSQLBookingRepository>(dbConnection_),
-            std::make_unique<PostgreSQLClientRepository>(dbConnection_),
-            std::make_unique<PostgreSQLDanceHallRepository>(dbConnection_),
-            std::make_unique<PostgreSQLBranchRepository>(dbConnection_) 
+            bookingRepo_,
+            clientRepo_, 
+            hallRepo_,
+            branchRepo_
         );
         
         lessonService_ = std::make_unique<LessonService>(
-            std::make_unique<PostgreSQLLessonRepository>(dbConnection_),
-            std::make_unique<PostgreSQLEnrollmentRepository>(dbConnection_),
-            std::make_unique<PostgreSQLTrainerRepository>(dbConnection_),
-            std::make_unique<PostgreSQLDanceHallRepository>(dbConnection_)
+            lessonRepo_,
+            enrollmentRepo_,
+            trainerRepo_,
+            hallRepo_
         );
         
         subscriptionService_ = std::make_unique<SubscriptionService>(
-            std::make_unique<PostgreSQLSubscriptionRepository>(dbConnection_),
-            std::make_unique<PostgreSQLSubscriptionTypeRepository>(dbConnection_),
-            std::make_unique<PostgreSQLClientRepository>(dbConnection_)
+            subscriptionRepo_,
+            subscriptionTypeRepo_,
+            clientRepo_
         );
         
         reviewService_ = std::make_unique<ReviewService>(
-            std::make_unique<PostgreSQLReviewRepository>(dbConnection_),
-            std::make_unique<PostgreSQLClientRepository>(dbConnection_),
-            std::make_unique<PostgreSQLLessonRepository>(dbConnection_),
-            std::make_unique<PostgreSQLEnrollmentRepository>(dbConnection_)
+            reviewRepo_,
+            clientRepo_,
+            lessonRepo_,
+            enrollmentRepo_
         );
         
         scheduleService_ = std::make_unique<ScheduleService>(
-            std::make_unique<PostgreSQLLessonRepository>(dbConnection_),
-            std::make_unique<PostgreSQLBookingRepository>(dbConnection_),
-            std::make_unique<PostgreSQLDanceHallRepository>(dbConnection_)
+            lessonRepo_,
+            bookingRepo_,
+            hallRepo_
         );
 
         enrollmentService_ = std::make_unique<EnrollmentService>(
-            std::make_unique<PostgreSQLEnrollmentRepository>(dbConnection_),
-            std::make_unique<PostgreSQLClientRepository>(dbConnection_),
-            std::make_unique<PostgreSQLLessonRepository>(dbConnection_)
+            enrollmentRepo_,
+            clientRepo_,
+            lessonRepo_
         );
         
         std::cout << "✅ Все менеджеры TechUI инициализированы" << std::endl;
@@ -129,7 +116,6 @@ std::vector<Client> TechUIManagers::getAllClients() const {
 
 std::vector<BookingResponseDTO> TechUIManagers::getAllBookings() const {
     try {
-        // Получаем все бронирования через репозиторий
         auto bookings = bookingRepo_->findAll();
         std::vector<BookingResponseDTO> result;
         

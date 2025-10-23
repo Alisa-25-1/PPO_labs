@@ -83,6 +83,7 @@ add_library(DataAccess STATIC
     src/data/DateTimeUtils.cpp
     src/data/QueryFactory.cpp
     src/data/SqlQueryBuilder.cpp
+    src/data/PostgreSQLRepositoryFactory.cpp
     src/repositories/impl/PostgreSQLClientRepository.cpp
     src/repositories/impl/PostgreSQLDanceHallRepository.cpp
     src/repositories/impl/PostgreSQLBookingRepository.cpp
@@ -120,14 +121,6 @@ install(TARGETS BookingCore DataAccess
     ARCHIVE DESTINATION lib
     LIBRARY DESTINATION lib
     RUNTIME DESTINATION bin
-)
-
-install(DIRECTORY src/ DESTINATION include
-    FILES_MATCHING PATTERN "*.hpp"
-    PATTERN "tests" EXCLUDE
-    PATTERN "tech_ui" EXCLUDE  
-    PATTERN "web_ui" EXCLUDE
-    PATTERN "main.cpp" EXCLUDE
 )
 
 # Указываем корневую директорию исходников
@@ -175,6 +168,59 @@ target_link_libraries(DanceStudioWebUI
     ${LIBPQXX_LIBRARIES}
     pthread
 )
+
+# Правила установки для дистрибутива
+install(DIRECTORY src/ DESTINATION include
+    FILES_MATCHING 
+    PATTERN "*.hpp"
+    PATTERN "tests" EXCLUDE
+    PATTERN "tech_ui" EXCLUDE
+    PATTERN "web_ui" EXCLUDE
+    PATTERN "main.cpp" EXCLUDE
+    # Скрываем реализации репозиториев от пользователей
+    PATTERN "repositories/impl" EXCLUDE
+)
+
+install(TARGETS BookingCore DataAccess
+    EXPORT BookingLibTargets
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
+
+# Создание конфигурационных файлов для find_package
+install(EXPORT BookingLibTargets
+    FILE BookingLibTargets.cmake
+    NAMESPACE BookingLib::
+    DESTINATION lib/cmake/BookingLib
+)
+
+include(CMakePackageConfigHelpers)
+write_basic_package_version_file(
+    ${CMAKE_CURRENT_BINARY_DIR}/BookingLibConfigVersion.cmake
+    VERSION 1.0.0
+    COMPATIBILITY SameMajorVersion
+)
+
+configure_file(
+    ${CMAKE_CURRENT_SOURCE_DIR}/cmake/BookingLibConfig.cmake.in
+    ${CMAKE_CURRENT_BINARY_DIR}/BookingLibConfig.cmake
+    @ONLY
+)
+
+install(FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/BookingLibConfig.cmake
+    ${CMAKE_CURRENT_BINARY_DIR}/BookingLibConfigVersion.cmake
+    DESTINATION lib/cmake/BookingLib
+)
+
+# Создание пакета
+set(CPACK_PACKAGE_NAME "BookingLib")
+set(CPACK_PACKAGE_VERSION "1.0.0")
+set(CPACK_PACKAGE_VENDOR "Dance Studio")
+set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Professional Dance Studio Management Library")
+set(CPACK_GENERATOR "TGZ")
+include(CPack)
 
 # Модульные тесты
 add_executable(BookingTests

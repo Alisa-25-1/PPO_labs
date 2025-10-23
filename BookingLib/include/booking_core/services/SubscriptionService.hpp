@@ -10,9 +10,9 @@
 
 class SubscriptionService {
 private:
-    std::unique_ptr<ISubscriptionRepository> subscriptionRepository_;
-    std::unique_ptr<ISubscriptionTypeRepository> subscriptionTypeRepository_;
-    std::unique_ptr<IClientRepository> clientRepository_;
+    std::shared_ptr<ISubscriptionRepository> subscriptionRepository_;
+    std::shared_ptr<ISubscriptionTypeRepository> subscriptionTypeRepository_;
+    std::shared_ptr<IClientRepository> clientRepository_;
 
     void validateSubscriptionRequest(const SubscriptionRequestDTO& request) const;
     void validateClient(const UUID& clientId) const;
@@ -20,9 +20,9 @@ private:
 
 public:
     SubscriptionService(
-        std::unique_ptr<ISubscriptionRepository> subscriptionRepo,
-        std::unique_ptr<ISubscriptionTypeRepository> subscriptionTypeRepo,
-        std::unique_ptr<IClientRepository> clientRepo
+        std::shared_ptr<ISubscriptionRepository> subscriptionRepo,
+        std::shared_ptr<ISubscriptionTypeRepository> subscriptionTypeRepo,
+        std::shared_ptr<IClientRepository> clientRepo
     );
 
     SubscriptionResponseDTO purchaseSubscription(const SubscriptionRequestDTO& request);

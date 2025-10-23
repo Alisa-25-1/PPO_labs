@@ -331,21 +331,9 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/Trainer.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/Lesson.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/SubscriptionType.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLClientRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/../../data/DatabaseConnection.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/../../data/exceptions/DataAccessException.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/../../data/SqlQueryBuilder.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLDanceHallRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLBookingRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLLessonRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLTrainerRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLEnrollmentRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLSubscriptionRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLReviewRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLBranchRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLStudioRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/../IStudioRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/../../types/uuid.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/../../models/Studio.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/../../models/../types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/BookingDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/PostgreSQLRepositoryFactory.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/../repositories/IStudioRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/../repositories/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/../repositories/../models/Studio.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/../repositories/../models/../types/uuid.hpp

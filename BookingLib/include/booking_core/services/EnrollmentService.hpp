@@ -11,9 +11,9 @@
 
 class EnrollmentService {
 private:
-    std::unique_ptr<IEnrollmentRepository> enrollmentRepository_;
-    std::unique_ptr<IClientRepository> clientRepository_;
-    std::unique_ptr<ILessonRepository> lessonRepository_;
+    std::shared_ptr<IEnrollmentRepository> enrollmentRepository_;
+    std::shared_ptr<IClientRepository> clientRepository_;
+    std::shared_ptr<ILessonRepository> lessonRepository_;
 
     void validateEnrollmentRequest(const EnrollmentRequestDTO& request) const;
     void validateClient(const UUID& clientId) const;
@@ -21,9 +21,9 @@ private:
 
 public:
     EnrollmentService(
-        std::unique_ptr<IEnrollmentRepository> enrollmentRepo,
-        std::unique_ptr<IClientRepository> clientRepo,
-        std::unique_ptr<ILessonRepository> lessonRepo
+        std::shared_ptr<IEnrollmentRepository> enrollmentRepo,
+        std::shared_ptr<IClientRepository> clientRepo,
+        std::shared_ptr<ILessonRepository> lessonRepo
     );
 
     EnrollmentResponseDTO enrollClient(const EnrollmentRequestDTO& request);

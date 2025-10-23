@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.cpp" "CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.cpp" "CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.o.d"
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/PostgreSQLRepositoryFactory.cpp" "CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/QueryFactory.cpp" "CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.cpp" "CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/SqlQueryBuilder.cpp" "CMakeFiles/DataAccess.dir/src/data/SqlQueryBuilder.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/SqlQueryBuilder.cpp.o.d"

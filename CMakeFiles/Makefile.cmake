@@ -11,12 +11,14 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
   "CMakeLists.txt"
+  "cmake/BookingLibConfig.cmake.in"
   "/usr/lib/x86_64-linux-gnu/cmake/GTest/GMockTargets-none.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/GTest/GMockTargets.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfigVersion.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/GTest/GTestTargets-none.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/GTest/GTestTargets.cmake"
+  "/usr/share/cmake-3.28/Modules/BasicConfigVersion-SameMajorVersion.cmake.in"
   "/usr/share/cmake-3.28/Modules/CMakeCInformation.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeCXXInformation.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeCommonLanguageInclude.cmake"
@@ -24,8 +26,11 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.28/Modules/CMakeGenericSystem.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeInitializeConfigs.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeLanguageInformation.cmake"
+  "/usr/share/cmake-3.28/Modules/CMakePackageConfigHelpers.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeSystemSpecificInformation.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeSystemSpecificInitialize.cmake"
+  "/usr/share/cmake-3.28/Modules/CPack.cmake"
+  "/usr/share/cmake-3.28/Modules/CPackComponent.cmake"
   "/usr/share/cmake-3.28/Modules/CheckCSourceCompiles.cmake"
   "/usr/share/cmake-3.28/Modules/CheckIncludeFile.cmake"
   "/usr/share/cmake-3.28/Modules/CheckLibraryExists.cmake"
@@ -46,6 +51,8 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.28/Modules/Platform/Linux-Initialize.cmake"
   "/usr/share/cmake-3.28/Modules/Platform/Linux.cmake"
   "/usr/share/cmake-3.28/Modules/Platform/UnixPaths.cmake"
+  "/usr/share/cmake-3.28/Modules/WriteBasicConfigVersionFile.cmake"
+  "/usr/share/cmake-3.28/Templates/CPackConfig.cmake.in"
   )
 
 # The corresponding makefile is:
@@ -56,6 +63,10 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
+  "BookingLibConfigVersion.cmake"
+  "BookingLibConfig.cmake"
+  "CPackConfig.cmake"
+  "CPackSourceConfig.cmake"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 

@@ -332,6 +332,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/Trainer.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/Lesson.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/SubscriptionType.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/BookingDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/TimeSlot.hpp \
@@ -341,7 +342,6 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/Subscription.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/Review.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/AuthDTO.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/BookingDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/LessonDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/SubscriptionDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/ReviewDTO.hpp \

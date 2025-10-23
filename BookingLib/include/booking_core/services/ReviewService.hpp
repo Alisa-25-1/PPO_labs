@@ -12,10 +12,10 @@
 
 class ReviewService {
 private:
-    std::unique_ptr<IReviewRepository> reviewRepository_;
-    std::unique_ptr<IClientRepository> clientRepository_;
-    std::unique_ptr<ILessonRepository> lessonRepository_;
-    std::unique_ptr<IEnrollmentRepository> enrollmentRepository_;
+    std::shared_ptr<IReviewRepository> reviewRepository_;
+    std::shared_ptr<IClientRepository> clientRepository_;
+    std::shared_ptr<ILessonRepository> lessonRepository_;
+    std::shared_ptr<IEnrollmentRepository> enrollmentRepository_;
 
     void validateReviewRequest(const ReviewRequestDTO& request) const;
     void validateClient(const UUID& clientId) const;
@@ -24,10 +24,10 @@ private:
 
 public:
     ReviewService(
-        std::unique_ptr<IReviewRepository> reviewRepo,
-        std::unique_ptr<IClientRepository> clientRepo,
-        std::unique_ptr<ILessonRepository> lessonRepo,
-        std::unique_ptr<IEnrollmentRepository> enrollmentRepo
+        std::shared_ptr<IReviewRepository> reviewRepo,
+        std::shared_ptr<IClientRepository> clientRepo,
+        std::shared_ptr<ILessonRepository> lessonRepo,
+        std::shared_ptr<IEnrollmentRepository> enrollmentRepo
     );
 
     ReviewResponseDTO createReview(const ReviewRequestDTO& request);

@@ -16,8 +16,9 @@
 #include "../models/Trainer.hpp"
 #include "../models/Lesson.hpp"
 #include "../models/SubscriptionType.hpp"
+#include "../dtos/BookingDTO.hpp"
 
-// Forward declarations
+// Forward declarations репозиториев
 class IClientRepository;
 class IDanceHallRepository;
 class IBookingRepository;

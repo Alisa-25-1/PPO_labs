@@ -13,10 +13,10 @@
 
 class BookingService {
 private:
-    std::unique_ptr<IBookingRepository> bookingRepository_;
-    std::unique_ptr<IClientRepository> clientRepository_;
-    std::unique_ptr<IDanceHallRepository> hallRepository_;
-    std::unique_ptr<IBranchRepository> branchRepository_;
+    std::shared_ptr<IBookingRepository> bookingRepository_;
+    std::shared_ptr<IClientRepository> clientRepository_;
+    std::shared_ptr<IDanceHallRepository> hallRepository_;
+    std::shared_ptr<IBranchRepository> branchRepository_;
 
     // Validation methods
     void validateBookingRequest(const BookingRequestDTO& request) const;
@@ -36,10 +36,10 @@ private:
 public:
     // Constructor with dependency injection
     BookingService(
-        std::unique_ptr<IBookingRepository> bookingRepo,
-        std::unique_ptr<IClientRepository> clientRepo,
-        std::unique_ptr<IDanceHallRepository> hallRepo,
-        std::unique_ptr<IBranchRepository> branchRepo
+        std::shared_ptr<IBookingRepository> bookingRepo,
+        std::shared_ptr<IClientRepository> clientRepo,
+        std::shared_ptr<IDanceHallRepository> hallRepo,
+        std::shared_ptr<IBranchRepository> branchRepo
     );
 
     // Main business logic methods

@@ -65,6 +65,26 @@ CMAKE_BINARY_DIR = /home/nikita/Общедоступные/PPO/PPO_labs
 #=============================================================================
 # Targets provided globally by CMake.
 
+# Special rule for the target package
+package: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool..."
+	/usr/bin/cpack --config ./CPackConfig.cmake
+.PHONY : package
+
+# Special rule for the target package
+package/fast: package
+.PHONY : package/fast
+
+# Special rule for the target package_source
+package_source:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Run CPack packaging tool for source..."
+	/usr/bin/cpack --config ./CPackSourceConfig.cmake /home/nikita/Общедоступные/PPO/PPO_labs/CPackSourceConfig.cmake
+.PHONY : package_source
+
+# Special rule for the target package_source
+package_source/fast: package_source
+.PHONY : package_source/fast
+
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "No interactive CMake dialog available..."
@@ -399,6 +419,30 @@ src/data/DateTimeUtils.s: src/data/DateTimeUtils.cpp.s
 src/data/DateTimeUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.s
 .PHONY : src/data/DateTimeUtils.cpp.s
+
+src/data/PostgreSQLRepositoryFactory.o: src/data/PostgreSQLRepositoryFactory.cpp.o
+.PHONY : src/data/PostgreSQLRepositoryFactory.o
+
+# target to build an object file
+src/data/PostgreSQLRepositoryFactory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o
+.PHONY : src/data/PostgreSQLRepositoryFactory.cpp.o
+
+src/data/PostgreSQLRepositoryFactory.i: src/data/PostgreSQLRepositoryFactory.cpp.i
+.PHONY : src/data/PostgreSQLRepositoryFactory.i
+
+# target to preprocess a source file
+src/data/PostgreSQLRepositoryFactory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.i
+.PHONY : src/data/PostgreSQLRepositoryFactory.cpp.i
+
+src/data/PostgreSQLRepositoryFactory.s: src/data/PostgreSQLRepositoryFactory.cpp.s
+.PHONY : src/data/PostgreSQLRepositoryFactory.s
+
+# target to generate assembly for a file
+src/data/PostgreSQLRepositoryFactory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.s
+.PHONY : src/data/PostgreSQLRepositoryFactory.cpp.s
 
 src/data/QueryFactory.o: src/data/QueryFactory.cpp.o
 .PHONY : src/data/QueryFactory.o
@@ -1923,6 +1967,8 @@ help:
 	@echo "... install/local"
 	@echo "... install/strip"
 	@echo "... list_install_components"
+	@echo "... package"
+	@echo "... package_source"
 	@echo "... rebuild_cache"
 	@echo "... AuthServiceTests"
 	@echo "... BookingCore"
@@ -1947,6 +1993,9 @@ help:
 	@echo "... src/data/DateTimeUtils.o"
 	@echo "... src/data/DateTimeUtils.i"
 	@echo "... src/data/DateTimeUtils.s"
+	@echo "... src/data/PostgreSQLRepositoryFactory.o"
+	@echo "... src/data/PostgreSQLRepositoryFactory.i"
+	@echo "... src/data/PostgreSQLRepositoryFactory.s"
 	@echo "... src/data/QueryFactory.o"
 	@echo "... src/data/QueryFactory.i"
 	@echo "... src/data/QueryFactory.s"

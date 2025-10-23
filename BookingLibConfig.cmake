@@ -1,0 +1,16 @@
+
+
+include(CMakeFindDependencyMacro)
+
+# Проверяем зависимости
+find_dependency(libpqxx REQUIRED)
+
+# Включаем файл с целями
+if(NOT TARGET BookingLib::BookingCore)
+    include("${CMAKE_CURRENT_LIST_DIR}/BookingLibTargets.cmake")
+endif()
+
+# Устанавливаем переменные для обратной совместимости
+set(BookingLib_FOUND TRUE)
+set(BookingCore_FOUND TRUE)
+set(DataAccess_FOUND TRUE)
