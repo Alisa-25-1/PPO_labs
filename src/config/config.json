@@ -1,6 +1,6 @@
 {
     "database": {
-        "connection_string": "postgresql://dance_user:dance_password@localhost/dance_studio",
+        "connection_string": "postgresql://dance_user:dance_password@postgres:5432/dance_studio",
         "max_connections": 10,
         "connection_timeout_seconds": 30
     },

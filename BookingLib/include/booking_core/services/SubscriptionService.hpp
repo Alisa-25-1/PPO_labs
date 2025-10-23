@@ -1,0 +1,35 @@
+#pragma once
+#include "../repositories/ISubscriptionRepository.hpp"
+#include "../repositories/ISubscriptionTypeRepository.hpp"
+#include "../repositories/IClientRepository.hpp"
+#include "../dtos/SubscriptionDTO.hpp"
+#include "../types/uuid.hpp"
+#include "exceptions/ValidationException.hpp"
+#include <memory>
+#include <vector>
+
+class SubscriptionService {
+private:
+    std::unique_ptr<ISubscriptionRepository> subscriptionRepository_;
+    std::unique_ptr<ISubscriptionTypeRepository> subscriptionTypeRepository_;
+    std::unique_ptr<IClientRepository> clientRepository_;
+
+    void validateSubscriptionRequest(const SubscriptionRequestDTO& request) const;
+    void validateClient(const UUID& clientId) const;
+    bool hasActiveSubscription(const UUID& clientId) const;
+
+public:
+    SubscriptionService(
+        std::unique_ptr<ISubscriptionRepository> subscriptionRepo,
+        std::unique_ptr<ISubscriptionTypeRepository> subscriptionTypeRepo,
+        std::unique_ptr<IClientRepository> clientRepo
+    );
+
+    SubscriptionResponseDTO purchaseSubscription(const SubscriptionRequestDTO& request);
+    SubscriptionResponseDTO renewSubscription(const UUID& subscriptionId);
+    SubscriptionResponseDTO cancelSubscription(const UUID& subscriptionId);
+    std::vector<SubscriptionResponseDTO> getClientSubscriptions(const UUID& clientId);
+    std::vector<SubscriptionTypeResponseDTO> getAvailableSubscriptionTypes();
+    bool canUseSubscription(const UUID& clientId) const;
+    int getRemainingVisits(const UUID& clientId) const;
+};

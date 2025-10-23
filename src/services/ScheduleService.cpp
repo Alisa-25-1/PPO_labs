@@ -2,9 +2,9 @@
 #include <algorithm>
 
 ScheduleService::ScheduleService(
-    std::unique_ptr<ILessonRepository> lessonRepo,
-    std::unique_ptr<IBookingRepository> bookingRepo,
-    std::unique_ptr<IDanceHallRepository> hallRepo
+    std::shared_ptr<ILessonRepository> lessonRepo,
+    std::shared_ptr<IBookingRepository> bookingRepo,
+    std::shared_ptr<IDanceHallRepository> hallRepo
 ) : lessonRepository_(std::move(lessonRepo)),
     bookingRepository_(std::move(bookingRepo)),
     hallRepository_(std::move(hallRepo)) {}

@@ -2,10 +2,10 @@
 #include <algorithm>
 
 ReviewService::ReviewService(
-    std::unique_ptr<IReviewRepository> reviewRepo,
-    std::unique_ptr<IClientRepository> clientRepo,
-    std::unique_ptr<ILessonRepository> lessonRepo,
-    std::unique_ptr<IEnrollmentRepository> enrollmentRepo
+    std::shared_ptr<IReviewRepository> reviewRepo,
+    std::shared_ptr<IClientRepository> clientRepo,
+    std::shared_ptr<ILessonRepository> lessonRepo,
+    std::shared_ptr<IEnrollmentRepository> enrollmentRepo
 ) : reviewRepository_(std::move(reviewRepo)),
     clientRepository_(std::move(clientRepo)),
     lessonRepository_(std::move(lessonRepo)),

@@ -70,6 +70,13 @@
         "source_location": "cpp",
         "ranges": "cpp",
         "pqxx": "cpp",
-        "fstream": "cpp"
+        "fstream": "cpp",
+        "csignal": "cpp",
+        "complex": "cpp",
+        "coroutine": "cpp",
+        "unordered_set": "cpp",
+        "future": "cpp",
+        "shared_mutex": "cpp",
+        "typeindex": "cpp"
     }
 }

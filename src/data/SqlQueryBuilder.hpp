@@ -43,6 +43,10 @@ public:
     
     // DELETE операции
     SqlQueryBuilder& deleteFrom(const std::string& table);
+
+    // Truncate операции
+    SqlQueryBuilder& truncate(const std::string& table);
+    SqlQueryBuilder& truncate(const std::vector<std::string>& tables);
     
     // Получение скомпилированного запроса
     std::string build() const;
@@ -60,6 +64,7 @@ private:
     std::vector<std::string> groupByClauses_;
     std::map<std::string, std::string> insertValues_;
     std::map<std::string, std::string> updateValues_;
+    std::vector<std::string> truncateTables_;
     int limit_;
     int offset_;
     bool hasLimit_;
@@ -69,8 +74,9 @@ private:
     std::string buildInsert() const;
     std::string buildUpdate() const;
     std::string buildDelete() const;
+    std::string buildTruncate() const;
     
     static std::string joinTypeToString(JoinType type);
 };
 
-#endif // SQLQUERYBUILDER_HPP
+#endif // SQLQUERYBUILDER_HPP 

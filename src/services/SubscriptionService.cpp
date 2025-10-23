@@ -2,9 +2,9 @@
 #include <algorithm>
 
 SubscriptionService::SubscriptionService(
-    std::unique_ptr<ISubscriptionRepository> subscriptionRepo,
-    std::unique_ptr<ISubscriptionTypeRepository> subscriptionTypeRepo,
-    std::unique_ptr<IClientRepository> clientRepo
+    std::shared_ptr<ISubscriptionRepository> subscriptionRepo,
+    std::shared_ptr<ISubscriptionTypeRepository> subscriptionTypeRepo,
+    std::shared_ptr<IClientRepository> clientRepo
 ) : subscriptionRepository_(std::move(subscriptionRepo)),
     subscriptionTypeRepository_(std::move(subscriptionTypeRepo)),
     clientRepository_(std::move(clientRepo)) {}

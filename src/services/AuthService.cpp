@@ -1,7 +1,7 @@
 #include "AuthService.hpp"
 #include <regex>
 
-AuthService::AuthService(std::unique_ptr<IClientRepository> clientRepo)
+AuthService::AuthService(std::shared_ptr<IClientRepository> clientRepo)
     : clientRepository_(std::move(clientRepo)) {}
 
 AuthResponseDTO AuthService::registerClient(const AuthRequestDTO& request) {

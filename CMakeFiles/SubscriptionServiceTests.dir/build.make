@@ -92,10 +92,7 @@ SubscriptionServiceTests_EXTERNAL_OBJECTS =
 
 SubscriptionServiceTests: CMakeFiles/SubscriptionServiceTests.dir/src/tests/unit/SubscriptionServiceTest.cpp.o
 SubscriptionServiceTests: CMakeFiles/SubscriptionServiceTests.dir/build.make
-SubscriptionServiceTests: libServicesComponent.a
-SubscriptionServiceTests: libDTOsComponent.a
-SubscriptionServiceTests: libModelsComponent.a
-SubscriptionServiceTests: libCoreComponent.a
+SubscriptionServiceTests: libBookingCore.a
 SubscriptionServiceTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 SubscriptionServiceTests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 SubscriptionServiceTests: /usr/lib/x86_64-linux-gnu/libgmock.a

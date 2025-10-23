@@ -72,7 +72,6 @@ protected:
         enrollmentRepository = std::make_unique<PostgreSQLEnrollmentRepository>(dbConnection);
         reviewRepository = std::make_unique<PostgreSQLReviewRepository>(dbConnection);
         
-        // Очищаем и готовим данные для КАЖДОГО теста
         clearTestData();
         setupTestData();
         
@@ -86,10 +85,18 @@ protected:
     void clearTestData() {
     try {
         auto work = dbConnection->beginTransaction(); 
-        work.exec("TRUNCATE TABLE reviews, enrollments, lessons, trainer_specializations, "
-                 "trainers, bookings, subscriptions, subscription_types, "
-                 "clients, dance_halls, branches, studios CASCADE");
+        SqlQueryBuilder truncateBuilder;
+        std::string truncateQuery = truncateBuilder
+            .truncate({
+                "reviews", "enrollments", "lessons", "trainer_specializations",
+                "trainers", "bookings", "subscriptions", "subscription_types",
+                "clients", "dance_halls", "branches", "studios"
+            })
+            .build();
+
+        work.exec(truncateQuery);
         dbConnection->commitTransaction(work); 
+
     } catch (const std::exception& e) {
         std::cerr << "⚠️ Warning: Failed to clear test data: " << e.what() << std::endl;
     }
@@ -98,27 +105,129 @@ protected:
         try {
             auto work = dbConnection->beginTransaction();
 
-            // Создаем тестовые данные
-            work.exec("INSERT INTO studios (id, name, contact_email) VALUES "
-                    "('11111111-1111-1111-1111-111111111111', 'Test Studio', 'studio@test.com')");
+             SqlQueryBuilder studioBuilder;
+            std::string studioQuery = studioBuilder
+                .insertInto("studios")
+                .values({
+                    {"id", "'11111111-1111-1111-1111-111111111111'"},
+                    {"name", "'Test Studio'"},
+                    {"contact_email", "'studio@test.com'"}
+                })
+                .build();
+            work.exec(studioQuery);
             
-            work.exec("INSERT INTO branches (id, name, address, phone, open_time, close_time, studio_id) VALUES "
-                    "('22222222-2222-2222-2222-222222222222', 'Test Branch', 'Test Address', '+1234567890', 9, 22, '11111111-1111-1111-1111-111111111111')");
+            // Branch
+            SqlQueryBuilder branchBuilder;
+            std::string branchQuery = branchBuilder
+                .insertInto("branches")
+                .values({
+                    {"id", "'22222222-2222-2222-2222-222222222222'"},
+                    {"name", "'Test Branch'"},
+                    {"address", "'Test Address'"},
+                    {"phone", "'+1234567890'"},
+                    {"open_time", "9"},
+                    {"close_time", "22"},
+                    {"studio_id", "'11111111-1111-1111-1111-111111111111'"}
+                })
+                .build();
+            work.exec(branchQuery);
             
-            work.exec("INSERT INTO dance_halls (id, name, description, capacity, floor_type, equipment, branch_id) VALUES "
-                    "('33333333-3333-3333-3333-333333333333', 'Test Hall 1', 'Large hall', 50, 'wooden', 'mirrors', '22222222-2222-2222-2222-222222222222'),"
-                    "('44444444-4444-4444-4444-444444444444', 'Test Hall 2', 'Small hall', 30, 'marley', 'sound system', '22222222-2222-2222-2222-222222222222')");
+            // Dance Halls
+            SqlQueryBuilder hallBuilder1;
+            std::string hallQuery1 = hallBuilder1
+                .insertInto("dance_halls")
+                .values({
+                    {"id", "'33333333-3333-3333-3333-333333333333'"},
+                    {"name", "'Test Hall 1'"},
+                    {"description", "'Large hall'"},
+                    {"capacity", "50"},
+                    {"floor_type", "'wooden'"},
+                    {"equipment", "'mirrors'"},
+                    {"branch_id", "'22222222-2222-2222-2222-222222222222'"}
+                })
+                .build();
+            work.exec(hallQuery1);
             
-            work.exec("INSERT INTO subscription_types (id, name, description, validity_days, visit_count, unlimited, price) VALUES "
-                    "('55555555-5555-5555-5555-555555555555', 'Monthly', 'Monthly subscription', 30, 8, false, 100.0),"
-                    "('66666666-6666-6666-6666-666666666666', 'Unlimited', 'Unlimited monthly', 30, 0, true, 200.0)");
+            SqlQueryBuilder hallBuilder2;
+            std::string hallQuery2 = hallBuilder2
+                .insertInto("dance_halls")
+                .values({
+                    {"id", "'44444444-4444-4444-4444-444444444444'"},
+                    {"name", "'Test Hall 2'"},
+                    {"description", "'Small hall'"},
+                    {"capacity", "30"},
+                    {"floor_type", "'marley'"},
+                    {"equipment", "'sound system'"},
+                    {"branch_id", "'22222222-2222-2222-2222-222222222222'"}
+                })
+                .build();
+            work.exec(hallQuery2);
             
-            work.exec("INSERT INTO trainers (id, name, biography, qualification_level, is_active) VALUES "
-                    "('77777777-7777-7777-7777-777777777777', 'Test Trainer', 'Experienced trainer', 'senior', true)");
+            // Subscription Types
+            SqlQueryBuilder subTypeBuilder1;
+            std::string subTypeQuery1 = subTypeBuilder1
+                .insertInto("subscription_types")
+                .values({
+                    {"id", "'55555555-5555-5555-5555-555555555555'"},
+                    {"name", "'Monthly'"},
+                    {"description", "'Monthly subscription'"},
+                    {"validity_days", "30"},
+                    {"visit_count", "8"},
+                    {"unlimited", "false"},
+                    {"price", "100.0"}
+                })
+                .build();
+            work.exec(subTypeQuery1);
             
-            work.exec("INSERT INTO trainer_specializations (trainer_id, specialization) VALUES "
-                    "('77777777-7777-7777-7777-777777777777', 'Ballet'),"
-                    "('77777777-7777-7777-7777-777777777777', 'Contemporary')");
+            SqlQueryBuilder subTypeBuilder2;
+            std::string subTypeQuery2 = subTypeBuilder2
+                .insertInto("subscription_types")
+                .values({
+                    {"id", "'66666666-6666-6666-6666-666666666666'"},
+                    {"name", "'Unlimited'"},
+                    {"description", "'Unlimited monthly'"},
+                    {"validity_days", "30"},
+                    {"visit_count", "0"},
+                    {"unlimited", "true"},
+                    {"price", "200.0"}
+                })
+                .build();
+            work.exec(subTypeQuery2);
+            
+            // Trainer
+            SqlQueryBuilder trainerBuilder;
+            std::string trainerQuery = trainerBuilder
+                .insertInto("trainers")
+                .values({
+                    {"id", "'77777777-7777-7777-7777-777777777777'"},
+                    {"name", "'Test Trainer'"},
+                    {"biography", "'Experienced trainer'"},
+                    {"qualification_level", "'senior'"},
+                    {"is_active", "true"}
+                })
+                .build();
+            work.exec(trainerQuery);
+            
+            // Trainer Specializations
+            SqlQueryBuilder specBuilder1;
+            std::string specQuery1 = specBuilder1
+                .insertInto("trainer_specializations")
+                .values({
+                    {"trainer_id", "'77777777-7777-7777-7777-777777777777'"},
+                    {"specialization", "'Ballet'"}
+                })
+                .build();
+            work.exec(specQuery1);
+            
+            SqlQueryBuilder specBuilder2;
+            std::string specQuery2 = specBuilder2
+                .insertInto("trainer_specializations")
+                .values({
+                    {"trainer_id", "'77777777-7777-7777-7777-777777777777'"},
+                    {"specialization", "'Contemporary'"}
+                })
+                .build();
+            work.exec(specQuery2);
             
             dbConnection->commitTransaction(work);
         } catch (const std::exception& e) {
@@ -141,11 +250,9 @@ protected:
     std::unique_ptr<IReviewRepository> reviewRepository;
 };
 
-// Статическая инициализация
 std::shared_ptr<ResilientDatabaseConnection> RepositoryIntegrationTest::dbConnection = nullptr;
 
 TEST_F(RepositoryIntegrationTest, ClientRepository_SaveAndFind) {
-    // Arrange
     UUID clientId = UUID::generate();
     Client client(clientId, "Integration Test User", "integration@example.com", "+12345678901");
     
@@ -153,16 +260,12 @@ TEST_F(RepositoryIntegrationTest, ClientRepository_SaveAndFind) {
     client.changePassword("ValidPass123");
     client.activate();
     
-    // Act
     bool saveResult = clientRepository->save(client);
     
-    // Проверяем, что сохранение прошло успешно
     EXPECT_TRUE(saveResult);
-    
-    // Ищем клиента по ID
+
     auto foundClient = clientRepository->findById(clientId);
     
-    // Проверяем, что клиент найден
     ASSERT_TRUE(foundClient.has_value());
     EXPECT_EQ(foundClient->getId(), clientId);
     EXPECT_EQ(foundClient->getName(), "Integration Test User");
@@ -173,21 +276,17 @@ TEST_F(RepositoryIntegrationTest, ClientRepository_SaveAndFind) {
     // Проверяем, что пароль сохранился корректно
     EXPECT_TRUE(foundClient->validatePassword("ValidPass123"));
     
-    // Ищем клиента по email
     auto foundByEmail = clientRepository->findByEmail("integration@example.com");
     
-    // Проверяем, что клиент найден по email
     ASSERT_TRUE(foundByEmail.has_value());
     EXPECT_EQ(foundByEmail->getId(), clientId);
 }
 
 TEST_F(RepositoryIntegrationTest, BookingRepository_FullCycle) {
-    // Arrange
     UUID clientId = UUID::generate();
     UUID bookingId = UUID::generate();
     UUID hallId = UUID::fromString("33333333-3333-3333-3333-333333333333");
     
-    // Создаем клиента
     Client client(clientId, "Booking Test User", "booking@example.com", "+12345678901");
     client.changePassword("ValidPass123");
     client.activate();
@@ -197,17 +296,14 @@ TEST_F(RepositoryIntegrationTest, BookingRepository_FullCycle) {
     TimeSlot timeSlot(startTime, 120);
     Booking booking(bookingId, clientId, hallId, timeSlot, "Integration Test Booking");
     
-    // Act & Assert - Сохраняем
     bool saveResult = bookingRepository->save(booking);
     EXPECT_TRUE(saveResult);
     
-    // Проверяем сохранение
     auto foundBooking = bookingRepository->findById(bookingId);
     ASSERT_TRUE(foundBooking.has_value());
     EXPECT_EQ(foundBooking->getPurpose(), "Integration Test Booking");
     EXPECT_EQ(foundBooking->getStatus(), BookingStatus::PENDING);
     
-    // Act & Assert - Обновляем
     foundBooking->confirm();
     bool updateResult = bookingRepository->update(*foundBooking);
     EXPECT_TRUE(updateResult);
@@ -216,7 +312,6 @@ TEST_F(RepositoryIntegrationTest, BookingRepository_FullCycle) {
     ASSERT_TRUE(updatedBooking.has_value());
     EXPECT_EQ(updatedBooking->getStatus(), BookingStatus::CONFIRMED);
     
-    // Act & Assert - Удаляем
     bool removeResult = bookingRepository->remove(bookingId);
     EXPECT_TRUE(removeResult);
     
@@ -225,12 +320,10 @@ TEST_F(RepositoryIntegrationTest, BookingRepository_FullCycle) {
 }
 
 TEST_F(RepositoryIntegrationTest, SubscriptionRepository_CreateAndFind) {
-    // Arrange
     UUID clientId = UUID::generate();
     UUID subscriptionId = UUID::generate();
     UUID subscriptionTypeId = UUID::fromString("55555555-5555-5555-5555-555555555555");
     
-    // Создаем клиента
     Client client(clientId, "Subscription Test User", "subscription@example.com", "+12345678901");
     client.changePassword("ValidPass123");
     client.activate();
@@ -240,12 +333,10 @@ TEST_F(RepositoryIntegrationTest, SubscriptionRepository_CreateAndFind) {
     auto endDate = startDate + std::chrono::hours(24 * 30); // 30 дней
     Subscription subscription(subscriptionId, clientId, subscriptionTypeId, startDate, endDate, 8);
     
-    // Act
     bool saveResult = subscriptionRepository->save(subscription);
     auto foundSubscription = subscriptionRepository->findById(subscriptionId);
     auto clientSubscriptions = subscriptionRepository->findByClientId(clientId);
     
-    // Assert
     EXPECT_TRUE(saveResult);
     ASSERT_TRUE(foundSubscription.has_value());
     EXPECT_EQ(foundSubscription->getClientId(), clientId);
@@ -257,12 +348,10 @@ TEST_F(RepositoryIntegrationTest, SubscriptionRepository_CreateAndFind) {
 }
 
 TEST_F(RepositoryIntegrationTest, DanceHallRepository_BasicOperations) {
-    // Act
     auto hall1 = hallRepository->findById(UUID::fromString("33333333-3333-3333-3333-333333333333"));
     auto hall2 = hallRepository->findById(UUID::fromString("44444444-4444-4444-4444-444444444444"));
     auto allHalls = hallRepository->findAll();
     
-    // Assert
     ASSERT_TRUE(hall1.has_value());
     EXPECT_EQ(hall1->getName(), "Test Hall 1");
     EXPECT_EQ(hall1->getCapacity(), 50);
@@ -275,18 +364,15 @@ TEST_F(RepositoryIntegrationTest, DanceHallRepository_BasicOperations) {
 }
 
 TEST_F(RepositoryIntegrationTest, SubscriptionTypeRepository_CreateAndFind) {
-    // Arrange
     UUID subscriptionTypeId = UUID::generate();
     SubscriptionType subscriptionType(subscriptionTypeId, "Test Subscription", 30, 12, false, 150.0);
     subscriptionType.setDescription("Test subscription type for integration tests");
     
-    // Act
     bool saveResult = subscriptionTypeRepository->save(subscriptionType);
     auto foundType = subscriptionTypeRepository->findById(subscriptionTypeId);
     auto allActiveTypes = subscriptionTypeRepository->findAllActive();
     auto allTypes = subscriptionTypeRepository->findAll();
     
-    // Assert
     EXPECT_TRUE(saveResult);
     ASSERT_TRUE(foundType.has_value());
     EXPECT_EQ(foundType->getName(), "Test Subscription");
@@ -294,7 +380,6 @@ TEST_F(RepositoryIntegrationTest, SubscriptionTypeRepository_CreateAndFind) {
     EXPECT_EQ(foundType->getVisitCount(), 12);
     EXPECT_EQ(foundType->getPrice(), 150.0);
 
-    // Проверяем, что наш тип есть в списках
     bool foundInActive = std::any_of(allActiveTypes.begin(), allActiveTypes.end(),
         [subscriptionTypeId](const SubscriptionType& type) {
             return type.getId() == subscriptionTypeId;
@@ -307,7 +392,6 @@ TEST_F(RepositoryIntegrationTest, SubscriptionTypeRepository_CreateAndFind) {
         });
     EXPECT_TRUE(foundInAll);
     
-    // Act & Assert - Обновляем
     subscriptionType.setDescription("Updated description");
     bool updateResult = subscriptionTypeRepository->update(subscriptionType);
     EXPECT_TRUE(updateResult);
@@ -316,7 +400,6 @@ TEST_F(RepositoryIntegrationTest, SubscriptionTypeRepository_CreateAndFind) {
     ASSERT_TRUE(updatedType.has_value());
     EXPECT_EQ(updatedType->getDescription(), "Updated description");
     
-    // Act & Assert - Удаляем
     bool removeResult = subscriptionTypeRepository->remove(subscriptionTypeId);
     EXPECT_TRUE(removeResult);
     
@@ -325,22 +408,18 @@ TEST_F(RepositoryIntegrationTest, SubscriptionTypeRepository_CreateAndFind) {
 }
 
 TEST_F(RepositoryIntegrationTest, StudioRepository_FullCycle) {
-    // Arrange
     UUID studioId = UUID::generate();
     Studio studio(studioId, "Integration Test Studio", "integration@studio.com");
     studio.setDescription("Test studio for integration tests");
     
-    // Act & Assert - Сохраняем
     bool saveResult = studioRepository->save(studio);
     EXPECT_TRUE(saveResult);
     
-    // Проверяем сохранение
     auto foundStudio = studioRepository->findById(studioId);
     ASSERT_TRUE(foundStudio.has_value());
     EXPECT_EQ(foundStudio->getName(), "Integration Test Studio");
     EXPECT_EQ(foundStudio->getContactEmail(), "integration@studio.com");
     
-    // Act & Assert - Обновляем
     studio.setDescription("Updated description");
     bool updateResult = studioRepository->update(studio);
     EXPECT_TRUE(updateResult);
@@ -349,7 +428,6 @@ TEST_F(RepositoryIntegrationTest, StudioRepository_FullCycle) {
     ASSERT_TRUE(updatedStudio.has_value());
     EXPECT_EQ(updatedStudio->getDescription(), "Updated description");
     
-    // Act & Assert - Удаляем
     bool removeResult = studioRepository->remove(studioId);
     EXPECT_TRUE(removeResult);
     
@@ -358,28 +436,23 @@ TEST_F(RepositoryIntegrationTest, StudioRepository_FullCycle) {
 }
 
 TEST_F(RepositoryIntegrationTest, BranchRepository_FullCycle) {
-    // Arrange
     UUID branchId = UUID::generate();
     UUID studioId = UUID::fromString("11111111-1111-1111-1111-111111111111");
     
     WorkingHours workingHours(std::chrono::hours(9), std::chrono::hours(22));
     Branch branch(branchId, "Integration Test Branch", "Test Address", "+1234567890", workingHours, studioId);
     
-    // Act & Assert - Сохраняем
     bool saveResult = branchRepository->save(branch);
     EXPECT_TRUE(saveResult);
     
-    // Проверяем сохранение
     auto foundBranch = branchRepository->findById(branchId);
     ASSERT_TRUE(foundBranch.has_value());
     EXPECT_EQ(foundBranch->getName(), "Integration Test Branch");
     EXPECT_EQ(foundBranch->getAddress(), "Test Address");
     
-    // Проверяем поиск по studio_id
     auto studioBranches = branchRepository->findByStudioId(studioId);
     EXPECT_GE(studioBranches.size(), 1);
-    
-    // Act & Assert - Обновляем
+
     branch.setAddress("Updated Address");
     bool updateResult = branchRepository->update(branch);
     EXPECT_TRUE(updateResult);
@@ -388,7 +461,6 @@ TEST_F(RepositoryIntegrationTest, BranchRepository_FullCycle) {
     ASSERT_TRUE(updatedBranch.has_value());
     EXPECT_EQ(updatedBranch->getAddress(), "Updated Address");
     
-    // Act & Assert - Удаляем
     bool removeResult = branchRepository->remove(branchId);
     EXPECT_TRUE(removeResult);
     
@@ -397,18 +469,15 @@ TEST_F(RepositoryIntegrationTest, BranchRepository_FullCycle) {
 }
 
 TEST_F(RepositoryIntegrationTest, ReviewRepository_CreateAndFind) {
-    // Arrange
     UUID clientId = UUID::generate();
     UUID lessonId = UUID::generate();
     UUID reviewId = UUID::generate();
     
-    // Создаем клиента
     Client client(clientId, "Review Test User", "review@example.com", "+12345678901");
     client.changePassword("ValidPass123");
     client.activate();
     clientRepository->save(client);
     
-    // Создаем урок
     auto startTime = std::chrono::system_clock::now() + std::chrono::hours(24);
     Lesson lesson(lessonId, LessonType::OPEN_CLASS, "Test Lesson", startTime, 60, 
                  DifficultyLevel::BEGINNER, 20, 50.0, 
@@ -418,14 +487,12 @@ TEST_F(RepositoryIntegrationTest, ReviewRepository_CreateAndFind) {
     
     Review review(reviewId, clientId, lessonId, 5, "Excellent lesson!");
     
-    // Act
     bool saveResult = reviewRepository->save(review);
     auto foundReview = reviewRepository->findById(reviewId);
     auto clientReviews = reviewRepository->findByClientId(clientId);
     auto lessonReviews = reviewRepository->findByLessonId(lessonId);
     auto clientLessonReview = reviewRepository->findByClientAndLesson(clientId, lessonId);
     
-    // Assert
     EXPECT_TRUE(saveResult);
     ASSERT_TRUE(foundReview.has_value());
     EXPECT_EQ(foundReview->getRating(), 5);
@@ -439,18 +506,15 @@ TEST_F(RepositoryIntegrationTest, ReviewRepository_CreateAndFind) {
 }
 
 TEST_F(RepositoryIntegrationTest, ReviewRepository_FullCycle) {
-    // Arrange
     UUID clientId = UUID::generate();
     UUID lessonId = UUID::generate();
     UUID reviewId = UUID::generate();
     
-    // Создаем клиента
     Client client(clientId, "Review Test User", "review@example.com", "+12345678901");
     client.changePassword("ValidPass123");
     client.activate();
     clientRepository->save(client);
     
-    // Создаем урок
     auto startTime = std::chrono::system_clock::now() + std::chrono::hours(24);
     Lesson lesson(lessonId, LessonType::OPEN_CLASS, "Test Lesson", startTime, 60, 
                  DifficultyLevel::BEGINNER, 20, 50.0, 
@@ -460,18 +524,15 @@ TEST_F(RepositoryIntegrationTest, ReviewRepository_FullCycle) {
     
     Review review(reviewId, clientId, lessonId, 5, "Excellent lesson!");
     
-    // Act & Assert - Сохраняем
     bool saveResult = reviewRepository->save(review);
     EXPECT_TRUE(saveResult);
     
-    // Проверяем сохранение
     auto foundReview = reviewRepository->findById(reviewId);
     ASSERT_TRUE(foundReview.has_value());
     EXPECT_EQ(foundReview->getRating(), 5);
     EXPECT_EQ(foundReview->getComment(), "Excellent lesson!");
     EXPECT_EQ(foundReview->getStatus(), ReviewStatus::PENDING_MODERATION);
     
-    // Проверяем поиск по клиенту и уроку
     auto clientReviews = reviewRepository->findByClientId(clientId);
     auto lessonReviews = reviewRepository->findByLessonId(lessonId);
     auto clientLessonReview = reviewRepository->findByClientAndLesson(clientId, lessonId);
@@ -481,7 +542,6 @@ TEST_F(RepositoryIntegrationTest, ReviewRepository_FullCycle) {
     ASSERT_TRUE(clientLessonReview.has_value());
     EXPECT_EQ(clientLessonReview->getId(), reviewId);
     
-    // Act & Assert - Обновляем
     foundReview->approve();
     bool updateResult = reviewRepository->update(*foundReview);
     EXPECT_TRUE(updateResult);
@@ -490,7 +550,6 @@ TEST_F(RepositoryIntegrationTest, ReviewRepository_FullCycle) {
     ASSERT_TRUE(updatedReview.has_value());
     EXPECT_EQ(updatedReview->getStatus(), ReviewStatus::APPROVED);
     
-    // Act & Assert - Удаляем
     bool removeResult = reviewRepository->remove(reviewId);
     EXPECT_TRUE(removeResult);
     
@@ -499,18 +558,15 @@ TEST_F(RepositoryIntegrationTest, ReviewRepository_FullCycle) {
 }
 
 TEST_F(RepositoryIntegrationTest, EnrollmentRepository_FullCycle) {
-    // Arrange
     UUID clientId = UUID::generate();
     UUID lessonId = UUID::generate();
     UUID enrollmentId = UUID::generate();
     
-    // Создаем клиента
     Client client(clientId, "Enrollment Test User", "enrollment@example.com", "+12345678901");
     client.changePassword("ValidPass123");
     client.activate();
     clientRepository->save(client);
     
-    // Создаем урок
     auto startTime = std::chrono::system_clock::now() + std::chrono::hours(24);
     Lesson lesson(lessonId, LessonType::OPEN_CLASS, "Test Lesson", startTime, 60, 
                  DifficultyLevel::BEGINNER, 20, 50.0, 
@@ -520,18 +576,15 @@ TEST_F(RepositoryIntegrationTest, EnrollmentRepository_FullCycle) {
     
     Enrollment enrollment(enrollmentId, clientId, lessonId);
     
-    // Act & Assert - Сохраняем
     bool saveResult = enrollmentRepository->save(enrollment);
     EXPECT_TRUE(saveResult);
     
-    // Проверяем сохранение
     auto foundEnrollment = enrollmentRepository->findById(enrollmentId);
     ASSERT_TRUE(foundEnrollment.has_value());
     EXPECT_EQ(foundEnrollment->getClientId(), clientId);
     EXPECT_EQ(foundEnrollment->getLessonId(), lessonId);
     EXPECT_EQ(foundEnrollment->getStatus(), EnrollmentStatus::REGISTERED);
     
-    // Проверяем поиск по клиенту и уроку
     auto clientEnrollments = enrollmentRepository->findByClientId(clientId);
     auto lessonEnrollments = enrollmentRepository->findByLessonId(lessonId);
 
@@ -542,11 +595,9 @@ TEST_F(RepositoryIntegrationTest, EnrollmentRepository_FullCycle) {
     ASSERT_TRUE(clientLessonEnrollment.has_value());
     EXPECT_EQ(clientLessonEnrollment->getId(), enrollmentId);
     
-    // Проверяем подсчет записей
     int enrollmentCount = enrollmentRepository->countByLessonId(lessonId);
     EXPECT_EQ(enrollmentCount, 1);
     
-    // Act & Assert - Обновляем
     foundEnrollment->markAttended();
     bool updateResult = enrollmentRepository->update(*foundEnrollment);
     EXPECT_TRUE(updateResult);
@@ -554,8 +605,7 @@ TEST_F(RepositoryIntegrationTest, EnrollmentRepository_FullCycle) {
     auto updatedEnrollment = enrollmentRepository->findById(enrollmentId);
     ASSERT_TRUE(updatedEnrollment.has_value());
     EXPECT_EQ(updatedEnrollment->getStatus(), EnrollmentStatus::ATTENDED);
-    
-    // Act & Assert - Удаляем
+
     bool removeResult = enrollmentRepository->remove(enrollmentId);
     EXPECT_TRUE(removeResult);
     
@@ -564,12 +614,10 @@ TEST_F(RepositoryIntegrationTest, EnrollmentRepository_FullCycle) {
 }
 
 TEST_F(RepositoryIntegrationTest, SubscriptionRepository_FullCycle) {
-    // Arrange
     UUID clientId = UUID::generate();
     UUID subscriptionId = UUID::generate();
     UUID subscriptionTypeId = UUID::fromString("55555555-5555-5555-5555-555555555555");
     
-    // Создаем клиента
     Client client(clientId, "Subscription Test User", "subscription@example.com", "+12345678901");
     client.changePassword("ValidPass123");
     client.activate();
@@ -579,23 +627,19 @@ TEST_F(RepositoryIntegrationTest, SubscriptionRepository_FullCycle) {
     auto endDate = startDate + std::chrono::hours(24 * 30); // 30 дней
     Subscription subscription(subscriptionId, clientId, subscriptionTypeId, startDate, endDate, 8);
     
-    // Act & Assert - Сохраняем
     bool saveResult = subscriptionRepository->save(subscription);
     EXPECT_TRUE(saveResult);
     
-    // Проверяем сохранение
     auto foundSubscription = subscriptionRepository->findById(subscriptionId);
     ASSERT_TRUE(foundSubscription.has_value());
     EXPECT_EQ(foundSubscription->getClientId(), clientId);
     EXPECT_EQ(foundSubscription->getRemainingVisits(), 8);
     EXPECT_EQ(foundSubscription->getStatus(), SubscriptionStatus::ACTIVE);
     
-    // Проверяем поиск по client_id
     auto clientSubscriptions = subscriptionRepository->findByClientId(clientId);
     EXPECT_EQ(clientSubscriptions.size(), 1);
     EXPECT_EQ(clientSubscriptions[0].getId(), subscriptionId);
     
-    // Проверяем поиск активных подписок
     auto activeSubscriptions = subscriptionRepository->findActiveSubscriptions();
     bool foundInActive = std::any_of(activeSubscriptions.begin(), activeSubscriptions.end(),
         [subscriptionId](const Subscription& sub) {
@@ -603,8 +647,7 @@ TEST_F(RepositoryIntegrationTest, SubscriptionRepository_FullCycle) {
         });
     EXPECT_TRUE(foundInActive);
     
-    // Act & Assert - Обновляем
-    foundSubscription->useVisit(); // Используем одно посещение
+    foundSubscription->useVisit();
     bool updateResult = subscriptionRepository->update(*foundSubscription);
     EXPECT_TRUE(updateResult);
     
@@ -612,7 +655,7 @@ TEST_F(RepositoryIntegrationTest, SubscriptionRepository_FullCycle) {
     ASSERT_TRUE(updatedSubscription.has_value());
     EXPECT_EQ(updatedSubscription->getRemainingVisits(), 7);
     
-    // Act & Assert - Отменяем подписку
+
     updatedSubscription->cancel();
     updateResult = subscriptionRepository->update(*updatedSubscription);
     EXPECT_TRUE(updateResult);
@@ -621,12 +664,39 @@ TEST_F(RepositoryIntegrationTest, SubscriptionRepository_FullCycle) {
     ASSERT_TRUE(cancelledSubscription.has_value());
     EXPECT_EQ(cancelledSubscription->getStatus(), SubscriptionStatus::CANCELLED);
     
-    // Act & Assert - Удаляем
     bool removeResult = subscriptionRepository->remove(subscriptionId);
     EXPECT_TRUE(removeResult);
     
     auto deletedSubscription = subscriptionRepository->findById(subscriptionId);
     EXPECT_FALSE(deletedSubscription.has_value());
+}
+
+TEST_F(RepositoryIntegrationTest, SqlBuilder_ComplexQueries) {   
+    // 1. Запрос с JOIN для получения залов с информацией о филиалах
+    SqlQueryBuilder joinQuery;
+    std::string complexQuery = joinQuery
+        .select({"dh.name as hall_name", "dh.capacity", "b.name as branch_name", "s.name as studio_name"})
+        .from("dance_halls dh")
+        .innerJoin("branches b", "dh.branch_id = b.id")
+        .innerJoin("studios s", "b.studio_id = s.id")
+        .where("dh.capacity > 20")
+        .orderBy("dh.capacity", false)
+        .build();
+    
+    EXPECT_FALSE(complexQuery.empty());
+    EXPECT_NE(complexQuery.find("JOIN"), std::string::npos);
+    
+    // 2. Запрос с несколькими условиями WHERE
+    SqlQueryBuilder multiWhereQuery;
+    std::string filteredQuery = multiWhereQuery
+        .select({"*"})
+        .from("lessons")
+        .where("difficulty = 'BEGINNER'")
+        .andWhere("max_participants > 10")
+        .orWhere("price < 50.0")
+        .build();
+    
+    EXPECT_FALSE(filteredQuery.empty());
 }
 
 int main(int argc, char **argv) {

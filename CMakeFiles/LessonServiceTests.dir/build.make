@@ -92,10 +92,7 @@ LessonServiceTests_EXTERNAL_OBJECTS =
 
 LessonServiceTests: CMakeFiles/LessonServiceTests.dir/src/tests/unit/LessonServiceTest.cpp.o
 LessonServiceTests: CMakeFiles/LessonServiceTests.dir/build.make
-LessonServiceTests: libServicesComponent.a
-LessonServiceTests: libDTOsComponent.a
-LessonServiceTests: libModelsComponent.a
-LessonServiceTests: libCoreComponent.a
+LessonServiceTests: libBookingCore.a
 LessonServiceTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 LessonServiceTests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 LessonServiceTests: /usr/lib/x86_64-linux-gnu/libgmock.a

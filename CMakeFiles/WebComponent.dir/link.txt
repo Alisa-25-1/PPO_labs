@@ -1,0 +1,2 @@
+/usr/bin/ar qc libWebComponent.a CMakeFiles/WebComponent.dir/src/web/web_server.cpp.o
+/usr/bin/ranlib libWebComponent.a

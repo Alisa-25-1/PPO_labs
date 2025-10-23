@@ -2,9 +2,9 @@
 #include <algorithm>
 
 EnrollmentService::EnrollmentService(
-    std::unique_ptr<IEnrollmentRepository> enrollmentRepo,
-    std::unique_ptr<IClientRepository> clientRepo,
-    std::unique_ptr<ILessonRepository> lessonRepo
+    std::shared_ptr<IEnrollmentRepository> enrollmentRepo,
+    std::shared_ptr<IClientRepository> clientRepo,
+    std::shared_ptr<ILessonRepository> lessonRepo
 ) : enrollmentRepository_(std::move(enrollmentRepo)),
     clientRepository_(std::move(clientRepo)),
     lessonRepository_(std::move(lessonRepo)) {}

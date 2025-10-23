@@ -2,10 +2,10 @@
 #include <algorithm>
 
 LessonService::LessonService(
-    std::unique_ptr<ILessonRepository> lessonRepo,
-    std::unique_ptr<IEnrollmentRepository> enrollmentRepo,
-    std::unique_ptr<ITrainerRepository> trainerRepo,
-    std::unique_ptr<IDanceHallRepository> hallRepo
+    std::shared_ptr<ILessonRepository> lessonRepo,
+    std::shared_ptr<IEnrollmentRepository> enrollmentRepo,
+    std::shared_ptr<ITrainerRepository> trainerRepo,
+    std::shared_ptr<IDanceHallRepository> hallRepo
 ) : lessonRepository_(std::move(lessonRepo)),
     enrollmentRepository_(std::move(enrollmentRepo)),
     trainerRepository_(std::move(trainerRepo)),

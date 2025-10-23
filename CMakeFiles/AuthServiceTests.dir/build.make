@@ -92,10 +92,7 @@ AuthServiceTests_EXTERNAL_OBJECTS =
 
 AuthServiceTests: CMakeFiles/AuthServiceTests.dir/src/tests/unit/AuthServiceTest.cpp.o
 AuthServiceTests: CMakeFiles/AuthServiceTests.dir/build.make
-AuthServiceTests: libServicesComponent.a
-AuthServiceTests: libDTOsComponent.a
-AuthServiceTests: libModelsComponent.a
-AuthServiceTests: libCoreComponent.a
+AuthServiceTests: libBookingCore.a
 AuthServiceTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 AuthServiceTests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 AuthServiceTests: /usr/lib/x86_64-linux-gnu/libgmock.a

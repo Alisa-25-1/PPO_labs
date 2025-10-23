@@ -92,13 +92,11 @@ IntegrationTests_EXTERNAL_OBJECTS =
 
 IntegrationTests: CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.o
 IntegrationTests: CMakeFiles/IntegrationTests.dir/build.make
-IntegrationTests: libDataAccessComponent.a
-IntegrationTests: libServicesComponent.a
-IntegrationTests: libDTOsComponent.a
-IntegrationTests: libModelsComponent.a
-IntegrationTests: libCoreComponent.a
+IntegrationTests: libBookingCore.a
+IntegrationTests: libDataAccess.a
 IntegrationTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 IntegrationTests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
+IntegrationTests: libBookingCore.a
 IntegrationTests: /usr/lib/x86_64-linux-gnu/libuuid.so
 IntegrationTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 IntegrationTests: CMakeFiles/IntegrationTests.dir/link.txt

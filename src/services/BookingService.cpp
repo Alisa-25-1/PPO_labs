@@ -3,10 +3,10 @@
 
 // Constructor
 BookingService::BookingService(
-    std::unique_ptr<IBookingRepository> bookingRepo,
-    std::unique_ptr<IClientRepository> clientRepo,
-    std::unique_ptr<IDanceHallRepository> hallRepo,
-    std::unique_ptr<IBranchRepository> branchRepo
+    std::shared_ptr<IBookingRepository> bookingRepo,
+    std::shared_ptr<IClientRepository> clientRepo,
+    std::shared_ptr<IDanceHallRepository> hallRepo,
+    std::shared_ptr<IBranchRepository> branchRepo
 ) : bookingRepository_(std::move(bookingRepo)),
     clientRepository_(std::move(clientRepo)),
     hallRepository_(std::move(hallRepo)),

@@ -92,10 +92,7 @@ ReviewServiceTests_EXTERNAL_OBJECTS =
 
 ReviewServiceTests: CMakeFiles/ReviewServiceTests.dir/src/tests/unit/ReviewServiceTest.cpp.o
 ReviewServiceTests: CMakeFiles/ReviewServiceTests.dir/build.make
-ReviewServiceTests: libServicesComponent.a
-ReviewServiceTests: libDTOsComponent.a
-ReviewServiceTests: libModelsComponent.a
-ReviewServiceTests: libCoreComponent.a
+ReviewServiceTests: libBookingCore.a
 ReviewServiceTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 ReviewServiceTests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 ReviewServiceTests: /usr/lib/x86_64-linux-gnu/libgmock.a

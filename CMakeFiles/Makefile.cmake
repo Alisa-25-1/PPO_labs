@@ -11,7 +11,6 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.28.3/CMakeCXXCompiler.cmake"
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
   "CMakeLists.txt"
-  "config/config.json"
   "/usr/lib/x86_64-linux-gnu/cmake/GTest/GMockTargets-none.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/GTest/GMockTargets.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake"
@@ -57,25 +56,20 @@ set(CMAKE_MAKEFILE_OUTPUTS
 
 # Byproducts of CMake generate step:
 set(CMAKE_MAKEFILE_PRODUCTS
-  "config/config.json"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
 set(CMAKE_DEPEND_INFO_FILES
-  "CMakeFiles/CoreComponent.dir/DependInfo.cmake"
-  "CMakeFiles/ModelsComponent.dir/DependInfo.cmake"
-  "CMakeFiles/DTOsComponent.dir/DependInfo.cmake"
-  "CMakeFiles/ServicesComponent.dir/DependInfo.cmake"
-  "CMakeFiles/DataAccessComponent.dir/DependInfo.cmake"
-  "CMakeFiles/TechUIComponent.dir/DependInfo.cmake"
-  "CMakeFiles/DanceStudioTechUI.dir/DependInfo.cmake"
+  "CMakeFiles/BookingCore.dir/DependInfo.cmake"
+  "CMakeFiles/DataAccess.dir/DependInfo.cmake"
   "CMakeFiles/BookingTests.dir/DependInfo.cmake"
   "CMakeFiles/AuthServiceTests.dir/DependInfo.cmake"
   "CMakeFiles/LessonServiceTests.dir/DependInfo.cmake"
   "CMakeFiles/SubscriptionServiceTests.dir/DependInfo.cmake"
   "CMakeFiles/ReviewServiceTests.dir/DependInfo.cmake"
   "CMakeFiles/IntegrationTests.dir/DependInfo.cmake"
-  "CMakeFiles/CopyConfig.dir/DependInfo.cmake"
-  "CMakeFiles/TestLogger.dir/DependInfo.cmake"
+  "CMakeFiles/TechUI.dir/DependInfo.cmake"
+  "CMakeFiles/WebUIComponent.dir/DependInfo.cmake"
+  "CMakeFiles/DanceStudioWebUI.dir/DependInfo.cmake"
   )

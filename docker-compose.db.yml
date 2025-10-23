@@ -1,0 +1,25 @@
+# docker-compose.db.yml
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: dance_studio_db
+    environment:
+      POSTGRES_DB: dance_studio
+      POSTGRES_USER: dance_user
+      POSTGRES_PASSWORD: dance_password
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./scripts/init_database.sql:/docker-entrypoint-initdb.d/01-init.sql
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dance_user -d dance_studio"]
+      interval: 5s
+      timeout: 3s
+      retries: 3
+    restart: unless-stopped
+
+volumes:
+  postgres_data:

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<server>
+    <application-settings location="*">
+        <log-config>* -debug -info:Wt::WApplication</log-config>
+        <behind-reverse-proxy>false</behind-reverse-proxy>
+    </application-settings>
+</server>

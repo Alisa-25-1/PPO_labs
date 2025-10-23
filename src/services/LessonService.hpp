@@ -11,10 +11,10 @@
 
 class LessonService {
 private:
-    std::unique_ptr<ILessonRepository> lessonRepository_;
-    std::unique_ptr<IEnrollmentRepository> enrollmentRepository_;
-    std::unique_ptr<ITrainerRepository> trainerRepository_;
-    std::unique_ptr<IDanceHallRepository> hallRepository_;
+    std::shared_ptr<ILessonRepository> lessonRepository_;
+    std::shared_ptr<IEnrollmentRepository> enrollmentRepository_;
+    std::shared_ptr<ITrainerRepository> trainerRepository_;
+    std::shared_ptr<IDanceHallRepository> hallRepository_;
 
     void validateLessonRequest(const LessonRequestDTO& request) const;
     void validateTrainer(const UUID& trainerId) const;
@@ -23,10 +23,10 @@ private:
 
 public:
     LessonService(
-        std::unique_ptr<ILessonRepository> lessonRepo,
-        std::unique_ptr<IEnrollmentRepository> enrollmentRepo,
-        std::unique_ptr<ITrainerRepository> trainerRepo,
-        std::unique_ptr<IDanceHallRepository> hallRepo
+        std::shared_ptr<ILessonRepository> lessonRepo,
+        std::shared_ptr<IEnrollmentRepository> enrollmentRepo,
+        std::shared_ptr<ITrainerRepository> trainerRepo,
+        std::shared_ptr<IDanceHallRepository> hallRepo
     );
 
     LessonResponseDTO createLesson(const LessonRequestDTO& request);

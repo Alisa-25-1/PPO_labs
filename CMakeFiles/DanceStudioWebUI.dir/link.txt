@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o -o DanceStudioWebUI  -Wl,-rpath,/usr/local/lib libWebUIComponent.a libBookingCore.a libDataAccess.a /usr/local/lib/libwthttp.so /usr/local/lib/libwt.so -lpqxx -lpthread libBookingCore.a /usr/lib/x86_64-linux-gnu/libuuid.so 

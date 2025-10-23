@@ -32,6 +32,7 @@ struct AuthResponseDTO {
     std::string token;
     std::string status;
     
+    AuthResponseDTO() = default;
     AuthResponseDTO(const UUID& id, const std::string& name, 
                    const std::string& email, const std::string& status)
         : clientId(id), name(name), email(email), status(status) {}

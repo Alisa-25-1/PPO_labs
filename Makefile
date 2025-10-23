@@ -117,95 +117,30 @@ depend:
 .PHONY : depend
 
 #=============================================================================
-# Target rules for targets named CoreComponent
+# Target rules for targets named BookingCore
 
 # Build rule for target.
-CoreComponent: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CoreComponent
-.PHONY : CoreComponent
+BookingCore: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BookingCore
+.PHONY : BookingCore
 
 # fast build rule for target.
-CoreComponent/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CoreComponent.dir/build.make CMakeFiles/CoreComponent.dir/build
-.PHONY : CoreComponent/fast
+BookingCore/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/build
+.PHONY : BookingCore/fast
 
 #=============================================================================
-# Target rules for targets named ModelsComponent
+# Target rules for targets named DataAccess
 
 # Build rule for target.
-ModelsComponent: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ModelsComponent
-.PHONY : ModelsComponent
+DataAccess: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DataAccess
+.PHONY : DataAccess
 
 # fast build rule for target.
-ModelsComponent/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/build
-.PHONY : ModelsComponent/fast
-
-#=============================================================================
-# Target rules for targets named DTOsComponent
-
-# Build rule for target.
-DTOsComponent: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DTOsComponent
-.PHONY : DTOsComponent
-
-# fast build rule for target.
-DTOsComponent/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/build
-.PHONY : DTOsComponent/fast
-
-#=============================================================================
-# Target rules for targets named ServicesComponent
-
-# Build rule for target.
-ServicesComponent: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ServicesComponent
-.PHONY : ServicesComponent
-
-# fast build rule for target.
-ServicesComponent/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/build
-.PHONY : ServicesComponent/fast
-
-#=============================================================================
-# Target rules for targets named DataAccessComponent
-
-# Build rule for target.
-DataAccessComponent: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DataAccessComponent
-.PHONY : DataAccessComponent
-
-# fast build rule for target.
-DataAccessComponent/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/build
-.PHONY : DataAccessComponent/fast
-
-#=============================================================================
-# Target rules for targets named TechUIComponent
-
-# Build rule for target.
-TechUIComponent: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TechUIComponent
-.PHONY : TechUIComponent
-
-# fast build rule for target.
-TechUIComponent/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUIComponent.dir/build.make CMakeFiles/TechUIComponent.dir/build
-.PHONY : TechUIComponent/fast
-
-#=============================================================================
-# Target rules for targets named DanceStudioTechUI
-
-# Build rule for target.
-DanceStudioTechUI: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DanceStudioTechUI
-.PHONY : DanceStudioTechUI
-
-# fast build rule for target.
-DanceStudioTechUI/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioTechUI.dir/build.make CMakeFiles/DanceStudioTechUI.dir/build
-.PHONY : DanceStudioTechUI/fast
+DataAccess/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/build
+.PHONY : DataAccess/fast
 
 #=============================================================================
 # Target rules for targets named BookingTests
@@ -286,39 +221,50 @@ IntegrationTests/fast:
 .PHONY : IntegrationTests/fast
 
 #=============================================================================
-# Target rules for targets named CopyConfig
+# Target rules for targets named TechUI
 
 # Build rule for target.
-CopyConfig: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CopyConfig
-.PHONY : CopyConfig
+TechUI: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TechUI
+.PHONY : TechUI
 
 # fast build rule for target.
-CopyConfig/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CopyConfig.dir/build.make CMakeFiles/CopyConfig.dir/build
-.PHONY : CopyConfig/fast
+TechUI/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/build
+.PHONY : TechUI/fast
 
 #=============================================================================
-# Target rules for targets named TestLogger
+# Target rules for targets named WebUIComponent
 
 # Build rule for target.
-TestLogger: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestLogger
-.PHONY : TestLogger
+WebUIComponent: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 WebUIComponent
+.PHONY : WebUIComponent
 
 # fast build rule for target.
-TestLogger/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLogger.dir/build.make CMakeFiles/TestLogger.dir/build
-.PHONY : TestLogger/fast
+WebUIComponent/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/build
+.PHONY : WebUIComponent/fast
+
+#=============================================================================
+# Target rules for targets named DanceStudioWebUI
+
+# Build rule for target.
+DanceStudioWebUI: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 DanceStudioWebUI
+.PHONY : DanceStudioWebUI
+
+# fast build rule for target.
+DanceStudioWebUI/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioWebUI.dir/build.make CMakeFiles/DanceStudioWebUI.dir/build
+.PHONY : DanceStudioWebUI/fast
 
 src/core/Config.o: src/core/Config.cpp.o
 .PHONY : src/core/Config.o
 
 # target to build an object file
 src/core/Config.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CoreComponent.dir/build.make CMakeFiles/CoreComponent.dir/src/core/Config.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioTechUI.dir/build.make CMakeFiles/DanceStudioTechUI.dir/src/core/Config.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLogger.dir/build.make CMakeFiles/TestLogger.dir/src/core/Config.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/core/Config.cpp.o
 .PHONY : src/core/Config.cpp.o
 
 src/core/Config.i: src/core/Config.cpp.i
@@ -326,9 +272,7 @@ src/core/Config.i: src/core/Config.cpp.i
 
 # target to preprocess a source file
 src/core/Config.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CoreComponent.dir/build.make CMakeFiles/CoreComponent.dir/src/core/Config.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioTechUI.dir/build.make CMakeFiles/DanceStudioTechUI.dir/src/core/Config.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLogger.dir/build.make CMakeFiles/TestLogger.dir/src/core/Config.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/core/Config.cpp.i
 .PHONY : src/core/Config.cpp.i
 
 src/core/Config.s: src/core/Config.cpp.s
@@ -336,9 +280,7 @@ src/core/Config.s: src/core/Config.cpp.s
 
 # target to generate assembly for a file
 src/core/Config.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CoreComponent.dir/build.make CMakeFiles/CoreComponent.dir/src/core/Config.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioTechUI.dir/build.make CMakeFiles/DanceStudioTechUI.dir/src/core/Config.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLogger.dir/build.make CMakeFiles/TestLogger.dir/src/core/Config.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/core/Config.cpp.s
 .PHONY : src/core/Config.cpp.s
 
 src/core/Logger.o: src/core/Logger.cpp.o
@@ -346,9 +288,7 @@ src/core/Logger.o: src/core/Logger.cpp.o
 
 # target to build an object file
 src/core/Logger.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CoreComponent.dir/build.make CMakeFiles/CoreComponent.dir/src/core/Logger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioTechUI.dir/build.make CMakeFiles/DanceStudioTechUI.dir/src/core/Logger.cpp.o
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLogger.dir/build.make CMakeFiles/TestLogger.dir/src/core/Logger.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o
 .PHONY : src/core/Logger.cpp.o
 
 src/core/Logger.i: src/core/Logger.cpp.i
@@ -356,9 +296,7 @@ src/core/Logger.i: src/core/Logger.cpp.i
 
 # target to preprocess a source file
 src/core/Logger.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CoreComponent.dir/build.make CMakeFiles/CoreComponent.dir/src/core/Logger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioTechUI.dir/build.make CMakeFiles/DanceStudioTechUI.dir/src/core/Logger.cpp.i
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLogger.dir/build.make CMakeFiles/TestLogger.dir/src/core/Logger.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/core/Logger.cpp.i
 .PHONY : src/core/Logger.cpp.i
 
 src/core/Logger.s: src/core/Logger.cpp.s
@@ -366,9 +304,7 @@ src/core/Logger.s: src/core/Logger.cpp.s
 
 # target to generate assembly for a file
 src/core/Logger.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CoreComponent.dir/build.make CMakeFiles/CoreComponent.dir/src/core/Logger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioTechUI.dir/build.make CMakeFiles/DanceStudioTechUI.dir/src/core/Logger.cpp.s
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLogger.dir/build.make CMakeFiles/TestLogger.dir/src/core/Logger.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/core/Logger.cpp.s
 .PHONY : src/core/Logger.cpp.s
 
 src/data/DatabaseConnection.o: src/data/DatabaseConnection.cpp.o
@@ -376,7 +312,7 @@ src/data/DatabaseConnection.o: src/data/DatabaseConnection.cpp.o
 
 # target to build an object file
 src/data/DatabaseConnection.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/DatabaseConnection.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o
 .PHONY : src/data/DatabaseConnection.cpp.o
 
 src/data/DatabaseConnection.i: src/data/DatabaseConnection.cpp.i
@@ -384,7 +320,7 @@ src/data/DatabaseConnection.i: src/data/DatabaseConnection.cpp.i
 
 # target to preprocess a source file
 src/data/DatabaseConnection.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/DatabaseConnection.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.i
 .PHONY : src/data/DatabaseConnection.cpp.i
 
 src/data/DatabaseConnection.s: src/data/DatabaseConnection.cpp.s
@@ -392,7 +328,7 @@ src/data/DatabaseConnection.s: src/data/DatabaseConnection.cpp.s
 
 # target to generate assembly for a file
 src/data/DatabaseConnection.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/DatabaseConnection.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.s
 .PHONY : src/data/DatabaseConnection.cpp.s
 
 src/data/DateTimeUtils.o: src/data/DateTimeUtils.cpp.o
@@ -400,7 +336,7 @@ src/data/DateTimeUtils.o: src/data/DateTimeUtils.cpp.o
 
 # target to build an object file
 src/data/DateTimeUtils.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/DateTimeUtils.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.o
 .PHONY : src/data/DateTimeUtils.cpp.o
 
 src/data/DateTimeUtils.i: src/data/DateTimeUtils.cpp.i
@@ -408,7 +344,7 @@ src/data/DateTimeUtils.i: src/data/DateTimeUtils.cpp.i
 
 # target to preprocess a source file
 src/data/DateTimeUtils.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/DateTimeUtils.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.i
 .PHONY : src/data/DateTimeUtils.cpp.i
 
 src/data/DateTimeUtils.s: src/data/DateTimeUtils.cpp.s
@@ -416,7 +352,7 @@ src/data/DateTimeUtils.s: src/data/DateTimeUtils.cpp.s
 
 # target to generate assembly for a file
 src/data/DateTimeUtils.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/DateTimeUtils.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.s
 .PHONY : src/data/DateTimeUtils.cpp.s
 
 src/data/QueryFactory.o: src/data/QueryFactory.cpp.o
@@ -424,7 +360,7 @@ src/data/QueryFactory.o: src/data/QueryFactory.cpp.o
 
 # target to build an object file
 src/data/QueryFactory.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/QueryFactory.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.o
 .PHONY : src/data/QueryFactory.cpp.o
 
 src/data/QueryFactory.i: src/data/QueryFactory.cpp.i
@@ -432,7 +368,7 @@ src/data/QueryFactory.i: src/data/QueryFactory.cpp.i
 
 # target to preprocess a source file
 src/data/QueryFactory.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/QueryFactory.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.i
 .PHONY : src/data/QueryFactory.cpp.i
 
 src/data/QueryFactory.s: src/data/QueryFactory.cpp.s
@@ -440,7 +376,7 @@ src/data/QueryFactory.s: src/data/QueryFactory.cpp.s
 
 # target to generate assembly for a file
 src/data/QueryFactory.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/QueryFactory.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.s
 .PHONY : src/data/QueryFactory.cpp.s
 
 src/data/ResilientDatabaseConnection.o: src/data/ResilientDatabaseConnection.cpp.o
@@ -448,7 +384,7 @@ src/data/ResilientDatabaseConnection.o: src/data/ResilientDatabaseConnection.cpp
 
 # target to build an object file
 src/data/ResilientDatabaseConnection.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/ResilientDatabaseConnection.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o
 .PHONY : src/data/ResilientDatabaseConnection.cpp.o
 
 src/data/ResilientDatabaseConnection.i: src/data/ResilientDatabaseConnection.cpp.i
@@ -456,7 +392,7 @@ src/data/ResilientDatabaseConnection.i: src/data/ResilientDatabaseConnection.cpp
 
 # target to preprocess a source file
 src/data/ResilientDatabaseConnection.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/ResilientDatabaseConnection.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.i
 .PHONY : src/data/ResilientDatabaseConnection.cpp.i
 
 src/data/ResilientDatabaseConnection.s: src/data/ResilientDatabaseConnection.cpp.s
@@ -464,7 +400,7 @@ src/data/ResilientDatabaseConnection.s: src/data/ResilientDatabaseConnection.cpp
 
 # target to generate assembly for a file
 src/data/ResilientDatabaseConnection.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/ResilientDatabaseConnection.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.s
 .PHONY : src/data/ResilientDatabaseConnection.cpp.s
 
 src/data/SqlQueryBuilder.o: src/data/SqlQueryBuilder.cpp.o
@@ -472,7 +408,7 @@ src/data/SqlQueryBuilder.o: src/data/SqlQueryBuilder.cpp.o
 
 # target to build an object file
 src/data/SqlQueryBuilder.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/SqlQueryBuilder.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/SqlQueryBuilder.cpp.o
 .PHONY : src/data/SqlQueryBuilder.cpp.o
 
 src/data/SqlQueryBuilder.i: src/data/SqlQueryBuilder.cpp.i
@@ -480,7 +416,7 @@ src/data/SqlQueryBuilder.i: src/data/SqlQueryBuilder.cpp.i
 
 # target to preprocess a source file
 src/data/SqlQueryBuilder.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/SqlQueryBuilder.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/SqlQueryBuilder.cpp.i
 .PHONY : src/data/SqlQueryBuilder.cpp.i
 
 src/data/SqlQueryBuilder.s: src/data/SqlQueryBuilder.cpp.s
@@ -488,7 +424,7 @@ src/data/SqlQueryBuilder.s: src/data/SqlQueryBuilder.cpp.s
 
 # target to generate assembly for a file
 src/data/SqlQueryBuilder.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/data/SqlQueryBuilder.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/SqlQueryBuilder.cpp.s
 .PHONY : src/data/SqlQueryBuilder.cpp.s
 
 src/dtos/AuthDTO.o: src/dtos/AuthDTO.cpp.o
@@ -496,7 +432,7 @@ src/dtos/AuthDTO.o: src/dtos/AuthDTO.cpp.o
 
 # target to build an object file
 src/dtos/AuthDTO.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/AuthDTO.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.o
 .PHONY : src/dtos/AuthDTO.cpp.o
 
 src/dtos/AuthDTO.i: src/dtos/AuthDTO.cpp.i
@@ -504,7 +440,7 @@ src/dtos/AuthDTO.i: src/dtos/AuthDTO.cpp.i
 
 # target to preprocess a source file
 src/dtos/AuthDTO.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/AuthDTO.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.i
 .PHONY : src/dtos/AuthDTO.cpp.i
 
 src/dtos/AuthDTO.s: src/dtos/AuthDTO.cpp.s
@@ -512,7 +448,7 @@ src/dtos/AuthDTO.s: src/dtos/AuthDTO.cpp.s
 
 # target to generate assembly for a file
 src/dtos/AuthDTO.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/AuthDTO.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.s
 .PHONY : src/dtos/AuthDTO.cpp.s
 
 src/dtos/BookingDTO.o: src/dtos/BookingDTO.cpp.o
@@ -520,7 +456,7 @@ src/dtos/BookingDTO.o: src/dtos/BookingDTO.cpp.o
 
 # target to build an object file
 src/dtos/BookingDTO.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/BookingDTO.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o
 .PHONY : src/dtos/BookingDTO.cpp.o
 
 src/dtos/BookingDTO.i: src/dtos/BookingDTO.cpp.i
@@ -528,7 +464,7 @@ src/dtos/BookingDTO.i: src/dtos/BookingDTO.cpp.i
 
 # target to preprocess a source file
 src/dtos/BookingDTO.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/BookingDTO.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.i
 .PHONY : src/dtos/BookingDTO.cpp.i
 
 src/dtos/BookingDTO.s: src/dtos/BookingDTO.cpp.s
@@ -536,7 +472,7 @@ src/dtos/BookingDTO.s: src/dtos/BookingDTO.cpp.s
 
 # target to generate assembly for a file
 src/dtos/BookingDTO.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/BookingDTO.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.s
 .PHONY : src/dtos/BookingDTO.cpp.s
 
 src/dtos/EnrollmentDTO.o: src/dtos/EnrollmentDTO.cpp.o
@@ -544,7 +480,7 @@ src/dtos/EnrollmentDTO.o: src/dtos/EnrollmentDTO.cpp.o
 
 # target to build an object file
 src/dtos/EnrollmentDTO.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/EnrollmentDTO.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/EnrollmentDTO.cpp.o
 .PHONY : src/dtos/EnrollmentDTO.cpp.o
 
 src/dtos/EnrollmentDTO.i: src/dtos/EnrollmentDTO.cpp.i
@@ -552,7 +488,7 @@ src/dtos/EnrollmentDTO.i: src/dtos/EnrollmentDTO.cpp.i
 
 # target to preprocess a source file
 src/dtos/EnrollmentDTO.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/EnrollmentDTO.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/EnrollmentDTO.cpp.i
 .PHONY : src/dtos/EnrollmentDTO.cpp.i
 
 src/dtos/EnrollmentDTO.s: src/dtos/EnrollmentDTO.cpp.s
@@ -560,7 +496,7 @@ src/dtos/EnrollmentDTO.s: src/dtos/EnrollmentDTO.cpp.s
 
 # target to generate assembly for a file
 src/dtos/EnrollmentDTO.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/EnrollmentDTO.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/EnrollmentDTO.cpp.s
 .PHONY : src/dtos/EnrollmentDTO.cpp.s
 
 src/dtos/LessonDTO.o: src/dtos/LessonDTO.cpp.o
@@ -568,7 +504,7 @@ src/dtos/LessonDTO.o: src/dtos/LessonDTO.cpp.o
 
 # target to build an object file
 src/dtos/LessonDTO.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/LessonDTO.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/LessonDTO.cpp.o
 .PHONY : src/dtos/LessonDTO.cpp.o
 
 src/dtos/LessonDTO.i: src/dtos/LessonDTO.cpp.i
@@ -576,7 +512,7 @@ src/dtos/LessonDTO.i: src/dtos/LessonDTO.cpp.i
 
 # target to preprocess a source file
 src/dtos/LessonDTO.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/LessonDTO.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/LessonDTO.cpp.i
 .PHONY : src/dtos/LessonDTO.cpp.i
 
 src/dtos/LessonDTO.s: src/dtos/LessonDTO.cpp.s
@@ -584,7 +520,7 @@ src/dtos/LessonDTO.s: src/dtos/LessonDTO.cpp.s
 
 # target to generate assembly for a file
 src/dtos/LessonDTO.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/LessonDTO.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/LessonDTO.cpp.s
 .PHONY : src/dtos/LessonDTO.cpp.s
 
 src/dtos/ReviewDTO.o: src/dtos/ReviewDTO.cpp.o
@@ -592,7 +528,7 @@ src/dtos/ReviewDTO.o: src/dtos/ReviewDTO.cpp.o
 
 # target to build an object file
 src/dtos/ReviewDTO.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/ReviewDTO.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/ReviewDTO.cpp.o
 .PHONY : src/dtos/ReviewDTO.cpp.o
 
 src/dtos/ReviewDTO.i: src/dtos/ReviewDTO.cpp.i
@@ -600,7 +536,7 @@ src/dtos/ReviewDTO.i: src/dtos/ReviewDTO.cpp.i
 
 # target to preprocess a source file
 src/dtos/ReviewDTO.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/ReviewDTO.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/ReviewDTO.cpp.i
 .PHONY : src/dtos/ReviewDTO.cpp.i
 
 src/dtos/ReviewDTO.s: src/dtos/ReviewDTO.cpp.s
@@ -608,7 +544,7 @@ src/dtos/ReviewDTO.s: src/dtos/ReviewDTO.cpp.s
 
 # target to generate assembly for a file
 src/dtos/ReviewDTO.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/ReviewDTO.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/ReviewDTO.cpp.s
 .PHONY : src/dtos/ReviewDTO.cpp.s
 
 src/dtos/SubscriptionDTO.o: src/dtos/SubscriptionDTO.cpp.o
@@ -616,7 +552,7 @@ src/dtos/SubscriptionDTO.o: src/dtos/SubscriptionDTO.cpp.o
 
 # target to build an object file
 src/dtos/SubscriptionDTO.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/SubscriptionDTO.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/SubscriptionDTO.cpp.o
 .PHONY : src/dtos/SubscriptionDTO.cpp.o
 
 src/dtos/SubscriptionDTO.i: src/dtos/SubscriptionDTO.cpp.i
@@ -624,7 +560,7 @@ src/dtos/SubscriptionDTO.i: src/dtos/SubscriptionDTO.cpp.i
 
 # target to preprocess a source file
 src/dtos/SubscriptionDTO.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/SubscriptionDTO.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/SubscriptionDTO.cpp.i
 .PHONY : src/dtos/SubscriptionDTO.cpp.i
 
 src/dtos/SubscriptionDTO.s: src/dtos/SubscriptionDTO.cpp.s
@@ -632,7 +568,7 @@ src/dtos/SubscriptionDTO.s: src/dtos/SubscriptionDTO.cpp.s
 
 # target to generate assembly for a file
 src/dtos/SubscriptionDTO.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DTOsComponent.dir/build.make CMakeFiles/DTOsComponent.dir/src/dtos/SubscriptionDTO.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/SubscriptionDTO.cpp.s
 .PHONY : src/dtos/SubscriptionDTO.cpp.s
 
 src/main.o: src/main.cpp.o
@@ -640,7 +576,7 @@ src/main.o: src/main.cpp.o
 
 # target to build an object file
 src/main.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioTechUI.dir/build.make CMakeFiles/DanceStudioTechUI.dir/src/main.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/main.cpp.o
 .PHONY : src/main.cpp.o
 
 src/main.i: src/main.cpp.i
@@ -648,7 +584,7 @@ src/main.i: src/main.cpp.i
 
 # target to preprocess a source file
 src/main.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioTechUI.dir/build.make CMakeFiles/DanceStudioTechUI.dir/src/main.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/main.cpp.i
 .PHONY : src/main.cpp.i
 
 src/main.s: src/main.cpp.s
@@ -656,7 +592,7 @@ src/main.s: src/main.cpp.s
 
 # target to generate assembly for a file
 src/main.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioTechUI.dir/build.make CMakeFiles/DanceStudioTechUI.dir/src/main.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
 src/models/Booking.o: src/models/Booking.cpp.o
@@ -664,7 +600,7 @@ src/models/Booking.o: src/models/Booking.cpp.o
 
 # target to build an object file
 src/models/Booking.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Booking.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Booking.cpp.o
 .PHONY : src/models/Booking.cpp.o
 
 src/models/Booking.i: src/models/Booking.cpp.i
@@ -672,7 +608,7 @@ src/models/Booking.i: src/models/Booking.cpp.i
 
 # target to preprocess a source file
 src/models/Booking.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Booking.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Booking.cpp.i
 .PHONY : src/models/Booking.cpp.i
 
 src/models/Booking.s: src/models/Booking.cpp.s
@@ -680,7 +616,7 @@ src/models/Booking.s: src/models/Booking.cpp.s
 
 # target to generate assembly for a file
 src/models/Booking.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Booking.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Booking.cpp.s
 .PHONY : src/models/Booking.cpp.s
 
 src/models/Branch.o: src/models/Branch.cpp.o
@@ -688,7 +624,7 @@ src/models/Branch.o: src/models/Branch.cpp.o
 
 # target to build an object file
 src/models/Branch.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Branch.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Branch.cpp.o
 .PHONY : src/models/Branch.cpp.o
 
 src/models/Branch.i: src/models/Branch.cpp.i
@@ -696,7 +632,7 @@ src/models/Branch.i: src/models/Branch.cpp.i
 
 # target to preprocess a source file
 src/models/Branch.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Branch.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Branch.cpp.i
 .PHONY : src/models/Branch.cpp.i
 
 src/models/Branch.s: src/models/Branch.cpp.s
@@ -704,7 +640,7 @@ src/models/Branch.s: src/models/Branch.cpp.s
 
 # target to generate assembly for a file
 src/models/Branch.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Branch.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Branch.cpp.s
 .PHONY : src/models/Branch.cpp.s
 
 src/models/Client.o: src/models/Client.cpp.o
@@ -712,7 +648,7 @@ src/models/Client.o: src/models/Client.cpp.o
 
 # target to build an object file
 src/models/Client.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Client.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Client.cpp.o
 .PHONY : src/models/Client.cpp.o
 
 src/models/Client.i: src/models/Client.cpp.i
@@ -720,7 +656,7 @@ src/models/Client.i: src/models/Client.cpp.i
 
 # target to preprocess a source file
 src/models/Client.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Client.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Client.cpp.i
 .PHONY : src/models/Client.cpp.i
 
 src/models/Client.s: src/models/Client.cpp.s
@@ -728,7 +664,7 @@ src/models/Client.s: src/models/Client.cpp.s
 
 # target to generate assembly for a file
 src/models/Client.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Client.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Client.cpp.s
 .PHONY : src/models/Client.cpp.s
 
 src/models/DanceHall.o: src/models/DanceHall.cpp.o
@@ -736,7 +672,7 @@ src/models/DanceHall.o: src/models/DanceHall.cpp.o
 
 # target to build an object file
 src/models/DanceHall.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/DanceHall.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/DanceHall.cpp.o
 .PHONY : src/models/DanceHall.cpp.o
 
 src/models/DanceHall.i: src/models/DanceHall.cpp.i
@@ -744,7 +680,7 @@ src/models/DanceHall.i: src/models/DanceHall.cpp.i
 
 # target to preprocess a source file
 src/models/DanceHall.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/DanceHall.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/DanceHall.cpp.i
 .PHONY : src/models/DanceHall.cpp.i
 
 src/models/DanceHall.s: src/models/DanceHall.cpp.s
@@ -752,7 +688,7 @@ src/models/DanceHall.s: src/models/DanceHall.cpp.s
 
 # target to generate assembly for a file
 src/models/DanceHall.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/DanceHall.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/DanceHall.cpp.s
 .PHONY : src/models/DanceHall.cpp.s
 
 src/models/Enrollment.o: src/models/Enrollment.cpp.o
@@ -760,7 +696,7 @@ src/models/Enrollment.o: src/models/Enrollment.cpp.o
 
 # target to build an object file
 src/models/Enrollment.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Enrollment.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Enrollment.cpp.o
 .PHONY : src/models/Enrollment.cpp.o
 
 src/models/Enrollment.i: src/models/Enrollment.cpp.i
@@ -768,7 +704,7 @@ src/models/Enrollment.i: src/models/Enrollment.cpp.i
 
 # target to preprocess a source file
 src/models/Enrollment.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Enrollment.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Enrollment.cpp.i
 .PHONY : src/models/Enrollment.cpp.i
 
 src/models/Enrollment.s: src/models/Enrollment.cpp.s
@@ -776,7 +712,7 @@ src/models/Enrollment.s: src/models/Enrollment.cpp.s
 
 # target to generate assembly for a file
 src/models/Enrollment.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Enrollment.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Enrollment.cpp.s
 .PHONY : src/models/Enrollment.cpp.s
 
 src/models/Lesson.o: src/models/Lesson.cpp.o
@@ -784,7 +720,7 @@ src/models/Lesson.o: src/models/Lesson.cpp.o
 
 # target to build an object file
 src/models/Lesson.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Lesson.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Lesson.cpp.o
 .PHONY : src/models/Lesson.cpp.o
 
 src/models/Lesson.i: src/models/Lesson.cpp.i
@@ -792,7 +728,7 @@ src/models/Lesson.i: src/models/Lesson.cpp.i
 
 # target to preprocess a source file
 src/models/Lesson.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Lesson.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Lesson.cpp.i
 .PHONY : src/models/Lesson.cpp.i
 
 src/models/Lesson.s: src/models/Lesson.cpp.s
@@ -800,7 +736,7 @@ src/models/Lesson.s: src/models/Lesson.cpp.s
 
 # target to generate assembly for a file
 src/models/Lesson.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Lesson.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Lesson.cpp.s
 .PHONY : src/models/Lesson.cpp.s
 
 src/models/Review.o: src/models/Review.cpp.o
@@ -808,7 +744,7 @@ src/models/Review.o: src/models/Review.cpp.o
 
 # target to build an object file
 src/models/Review.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Review.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Review.cpp.o
 .PHONY : src/models/Review.cpp.o
 
 src/models/Review.i: src/models/Review.cpp.i
@@ -816,7 +752,7 @@ src/models/Review.i: src/models/Review.cpp.i
 
 # target to preprocess a source file
 src/models/Review.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Review.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Review.cpp.i
 .PHONY : src/models/Review.cpp.i
 
 src/models/Review.s: src/models/Review.cpp.s
@@ -824,7 +760,7 @@ src/models/Review.s: src/models/Review.cpp.s
 
 # target to generate assembly for a file
 src/models/Review.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Review.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Review.cpp.s
 .PHONY : src/models/Review.cpp.s
 
 src/models/Schedule.o: src/models/Schedule.cpp.o
@@ -832,7 +768,7 @@ src/models/Schedule.o: src/models/Schedule.cpp.o
 
 # target to build an object file
 src/models/Schedule.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Schedule.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Schedule.cpp.o
 .PHONY : src/models/Schedule.cpp.o
 
 src/models/Schedule.i: src/models/Schedule.cpp.i
@@ -840,7 +776,7 @@ src/models/Schedule.i: src/models/Schedule.cpp.i
 
 # target to preprocess a source file
 src/models/Schedule.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Schedule.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Schedule.cpp.i
 .PHONY : src/models/Schedule.cpp.i
 
 src/models/Schedule.s: src/models/Schedule.cpp.s
@@ -848,7 +784,7 @@ src/models/Schedule.s: src/models/Schedule.cpp.s
 
 # target to generate assembly for a file
 src/models/Schedule.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Schedule.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Schedule.cpp.s
 .PHONY : src/models/Schedule.cpp.s
 
 src/models/Studio.o: src/models/Studio.cpp.o
@@ -856,7 +792,7 @@ src/models/Studio.o: src/models/Studio.cpp.o
 
 # target to build an object file
 src/models/Studio.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Studio.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Studio.cpp.o
 .PHONY : src/models/Studio.cpp.o
 
 src/models/Studio.i: src/models/Studio.cpp.i
@@ -864,7 +800,7 @@ src/models/Studio.i: src/models/Studio.cpp.i
 
 # target to preprocess a source file
 src/models/Studio.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Studio.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Studio.cpp.i
 .PHONY : src/models/Studio.cpp.i
 
 src/models/Studio.s: src/models/Studio.cpp.s
@@ -872,7 +808,7 @@ src/models/Studio.s: src/models/Studio.cpp.s
 
 # target to generate assembly for a file
 src/models/Studio.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Studio.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Studio.cpp.s
 .PHONY : src/models/Studio.cpp.s
 
 src/models/Subscription.o: src/models/Subscription.cpp.o
@@ -880,7 +816,7 @@ src/models/Subscription.o: src/models/Subscription.cpp.o
 
 # target to build an object file
 src/models/Subscription.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Subscription.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Subscription.cpp.o
 .PHONY : src/models/Subscription.cpp.o
 
 src/models/Subscription.i: src/models/Subscription.cpp.i
@@ -888,7 +824,7 @@ src/models/Subscription.i: src/models/Subscription.cpp.i
 
 # target to preprocess a source file
 src/models/Subscription.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Subscription.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Subscription.cpp.i
 .PHONY : src/models/Subscription.cpp.i
 
 src/models/Subscription.s: src/models/Subscription.cpp.s
@@ -896,7 +832,7 @@ src/models/Subscription.s: src/models/Subscription.cpp.s
 
 # target to generate assembly for a file
 src/models/Subscription.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Subscription.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Subscription.cpp.s
 .PHONY : src/models/Subscription.cpp.s
 
 src/models/SubscriptionType.o: src/models/SubscriptionType.cpp.o
@@ -904,7 +840,7 @@ src/models/SubscriptionType.o: src/models/SubscriptionType.cpp.o
 
 # target to build an object file
 src/models/SubscriptionType.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/SubscriptionType.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/SubscriptionType.cpp.o
 .PHONY : src/models/SubscriptionType.cpp.o
 
 src/models/SubscriptionType.i: src/models/SubscriptionType.cpp.i
@@ -912,7 +848,7 @@ src/models/SubscriptionType.i: src/models/SubscriptionType.cpp.i
 
 # target to preprocess a source file
 src/models/SubscriptionType.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/SubscriptionType.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/SubscriptionType.cpp.i
 .PHONY : src/models/SubscriptionType.cpp.i
 
 src/models/SubscriptionType.s: src/models/SubscriptionType.cpp.s
@@ -920,7 +856,7 @@ src/models/SubscriptionType.s: src/models/SubscriptionType.cpp.s
 
 # target to generate assembly for a file
 src/models/SubscriptionType.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/SubscriptionType.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/SubscriptionType.cpp.s
 .PHONY : src/models/SubscriptionType.cpp.s
 
 src/models/TimeSlot.o: src/models/TimeSlot.cpp.o
@@ -928,7 +864,7 @@ src/models/TimeSlot.o: src/models/TimeSlot.cpp.o
 
 # target to build an object file
 src/models/TimeSlot.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/TimeSlot.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o
 .PHONY : src/models/TimeSlot.cpp.o
 
 src/models/TimeSlot.i: src/models/TimeSlot.cpp.i
@@ -936,7 +872,7 @@ src/models/TimeSlot.i: src/models/TimeSlot.cpp.i
 
 # target to preprocess a source file
 src/models/TimeSlot.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/TimeSlot.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.i
 .PHONY : src/models/TimeSlot.cpp.i
 
 src/models/TimeSlot.s: src/models/TimeSlot.cpp.s
@@ -944,7 +880,7 @@ src/models/TimeSlot.s: src/models/TimeSlot.cpp.s
 
 # target to generate assembly for a file
 src/models/TimeSlot.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/TimeSlot.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.s
 .PHONY : src/models/TimeSlot.cpp.s
 
 src/models/Trainer.o: src/models/Trainer.cpp.o
@@ -952,7 +888,7 @@ src/models/Trainer.o: src/models/Trainer.cpp.o
 
 # target to build an object file
 src/models/Trainer.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Trainer.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.o
 .PHONY : src/models/Trainer.cpp.o
 
 src/models/Trainer.i: src/models/Trainer.cpp.i
@@ -960,7 +896,7 @@ src/models/Trainer.i: src/models/Trainer.cpp.i
 
 # target to preprocess a source file
 src/models/Trainer.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Trainer.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.i
 .PHONY : src/models/Trainer.cpp.i
 
 src/models/Trainer.s: src/models/Trainer.cpp.s
@@ -968,7 +904,7 @@ src/models/Trainer.s: src/models/Trainer.cpp.s
 
 # target to generate assembly for a file
 src/models/Trainer.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ModelsComponent.dir/build.make CMakeFiles/ModelsComponent.dir/src/models/Trainer.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.s
 .PHONY : src/models/Trainer.cpp.s
 
 src/repositories/impl/PostgreSQLBookingRepository.o: src/repositories/impl/PostgreSQLBookingRepository.cpp.o
@@ -976,7 +912,7 @@ src/repositories/impl/PostgreSQLBookingRepository.o: src/repositories/impl/Postg
 
 # target to build an object file
 src/repositories/impl/PostgreSQLBookingRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o
 .PHONY : src/repositories/impl/PostgreSQLBookingRepository.cpp.o
 
 src/repositories/impl/PostgreSQLBookingRepository.i: src/repositories/impl/PostgreSQLBookingRepository.cpp.i
@@ -984,7 +920,7 @@ src/repositories/impl/PostgreSQLBookingRepository.i: src/repositories/impl/Postg
 
 # target to preprocess a source file
 src/repositories/impl/PostgreSQLBookingRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.i
 .PHONY : src/repositories/impl/PostgreSQLBookingRepository.cpp.i
 
 src/repositories/impl/PostgreSQLBookingRepository.s: src/repositories/impl/PostgreSQLBookingRepository.cpp.s
@@ -992,7 +928,7 @@ src/repositories/impl/PostgreSQLBookingRepository.s: src/repositories/impl/Postg
 
 # target to generate assembly for a file
 src/repositories/impl/PostgreSQLBookingRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.s
 .PHONY : src/repositories/impl/PostgreSQLBookingRepository.cpp.s
 
 src/repositories/impl/PostgreSQLBranchRepository.o: src/repositories/impl/PostgreSQLBranchRepository.cpp.o
@@ -1000,7 +936,7 @@ src/repositories/impl/PostgreSQLBranchRepository.o: src/repositories/impl/Postgr
 
 # target to build an object file
 src/repositories/impl/PostgreSQLBranchRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o
 .PHONY : src/repositories/impl/PostgreSQLBranchRepository.cpp.o
 
 src/repositories/impl/PostgreSQLBranchRepository.i: src/repositories/impl/PostgreSQLBranchRepository.cpp.i
@@ -1008,7 +944,7 @@ src/repositories/impl/PostgreSQLBranchRepository.i: src/repositories/impl/Postgr
 
 # target to preprocess a source file
 src/repositories/impl/PostgreSQLBranchRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.i
 .PHONY : src/repositories/impl/PostgreSQLBranchRepository.cpp.i
 
 src/repositories/impl/PostgreSQLBranchRepository.s: src/repositories/impl/PostgreSQLBranchRepository.cpp.s
@@ -1016,7 +952,7 @@ src/repositories/impl/PostgreSQLBranchRepository.s: src/repositories/impl/Postgr
 
 # target to generate assembly for a file
 src/repositories/impl/PostgreSQLBranchRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.s
 .PHONY : src/repositories/impl/PostgreSQLBranchRepository.cpp.s
 
 src/repositories/impl/PostgreSQLClientRepository.o: src/repositories/impl/PostgreSQLClientRepository.cpp.o
@@ -1024,7 +960,7 @@ src/repositories/impl/PostgreSQLClientRepository.o: src/repositories/impl/Postgr
 
 # target to build an object file
 src/repositories/impl/PostgreSQLClientRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o
 .PHONY : src/repositories/impl/PostgreSQLClientRepository.cpp.o
 
 src/repositories/impl/PostgreSQLClientRepository.i: src/repositories/impl/PostgreSQLClientRepository.cpp.i
@@ -1032,7 +968,7 @@ src/repositories/impl/PostgreSQLClientRepository.i: src/repositories/impl/Postgr
 
 # target to preprocess a source file
 src/repositories/impl/PostgreSQLClientRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.i
 .PHONY : src/repositories/impl/PostgreSQLClientRepository.cpp.i
 
 src/repositories/impl/PostgreSQLClientRepository.s: src/repositories/impl/PostgreSQLClientRepository.cpp.s
@@ -1040,7 +976,7 @@ src/repositories/impl/PostgreSQLClientRepository.s: src/repositories/impl/Postgr
 
 # target to generate assembly for a file
 src/repositories/impl/PostgreSQLClientRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.s
 .PHONY : src/repositories/impl/PostgreSQLClientRepository.cpp.s
 
 src/repositories/impl/PostgreSQLDanceHallRepository.o: src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o
@@ -1048,7 +984,7 @@ src/repositories/impl/PostgreSQLDanceHallRepository.o: src/repositories/impl/Pos
 
 # target to build an object file
 src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o
 .PHONY : src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o
 
 src/repositories/impl/PostgreSQLDanceHallRepository.i: src/repositories/impl/PostgreSQLDanceHallRepository.cpp.i
@@ -1056,7 +992,7 @@ src/repositories/impl/PostgreSQLDanceHallRepository.i: src/repositories/impl/Pos
 
 # target to preprocess a source file
 src/repositories/impl/PostgreSQLDanceHallRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.i
 .PHONY : src/repositories/impl/PostgreSQLDanceHallRepository.cpp.i
 
 src/repositories/impl/PostgreSQLDanceHallRepository.s: src/repositories/impl/PostgreSQLDanceHallRepository.cpp.s
@@ -1064,7 +1000,7 @@ src/repositories/impl/PostgreSQLDanceHallRepository.s: src/repositories/impl/Pos
 
 # target to generate assembly for a file
 src/repositories/impl/PostgreSQLDanceHallRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.s
 .PHONY : src/repositories/impl/PostgreSQLDanceHallRepository.cpp.s
 
 src/repositories/impl/PostgreSQLEnrollmentRepository.o: src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o
@@ -1072,7 +1008,7 @@ src/repositories/impl/PostgreSQLEnrollmentRepository.o: src/repositories/impl/Po
 
 # target to build an object file
 src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o
 .PHONY : src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o
 
 src/repositories/impl/PostgreSQLEnrollmentRepository.i: src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.i
@@ -1080,7 +1016,7 @@ src/repositories/impl/PostgreSQLEnrollmentRepository.i: src/repositories/impl/Po
 
 # target to preprocess a source file
 src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.i
 .PHONY : src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.i
 
 src/repositories/impl/PostgreSQLEnrollmentRepository.s: src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.s
@@ -1088,7 +1024,7 @@ src/repositories/impl/PostgreSQLEnrollmentRepository.s: src/repositories/impl/Po
 
 # target to generate assembly for a file
 src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.s
 .PHONY : src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.s
 
 src/repositories/impl/PostgreSQLLessonRepository.o: src/repositories/impl/PostgreSQLLessonRepository.cpp.o
@@ -1096,7 +1032,7 @@ src/repositories/impl/PostgreSQLLessonRepository.o: src/repositories/impl/Postgr
 
 # target to build an object file
 src/repositories/impl/PostgreSQLLessonRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o
 .PHONY : src/repositories/impl/PostgreSQLLessonRepository.cpp.o
 
 src/repositories/impl/PostgreSQLLessonRepository.i: src/repositories/impl/PostgreSQLLessonRepository.cpp.i
@@ -1104,7 +1040,7 @@ src/repositories/impl/PostgreSQLLessonRepository.i: src/repositories/impl/Postgr
 
 # target to preprocess a source file
 src/repositories/impl/PostgreSQLLessonRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.i
 .PHONY : src/repositories/impl/PostgreSQLLessonRepository.cpp.i
 
 src/repositories/impl/PostgreSQLLessonRepository.s: src/repositories/impl/PostgreSQLLessonRepository.cpp.s
@@ -1112,7 +1048,7 @@ src/repositories/impl/PostgreSQLLessonRepository.s: src/repositories/impl/Postgr
 
 # target to generate assembly for a file
 src/repositories/impl/PostgreSQLLessonRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.s
 .PHONY : src/repositories/impl/PostgreSQLLessonRepository.cpp.s
 
 src/repositories/impl/PostgreSQLReviewRepository.o: src/repositories/impl/PostgreSQLReviewRepository.cpp.o
@@ -1120,7 +1056,7 @@ src/repositories/impl/PostgreSQLReviewRepository.o: src/repositories/impl/Postgr
 
 # target to build an object file
 src/repositories/impl/PostgreSQLReviewRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o
 .PHONY : src/repositories/impl/PostgreSQLReviewRepository.cpp.o
 
 src/repositories/impl/PostgreSQLReviewRepository.i: src/repositories/impl/PostgreSQLReviewRepository.cpp.i
@@ -1128,7 +1064,7 @@ src/repositories/impl/PostgreSQLReviewRepository.i: src/repositories/impl/Postgr
 
 # target to preprocess a source file
 src/repositories/impl/PostgreSQLReviewRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.i
 .PHONY : src/repositories/impl/PostgreSQLReviewRepository.cpp.i
 
 src/repositories/impl/PostgreSQLReviewRepository.s: src/repositories/impl/PostgreSQLReviewRepository.cpp.s
@@ -1136,7 +1072,7 @@ src/repositories/impl/PostgreSQLReviewRepository.s: src/repositories/impl/Postgr
 
 # target to generate assembly for a file
 src/repositories/impl/PostgreSQLReviewRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.s
 .PHONY : src/repositories/impl/PostgreSQLReviewRepository.cpp.s
 
 src/repositories/impl/PostgreSQLStudioRepository.o: src/repositories/impl/PostgreSQLStudioRepository.cpp.o
@@ -1144,7 +1080,7 @@ src/repositories/impl/PostgreSQLStudioRepository.o: src/repositories/impl/Postgr
 
 # target to build an object file
 src/repositories/impl/PostgreSQLStudioRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.o
 .PHONY : src/repositories/impl/PostgreSQLStudioRepository.cpp.o
 
 src/repositories/impl/PostgreSQLStudioRepository.i: src/repositories/impl/PostgreSQLStudioRepository.cpp.i
@@ -1152,7 +1088,7 @@ src/repositories/impl/PostgreSQLStudioRepository.i: src/repositories/impl/Postgr
 
 # target to preprocess a source file
 src/repositories/impl/PostgreSQLStudioRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.i
 .PHONY : src/repositories/impl/PostgreSQLStudioRepository.cpp.i
 
 src/repositories/impl/PostgreSQLStudioRepository.s: src/repositories/impl/PostgreSQLStudioRepository.cpp.s
@@ -1160,7 +1096,7 @@ src/repositories/impl/PostgreSQLStudioRepository.s: src/repositories/impl/Postgr
 
 # target to generate assembly for a file
 src/repositories/impl/PostgreSQLStudioRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.s
 .PHONY : src/repositories/impl/PostgreSQLStudioRepository.cpp.s
 
 src/repositories/impl/PostgreSQLSubscriptionRepository.o: src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o
@@ -1168,7 +1104,7 @@ src/repositories/impl/PostgreSQLSubscriptionRepository.o: src/repositories/impl/
 
 # target to build an object file
 src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o
 .PHONY : src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o
 
 src/repositories/impl/PostgreSQLSubscriptionRepository.i: src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.i
@@ -1176,7 +1112,7 @@ src/repositories/impl/PostgreSQLSubscriptionRepository.i: src/repositories/impl/
 
 # target to preprocess a source file
 src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.i
 .PHONY : src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.i
 
 src/repositories/impl/PostgreSQLSubscriptionRepository.s: src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.s
@@ -1184,7 +1120,7 @@ src/repositories/impl/PostgreSQLSubscriptionRepository.s: src/repositories/impl/
 
 # target to generate assembly for a file
 src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.s
 .PHONY : src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.s
 
 src/repositories/impl/PostgreSQLSubscriptionTypeRepository.o: src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o
@@ -1192,7 +1128,7 @@ src/repositories/impl/PostgreSQLSubscriptionTypeRepository.o: src/repositories/i
 
 # target to build an object file
 src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o
 .PHONY : src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o
 
 src/repositories/impl/PostgreSQLSubscriptionTypeRepository.i: src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.i
@@ -1200,7 +1136,7 @@ src/repositories/impl/PostgreSQLSubscriptionTypeRepository.i: src/repositories/i
 
 # target to preprocess a source file
 src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.i
 .PHONY : src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.i
 
 src/repositories/impl/PostgreSQLSubscriptionTypeRepository.s: src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.s
@@ -1208,7 +1144,7 @@ src/repositories/impl/PostgreSQLSubscriptionTypeRepository.s: src/repositories/i
 
 # target to generate assembly for a file
 src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.s
 .PHONY : src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.s
 
 src/repositories/impl/PostgreSQLTrainerRepository.o: src/repositories/impl/PostgreSQLTrainerRepository.cpp.o
@@ -1216,7 +1152,7 @@ src/repositories/impl/PostgreSQLTrainerRepository.o: src/repositories/impl/Postg
 
 # target to build an object file
 src/repositories/impl/PostgreSQLTrainerRepository.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o
 .PHONY : src/repositories/impl/PostgreSQLTrainerRepository.cpp.o
 
 src/repositories/impl/PostgreSQLTrainerRepository.i: src/repositories/impl/PostgreSQLTrainerRepository.cpp.i
@@ -1224,7 +1160,7 @@ src/repositories/impl/PostgreSQLTrainerRepository.i: src/repositories/impl/Postg
 
 # target to preprocess a source file
 src/repositories/impl/PostgreSQLTrainerRepository.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.i
 .PHONY : src/repositories/impl/PostgreSQLTrainerRepository.cpp.i
 
 src/repositories/impl/PostgreSQLTrainerRepository.s: src/repositories/impl/PostgreSQLTrainerRepository.cpp.s
@@ -1232,7 +1168,7 @@ src/repositories/impl/PostgreSQLTrainerRepository.s: src/repositories/impl/Postg
 
 # target to generate assembly for a file
 src/repositories/impl/PostgreSQLTrainerRepository.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccessComponent.dir/build.make CMakeFiles/DataAccessComponent.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.s
 .PHONY : src/repositories/impl/PostgreSQLTrainerRepository.cpp.s
 
 src/services/AuthService.o: src/services/AuthService.cpp.o
@@ -1240,7 +1176,7 @@ src/services/AuthService.o: src/services/AuthService.cpp.o
 
 # target to build an object file
 src/services/AuthService.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/AuthService.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/AuthService.cpp.o
 .PHONY : src/services/AuthService.cpp.o
 
 src/services/AuthService.i: src/services/AuthService.cpp.i
@@ -1248,7 +1184,7 @@ src/services/AuthService.i: src/services/AuthService.cpp.i
 
 # target to preprocess a source file
 src/services/AuthService.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/AuthService.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/AuthService.cpp.i
 .PHONY : src/services/AuthService.cpp.i
 
 src/services/AuthService.s: src/services/AuthService.cpp.s
@@ -1256,7 +1192,7 @@ src/services/AuthService.s: src/services/AuthService.cpp.s
 
 # target to generate assembly for a file
 src/services/AuthService.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/AuthService.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/AuthService.cpp.s
 .PHONY : src/services/AuthService.cpp.s
 
 src/services/BookingService.o: src/services/BookingService.cpp.o
@@ -1264,7 +1200,7 @@ src/services/BookingService.o: src/services/BookingService.cpp.o
 
 # target to build an object file
 src/services/BookingService.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/BookingService.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o
 .PHONY : src/services/BookingService.cpp.o
 
 src/services/BookingService.i: src/services/BookingService.cpp.i
@@ -1272,7 +1208,7 @@ src/services/BookingService.i: src/services/BookingService.cpp.i
 
 # target to preprocess a source file
 src/services/BookingService.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/BookingService.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.i
 .PHONY : src/services/BookingService.cpp.i
 
 src/services/BookingService.s: src/services/BookingService.cpp.s
@@ -1280,7 +1216,7 @@ src/services/BookingService.s: src/services/BookingService.cpp.s
 
 # target to generate assembly for a file
 src/services/BookingService.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/BookingService.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.s
 .PHONY : src/services/BookingService.cpp.s
 
 src/services/EnrollmentService.o: src/services/EnrollmentService.cpp.o
@@ -1288,7 +1224,7 @@ src/services/EnrollmentService.o: src/services/EnrollmentService.cpp.o
 
 # target to build an object file
 src/services/EnrollmentService.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/EnrollmentService.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.o
 .PHONY : src/services/EnrollmentService.cpp.o
 
 src/services/EnrollmentService.i: src/services/EnrollmentService.cpp.i
@@ -1296,7 +1232,7 @@ src/services/EnrollmentService.i: src/services/EnrollmentService.cpp.i
 
 # target to preprocess a source file
 src/services/EnrollmentService.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/EnrollmentService.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.i
 .PHONY : src/services/EnrollmentService.cpp.i
 
 src/services/EnrollmentService.s: src/services/EnrollmentService.cpp.s
@@ -1304,7 +1240,7 @@ src/services/EnrollmentService.s: src/services/EnrollmentService.cpp.s
 
 # target to generate assembly for a file
 src/services/EnrollmentService.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/EnrollmentService.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.s
 .PHONY : src/services/EnrollmentService.cpp.s
 
 src/services/LessonService.o: src/services/LessonService.cpp.o
@@ -1312,7 +1248,7 @@ src/services/LessonService.o: src/services/LessonService.cpp.o
 
 # target to build an object file
 src/services/LessonService.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/LessonService.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/LessonService.cpp.o
 .PHONY : src/services/LessonService.cpp.o
 
 src/services/LessonService.i: src/services/LessonService.cpp.i
@@ -1320,7 +1256,7 @@ src/services/LessonService.i: src/services/LessonService.cpp.i
 
 # target to preprocess a source file
 src/services/LessonService.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/LessonService.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/LessonService.cpp.i
 .PHONY : src/services/LessonService.cpp.i
 
 src/services/LessonService.s: src/services/LessonService.cpp.s
@@ -1328,7 +1264,7 @@ src/services/LessonService.s: src/services/LessonService.cpp.s
 
 # target to generate assembly for a file
 src/services/LessonService.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/LessonService.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/LessonService.cpp.s
 .PHONY : src/services/LessonService.cpp.s
 
 src/services/ReviewService.o: src/services/ReviewService.cpp.o
@@ -1336,7 +1272,7 @@ src/services/ReviewService.o: src/services/ReviewService.cpp.o
 
 # target to build an object file
 src/services/ReviewService.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/ReviewService.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/ReviewService.cpp.o
 .PHONY : src/services/ReviewService.cpp.o
 
 src/services/ReviewService.i: src/services/ReviewService.cpp.i
@@ -1344,7 +1280,7 @@ src/services/ReviewService.i: src/services/ReviewService.cpp.i
 
 # target to preprocess a source file
 src/services/ReviewService.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/ReviewService.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/ReviewService.cpp.i
 .PHONY : src/services/ReviewService.cpp.i
 
 src/services/ReviewService.s: src/services/ReviewService.cpp.s
@@ -1352,7 +1288,7 @@ src/services/ReviewService.s: src/services/ReviewService.cpp.s
 
 # target to generate assembly for a file
 src/services/ReviewService.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/ReviewService.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/ReviewService.cpp.s
 .PHONY : src/services/ReviewService.cpp.s
 
 src/services/ScheduleService.o: src/services/ScheduleService.cpp.o
@@ -1360,7 +1296,7 @@ src/services/ScheduleService.o: src/services/ScheduleService.cpp.o
 
 # target to build an object file
 src/services/ScheduleService.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/ScheduleService.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/ScheduleService.cpp.o
 .PHONY : src/services/ScheduleService.cpp.o
 
 src/services/ScheduleService.i: src/services/ScheduleService.cpp.i
@@ -1368,7 +1304,7 @@ src/services/ScheduleService.i: src/services/ScheduleService.cpp.i
 
 # target to preprocess a source file
 src/services/ScheduleService.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/ScheduleService.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/ScheduleService.cpp.i
 .PHONY : src/services/ScheduleService.cpp.i
 
 src/services/ScheduleService.s: src/services/ScheduleService.cpp.s
@@ -1376,7 +1312,7 @@ src/services/ScheduleService.s: src/services/ScheduleService.cpp.s
 
 # target to generate assembly for a file
 src/services/ScheduleService.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/ScheduleService.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/ScheduleService.cpp.s
 .PHONY : src/services/ScheduleService.cpp.s
 
 src/services/SubscriptionService.o: src/services/SubscriptionService.cpp.o
@@ -1384,7 +1320,7 @@ src/services/SubscriptionService.o: src/services/SubscriptionService.cpp.o
 
 # target to build an object file
 src/services/SubscriptionService.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/SubscriptionService.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/SubscriptionService.cpp.o
 .PHONY : src/services/SubscriptionService.cpp.o
 
 src/services/SubscriptionService.i: src/services/SubscriptionService.cpp.i
@@ -1392,7 +1328,7 @@ src/services/SubscriptionService.i: src/services/SubscriptionService.cpp.i
 
 # target to preprocess a source file
 src/services/SubscriptionService.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/SubscriptionService.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/SubscriptionService.cpp.i
 .PHONY : src/services/SubscriptionService.cpp.i
 
 src/services/SubscriptionService.s: src/services/SubscriptionService.cpp.s
@@ -1400,7 +1336,7 @@ src/services/SubscriptionService.s: src/services/SubscriptionService.cpp.s
 
 # target to generate assembly for a file
 src/services/SubscriptionService.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ServicesComponent.dir/build.make CMakeFiles/ServicesComponent.dir/src/services/SubscriptionService.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/SubscriptionService.cpp.s
 .PHONY : src/services/SubscriptionService.cpp.s
 
 src/tech_ui/InputHandlers.o: src/tech_ui/InputHandlers.cpp.o
@@ -1408,7 +1344,7 @@ src/tech_ui/InputHandlers.o: src/tech_ui/InputHandlers.cpp.o
 
 # target to build an object file
 src/tech_ui/InputHandlers.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUIComponent.dir/build.make CMakeFiles/TechUIComponent.dir/src/tech_ui/InputHandlers.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.o
 .PHONY : src/tech_ui/InputHandlers.cpp.o
 
 src/tech_ui/InputHandlers.i: src/tech_ui/InputHandlers.cpp.i
@@ -1416,7 +1352,7 @@ src/tech_ui/InputHandlers.i: src/tech_ui/InputHandlers.cpp.i
 
 # target to preprocess a source file
 src/tech_ui/InputHandlers.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUIComponent.dir/build.make CMakeFiles/TechUIComponent.dir/src/tech_ui/InputHandlers.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.i
 .PHONY : src/tech_ui/InputHandlers.cpp.i
 
 src/tech_ui/InputHandlers.s: src/tech_ui/InputHandlers.cpp.s
@@ -1424,7 +1360,7 @@ src/tech_ui/InputHandlers.s: src/tech_ui/InputHandlers.cpp.s
 
 # target to generate assembly for a file
 src/tech_ui/InputHandlers.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUIComponent.dir/build.make CMakeFiles/TechUIComponent.dir/src/tech_ui/InputHandlers.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/InputHandlers.cpp.s
 .PHONY : src/tech_ui/InputHandlers.cpp.s
 
 src/tech_ui/TechUI.o: src/tech_ui/TechUI.cpp.o
@@ -1432,7 +1368,7 @@ src/tech_ui/TechUI.o: src/tech_ui/TechUI.cpp.o
 
 # target to build an object file
 src/tech_ui/TechUI.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUIComponent.dir/build.make CMakeFiles/TechUIComponent.dir/src/tech_ui/TechUI.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
 .PHONY : src/tech_ui/TechUI.cpp.o
 
 src/tech_ui/TechUI.i: src/tech_ui/TechUI.cpp.i
@@ -1440,7 +1376,7 @@ src/tech_ui/TechUI.i: src/tech_ui/TechUI.cpp.i
 
 # target to preprocess a source file
 src/tech_ui/TechUI.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUIComponent.dir/build.make CMakeFiles/TechUIComponent.dir/src/tech_ui/TechUI.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.i
 .PHONY : src/tech_ui/TechUI.cpp.i
 
 src/tech_ui/TechUI.s: src/tech_ui/TechUI.cpp.s
@@ -1448,7 +1384,7 @@ src/tech_ui/TechUI.s: src/tech_ui/TechUI.cpp.s
 
 # target to generate assembly for a file
 src/tech_ui/TechUI.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUIComponent.dir/build.make CMakeFiles/TechUIComponent.dir/src/tech_ui/TechUI.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.s
 .PHONY : src/tech_ui/TechUI.cpp.s
 
 src/tech_ui/TechUIManagers.o: src/tech_ui/TechUIManagers.cpp.o
@@ -1456,7 +1392,7 @@ src/tech_ui/TechUIManagers.o: src/tech_ui/TechUIManagers.cpp.o
 
 # target to build an object file
 src/tech_ui/TechUIManagers.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUIComponent.dir/build.make CMakeFiles/TechUIComponent.dir/src/tech_ui/TechUIManagers.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.o
 .PHONY : src/tech_ui/TechUIManagers.cpp.o
 
 src/tech_ui/TechUIManagers.i: src/tech_ui/TechUIManagers.cpp.i
@@ -1464,7 +1400,7 @@ src/tech_ui/TechUIManagers.i: src/tech_ui/TechUIManagers.cpp.i
 
 # target to preprocess a source file
 src/tech_ui/TechUIManagers.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUIComponent.dir/build.make CMakeFiles/TechUIComponent.dir/src/tech_ui/TechUIManagers.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.i
 .PHONY : src/tech_ui/TechUIManagers.cpp.i
 
 src/tech_ui/TechUIManagers.s: src/tech_ui/TechUIManagers.cpp.s
@@ -1472,32 +1408,8 @@ src/tech_ui/TechUIManagers.s: src/tech_ui/TechUIManagers.cpp.s
 
 # target to generate assembly for a file
 src/tech_ui/TechUIManagers.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUIComponent.dir/build.make CMakeFiles/TechUIComponent.dir/src/tech_ui/TechUIManagers.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/tech_ui/TechUIManagers.cpp.s
 .PHONY : src/tech_ui/TechUIManagers.cpp.s
-
-src/test_logger.o: src/test_logger.cpp.o
-.PHONY : src/test_logger.o
-
-# target to build an object file
-src/test_logger.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLogger.dir/build.make CMakeFiles/TestLogger.dir/src/test_logger.cpp.o
-.PHONY : src/test_logger.cpp.o
-
-src/test_logger.i: src/test_logger.cpp.i
-.PHONY : src/test_logger.i
-
-# target to preprocess a source file
-src/test_logger.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLogger.dir/build.make CMakeFiles/TestLogger.dir/src/test_logger.cpp.i
-.PHONY : src/test_logger.cpp.i
-
-src/test_logger.s: src/test_logger.cpp.s
-.PHONY : src/test_logger.s
-
-# target to generate assembly for a file
-src/test_logger.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestLogger.dir/build.make CMakeFiles/TestLogger.dir/src/test_logger.cpp.s
-.PHONY : src/test_logger.cpp.s
 
 src/tests/integration/RepositoryIntegrationTests.o: src/tests/integration/RepositoryIntegrationTests.cpp.o
 .PHONY : src/tests/integration/RepositoryIntegrationTests.o
@@ -1648,7 +1560,7 @@ src/types/enums.o: src/types/enums.cpp.o
 
 # target to build an object file
 src/types/enums.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CoreComponent.dir/build.make CMakeFiles/CoreComponent.dir/src/types/enums.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/types/enums.cpp.o
 .PHONY : src/types/enums.cpp.o
 
 src/types/enums.i: src/types/enums.cpp.i
@@ -1656,7 +1568,7 @@ src/types/enums.i: src/types/enums.cpp.i
 
 # target to preprocess a source file
 src/types/enums.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CoreComponent.dir/build.make CMakeFiles/CoreComponent.dir/src/types/enums.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/types/enums.cpp.i
 .PHONY : src/types/enums.cpp.i
 
 src/types/enums.s: src/types/enums.cpp.s
@@ -1664,7 +1576,7 @@ src/types/enums.s: src/types/enums.cpp.s
 
 # target to generate assembly for a file
 src/types/enums.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CoreComponent.dir/build.make CMakeFiles/CoreComponent.dir/src/types/enums.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/types/enums.cpp.s
 .PHONY : src/types/enums.cpp.s
 
 src/types/uuid.o: src/types/uuid.cpp.o
@@ -1672,7 +1584,7 @@ src/types/uuid.o: src/types/uuid.cpp.o
 
 # target to build an object file
 src/types/uuid.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CoreComponent.dir/build.make CMakeFiles/CoreComponent.dir/src/types/uuid.cpp.o
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/types/uuid.cpp.o
 .PHONY : src/types/uuid.cpp.o
 
 src/types/uuid.i: src/types/uuid.cpp.i
@@ -1680,7 +1592,7 @@ src/types/uuid.i: src/types/uuid.cpp.i
 
 # target to preprocess a source file
 src/types/uuid.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CoreComponent.dir/build.make CMakeFiles/CoreComponent.dir/src/types/uuid.cpp.i
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/types/uuid.cpp.i
 .PHONY : src/types/uuid.cpp.i
 
 src/types/uuid.s: src/types/uuid.cpp.s
@@ -1688,8 +1600,272 @@ src/types/uuid.s: src/types/uuid.cpp.s
 
 # target to generate assembly for a file
 src/types/uuid.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/CoreComponent.dir/build.make CMakeFiles/CoreComponent.dir/src/types/uuid.cpp.s
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/types/uuid.cpp.s
 .PHONY : src/types/uuid.cpp.s
+
+src/web_main.o: src/web_main.cpp.o
+.PHONY : src/web_main.o
+
+# target to build an object file
+src/web_main.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioWebUI.dir/build.make CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o
+.PHONY : src/web_main.cpp.o
+
+src/web_main.i: src/web_main.cpp.i
+.PHONY : src/web_main.i
+
+# target to preprocess a source file
+src/web_main.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioWebUI.dir/build.make CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.i
+.PHONY : src/web_main.cpp.i
+
+src/web_main.s: src/web_main.cpp.s
+.PHONY : src/web_main.s
+
+# target to generate assembly for a file
+src/web_main.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioWebUI.dir/build.make CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.s
+.PHONY : src/web_main.cpp.s
+
+src/web_ui/WebApplication.o: src/web_ui/WebApplication.cpp.o
+.PHONY : src/web_ui/WebApplication.o
+
+# target to build an object file
+src/web_ui/WebApplication.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o
+.PHONY : src/web_ui/WebApplication.cpp.o
+
+src/web_ui/WebApplication.i: src/web_ui/WebApplication.cpp.i
+.PHONY : src/web_ui/WebApplication.i
+
+# target to preprocess a source file
+src/web_ui/WebApplication.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.i
+.PHONY : src/web_ui/WebApplication.cpp.i
+
+src/web_ui/WebApplication.s: src/web_ui/WebApplication.cpp.s
+.PHONY : src/web_ui/WebApplication.s
+
+# target to generate assembly for a file
+src/web_ui/WebApplication.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.s
+.PHONY : src/web_ui/WebApplication.cpp.s
+
+src/web_ui/controllers/AuthController.o: src/web_ui/controllers/AuthController.cpp.o
+.PHONY : src/web_ui/controllers/AuthController.o
+
+# target to build an object file
+src/web_ui/controllers/AuthController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o
+.PHONY : src/web_ui/controllers/AuthController.cpp.o
+
+src/web_ui/controllers/AuthController.i: src/web_ui/controllers/AuthController.cpp.i
+.PHONY : src/web_ui/controllers/AuthController.i
+
+# target to preprocess a source file
+src/web_ui/controllers/AuthController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.i
+.PHONY : src/web_ui/controllers/AuthController.cpp.i
+
+src/web_ui/controllers/AuthController.s: src/web_ui/controllers/AuthController.cpp.s
+.PHONY : src/web_ui/controllers/AuthController.s
+
+# target to generate assembly for a file
+src/web_ui/controllers/AuthController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.s
+.PHONY : src/web_ui/controllers/AuthController.cpp.s
+
+src/web_ui/controllers/BookingController.o: src/web_ui/controllers/BookingController.cpp.o
+.PHONY : src/web_ui/controllers/BookingController.o
+
+# target to build an object file
+src/web_ui/controllers/BookingController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o
+.PHONY : src/web_ui/controllers/BookingController.cpp.o
+
+src/web_ui/controllers/BookingController.i: src/web_ui/controllers/BookingController.cpp.i
+.PHONY : src/web_ui/controllers/BookingController.i
+
+# target to preprocess a source file
+src/web_ui/controllers/BookingController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.i
+.PHONY : src/web_ui/controllers/BookingController.cpp.i
+
+src/web_ui/controllers/BookingController.s: src/web_ui/controllers/BookingController.cpp.s
+.PHONY : src/web_ui/controllers/BookingController.s
+
+# target to generate assembly for a file
+src/web_ui/controllers/BookingController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.s
+.PHONY : src/web_ui/controllers/BookingController.cpp.s
+
+src/web_ui/models/UserSession.o: src/web_ui/models/UserSession.cpp.o
+.PHONY : src/web_ui/models/UserSession.o
+
+# target to build an object file
+src/web_ui/models/UserSession.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/models/UserSession.cpp.o
+.PHONY : src/web_ui/models/UserSession.cpp.o
+
+src/web_ui/models/UserSession.i: src/web_ui/models/UserSession.cpp.i
+.PHONY : src/web_ui/models/UserSession.i
+
+# target to preprocess a source file
+src/web_ui/models/UserSession.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/models/UserSession.cpp.i
+.PHONY : src/web_ui/models/UserSession.cpp.i
+
+src/web_ui/models/UserSession.s: src/web_ui/models/UserSession.cpp.s
+.PHONY : src/web_ui/models/UserSession.s
+
+# target to generate assembly for a file
+src/web_ui/models/UserSession.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/models/UserSession.cpp.s
+.PHONY : src/web_ui/models/UserSession.cpp.s
+
+src/web_ui/views/BookingCreateWidget.o: src/web_ui/views/BookingCreateWidget.cpp.o
+.PHONY : src/web_ui/views/BookingCreateWidget.o
+
+# target to build an object file
+src/web_ui/views/BookingCreateWidget.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o
+.PHONY : src/web_ui/views/BookingCreateWidget.cpp.o
+
+src/web_ui/views/BookingCreateWidget.i: src/web_ui/views/BookingCreateWidget.cpp.i
+.PHONY : src/web_ui/views/BookingCreateWidget.i
+
+# target to preprocess a source file
+src/web_ui/views/BookingCreateWidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.i
+.PHONY : src/web_ui/views/BookingCreateWidget.cpp.i
+
+src/web_ui/views/BookingCreateWidget.s: src/web_ui/views/BookingCreateWidget.cpp.s
+.PHONY : src/web_ui/views/BookingCreateWidget.s
+
+# target to generate assembly for a file
+src/web_ui/views/BookingCreateWidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.s
+.PHONY : src/web_ui/views/BookingCreateWidget.cpp.s
+
+src/web_ui/views/BookingListWidget.o: src/web_ui/views/BookingListWidget.cpp.o
+.PHONY : src/web_ui/views/BookingListWidget.o
+
+# target to build an object file
+src/web_ui/views/BookingListWidget.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o
+.PHONY : src/web_ui/views/BookingListWidget.cpp.o
+
+src/web_ui/views/BookingListWidget.i: src/web_ui/views/BookingListWidget.cpp.i
+.PHONY : src/web_ui/views/BookingListWidget.i
+
+# target to preprocess a source file
+src/web_ui/views/BookingListWidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.i
+.PHONY : src/web_ui/views/BookingListWidget.cpp.i
+
+src/web_ui/views/BookingListWidget.s: src/web_ui/views/BookingListWidget.cpp.s
+.PHONY : src/web_ui/views/BookingListWidget.s
+
+# target to generate assembly for a file
+src/web_ui/views/BookingListWidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.s
+.PHONY : src/web_ui/views/BookingListWidget.cpp.s
+
+src/web_ui/views/BookingView.o: src/web_ui/views/BookingView.cpp.o
+.PHONY : src/web_ui/views/BookingView.o
+
+# target to build an object file
+src/web_ui/views/BookingView.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o
+.PHONY : src/web_ui/views/BookingView.cpp.o
+
+src/web_ui/views/BookingView.i: src/web_ui/views/BookingView.cpp.i
+.PHONY : src/web_ui/views/BookingView.i
+
+# target to preprocess a source file
+src/web_ui/views/BookingView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.i
+.PHONY : src/web_ui/views/BookingView.cpp.i
+
+src/web_ui/views/BookingView.s: src/web_ui/views/BookingView.cpp.s
+.PHONY : src/web_ui/views/BookingView.s
+
+# target to generate assembly for a file
+src/web_ui/views/BookingView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.s
+.PHONY : src/web_ui/views/BookingView.cpp.s
+
+src/web_ui/views/ClientDashboard.o: src/web_ui/views/ClientDashboard.cpp.o
+.PHONY : src/web_ui/views/ClientDashboard.o
+
+# target to build an object file
+src/web_ui/views/ClientDashboard.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o
+.PHONY : src/web_ui/views/ClientDashboard.cpp.o
+
+src/web_ui/views/ClientDashboard.i: src/web_ui/views/ClientDashboard.cpp.i
+.PHONY : src/web_ui/views/ClientDashboard.i
+
+# target to preprocess a source file
+src/web_ui/views/ClientDashboard.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.i
+.PHONY : src/web_ui/views/ClientDashboard.cpp.i
+
+src/web_ui/views/ClientDashboard.s: src/web_ui/views/ClientDashboard.cpp.s
+.PHONY : src/web_ui/views/ClientDashboard.s
+
+# target to generate assembly for a file
+src/web_ui/views/ClientDashboard.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.s
+.PHONY : src/web_ui/views/ClientDashboard.cpp.s
+
+src/web_ui/views/LoginWidget.o: src/web_ui/views/LoginWidget.cpp.o
+.PHONY : src/web_ui/views/LoginWidget.o
+
+# target to build an object file
+src/web_ui/views/LoginWidget.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o
+.PHONY : src/web_ui/views/LoginWidget.cpp.o
+
+src/web_ui/views/LoginWidget.i: src/web_ui/views/LoginWidget.cpp.i
+.PHONY : src/web_ui/views/LoginWidget.i
+
+# target to preprocess a source file
+src/web_ui/views/LoginWidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.i
+.PHONY : src/web_ui/views/LoginWidget.cpp.i
+
+src/web_ui/views/LoginWidget.s: src/web_ui/views/LoginWidget.cpp.s
+.PHONY : src/web_ui/views/LoginWidget.s
+
+# target to generate assembly for a file
+src/web_ui/views/LoginWidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.s
+.PHONY : src/web_ui/views/LoginWidget.cpp.s
+
+src/web_ui/views/RegistrationWidget.o: src/web_ui/views/RegistrationWidget.cpp.o
+.PHONY : src/web_ui/views/RegistrationWidget.o
+
+# target to build an object file
+src/web_ui/views/RegistrationWidget.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o
+.PHONY : src/web_ui/views/RegistrationWidget.cpp.o
+
+src/web_ui/views/RegistrationWidget.i: src/web_ui/views/RegistrationWidget.cpp.i
+.PHONY : src/web_ui/views/RegistrationWidget.i
+
+# target to preprocess a source file
+src/web_ui/views/RegistrationWidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.i
+.PHONY : src/web_ui/views/RegistrationWidget.cpp.i
+
+src/web_ui/views/RegistrationWidget.s: src/web_ui/views/RegistrationWidget.cpp.s
+.PHONY : src/web_ui/views/RegistrationWidget.s
+
+# target to generate assembly for a file
+src/web_ui/views/RegistrationWidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.s
+.PHONY : src/web_ui/views/RegistrationWidget.cpp.s
 
 # Help Target
 help:
@@ -1699,21 +1875,17 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... CopyConfig"
 	@echo "... AuthServiceTests"
+	@echo "... BookingCore"
 	@echo "... BookingTests"
-	@echo "... CoreComponent"
-	@echo "... DTOsComponent"
-	@echo "... DanceStudioTechUI"
-	@echo "... DataAccessComponent"
+	@echo "... DanceStudioWebUI"
+	@echo "... DataAccess"
 	@echo "... IntegrationTests"
 	@echo "... LessonServiceTests"
-	@echo "... ModelsComponent"
 	@echo "... ReviewServiceTests"
-	@echo "... ServicesComponent"
 	@echo "... SubscriptionServiceTests"
-	@echo "... TechUIComponent"
-	@echo "... TestLogger"
+	@echo "... TechUI"
+	@echo "... WebUIComponent"
 	@echo "... src/core/Config.o"
 	@echo "... src/core/Config.i"
 	@echo "... src/core/Config.s"
@@ -1858,9 +2030,6 @@ help:
 	@echo "... src/tech_ui/TechUIManagers.o"
 	@echo "... src/tech_ui/TechUIManagers.i"
 	@echo "... src/tech_ui/TechUIManagers.s"
-	@echo "... src/test_logger.o"
-	@echo "... src/test_logger.i"
-	@echo "... src/test_logger.s"
 	@echo "... src/tests/integration/RepositoryIntegrationTests.o"
 	@echo "... src/tests/integration/RepositoryIntegrationTests.i"
 	@echo "... src/tests/integration/RepositoryIntegrationTests.s"
@@ -1885,6 +2054,39 @@ help:
 	@echo "... src/types/uuid.o"
 	@echo "... src/types/uuid.i"
 	@echo "... src/types/uuid.s"
+	@echo "... src/web_main.o"
+	@echo "... src/web_main.i"
+	@echo "... src/web_main.s"
+	@echo "... src/web_ui/WebApplication.o"
+	@echo "... src/web_ui/WebApplication.i"
+	@echo "... src/web_ui/WebApplication.s"
+	@echo "... src/web_ui/controllers/AuthController.o"
+	@echo "... src/web_ui/controllers/AuthController.i"
+	@echo "... src/web_ui/controllers/AuthController.s"
+	@echo "... src/web_ui/controllers/BookingController.o"
+	@echo "... src/web_ui/controllers/BookingController.i"
+	@echo "... src/web_ui/controllers/BookingController.s"
+	@echo "... src/web_ui/models/UserSession.o"
+	@echo "... src/web_ui/models/UserSession.i"
+	@echo "... src/web_ui/models/UserSession.s"
+	@echo "... src/web_ui/views/BookingCreateWidget.o"
+	@echo "... src/web_ui/views/BookingCreateWidget.i"
+	@echo "... src/web_ui/views/BookingCreateWidget.s"
+	@echo "... src/web_ui/views/BookingListWidget.o"
+	@echo "... src/web_ui/views/BookingListWidget.i"
+	@echo "... src/web_ui/views/BookingListWidget.s"
+	@echo "... src/web_ui/views/BookingView.o"
+	@echo "... src/web_ui/views/BookingView.i"
+	@echo "... src/web_ui/views/BookingView.s"
+	@echo "... src/web_ui/views/ClientDashboard.o"
+	@echo "... src/web_ui/views/ClientDashboard.i"
+	@echo "... src/web_ui/views/ClientDashboard.s"
+	@echo "... src/web_ui/views/LoginWidget.o"
+	@echo "... src/web_ui/views/LoginWidget.i"
+	@echo "... src/web_ui/views/LoginWidget.s"
+	@echo "... src/web_ui/views/RegistrationWidget.o"
+	@echo "... src/web_ui/views/RegistrationWidget.i"
+	@echo "... src/web_ui/views/RegistrationWidget.s"
 .PHONY : help
 
 

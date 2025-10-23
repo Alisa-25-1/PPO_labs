@@ -92,10 +92,7 @@ BookingTests_EXTERNAL_OBJECTS =
 
 BookingTests: CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o
 BookingTests: CMakeFiles/BookingTests.dir/build.make
-BookingTests: libServicesComponent.a
-BookingTests: libDTOsComponent.a
-BookingTests: libModelsComponent.a
-BookingTests: libCoreComponent.a
+BookingTests: libBookingCore.a
 BookingTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 BookingTests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 BookingTests: /usr/lib/x86_64-linux-gnu/libgmock.a

@@ -10,9 +10,9 @@
 
 class ScheduleService {
 private:
-    std::unique_ptr<ILessonRepository> lessonRepository_;
-    std::unique_ptr<IBookingRepository> bookingRepository_;
-    std::unique_ptr<IDanceHallRepository> hallRepository_;
+    std::shared_ptr<ILessonRepository> lessonRepository_;
+    std::shared_ptr<IBookingRepository> bookingRepository_;
+    std::shared_ptr<IDanceHallRepository> hallRepository_;
 
     void validateBranch(const UUID& branchId) const;
     void validateDateRange(const std::chrono::system_clock::time_point& startDate, 
@@ -20,9 +20,9 @@ private:
 
 public:
     ScheduleService(
-        std::unique_ptr<ILessonRepository> lessonRepo,
-        std::unique_ptr<IBookingRepository> bookingRepo,
-        std::unique_ptr<IDanceHallRepository> hallRepo
+        std::shared_ptr<ILessonRepository> lessonRepo,
+        std::shared_ptr<IBookingRepository> bookingRepo,
+        std::shared_ptr<IDanceHallRepository> hallRepo
     );
 
     ScheduleResponseDTO getBranchSchedule(const UUID& branchId, 

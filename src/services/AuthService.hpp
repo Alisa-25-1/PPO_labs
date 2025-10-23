@@ -11,10 +11,10 @@
 
 class AuthService {
 private:
-    std::unique_ptr<IClientRepository> clientRepository_;
+    std::shared_ptr<IClientRepository> clientRepository_;
 
 public:
-    explicit AuthService(std::unique_ptr<IClientRepository> clientRepo);
+    explicit AuthService(std::shared_ptr<IClientRepository> clientRepo);
     
     AuthResponseDTO registerClient(const AuthRequestDTO& request);
     AuthResponseDTO login(const AuthRequestDTO& request);

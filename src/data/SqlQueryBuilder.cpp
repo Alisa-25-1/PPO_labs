@@ -95,6 +95,33 @@ SqlQueryBuilder& SqlQueryBuilder::deleteFrom(const std::string& table) {
     return *this;
 }
 
+SqlQueryBuilder& SqlQueryBuilder::truncate(const std::string& table) {
+    queryType_ = "TRUNCATE";
+    truncateTables_.clear();
+    truncateTables_.push_back(table);
+    return *this;
+}
+
+SqlQueryBuilder& SqlQueryBuilder::truncate(const std::vector<std::string>& tables) {
+    queryType_ = "TRUNCATE";
+    truncateTables_ = tables;
+    return *this;
+}
+
+std::string SqlQueryBuilder::buildTruncate() const {
+    std::ostringstream query;
+    query << "TRUNCATE TABLE ";
+    
+    for (size_t i = 0; i < truncateTables_.size(); ++i) {
+        if (i > 0) query << ", ";
+        query << truncateTables_[i];
+    }
+    
+    query << " CASCADE";
+    return query.str();
+}
+
+
 std::string SqlQueryBuilder::build() const {
     if (queryType_ == "SELECT") {
         return buildSelect();
@@ -104,6 +131,8 @@ std::string SqlQueryBuilder::build() const {
         return buildUpdate();
     } else if (queryType_ == "DELETE") {
         return buildDelete();
+    } else if (queryType_ == "TRUNCATE") {
+        return buildTruncate();
     }
     return "";
 }
