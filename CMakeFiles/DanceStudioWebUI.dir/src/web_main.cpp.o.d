@@ -284,5 +284,15 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/exceptions/BookingException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../dtos/BookingDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/SubscriptionController.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/SubscriptionService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/ISubscriptionRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/Subscription.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/ISubscriptionTypeRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/SubscriptionType.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/SubscriptionDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/../models/Subscription.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/../models/SubscriptionType.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../dtos/SubscriptionDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/models/UserSession.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/models/../../types/uuid.hpp

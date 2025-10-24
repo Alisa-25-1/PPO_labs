@@ -31,11 +31,17 @@ void ClientDashboard::setupUI() {
     bookingBtn->clicked().connect([this]() {
         app_->showBookingView();
     });
+
+    // Кнопка абонементов
+    auto subscriptionBtn = menu->addNew<Wt::WPushButton>("🎫 Абонементы");
+    subscriptionBtn->setStyleClass("btn-menu");
+    subscriptionBtn->clicked().connect([this]() {
+        app_->showSubscriptionView();
+    });
     
     std::vector<std::string> buttons = {
         "📅 Расписание",
         "🎓 Мои занятия", 
-        "🎫 Абонементы",
         "⭐ Отзывы"
     };
     

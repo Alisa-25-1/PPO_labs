@@ -295,6 +295,17 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/exceptions/BookingException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../dtos/BookingDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/SubscriptionController.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/SubscriptionService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/ISubscriptionRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Subscription.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/ISubscriptionTypeRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/SubscriptionType.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/SubscriptionDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/Subscription.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/SubscriptionType.hpp \
+ /usr/include/c++/13/iomanip /usr/include/c++/13/bits/quoted_string.h \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../dtos/SubscriptionDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../models/UserSession.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../models/../../types/uuid.hpp \
  /usr/local/include/Wt/WTimer.h

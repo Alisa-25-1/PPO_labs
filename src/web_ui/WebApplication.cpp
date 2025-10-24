@@ -3,19 +3,24 @@
 #include "views/ClientDashboard.hpp"
 #include "views/RegistrationWidget.hpp"
 #include "views/BookingView.hpp"
+#include "views/SubscriptionView.hpp"
 
 // Контроллеры
 #include "controllers/AuthController.hpp"
 #include "controllers/BookingController.hpp"
+#include "controllers/SubscriptionController.hpp"
 
 // Репозитории
 #include "repositories/impl/PostgreSQLBookingRepository.hpp"
 #include "repositories/impl/PostgreSQLClientRepository.hpp"
 #include "repositories/impl/PostgreSQLDanceHallRepository.hpp"
 #include "repositories/impl/PostgreSQLBranchRepository.hpp"
+#include "repositories/impl/PostgreSQLSubscriptionRepository.hpp"
+#include "repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp"
 
 // Сервисы
 #include "services/BookingService.hpp"
+#include "services/SubscriptionService.hpp"
 
 // Данные
 #include "data/DatabaseConnection.hpp"
@@ -29,7 +34,8 @@ WebApplication::WebApplication(const Wt::WEnvironment& env)
       loginView_(nullptr),
       dashboardView_(nullptr),
       registrationView_(nullptr),
-      bookingView_(nullptr) {
+      bookingView_(nullptr),
+      subscriptionView_(nullptr) {
     
     setTitle("Dance Studio");
     
@@ -51,6 +57,7 @@ WebApplication::WebApplication(const Wt::WEnvironment& env)
     // Dashboard и BookingView создадим позже, когда пользователь войдет
     dashboardView_ = nullptr;
     bookingView_ = nullptr;
+    subscriptionView_ = nullptr;
     
     setupStyles();
     
@@ -74,6 +81,8 @@ void WebApplication::initializeControllers() {
         std::cout << "✅ AuthController создан" << std::endl;
         
         // Создаем репозитории для BookingService
+        auto subscriptionRepo = std::make_shared<PostgreSQLSubscriptionRepository>(dbConnection);
+        auto subscriptionTypeRepo = std::make_shared<PostgreSQLSubscriptionTypeRepository>(dbConnection);
         auto bookingRepo = std::make_shared<PostgreSQLBookingRepository>(dbConnection);
         auto clientRepo = std::make_shared<PostgreSQLClientRepository>(dbConnection);
         auto hallRepo = std::make_shared<PostgreSQLDanceHallRepository>(dbConnection);
@@ -84,6 +93,14 @@ void WebApplication::initializeControllers() {
         std::cout << "   - ClientRepository: " << (clientRepo ? "OK" : "NULL") << std::endl;
         std::cout << "   - DanceHallRepository: " << (hallRepo ? "OK" : "NULL") << std::endl;
         std::cout << "   - BranchRepository: " << (branchRepo ? "OK" : "NULL") << std::endl;
+
+        // Создаем subscriptionService с реальными репозиториями
+        auto subscriptionService = std::make_shared<SubscriptionService>(
+            subscriptionRepo, subscriptionTypeRepo, clientRepo);
+
+        // Создаем subscriptionController с реальным сервисом
+        subscriptionController_ = std::make_unique<SubscriptionController>(subscriptionService);
+        std::cout << "✅ SubscriptionController создан" << std::endl;
         
         // Создаем BookingService с реальными репозиториями
         auto bookingService = std::make_shared<BookingService>(
@@ -137,6 +154,7 @@ void WebApplication::logoutUser() {
     // Очищаем виджеты, которые зависят от сессии
     dashboardView_ = nullptr;
     bookingView_ = nullptr;
+    subscriptionView_ = nullptr;
     
     showLogin();
 }
@@ -172,6 +190,26 @@ void WebApplication::showBookingView() {
         std::cout << "🔄 Показываем бронирования для пользователя: " << userSession_.getUserName() << std::endl;
         mainStack_->setCurrentWidget(bookingView_);
         std::cout << "✅ Бронирования показаны" << std::endl;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ КРИТИЧЕСКАЯ ОШИБКА при создании BookingView: " << e.what() << std::endl;
+        showDashboard();
+    }
+}
+
+void WebApplication::showSubscriptionView() {
+    try {
+        std::cout << "🔄 Запрос на показ абонементов..." << std::endl;
+        
+        if (!subscriptionView_) {
+            std::cout << "🔧 Создание нового SubscriptionView..." << std::endl;
+            subscriptionView_ = mainStack_->addNew<SubscriptionView>(this);
+            std::cout << "✅ SubscriptionView создан" << std::endl;
+        }
+        
+        std::cout << "🔄 Показываем абонемненты для пользователя: " << userSession_.getUserName() << std::endl;
+        mainStack_->setCurrentWidget(subscriptionView_);
+        std::cout << "✅ Абонементы показаны" << std::endl;
         
     } catch (const std::exception& e) {
         std::cerr << "❌ КРИТИЧЕСКАЯ ОШИБКА при создании BookingView: " << e.what() << std::endl;

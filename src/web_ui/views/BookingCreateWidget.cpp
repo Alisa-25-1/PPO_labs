@@ -311,14 +311,6 @@ void BookingCreateWidget::loadAvailableTimeSlots() {
             // Используем DateTimeUtils для форматирования времени
             std::string timeStr = DateTimeUtils::formatTime(timePoint);
             
-            // Добавляем информацию о минимальной продолжительности
-            int minDuration = slot.getDurationMinutes();
-            if (minDuration < 60) {
-                timeStr += " (макс. " + std::to_string(minDuration) + " мин)";
-            } else {
-                timeStr += " (макс. " + std::to_string(minDuration / 60) + " ч)";
-            }
-            
             timeComboBox_->addItem(timeStr);
         }
         

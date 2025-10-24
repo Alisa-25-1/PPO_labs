@@ -378,12 +378,11 @@ std::vector<TimeSlot> BookingService::generateAvailableSlotsWithDuration(
     auto base_time_t = std::chrono::system_clock::to_time_t(date);
     std::tm base_tm = *std::localtime(&base_time_t);
     
-    // Генерируем слоты с шагом в 30 минут для большей гибкости
     int startHour = openTime.count();
     int endHour = closeTime.count();
     
     for (int hour = startHour; hour < endHour; hour++) {
-        for (int minute = 0; minute < 60; minute += 30) { // Слоты каждые 30 минут
+        for (int minute = 0; minute < 60; minute += 60) {
             base_tm.tm_hour = hour;
             base_tm.tm_min = minute;
             base_tm.tm_sec = 0;

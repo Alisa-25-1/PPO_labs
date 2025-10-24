@@ -11,13 +11,17 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/WebApplication.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/AuthController.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/BookingController.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o.d"
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/SubscriptionController.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/models/UserSession.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/models/UserSession.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/models/UserSession.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/BookingCreateWidget.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/BookingListWidget.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/BookingView.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/ClientDashboard.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/LoginWidget.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o.d"
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/PurchaseSubscriptionWidget.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/RegistrationWidget.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o.d"
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/SubscriptionListWidget.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o.d"
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/SubscriptionView.cpp" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o" "gcc" "CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o.d"
   )
 
 # Targets to which this target links which contain Fortran sources.

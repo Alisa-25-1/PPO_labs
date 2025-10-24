@@ -1,4 +1,183 @@
 /* ===== AUTHENTICATION STYLES ===== */
+
+/* Основные контейнеры */
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+}
+
+.login-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    padding: 3rem;
+    width: 100%;
+    max-width: 440px;
+    position: relative;
+    overflow: hidden;
+}
+
+.login-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.card-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.card-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+/* Форма */
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* Группы формы */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-label {
+    font-weight: 600;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 14px 16px;
+    border: 2px solid #e9ecef;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    background: #fafbfc;
+    font-family: inherit;
+}
+
+.form-input:focus {
+    background: white;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    outline: none;
+}
+
+/* Специфичные стили для разных типов полей */
+.email-input {
+    text-transform: lowercase;
+}
+
+.password-input {
+    letter-spacing: 0.5px;
+}
+
+/* Кнопки */
+.btn-primary {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 1rem;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+.btn-primary:active {
+    transform: translateY(0);
+}
+
+/* Ссылка на регистрацию */
+.register-link {
+    text-align: center;
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.register-link p {
+    color: #718096;
+    margin: 0;
+}
+
+.register-link a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.register-link a:hover {
+    text-decoration: underline;
+}
+
+/* Статус сообщения */
+.status-text {
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+.status-error {
+    background: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+}
+
+.status-success {
+    background: #d4edda;
+    color: #155724;
+    border: 1px solid #c3e6cb;
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .login-container {
+        padding: 1rem;
+    }
+    
+    .login-card {
+        padding: 2rem;
+    }
+    
+    .form-input {
+        font-size: 16px; /* Предотвращает масштабирование в iOS */
+        padding: 12px 14px;
+    }
+    
+    .card-header h1 {
+        font-size: 1.75rem;
+    }
+}
+
+/* Устаревшие классы (можно удалить после обновления LoginWidget.cpp) */
 .auth-container {
     min-height: 100vh;
     display: flex;
@@ -90,11 +269,6 @@
     text-decoration: underline;
 }
 
-/* Стили для инпутов в формах аутентификации */
-.auth-input-group {
-    position: relative;
-}
-
 .auth-input {
     width: 100%;
     padding: 14px 16px;
@@ -110,11 +284,6 @@
     border-color: #667eea;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
     outline: none;
-}
-
-.auth-input-error {
-    border-color: #dc3545;
-    background: #fff5f5;
 }
 
 .auth-error-message {
@@ -135,57 +304,138 @@
     gap: 0.5rem;
 }
 
-/* Улучшенные стили для полей ввода */
-.form-input {
-    width: 100%;
-    padding: 14px 16px;
-    border: 2px solid #e9ecef;
-    border-radius: 8px;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    background: #fafbfc;
-    font-family: inherit;
+/* ===== REGISTRATION STYLES ===== */
+
+/* Основные контейнеры для регистрации */
+.registration-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
 }
 
-.form-input:focus {
+.registration-card {
     background: white;
-    border-color: #667eea;
-    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
-    outline: none;
+    border-radius: 16px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    padding: 3rem;
+    width: 100%;
+    max-width: 480px;
+    position: relative;
+    overflow: hidden;
 }
 
-/* Специфичные стили для разных типов полей */
-.email-input {
-    text-transform: lowercase;
+.registration-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
-.password-input {
-    letter-spacing: 0.5px;
+.registration-header {
+    text-align: center;
+    margin-bottom: 2rem;
 }
 
-/* Подсказки под полями */
-.field-hint {
-    font-size: 0.875rem;
-    color: #6c757d;
-    margin-top: 0.25rem;
-    display: block;
+.registration-header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #2d3748;
+    margin-bottom: 0.5rem;
 }
 
-/* Валидация в реальном времени */
-.input-valid {
-    border-color: #28a745 !important;
-    background-color: #f8fff9 !important;
+.registration-header p {
+    color: #718096;
+    font-size: 1.1rem;
+    margin: 0;
 }
 
-.input-invalid {
-    border-color: #dc3545 !important;
-    background-color: #fff5f5 !important;
+/* Форма регистрации */
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
-/* Адаптивность для мобильных устройств */
+/* Группы кнопок для регистрации */
+.registration-button-group {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.btn-register {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-register:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+}
+
+.btn-register:active {
+    transform: translateY(0);
+}
+
+.btn-back {
+    background: #6c757d;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-back:hover {
+    background: #545b62;
+    transform: translateY(-1px);
+}
+
+/* Статус для регистрации */
+.registration-status {
+    padding: 1rem;
+    border-radius: 8px;
+    margin: 1rem 0;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Адаптивность для регистрации */
 @media (max-width: 768px) {
-    .form-input {
-        font-size: 16px; /* Предотвращает масштабирование в iOS */
-        padding: 12px 14px;
+    .registration-container {
+        padding: 1rem;
+    }
+    
+    .registration-card {
+        padding: 2rem;
+    }
+    
+    .registration-header h1 {
+        font-size: 1.75rem;
+    }
+    
+    .registration-button-group {
+        flex-direction: column;
+    }
+    
+    .btn-register, .btn-back {
+        width: 100%;
     }
 }

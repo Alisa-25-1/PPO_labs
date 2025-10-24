@@ -21,6 +21,7 @@ struct SubscriptionResponseDTO {
     UUID subscriptionId;
     UUID clientId;
     UUID subscriptionTypeId;
+    std::string subscriptionTypeName;
     std::string startDate;
     std::string endDate;
     int remainingVisits;
@@ -31,6 +32,7 @@ struct SubscriptionResponseDTO {
         subscriptionId = subscription.getId();
         clientId = subscription.getClientId();
         subscriptionTypeId = subscription.getSubscriptionTypeId();
+        subscriptionTypeName = "Тип " + subscriptionTypeId.toString().substr(0, 8);
         
         // Format dates
         auto time_t_start = std::chrono::system_clock::to_time_t(subscription.getStartDate());
@@ -70,6 +72,11 @@ struct SubscriptionResponseDTO {
         std::ostringstream oss_purchase;
         oss_purchase << std::put_time(&tm_purchase, "%Y-%m-%d %H:%M:%S");
         purchaseDate = oss_purchase.str();
+    }
+
+    SubscriptionResponseDTO(const Subscription& subscription, const std::string& typeName) 
+        : SubscriptionResponseDTO(subscription) {
+        subscriptionTypeName = typeName;
     }
 };
 

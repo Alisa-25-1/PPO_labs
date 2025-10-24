@@ -40,9 +40,13 @@ void SubscriptionService::validateClient(const UUID& clientId) const {
 bool SubscriptionService::hasActiveSubscription(const UUID& clientId) const {
     auto subscriptions = subscriptionRepository_->findByClientId(clientId);
     
+    auto now = std::chrono::system_clock::now();
+    
     return std::any_of(subscriptions.begin(), subscriptions.end(),
-        [](const Subscription& subscription) {
-            return subscription.isActive();
+        [now](const Subscription& subscription) {
+            return subscription.isActive() && 
+                   subscription.getStartDate() <= now && 
+                   subscription.getEndDate() >= now;
         });
 }
 

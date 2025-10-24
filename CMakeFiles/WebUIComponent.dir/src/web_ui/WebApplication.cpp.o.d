@@ -280,6 +280,17 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/exceptions/BookingException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../dtos/BookingDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/SubscriptionController.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/SubscriptionService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/ISubscriptionRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/Subscription.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/ISubscriptionTypeRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/SubscriptionType.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/SubscriptionDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/../models/Subscription.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/../models/SubscriptionType.hpp \
+ /usr/include/c++/13/iomanip /usr/include/c++/13/bits/quoted_string.h \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../dtos/SubscriptionDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/models/UserSession.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/models/../../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/LoginWidget.hpp \
@@ -294,6 +305,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/RegistrationWidget.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../models/Client.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/BookingView.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/SubscriptionView.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLBookingRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/DatabaseConnection.hpp \
  /usr/include/pqxx/pqxx /usr/include/pqxx/internal/header-pre.hxx \
@@ -315,8 +327,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: \
  /usr/include/pqxx/params.hxx \
  /usr/include/pqxx/internal/statement_parameters.hxx \
  /usr/include/pqxx/binarystring.hxx /usr/include/pqxx/result.hxx \
- /usr/include/pqxx/internal/encodings.hxx /usr/include/c++/13/iomanip \
- /usr/include/c++/13/bits/quoted_string.h \
+ /usr/include/pqxx/internal/encodings.hxx \
  /usr/include/pqxx/internal/encoding_group.hxx \
  /usr/include/pqxx/internal/ignore-deprecated-pre.hxx \
  /usr/include/pqxx/internal/ignore-deprecated-post.hxx \
@@ -352,4 +363,6 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLClientRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLDanceHallRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLBranchRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLSubscriptionRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp

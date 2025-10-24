@@ -12,83 +12,83 @@ RegistrationWidget::RegistrationWidget(WebApplication* app)
 }
 
 void RegistrationWidget::setupUI() {
-    setStyleClass("registration-container");
+    setStyleClass("auth-container");
     
     auto card = addNew<Wt::WContainerWidget>();
-    card->setStyleClass("registration-card");
+    card->setStyleClass("auth-card");
     
     // Заголовок
     auto header = card->addNew<Wt::WContainerWidget>();
-    header->setStyleClass("registration-header");
-    auto headerText = header->addNew<Wt::WText>("<h1>📝 Регистрация</h1>");
+    header->setStyleClass("auth-header");
+    auto headerText = header->addNew<Wt::WText>("<h1 class='auth-title'>📝 Регистрация</h1>");
     headerText->setTextFormat(Wt::TextFormat::UnsafeXHTML);
-    header->addNew<Wt::WText>("<p>Создайте новую учетную запись</p>")->setTextFormat(Wt::TextFormat::UnsafeXHTML);
+    header->addNew<Wt::WText>("<p class='auth-subtitle'>Создайте новую учетную запись</p>")->setTextFormat(Wt::TextFormat::UnsafeXHTML);
     
     // Форма
     auto form = card->addNew<Wt::WContainerWidget>();
-    form->setStyleClass("registration-form");
+    form->setStyleClass("auth-form");
     
     // ФИО
     auto nameGroup = form->addNew<Wt::WContainerWidget>();
-    nameGroup->setStyleClass("form-group");
+    nameGroup->setStyleClass("auth-input-group");
     
     auto nameLabel = nameGroup->addNew<Wt::WText>("<label class='form-label'>👤 ФИО</label>");
     nameLabel->setTextFormat(Wt::TextFormat::UnsafeXHTML);
     
     nameEdit_ = nameGroup->addNew<Wt::WLineEdit>();
     nameEdit_->setPlaceholderText("Иванов Иван Иванович");
-    nameEdit_->setStyleClass("form-input");
+    nameEdit_->setStyleClass("auth-input");
     
     // Email
     auto emailGroup = form->addNew<Wt::WContainerWidget>();
-    emailGroup->setStyleClass("form-group");
+    emailGroup->setStyleClass("auth-input-group");
     
     auto emailLabel = emailGroup->addNew<Wt::WText>("<label class='form-label'>📧 Email</label>");
     emailLabel->setTextFormat(Wt::TextFormat::UnsafeXHTML);
     
     emailEdit_ = emailGroup->addNew<Wt::WLineEdit>();
     emailEdit_->setPlaceholderText("example@mail.ru");
-    emailEdit_->setStyleClass("form-input email-input");
+    emailEdit_->setStyleClass("auth-input email-input");
     
     // Телефон
     auto phoneGroup = form->addNew<Wt::WContainerWidget>();
-    phoneGroup->setStyleClass("form-group");
+    phoneGroup->setStyleClass("auth-input-group");
     
     auto phoneLabel = phoneGroup->addNew<Wt::WText>("<label class='form-label'>📞 Телефон</label>");
     phoneLabel->setTextFormat(Wt::TextFormat::UnsafeXHTML);
     
     phoneEdit_ = phoneGroup->addNew<Wt::WLineEdit>();
     phoneEdit_->setPlaceholderText("+7 (999) 999-99-99");
-    phoneEdit_->setStyleClass("form-input");
+    phoneEdit_->setStyleClass("auth-input");
     
     // Пароль
     auto passwordGroup = form->addNew<Wt::WContainerWidget>();
-    passwordGroup->setStyleClass("form-group");
+    passwordGroup->setStyleClass("auth-input-group");
     
     auto passwordLabel = passwordGroup->addNew<Wt::WText>("<label class='form-label'>🔒 Пароль</label>");
     passwordLabel->setTextFormat(Wt::TextFormat::UnsafeXHTML);
     
     passwordEdit_ = passwordGroup->addNew<Wt::WPasswordEdit>();
     passwordEdit_->setPlaceholderText("Минимум 8 символов");
-    passwordEdit_->setStyleClass("form-input password-input");
+    passwordEdit_->setStyleClass("auth-input password-input");
     
     // Подтверждение пароля
     auto confirmPasswordGroup = form->addNew<Wt::WContainerWidget>();
-    confirmPasswordGroup->setStyleClass("form-group");
+    confirmPasswordGroup->setStyleClass("auth-input-group");
     
     auto confirmPasswordLabel = confirmPasswordGroup->addNew<Wt::WText>("<label class='form-label'>✅ Подтвердите пароль</label>");
     confirmPasswordLabel->setTextFormat(Wt::TextFormat::UnsafeXHTML);
     
     confirmPasswordEdit_ = confirmPasswordGroup->addNew<Wt::WPasswordEdit>();
     confirmPasswordEdit_->setPlaceholderText("Повторите пароль");
-    confirmPasswordEdit_->setStyleClass("form-input password-input");
+    confirmPasswordEdit_->setStyleClass("auth-input password-input");
     
     // Кнопки
     auto buttonGroup = form->addNew<Wt::WContainerWidget>();
-    buttonGroup->setStyleClass("registration-button-group");
+    buttonGroup->setStyleClass("auth-footer");
     
     registerButton_ = buttonGroup->addNew<Wt::WPushButton>("🚀 СОЗДАТЬ АККАУНТ");
-    registerButton_->setStyleClass("btn-register");
+    registerButton_->setStyleClass("auth-button");
     registerButton_->clicked().connect(this, &RegistrationWidget::handleRegister);
     
     backButton_ = buttonGroup->addNew<Wt::WPushButton>("← Назад ко входу");
@@ -97,7 +97,7 @@ void RegistrationWidget::setupUI() {
     
     // Статус
     statusText_ = form->addNew<Wt::WText>();
-    statusText_->setStyleClass("registration-status");
+    statusText_->setStyleClass("auth-error-message");
 }
 
 void RegistrationWidget::handleRegister() {

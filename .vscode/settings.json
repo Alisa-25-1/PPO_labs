@@ -77,6 +77,7 @@
         "unordered_set": "cpp",
         "future": "cpp",
         "shared_mutex": "cpp",
-        "typeindex": "cpp"
+        "typeindex": "cpp",
+        "expected": "cpp"
     }
 }

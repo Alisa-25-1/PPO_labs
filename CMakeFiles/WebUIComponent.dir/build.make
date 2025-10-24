@@ -125,10 +125,24 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.s: cm
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/BookingController.cpp -o CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.s
 
+CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.o: CMakeFiles/WebUIComponent.dir/flags.make
+CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.o: src/web_ui/controllers/SubscriptionController.cpp
+CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.o: CMakeFiles/WebUIComponent.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.o -MF CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.o.d -o CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/SubscriptionController.cpp
+
+CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/SubscriptionController.cpp > CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.i
+
+CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/SubscriptionController.cpp -o CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.s
+
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: CMakeFiles/WebUIComponent.dir/flags.make
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: src/web_ui/views/LoginWidget.cpp
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: CMakeFiles/WebUIComponent.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o -MF CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o.d -o CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/LoginWidget.cpp
 
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.i: cmake_force
@@ -142,7 +156,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.s: cmake_force
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: CMakeFiles/WebUIComponent.dir/flags.make
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: src/web_ui/views/RegistrationWidget.cpp
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: CMakeFiles/WebUIComponent.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o -MF CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o.d -o CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/RegistrationWidget.cpp
 
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.s: cmake_f
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: CMakeFiles/WebUIComponent.dir/flags.make
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: src/web_ui/views/ClientDashboard.cpp
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: CMakeFiles/WebUIComponent.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o -MF CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o.d -o CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/ClientDashboard.cpp
 
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.s: cmake_forc
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: CMakeFiles/WebUIComponent.dir/flags.make
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: src/web_ui/views/BookingView.cpp
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: CMakeFiles/WebUIComponent.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o -MF CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o.d -o CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/BookingView.cpp
 
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.s: cmake_force
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: CMakeFiles/WebUIComponent.dir/flags.make
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/web_ui/views/BookingCreateWidget.cpp
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: CMakeFiles/WebUIComponent.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o -MF CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o.d -o CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/BookingCreateWidget.cpp
 
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.s: cmake_
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: CMakeFiles/WebUIComponent.dir/flags.make
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: src/web_ui/views/BookingListWidget.cpp
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: CMakeFiles/WebUIComponent.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o -MF CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o.d -o CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/BookingListWidget.cpp
 
 CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.i: cmake_force
@@ -209,18 +223,64 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.s: cmake_fo
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/BookingListWidget.cpp -o CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.s
 
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: CMakeFiles/WebUIComponent.dir/flags.make
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_ui/views/SubscriptionView.cpp
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: CMakeFiles/WebUIComponent.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o -MF CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o.d -o CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/SubscriptionView.cpp
+
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/SubscriptionView.cpp > CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.i
+
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/SubscriptionView.cpp -o CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.s
+
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: CMakeFiles/WebUIComponent.dir/flags.make
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: src/web_ui/views/SubscriptionListWidget.cpp
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: CMakeFiles/WebUIComponent.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o -MF CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o.d -o CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/SubscriptionListWidget.cpp
+
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/SubscriptionListWidget.cpp > CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.i
+
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/SubscriptionListWidget.cpp -o CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.s
+
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o: CMakeFiles/WebUIComponent.dir/flags.make
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o: src/web_ui/views/PurchaseSubscriptionWidget.cpp
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o: CMakeFiles/WebUIComponent.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o -MF CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o.d -o CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/PurchaseSubscriptionWidget.cpp
+
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/PurchaseSubscriptionWidget.cpp > CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.i
+
+CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/PurchaseSubscriptionWidget.cpp -o CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.s
+
 # Object files for target WebUIComponent
 WebUIComponent_OBJECTS = \
 "CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o" \
 "CMakeFiles/WebUIComponent.dir/src/web_ui/models/UserSession.cpp.o" \
 "CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o" \
 "CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o" \
+"CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.o" \
 "CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o" \
 "CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o" \
 "CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o" \
 "CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o" \
 "CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o" \
-"CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o"
+"CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o" \
+"CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o" \
+"CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o" \
+"CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o"
 
 # External object files for target WebUIComponent
 WebUIComponent_EXTERNAL_OBJECTS =
@@ -229,15 +289,19 @@ lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication
 lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/models/UserSession.cpp.o
 lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o
 lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o
+lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.o
 lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o
 lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o
 lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o
 lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o
 lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o
 lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o
+lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o
+lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o
+lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o
 lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/build.make
 lib/libWebUIComponent.a: CMakeFiles/WebUIComponent.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library lib/libWebUIComponent.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Linking CXX static library lib/libWebUIComponent.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/WebUIComponent.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/WebUIComponent.dir/link.txt --verbose=$(VERBOSE)
 

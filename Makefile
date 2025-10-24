@@ -1743,6 +1743,30 @@ src/web_ui/controllers/BookingController.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.s
 .PHONY : src/web_ui/controllers/BookingController.cpp.s
 
+src/web_ui/controllers/SubscriptionController.o: src/web_ui/controllers/SubscriptionController.cpp.o
+.PHONY : src/web_ui/controllers/SubscriptionController.o
+
+# target to build an object file
+src/web_ui/controllers/SubscriptionController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.o
+.PHONY : src/web_ui/controllers/SubscriptionController.cpp.o
+
+src/web_ui/controllers/SubscriptionController.i: src/web_ui/controllers/SubscriptionController.cpp.i
+.PHONY : src/web_ui/controllers/SubscriptionController.i
+
+# target to preprocess a source file
+src/web_ui/controllers/SubscriptionController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.i
+.PHONY : src/web_ui/controllers/SubscriptionController.cpp.i
+
+src/web_ui/controllers/SubscriptionController.s: src/web_ui/controllers/SubscriptionController.cpp.s
+.PHONY : src/web_ui/controllers/SubscriptionController.s
+
+# target to generate assembly for a file
+src/web_ui/controllers/SubscriptionController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/SubscriptionController.cpp.s
+.PHONY : src/web_ui/controllers/SubscriptionController.cpp.s
+
 src/web_ui/models/UserSession.o: src/web_ui/models/UserSession.cpp.o
 .PHONY : src/web_ui/models/UserSession.o
 
@@ -1887,6 +1911,30 @@ src/web_ui/views/LoginWidget.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.s
 .PHONY : src/web_ui/views/LoginWidget.cpp.s
 
+src/web_ui/views/PurchaseSubscriptionWidget.o: src/web_ui/views/PurchaseSubscriptionWidget.cpp.o
+.PHONY : src/web_ui/views/PurchaseSubscriptionWidget.o
+
+# target to build an object file
+src/web_ui/views/PurchaseSubscriptionWidget.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o
+.PHONY : src/web_ui/views/PurchaseSubscriptionWidget.cpp.o
+
+src/web_ui/views/PurchaseSubscriptionWidget.i: src/web_ui/views/PurchaseSubscriptionWidget.cpp.i
+.PHONY : src/web_ui/views/PurchaseSubscriptionWidget.i
+
+# target to preprocess a source file
+src/web_ui/views/PurchaseSubscriptionWidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.i
+.PHONY : src/web_ui/views/PurchaseSubscriptionWidget.cpp.i
+
+src/web_ui/views/PurchaseSubscriptionWidget.s: src/web_ui/views/PurchaseSubscriptionWidget.cpp.s
+.PHONY : src/web_ui/views/PurchaseSubscriptionWidget.s
+
+# target to generate assembly for a file
+src/web_ui/views/PurchaseSubscriptionWidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.s
+.PHONY : src/web_ui/views/PurchaseSubscriptionWidget.cpp.s
+
 src/web_ui/views/RegistrationWidget.o: src/web_ui/views/RegistrationWidget.cpp.o
 .PHONY : src/web_ui/views/RegistrationWidget.o
 
@@ -1910,6 +1958,54 @@ src/web_ui/views/RegistrationWidget.s: src/web_ui/views/RegistrationWidget.cpp.s
 src/web_ui/views/RegistrationWidget.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.s
 .PHONY : src/web_ui/views/RegistrationWidget.cpp.s
+
+src/web_ui/views/SubscriptionListWidget.o: src/web_ui/views/SubscriptionListWidget.cpp.o
+.PHONY : src/web_ui/views/SubscriptionListWidget.o
+
+# target to build an object file
+src/web_ui/views/SubscriptionListWidget.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o
+.PHONY : src/web_ui/views/SubscriptionListWidget.cpp.o
+
+src/web_ui/views/SubscriptionListWidget.i: src/web_ui/views/SubscriptionListWidget.cpp.i
+.PHONY : src/web_ui/views/SubscriptionListWidget.i
+
+# target to preprocess a source file
+src/web_ui/views/SubscriptionListWidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.i
+.PHONY : src/web_ui/views/SubscriptionListWidget.cpp.i
+
+src/web_ui/views/SubscriptionListWidget.s: src/web_ui/views/SubscriptionListWidget.cpp.s
+.PHONY : src/web_ui/views/SubscriptionListWidget.s
+
+# target to generate assembly for a file
+src/web_ui/views/SubscriptionListWidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.s
+.PHONY : src/web_ui/views/SubscriptionListWidget.cpp.s
+
+src/web_ui/views/SubscriptionView.o: src/web_ui/views/SubscriptionView.cpp.o
+.PHONY : src/web_ui/views/SubscriptionView.o
+
+# target to build an object file
+src/web_ui/views/SubscriptionView.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o
+.PHONY : src/web_ui/views/SubscriptionView.cpp.o
+
+src/web_ui/views/SubscriptionView.i: src/web_ui/views/SubscriptionView.cpp.i
+.PHONY : src/web_ui/views/SubscriptionView.i
+
+# target to preprocess a source file
+src/web_ui/views/SubscriptionView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.i
+.PHONY : src/web_ui/views/SubscriptionView.cpp.i
+
+src/web_ui/views/SubscriptionView.s: src/web_ui/views/SubscriptionView.cpp.s
+.PHONY : src/web_ui/views/SubscriptionView.s
+
+# target to generate assembly for a file
+src/web_ui/views/SubscriptionView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.s
+.PHONY : src/web_ui/views/SubscriptionView.cpp.s
 
 # Help Target
 help:
@@ -2115,6 +2211,9 @@ help:
 	@echo "... src/web_ui/controllers/BookingController.o"
 	@echo "... src/web_ui/controllers/BookingController.i"
 	@echo "... src/web_ui/controllers/BookingController.s"
+	@echo "... src/web_ui/controllers/SubscriptionController.o"
+	@echo "... src/web_ui/controllers/SubscriptionController.i"
+	@echo "... src/web_ui/controllers/SubscriptionController.s"
 	@echo "... src/web_ui/models/UserSession.o"
 	@echo "... src/web_ui/models/UserSession.i"
 	@echo "... src/web_ui/models/UserSession.s"
@@ -2133,9 +2232,18 @@ help:
 	@echo "... src/web_ui/views/LoginWidget.o"
 	@echo "... src/web_ui/views/LoginWidget.i"
 	@echo "... src/web_ui/views/LoginWidget.s"
+	@echo "... src/web_ui/views/PurchaseSubscriptionWidget.o"
+	@echo "... src/web_ui/views/PurchaseSubscriptionWidget.i"
+	@echo "... src/web_ui/views/PurchaseSubscriptionWidget.s"
 	@echo "... src/web_ui/views/RegistrationWidget.o"
 	@echo "... src/web_ui/views/RegistrationWidget.i"
 	@echo "... src/web_ui/views/RegistrationWidget.s"
+	@echo "... src/web_ui/views/SubscriptionListWidget.o"
+	@echo "... src/web_ui/views/SubscriptionListWidget.i"
+	@echo "... src/web_ui/views/SubscriptionListWidget.s"
+	@echo "... src/web_ui/views/SubscriptionView.o"
+	@echo "... src/web_ui/views/SubscriptionView.i"
+	@echo "... src/web_ui/views/SubscriptionView.s"
 .PHONY : help
 
 

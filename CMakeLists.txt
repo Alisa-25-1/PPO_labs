@@ -123,12 +123,16 @@ add_library(WebUIComponent
     ${SOURCE_ROOT}/web_ui/models/UserSession.cpp
     ${SOURCE_ROOT}/web_ui/controllers/AuthController.cpp
     ${SOURCE_ROOT}/web_ui/controllers/BookingController.cpp
+    ${SOURCE_ROOT}/web_ui/controllers/SubscriptionController.cpp
     ${SOURCE_ROOT}/web_ui/views/LoginWidget.cpp
     ${SOURCE_ROOT}/web_ui/views/RegistrationWidget.cpp
     ${SOURCE_ROOT}/web_ui/views/ClientDashboard.cpp
     ${SOURCE_ROOT}/web_ui/views/BookingView.cpp
     ${SOURCE_ROOT}/web_ui/views/BookingCreateWidget.cpp
     ${SOURCE_ROOT}/web_ui/views/BookingListWidget.cpp
+    ${SOURCE_ROOT}/web_ui/views/SubscriptionView.cpp
+    ${SOURCE_ROOT}/web_ui/views/SubscriptionListWidget.cpp
+    ${SOURCE_ROOT}/web_ui/views/PurchaseSubscriptionWidget.cpp
 )
 
 target_include_directories(WebUIComponent PRIVATE 
@@ -160,13 +164,6 @@ file(MAKE_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/styles)
 # Копируем все CSS файлы в бинарную директорию
 set(CSS_SOURCE_DIR ${SOURCE_ROOT}/web_ui/styles)
 
-# Копируем main.css в корень
-#configure_file(
-#    ${CSS_SOURCE_DIR}/main.css
-#    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/main.css
-#    COPYONLY
-#)
-
 # Копируем CSS файлы в подпапку styles
 file(GLOB CSS_FILES 
     "${CSS_SOURCE_DIR}/main.css"
@@ -174,6 +171,7 @@ file(GLOB CSS_FILES
     "${CSS_SOURCE_DIR}/auth.css" 
     "${CSS_SOURCE_DIR}/dashboard.css"
     "${CSS_SOURCE_DIR}/booking.css"
+     "${CSS_SOURCE_DIR}/subscription.css"
 )
 
 foreach(css_file ${CSS_FILES})

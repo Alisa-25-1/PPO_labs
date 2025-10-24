@@ -5,12 +5,16 @@
 #include <Wt/WContainerWidget.h>
 #include "controllers/AuthController.hpp"
 #include "controllers/BookingController.hpp"
+#include "controllers/SubscriptionController.hpp"
 #include "models/UserSession.hpp"
 
 class LoginWidget;
 class ClientDashboard;
 class RegistrationWidget;
 class BookingView;
+class PurchaseSubscriptionWidget;
+class SubscriptionListWidget;
+class SubscriptionView;
 
 class WebApplication : public Wt::WApplication {
 public:
@@ -20,9 +24,11 @@ public:
     void showDashboard();
     void showRegistration();
     void showBookingView();  
+    void showSubscriptionView();
     
     AuthController* getAuthController() { return authController_.get(); }
     BookingController* getBookingController() { return bookingController_.get(); }
+    SubscriptionController* getSubscriptionController() const { return subscriptionController_.get(); }
     
     // Методы для работы с сессией
     UserSession& getUserSession() { return userSession_; }
@@ -37,9 +43,11 @@ private:
     ClientDashboard* dashboardView_;
     RegistrationWidget* registrationView_;
     BookingView* bookingView_;
+    SubscriptionView* subscriptionView_;
     
     std::unique_ptr<AuthController> authController_;
     std::unique_ptr<BookingController> bookingController_;
+    std::unique_ptr<SubscriptionController> subscriptionController_;
     UserSession userSession_;
     
     void setupStyles();

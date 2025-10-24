@@ -16,6 +16,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "src/web_ui/styles/booking.css"
   "src/web_ui/styles/dashboard.css"
   "src/web_ui/styles/main.css"
+  "src/web_ui/styles/subscription.css"
   "/usr/lib/x86_64-linux-gnu/cmake/GTest/GMockTargets-none.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/GTest/GMockTargets.cmake"
   "/usr/lib/x86_64-linux-gnu/cmake/GTest/GTestConfig.cmake"
@@ -66,6 +67,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "bin/styles/booking.css"
   "bin/styles/dashboard.css"
   "bin/styles/main.css"
+  "bin/styles/subscription.css"
   "CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
