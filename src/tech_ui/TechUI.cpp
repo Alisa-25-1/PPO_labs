@@ -171,7 +171,8 @@ void TechUI::createBooking() {
     try {
         std::cout << "\n--- СОЗДАНИЕ БРОНИРОВАНИЯ ---" << std::endl;
         
-        auto halls = managers_->getAvailableHalls();
+        // Получаем реальные доступные залы
+        auto halls = managers_->getBookingService()->getAllHalls();
         if (halls.empty()) {
             std::cout << "❌ Нет доступных залов." << std::endl;
             return;
@@ -216,10 +217,10 @@ void TechUI::cancelBooking() {
     try {
         std::cout << "\n--- ОТМЕНА БРОНИРОВАНИЯ ---" << std::endl;
         
-        // Получаем активные бронирования клиента
+        // Получаем реальные бронирования клиента
         auto bookings = managers_->getBookingService()->getClientBookings(currentClientId_);
         
-        // Фильтруем только активные бронирования (не отмененные и не завершенные)
+        // Фильтруем только активные бронирования
         std::vector<BookingResponseDTO> activeBookings;
         for (const auto& booking : bookings) {
             if (booking.status == "CONFIRMED" || booking.status == "PENDING") {
@@ -237,8 +238,13 @@ void TechUI::cancelBooking() {
         for (size_t i = 0; i < activeBookings.size(); ++i) {
             const auto& booking = activeBookings[i];
             std::cout << (i + 1) << ". Бронирование " << booking.bookingId.toString() << std::endl;
-            std::cout << "   Зал: " << booking.hallId.toString() << std::endl;
-            std::cout << "   Время: " << booking.timeSlot.toString() << std::endl;
+            
+            // Получаем реальное название зала
+            auto hall = managers_->getBookingService()->getHallById(booking.hallId);
+            std::string hallName = hall ? hall->getName() : "Неизвестный зал";
+            
+            std::cout << "   Зал: " << hallName << std::endl;
+            std::cout << "   Время: " << formatTimeSlot(booking.timeSlot) << std::endl;
             std::cout << "   Цель: " << booking.purpose << std::endl;
             std::cout << "---" << std::endl;
         }
@@ -253,6 +259,18 @@ void TechUI::cancelBooking() {
     } catch (const std::exception& e) {
         std::cerr << "❌ Ошибка при отмене бронирования: " << e.what() << std::endl;
     }
+}
+
+// Вспомогательный метод для форматирования TimeSlot
+std::string TechUI::formatTimeSlot(const TimeSlot& timeSlot) {
+    auto startTime = std::chrono::system_clock::to_time_t(timeSlot.getStartTime());
+    std::tm* tm = std::localtime(&startTime);
+    
+    std::stringstream ss;
+    ss << std::put_time(tm, "%d.%m.%Y %H:%M");
+    ss << " (" << timeSlot.getDurationMinutes() << " мин)";
+    
+    return ss.str();
 }
 
 void TechUI::handleClientLessons() {

@@ -232,21 +232,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: \
  /usr/local/include/Wt/WImage.h /usr/local/include/Wt/WLink.h \
  /usr/local/include/Wt/WFormWidget.h /usr/local/include/Wt/WValidator.h \
  /usr/local/include/Wt/WText.h \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../WebApplication.hpp \
- /usr/local/include/Wt/WApplication.h /usr/include/c++/13/chrono \
- /usr/local/include/Wt/WCssStyleSheet.h /usr/local/include/Wt/WBreak.h \
- /usr/local/include/Wt/WCssDecorationStyle.h \
- /usr/local/include/Wt/WBorder.h /usr/local/include/Wt/WColor.h \
- /usr/local/include/Wt/WFont.h /usr/local/include/Wt/WEnvironment.h \
- /usr/local/include/Wt/WLocale.h \
- /usr/local/include/Wt/WJavaScriptPreamble.h \
- /usr/local/include/Wt/WMessageResourceBundle.h \
- /usr/local/include/Wt/WLocalizedStrings.h \
- /usr/local/include/Wt/WStackedWidget.h \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/AuthController.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/AuthService.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/IClientRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../types/uuid.hpp \
  /usr/include/c++/13/regex /usr/include/c++/13/stack \
  /usr/include/c++/13/deque /usr/include/c++/13/bits/stl_deque.h \
  /usr/include/c++/13/bits/deque.tcc /usr/include/c++/13/bits/stl_stack.h \
@@ -262,6 +248,31 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: \
  /usr/include/c++/13/bits/regex_executor.h \
  /usr/include/c++/13/bits/regex_executor.tcc /usr/include/uuid/uuid.h \
  /usr/include/x86_64-linux-gnu/sys/time.h \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../dtos/BookingDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../dtos/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../dtos/../models/TimeSlot.hpp \
+ /usr/include/c++/13/chrono \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../dtos/../models/../data/DateTimeUtils.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../dtos/../models/Booking.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../dtos/../models/TimeSlot.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../dtos/../models/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../dtos/../models/../types/enums.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../data/DateTimeUtils.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../WebApplication.hpp \
+ /usr/local/include/Wt/WApplication.h \
+ /usr/local/include/Wt/WCssStyleSheet.h /usr/local/include/Wt/WBreak.h \
+ /usr/local/include/Wt/WCssDecorationStyle.h \
+ /usr/local/include/Wt/WBorder.h /usr/local/include/Wt/WColor.h \
+ /usr/local/include/Wt/WFont.h /usr/local/include/Wt/WEnvironment.h \
+ /usr/local/include/Wt/WLocale.h \
+ /usr/local/include/Wt/WJavaScriptPreamble.h \
+ /usr/local/include/Wt/WMessageResourceBundle.h \
+ /usr/local/include/Wt/WLocalizedStrings.h \
+ /usr/local/include/Wt/WStackedWidget.h \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/AuthController.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/AuthService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/IClientRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Client.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/../types/enums.hpp \
@@ -272,19 +283,22 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/exceptions/ValidationException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/exceptions/AuthException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../dtos/AuthDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../models/Client.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/BookingController.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/BookingService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/IBookingRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Booking.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/TimeSlot.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/IDanceHallRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/DanceHall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/IBranchRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/BookingDTO.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/TimeSlot.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/exceptions/BookingException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../dtos/BookingDTO.hpp \
- /usr/local/include/Wt/WTimer.h
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../models/UserSession.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../models/../../types/uuid.hpp \
+ /usr/local/include/Wt/WTimer.h /usr/local/include/Wt/WMessageBox.h \
+ /usr/local/include/Wt/WDialog.h /usr/local/include/Wt/WPopupWidget.h \
+ /usr/local/include/Wt/WCompositeWidget.h /usr/include/c++/13/iomanip \
+ /usr/include/c++/13/bits/quoted_string.h

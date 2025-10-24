@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/c++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/nikita/Общедоступные/PPO/PPO_labs/src -I/home/nikita/Общедоступные/PPO/PPO_labs/src/models -I/home/nikita/Общедоступные/PPO/PPO_labs/src/types -I/home/nikita/Общедоступные/PPO/PPO_labs/src/services -I/home/nikita/Общедоступные/PPO/PPO_labs/src/dtos -I/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories -I/home/nikita/Общедоступные/PPO/PPO_labs/src/core -I/home/nikita/Общедоступные/PPO/PPO_labs/src/data -I/home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl
+CXX_INCLUDES = -I/home/nikita/Общедоступные/PPO/PPO_labs/src
 
 CXX_FLAGS = -std=gnu++17 -DGTEST_HAS_PTHREAD=1
 

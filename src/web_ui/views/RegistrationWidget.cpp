@@ -4,6 +4,7 @@
 #include <Wt/WTimer.h>
 #include <regex>
 #include <iostream>
+#include <cctype>
 
 RegistrationWidget::RegistrationWidget(WebApplication* app) 
     : app_(app) {
@@ -35,7 +36,7 @@ void RegistrationWidget::setupUI() {
     nameLabel->setTextFormat(Wt::TextFormat::UnsafeXHTML);
     
     nameEdit_ = nameGroup->addNew<Wt::WLineEdit>();
-    nameEdit_->setPlaceholderText("Введите ваше полное имя");
+    nameEdit_->setPlaceholderText("Иванов Иван Иванович");
     nameEdit_->setStyleClass("form-input");
     
     // Email
@@ -46,7 +47,7 @@ void RegistrationWidget::setupUI() {
     emailLabel->setTextFormat(Wt::TextFormat::UnsafeXHTML);
     
     emailEdit_ = emailGroup->addNew<Wt::WLineEdit>();
-    emailEdit_->setPlaceholderText("Введите ваш email");
+    emailEdit_->setPlaceholderText("example@mail.ru");
     emailEdit_->setStyleClass("form-input email-input");
     
     // Телефон
@@ -114,7 +115,7 @@ void RegistrationWidget::handleRegister() {
         bool success = app_->getAuthController()->registerClient(name, email, phone, password, response);
         
         if (success) {
-            updateStatus("✅ Регистрация успешна! Вы будете перенаправлены на страницу входа.", false);
+            updateStatus("✅ Регистрация успешна! Вы будете перенаправлены.", false);
             
             // Очищаем поля
             nameEdit_->setText("");
@@ -123,14 +124,8 @@ void RegistrationWidget::handleRegister() {
             passwordEdit_->setText("");
             confirmPasswordEdit_->setText("");
             
-            // Переход на страницу входа через 3 секунды
-            auto timer = std::make_shared<Wt::WTimer>();
-            timer->setSingleShot(true);
-            timer->setInterval(std::chrono::seconds(3));
-            timer->timeout().connect([this, timer]() {
-                app_->showLogin();
-            });
-            timer->start();
+            // Автоматический вход после регистрации
+            app_->loginUser(response);
             
         } else {
             updateStatus("❌ Ошибка регистрации. Возможно, email уже используется.", true);
@@ -159,10 +154,22 @@ bool RegistrationWidget::validateForm() {
         return false;
     }
     
+    // Упрощенная проверка имени (разрешаем латиницу и кириллицу)
+    if (!Client::isValidName(name)) {
+        updateStatus("❌ ФИО может содержать буквы, проблелы и быть от 2 до 100 символов", true);
+        return false;
+    }
+    
     // Проверка email
     std::regex emailPattern(R"(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)");
     if (!std::regex_match(email, emailPattern)) {
         updateStatus("❌ Введите корректный email адрес", true);
+        return false;
+    }
+
+    // Используем единую проверку телефона из Client
+    if (!Client::isValidPhone(phone)) {
+        updateStatus("❌ Введите корректный российский номер телефона (рекомендуемый формат +7 XXX XXX-XX-XX)", true);
         return false;
     }
     
@@ -175,12 +182,6 @@ bool RegistrationWidget::validateForm() {
     // Проверка совпадения паролей
     if (password != confirmPassword) {
         updateStatus("❌ Пароли не совпадают", true);
-        return false;
-    }
-    
-    // Проверка телефона (базовая)
-    if (phone.length() < 5) {
-        updateStatus("❌ Введите корректный номер телефона", true);
         return false;
     }
     

@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/BookingCore.dir/src/core/Config.cpp.o.d"
   "CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o"
   "CMakeFiles/BookingCore.dir/src/core/Logger.cpp.o.d"
+  "CMakeFiles/BookingCore.dir/src/data/DateTimeUtils.cpp.o"
+  "CMakeFiles/BookingCore.dir/src/data/DateTimeUtils.cpp.o.d"
   "CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.o"
   "CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.o.d"
   "CMakeFiles/BookingCore.dir/src/dtos/BookingDTO.cpp.o"

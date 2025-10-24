@@ -75,20 +75,36 @@ bool Booking::isValid() const {
 }
 
 bool Booking::isValidPurpose(const std::string& purpose) {
-    // Проверка: не пустое, не слишком длинное, только допустимые символы
-    if (purpose.empty() || purpose.length() > 255) {
+    // Проверка длины
+    if (purpose.length() < 3 || purpose.length() > 500) {
         return false;
     }
     
-    // Проверка на допустимые символы (буквы, цифры, пробелы, пунктуация)
-    std::regex validChars(R"([a-zA-Z0-9\s\.,!?\-_()]+)");
-    if (!std::regex_match(purpose, validChars)) {
+    // Проверка на наличие только пробелов
+    bool hasNonSpace = false;
+    for (char c : purpose) {
+        if (!std::isspace(static_cast<unsigned char>(c))) {
+            hasNonSpace = true;
+            break;
+        }
+    }
+    if (!hasNonSpace) {
         return false;
     }
     
-    // Проверка на минимальную длину осмысленного текста
-    if (purpose.length() < 3) {
-        return false;
+    // Расширенный список запрещенных символов для безопасности
+    const std::string forbiddenChars = "<>&\"';=()[]{}|\\`~!@#$%^*+?/:\n\r\t";
+    
+    for (char c : purpose) {
+        // Запрещаем управляющие символы (ASCII < 32, кроме пробела, табуляции, перевода строки)
+        if (static_cast<unsigned char>(c) < 32 && c != ' ' && c != '\t' && c != '\n' && c != '\r') {
+            return false;
+        }
+        
+        // Запрещаем опасные символы из нашего списка
+        if (forbiddenChars.find(c) != std::string::npos) {
+            return false;
+        }
     }
     
     return true;

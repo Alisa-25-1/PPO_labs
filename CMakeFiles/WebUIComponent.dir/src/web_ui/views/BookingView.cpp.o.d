@@ -227,17 +227,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: \
  /usr/include/c++/13/bits/unique_lock.h /usr/include/c++/13/list \
  /usr/include/c++/13/bits/stl_list.h /usr/include/c++/13/bits/list.tcc \
  /usr/local/include/Wt/WStackedWidget.h \
- /usr/local/include/Wt/WPushButton.h /usr/local/include/Wt/WAnchor.h \
- /usr/local/include/Wt/WImage.h /usr/local/include/Wt/WLink.h \
- /usr/local/include/Wt/WFormWidget.h /usr/local/include/Wt/WValidator.h \
- /usr/local/include/Wt/WText.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../WebApplication.hpp \
  /usr/local/include/Wt/WApplication.h /usr/include/c++/13/chrono \
  /usr/local/include/Wt/WCssStyleSheet.h /usr/local/include/Wt/WBreak.h \
  /usr/local/include/Wt/WCssDecorationStyle.h \
  /usr/local/include/Wt/WBorder.h /usr/local/include/Wt/WColor.h \
- /usr/local/include/Wt/WFont.h /usr/local/include/Wt/WEnvironment.h \
- /usr/local/include/Wt/WLocale.h \
+ /usr/local/include/Wt/WFont.h /usr/local/include/Wt/WLink.h \
+ /usr/local/include/Wt/WEnvironment.h /usr/local/include/Wt/WLocale.h \
  /usr/local/include/Wt/WJavaScriptPreamble.h \
  /usr/local/include/Wt/WMessageResourceBundle.h \
  /usr/local/include/Wt/WLocalizedStrings.h \
@@ -270,6 +266,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/exceptions/ValidationException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/exceptions/AuthException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../dtos/AuthDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../models/Client.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/BookingController.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/BookingService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/IBookingRepository.hpp \
@@ -284,12 +281,23 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/exceptions/BookingException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../dtos/BookingDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../models/UserSession.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../models/../../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/BookingCreateWidget.hpp \
- /usr/local/include/Wt/WComboBox.h /usr/local/include/Wt/WLineEdit.h \
+ /usr/local/include/Wt/WComboBox.h /usr/local/include/Wt/WFormWidget.h \
+ /usr/local/include/Wt/WValidator.h /usr/local/include/Wt/WLineEdit.h \
  /usr/local/include/Wt/WDateEdit.h /usr/local/include/Wt/WCalendar.h \
  /usr/local/include/Wt/WCompositeWidget.h /usr/local/include/Wt/WDate.h \
  /usr/local/include/Wt/WDateTime.h /usr/local/include/Wt/WDateValidator.h \
+ /usr/local/include/Wt/WPushButton.h /usr/local/include/Wt/WAnchor.h \
+ /usr/local/include/Wt/WImage.h /usr/local/include/Wt/WText.h \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../models/DanceHall.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../dtos/BookingDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../models/TimeSlot.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/BookingListWidget.hpp \
  /usr/local/include/Wt/WTable.h /usr/local/include/Wt/WTableCell.h \
  /usr/local/include/Wt/WTableColumn.h /usr/local/include/Wt/WTableRow.h

@@ -103,6 +103,8 @@ private:
     void displayHall(const DanceHall& hall);
     void displayTrainer(const Trainer& trainer);
 
+    std::string formatTimeSlot(const TimeSlot& timeSlot);
+
 public:
     TechUI(const std::string& connectionString);
     

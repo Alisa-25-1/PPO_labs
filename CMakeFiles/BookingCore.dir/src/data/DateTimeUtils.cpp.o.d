@@ -1,4 +1,4 @@
-CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.o: \
+CMakeFiles/BookingCore.dir/src/data/DateTimeUtils.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.cpp \
  /usr/include/stdc-predef.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp \

@@ -5,6 +5,7 @@
 #include <Wt/WContainerWidget.h>
 #include "controllers/AuthController.hpp"
 #include "controllers/BookingController.hpp"
+#include "models/UserSession.hpp"
 
 class LoginWidget;
 class ClientDashboard;
@@ -22,6 +23,13 @@ public:
     
     AuthController* getAuthController() { return authController_.get(); }
     BookingController* getBookingController() { return bookingController_.get(); }
+    
+    // Методы для работы с сессией
+    UserSession& getUserSession() { return userSession_; }
+    bool isUserLoggedIn() const { return userSession_.isAuthenticated(); }
+    UUID getCurrentClientId() const { return userSession_.getUserId(); }
+    void loginUser(const AuthResponseDTO& authResponse);
+    void logoutUser();
 
 private:
     Wt::WStackedWidget* mainStack_;
@@ -32,6 +40,7 @@ private:
     
     std::unique_ptr<AuthController> authController_;
     std::unique_ptr<BookingController> bookingController_;
+    UserSession userSession_;
     
     void setupStyles();
     void initializeControllers();

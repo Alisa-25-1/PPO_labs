@@ -234,6 +234,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../dtos/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../dtos/../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/exceptions/BookingException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/LessonService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/ILessonRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/../models/Lesson.hpp \

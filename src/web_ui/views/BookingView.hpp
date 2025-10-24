@@ -2,10 +2,11 @@
 
 #include <Wt/WContainerWidget.h>
 #include <Wt/WStackedWidget.h>
-#include <Wt/WPushButton.h>
-#include <Wt/WText.h>
 
+// Forward declarations
 class WebApplication;
+class BookingCreateWidget;
+class BookingListWidget;
 
 class BookingView : public Wt::WContainerWidget {
 public:
@@ -15,9 +16,13 @@ private:
     WebApplication* app_;
     Wt::WStackedWidget* contentStack_;
     
+    // Виджеты для разных состояний
+    Wt::WContainerWidget* menuWidget_;
+    BookingCreateWidget* createWidget_;
+    BookingListWidget* listWidget_;
+
     void setupUI();
     void showBookingMenu();
     void showCreateBooking();
     void showMyBookings();
-    void showCancelBooking();
 };

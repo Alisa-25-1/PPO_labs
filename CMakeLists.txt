@@ -25,39 +25,42 @@ if(UNIX AND NOT APPLE)
     endif()
 endif()
 
+# Указываем корневую директорию исходников
+set(SOURCE_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # Компонент 1: Бизнес-логика (чистый C++, без зависимостей от БД)
 add_library(BookingCore STATIC
-    src/models/TimeSlot.cpp
-    src/models/Booking.cpp
-    src/models/Client.cpp
-    src/models/DanceHall.cpp
-    src/models/Branch.cpp
-    src/models/Studio.cpp
-    src/models/Trainer.cpp
-    src/models/Lesson.cpp
-    src/models/Enrollment.cpp
-    src/models/Review.cpp
-    src/models/Subscription.cpp
-    src/models/SubscriptionType.cpp
-    src/models/Schedule.cpp
-    src/types/uuid.cpp
-    src/types/enums.cpp
-    src/services/BookingService.cpp
-    src/services/LessonService.cpp
-    src/services/AuthService.cpp
-    src/services/SubscriptionService.cpp
-    src/services/ReviewService.cpp
-    src/services/ScheduleService.cpp
-    src/services/EnrollmentService.cpp
-    src/dtos/BookingDTO.cpp
-    src/dtos/LessonDTO.cpp
-    src/dtos/SubscriptionDTO.cpp
-    src/dtos/ReviewDTO.cpp
-    src/dtos/AuthDTO.cpp
-    src/dtos/EnrollmentDTO.cpp
-    src/core/Config.cpp
-    src/core/Logger.cpp
+    ${SOURCE_ROOT}/models/TimeSlot.cpp
+    ${SOURCE_ROOT}/models/Booking.cpp
+    ${SOURCE_ROOT}/models/Client.cpp
+    ${SOURCE_ROOT}/models/DanceHall.cpp
+    ${SOURCE_ROOT}/models/Branch.cpp
+    ${SOURCE_ROOT}/models/Studio.cpp
+    ${SOURCE_ROOT}/models/Trainer.cpp
+    ${SOURCE_ROOT}/models/Lesson.cpp
+    ${SOURCE_ROOT}/models/Enrollment.cpp
+    ${SOURCE_ROOT}/models/Review.cpp
+    ${SOURCE_ROOT}/models/Subscription.cpp
+    ${SOURCE_ROOT}/models/SubscriptionType.cpp
+    ${SOURCE_ROOT}/models/Schedule.cpp
+    ${SOURCE_ROOT}/types/uuid.cpp
+    ${SOURCE_ROOT}/types/enums.cpp
+    ${SOURCE_ROOT}/services/BookingService.cpp
+    ${SOURCE_ROOT}/services/LessonService.cpp
+    ${SOURCE_ROOT}/services/AuthService.cpp
+    ${SOURCE_ROOT}/services/SubscriptionService.cpp
+    ${SOURCE_ROOT}/services/ReviewService.cpp
+    ${SOURCE_ROOT}/services/ScheduleService.cpp
+    ${SOURCE_ROOT}/services/EnrollmentService.cpp
+    ${SOURCE_ROOT}/dtos/BookingDTO.cpp
+    ${SOURCE_ROOT}/dtos/LessonDTO.cpp
+    ${SOURCE_ROOT}/dtos/SubscriptionDTO.cpp
+    ${SOURCE_ROOT}/dtos/ReviewDTO.cpp
+    ${SOURCE_ROOT}/dtos/AuthDTO.cpp
+    ${SOURCE_ROOT}/dtos/EnrollmentDTO.cpp
+    ${SOURCE_ROOT}/core/Config.cpp
+    ${SOURCE_ROOT}/core/Logger.cpp
+    ${SOURCE_ROOT}/data/DateTimeUtils.cpp
 )
 
 # Для Linux линкуем библиотеку uuid
@@ -65,66 +68,47 @@ if(UNIX AND NOT APPLE)
     target_link_libraries(BookingCore PRIVATE ${UUID_LIBRARY})
 endif()
 
-# Публичные заголовки бизнес-логики
-target_include_directories(BookingCore PUBLIC 
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/models
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/types
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/services
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/dtos
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/repositories  # только интерфейсы!
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/core
+# Используем PRIVATE вместо PUBLIC для include directories
+target_include_directories(BookingCore PRIVATE 
+    ${SOURCE_ROOT}
 )
 
 # Компонент 2: Доступ к данным
 add_library(DataAccess STATIC
-    src/data/DatabaseConnection.cpp
-    src/data/ResilientDatabaseConnection.cpp
-    src/data/DateTimeUtils.cpp
-    src/data/QueryFactory.cpp
-    src/data/SqlQueryBuilder.cpp
-    src/data/PostgreSQLRepositoryFactory.cpp
-    src/repositories/impl/PostgreSQLClientRepository.cpp
-    src/repositories/impl/PostgreSQLDanceHallRepository.cpp
-    src/repositories/impl/PostgreSQLBookingRepository.cpp
-    src/repositories/impl/PostgreSQLSubscriptionRepository.cpp
-    src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp
-    src/repositories/impl/PostgreSQLStudioRepository.cpp
-    src/repositories/impl/PostgreSQLBranchRepository.cpp
-    src/repositories/impl/PostgreSQLTrainerRepository.cpp
-    src/repositories/impl/PostgreSQLLessonRepository.cpp
-    src/repositories/impl/PostgreSQLReviewRepository.cpp
-    src/repositories/impl/PostgreSQLEnrollmentRepository.cpp
+    ${SOURCE_ROOT}/data/DatabaseConnection.cpp
+    ${SOURCE_ROOT}/data/ResilientDatabaseConnection.cpp
+    ${SOURCE_ROOT}/data/QueryFactory.cpp
+    ${SOURCE_ROOT}/data/SqlQueryBuilder.cpp
+    ${SOURCE_ROOT}/data/PostgreSQLRepositoryFactory.cpp
+    ${SOURCE_ROOT}/repositories/impl/PostgreSQLClientRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/PostgreSQLDanceHallRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/PostgreSQLBookingRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/PostgreSQLSubscriptionRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/PostgreSQLStudioRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/PostgreSQLBranchRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/PostgreSQLTrainerRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/PostgreSQLLessonRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/PostgreSQLReviewRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/PostgreSQLEnrollmentRepository.cpp
 )
 
-target_include_directories(DataAccess PUBLIC 
-    ${CMAKE_CURRENT_SOURCE_DIR}/src
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/data
-    ${CMAKE_CURRENT_SOURCE_DIR}/src/repositories/impl
+target_include_directories(DataAccess PRIVATE 
+    ${SOURCE_ROOT}
 )
 
-target_link_libraries(DataAccess PUBLIC BookingCore ${LIBPQXX_LIBRARIES})
+target_link_libraries(DataAccess PRIVATE BookingCore ${LIBPQXX_LIBRARIES})
 
 # Компонент 3: Технологический UI
 add_executable(TechUI
-    src/tech_ui/TechUI.cpp
-    src/tech_ui/TechUIManagers.cpp
-    src/tech_ui/InputHandlers.cpp
-    src/main.cpp
+    ${SOURCE_ROOT}/tech_ui/TechUI.cpp
+    ${SOURCE_ROOT}/tech_ui/TechUIManagers.cpp
+    ${SOURCE_ROOT}/tech_ui/InputHandlers.cpp
+    ${SOURCE_ROOT}/main.cpp
 )
 
-target_include_directories(TechUI PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/src)
+target_include_directories(TechUI PRIVATE ${SOURCE_ROOT})
 target_link_libraries(TechUI PRIVATE BookingCore DataAccess)
-
-# Установочные правила для библиотек
-install(TARGETS BookingCore DataAccess
-    ARCHIVE DESTINATION lib
-    LIBRARY DESTINATION lib
-    RUNTIME DESTINATION bin
-)
-
-# Указываем корневую директорию исходников
-set(SOURCE_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 # Ручная настройка Wt - используем прямое указание путей
 set(WT_LIBRARIES /usr/local/lib/libwthttp.so /usr/local/lib/libwt.so)
@@ -135,19 +119,19 @@ message(STATUS "Wt include dirs: ${WT_INCLUDE_DIRS}")
 
 # Компонент 4: Web UI
 add_library(WebUIComponent
-    src/web_ui/WebApplication.cpp
-    src/web_ui/models/UserSession.cpp
-    src/web_ui/controllers/AuthController.cpp
-    src/web_ui/controllers/BookingController.cpp
-    src/web_ui/views/LoginWidget.cpp
-    src/web_ui/views/RegistrationWidget.cpp
-    src/web_ui/views/ClientDashboard.cpp
-    src/web_ui/views/BookingView.cpp
-    src/web_ui/views/BookingCreateWidget.cpp
-    src/web_ui/views/BookingListWidget.cpp
+    ${SOURCE_ROOT}/web_ui/WebApplication.cpp
+    ${SOURCE_ROOT}/web_ui/models/UserSession.cpp
+    ${SOURCE_ROOT}/web_ui/controllers/AuthController.cpp
+    ${SOURCE_ROOT}/web_ui/controllers/BookingController.cpp
+    ${SOURCE_ROOT}/web_ui/views/LoginWidget.cpp
+    ${SOURCE_ROOT}/web_ui/views/RegistrationWidget.cpp
+    ${SOURCE_ROOT}/web_ui/views/ClientDashboard.cpp
+    ${SOURCE_ROOT}/web_ui/views/BookingView.cpp
+    ${SOURCE_ROOT}/web_ui/views/BookingCreateWidget.cpp
+    ${SOURCE_ROOT}/web_ui/views/BookingListWidget.cpp
 )
 
-target_include_directories(WebUIComponent PUBLIC 
+target_include_directories(WebUIComponent PRIVATE 
     ${SOURCE_ROOT}
     ${SOURCE_ROOT}/web_ui
     ${SOURCE_ROOT}/web_ui/controllers
@@ -157,9 +141,10 @@ target_include_directories(WebUIComponent PUBLIC
 
 # Веб-приложение
 add_executable(DanceStudioWebUI
-    src/web_main.cpp
+    ${SOURCE_ROOT}/web_main.cpp
 )
 
+target_include_directories(DanceStudioWebUI PRIVATE ${SOURCE_ROOT})
 target_link_libraries(DanceStudioWebUI 
     WebUIComponent
     BookingCore
@@ -169,58 +154,44 @@ target_link_libraries(DanceStudioWebUI
     pthread
 )
 
-# Правила установки для дистрибутива
-install(DIRECTORY src/ DESTINATION include
-    FILES_MATCHING 
-    PATTERN "*.hpp"
-    PATTERN "tests" EXCLUDE
-    PATTERN "tech_ui" EXCLUDE
-    PATTERN "web_ui" EXCLUDE
-    PATTERN "main.cpp" EXCLUDE
-    # Скрываем реализации репозиториев от пользователей
-    PATTERN "repositories/impl" EXCLUDE
+# Создаем директорию styles в бинарной директории
+file(MAKE_DIRECTORY ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/styles)
+
+# Копируем все CSS файлы в бинарную директорию
+set(CSS_SOURCE_DIR ${SOURCE_ROOT}/web_ui/styles)
+
+# Копируем main.css в корень
+#configure_file(
+#    ${CSS_SOURCE_DIR}/main.css
+#    ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/main.css
+#    COPYONLY
+#)
+
+# Копируем CSS файлы в подпапку styles
+file(GLOB CSS_FILES 
+    "${CSS_SOURCE_DIR}/main.css"
+    "${CSS_SOURCE_DIR}/base.css"
+    "${CSS_SOURCE_DIR}/auth.css" 
+    "${CSS_SOURCE_DIR}/dashboard.css"
+    "${CSS_SOURCE_DIR}/booking.css"
 )
 
-install(TARGETS BookingCore DataAccess
-    EXPORT BookingLibTargets
-    ARCHIVE DESTINATION lib
-    LIBRARY DESTINATION lib
-    RUNTIME DESTINATION bin
-)
+foreach(css_file ${CSS_FILES})
+    get_filename_component(css_name ${css_file} NAME)
+    configure_file(
+        ${css_file}
+        ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/styles/${css_name}
+        COPYONLY
+    )
+    message(STATUS "📁 CSS файл добавлен: styles/${css_name}")
+endforeach()
 
-# Создание конфигурационных файлов для find_package
-install(EXPORT BookingLibTargets
-    FILE BookingLibTargets.cmake
-    NAMESPACE BookingLib::
-    DESTINATION lib/cmake/BookingLib
-)
-
-include(CMakePackageConfigHelpers)
-write_basic_package_version_file(
-    ${CMAKE_CURRENT_BINARY_DIR}/BookingLibConfigVersion.cmake
-    VERSION 1.0.0
-    COMPATIBILITY SameMajorVersion
-)
-
-configure_file(
-    ${CMAKE_CURRENT_SOURCE_DIR}/cmake/BookingLibConfig.cmake.in
-    ${CMAKE_CURRENT_BINARY_DIR}/BookingLibConfig.cmake
-    @ONLY
-)
-
-install(FILES
-    ${CMAKE_CURRENT_BINARY_DIR}/BookingLibConfig.cmake
-    ${CMAKE_CURRENT_BINARY_DIR}/BookingLibConfigVersion.cmake
-    DESTINATION lib/cmake/BookingLib
-)
-
-# Создание пакета
-set(CPACK_PACKAGE_NAME "BookingLib")
-set(CPACK_PACKAGE_VERSION "1.0.0")
-set(CPACK_PACKAGE_VENDOR "Dance Studio")
-set(CPACK_PACKAGE_DESCRIPTION_SUMMARY "Professional Dance Studio Management Library")
-set(CPACK_GENERATOR "TGZ")
-include(CPack)
+# Установочные правила для библиотек (опционально, можно закомментировать если не нужны)
+# install(TARGETS BookingCore DataAccess
+#     ARCHIVE DESTINATION lib
+#     LIBRARY DESTINATION lib
+#     RUNTIME DESTINATION bin
+# )
 
 # Модульные тесты
 add_executable(BookingTests

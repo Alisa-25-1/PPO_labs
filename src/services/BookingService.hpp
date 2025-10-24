@@ -7,6 +7,7 @@
 #include "../types/uuid.hpp"
 #include "exceptions/BookingException.hpp"
 #include "exceptions/ValidationException.hpp"
+#include "../data/DateTimeUtils.hpp"
 #include <memory>
 #include <vector>
 #include <iostream>
@@ -32,6 +33,19 @@ private:
     bool isWithinWorkingHours(const TimeSlot& timeSlot, 
                              const std::chrono::hours& openTime, 
                              const std::chrono::hours& closeTime) const;
+    std::vector<Booking> filterBookingsByDate(const std::vector<Booking>& bookings, 
+                                             const std::chrono::system_clock::time_point& date) const;
+    std::vector<TimeSlot> generateAvailableSlots(const std::chrono::system_clock::time_point& date,
+                                                const std::chrono::hours& openTime,
+                                                const std::chrono::hours& closeTime,
+                                                const std::vector<Booking>& existingBookings,
+                                                const UUID& hallId) const;
+    std::vector<TimeSlot> generateAvailableSlotsWithDuration(
+        const std::chrono::system_clock::time_point& date,
+        const std::chrono::hours& openTime,
+        const std::chrono::hours& closeTime,
+        const std::vector<Booking>& existingBookings,
+        const UUID& hallId) const;
 
 public:
     // Constructor with dependency injection
@@ -49,9 +63,14 @@ public:
     std::vector<BookingResponseDTO> getClientBookings(const UUID& clientId);
     std::vector<BookingResponseDTO> getDanceHallBookings(const UUID& hallId); 
     bool isTimeSlotAvailable(const UUID& hallId, const TimeSlot& timeSlot) const;
-    std::vector<TimeSlot> getAvailableTimeSlots(const UUID& hallId, const std::chrono::system_clock::time_point& date) const;
-
+    std::vector<DanceHall> getAllHalls() const;
+    std::optional<DanceHall> getHallById(const UUID& hallId) const;
+    std::vector<TimeSlot> getAvailableTimeSlots(const UUID& hallId, 
+                                               const std::chrono::system_clock::time_point& date) const;
+    std::vector<int> getAvailableDurations(const UUID& hallId, 
+                                          const std::chrono::system_clock::time_point& startTime) const;
+    
     // Business rules
     bool canClientBook(const UUID& clientId) const;
-    int getClientActiveBookingsCount(const UUID& clientId) const;
+    int getClientActiveBookingsCount(const UUID& clientId) const;   
 };

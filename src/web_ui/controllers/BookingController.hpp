@@ -18,6 +18,9 @@ public:
     std::vector<BookingResponseDTO> getClientBookings(const UUID& clientId);
     std::vector<DanceHall> getAvailableHalls();
     std::vector<TimeSlot> getAvailableTimeSlots(const UUID& hallId, const std::chrono::system_clock::time_point& date);
+    std::string getHallName(const UUID& hallId);
+    std::vector<int> getAvailableDurations(const UUID& hallId, 
+                                          const std::chrono::system_clock::time_point& startTime);
     
     // Валидация
     bool validateBookingRequest(const BookingRequestDTO& request) const;

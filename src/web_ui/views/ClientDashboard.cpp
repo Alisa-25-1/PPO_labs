@@ -11,12 +11,14 @@ ClientDashboard::ClientDashboard(WebApplication* app)
 void ClientDashboard::setupUI() {
     setStyleClass("dashboard-container");
     
-    // Яркий заголовок
-    auto title = addNew<Wt::WText>("<h1>🌟 ЛИЧНЫЙ КАБИНЕТ 🌟</h1>");
+    // Приветствие с именем пользователя
+    std::string userName = app_->getUserSession().getUserName();
+    std::string welcomeText = "<h1>🌟 ДОБРО ПОЖАЛОВАТЬ, " + (userName.empty() ? "ПОЛЬЗОВАТЕЛЬ" : userName) + "! 🌟</h1>";
+    auto title = addNew<Wt::WText>(welcomeText);
     title->setStyleClass("dashboard-title");
     
     // Подзаголовок
-    auto subtitle = addNew<Wt::WText>("<p>Добро пожаловать в систему!</p>");
+    auto subtitle = addNew<Wt::WText>("<p>Управляйте своими бронированиями и занятиями</p>");
     subtitle->setStyleClass("dashboard-subtitle");
     
     // Простое меню
@@ -50,8 +52,8 @@ void ClientDashboard::setupUI() {
     auto logoutBtn = addNew<Wt::WPushButton>("🚪 Выйти");
     logoutBtn->setStyleClass("btn-logout");
     logoutBtn->clicked().connect([this]() {
-        app_->showLogin();
+        app_->logoutUser();
     });
     
-    std::cout << "✅ Дашборд создан" << std::endl;
+    std::cout << "✅ Дашборд создан для пользователя: " << userName << std::endl;
 }

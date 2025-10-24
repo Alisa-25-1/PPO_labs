@@ -263,6 +263,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/exceptions/ValidationException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/exceptions/AuthException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../dtos/AuthDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../models/Client.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/BookingController.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/BookingService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/IBookingRepository.hpp \
@@ -277,7 +278,10 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/exceptions/BookingException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../dtos/BookingDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/models/UserSession.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/models/../../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/LoginWidget.hpp \
  /usr/local/include/Wt/WLineEdit.h /usr/local/include/Wt/WFormWidget.h \
  /usr/local/include/Wt/WValidator.h /usr/local/include/Wt/WPushButton.h \
@@ -288,5 +292,64 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: \
  /usr/local/include/Wt/WStackedValidator.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/ClientDashboard.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/RegistrationWidget.hpp \
- /usr/local/include/Wt/WComboBox.h \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/BookingView.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../models/Client.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/BookingView.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLBookingRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/DatabaseConnection.hpp \
+ /usr/include/pqxx/pqxx /usr/include/pqxx/internal/header-pre.hxx \
+ /usr/include/c++/13/version /usr/include/pqxx/internal/cxx-features.hxx \
+ /usr/include/pqxx/config-public-compiler.h /usr/include/c++/13/ciso646 \
+ /usr/include/pqxx/array.hxx /usr/include/c++/13/algorithm \
+ /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+ /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
+ /usr/include/pqxx/connection.hxx /usr/include/pqxx/errorhandler.hxx \
+ /usr/include/pqxx/types.hxx /usr/include/c++/13/iterator \
+ /usr/include/c++/13/bits/stream_iterator.h /usr/include/pqxx/except.hxx \
+ /usr/include/pqxx/internal/concat.hxx /usr/include/pqxx/strconv.hxx \
+ /usr/include/c++/13/charconv /usr/include/pqxx/util.hxx \
+ /usr/include/pqxx/version.hxx \
+ /usr/include/pqxx/internal/libpq-forward.hxx /usr/include/pqxx/zview.hxx \
+ /usr/include/pqxx/internal/conversions.hxx /usr/include/c++/13/numeric \
+ /usr/include/c++/13/bits/stl_numeric.h \
+ /usr/include/c++/13/pstl/glue_numeric_defs.h /usr/include/c++/13/variant \
+ /usr/include/pqxx/params.hxx \
+ /usr/include/pqxx/internal/statement_parameters.hxx \
+ /usr/include/pqxx/binarystring.hxx /usr/include/pqxx/result.hxx \
+ /usr/include/pqxx/internal/encodings.hxx /usr/include/c++/13/iomanip \
+ /usr/include/c++/13/bits/quoted_string.h \
+ /usr/include/pqxx/internal/encoding_group.hxx \
+ /usr/include/pqxx/internal/ignore-deprecated-pre.hxx \
+ /usr/include/pqxx/internal/ignore-deprecated-post.hxx \
+ /usr/include/pqxx/separated_list.hxx \
+ /usr/include/pqxx/internal/array-composite.hxx \
+ /usr/include/pqxx/blob.hxx /usr/include/c++/13/filesystem \
+ /usr/include/c++/13/bits/fs_fwd.h /usr/include/c++/13/bits/fs_path.h \
+ /usr/include/c++/13/codecvt /usr/include/c++/13/bits/fs_dir.h \
+ /usr/include/c++/13/bits/fs_ops.h /usr/include/pqxx/dbtransaction.hxx \
+ /usr/include/pqxx/transaction_base.hxx \
+ /usr/include/pqxx/internal/stream_query.hxx \
+ /usr/include/pqxx/internal/gates/connection-stream_from.hxx \
+ /usr/include/pqxx/internal/callgate.hxx \
+ /usr/include/pqxx/internal/stream_iterator.hxx \
+ /usr/include/pqxx/transaction_focus.hxx /usr/include/pqxx/isolation.hxx \
+ /usr/include/pqxx/row.hxx /usr/include/pqxx/field.hxx \
+ /usr/include/pqxx/composite.hxx \
+ /usr/include/pqxx/internal/stream_query_impl.hxx \
+ /usr/include/pqxx/cursor.hxx /usr/include/pqxx/internal/sql_cursor.hxx \
+ /usr/include/pqxx/largeobject.hxx /usr/include/pqxx/nontransaction.hxx \
+ /usr/include/pqxx/transaction.hxx /usr/include/pqxx/notification.hxx \
+ /usr/include/pqxx/pipeline.hxx /usr/include/pqxx/prepared_statement.hxx \
+ /usr/include/pqxx/params.hxx /usr/include/pqxx/range.hxx \
+ /usr/include/pqxx/internal/result_iterator.hxx \
+ /usr/include/pqxx/internal/result_iter.hxx \
+ /usr/include/pqxx/robusttransaction.hxx \
+ /usr/include/pqxx/stream_from.hxx /usr/include/pqxx/stream_to.hxx \
+ /usr/include/pqxx/subtransaction.hxx /usr/include/pqxx/time.hxx \
+ /usr/include/pqxx/transactor.hxx \
+ /usr/include/pqxx/internal/header-post.hxx \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/exceptions/DataAccessException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/SqlQueryBuilder.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLClientRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLDanceHallRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLBranchRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp

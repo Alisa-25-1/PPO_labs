@@ -5,7 +5,8 @@
 #include <Wt/WPasswordEdit.h>
 #include <Wt/WPushButton.h>
 #include <Wt/WText.h>
-#include <Wt/WComboBox.h>
+
+#include "../../models/Client.hpp"
 
 class WebApplication;
 
@@ -28,6 +29,6 @@ private:
     void setupUI();
     void handleRegister();
     void handleBack();
-    void updateStatus(const std::string& message, bool isError = false);
     bool validateForm();
+    void updateStatus(const std::string& message, bool isError = false);
 };

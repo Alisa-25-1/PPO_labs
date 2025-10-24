@@ -13,7 +13,3 @@
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/package_source.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/edit_cache.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/rebuild_cache.dir
-/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/list_install_components.dir
-/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/install.dir
-/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/install/local.dir
-/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/install/strip.dir

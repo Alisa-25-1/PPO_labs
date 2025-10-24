@@ -229,5 +229,6 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../data/DateTimeUtils.hpp \
  /usr/include/c++/13/iostream /usr/include/c++/13/algorithm \
  /usr/include/c++/13/pstl/glue_algorithm_defs.h

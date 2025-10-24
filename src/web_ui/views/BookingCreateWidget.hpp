@@ -6,15 +6,23 @@
 #include <Wt/WDateEdit.h>
 #include <Wt/WPushButton.h>
 #include <Wt/WText.h>
+#include "../../types/uuid.hpp"
+#include "../../models/DanceHall.hpp"
+#include "../../dtos/BookingDTO.hpp"
+#include "../../models/TimeSlot.hpp"
+#include "../../data/DateTimeUtils.hpp"
 
 class WebApplication;
 
 class BookingCreateWidget : public Wt::WContainerWidget {
 public:
     BookingCreateWidget(WebApplication* app);
+
+    void setBackToListCallback(std::function<void()> callback);
     
 private:
     WebApplication* app_;
+    std::function<void()> onBackToList_;
     
     Wt::WComboBox* hallComboBox_;
     Wt::WDateEdit* dateEdit_;
@@ -30,5 +38,14 @@ private:
     void handleBack();
     void updateStatus(const std::string& message, bool isError = false);
     void loadAvailableHalls();
-    void loadTimeSlots();
+    void loadAvailableTimeSlots();
+    void updateAvailableDurations();
+    
+    // Вспомогательные методы для работы с бизнес-логикой
+    std::vector<DanceHall> getAvailableHallsFromDB();
+    std::vector<TimeSlot> getAvailableTimeSlotsFromService(const UUID& hallId, const Wt::WDate& date);
+    bool isTimeSlotAvailable(const UUID& hallId, const TimeSlot& timeSlot);
+    BookingResponseDTO createBookingThroughService(const BookingRequestDTO& request);
+    UUID getCurrentClientId();
+    std::chrono::system_clock::time_point createDateTime(const Wt::WDate& date, int hours, int minutes);
 };

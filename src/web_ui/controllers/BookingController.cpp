@@ -1,4 +1,5 @@
 #include "BookingController.hpp"
+#include "../../services/BookingService.hpp"
 #include "../../repositories/impl/PostgreSQLBookingRepository.hpp"
 #include "../../repositories/impl/PostgreSQLClientRepository.hpp"
 #include "../../repositories/impl/PostgreSQLDanceHallRepository.hpp"
@@ -8,10 +9,13 @@
 
 BookingController::BookingController(std::shared_ptr<BookingService> bookingService)
     : bookingService_(std::move(bookingService)) {
+    std::cout << "✅ BookingController создан с реальным сервисом" << std::endl;
 }
 
 BookingResponseDTO BookingController::createBooking(const BookingRequestDTO& request) {
     try {
+        std::cout << "📝 Создание бронирования для клиента: " << request.clientId.toString() << std::endl;
+        
         if (!validateBookingRequest(request)) {
             throw ValidationException("Invalid booking request data");
         }
@@ -19,36 +23,58 @@ BookingResponseDTO BookingController::createBooking(const BookingRequestDTO& req
         return bookingService_->createBooking(request);
         
     } catch (const std::exception& e) {
-        std::cerr << "Ошибка создания бронирования: " << e.what() << std::endl;
+        std::cerr << "❌ Ошибка создания бронирования: " << e.what() << std::endl;
         throw;
     }
 }
 
 BookingResponseDTO BookingController::cancelBooking(const UUID& bookingId, const UUID& clientId) {
     try {
+        std::cout << "❌ Отмена бронирования: " << bookingId.toString() << " для клиента: " << clientId.toString() << std::endl;
         return bookingService_->cancelBooking(bookingId, clientId);
     } catch (const std::exception& e) {
-        std::cerr << "Ошибка отмены бронирования: " << e.what() << std::endl;
+        std::cerr << "❌ Ошибка отмены бронирования: " << e.what() << std::endl;
         throw;
     }
 }
 
 std::vector<BookingResponseDTO> BookingController::getClientBookings(const UUID& clientId) {
     try {
+        std::cout << "📋 Получение бронирований клиента: " << clientId.toString() << std::endl;
         return bookingService_->getClientBookings(clientId);
     } catch (const std::exception& e) {
-        std::cerr << "Ошибка получения бронирований: " << e.what() << std::endl;
+        std::cerr << "❌ Ошибка получения бронирований: " << e.what() << std::endl;
         return {};
     }
 }
 
 std::vector<DanceHall> BookingController::getAvailableHalls() {
     try {
-        // Здесь нужно получить доступные залы через репозиторий
-        // Пока вернем пустой список, реализуем позже
+        std::cout << "🏟️ Получение доступных залов" << std::endl;
+        
+        // Используем DanceHallRepository для получения всех залов
+        // В реальной системе нужно добавить метод в BookingService
+        // Пока используем напрямую репозиторий через сервис
+        if (bookingService_) {
+            return bookingService_->getAllHalls();
+        }
         return {};
+        
     } catch (const std::exception& e) {
-        std::cerr << "Ошибка получения залов: " << e.what() << std::endl;
+        std::cerr << "❌ Ошибка получения залов: " << e.what() << std::endl;
+        return {};
+    }
+}
+
+// Новый метод для получения доступных продолжительностей
+std::vector<int> BookingController::getAvailableDurations(const UUID& hallId, 
+                                                         const std::chrono::system_clock::time_point& startTime) {
+    try {
+        std::cout << "⏱️ Запрос доступных продолжительностей для зала: " << hallId.toString() 
+                  << " в " << DateTimeUtils::formatTime(startTime) << std::endl;
+        return bookingService_->getAvailableDurations(hallId, startTime);
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка получения доступных продолжительностей: " << e.what() << std::endl;
         return {};
     }
 }
@@ -56,9 +82,10 @@ std::vector<DanceHall> BookingController::getAvailableHalls() {
 std::vector<TimeSlot> BookingController::getAvailableTimeSlots(const UUID& hallId, 
                                                               const std::chrono::system_clock::time_point& date) {
     try {
+        std::cout << "⏰ Получение доступных слотов для зала: " << hallId.toString() << std::endl;
         return bookingService_->getAvailableTimeSlots(hallId, date);
     } catch (const std::exception& e) {
-        std::cerr << "Ошибка получения доступных слотов: " << e.what() << std::endl;
+        std::cerr << "❌ Ошибка получения доступных слотов: " << e.what() << std::endl;
         return {};
     }
 }
@@ -69,9 +96,30 @@ bool BookingController::validateBookingRequest(const BookingRequestDTO& request)
 
 bool BookingController::isTimeSlotAvailable(const UUID& hallId, const TimeSlot& timeSlot) const {
     try {
+        std::cout << "🔍 Проверка доступности слота для зала: " << hallId.toString() << std::endl;
         return bookingService_->isTimeSlotAvailable(hallId, timeSlot);
     } catch (const std::exception& e) {
-        std::cerr << "Ошибка проверки доступности слота: " << e.what() << std::endl;
+        std::cerr << "❌ Ошибка проверки доступности слота: " << e.what() << std::endl;
         return false;
+    }
+}
+
+std::string BookingController::getHallName(const UUID& hallId) {
+    try {
+        std::cout << "🏷️ Получение названия зала: " << hallId.toString() << std::endl;
+        
+        // Используем сервис для получения зала по ID
+        if (bookingService_) {
+            auto hall = bookingService_->getHallById(hallId);
+            if (hall) {
+                return hall->getName();
+            }
+        }
+        
+        return "Неизвестный зал";
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка получения названия зала: " << e.what() << std::endl;
+        return "Неизвестный зал";
     }
 }

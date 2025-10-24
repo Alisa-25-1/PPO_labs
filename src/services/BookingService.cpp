@@ -95,20 +95,8 @@ std::optional<Branch> BookingService::getBranchForHall(const UUID& hallId) const
 bool BookingService::isWithinWorkingHours(const TimeSlot& timeSlot, 
                                         const std::chrono::hours& openTime, 
                                         const std::chrono::hours& closeTime) const {
-    // Преобразуем время начала и окончания слота в локальное время
-    auto startTime = std::chrono::system_clock::to_time_t(timeSlot.getStartTime());
-    auto endTime = std::chrono::system_clock::to_time_t(timeSlot.getEndTime());
-    
-    std::tm startTm = *std::localtime(&startTime);
-    std::tm endTm = *std::localtime(&endTime);
-    
-    // Извлекаем час начала и окончания
-    int startHour = startTm.tm_hour;
-    int endHour = endTm.tm_hour;
-    
-    // Проверяем, что время начала не раньше времени открытия
-    // и время окончания не позже времени закрытия
-    return startHour >= openTime.count() && endHour <= closeTime.count();
+    return DateTimeUtils::isTimeInRange(timeSlot.getStartTime(), openTime, closeTime) &&
+           DateTimeUtils::isTimeInRange(timeSlot.getEndTime(), openTime, closeTime);
 }
 
 
@@ -200,8 +188,8 @@ std::vector<BookingResponseDTO> BookingService::getClientBookings(const UUID& cl
     return result;
 }
 
-std::vector<BookingResponseDTO> BookingService::getDanceHallBookings(const UUID& hallId) {  // Исправлено
-    validateDanceHall(hallId);  // Исправлено
+std::vector<BookingResponseDTO> BookingService::getDanceHallBookings(const UUID& hallId) {  
+    validateDanceHall(hallId);  
     
     auto bookings = bookingRepository_->findByHallId(hallId);
     std::vector<BookingResponseDTO> result;
@@ -247,44 +235,170 @@ int BookingService::getClientActiveBookingsCount(const UUID& clientId) const {
     return activeCount;
 }
 
+// Добавляем метод для получения всех залов
+std::vector<DanceHall> BookingService::getAllHalls() const {
+    try {
+        return hallRepository_->findAll();
+    } catch (const std::exception& e) {
+        std::cerr << "Ошибка получения списка залов: " << e.what() << std::endl;
+        return {};
+    }
+}
+
+// Добавляем метод для получения зала по ID
+std::optional<DanceHall> BookingService::getHallById(const UUID& hallId) const {
+    try {
+        return hallRepository_->findById(hallId);
+    } catch (const std::exception& e) {
+        std::cerr << "Ошибка получения зала: " << e.what() << std::endl;
+        return std::nullopt;
+    }
+}
+
+// Новый метод для получения максимальной доступной продолжительности
+std::vector<int> BookingService::getAvailableDurations(const UUID& hallId, 
+                                                      const std::chrono::system_clock::time_point& startTime) const {
+    try {
+        std::cout << "⏱️ Расчет доступных продолжительностей для зала " << hallId.toString() 
+                  << " в " << DateTimeUtils::formatTime(startTime) << std::endl; // Используем DateTimeUtils
+        
+        validateDanceHall(hallId);
+        
+        // Получаем все бронирования для зала
+        auto bookings = bookingRepository_->findByHallId(hallId);
+        
+        // Фильтруем бронирования на выбранный день с помощью DateTimeUtils
+        auto dayBookings = filterBookingsByDate(bookings, startTime);
+        
+        // Возможные продолжительности в минутах
+        std::vector<int> possibleDurations = {60, 120, 180, 240}; // 1, 2, 3, 4 часа
+        std::vector<int> availableDurations;
+        
+        // Проверяем каждую продолжительность
+        for (int duration : possibleDurations) {
+            TimeSlot proposedSlot(startTime, duration);
+            
+            // Проверяем, что слот не конфликтует с существующими бронированиями
+            bool isAvailable = true;
+            for (const auto& booking : dayBookings) {
+                if (booking.getTimeSlot().overlapsWith(proposedSlot) && 
+                    !booking.isCancelled() && !booking.isCompleted()) {
+                    isAvailable = false;
+                    break;
+                }
+            }
+            
+            // Дополнительная проверка через isTimeSlotAvailable
+            if (isAvailable && !isTimeSlotAvailable(hallId, proposedSlot)) {
+                isAvailable = false;
+            }
+            
+            // Проверяем рабочие часы с помощью DateTimeUtils
+            if (isAvailable) {
+                auto branch = getBranchForHall(hallId);
+                if (branch) {
+                    auto workingHours = branch->getWorkingHours();
+                    if (!DateTimeUtils::isTimeInRange(proposedSlot.getEndTime(), workingHours.openTime, workingHours.closeTime)) {
+                        isAvailable = false;
+                    }
+                }
+            }
+            
+            if (isAvailable) {
+                availableDurations.push_back(duration);
+            }
+        }
+        
+        std::cout << "✅ Доступные продолжительности: ";
+        for (int dur : availableDurations) {
+            std::cout << dur/60 << "ч ";
+        }
+        std::cout << std::endl;
+        
+        return availableDurations;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка расчета продолжительностей: " << e.what() << std::endl;
+        return {};
+    }
+}
+
 std::vector<TimeSlot> BookingService::getAvailableTimeSlots(const UUID& hallId, 
                                                            const std::chrono::system_clock::time_point& date) const {
-    validateDanceHall(hallId);
+    try {
+        validateDanceHall(hallId);
+        
+        // Получаем все бронирования для зала
+        auto bookings = bookingRepository_->findByHallId(hallId);
+        
+        // Фильтруем бронирования по дате с помощью DateTimeUtils
+        auto dayBookings = filterBookingsByDate(bookings, date);
+        
+        // Получаем рабочие часы филиала
+        auto branch = getBranchForHall(hallId);
+        if (!branch) {
+            throw ValidationException("Не удалось определить рабочие часы зала");
+        }
+        
+        auto workingHours = branch->getWorkingHours();
+        
+        // Генерируем доступные слоты с учетом максимальной продолжительности
+        return generateAvailableSlotsWithDuration(date, workingHours.openTime, workingHours.closeTime, dayBookings, hallId);
+        
+    } catch (const std::exception& e) {
+        std::cerr << "Ошибка получения доступных слотов: " << e.what() << std::endl;
+        return {};
+    }
+}
+
+// Вспомогательный метод для фильтрации бронирований по дате
+std::vector<Booking> BookingService::filterBookingsByDate(const std::vector<Booking>& bookings, 
+                                                         const std::chrono::system_clock::time_point& date) const {
+    std::vector<Booking> result;
     
-    // Получаем все бронирования для зала на указанную дату
-    auto bookings = bookingRepository_->findByHallId(hallId);
+    for (const auto& booking : bookings) {
+        if (DateTimeUtils::isSameDay(booking.getTimeSlot().getStartTime(), date)) {
+            result.push_back(booking);
+        }
+    }
     
-    // Фильтруем бронирования по дате
-    std::vector<Booking> dayBookings;
-    std::copy_if(bookings.begin(), bookings.end(), std::back_inserter(dayBookings),
-        [&date](const Booking& booking) {
-            auto bookingTime = std::chrono::system_clock::to_time_t(booking.getTimeSlot().getStartTime());
-            auto targetTime = std::chrono::system_clock::to_time_t(date);
-            
-            std::tm bookingTm = *std::localtime(&bookingTime);
-            std::tm targetTm = *std::localtime(&targetTime);
-            
-            return bookingTm.tm_year == targetTm.tm_year &&
-                   bookingTm.tm_mon == targetTm.tm_mon &&
-                   bookingTm.tm_mday == targetTm.tm_mday;
-        });
+    return result;
+}
+
+// Вспомогательный метод для генерации доступных слотов
+std::vector<TimeSlot> BookingService::generateAvailableSlotsWithDuration(
+    const std::chrono::system_clock::time_point& date,
+    const std::chrono::hours& openTime,
+    const std::chrono::hours& closeTime,
+    const std::vector<Booking>& existingBookings,
+    const UUID& hallId) const {
     
-        // Генерируем доступные слоты (упрощенная логика)
     std::vector<TimeSlot> availableSlots;
-    auto startTime = std::chrono::system_clock::to_time_t(date);
-    std::tm tm = *std::localtime(&startTime);
     
-    // Рабочие часы: 9:00 - 22:00
-    for (int hour = 9; hour < 22; hour++) {
-        tm.tm_hour = hour;
-        tm.tm_min = 0;
-        auto slotStart = std::chrono::system_clock::from_time_t(std::mktime(&tm));
-        
-        TimeSlot slot(slotStart, 60); // 1 час слот
-        
-        // Проверяем, нет ли конфликтов
-        if (isTimeSlotAvailable(hallId, slot)) {
-            availableSlots.push_back(slot);
+    auto base_time_t = std::chrono::system_clock::to_time_t(date);
+    std::tm base_tm = *std::localtime(&base_time_t);
+    
+    // Генерируем слоты с шагом в 30 минут для большей гибкости
+    int startHour = openTime.count();
+    int endHour = closeTime.count();
+    
+    for (int hour = startHour; hour < endHour; hour++) {
+        for (int minute = 0; minute < 60; minute += 30) { // Слоты каждые 30 минут
+            base_tm.tm_hour = hour;
+            base_tm.tm_min = minute;
+            base_tm.tm_sec = 0;
+            
+            auto slotStart = std::chrono::system_clock::from_time_t(std::mktime(&base_tm));
+            
+            // Проверяем доступные продолжительности для этого времени начала
+            auto availableDurations = getAvailableDurations(hallId, slotStart);
+            
+            if (!availableDurations.empty()) {
+                // Создаем слот с минимальной доступной продолжительностью
+                int minDuration = *std::min_element(availableDurations.begin(), availableDurations.end());
+                TimeSlot slot(slotStart, minDuration);
+                availableSlots.push_back(slot);
+            }
         }
     }
     

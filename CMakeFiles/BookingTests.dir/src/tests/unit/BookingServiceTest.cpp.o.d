@@ -357,6 +357,7 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/exceptions/BookingException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/exceptions/ValidationException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockBookingRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockClientRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockDanceHallRepository.hpp \

@@ -1,0 +1,91 @@
+/* ===== DANCE STUDIO MAIN STYLES ===== */
+/* Импортируем все стилевые модули */
+
+@import url('base.css');
+@import url('auth.css');
+@import url('dashboard.css');
+@import url('booking.css');
+
+/* ===== GLOBAL OVERRIDES & UTILITIES ===== */
+
+/* Плавные переходы для всех интерактивных элементов */
+a, button, input, select, textarea {
+    transition: all 0.3s ease;
+}
+
+/* Кастомный скроллбар */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #5a6fd8, #6a42a0);
+}
+
+/* Улучшение фокуса для доступности */
+*:focus {
+    outline: 2px solid #667eea;
+    outline-offset: 2px;
+}
+
+/* Анимация появления контента */
+.fade-in {
+    animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Loading spinner */
+.loading-spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #667eea;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+    margin: 2rem auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Responsive images */
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* Print styles */
+@media print {
+    .btn-nav,
+    .btn-menu,
+    .btn-logout {
+        display: none !important;
+    }
+    
+    .booking-card {
+        box-shadow: none !important;
+        border: 1px solid #000 !important;
+    }
+}

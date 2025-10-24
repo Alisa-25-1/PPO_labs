@@ -1,8 +1,6 @@
 file(REMOVE_RECURSE
   "CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o"
   "CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o.d"
-  "CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.o"
-  "CMakeFiles/DataAccess.dir/src/data/DateTimeUtils.cpp.o.d"
   "CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o"
   "CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o.d"
   "CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.o"

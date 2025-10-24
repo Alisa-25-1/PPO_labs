@@ -44,8 +44,10 @@ bool AuthController::registerClient(const std::string& name, const std::string& 
                                    const std::string& phone, const std::string& password,
                                    AuthResponseDTO& response) {
     try {
+        // Используем упрощенную валидацию
         if (!validateEmail(email) || !validatePassword(password) || 
-            name.empty() || phone.empty()) {
+            !Client::isValidName(name) || 
+            !Client::isValidPhone(phone)) {
             return false;
         }
         
@@ -66,9 +68,4 @@ bool AuthController::validateEmail(const std::string& email) const {
 
 bool AuthController::validatePassword(const std::string& password) const {
     return password.length() >= 8;
-}
-
-bool AuthController::validatePhone(const std::string& phone) const {
-    std::regex pattern(R"(^(\+7|8)?[\s\-]?\(?[0-9]{3}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$)");
-    return std::regex_match(phone, pattern);
 }

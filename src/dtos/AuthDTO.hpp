@@ -32,10 +32,12 @@ struct AuthResponseDTO {
     std::string token;
     std::string status;
     
+    // Конструктор по умолчанию
     AuthResponseDTO() = default;
-    AuthResponseDTO(const UUID& id, const std::string& name, 
+    
+    AuthResponseDTO(const UUID& clientId, const std::string& name, 
                    const std::string& email, const std::string& status)
-        : clientId(id), name(name), email(email), status(status) {}
+        : clientId(clientId), name(name), email(email), status(status) {}
 };
 
 #endif // AUTHDTO_HPP

@@ -85,14 +85,9 @@ void LoginWidget::handleLogin() {
             statusText_->setText("✅ Успешный вход! Перенаправление...");
             statusText_->setStyleClass("status-success");
             
-            // Переходим на дашборд через 1 секунду
-            auto timer = std::make_shared<Wt::WTimer>();
-            timer->setSingleShot(true);
-            timer->setInterval(std::chrono::seconds(1));
-            timer->timeout().connect([this, timer]() {
-                app_->showDashboard();
-            });
-            timer->start();
+            // Сохраняем сессию пользователя
+            app_->loginUser(response);
+            
         } else {
             statusText_->setText("❌ Неверный email или пароль");
             statusText_->setStyleClass("status-error");

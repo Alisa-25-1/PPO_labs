@@ -66,28 +66,76 @@ bool Client::isValid() const {
 }
 
 bool Client::isValidName(const std::string& name) {
-    // Разрешаем пустое имя при регистрации - ИЗМЕНИМ ЭТО
-    if (name.empty()) {
-        return false; // Теперь имя не может быть пустым
-    }
-    
-    if (name.length() > 100 || name.length() < 2) {
+    // Минимальная проверка: не пустое и разумная длина
+    if (name.empty() || name.length() < 2 || name.length() > 100) {
         return false;
     }
-    
-    // Проверка на допустимые символы (буквы, пробелы, апострофы, дефисы)
-    std::regex validChars(R"(^[a-zA-Zа-яА-Я\s\-\']+$)");
-    if (!std::regex_match(name, validChars)) {
+
+    // Проверка на наличие только пробелов
+    bool hasNonSpace = false;
+    for (char c : name) {
+        if (!std::isspace(static_cast<unsigned char>(c))) {
+            hasNonSpace = true;
+            break;
+        }
+    }
+    if (!hasNonSpace) {
         return false;
     }
+
+    const std::string forbiddenChars = "<>&\"';=()[]{}|\\`~!@#$%^*+,?/:\n\r\t";
     
-    // Проверка на наличие хотя бы одной буквы
-    bool hasLetter = std::any_of(name.begin(), name.end(), ::isalpha);
-    if (!hasLetter) {
-        return false;
+    for (char c : name) {
+        // Запрещаем управляющие символы (ASCII < 32, кроме пробела, табуляции, перевода строки)
+        if (static_cast<unsigned char>(c) < 32 && c != ' ' && c != '\t' && c != '\n' && c != '\r') {
+            return false;
+        }
+        
+        // Запрещаем опасные символы из нашего списка
+        if (forbiddenChars.find(c) != std::string::npos) {
+            return false;
+        }
     }
     
     return true;
+}
+
+bool Client::isValidPhone(const std::string& phone) {
+    // Разрешаем пустой телефон при регистрации
+    if (phone.empty()) {
+        return true;
+    }
+    
+    // Упрощенная проверка для российских номеров
+    std::string cleanPhone;
+    for (size_t i = 0; i < phone.length(); ++i) {
+        char c = phone[i];
+        if (i == 0 && c == '+') {
+            cleanPhone += c;
+        } else if (std::isdigit(c)) {
+            cleanPhone += c;
+        }
+    }
+    
+    // Проверка форматов российских номеров
+    if (cleanPhone.empty()) {
+        return false;
+    }
+    
+    // +7XXXXXXXXXX (12 символов)
+    if (cleanPhone.substr(0, 2) == "+7") {
+        return cleanPhone.length() == 12;
+    }
+    // 8XXXXXXXXXX (11 символов)
+    else if (cleanPhone[0] == '8') {
+        return cleanPhone.length() == 11;
+    }
+    // 7XXXXXXXXXX (11 символов - без +)
+    else if (cleanPhone[0] == '7') {
+        return cleanPhone.length() == 11;
+    }
+    
+    return false;
 }
 
 bool Client::isValidEmail(const std::string& email) {
@@ -116,36 +164,6 @@ bool Client::isValidEmail(const std::string& email) {
     }
     
     return true;
-}
-
-bool Client::isValidPhone(const std::string& phone) {
-    // Разрешаем пустой телефон при регистрации
-    if (phone.empty()) {
-        return true;
-    }
-    
-    if (phone.length() < 10 || phone.length() > 20) {
-        return false;
-    }
-    
-    std::string cleanPhone;
-    for (size_t i = 0; i < phone.length(); ++i) {
-        char c = phone[i];
-        if (i == 0 && c == '+') {
-            cleanPhone += c;
-        } else if (std::isdigit(c)) {
-            cleanPhone += c;
-        }
-    }
-    
-    if (cleanPhone.empty() || 
-        (cleanPhone[0] == '+' && cleanPhone.length() < 11) ||
-        (cleanPhone[0] != '+' && cleanPhone.length() < 10)) {
-        return false;
-    }
-    
-    std::regex phonePattern(R"(^\+?[0-9]{10,15}$)");
-    return std::regex_match(cleanPhone, phonePattern);
 }
 
 bool Client::isValidPassword(const std::string& password) {

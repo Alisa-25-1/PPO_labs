@@ -7,11 +7,20 @@
 #include <iostream>
 
 BookingView::BookingView(WebApplication* app) 
-    : app_(app) {
+    : app_(app),
+      contentStack_(nullptr),
+      menuWidget_(nullptr),
+      createWidget_(nullptr),
+      listWidget_(nullptr) {
+    
+    std::cout << "🔧 Создание BookingView..." << std::endl;
     setupUI();
+    std::cout << "✅ BookingView создан" << std::endl;
 }
 
 void BookingView::setupUI() {
+    std::cout << "🔧 Настройка UI BookingView..." << std::endl;
+    
     setStyleClass("booking-view");
     
     // Заголовок
@@ -35,38 +44,57 @@ void BookingView::setupUI() {
     auto backBtn = nav->addNew<Wt::WPushButton>("← Назад в меню");
     backBtn->setStyleClass("btn-nav btn-back");
     backBtn->clicked().connect([this]() {
-        // Вернуться в главное меню клиента
+        app_->showDashboard();
     });
     
     // Контент
     contentStack_ = addNew<Wt::WStackedWidget>();
     contentStack_->setStyleClass("booking-content");
     
+    std::cout << "🔧 Создание виджетов BookingView..." << std::endl;
+    
+    // Создаем виджеты заранее
+    menuWidget_ = contentStack_->addNew<Wt::WContainerWidget>();
+    createWidget_ = contentStack_->addNew<BookingCreateWidget>(app_);
+    listWidget_ = contentStack_->addNew<BookingListWidget>(app_);
+
+     // Настраиваем колбэк для возврата к списку
+    createWidget_->setBackToListCallback([this]() {
+        showMyBookings();
+    });
+    
+    std::cout << "🔧 Настройка меню BookingView..." << std::endl;
+    
+    // Настраиваем меню
+    menuWidget_->setStyleClass("booking-welcome");
+    menuWidget_->addNew<Wt::WText>("<h2>Добро пожаловать в систему бронирования!</h2>")->setTextFormat(Wt::TextFormat::UnsafeXHTML);
+    menuWidget_->addNew<Wt::WText>("<p>Выберите действие из меню выше</p>")->setTextFormat(Wt::TextFormat::UnsafeXHTML);
+    
     // Показываем меню по умолчанию
     showBookingMenu();
+    
+    std::cout << "✅ UI BookingView настроен" << std::endl;
 }
 
 void BookingView::showBookingMenu() {
-    // Можно добавить приветственный экран или статистику
-    auto welcome = contentStack_->addNew<Wt::WContainerWidget>();
-    welcome->setStyleClass("booking-welcome");
-    welcome->addNew<Wt::WText>("<h2>Добро пожаловать в систему бронирования!</h2>")->setTextFormat(Wt::TextFormat::UnsafeXHTML);
-    welcome->addNew<Wt::WText>("<p>Выберите действие из меню выше</p>")->setTextFormat(Wt::TextFormat::UnsafeXHTML);
-    
-    contentStack_->setCurrentWidget(welcome);
+    std::cout << "🔄 Показываем меню бронирований" << std::endl;
+    if (contentStack_ && menuWidget_) {
+        contentStack_->setCurrentWidget(menuWidget_);
+    }
 }
 
 void BookingView::showCreateBooking() {
-    auto createWidget = contentStack_->addNew<BookingCreateWidget>(app_);
-    contentStack_->setCurrentWidget(createWidget);
+    std::cout << "🔄 Показываем создание бронирования" << std::endl;
+    if (contentStack_ && createWidget_) {
+        contentStack_->setCurrentWidget(createWidget_);
+    }
 }
 
 void BookingView::showMyBookings() {
-    auto listWidget = contentStack_->addNew<BookingListWidget>(app_);
-    contentStack_->setCurrentWidget(listWidget);
-}
-
-void BookingView::showCancelBooking() {
-    // Реализуем в BookingListWidget
-    showMyBookings();
+    std::cout << "🔄 Показываем список бронирований" << std::endl;
+    if (contentStack_ && listWidget_) {
+        // Обновляем список бронирований при каждом показе
+        listWidget_->loadBookings();
+        contentStack_->setCurrentWidget(listWidget_);
+    }
 }
