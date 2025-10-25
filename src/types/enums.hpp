@@ -59,6 +59,18 @@ enum class ReviewStatus {
     REJECTED            // Отклонен
 };
 
+enum class AttendanceType {
+    LESSON,
+    BOOKING
+};
+
+enum class AttendanceStatus {
+    SCHEDULED,
+    VISITED,
+    CANCELLED, 
+    NO_SHOW
+};
+
 // Дополним EnumUtils
 namespace EnumUtils {
     std::string accountStatusToString(AccountStatus status);

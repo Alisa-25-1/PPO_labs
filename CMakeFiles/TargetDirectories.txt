@@ -3,11 +3,8 @@
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/TechUI.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/WebUIComponent.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/DanceStudioWebUI.dir
-/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/BookingTests.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/AuthServiceTests.dir
-/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/LessonServiceTests.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/SubscriptionServiceTests.dir
-/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/ReviewServiceTests.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/IntegrationTests.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/package.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/package_source.dir

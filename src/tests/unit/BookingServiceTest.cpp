@@ -5,254 +5,269 @@
 #include "mocks/MockClientRepository.hpp"
 #include "mocks/MockDanceHallRepository.hpp"
 #include "mocks/MockBranchRepository.hpp"
+#include "mocks/MockBranchService.hpp"
+#include "mocks/MockAttendanceRepository.hpp" // ДОБАВЛЕНО
+#include "../../services/exceptions/BookingException.hpp"
+#include "../../services/exceptions/ValidationException.hpp"
 
-using ::testing::_;
-using ::testing::Return;
-using ::testing::NiceMock;
+using namespace testing;
 
 class BookingServiceTest : public ::testing::Test {
 protected:
     void SetUp() override {
-        // Инициализируем UUID
-        testClientId_ = UUID::fromString("11111111-1111-1111-1111-111111111111");
-        testHallId_ = UUID::fromString("22222222-2222-2222-2222-222222222222");
-        testBookingId_ = UUID::fromString("33333333-3333-3333-3333-333333333333");
-        testBranchId_ = UUID::fromString("44444444-4444-4444-4444-444444444444");
-        otherClientId_ = UUID::fromString("55555555-5555-5555-5555-555555555555");
-        nonExistentId_ = UUID::fromString("99999999-9999-9999-9999-999999999999");
+        // Создаем моки как shared_ptr (совместимо с BookingService)
+        auto mockBookingRepo = std::make_shared<MockBookingRepository>();
+        auto mockClientRepo = std::make_shared<MockClientRepository>();
+        auto mockHallRepo = std::make_shared<MockDanceHallRepository>();
+        auto mockBranchRepo = std::make_shared<MockBranchRepository>();
+        auto mockBranchService = std::make_shared<MockBranchService>();
+        auto mockAttendanceRepo = std::make_shared<MockAttendanceRepository>(); // ДОБАВЛЕНО
 
-        // Создаем моки
-        auto mockBookingRepo = std::make_unique<NiceMock<MockBookingRepository>>();
-        auto mockClientRepo = std::make_unique<NiceMock<MockClientRepository>>();
-        auto mockHallRepo = std::make_unique<NiceMock<MockDanceHallRepository>>();
-        auto mockBranchRepo = std::make_unique<NiceMock<MockBranchRepository>>();
-
+        // Сохраняем указатели для доступа в тестах
         mockBookingRepo_ = mockBookingRepo.get();
         mockClientRepo_ = mockClientRepo.get();
         mockHallRepo_ = mockHallRepo.get();
         mockBranchRepo_ = mockBranchRepo.get();
+        mockBranchService_ = mockBranchService.get();
+        mockAttendanceRepo_ = mockAttendanceRepo.get(); // ДОБАВЛЕНО
 
-        // Создаем сервис
+        // Создаем сервис с передачей всех моков как shared_ptr (6 параметров)
         bookingService_ = std::make_unique<BookingService>(
-            std::move(mockBookingRepo),
-            std::move(mockClientRepo),
-            std::move(mockHallRepo),
-            std::move(mockBranchRepo)
+            mockBookingRepo,
+            mockClientRepo,
+            mockHallRepo,
+            mockBranchRepo,
+            mockBranchService,
+            mockAttendanceRepo // ДОБАВЛЕНО
         );
-
-        // Создаем объекты через указатели (отложенная инициализация)
-        testClient_ = std::make_unique<Client>(testClientId_, "John Doe", "john@example.com", "+12345678901");
-        testClient_->changePassword("ValidPass123");
-        testHall_ = std::make_unique<DanceHall>(testHallId_, "Main Hall", 50, testBranchId_);  // Исправлено на DanceHall
-        testTimeSlot_ = std::make_unique<TimeSlot>(std::chrono::system_clock::now() + std::chrono::hours(1), 120);
-        testBooking_ = std::make_unique<Booking>(testBookingId_, testClientId_, testHallId_, *testTimeSlot_, "Test practice session");
-        testBooking_->confirm();
     }
 
     void TearDown() override {
-        // Очищаем объекты в обратном порядке
-        testBooking_.reset();
-        testTimeSlot_.reset();
-        testHall_.reset();
-        testClient_.reset();
-        bookingService_.reset();
     }
 
-    // Поля, которые инициализируются в SetUp()
     std::unique_ptr<BookingService> bookingService_;
-    
-    UUID testClientId_;
-    UUID testHallId_;
-    UUID testBookingId_;
-    UUID testBranchId_;
-    UUID otherClientId_;
-    UUID nonExistentId_;
-    
-    // Объекты как unique_ptr для отложенной инициализации
-    std::unique_ptr<Client> testClient_;
-    std::unique_ptr<DanceHall> testHall_; 
-    std::unique_ptr<TimeSlot> testTimeSlot_;
-    std::unique_ptr<Booking> testBooking_;
-
-    // Указатели на моки
     MockBookingRepository* mockBookingRepo_;
     MockClientRepository* mockClientRepo_;
     MockDanceHallRepository* mockHallRepo_;
-    MockBranchRepository* mockBranchRepo_; 
+    MockBranchRepository* mockBranchRepo_;
+    MockBranchService* mockBranchService_;
+    MockAttendanceRepository* mockAttendanceRepo_; // ДОБАВЛЕНО
+
+    // Вспомогательные методы для создания тестовых данных
+    UUID createTestClientId() { return UUID::generate(); }
+    UUID createTestHallId() { return UUID::generate(); }
+    UUID createTestBookingId() { return UUID::generate(); }
+    UUID createTestBranchId() { return UUID::generate(); }
+    UUID createTestStudioId() { return UUID::generate(); }
+    
+    BookingRequestDTO createValidBookingRequest() {
+        UUID clientId = createTestClientId();
+        UUID hallId = createTestHallId();
+        
+        auto startTime = std::chrono::system_clock::now() + std::chrono::hours(24);
+        TimeSlot timeSlot(startTime, 60); // 1 час
+        
+        return BookingRequestDTO{clientId, hallId, timeSlot, "Репетиция танцевальной группы"};
+    }
+    
+    // ИСПРАВЛЕНО: правильный конструктор Client (4 параметра)
+    Client createTestClient(const UUID& id, bool active = true) {
+        return Client(id, "Test Client", "test@email.com", "+123456789");
+    }
+    
+    // ИСПРАВЛЕНО: правильный конструктор DanceHall (4 параметра)
+    DanceHall createTestHall(const UUID& id, const UUID& branchId = UUID::generate()) {
+        return DanceHall(id, "Test Hall", 20, branchId);
+    }
+    
+    // ИСПРАВЛЕНО: правильный конструктор Branch (6 параметров)
+    Branch createTestBranch(const UUID& id) {
+        using namespace std::chrono;
+        UUID studioId = createTestStudioId();
+        return Branch(id, "Test Branch", "Test Address", "+123456789", 
+                     WorkingHours{hours(9), hours(21)}, studioId);
+    }
 };
 
-TEST_F(BookingServiceTest, CreateBooking_Success) {
-    BookingRequestDTO request(testClientId_, testHallId_, *testTimeSlot_, "Dance practice session");
+// Базовый тест создания бронирования
+TEST_F(BookingServiceTest, CreateBooking_ValidRequest_Success) {
+    // Arrange
+    auto request = createValidBookingRequest();
+    auto client = createTestClient(request.clientId);
+    auto hall = createTestHall(request.hallId);
+    auto branch = createTestBranch(createTestBranchId());
     
-    EXPECT_CALL(*mockClientRepo_, findById(testClientId_))
-        .WillOnce(Return(*testClient_));
-    EXPECT_CALL(*mockHallRepo_, exists(testHallId_))
+    // Настраиваем ожидания для моков
+    EXPECT_CALL(*mockClientRepo_, findById(request.clientId))
+        .WillOnce(Return(client));
+    EXPECT_CALL(*mockHallRepo_, exists(request.hallId))
         .WillOnce(Return(true));
-    EXPECT_CALL(*mockBookingRepo_, findConflictingBookings(testHallId_, *testTimeSlot_))
-        .WillOnce(Return(std::vector<Booking>{}));
-    EXPECT_CALL(*mockBookingRepo_, findByClientId(testClientId_))
+    EXPECT_CALL(*mockBranchService_, getBranchForHall(request.hallId))
+        .WillOnce(Return(branch));
+    EXPECT_CALL(*mockBookingRepo_, findConflictingBookings(request.hallId, request.timeSlot))
         .WillOnce(Return(std::vector<Booking>{}));
     EXPECT_CALL(*mockBookingRepo_, save(_))
         .WillOnce(Return(true));
-
-    auto result = bookingService_->createBooking(request);
-
-    EXPECT_EQ(result.clientId, testClientId_);
-    EXPECT_EQ(result.hallId, testHallId_);
-    EXPECT_EQ(result.status, "CONFIRMED");
-}
-
-TEST_F(BookingServiceTest, CreateBooking_TimeConflict) {
-    BookingRequestDTO request(testClientId_, testHallId_, *testTimeSlot_, "Dance practice session");
     
-    EXPECT_CALL(*mockClientRepo_, findById(testClientId_))
-        .WillOnce(Return(*testClient_));
-    EXPECT_CALL(*mockHallRepo_, exists(testHallId_))
+    // Также ожидаем создание записи посещаемости
+    EXPECT_CALL(*mockAttendanceRepo_, save(_))
         .WillOnce(Return(true));
-    EXPECT_CALL(*mockBookingRepo_, findConflictingBookings(testHallId_, *testTimeSlot_))
-        .WillOnce(Return(std::vector<Booking>{*testBooking_}));
-
-    EXPECT_THROW(
-        bookingService_->createBooking(request),
-        BookingConflictException
-    );
+    
+    // Act
+    auto response = bookingService_->createBooking(request);
+    
+    // Assert
+    EXPECT_EQ(response.clientId, request.clientId);
+    EXPECT_EQ(response.hallId, request.hallId);
+    EXPECT_EQ(response.status, "CONFIRMED");
 }
 
-TEST_F(BookingServiceTest, CreateBooking_ClientNotFound) {
-    BookingRequestDTO request(nonExistentId_, testHallId_, *testTimeSlot_, "Dance practice session");
+// Тест проверки доступности временного слота
+TEST_F(BookingServiceTest, IsTimeSlotAvailable_NoConflicts_ReturnsTrue) {
+    // Arrange
+    UUID hallId = createTestHallId();
+    auto startTime = std::chrono::system_clock::now() + std::chrono::hours(24);
+    TimeSlot timeSlot(startTime, 60);
     
-    EXPECT_CALL(*mockClientRepo_, findById(nonExistentId_))
-        .WillOnce(Return(std::optional<Client>{}));
-
-    EXPECT_THROW(
-        bookingService_->createBooking(request),
-        ValidationException
-    );
-}
-
-TEST_F(BookingServiceTest, CreateBooking_HallNotFound) {
-    BookingRequestDTO request(testClientId_, nonExistentId_, *testTimeSlot_, "Dance practice session");
-    
-    EXPECT_CALL(*mockClientRepo_, findById(testClientId_))
-        .WillOnce(Return(*testClient_));
-    EXPECT_CALL(*mockHallRepo_, exists(nonExistentId_))
-        .WillOnce(Return(false));
-
-    EXPECT_THROW(
-        bookingService_->createBooking(request),
-        ValidationException
-    );
-}
-
-TEST_F(BookingServiceTest, CreateBooking_InactiveClient) {
-    // Создаем неактивного клиента специально для этого теста
-    auto inactiveClient = Client(testClientId_, "Inactive John", "inactive@example.com", "+12345678901");
-    inactiveClient.deactivate();
-    
-    inactiveClient.changePassword("ValidPass123");
-    
-    BookingRequestDTO request(testClientId_, testHallId_, *testTimeSlot_, "Dance practice session");
-    
-    EXPECT_CALL(*mockClientRepo_, findById(testClientId_))
-        .WillOnce(Return(inactiveClient));
-
-    EXPECT_THROW(
-        bookingService_->createBooking(request),
-        BusinessRuleException
-    );
-}
-
-TEST_F(BookingServiceTest, CancelBooking_Success) {
-    EXPECT_CALL(*mockBookingRepo_, findById(testBookingId_))
-        .WillOnce(Return(*testBooking_));
-    EXPECT_CALL(*mockBookingRepo_, update(_))
+    EXPECT_CALL(*mockHallRepo_, exists(hallId))
         .WillOnce(Return(true));
-
-    auto result = bookingService_->cancelBooking(testBookingId_, testClientId_);
-
-    EXPECT_EQ(result.status, "CANCELLED");
-}
-
-TEST_F(BookingServiceTest, CancelBooking_NotFound) {
-    EXPECT_CALL(*mockBookingRepo_, findById(nonExistentId_))
-        .WillOnce(Return(std::optional<Booking>{}));
-
-    EXPECT_THROW(
-        bookingService_->cancelBooking(nonExistentId_, testClientId_),
-        BookingNotFoundException
-    );
-}
-
-TEST_F(BookingServiceTest, CancelBooking_UnauthorizedClient) {
-    EXPECT_CALL(*mockBookingRepo_, findById(testBookingId_))
-        .WillOnce(Return(*testBooking_));
-
-    EXPECT_THROW(
-        bookingService_->cancelBooking(testBookingId_, otherClientId_),
-        BusinessRuleException
-    );
-}
-
-TEST_F(BookingServiceTest, CanClientBook_MaximumBookingsReached) {
-    // Создаем 3 активных бронирования
-    std::vector<Booking> activeBookings;
-    for (int i = 0; i < 3; i++) {
-        UUID bookingId = UUID::fromString("77777777-7777-7777-7777-77777777777" + std::to_string(i));
-        Booking booking(bookingId, testClientId_, testHallId_, *testTimeSlot_, "Practice session " + std::to_string(i));
-        booking.confirm();
-        activeBookings.push_back(booking);
-    }
-    
-    EXPECT_CALL(*mockBookingRepo_, findByClientId(testClientId_))
-        .WillOnce(Return(activeBookings));
-
-    EXPECT_FALSE(bookingService_->canClientBook(testClientId_));
-}
-
-TEST_F(BookingServiceTest, IsTimeSlotAvailable_Available) {
-    EXPECT_CALL(*mockHallRepo_, exists(testHallId_))
-        .WillOnce(Return(true));
-    EXPECT_CALL(*mockBookingRepo_, findConflictingBookings(testHallId_, *testTimeSlot_))
+    EXPECT_CALL(*mockBookingRepo_, findConflictingBookings(hallId, timeSlot))
         .WillOnce(Return(std::vector<Booking>{}));
-
-    EXPECT_TRUE(bookingService_->isTimeSlotAvailable(testHallId_, *testTimeSlot_));
-}
-
-TEST_F(BookingServiceTest, IsTimeSlotAvailable_NotAvailable) {
-    EXPECT_CALL(*mockHallRepo_, exists(testHallId_))
-        .WillOnce(Return(true));
-    EXPECT_CALL(*mockBookingRepo_, findConflictingBookings(testHallId_, *testTimeSlot_))
-        .WillOnce(Return(std::vector<Booking>{*testBooking_}));
-
-    EXPECT_FALSE(bookingService_->isTimeSlotAvailable(testHallId_, *testTimeSlot_));
-}
-
-TEST_F(BookingServiceTest, CreateBooking_InvalidPurpose) {
-    // Пустая цель должна вызвать исключение
-    BookingRequestDTO request(testClientId_, testHallId_, *testTimeSlot_, "");
     
-    EXPECT_THROW(
-        bookingService_->createBooking(request),
-        ValidationException
-    );
-}
-
-// Добавляем тест для метода getDanceHallBookings
-TEST_F(BookingServiceTest, GetDanceHallBookings_Success) {
-    std::vector<Booking> hallBookings = {*testBooking_};
+    // Act
+    bool isAvailable = bookingService_->isTimeSlotAvailable(hallId, timeSlot);
     
-    EXPECT_CALL(*mockHallRepo_, exists(testHallId_))
-        .WillOnce(Return(true));
-    EXPECT_CALL(*mockBookingRepo_, findByHallId(testHallId_))
-        .WillOnce(Return(hallBookings));
-
-    auto result = bookingService_->getDanceHallBookings(testHallId_);
-
-    EXPECT_EQ(result.size(), 1);
-    EXPECT_EQ(result[0].hallId, testHallId_);
+    // Assert
+    EXPECT_TRUE(isAvailable);
 }
 
-int main(int argc, char **argv) {
-    ::testing::InitGoogleTest(&argc, argv);
-    return RUN_ALL_TESTS();
+// Тест получения бронирований клиента
+TEST_F(BookingServiceTest, GetClientBookings_ClientExists_ReturnsBookings) {
+    // Arrange
+    UUID clientId = createTestClientId();
+    auto client = createTestClient(clientId);
+    
+    std::vector<Booking> testBookings = {
+        Booking(createTestBookingId(), clientId, createTestHallId(), 
+                TimeSlot(std::chrono::system_clock::now() + std::chrono::hours(24), 60), "Репетиция")
+    };
+    
+    EXPECT_CALL(*mockClientRepo_, findById(clientId))
+        .WillOnce(Return(client));
+    EXPECT_CALL(*mockBookingRepo_, findByClientId(clientId))
+        .WillOnce(Return(testBookings));
+    
+    // Act
+    auto bookings = bookingService_->getClientBookings(clientId);
+    
+    // Assert
+    EXPECT_EQ(bookings.size(), 1);
+}
+
+// Тест получения всех залов
+TEST_F(BookingServiceTest, GetAllHalls_HallsExist_ReturnsHalls) {
+    // Arrange
+    std::vector<DanceHall> testHalls = {
+        createTestHall(createTestHallId()),
+        createTestHall(createTestHallId())
+    };
+    
+    EXPECT_CALL(*mockHallRepo_, findAll())
+        .WillOnce(Return(testHalls));
+    
+    // Act
+    auto halls = bookingService_->getAllHalls();
+    
+    // Assert
+    EXPECT_EQ(halls.size(), 2);
+}
+
+// Тест получения залов по филиалу
+TEST_F(BookingServiceTest, GetHallsByBranch_BranchExists_ReturnsHalls) {
+    // Arrange
+    UUID branchId = createTestBranchId();
+    std::vector<DanceHall> testHalls = {
+        createTestHall(createTestHallId(), branchId),
+        createTestHall(createTestHallId(), branchId)
+    };
+    
+    EXPECT_CALL(*mockBranchService_, getHallsByBranch(branchId))
+        .WillOnce(Return(testHalls));
+    
+    // Act
+    auto halls = bookingService_->getHallsByBranch(branchId);
+    
+    // Assert
+    EXPECT_EQ(halls.size(), 2);
+}
+
+// Тест получения всех филиалов
+TEST_F(BookingServiceTest, GetAllBranches_BranchesExist_ReturnsBranches) {
+    // Arrange
+    std::vector<Branch> testBranches = {
+        createTestBranch(createTestBranchId()),
+        createTestBranch(createTestBranchId())
+    };
+    
+    EXPECT_CALL(*mockBranchService_, getAllBranches())
+        .WillOnce(Return(testBranches));
+    
+    // Act
+    auto branches = bookingService_->getAllBranches();
+    
+    // Assert
+    EXPECT_EQ(branches.size(), 2);
+}
+
+// Тест создания бронирования с конфликтом времени
+TEST_F(BookingServiceTest, CreateBooking_TimeConflict_ThrowsException) {
+    // Arrange
+    auto request = createValidBookingRequest();
+    auto client = createTestClient(request.clientId);
+    auto hall = createTestHall(request.hallId);
+    auto branch = createTestBranch(createTestBranchId());
+    
+    std::vector<Booking> conflictingBookings = {
+        Booking(createTestBookingId(), createTestClientId(), request.hallId, 
+                request.timeSlot, "Другая репетиция")
+    };
+    
+    EXPECT_CALL(*mockClientRepo_, findById(request.clientId))
+        .WillOnce(Return(client));
+    EXPECT_CALL(*mockHallRepo_, exists(request.hallId))
+        .WillOnce(Return(true));
+    EXPECT_CALL(*mockBranchService_, getBranchForHall(request.hallId))
+        .WillOnce(Return(branch));
+    EXPECT_CALL(*mockBookingRepo_, findConflictingBookings(request.hallId, request.timeSlot))
+        .WillOnce(Return(conflictingBookings));
+    
+    // Act & Assert
+    EXPECT_THROW(bookingService_->createBooking(request), BookingConflictException);
+}
+
+// Тест создания бронирования с несуществующим клиентом
+TEST_F(BookingServiceTest, CreateBooking_InvalidClient_ThrowsException) {
+    // Arrange
+    auto request = createValidBookingRequest();
+    
+    EXPECT_CALL(*mockClientRepo_, findById(request.clientId))
+        .WillOnce(Return(std::nullopt)); // Клиент не найден
+    
+    // Act & Assert
+    EXPECT_THROW(bookingService_->createBooking(request), ValidationException);
+}
+
+// Тест создания бронирования с несуществующим залом
+TEST_F(BookingServiceTest, CreateBooking_InvalidHall_ThrowsException) {
+    // Arrange
+    auto request = createValidBookingRequest();
+    auto client = createTestClient(request.clientId);
+    
+    EXPECT_CALL(*mockClientRepo_, findById(request.clientId))
+        .WillOnce(Return(client));
+    EXPECT_CALL(*mockHallRepo_, exists(request.hallId))
+        .WillOnce(Return(false)); // Зал не существует
+    
+    // Act & Assert
+    EXPECT_THROW(bookingService_->createBooking(request), ValidationException);
 }

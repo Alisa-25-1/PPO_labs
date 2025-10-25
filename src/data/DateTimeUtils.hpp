@@ -3,6 +3,7 @@
 
 #include <string>
 #include <chrono>
+#include <ctime>
 
 class DateTimeUtils {
 public:
@@ -15,6 +16,7 @@ public:
     // Новые методы для форматирования времени
     static std::string formatTime(const std::chrono::system_clock::time_point& timePoint);
     static std::string formatDateTime(const std::chrono::system_clock::time_point& timePoint);
+    static std::string formatDate(const std::chrono::system_clock::time_point& timePoint);
     static std::string formatTimeSlot(const std::chrono::system_clock::time_point& startTime, int durationMinutes);
     
     // Методы для работы с датами
@@ -22,6 +24,7 @@ public:
                          const std::chrono::system_clock::time_point& time2);
     static std::chrono::system_clock::time_point createDateTime(int year, int month, int day, 
                                                                int hour, int minute, int second = 0);
+    static std::chrono::system_clock::time_point createDateTime(std::time_t time);
     
     // Методы для проверки временных интервалов
     static bool isTimeInRange(const std::chrono::system_clock::time_point& time,

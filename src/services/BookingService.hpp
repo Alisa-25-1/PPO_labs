@@ -3,6 +3,8 @@
 #include "../repositories/IClientRepository.hpp"
 #include "../repositories/IDanceHallRepository.hpp"
 #include "../repositories/IBranchRepository.hpp"
+#include "../repositories/IAttendanceRepository.hpp"
+#include "IBranchService.hpp" 
 #include "../dtos/BookingDTO.hpp"
 #include "../types/uuid.hpp"
 #include "exceptions/BookingException.hpp"
@@ -18,6 +20,8 @@ private:
     std::shared_ptr<IClientRepository> clientRepository_;
     std::shared_ptr<IDanceHallRepository> hallRepository_;
     std::shared_ptr<IBranchRepository> branchRepository_;
+    std::shared_ptr<IBranchService> branchService_; 
+    std::shared_ptr<IAttendanceRepository> attendanceRepository_;
 
     // Validation methods
     void validateBookingRequest(const BookingRequestDTO& request) const;
@@ -53,7 +57,9 @@ public:
         std::shared_ptr<IBookingRepository> bookingRepo,
         std::shared_ptr<IClientRepository> clientRepo,
         std::shared_ptr<IDanceHallRepository> hallRepo,
-        std::shared_ptr<IBranchRepository> branchRepo
+        std::shared_ptr<IBranchRepository> branchRepo,
+        std::shared_ptr<IBranchService> branchService,
+        std::shared_ptr<IAttendanceRepository> attendanceRepo
     );
 
     // Main business logic methods
@@ -69,6 +75,9 @@ public:
                                                const std::chrono::system_clock::time_point& date) const;
     std::vector<int> getAvailableDurations(const UUID& hallId, 
                                           const std::chrono::system_clock::time_point& startTime) const;
+
+    std::vector<Branch> getAllBranches() const;
+    std::vector<DanceHall> getHallsByBranch(const UUID& branchId) const;
     
     // Business rules
     bool canClientBook(const UUID& clientId) const;

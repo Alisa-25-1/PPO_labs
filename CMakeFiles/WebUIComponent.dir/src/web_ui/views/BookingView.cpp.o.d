@@ -277,6 +277,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/DanceHall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/IBranchRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Branch.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/IAttendanceRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Attendance.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/IBranchService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../models/Branch.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../models/DanceHall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/BookingDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/Booking.hpp \
@@ -294,6 +299,25 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/SubscriptionType.hpp \
  /usr/include/c++/13/iomanip /usr/include/c++/13/bits/quoted_string.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../dtos/SubscriptionDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/LessonController.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/LessonService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/ILessonRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Lesson.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/TimeSlot.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/IEnrollmentRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Enrollment.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/ITrainerRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Trainer.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/LessonDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/Lesson.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/EnrollmentService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/EnrollmentDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/Enrollment.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/exceptions/EnrollmentException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/BranchService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../dtos/LessonDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../dtos/EnrollmentDTO.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../models/UserSession.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../models/../../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/BookingCreateWidget.hpp \
@@ -306,6 +330,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: \
  /usr/local/include/Wt/WImage.h /usr/local/include/Wt/WText.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../models/DanceHall.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../dtos/BookingDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../../data/DateTimeUtils.hpp \

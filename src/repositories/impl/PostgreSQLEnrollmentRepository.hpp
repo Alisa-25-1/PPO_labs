@@ -15,6 +15,8 @@ public:
     std::vector<Enrollment> findByLessonId(const UUID& lessonId) override;
     std::optional<Enrollment> findByClientAndLesson(const UUID& clientId, const UUID& lessonId) override;
     int countByLessonId(const UUID& lessonId) override;
+    std::vector<Enrollment> findAll() override;
+
     bool save(const Enrollment& enrollment) override;
     bool update(const Enrollment& enrollment) override;
     bool remove(const UUID& id) override;

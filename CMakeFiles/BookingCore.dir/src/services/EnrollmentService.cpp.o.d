@@ -221,6 +221,8 @@ CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/../data/DateTimeUtils.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/TimeSlot.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IAttendanceRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Attendance.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/EnrollmentDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/../models/Enrollment.hpp \
@@ -228,5 +230,5 @@ CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/EnrollmentException.hpp \
- /usr/include/c++/13/algorithm \
+ /usr/include/c++/13/iostream /usr/include/c++/13/algorithm \
  /usr/include/c++/13/pstl/glue_algorithm_defs.h

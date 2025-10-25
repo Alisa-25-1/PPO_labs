@@ -6,11 +6,15 @@ BookingService::BookingService(
     std::shared_ptr<IBookingRepository> bookingRepo,
     std::shared_ptr<IClientRepository> clientRepo,
     std::shared_ptr<IDanceHallRepository> hallRepo,
-    std::shared_ptr<IBranchRepository> branchRepo
+    std::shared_ptr<IBranchRepository> branchRepo,
+    std::shared_ptr<IBranchService> branchService,
+    std::shared_ptr<IAttendanceRepository> attendanceRepo  
 ) : bookingRepository_(std::move(bookingRepo)),
     clientRepository_(std::move(clientRepo)),
     hallRepository_(std::move(hallRepo)),
-    branchRepository_(std::move(branchRepo)) {}
+    branchRepository_(std::move(branchRepo)),
+    branchService_(std::move(branchService)),
+    attendanceRepository_(std::move(attendanceRepo)) {}
 
 // Validation methods
 void BookingService::validateBookingRequest(const BookingRequestDTO& request) const {
@@ -40,7 +44,7 @@ void BookingService::validateClient(const UUID& clientId) const {
     }
 }
 
-void BookingService::validateDanceHall(const UUID& hallId) const {  // Исправлено
+void BookingService::validateDanceHall(const UUID& hallId) const {
     if (!hallRepository_->exists(hallId)) {
         throw ValidationException("Dance hall not found");
     }
@@ -77,16 +81,9 @@ void BookingService::validateWorkingHours(const UUID& hallId, const TimeSlot& ti
 
 std::optional<Branch> BookingService::getBranchForHall(const UUID& hallId) const {
     try {
-        // Получаем зал
-        auto hall = hallRepository_->findById(hallId);
-        if (!hall) {
-            return std::nullopt;
-        }
-        
-        // Получаем филиал зала
-        return branchRepository_->findById(hall->getBranchId());
+        // Используем BranchService вместо прямого обращения к репозиториям
+        return branchService_->getBranchForHall(hallId);
     } catch (const std::exception& e) {
-        // Логируем ошибку, но не прерываем выполнение
         std::cerr << "Ошибка при получении филиала для зала: " << e.what() << std::endl;
         return std::nullopt;
     }
@@ -119,7 +116,6 @@ void BookingService::checkBookingConflicts(const UUID& hallId, const TimeSlot& t
 }
 
 BookingResponseDTO BookingService::createBooking(const BookingRequestDTO& request) {
-
     validateBookingRequest(request);
     
     if (!canClientBook(request.clientId)) {
@@ -134,6 +130,18 @@ BookingResponseDTO BookingService::createBooking(const BookingRequestDTO& reques
     
     if (!bookingRepository_->save(booking)) {
         throw BookingException("Failed to save booking");
+    }
+
+    // Создаем запись посещаемости для бронирования
+    try {
+        UUID attendanceId = UUID::generate();
+        Attendance attendance(attendanceId, request.clientId, newId, 
+                            AttendanceType::BOOKING, request.timeSlot.getStartTime());
+        attendanceRepository_->save(attendance);
+        
+    } catch (const std::exception& e) {
+        // Логируем, но не прерываем выполнение
+        std::cerr << "Ошибка создания записи посещаемости для бронирования: " << e.what() << std::endl;
     }
     
     return BookingResponseDTO(booking);
@@ -402,4 +410,22 @@ std::vector<TimeSlot> BookingService::generateAvailableSlotsWithDuration(
     }
     
     return availableSlots;
+}
+
+std::vector<Branch> BookingService::getAllBranches() const {
+    try {
+        return branchService_->getAllBranches();
+    } catch (const std::exception& e) {
+        std::cerr << "Ошибка получения филиалов: " << e.what() << std::endl;
+        return {};
+    }
+}
+
+std::vector<DanceHall> BookingService::getHallsByBranch(const UUID& branchId) const {
+    try {
+        return branchService_->getHallsByBranch(branchId);
+    } catch (const std::exception& e) {
+        std::cerr << "Ошибка получения залов филиала: " << e.what() << std::endl;
+        return {};
+    }
 }

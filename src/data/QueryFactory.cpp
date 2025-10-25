@@ -1,5 +1,8 @@
 #include "QueryFactory.hpp"
 
+// Все методы уже реализованы как статические в .cpp файле
+// Компилятор понимает это по объявлению в .hpp
+
 std::string QueryFactory::createFindConflictingBookingsQuery() {
     return 
         "SELECT id, client_id, hall_id, start_time, duration_minutes, purpose, status, created_at "
@@ -62,25 +65,6 @@ std::string QueryFactory::createGetTrainerSpecializationsQuery() {
         "SELECT specialization FROM trainer_specializations WHERE trainer_id = $1";
 }
 
-std::string QueryFactory::createFindActiveSubscriptionsQuery() {
-    return 
-        "SELECT id, client_id, subscription_type_id, start_date, end_date, "
-        "remaining_visits, status, purchase_date "
-        "FROM subscriptions WHERE status = 'ACTIVE'";
-}
-
-std::string QueryFactory::createFindPendingModerationQuery() {
-    return 
-        "SELECT id, client_id, lesson_id, rating, comment, publication_date, status "
-        "FROM reviews WHERE status = 'PENDING_MODERATION'";
-}
-
-std::string QueryFactory::createFindByClientAndLessonQuery() {
-    return 
-        "SELECT id, client_id, lesson_id, rating, comment, publication_date, status "
-        "FROM reviews WHERE client_id = $1 AND lesson_id = $2";
-}
-
 std::string QueryFactory::createFindByStudioIdQuery() {
     return 
         "SELECT id, name, address, phone, open_time, close_time, studio_id "
@@ -97,4 +81,39 @@ std::string QueryFactory::createFindByBranchIdQuery() {
     return 
         "SELECT id, name, description, capacity, floor_type, equipment, branch_id "
         "FROM dance_halls WHERE branch_id = $1";
+}
+
+std::string QueryFactory::createFindByClientAndLessonQuery() {
+    return 
+        "SELECT id, client_id, lesson_id, rating, comment, publication_date, status "
+        "FROM reviews WHERE client_id = $1 AND lesson_id = $2";
+}
+
+std::string QueryFactory::createFindPendingModerationQuery() {
+    return 
+        "SELECT id, client_id, lesson_id, rating, comment, publication_date, status "
+        "FROM reviews WHERE status = 'PENDING_MODERATION'";
+}
+
+std::string QueryFactory::createFindActiveSubscriptionsQuery() {
+    return 
+        "SELECT id, client_id, subscription_type_id, start_date, end_date, "
+        "remaining_visits, status, purchase_date "
+        "FROM subscriptions WHERE status = 'ACTIVE'";
+}
+
+std::string QueryFactory::createFindAllActiveSubscriptionTypesQuery() {
+    return 
+        "SELECT id, name, description, validity_days, visit_count, is_unlimited, price "
+        "FROM subscription_types WHERE is_active = true";
+}
+
+std::string QueryFactory::createFindAttendanceByClientAndPeriodQuery() {
+    return R"(
+        SELECT id, client_id, entity_id, type, status, scheduled_time, actual_time, notes
+        FROM attendance 
+        WHERE client_id = $1 
+        AND scheduled_time BETWEEN $2 AND $3
+        ORDER BY scheduled_time DESC
+    )";
 }

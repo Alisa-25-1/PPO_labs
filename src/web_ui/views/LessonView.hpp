@@ -1,29 +1,30 @@
 #pragma once
 
 #include <Wt/WContainerWidget.h>
-#include <Wt/WTable.h>
-#include <Wt/WComboBox.h>
-#include "WebApplication.hpp"
+#include <Wt/WStackedWidget.h>
+
+class WebApplication;
+class LessonScheduleWidget;
+class MyEnrollmentsWidget;
+class EnrollmentHistoryWidget;
 
 class LessonView : public Wt::WContainerWidget {
-private:
-    WebApplication* app_;
-    
-    Wt::WComboBox* filterComboBox_;
-    Wt::WTable* lessonsTable_;
-    Wt::WTable* enrollmentsTable_;
-    Wt::WText* statusText_;
-
 public:
     LessonView(WebApplication* app);
     
 private:
+    WebApplication* app_;
+    Wt::WStackedWidget* contentStack_;
+    
+    // Виджеты для разных состояний
+    Wt::WContainerWidget* menuWidget_;
+    LessonScheduleWidget* scheduleWidget_;
+    MyEnrollmentsWidget* myEnrollmentsWidget_;
+    EnrollmentHistoryWidget* historyWidget_;
+
     void setupUI();
-    void loadLessons();
-    void loadEnrollments();
-    void setupLessonsTable();
-    void setupEnrollmentsTable();
-    void handleEnroll(const UUID& lessonId);
-    void handleCancelEnrollment(const UUID& enrollmentId);
-    void handleFilterChange();
+    void showLessonMenu();
+    void showSchedule();
+    void showMyEnrollments();
+    void showEnrollmentHistory();
 };

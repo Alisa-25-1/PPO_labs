@@ -35,6 +35,9 @@ public:
     // Валидация
     static bool isValidEmail(const std::string& email);
     static bool isValidPhone(const std::string& phone);
+
+    static bool getConfirmation();
+    static bool getYesNoInput();
 };
 
 #endif // INPUTHANDLERS_HPP

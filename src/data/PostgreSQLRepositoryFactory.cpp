@@ -14,6 +14,7 @@
 #include "../repositories/impl/PostgreSQLReviewRepository.hpp"
 #include "../repositories/impl/PostgreSQLSubscriptionRepository.hpp"
 #include "../repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp"
+#include "../repositories/impl/PostgreSQLAttendanceRepository.hpp"
 
 PostgreSQLRepositoryFactory::PostgreSQLRepositoryFactory(const std::string& connectionString) {
     // Используем ResilientConnection по умолчанию
@@ -64,6 +65,10 @@ std::shared_ptr<ISubscriptionRepository> PostgreSQLRepositoryFactory::createSubs
 
 std::shared_ptr<ISubscriptionTypeRepository> PostgreSQLRepositoryFactory::createSubscriptionTypeRepository() {
     return std::make_shared<PostgreSQLSubscriptionTypeRepository>(dbConnection_);
+}
+
+std::shared_ptr<IAttendanceRepository> PostgreSQLRepositoryFactory::createAttendanceRepository() {
+    return std::make_shared<PostgreSQLAttendanceRepository>(dbConnection_);
 }
 
 bool PostgreSQLRepositoryFactory::testConnection() const {

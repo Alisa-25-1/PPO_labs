@@ -235,6 +235,8 @@ CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Subscription.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/ISubscriptionTypeRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/SubscriptionType.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IAttendanceRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Attendance.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
  /usr/include/pqxx/pqxx /usr/include/pqxx/internal/header-pre.hxx \
  /usr/include/c++/13/version /usr/include/pqxx/internal/cxx-features.hxx \
@@ -312,4 +314,5 @@ CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/PostgreSQLEnrollmentRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/PostgreSQLReviewRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/PostgreSQLSubscriptionRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/PostgreSQLAttendanceRepository.hpp

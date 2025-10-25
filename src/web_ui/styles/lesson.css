@@ -1,0 +1,269 @@
+/* ===== LESSON STYLES ===== */
+.lesson-view {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem 0;
+}
+
+.lesson-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.lesson-header h1 {
+    color: white;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+.lesson-nav {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    flex-wrap: wrap;
+    padding: 0 2rem;
+}
+
+.lesson-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+}
+
+/* Карточки занятий */
+.lesson-card {
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+    overflow: hidden;
+}
+
+.lesson-card-header {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.lesson-card-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+/* Форма поиска занятий */
+.lesson-search-form {
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.lesson-button-group {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.btn-lesson-search {
+    background: linear-gradient(135deg, #28a745, #20c997);
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-lesson-search:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(40, 167, 69, 0.4);
+}
+
+/* Таблицы занятий */
+.lesson-table, .enrollment-table, .history-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+    font-size: 0.9em;
+    background: white;
+}
+
+.lesson-table th, .enrollment-table th, .history-table th {
+    background-color: #f8f9fa;
+    padding: 12px 8px;
+    text-align: left;
+    font-weight: 600;
+    border-bottom: 2px solid #dee2e6;
+    color: #495057;
+}
+
+.lesson-table td, .enrollment-table td, .history-table td {
+    padding: 10px 8px;
+    border-bottom: 1px solid #e9ecef;
+    vertical-align: middle;
+}
+
+/* Кнопка записи */
+.btn-enroll {
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-enroll:hover {
+    background: #218838;
+    transform: scale(1.05);
+}
+
+/* Кнопка отмены */
+.btn-cancel {
+    background: #dc3545;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 16px;
+    font-size: 0.8em;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.btn-cancel:hover {
+    background: #c82333;
+    transform: scale(1.05);
+}
+
+/* Стили статусов для записей */
+.status-REGISTERED {
+    color: #856404;
+    font-weight: 500;
+    background: #fff3cd;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    display: inline-block;
+}
+
+.status-ATTENDED {
+    color: #155724;
+    font-weight: 500;
+    background: #d4edda;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    display: inline-block;
+}
+
+.status-MISSED {
+    color: #721c24;
+    font-weight: 500;
+    background: #f8d7da;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    display: inline-block;
+}
+
+.status-CANCELLED {
+    color: #383d41;
+    font-weight: 500;
+    background: #e2e3e5;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    display: inline-block;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .lesson-nav {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-nav {
+        width: 100%;
+        max-width: 300px;
+    }
+    
+    .lesson-table, .enrollment-table, .history-table {
+        font-size: 0.8em;
+    }
+    
+    .lesson-table th, .lesson-table td,
+    .enrollment-table th, .enrollment-table td,
+    .history-table th, .history-table td {
+        padding: 8px 4px;
+    }
+}
+
+/* Добавим в существующие стили */
+
+/* Стили для ячеек с количеством мест */
+.cell-no-spots {
+    color: #dc3545;
+    font-weight: bold;
+}
+
+.cell-few-spots {
+    color: #ffc107;
+    font-weight: bold;
+}
+
+/* Дополнительные статусы */
+.status-missed {
+    color: #6c757d;
+    font-weight: 500;
+    background: #f8f9fa;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    display: inline-block;
+    border: 1px solid #dee2e6;
+}
+
+.status-attended {
+    color: #155724;
+    font-weight: 500;
+    background: #d4edda;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    display: inline-block;
+}
+
+.status-unknown {
+    color: #6c757d;
+    font-weight: 500;
+    background: #e2e3e5;
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.8em;
+    display: inline-block;
+}
+
+/* Улучшим отображение времени занятия */
+.cell-lesson-time {
+    font-family: 'Courier New', monospace;
+    font-weight: 500;
+}
+
+/* Адаптивность для таблиц с дополнительными колонками */
+@media (max-width: 768px) {
+    .enrollment-table th:nth-child(3),
+    .enrollment-table td:nth-child(3) {
+        display: none; /* Скрываем дату записи на мобильных */
+    }
+}

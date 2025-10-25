@@ -15,6 +15,7 @@
 #include "../models/Subscription.hpp"
 #include "../models/Review.hpp"
 #include "../models/Trainer.hpp"
+#include "../models/Attendance.hpp"
 #include "../dtos/AuthDTO.hpp"
 #include "../dtos/BookingDTO.hpp"
 #include "../dtos/LessonDTO.hpp"
@@ -88,11 +89,16 @@ private:
     void viewPendingReviews();
     void approveReview();
     void rejectReview();
+    void migrateHistoricalData();
     
     // Новые административные методы для записей
     void viewClientEnrollmentsAdmin();
     void viewLessonEnrollments();
     void markAttendanceAdmin();
+    void handleAdminStatistics();
+    void showStudioStats();
+    void showClientStats();
+    void showAllClientsStats();
     
     // Вспомогательные методы отображения
     void displayBooking(const BookingResponseDTO& booking);

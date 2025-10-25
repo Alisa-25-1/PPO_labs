@@ -26,23 +26,26 @@ public:
     static std::string createGetTrainerSpecializationsQuery();
 
     // Branch queries
-    std::string createFindByStudioIdQuery();
+    static std::string createFindByStudioIdQuery(); 
 
     // Studios queries
-    std::string createFindMainStudioQuery();
+    static std::string createFindMainStudioQuery(); 
 
     // Dance_halls queries
-    std::string createFindByBranchIdQuery();
+    static std::string createFindByBranchIdQuery(); 
 
     // Reviews queries
-    std::string createFindByClientAndLessonQuery();
-    std::string createFindPendingModerationQuery();
+    static std::string createFindByClientAndLessonQuery(); 
+    static std::string createFindPendingModerationQuery(); 
 
     // Subscriptions queries
-    std::string createFindActiveSubscriptionsQuery() ;
+    static std::string createFindActiveSubscriptionsQuery(); 
 
     // Subscriptions_type queries
-    std::string createFindAllActiveSubscriptionTypesQuery();
+    static std::string createFindAllActiveSubscriptionTypesQuery(); 
+
+    // Attendance queries
+    static std::string createFindAttendanceByClientAndPeriodQuery(); 
 };
 
 #endif // QUERYFACTORY_HPP

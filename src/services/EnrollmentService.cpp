@@ -4,10 +4,12 @@
 EnrollmentService::EnrollmentService(
     std::shared_ptr<IEnrollmentRepository> enrollmentRepo,
     std::shared_ptr<IClientRepository> clientRepo,
-    std::shared_ptr<ILessonRepository> lessonRepo
+    std::shared_ptr<ILessonRepository> lessonRepo,
+    std::shared_ptr<IAttendanceRepository> attendanceRepo // ДОБАВЛЕНО
 ) : enrollmentRepository_(std::move(enrollmentRepo)),
     clientRepository_(std::move(clientRepo)),
-    lessonRepository_(std::move(lessonRepo)) {}
+    lessonRepository_(std::move(lessonRepo)),
+    attendanceRepository_(std::move(attendanceRepo)) {} // ДОБАВЛЕНО
 
 void EnrollmentService::validateEnrollmentRequest(const EnrollmentRequestDTO& request) const {
     if (!request.validate()) {
@@ -73,6 +75,20 @@ EnrollmentResponseDTO EnrollmentService::enrollClient(const EnrollmentRequestDTO
         enrollmentRepository_->remove(newId);
         throw EnrollmentException("Failed to update lesson participants count");
     }
+
+    // Создаем запись посещаемости
+    try {
+        UUID attendanceId = UUID::generate();
+        auto lesson = lessonRepository_->findById(request.lessonId);
+        if (lesson) {
+            Attendance attendance(attendanceId, request.clientId, request.lessonId, 
+                                AttendanceType::LESSON, lesson->getStartTime());
+            attendanceRepository_->save(attendance); 
+        }
+    } catch (const std::exception& e) {
+        // Логируем, но не прерываем выполнение
+        std::cerr << "Ошибка создания записи посещаемости: " << e.what() << std::endl;
+    }
     
     return EnrollmentResponseDTO(enrollment);
 }
@@ -125,6 +141,28 @@ EnrollmentResponseDTO EnrollmentService::markAttendance(const UUID& enrollmentId
     
     if (!enrollmentRepository_->update(*enrollment)) {
         throw EnrollmentException("Failed to update enrollment attendance");
+    }
+
+     // Обновляем запись посещаемости
+    try {
+        auto enrollment = enrollmentRepository_->findById(enrollmentId);
+        if (enrollment) {
+            // Находим запись посещаемости по entityId (lessonId)
+            auto attendances = attendanceRepository_->findByEntityId(enrollment->getLessonId()); 
+            for (auto& attendance : attendances) {
+                if (attendance.getClientId() == enrollment->getClientId()) {
+                    if (attended) {
+                        attendance.markVisited("Отмечено администратором");
+                    } else {
+                        attendance.markNoShow("Не явился");
+                    }
+                    attendanceRepository_->update(attendance); 
+                    break;
+                }
+            }
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Ошибка обновления посещаемости: " << e.what() << std::endl;
     }
     
     return EnrollmentResponseDTO(*enrollment);

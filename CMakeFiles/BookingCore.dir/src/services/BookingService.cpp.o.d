@@ -222,11 +222,16 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/DanceHall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IBranchRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Branch.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IAttendanceRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Attendance.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/Branch.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/DanceHall.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/BookingDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/../models/Booking.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../data/DateTimeUtils.hpp \

@@ -9,6 +9,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o.d"
   "CMakeFiles/DataAccess.dir/src/data/SqlQueryBuilder.cpp.o"
   "CMakeFiles/DataAccess.dir/src/data/SqlQueryBuilder.cpp.o.d"
+  "CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o"
+  "CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o.d"
   "CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o"
   "CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o.d"
   "CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o"

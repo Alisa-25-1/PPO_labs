@@ -123,3 +123,23 @@ std::string BookingController::getHallName(const UUID& hallId) {
         return "Неизвестный зал";
     }
 }
+
+std::vector<Branch> BookingController::getBranches() {
+    try {
+        std::cout << "🏢 Получение списка филиалов" << std::endl;
+        return bookingService_->getAllBranches();
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка получения филиалов: " << e.what() << std::endl;
+        throw std::runtime_error("Failed to get branches: " + std::string(e.what()));
+    }
+}
+
+std::vector<DanceHall> BookingController::getHallsByBranch(const UUID& branchId) {
+    try {
+        std::cout << "🏟️ Получение залов филиала: " << branchId.toString() << std::endl;
+        return bookingService_->getHallsByBranch(branchId);
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка получения залов филиала: " << e.what() << std::endl;
+        throw std::runtime_error("Failed to get halls by branch: " + std::string(e.what()));
+    }
+}

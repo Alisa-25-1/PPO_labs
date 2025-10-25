@@ -21,6 +21,8 @@ public:
     std::string getHallName(const UUID& hallId);
     std::vector<int> getAvailableDurations(const UUID& hallId, 
                                           const std::chrono::system_clock::time_point& startTime);
+    std::vector<Branch> getBranches();
+    std::vector<DanceHall> getHallsByBranch(const UUID& branchId);
     
     // Валидация
     bool validateBookingRequest(const BookingRequestDTO& request) const;

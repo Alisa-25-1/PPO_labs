@@ -261,3 +261,42 @@ try {
     }
 }
 ```
+
+
+
+В CMakeLists.txt: 
+cmake_minimum_required(VERSION 3.16)
+project(MyDanceApp)
+
+# Ищем вашу библиотеку
+find_package(BookingLib REQUIRED)  # ← CMake автоматически находит BookingLibConfig.cmake
+
+add_executable(my_app main.cpp)
+
+# Используем ваши библиотеки
+target_link_libraries(my_app 
+    PRIVATE 
+    BookingLib::BookingCore    # ← Бизнес-логика
+    BookingLib::DataAccess     # ← Доступ к данным
+)
+
+В коде 
+#include <data_access/PostgreSQLRepositoryFactory.hpp>
+#include <booking_core/services/AuthService.hpp>
+
+int main() {
+    // Создаем фабрику - единственный класс, который нужно знать
+    PostgreSQLRepositoryFactory factory("postgresql://user:pass@localhost/db");
+    
+    // Получаем репозитории через фабрику
+    auto clientRepo = factory.createClientRepository();
+    
+    // Создаем сервисы
+    AuthService authService(clientRepo);
+    
+    // Используем бизнес-логику
+    AuthRequestDTO request{"John", "john@test.com", "123456", "pass"};
+    auto response = authService.registerClient(request);
+    
+    return 0;
+}

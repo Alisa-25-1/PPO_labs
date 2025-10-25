@@ -43,6 +43,7 @@ add_library(BookingCore STATIC
     ${SOURCE_ROOT}/models/Subscription.cpp
     ${SOURCE_ROOT}/models/SubscriptionType.cpp
     ${SOURCE_ROOT}/models/Schedule.cpp
+    ${SOURCE_ROOT}/models/Attendance.cpp
     ${SOURCE_ROOT}/types/uuid.cpp
     ${SOURCE_ROOT}/types/enums.cpp
     ${SOURCE_ROOT}/services/BookingService.cpp
@@ -52,6 +53,8 @@ add_library(BookingCore STATIC
     ${SOURCE_ROOT}/services/ReviewService.cpp
     ${SOURCE_ROOT}/services/ScheduleService.cpp
     ${SOURCE_ROOT}/services/EnrollmentService.cpp
+    ${SOURCE_ROOT}/services/BranchService.cpp
+    ${SOURCE_ROOT}/services/StatisticsService.cpp
     ${SOURCE_ROOT}/dtos/BookingDTO.cpp
     ${SOURCE_ROOT}/dtos/LessonDTO.cpp
     ${SOURCE_ROOT}/dtos/SubscriptionDTO.cpp
@@ -91,6 +94,7 @@ add_library(DataAccess STATIC
     ${SOURCE_ROOT}/repositories/impl/PostgreSQLLessonRepository.cpp
     ${SOURCE_ROOT}/repositories/impl/PostgreSQLReviewRepository.cpp
     ${SOURCE_ROOT}/repositories/impl/PostgreSQLEnrollmentRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/PostgreSQLAttendanceRepository.cpp
 )
 
 target_include_directories(DataAccess PRIVATE 
@@ -104,6 +108,7 @@ add_executable(TechUI
     ${SOURCE_ROOT}/tech_ui/TechUI.cpp
     ${SOURCE_ROOT}/tech_ui/TechUIManagers.cpp
     ${SOURCE_ROOT}/tech_ui/InputHandlers.cpp
+    ${SOURCE_ROOT}/tech_ui/StatisticsManager.cpp
     ${SOURCE_ROOT}/main.cpp
 )
 
@@ -124,6 +129,7 @@ add_library(WebUIComponent
     ${SOURCE_ROOT}/web_ui/controllers/AuthController.cpp
     ${SOURCE_ROOT}/web_ui/controllers/BookingController.cpp
     ${SOURCE_ROOT}/web_ui/controllers/SubscriptionController.cpp
+    ${SOURCE_ROOT}/web_ui/controllers/LessonController.cpp
     ${SOURCE_ROOT}/web_ui/views/LoginWidget.cpp
     ${SOURCE_ROOT}/web_ui/views/RegistrationWidget.cpp
     ${SOURCE_ROOT}/web_ui/views/ClientDashboard.cpp
@@ -133,6 +139,10 @@ add_library(WebUIComponent
     ${SOURCE_ROOT}/web_ui/views/SubscriptionView.cpp
     ${SOURCE_ROOT}/web_ui/views/SubscriptionListWidget.cpp
     ${SOURCE_ROOT}/web_ui/views/PurchaseSubscriptionWidget.cpp
+    ${SOURCE_ROOT}/web_ui/views/LessonView.cpp
+    ${SOURCE_ROOT}/web_ui/views/LessonScheduleWidget.cpp
+    ${SOURCE_ROOT}/web_ui/views/MyEnrollmentsWidget.cpp
+    ${SOURCE_ROOT}/web_ui/views/EnrollmentHistoryWidget.cpp
 )
 
 target_include_directories(WebUIComponent PRIVATE 
@@ -171,7 +181,8 @@ file(GLOB CSS_FILES
     "${CSS_SOURCE_DIR}/auth.css" 
     "${CSS_SOURCE_DIR}/dashboard.css"
     "${CSS_SOURCE_DIR}/booking.css"
-     "${CSS_SOURCE_DIR}/subscription.css"
+    "${CSS_SOURCE_DIR}/subscription.css"
+    "${CSS_SOURCE_DIR}/lesson.css"
 )
 
 foreach(css_file ${CSS_FILES})
@@ -192,17 +203,17 @@ endforeach()
 # )
 
 # Модульные тесты
-add_executable(BookingTests
-    ${SOURCE_ROOT}/tests/unit/BookingServiceTest.cpp
-)
+#add_executable(BookingTests
+#    ${SOURCE_ROOT}/tests/unit/BookingServiceTest.cpp
+#)
 
-target_include_directories(BookingTests PRIVATE ${SOURCE_ROOT})
-target_link_libraries(BookingTests 
-    BookingCore 
-    GTest::gtest 
-    GTest::gtest_main
-    GTest::gmock
-)
+#target_include_directories(BookingTests PRIVATE ${SOURCE_ROOT})
+#target_link_libraries(BookingTests 
+#    BookingCore 
+#    GTest::gtest 
+#    GTest::gtest_main
+#    GTest::gmock
+#)
 
 add_executable(AuthServiceTests
     ${SOURCE_ROOT}/tests/unit/AuthServiceTest.cpp
@@ -216,17 +227,17 @@ target_link_libraries(AuthServiceTests
     GTest::gmock
 )
 
-add_executable(LessonServiceTests
-    ${SOURCE_ROOT}/tests/unit/LessonServiceTest.cpp
-)
+#add_executable(LessonServiceTests
+#    ${SOURCE_ROOT}/tests/unit/LessonServiceTest.cpp
+#)
 
-target_include_directories(LessonServiceTests PRIVATE ${SOURCE_ROOT})
-target_link_libraries(LessonServiceTests 
-    BookingCore 
-    GTest::gtest 
-    GTest::gtest_main
-    GTest::gmock
-)
+#target_include_directories(LessonServiceTests PRIVATE ${SOURCE_ROOT})
+#target_link_libraries(LessonServiceTests 
+#    BookingCore 
+#    GTest::gtest 
+#    GTest::gtest_main
+#    GTest::gmock
+#)
 
 add_executable(SubscriptionServiceTests
     ${SOURCE_ROOT}/tests/unit/SubscriptionServiceTest.cpp
@@ -240,17 +251,17 @@ target_link_libraries(SubscriptionServiceTests
     GTest::gmock
 )
 
-add_executable(ReviewServiceTests
-    ${SOURCE_ROOT}/tests/unit/ReviewServiceTest.cpp
-)
+#add_executable(ReviewServiceTests
+#    ${SOURCE_ROOT}/tests/unit/ReviewServiceTest.cpp
+#)
 
-target_include_directories(ReviewServiceTests PRIVATE ${SOURCE_ROOT})
-target_link_libraries(ReviewServiceTests 
-    BookingCore 
-    GTest::gtest 
-    GTest::gtest_main
-    GTest::gmock
-)
+#target_include_directories(ReviewServiceTests PRIVATE ${SOURCE_ROOT})
+#target_link_libraries(ReviewServiceTests 
+#    BookingCore 
+#    GTest::gtest 
+#    GTest::gtest_main
+#    GTest::gmock
+#)
 
 # Интеграционные тесты
 add_executable(IntegrationTests

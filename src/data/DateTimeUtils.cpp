@@ -72,6 +72,15 @@ std::string DateTimeUtils::formatDateTime(const std::chrono::system_clock::time_
     return std::string(buffer);
 }
 
+std::string DateTimeUtils::formatDate(const std::chrono::system_clock::time_point& timePoint) {
+    auto time_t = std::chrono::system_clock::to_time_t(timePoint);
+    std::tm* tm = std::localtime(&time_t);
+    
+    char buffer[80];
+    std::strftime(buffer, sizeof(buffer), "%d.%m.%Y", tm);
+    return std::string(buffer);
+}
+
 std::string DateTimeUtils::formatTimeSlot(const std::chrono::system_clock::time_point& startTime, int durationMinutes) {
     auto endTime = startTime + std::chrono::minutes(durationMinutes);
     
@@ -113,6 +122,10 @@ std::chrono::system_clock::time_point DateTimeUtils::createDateTime(int year, in
     tm.tm_isdst = -1; // Определять автоматически
     
     std::time_t time = std::mktime(&tm);
+    return std::chrono::system_clock::from_time_t(time);
+}
+
+std::chrono::system_clock::time_point DateTimeUtils::createDateTime(std::time_t time) {
     return std::chrono::system_clock::from_time_t(time);
 }
 

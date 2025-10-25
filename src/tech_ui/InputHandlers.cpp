@@ -271,3 +271,25 @@ DifficultyLevel InputHandlers::readDifficultyLevel() {
 int InputHandlers::readRating() {
     return readInt("Оценка (1-5): ", 1, 5);
 }
+
+bool InputHandlers::getConfirmation() {
+    return getYesNoInput();
+}
+
+bool InputHandlers::getYesNoInput() {
+    while (true) {
+        std::string input;
+        std::getline(std::cin, input);
+        
+        if (!input.empty()) {
+            char firstChar = std::tolower(input[0]);
+            if (firstChar == 'y' || firstChar == 'д') { // русская 'д' для "да"
+                return true;
+            } else if (firstChar == 'n' || firstChar == 'н') { // русская 'н' для "нет"
+                return false;
+            }
+        }
+        
+        std::cout << "❌ Пожалуйста, введите 'y' (да) или 'n' (нет): ";
+    }
+}

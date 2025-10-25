@@ -293,6 +293,20 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.c
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.s
 
+CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
+CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o: src/repositories/impl/PostgreSQLAttendanceRepository.cpp
+CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLAttendanceRepository.cpp
+
+CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLAttendanceRepository.cpp > CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.i
+
+CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLAttendanceRepository.cpp -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.s
+
 # Object files for target DataAccess
 DataAccess_OBJECTS = \
 "CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o" \
@@ -310,7 +324,8 @@ DataAccess_OBJECTS = \
 "CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o" \
 "CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o" \
 "CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o" \
-"CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o"
+"CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o" \
+"CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o"
 
 # External object files for target DataAccess
 DataAccess_EXTERNAL_OBJECTS =
@@ -331,9 +346,10 @@ lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLT
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o
+lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/build.make
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Linking CXX static library lib/libDataAccess.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Linking CXX static library lib/libDataAccess.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/DataAccess.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DataAccess.dir/link.txt --verbose=$(VERBOSE)
 

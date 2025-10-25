@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/main.cpp" "CMakeFiles/TechUI.dir/src/main.cpp.o" "gcc" "CMakeFiles/TechUI.dir/src/main.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.cpp" "CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o" "gcc" "CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o.d"
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/StatisticsManager.cpp" "CMakeFiles/TechUI.dir/src/tech_ui/StatisticsManager.cpp.o" "gcc" "CMakeFiles/TechUI.dir/src/tech_ui/StatisticsManager.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUI.cpp" "CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o" "gcc" "CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.cpp" "CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o" "gcc" "CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o.d"
   )

@@ -172,7 +172,7 @@ void TechUI::createBooking() {
         std::cout << "\n--- СОЗДАНИЕ БРОНИРОВАНИЯ ---" << std::endl;
         
         // Получаем реальные доступные залы
-        auto halls = managers_->getBookingService()->getAllHalls();
+        auto halls = managers_->getAvailableHalls();
         if (halls.empty()) {
             std::cout << "❌ Нет доступных залов." << std::endl;
             return;
@@ -597,9 +597,10 @@ void TechUI::handleAdminMenu() {
         std::cout << "6. Управление абонементами" << std::endl;
         std::cout << "7. Модерация отзывов" << std::endl;
         std::cout << "8. Управление записями на занятия" << std::endl;
+        std::cout << "9. Статистика" << std::endl; 
         std::cout << "0. Назад" << std::endl;
         
-        int choice = InputHandlers::readInt("Выберите опцию: ", 0, 8);
+        int choice = InputHandlers::readInt("Выберите опцию: ", 0, 9);
         
         switch (choice) {
             case 1: handleAdminClients(); break;
@@ -610,9 +611,14 @@ void TechUI::handleAdminMenu() {
             case 6: handleAdminSubscriptions(); break;
             case 7: handleAdminReviews(); break;
             case 8: handleAdminEnrollments(); break;
+            case 9: handleAdminStatistics(); break; 
             case 0: return;
         }
     }
+}
+
+void TechUI::handleAdminStatistics() {
+    managers_->getStatisticsManager()->showMenu();
 }
 
 void TechUI::handleAdminClients() {
@@ -1237,7 +1243,7 @@ void TechUI::displayBooking(const BookingResponseDTO& booking) {
     std::cout << "📅 БРОНИРОВАНИЕ " << booking.bookingId.toString() << std::endl;
     std::cout << "   Клиент: " << booking.clientId.toString() << std::endl;
     std::cout << "   Зал: " << booking.hallId.toString() << std::endl;
-    std::cout << "   Время: " << booking.timeSlot.toString() << std::endl;
+    std::cout << "   Время: " << formatTimeSlot(booking.timeSlot) << std::endl;
     std::cout << "   Статус: " << booking.status << std::endl;
     std::cout << "   Цель: " << booking.purpose << std::endl;
     std::cout << "   Создано: " << booking.createdAt << std::endl;

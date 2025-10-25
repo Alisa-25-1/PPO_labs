@@ -294,3 +294,29 @@ EnrollmentStatus PostgreSQLEnrollmentRepository::stringToEnrollmentStatus(const 
     if (status == "MISSED") return EnrollmentStatus::MISSED;
     return EnrollmentStatus::REGISTERED;
 }
+
+std::vector<Enrollment> PostgreSQLEnrollmentRepository::findAll() {
+    try {
+        auto work = dbConnection_->beginTransaction();
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "lesson_id", "status", "enrollment_date"})
+            .from("enrollments")
+            .build();
+        
+        auto result = work.exec(query);
+        
+        std::vector<Enrollment> enrollments;
+        for (const auto& row : result) {
+            enrollments.push_back(mapResultToEnrollment(row));
+        }
+        
+        dbConnection_->commitTransaction(work);
+        return enrollments;
+        
+    } catch (const std::exception& e) {
+        throw QueryException(std::string("Failed to find all enrollments: ") + e.what());
+    }
+}
+

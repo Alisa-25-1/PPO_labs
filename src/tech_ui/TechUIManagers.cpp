@@ -1,5 +1,7 @@
 #include "TechUIManagers.hpp"
 #include "../data/PostgreSQLRepositoryFactory.hpp"
+#include "../services/BranchService.hpp"
+#include "../repositories/impl/PostgreSQLEnrollmentRepository.hpp"
 
 TechUIManagers::TechUIManagers(const std::string& connectionString) {
     try {
@@ -18,15 +20,19 @@ TechUIManagers::TechUIManagers(const std::string& connectionString) {
         reviewRepo_ = factory->createReviewRepository();
         branchRepo_ = factory->createBranchRepository();
         studioRepo_ = factory->createStudioRepository();
+        attendanceRepo_ = factory->createAttendanceRepository(); 
         
-        // Инициализация сервисов с УЖЕ созданными репозиториями
+        auto branchService = std::make_shared<BranchService>(branchRepo_, hallRepo_);
+        
         authService_ = std::make_unique<AuthService>(clientRepo_);
         
         bookingService_ = std::make_unique<BookingService>(
             bookingRepo_,
             clientRepo_, 
             hallRepo_,
-            branchRepo_
+            branchRepo_,
+            branchService,
+            attendanceRepo_  
         );
         
         lessonService_ = std::make_unique<LessonService>(
@@ -34,6 +40,13 @@ TechUIManagers::TechUIManagers(const std::string& connectionString) {
             enrollmentRepo_,
             trainerRepo_,
             hallRepo_
+        );
+    
+        enrollmentService_ = std::make_unique<EnrollmentService>(
+            enrollmentRepo_,
+            clientRepo_,
+            lessonRepo_,
+            attendanceRepo_  
         );
         
         subscriptionService_ = std::make_unique<SubscriptionService>(
@@ -55,11 +68,15 @@ TechUIManagers::TechUIManagers(const std::string& connectionString) {
             hallRepo_
         );
 
-        enrollmentService_ = std::make_unique<EnrollmentService>(
-            enrollmentRepo_,
+        statisticsService_ = std::make_unique<StatisticsService>(
+            attendanceRepo_,  
             clientRepo_,
-            lessonRepo_
+            lessonRepo_,
+            bookingRepo_,
+            enrollmentRepo_
         );
+        
+        statisticsManager_ = std::make_unique<StatisticsManager>(statisticsService_.get());
         
         std::cout << "✅ Все менеджеры TechUI инициализированы" << std::endl;
         

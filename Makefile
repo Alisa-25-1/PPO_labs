@@ -202,19 +202,6 @@ DanceStudioWebUI/fast:
 .PHONY : DanceStudioWebUI/fast
 
 #=============================================================================
-# Target rules for targets named BookingTests
-
-# Build rule for target.
-BookingTests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BookingTests
-.PHONY : BookingTests
-
-# fast build rule for target.
-BookingTests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/build
-.PHONY : BookingTests/fast
-
-#=============================================================================
 # Target rules for targets named AuthServiceTests
 
 # Build rule for target.
@@ -228,19 +215,6 @@ AuthServiceTests/fast:
 .PHONY : AuthServiceTests/fast
 
 #=============================================================================
-# Target rules for targets named LessonServiceTests
-
-# Build rule for target.
-LessonServiceTests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 LessonServiceTests
-.PHONY : LessonServiceTests
-
-# fast build rule for target.
-LessonServiceTests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LessonServiceTests.dir/build.make CMakeFiles/LessonServiceTests.dir/build
-.PHONY : LessonServiceTests/fast
-
-#=============================================================================
 # Target rules for targets named SubscriptionServiceTests
 
 # Build rule for target.
@@ -252,19 +226,6 @@ SubscriptionServiceTests: cmake_check_build_system
 SubscriptionServiceTests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/SubscriptionServiceTests.dir/build.make CMakeFiles/SubscriptionServiceTests.dir/build
 .PHONY : SubscriptionServiceTests/fast
-
-#=============================================================================
-# Target rules for targets named ReviewServiceTests
-
-# Build rule for target.
-ReviewServiceTests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ReviewServiceTests
-.PHONY : ReviewServiceTests
-
-# fast build rule for target.
-ReviewServiceTests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReviewServiceTests.dir/build.make CMakeFiles/ReviewServiceTests.dir/build
-.PHONY : ReviewServiceTests/fast
 
 #=============================================================================
 # Target rules for targets named IntegrationTests
@@ -639,6 +600,30 @@ src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
 
+src/models/Attendance.o: src/models/Attendance.cpp.o
+.PHONY : src/models/Attendance.o
+
+# target to build an object file
+src/models/Attendance.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Attendance.cpp.o
+.PHONY : src/models/Attendance.cpp.o
+
+src/models/Attendance.i: src/models/Attendance.cpp.i
+.PHONY : src/models/Attendance.i
+
+# target to preprocess a source file
+src/models/Attendance.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Attendance.cpp.i
+.PHONY : src/models/Attendance.cpp.i
+
+src/models/Attendance.s: src/models/Attendance.cpp.s
+.PHONY : src/models/Attendance.s
+
+# target to generate assembly for a file
+src/models/Attendance.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Attendance.cpp.s
+.PHONY : src/models/Attendance.cpp.s
+
 src/models/Booking.o: src/models/Booking.cpp.o
 .PHONY : src/models/Booking.o
 
@@ -950,6 +935,30 @@ src/models/Trainer.s: src/models/Trainer.cpp.s
 src/models/Trainer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.s
 .PHONY : src/models/Trainer.cpp.s
+
+src/repositories/impl/PostgreSQLAttendanceRepository.o: src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLAttendanceRepository.o
+
+# target to build an object file
+src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o
+.PHONY : src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o
+
+src/repositories/impl/PostgreSQLAttendanceRepository.i: src/repositories/impl/PostgreSQLAttendanceRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLAttendanceRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/PostgreSQLAttendanceRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.i
+.PHONY : src/repositories/impl/PostgreSQLAttendanceRepository.cpp.i
+
+src/repositories/impl/PostgreSQLAttendanceRepository.s: src/repositories/impl/PostgreSQLAttendanceRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLAttendanceRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/PostgreSQLAttendanceRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.s
+.PHONY : src/repositories/impl/PostgreSQLAttendanceRepository.cpp.s
 
 src/repositories/impl/PostgreSQLBookingRepository.o: src/repositories/impl/PostgreSQLBookingRepository.cpp.o
 .PHONY : src/repositories/impl/PostgreSQLBookingRepository.o
@@ -1263,6 +1272,30 @@ src/services/BookingService.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.s
 .PHONY : src/services/BookingService.cpp.s
 
+src/services/BranchService.o: src/services/BranchService.cpp.o
+.PHONY : src/services/BranchService.o
+
+# target to build an object file
+src/services/BranchService.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/BranchService.cpp.o
+.PHONY : src/services/BranchService.cpp.o
+
+src/services/BranchService.i: src/services/BranchService.cpp.i
+.PHONY : src/services/BranchService.i
+
+# target to preprocess a source file
+src/services/BranchService.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/BranchService.cpp.i
+.PHONY : src/services/BranchService.cpp.i
+
+src/services/BranchService.s: src/services/BranchService.cpp.s
+.PHONY : src/services/BranchService.s
+
+# target to generate assembly for a file
+src/services/BranchService.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/BranchService.cpp.s
+.PHONY : src/services/BranchService.cpp.s
+
 src/services/EnrollmentService.o: src/services/EnrollmentService.cpp.o
 .PHONY : src/services/EnrollmentService.o
 
@@ -1359,6 +1392,30 @@ src/services/ScheduleService.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/ScheduleService.cpp.s
 .PHONY : src/services/ScheduleService.cpp.s
 
+src/services/StatisticsService.o: src/services/StatisticsService.cpp.o
+.PHONY : src/services/StatisticsService.o
+
+# target to build an object file
+src/services/StatisticsService.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/StatisticsService.cpp.o
+.PHONY : src/services/StatisticsService.cpp.o
+
+src/services/StatisticsService.i: src/services/StatisticsService.cpp.i
+.PHONY : src/services/StatisticsService.i
+
+# target to preprocess a source file
+src/services/StatisticsService.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/StatisticsService.cpp.i
+.PHONY : src/services/StatisticsService.cpp.i
+
+src/services/StatisticsService.s: src/services/StatisticsService.cpp.s
+.PHONY : src/services/StatisticsService.s
+
+# target to generate assembly for a file
+src/services/StatisticsService.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/StatisticsService.cpp.s
+.PHONY : src/services/StatisticsService.cpp.s
+
 src/services/SubscriptionService.o: src/services/SubscriptionService.cpp.o
 .PHONY : src/services/SubscriptionService.o
 
@@ -1406,6 +1463,30 @@ src/tech_ui/InputHandlers.s: src/tech_ui/InputHandlers.cpp.s
 src/tech_ui/InputHandlers.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.s
 .PHONY : src/tech_ui/InputHandlers.cpp.s
+
+src/tech_ui/StatisticsManager.o: src/tech_ui/StatisticsManager.cpp.o
+.PHONY : src/tech_ui/StatisticsManager.o
+
+# target to build an object file
+src/tech_ui/StatisticsManager.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/StatisticsManager.cpp.o
+.PHONY : src/tech_ui/StatisticsManager.cpp.o
+
+src/tech_ui/StatisticsManager.i: src/tech_ui/StatisticsManager.cpp.i
+.PHONY : src/tech_ui/StatisticsManager.i
+
+# target to preprocess a source file
+src/tech_ui/StatisticsManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/StatisticsManager.cpp.i
+.PHONY : src/tech_ui/StatisticsManager.cpp.i
+
+src/tech_ui/StatisticsManager.s: src/tech_ui/StatisticsManager.cpp.s
+.PHONY : src/tech_ui/StatisticsManager.s
+
+# target to generate assembly for a file
+src/tech_ui/StatisticsManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/StatisticsManager.cpp.s
+.PHONY : src/tech_ui/StatisticsManager.cpp.s
 
 src/tech_ui/TechUI.o: src/tech_ui/TechUI.cpp.o
 .PHONY : src/tech_ui/TechUI.o
@@ -1502,78 +1583,6 @@ src/tests/unit/AuthServiceTest.s: src/tests/unit/AuthServiceTest.cpp.s
 src/tests/unit/AuthServiceTest.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AuthServiceTests.dir/build.make CMakeFiles/AuthServiceTests.dir/src/tests/unit/AuthServiceTest.cpp.s
 .PHONY : src/tests/unit/AuthServiceTest.cpp.s
-
-src/tests/unit/BookingServiceTest.o: src/tests/unit/BookingServiceTest.cpp.o
-.PHONY : src/tests/unit/BookingServiceTest.o
-
-# target to build an object file
-src/tests/unit/BookingServiceTest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o
-.PHONY : src/tests/unit/BookingServiceTest.cpp.o
-
-src/tests/unit/BookingServiceTest.i: src/tests/unit/BookingServiceTest.cpp.i
-.PHONY : src/tests/unit/BookingServiceTest.i
-
-# target to preprocess a source file
-src/tests/unit/BookingServiceTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.i
-.PHONY : src/tests/unit/BookingServiceTest.cpp.i
-
-src/tests/unit/BookingServiceTest.s: src/tests/unit/BookingServiceTest.cpp.s
-.PHONY : src/tests/unit/BookingServiceTest.s
-
-# target to generate assembly for a file
-src/tests/unit/BookingServiceTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.s
-.PHONY : src/tests/unit/BookingServiceTest.cpp.s
-
-src/tests/unit/LessonServiceTest.o: src/tests/unit/LessonServiceTest.cpp.o
-.PHONY : src/tests/unit/LessonServiceTest.o
-
-# target to build an object file
-src/tests/unit/LessonServiceTest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LessonServiceTests.dir/build.make CMakeFiles/LessonServiceTests.dir/src/tests/unit/LessonServiceTest.cpp.o
-.PHONY : src/tests/unit/LessonServiceTest.cpp.o
-
-src/tests/unit/LessonServiceTest.i: src/tests/unit/LessonServiceTest.cpp.i
-.PHONY : src/tests/unit/LessonServiceTest.i
-
-# target to preprocess a source file
-src/tests/unit/LessonServiceTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LessonServiceTests.dir/build.make CMakeFiles/LessonServiceTests.dir/src/tests/unit/LessonServiceTest.cpp.i
-.PHONY : src/tests/unit/LessonServiceTest.cpp.i
-
-src/tests/unit/LessonServiceTest.s: src/tests/unit/LessonServiceTest.cpp.s
-.PHONY : src/tests/unit/LessonServiceTest.s
-
-# target to generate assembly for a file
-src/tests/unit/LessonServiceTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/LessonServiceTests.dir/build.make CMakeFiles/LessonServiceTests.dir/src/tests/unit/LessonServiceTest.cpp.s
-.PHONY : src/tests/unit/LessonServiceTest.cpp.s
-
-src/tests/unit/ReviewServiceTest.o: src/tests/unit/ReviewServiceTest.cpp.o
-.PHONY : src/tests/unit/ReviewServiceTest.o
-
-# target to build an object file
-src/tests/unit/ReviewServiceTest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReviewServiceTests.dir/build.make CMakeFiles/ReviewServiceTests.dir/src/tests/unit/ReviewServiceTest.cpp.o
-.PHONY : src/tests/unit/ReviewServiceTest.cpp.o
-
-src/tests/unit/ReviewServiceTest.i: src/tests/unit/ReviewServiceTest.cpp.i
-.PHONY : src/tests/unit/ReviewServiceTest.i
-
-# target to preprocess a source file
-src/tests/unit/ReviewServiceTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReviewServiceTests.dir/build.make CMakeFiles/ReviewServiceTests.dir/src/tests/unit/ReviewServiceTest.cpp.i
-.PHONY : src/tests/unit/ReviewServiceTest.cpp.i
-
-src/tests/unit/ReviewServiceTest.s: src/tests/unit/ReviewServiceTest.cpp.s
-.PHONY : src/tests/unit/ReviewServiceTest.s
-
-# target to generate assembly for a file
-src/tests/unit/ReviewServiceTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ReviewServiceTests.dir/build.make CMakeFiles/ReviewServiceTests.dir/src/tests/unit/ReviewServiceTest.cpp.s
-.PHONY : src/tests/unit/ReviewServiceTest.cpp.s
 
 src/tests/unit/SubscriptionServiceTest.o: src/tests/unit/SubscriptionServiceTest.cpp.o
 .PHONY : src/tests/unit/SubscriptionServiceTest.o
@@ -1743,6 +1752,30 @@ src/web_ui/controllers/BookingController.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.s
 .PHONY : src/web_ui/controllers/BookingController.cpp.s
 
+src/web_ui/controllers/LessonController.o: src/web_ui/controllers/LessonController.cpp.o
+.PHONY : src/web_ui/controllers/LessonController.o
+
+# target to build an object file
+src/web_ui/controllers/LessonController.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.o
+.PHONY : src/web_ui/controllers/LessonController.cpp.o
+
+src/web_ui/controllers/LessonController.i: src/web_ui/controllers/LessonController.cpp.i
+.PHONY : src/web_ui/controllers/LessonController.i
+
+# target to preprocess a source file
+src/web_ui/controllers/LessonController.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.i
+.PHONY : src/web_ui/controllers/LessonController.cpp.i
+
+src/web_ui/controllers/LessonController.s: src/web_ui/controllers/LessonController.cpp.s
+.PHONY : src/web_ui/controllers/LessonController.s
+
+# target to generate assembly for a file
+src/web_ui/controllers/LessonController.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.s
+.PHONY : src/web_ui/controllers/LessonController.cpp.s
+
 src/web_ui/controllers/SubscriptionController.o: src/web_ui/controllers/SubscriptionController.cpp.o
 .PHONY : src/web_ui/controllers/SubscriptionController.o
 
@@ -1887,6 +1920,78 @@ src/web_ui/views/ClientDashboard.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.s
 .PHONY : src/web_ui/views/ClientDashboard.cpp.s
 
+src/web_ui/views/EnrollmentHistoryWidget.o: src/web_ui/views/EnrollmentHistoryWidget.cpp.o
+.PHONY : src/web_ui/views/EnrollmentHistoryWidget.o
+
+# target to build an object file
+src/web_ui/views/EnrollmentHistoryWidget.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o
+.PHONY : src/web_ui/views/EnrollmentHistoryWidget.cpp.o
+
+src/web_ui/views/EnrollmentHistoryWidget.i: src/web_ui/views/EnrollmentHistoryWidget.cpp.i
+.PHONY : src/web_ui/views/EnrollmentHistoryWidget.i
+
+# target to preprocess a source file
+src/web_ui/views/EnrollmentHistoryWidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.i
+.PHONY : src/web_ui/views/EnrollmentHistoryWidget.cpp.i
+
+src/web_ui/views/EnrollmentHistoryWidget.s: src/web_ui/views/EnrollmentHistoryWidget.cpp.s
+.PHONY : src/web_ui/views/EnrollmentHistoryWidget.s
+
+# target to generate assembly for a file
+src/web_ui/views/EnrollmentHistoryWidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.s
+.PHONY : src/web_ui/views/EnrollmentHistoryWidget.cpp.s
+
+src/web_ui/views/LessonScheduleWidget.o: src/web_ui/views/LessonScheduleWidget.cpp.o
+.PHONY : src/web_ui/views/LessonScheduleWidget.o
+
+# target to build an object file
+src/web_ui/views/LessonScheduleWidget.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o
+.PHONY : src/web_ui/views/LessonScheduleWidget.cpp.o
+
+src/web_ui/views/LessonScheduleWidget.i: src/web_ui/views/LessonScheduleWidget.cpp.i
+.PHONY : src/web_ui/views/LessonScheduleWidget.i
+
+# target to preprocess a source file
+src/web_ui/views/LessonScheduleWidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.i
+.PHONY : src/web_ui/views/LessonScheduleWidget.cpp.i
+
+src/web_ui/views/LessonScheduleWidget.s: src/web_ui/views/LessonScheduleWidget.cpp.s
+.PHONY : src/web_ui/views/LessonScheduleWidget.s
+
+# target to generate assembly for a file
+src/web_ui/views/LessonScheduleWidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.s
+.PHONY : src/web_ui/views/LessonScheduleWidget.cpp.s
+
+src/web_ui/views/LessonView.o: src/web_ui/views/LessonView.cpp.o
+.PHONY : src/web_ui/views/LessonView.o
+
+# target to build an object file
+src/web_ui/views/LessonView.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o
+.PHONY : src/web_ui/views/LessonView.cpp.o
+
+src/web_ui/views/LessonView.i: src/web_ui/views/LessonView.cpp.i
+.PHONY : src/web_ui/views/LessonView.i
+
+# target to preprocess a source file
+src/web_ui/views/LessonView.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.i
+.PHONY : src/web_ui/views/LessonView.cpp.i
+
+src/web_ui/views/LessonView.s: src/web_ui/views/LessonView.cpp.s
+.PHONY : src/web_ui/views/LessonView.s
+
+# target to generate assembly for a file
+src/web_ui/views/LessonView.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.s
+.PHONY : src/web_ui/views/LessonView.cpp.s
+
 src/web_ui/views/LoginWidget.o: src/web_ui/views/LoginWidget.cpp.o
 .PHONY : src/web_ui/views/LoginWidget.o
 
@@ -1910,6 +2015,30 @@ src/web_ui/views/LoginWidget.s: src/web_ui/views/LoginWidget.cpp.s
 src/web_ui/views/LoginWidget.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.s
 .PHONY : src/web_ui/views/LoginWidget.cpp.s
+
+src/web_ui/views/MyEnrollmentsWidget.o: src/web_ui/views/MyEnrollmentsWidget.cpp.o
+.PHONY : src/web_ui/views/MyEnrollmentsWidget.o
+
+# target to build an object file
+src/web_ui/views/MyEnrollmentsWidget.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o
+.PHONY : src/web_ui/views/MyEnrollmentsWidget.cpp.o
+
+src/web_ui/views/MyEnrollmentsWidget.i: src/web_ui/views/MyEnrollmentsWidget.cpp.i
+.PHONY : src/web_ui/views/MyEnrollmentsWidget.i
+
+# target to preprocess a source file
+src/web_ui/views/MyEnrollmentsWidget.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.i
+.PHONY : src/web_ui/views/MyEnrollmentsWidget.cpp.i
+
+src/web_ui/views/MyEnrollmentsWidget.s: src/web_ui/views/MyEnrollmentsWidget.cpp.s
+.PHONY : src/web_ui/views/MyEnrollmentsWidget.s
+
+# target to generate assembly for a file
+src/web_ui/views/MyEnrollmentsWidget.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.s
+.PHONY : src/web_ui/views/MyEnrollmentsWidget.cpp.s
 
 src/web_ui/views/PurchaseSubscriptionWidget.o: src/web_ui/views/PurchaseSubscriptionWidget.cpp.o
 .PHONY : src/web_ui/views/PurchaseSubscriptionWidget.o
@@ -2019,12 +2148,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... AuthServiceTests"
 	@echo "... BookingCore"
-	@echo "... BookingTests"
 	@echo "... DanceStudioWebUI"
 	@echo "... DataAccess"
 	@echo "... IntegrationTests"
-	@echo "... LessonServiceTests"
-	@echo "... ReviewServiceTests"
 	@echo "... SubscriptionServiceTests"
 	@echo "... TechUI"
 	@echo "... WebUIComponent"
@@ -2073,6 +2199,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/models/Attendance.o"
+	@echo "... src/models/Attendance.i"
+	@echo "... src/models/Attendance.s"
 	@echo "... src/models/Booking.o"
 	@echo "... src/models/Booking.i"
 	@echo "... src/models/Booking.s"
@@ -2112,6 +2241,9 @@ help:
 	@echo "... src/models/Trainer.o"
 	@echo "... src/models/Trainer.i"
 	@echo "... src/models/Trainer.s"
+	@echo "... src/repositories/impl/PostgreSQLAttendanceRepository.o"
+	@echo "... src/repositories/impl/PostgreSQLAttendanceRepository.i"
+	@echo "... src/repositories/impl/PostgreSQLAttendanceRepository.s"
 	@echo "... src/repositories/impl/PostgreSQLBookingRepository.o"
 	@echo "... src/repositories/impl/PostgreSQLBookingRepository.i"
 	@echo "... src/repositories/impl/PostgreSQLBookingRepository.s"
@@ -2151,6 +2283,9 @@ help:
 	@echo "... src/services/BookingService.o"
 	@echo "... src/services/BookingService.i"
 	@echo "... src/services/BookingService.s"
+	@echo "... src/services/BranchService.o"
+	@echo "... src/services/BranchService.i"
+	@echo "... src/services/BranchService.s"
 	@echo "... src/services/EnrollmentService.o"
 	@echo "... src/services/EnrollmentService.i"
 	@echo "... src/services/EnrollmentService.s"
@@ -2163,12 +2298,18 @@ help:
 	@echo "... src/services/ScheduleService.o"
 	@echo "... src/services/ScheduleService.i"
 	@echo "... src/services/ScheduleService.s"
+	@echo "... src/services/StatisticsService.o"
+	@echo "... src/services/StatisticsService.i"
+	@echo "... src/services/StatisticsService.s"
 	@echo "... src/services/SubscriptionService.o"
 	@echo "... src/services/SubscriptionService.i"
 	@echo "... src/services/SubscriptionService.s"
 	@echo "... src/tech_ui/InputHandlers.o"
 	@echo "... src/tech_ui/InputHandlers.i"
 	@echo "... src/tech_ui/InputHandlers.s"
+	@echo "... src/tech_ui/StatisticsManager.o"
+	@echo "... src/tech_ui/StatisticsManager.i"
+	@echo "... src/tech_ui/StatisticsManager.s"
 	@echo "... src/tech_ui/TechUI.o"
 	@echo "... src/tech_ui/TechUI.i"
 	@echo "... src/tech_ui/TechUI.s"
@@ -2181,15 +2322,6 @@ help:
 	@echo "... src/tests/unit/AuthServiceTest.o"
 	@echo "... src/tests/unit/AuthServiceTest.i"
 	@echo "... src/tests/unit/AuthServiceTest.s"
-	@echo "... src/tests/unit/BookingServiceTest.o"
-	@echo "... src/tests/unit/BookingServiceTest.i"
-	@echo "... src/tests/unit/BookingServiceTest.s"
-	@echo "... src/tests/unit/LessonServiceTest.o"
-	@echo "... src/tests/unit/LessonServiceTest.i"
-	@echo "... src/tests/unit/LessonServiceTest.s"
-	@echo "... src/tests/unit/ReviewServiceTest.o"
-	@echo "... src/tests/unit/ReviewServiceTest.i"
-	@echo "... src/tests/unit/ReviewServiceTest.s"
 	@echo "... src/tests/unit/SubscriptionServiceTest.o"
 	@echo "... src/tests/unit/SubscriptionServiceTest.i"
 	@echo "... src/tests/unit/SubscriptionServiceTest.s"
@@ -2211,6 +2343,9 @@ help:
 	@echo "... src/web_ui/controllers/BookingController.o"
 	@echo "... src/web_ui/controllers/BookingController.i"
 	@echo "... src/web_ui/controllers/BookingController.s"
+	@echo "... src/web_ui/controllers/LessonController.o"
+	@echo "... src/web_ui/controllers/LessonController.i"
+	@echo "... src/web_ui/controllers/LessonController.s"
 	@echo "... src/web_ui/controllers/SubscriptionController.o"
 	@echo "... src/web_ui/controllers/SubscriptionController.i"
 	@echo "... src/web_ui/controllers/SubscriptionController.s"
@@ -2229,9 +2364,21 @@ help:
 	@echo "... src/web_ui/views/ClientDashboard.o"
 	@echo "... src/web_ui/views/ClientDashboard.i"
 	@echo "... src/web_ui/views/ClientDashboard.s"
+	@echo "... src/web_ui/views/EnrollmentHistoryWidget.o"
+	@echo "... src/web_ui/views/EnrollmentHistoryWidget.i"
+	@echo "... src/web_ui/views/EnrollmentHistoryWidget.s"
+	@echo "... src/web_ui/views/LessonScheduleWidget.o"
+	@echo "... src/web_ui/views/LessonScheduleWidget.i"
+	@echo "... src/web_ui/views/LessonScheduleWidget.s"
+	@echo "... src/web_ui/views/LessonView.o"
+	@echo "... src/web_ui/views/LessonView.i"
+	@echo "... src/web_ui/views/LessonView.s"
 	@echo "... src/web_ui/views/LoginWidget.o"
 	@echo "... src/web_ui/views/LoginWidget.i"
 	@echo "... src/web_ui/views/LoginWidget.s"
+	@echo "... src/web_ui/views/MyEnrollmentsWidget.o"
+	@echo "... src/web_ui/views/MyEnrollmentsWidget.i"
+	@echo "... src/web_ui/views/MyEnrollmentsWidget.s"
 	@echo "... src/web_ui/views/PurchaseSubscriptionWidget.o"
 	@echo "... src/web_ui/views/PurchaseSubscriptionWidget.i"
 	@echo "... src/web_ui/views/PurchaseSubscriptionWidget.s"

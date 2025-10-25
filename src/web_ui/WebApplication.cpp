@@ -4,6 +4,7 @@
 #include "views/RegistrationWidget.hpp"
 #include "views/BookingView.hpp"
 #include "views/SubscriptionView.hpp"
+#include "views/LessonView.hpp"
 
 // Контроллеры
 #include "controllers/AuthController.hpp"
@@ -17,10 +18,15 @@
 #include "repositories/impl/PostgreSQLBranchRepository.hpp"
 #include "repositories/impl/PostgreSQLSubscriptionRepository.hpp"
 #include "repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp"
+#include "repositories/impl/PostgreSQLLessonRepository.hpp"
+#include "repositories/impl/PostgreSQLTrainerRepository.hpp"
+#include "repositories/impl/PostgreSQLEnrollmentRepository.hpp"
+#include "repositories/impl/PostgreSQLAttendanceRepository.hpp"
 
 // Сервисы
 #include "services/BookingService.hpp"
 #include "services/SubscriptionService.hpp"
+#include "services/LessonService.hpp"
 
 // Данные
 #include "data/DatabaseConnection.hpp"
@@ -35,7 +41,8 @@ WebApplication::WebApplication(const Wt::WEnvironment& env)
       dashboardView_(nullptr),
       registrationView_(nullptr),
       bookingView_(nullptr),
-      subscriptionView_(nullptr) {
+      subscriptionView_(nullptr),
+      lessonView_(nullptr) {
     
     setTitle("Dance Studio");
     
@@ -58,6 +65,7 @@ WebApplication::WebApplication(const Wt::WEnvironment& env)
     dashboardView_ = nullptr;
     bookingView_ = nullptr;
     subscriptionView_ = nullptr;
+    lessonView_ = nullptr;
     
     setupStyles();
     
@@ -81,18 +89,31 @@ void WebApplication::initializeControllers() {
         std::cout << "✅ AuthController создан" << std::endl;
         
         // Создаем репозитории для BookingService
+        auto lessonRepo = std::make_shared<PostgreSQLLessonRepository>(dbConnection);
+        auto enrollmentRepo = std::make_shared<PostgreSQLEnrollmentRepository>(dbConnection);
+        auto trainerRepo = std::make_shared<PostgreSQLTrainerRepository>(dbConnection);
         auto subscriptionRepo = std::make_shared<PostgreSQLSubscriptionRepository>(dbConnection);
         auto subscriptionTypeRepo = std::make_shared<PostgreSQLSubscriptionTypeRepository>(dbConnection);
         auto bookingRepo = std::make_shared<PostgreSQLBookingRepository>(dbConnection);
         auto clientRepo = std::make_shared<PostgreSQLClientRepository>(dbConnection);
         auto hallRepo = std::make_shared<PostgreSQLDanceHallRepository>(dbConnection);
         auto branchRepo = std::make_shared<PostgreSQLBranchRepository>(dbConnection);
+        auto attendanceRepo = std::make_shared<PostgreSQLAttendanceRepository>(dbConnection);
         
         std::cout << "✅ Репозитории созданы:" << std::endl;
         std::cout << "   - BookingRepository: " << (bookingRepo ? "OK" : "NULL") << std::endl;
         std::cout << "   - ClientRepository: " << (clientRepo ? "OK" : "NULL") << std::endl;
         std::cout << "   - DanceHallRepository: " << (hallRepo ? "OK" : "NULL") << std::endl;
         std::cout << "   - BranchRepository: " << (branchRepo ? "OK" : "NULL") << std::endl;
+
+        // Создаем lessonService и enrollmentService с реальными репозиториями
+        auto lessonService = std::make_shared<LessonService>(lessonRepo, enrollmentRepo, trainerRepo, hallRepo);
+        auto enrollmentService = std::make_shared<EnrollmentService>(enrollmentRepo, clientRepo, lessonRepo, attendanceRepo);
+        auto branchService = std::make_shared<BranchService>(branchRepo, hallRepo);
+
+        // Создаем lessonController_ с реальными сервисами
+        lessonController_ = std::make_unique<LessonController>(lessonService, enrollmentService, branchService);
+        std::cout << "✅ LessonController создан" << std::endl;
 
         // Создаем subscriptionService с реальными репозиториями
         auto subscriptionService = std::make_shared<SubscriptionService>(
@@ -107,7 +128,9 @@ void WebApplication::initializeControllers() {
             bookingRepo, 
             clientRepo, 
             hallRepo, 
-            branchRepo
+            branchRepo,
+            branchService,
+            attendanceRepo
         );
         std::cout << "✅ BookingService создан" << std::endl;
         
@@ -155,6 +178,7 @@ void WebApplication::logoutUser() {
     dashboardView_ = nullptr;
     bookingView_ = nullptr;
     subscriptionView_ = nullptr;
+    lessonView_ = nullptr;
     
     showLogin();
 }
@@ -213,6 +237,26 @@ void WebApplication::showSubscriptionView() {
         
     } catch (const std::exception& e) {
         std::cerr << "❌ КРИТИЧЕСКАЯ ОШИБКА при создании BookingView: " << e.what() << std::endl;
+        showDashboard();
+    }
+}
+
+void WebApplication::showLessonView() {
+    try {
+        std::cout << "🔄 Запрос на показ занятий..." << std::endl;
+        
+        if (!lessonView_) {
+            std::cout << "🔧 Создание нового LessonView..." << std::endl;
+            lessonView_ = mainStack_->addNew<LessonView>(this);
+            std::cout << "✅ LessonView создан" << std::endl;
+        }
+        
+        std::cout << "🔄 Показываем занятия для пользователя: " << userSession_.getUserName() << std::endl;
+        mainStack_->setCurrentWidget(lessonView_);
+        std::cout << "✅ Занятия показаны" << std::endl;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка при создании LessonView: " << e.what() << std::endl;
         showDashboard();
     }
 }

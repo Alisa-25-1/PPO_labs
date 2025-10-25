@@ -1,207 +1,109 @@
 #include "LessonView.hpp"
-#include <Wt/WLabel.h>
+#include "../WebApplication.hpp"
+#include "LessonScheduleWidget.hpp"
+#include "MyEnrollmentsWidget.hpp"
+#include "EnrollmentHistoryWidget.hpp"
 #include <Wt/WPushButton.h>
-#include <Wt/WBreak.h>
-#include <Wt/WMessageBox.h>
+#include <Wt/WText.h>
+#include <iostream>
 
 LessonView::LessonView(WebApplication* app) 
-    : app_(app) {
+    : app_(app),
+      contentStack_(nullptr),
+      menuWidget_(nullptr),
+      scheduleWidget_(nullptr),
+      myEnrollmentsWidget_(nullptr),
+      historyWidget_(nullptr) {
+    
+    std::cout << "🔧 Создание LessonView..." << std::endl;
     setupUI();
+    std::cout << "✅ LessonView создан" << std::endl;
 }
 
 void LessonView::setupUI() {
-    setStyleClass("lessons-view");
+    std::cout << "🔧 Настройка UI LessonView..." << std::endl;
+    
+    setStyleClass("lesson-view");
     
     // Заголовок
-    auto title = addNew<Wt::WText>("<h2>🎓 Мои занятия</h2>");
-    title->setStyleClass("section-title");
+    auto header = addNew<Wt::WContainerWidget>();
+    header->setStyleClass("lesson-header");
+    auto title = header->addNew<Wt::WText>("<h1>🎓 Мои занятия</h1>");
+    title->setTextFormat(Wt::TextFormat::UnsafeXHTML);
     
-    // Фильтр
-    auto filterContainer = addNew<Wt::WContainerWidget>();
-    filterContainer->setStyleClass("filter-container");
+    // Навигационное меню
+    auto nav = addNew<Wt::WContainerWidget>();
+    nav->setStyleClass("lesson-nav");
     
-    auto filterLabel = filterContainer->addNew<Wt::WLabel>("Показать:");
-    filterComboBox_ = filterContainer->addNew<Wt::WComboBox>();
-    filterComboBox_->addItem("Все занятия");
-    filterComboBox_->addItem("Только доступные для записи");
-    filterComboBox_->addItem("Только мои записи");
-    filterComboBox_->addItem("Прошедшие занятия");
-    filterLabel->setBuddy(filterComboBox_);
-    filterComboBox_->changed().connect(this, &LessonView::handleFilterChange);
+    auto scheduleBtn = nav->addNew<Wt::WPushButton>("📅 Запись на занятие");
+    scheduleBtn->setStyleClass("btn-nav");
+    scheduleBtn->clicked().connect(this, &LessonView::showSchedule);
     
-    // Раздел доступных занятий
-    auto availableTitle = addNew<Wt::WText>("<h3>Доступные занятия</h3>");
-    availableTitle->setStyleClass("subsection-title");
+    auto enrollmentsBtn = nav->addNew<Wt::WPushButton>("📋 Мои записи");
+    enrollmentsBtn->setStyleClass("btn-nav");
+    enrollmentsBtn->clicked().connect(this, &LessonView::showMyEnrollments);
     
-    lessonsTable_ = addNew<Wt::WTable>();
-    lessonsTable_->setStyleClass("lessons-table");
-    lessonsTable_->setHeaderCount(1);
+    auto historyBtn = nav->addNew<Wt::WPushButton>("📊 История посещений");
+    historyBtn->setStyleClass("btn-nav");
+    historyBtn->clicked().connect(this, &LessonView::showEnrollmentHistory);
     
-    // Раздел моих записей
-    auto enrollmentsTitle = addNew<Wt::WText>("<h3>Мои записи</h3>");
-    enrollmentsTitle->setStyleClass("subsection-title");
-    
-    enrollmentsTable_ = addNew<Wt::WTable>();
-    enrollmentsTable_->setStyleClass("enrollments-table");
-    enrollmentsTable_->setHeaderCount(1);
-    
-    statusText_ = addNew<Wt::WText>();
-    statusText_->setStyleClass("status-text");
-    
-    // Загружаем данные
-    loadLessons();
-    loadEnrollments();
-}
-
-void LessonView::loadLessons() {
-    setupLessonsTable();
-    
-    // Заглушка с тестовыми данными
-    std::vector<std::tuple<std::string, std::string, std::string, std::string, std::string, int>> testLessons = {
-        {"2023-12-01 10:00", "Сальса для начинающих", "Анна Иванова", "Начинающий", "Зал 1", 5},
-        {"2023-12-02 11:00", "Бачата", "Петр Сидоров", "Средний", "Зал 2", 3},
-        {"2023-12-03 14:00", "Танго", "Мария Петрова", "Продвинутый", "Зал 1", 2},
-        {"2023-12-04 16:00", "Хип-хоп", "Алексей Козлов", "Все уровни", "Зал 3", 8}
-    };
-    
-    int row = 1;
-    for (const auto& lesson : testLessons) {
-        lessonsTable_->elementAt(row, 0)->addNew<Wt::WText>(std::get<0>(lesson));
-        lessonsTable_->elementAt(row, 1)->addNew<Wt::WText>(std::get<1>(lesson));
-        lessonsTable_->elementAt(row, 2)->addNew<Wt::WText>(std::get<2>(lesson));
-        lessonsTable_->elementAt(row, 3)->addNew<Wt::WText>(std::get<3>(lesson));
-        lessonsTable_->elementAt(row, 4)->addNew<Wt::WText>(std::get<4>(lesson));
-        
-        auto spotsText = lessonsTable_->elementAt(row, 5)->addNew<Wt::WText>(std::to_string(std::get<5>(lesson)));
-        if (std::get<5>(lesson) < 3) {
-            spotsText->setStyleClass("low-spots");
-        }
-        
-        // Кнопка записи
-        if (app_->getUserSession()->isAuthenticated() && app_->getUserSession()->isClient()) {
-            auto enrollBtn = lessonsTable_->elementAt(row, 6)->addNew<Wt::WPushButton>("📝 Записаться");
-            enrollBtn->setStyleClass("btn btn-sm btn-success");
-            enrollBtn->clicked().connect([this, row]() {
-                handleEnroll(UUID::generate()); // Заглушка UUID
-            });
-        }
-        
-        row++;
-    }
-}
-
-void LessonView::loadEnrollments() {
-    setupEnrollmentsTable();
-    
-    // Заглушка с тестовыми данными
-    std::vector<std::tuple<std::string, std::string, std::string, std::string, std::string>> testEnrollments = {
-        {"2023-12-01 10:00", "Сальса для начинающих", "Анна Иванова", "Зал 1", "Записан"},
-        {"2023-12-05 18:00", "Сальса продвинутая", "Анна Иванова", "Зал 2", "Записан"},
-        {"2023-11-28 14:00", "Бачата", "Петр Сидоров", "Зал 3", "Посещено"}
-    };
-    
-    int row = 1;
-    for (const auto& enrollment : testEnrollments) {
-        enrollmentsTable_->elementAt(row, 0)->addNew<Wt::WText>(std::get<0>(enrollment));
-        enrollmentsTable_->elementAt(row, 1)->addNew<Wt::WText>(std::get<1>(enrollment));
-        enrollmentsTable_->elementAt(row, 2)->addNew<Wt::WText>(std::get<2>(enrollment));
-        enrollmentsTable_->elementAt(row, 3)->addNew<Wt::WText>(std::get<3>(enrollment));
-        
-        auto statusText = enrollmentsTable_->elementAt(row, 4)->addNew<Wt::WText>(std::get<4>(enrollment));
-        if (std::get<4>(enrollment) == "Посещено") {
-            statusText->setStyleClass("status-attended");
-        } else {
-            statusText->setStyleClass("status-registered");
-        }
-        
-        // Кнопка отмены для активных записей
-        if (std::get<4>(enrollment) == "Записан") {
-            auto cancelBtn = enrollmentsTable_->elementAt(row, 5)->addNew<Wt::WPushButton>("❌ Отменить");
-            cancelBtn->setStyleClass("btn btn-sm btn-outline-danger");
-            cancelBtn->clicked().connect([this, row]() {
-                handleCancelEnrollment(UUID::generate()); // Заглушка UUID
-            });
-        } else {
-            enrollmentsTable_->elementAt(row, 5)->addNew<Wt::WText>("-");
-        }
-        
-        row++;
-    }
-}
-
-void LessonView::setupLessonsTable() {
-    lessonsTable_->clear();
-    
-    // Заголовки таблицы
-    lessonsTable_->elementAt(0, 0)->addNew<Wt::WText>("Дата и время");
-    lessonsTable_->elementAt(0, 1)->addNew<Wt::WText>("Занятие");
-    lessonsTable_->elementAt(0, 2)->addNew<Wt::WText>("Преподаватель");
-    lessonsTable_->elementAt(0, 3)->addNew<Wt::WText>("Уровень");
-    lessonsTable_->elementAt(0, 4)->addNew<Wt::WText>("Зал");
-    lessonsTable_->elementAt(0, 5)->addNew<Wt::WText>("Свободно");
-    lessonsTable_->elementAt(0, 6)->addNew<Wt::WText>("Действия");
-    
-    for (int i = 0; i < 7; i++) {
-        lessonsTable_->elementAt(0, i)->setStyleClass("table-header");
-    }
-}
-
-void LessonView::setupEnrollmentsTable() {
-    enrollmentsTable_->clear();
-    
-    // Заголовки таблицы
-    enrollmentsTable_->elementAt(0, 0)->addNew<Wt::WText>("Дата и время");
-    enrollmentsTable_->elementAt(0, 1)->addNew<Wt::WText>("Занятие");
-    enrollmentsTable_->elementAt(0, 2)->addNew<Wt::WText>("Преподаватель");
-    enrollmentsTable_->elementAt(0, 3)->addNew<Wt::WText>("Зал");
-    enrollmentsTable_->elementAt(0, 4)->addNew<Wt::WText>("Статус");
-    enrollmentsTable_->elementAt(0, 5)->addNew<Wt::WText>("Действия");
-    
-    for (int i = 0; i < 6; i++) {
-        enrollmentsTable_->elementAt(0, i)->setStyleClass("table-header");
-    }
-}
-
-void LessonView::handleEnroll(const UUID& lessonId) {
-    if (!app_->getUserSession()->isAuthenticated()) {
-        statusText_->setText("Ошибка: необходимо войти в систему.");
-        statusText_->setStyleClass("status-text error");
-        return;
-    }
-    
-    // Здесь будет реальная логика записи на занятие
-    statusText_->setText("✅ Вы успешно записались на занятие!");
-    statusText_->setStyleClass("status-text success");
-    
-    // Обновляем списки
-    loadLessons();
-    loadEnrollments();
-}
-
-void LessonView::handleCancelEnrollment(const UUID& enrollmentId) {
-    auto messageBox = addChild(
-        std::make_unique<Wt::WMessageBox>(
-            "Отмена записи",
-            "Вы уверены, что хотите отменить запись на это занятие?",
-            Wt::Icon::Question,
-            Wt::StandardButton::Yes | Wt::StandardButton::No
-        )
-    );
-    
-    messageBox->buttonClicked().connect([=](Wt::StandardButton button) {
-        if (button == Wt::StandardButton::Yes) {
-            // Здесь будет реальная логика отмены записи
-            statusText_->setText("Запись на занятие отменена.");
-            statusText_->setStyleClass("status-text info");
-            loadEnrollments();
-            loadLessons();
-        }
-        removeChild(messageBox);
+    auto backBtn = nav->addNew<Wt::WPushButton>("← Назад в меню");
+    backBtn->setStyleClass("btn-nav btn-back");
+    backBtn->clicked().connect([this]() {
+        app_->showDashboard();
     });
     
-    messageBox->show();
+    // Контент
+    contentStack_ = addNew<Wt::WStackedWidget>();
+    contentStack_->setStyleClass("lesson-content");
+    
+    std::cout << "🔧 Создание виджетов LessonView..." << std::endl;
+    
+    // Создаем виджеты заранее
+    menuWidget_ = contentStack_->addNew<Wt::WContainerWidget>();
+    scheduleWidget_ = contentStack_->addNew<LessonScheduleWidget>(app_);
+    myEnrollmentsWidget_ = contentStack_->addNew<MyEnrollmentsWidget>(app_);
+    historyWidget_ = contentStack_->addNew<EnrollmentHistoryWidget>(app_);
+    
+    std::cout << "🔧 Настройка меню LessonView..." << std::endl;
+    
+    // Настраиваем меню
+    menuWidget_->setStyleClass("lesson-welcome");
+    menuWidget_->addNew<Wt::WText>("<h2>Добро пожаловать в систему занятий!</h2>")->setTextFormat(Wt::TextFormat::UnsafeXHTML);
+    menuWidget_->addNew<Wt::WText>("<p>Выберите действие из меню выше</p>")->setTextFormat(Wt::TextFormat::UnsafeXHTML);
+    
+    // Показываем меню по умолчанию
+    showLessonMenu();
+    
+    std::cout << "✅ UI LessonView настроен" << std::endl;
 }
 
-void LessonView::handleFilterChange() {
-    loadLessons();
+void LessonView::showLessonMenu() {
+    std::cout << "🔄 Показываем меню занятий" << std::endl;
+    if (contentStack_ && menuWidget_) {
+        contentStack_->setCurrentWidget(menuWidget_);
+    }
+}
+
+void LessonView::showSchedule() {
+    std::cout << "🔄 Показываем расписание занятий" << std::endl;
+    if (contentStack_ && scheduleWidget_) {
+        contentStack_->setCurrentWidget(scheduleWidget_);
+    }
+}
+
+void LessonView::showMyEnrollments() {
+    std::cout << "🔄 Показываем мои записи" << std::endl;
+    if (contentStack_ && myEnrollmentsWidget_) {
+        myEnrollmentsWidget_->loadEnrollments();
+        contentStack_->setCurrentWidget(myEnrollmentsWidget_);
+    }
+}
+
+void LessonView::showEnrollmentHistory() {
+    std::cout << "🔄 Показываем историю посещений" << std::endl;
+    if (contentStack_ && historyWidget_) {
+        historyWidget_->loadHistory();
+        contentStack_->setCurrentWidget(historyWidget_);
+    }
 }

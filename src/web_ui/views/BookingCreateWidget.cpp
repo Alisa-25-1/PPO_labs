@@ -10,6 +10,7 @@
 
 BookingCreateWidget::BookingCreateWidget(WebApplication* app) 
     : app_(app),
+      branchComboBox_(nullptr), 
       hallComboBox_(nullptr),
       dateEdit_(nullptr),
       timeComboBox_(nullptr),
@@ -42,7 +43,18 @@ void BookingCreateWidget::setupUI() {
     auto form = card->addNew<Wt::WContainerWidget>();
     form->setStyleClass("booking-form");
     
-    // Выбор зала
+    // ВЫБОР ФИЛИАЛА - ДОБАВЛЕНО
+    auto branchGroup = form->addNew<Wt::WContainerWidget>();
+    branchGroup->setStyleClass("form-group");
+    
+    auto branchLabel = branchGroup->addNew<Wt::WText>("<label class='form-label'>🏢 Выберите филиал</label>");
+    branchLabel->setTextFormat(Wt::TextFormat::UnsafeXHTML);
+    
+    branchComboBox_ = branchGroup->addNew<Wt::WComboBox>();
+    branchComboBox_->setStyleClass("form-input");
+    branchComboBox_->changed().connect(this, &BookingCreateWidget::onBranchChanged);  // Обработчик изменения филиала
+    
+    // Выбор зала (теперь зависит от филиала)
     auto hallGroup = form->addNew<Wt::WContainerWidget>();
     hallGroup->setStyleClass("form-group");
     
@@ -86,7 +98,7 @@ void BookingCreateWidget::setupUI() {
     // Подключаем сигнал для обновления продолжительностей при выборе времени
     timeComboBox_->changed().connect(this, &BookingCreateWidget::updateAvailableDurations);
     
-    // Продолжительность - УБИРАЕМ ПОВТОРНОЕ ОБЪЯВЛЕНИЕ
+    // Продолжительность
     auto durationGroup = form->addNew<Wt::WContainerWidget>();
     durationGroup->setStyleClass("form-group");
     
@@ -125,15 +137,99 @@ void BookingCreateWidget::setupUI() {
     statusText_ = form->addNew<Wt::WText>();
     statusText_->setStyleClass("booking-status");
     
-    // Загружаем доступные залы
-    loadAvailableHalls();
+    // Загружаем доступные филиалы (вместо залов)
+    loadAvailableBranches();
     
     std::cout << "✅ UI BookingCreateWidget настроен" << std::endl;
+}
+
+// ДОБАВЛЕНО: Обработчик изменения филиала
+void BookingCreateWidget::onBranchChanged() {
+    try {
+        // Сбрасываем комбобокс залов
+        hallComboBox_->clear();
+        hallComboBox_->addItem("-- Сначала выберите филиал --");
+        
+        // Сбрасываем комбобокс времени
+        timeComboBox_->clear();
+        timeComboBox_->addItem("-- Выберите время --");
+        
+        // Сбрасываем комбобокс продолжительности
+        durationComboBox_->clear();
+        durationComboBox_->addItem("-- Сначала выберите время --");
+        
+        // Проверяем, выбран ли филиал
+        if (branchComboBox_->currentIndex() <= 0) {
+            return;
+        }
+        
+        // Получаем выбранный филиал
+        int branchIndex = branchComboBox_->currentIndex() - 1;
+        if (branchIndex < 0 || branchIndex >= branches_.size()) {
+            return;
+        }
+        
+        UUID branchId = branches_[branchIndex].getId();
+        
+        // Загружаем залы для выбранного филиала
+        loadHallsByBranch(branchId);
+        
+    } catch (const std::exception& e) {
+        std::cerr << "Ошибка при изменении филиала: " << e.what() << std::endl;
+        updateStatus("❌ Ошибка загрузки залов филиала", true);
+    }
+}
+
+// ДОБАВЛЕНО: Загрузка филиалов
+void BookingCreateWidget::loadAvailableBranches() {
+    try {
+        branches_ = app_->getBookingController()->getBranches();
+        
+        branchComboBox_->clear();
+        branchComboBox_->addItem("-- Выберите филиал --");
+        
+        for (const auto& branch : branches_) {
+            branchComboBox_->addItem(branch.getName());
+        }
+        
+    } catch (const std::exception& e) {
+        std::cerr << "Ошибка загрузки филиалов: " << e.what() << std::endl;
+        updateStatus("❌ Ошибка загрузки списка филиалов", true);
+    }
+}
+
+// ДОБАВЛЕНО: Загрузка залов по филиалу
+void BookingCreateWidget::loadHallsByBranch(const UUID& branchId) {
+    try {
+        auto halls = app_->getBookingController()->getHallsByBranch(branchId);
+        
+        hallComboBox_->clear();
+        hallComboBox_->addItem("-- Выберите зал --");
+        
+        for (const auto& hall : halls) {
+            std::string hallInfo = "🏟️ " + hall.getName() + 
+                                 " (Вместимость: " + std::to_string(hall.getCapacity()) + " чел.)" +
+                                 " - " + hall.getDescription();
+            hallComboBox_->addItem(hallInfo);
+        }
+        
+        // Сохраняем залы для последующего использования
+        halls_ = halls;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "Ошибка загрузки залов филиала: " << e.what() << std::endl;
+        updateStatus("❌ Ошибка загрузки залов выбранного филиала", true);
+    }
 }
 
 void BookingCreateWidget::handleCreate() {
     try {
         // Проверяем обязательные поля
+        if (branchComboBox_->currentIndex() <= 0) {
+            updateStatus("❌ Пожалуйста, выберите филиал", true);
+            return;
+        }
+        
         if (hallComboBox_->currentIndex() <= 0) {
             updateStatus("❌ Пожалуйста, выберите зал", true);
             return;
@@ -161,14 +257,13 @@ void BookingCreateWidget::handleCreate() {
         }
         
         // Получаем выбранные значения
-        int hallIndex = hallComboBox_->currentIndex() - 1; // -1 потому что первый элемент "Выберите зал"
-        auto halls = getAvailableHallsFromDB();
-        if (hallIndex < 0 || hallIndex >= halls.size()) {
+        int hallIndex = hallComboBox_->currentIndex() - 1;
+        if (hallIndex < 0 || hallIndex >= halls_.size()) {
             updateStatus("❌ Ошибка: неверный выбор зала", true);
             return;
         }
         
-        UUID hallId = halls[hallIndex].getId();
+        UUID hallId = halls_[hallIndex].getId();
         Wt::WDate selectedDate = dateEdit_->date();
         std::string timeStr = timeComboBox_->currentText().toUTF8();
         
@@ -235,7 +330,6 @@ void BookingCreateWidget::handleCreate() {
 }
 
 void BookingCreateWidget::handleBack() {
-    // Вызываем колбэк для возврата к списку бронирований
     if (onBackToList_) {
         onBackToList_();
     }
@@ -256,26 +350,6 @@ void BookingCreateWidget::updateStatus(const std::string& message, bool isError)
     }
 }
 
-void BookingCreateWidget::loadAvailableHalls() {
-    try {
-        auto halls = getAvailableHallsFromDB();
-        
-        hallComboBox_->clear();
-        hallComboBox_->addItem("-- Выберите зал --");
-        
-        for (const auto& hall : halls) {
-            std::string hallInfo = "🏟️ " + hall.getName() + 
-                                 " (Вместимость: " + std::to_string(hall.getCapacity()) + " чел.)" +
-                                 " - " + hall.getDescription();
-            hallComboBox_->addItem(hallInfo);
-        }
-        
-    } catch (const std::exception& e) {
-        std::cerr << "Ошибка загрузки залов: " << e.what() << std::endl;
-        updateStatus("❌ Ошибка загрузки списка залов", true);
-    }
-}
-
 void BookingCreateWidget::loadAvailableTimeSlots() {
     try {
         // Сбрасываем комбобокс времени
@@ -293,24 +367,20 @@ void BookingCreateWidget::loadAvailableTimeSlots() {
         
         // Получаем выбранный зал
         int hallIndex = hallComboBox_->currentIndex() - 1;
-        auto halls = getAvailableHallsFromDB();
-        if (hallIndex < 0 || hallIndex >= halls.size()) {
+        if (hallIndex < 0 || hallIndex >= halls_.size()) {
             return;
         }
         
-        UUID hallId = halls[hallIndex].getId();
+        UUID hallId = halls_[hallIndex].getId();
         Wt::WDate selectedDate = dateEdit_->date();
         
         // Получаем доступные временные слоты для выбранной даты
         auto availableSlots = getAvailableTimeSlotsFromService(hallId, selectedDate);
         
-        // Заполняем комбобокс доступными временами с информацией о минимальной продолжительности
+        // Заполняем комбобокс доступными временами
         for (const auto& slot : availableSlots) {
             auto timePoint = slot.getStartTime();
-            
-            // Используем DateTimeUtils для форматирования времени
             std::string timeStr = DateTimeUtils::formatTime(timePoint);
-            
             timeComboBox_->addItem(timeStr);
         }
         
@@ -338,24 +408,13 @@ void BookingCreateWidget::updateAvailableDurations() {
         
         // Получаем выбранный зал
         int hallIndex = hallComboBox_->currentIndex() - 1;
-        auto halls = getAvailableHallsFromDB();
-        if (hallIndex < 0 || hallIndex >= halls.size()) {
+        if (hallIndex < 0 || hallIndex >= halls_.size()) {
             return;
         }
         
-        UUID hallId = halls[hallIndex].getId();
+        UUID hallId = halls_[hallIndex].getId();
         Wt::WDate selectedDate = dateEdit_->date();
         std::string timeStr = timeComboBox_->currentText().toUTF8();
-        
-        // Извлекаем только время (игнорируем часть в скобках)
-        size_t bracketPos = timeStr.find('(');
-        if (bracketPos != std::string::npos) {
-            timeStr = timeStr.substr(0, bracketPos);
-            // Убираем пробелы в конце
-            while (!timeStr.empty() && std::isspace(timeStr.back())) {
-                timeStr.pop_back();
-            }
-        }
         
         // Парсим время (формат "HH:MM")
         int hours, minutes;
@@ -397,17 +456,6 @@ void BookingCreateWidget::updateAvailableDurations() {
 }
 
 // Вспомогательные методы для работы с бизнес-логикой
-std::vector<DanceHall> BookingCreateWidget::getAvailableHallsFromDB() {
-    try {
-        // Используем BookingController для получения реальных данных
-        return app_->getBookingController()->getAvailableHalls();
-    } catch (const std::exception& e) {
-        std::cerr << "Ошибка получения залов: " << e.what() << std::endl;
-        // Возвращаем пустой список в случае ошибки
-        return {};
-    }
-}
-
 std::vector<TimeSlot> BookingCreateWidget::getAvailableTimeSlotsFromService(const UUID& hallId, const Wt::WDate& date) {
     try {
         auto timePoint = createDateTime(date, 0, 0);
@@ -432,12 +480,11 @@ BookingResponseDTO BookingCreateWidget::createBookingThroughService(const Bookin
         return app_->getBookingController()->createBooking(request);
     } catch (const std::exception& e) {
         std::cerr << "Ошибка создания бронирования: " << e.what() << std::endl;
-        throw; // Пробрасываем исключение дальше
+        throw;
     }
 }
 
 UUID BookingCreateWidget::getCurrentClientId() {
-    // Используем реальный ID клиента из сессии
     return app_->getCurrentClientId();
 }
 

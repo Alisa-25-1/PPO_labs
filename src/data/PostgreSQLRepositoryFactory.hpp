@@ -16,6 +16,7 @@
 #include "../repositories/IReviewRepository.hpp"
 #include "../repositories/ISubscriptionRepository.hpp"
 #include "../repositories/ISubscriptionTypeRepository.hpp"
+#include "../repositories/IAttendanceRepository.hpp" // ДОБАВЛЕНО
 
 // Forward declaration
 class DatabaseConnection;
@@ -44,6 +45,7 @@ public:
     std::shared_ptr<IReviewRepository> createReviewRepository();
     std::shared_ptr<ISubscriptionRepository> createSubscriptionRepository();
     std::shared_ptr<ISubscriptionTypeRepository> createSubscriptionTypeRepository();
+    std::shared_ptr<IAttendanceRepository> createAttendanceRepository(); // ДОБАВЛЕНО
 
     // Управление соединением
     bool testConnection() const;
