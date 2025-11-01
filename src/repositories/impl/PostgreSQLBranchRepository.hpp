@@ -6,6 +6,7 @@
 #include "../../data/exceptions/DataAccessException.hpp"
 #include "../../data/SqlQueryBuilder.hpp"
 #include <memory>
+#include <pqxx/pqxx>
 
 class PostgreSQLBranchRepository : public IBranchRepository {
 public:
@@ -22,7 +23,12 @@ public:
 private:
     std::shared_ptr<DatabaseConnection> dbConnection_;
     
-    Branch mapResultToBranch(const pqxx::row& row) const;
+    // Вспомогательные методы
+    std::optional<Address> findAddressById(const UUID& addressId, pqxx::work& work);
+    Branch mapResultToBranch(const pqxx::row& row, const Address& address) const;
+    Address mapResultToAddress(const pqxx::row& row) const;
+    bool saveAddress(const Address& address, pqxx::work& work);
+    bool updateAddress(const Address& address, pqxx::work& work);
     void validateBranch(const Branch& branch) const;
 };
 

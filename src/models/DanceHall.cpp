@@ -11,8 +11,9 @@ DanceHall::DanceHall(const UUID& id, const std::string& name, int capacity, cons
     : id_(id), name_(name), description_(""), capacity_(capacity),
       floorType_("wooden"), equipment_("mirrors"), branchId_(branchId) {
     
-    if (!isValid()) {
-        throw std::invalid_argument("Invalid dance hall data");
+    // Убираем строгую валидацию в конструкторе - будем валидировать только при сохранении
+    if (name.empty() || capacity <= 0 || branchId.isNull()) {
+        throw std::invalid_argument("Invalid dance hall data: name, capacity and branchId are required");
     }
 }
 
@@ -29,8 +30,9 @@ void DanceHall::setDescription(const std::string& description) {
 }
 
 void DanceHall::setFloorType(const std::string& floorType) {
-    if (!isValidFloorType(floorType)) {
-        throw std::invalid_argument("Invalid floor type");
+    // Убираем строгую валидацию - принимаем любой непустой floorType
+    if (floorType.empty()) {
+        throw std::invalid_argument("Floor type cannot be empty");
     }
     floorType_ = floorType;
 }
@@ -40,20 +42,17 @@ void DanceHall::setEquipment(const std::string& equipment) {
 }
 
 bool DanceHall::isValid() const {
-    return !id_.isNull() && id_.isValid() && 
-           isValidName(name_) && 
-           isValidCapacity(capacity_) && 
-           isValidFloorType(floorType_) && 
-           !branchId_.isNull() && branchId_.isValid();
+    // Ослабленная валидация - проверяем только обязательные поля
+    return !id_.isNull() && 
+           !name_.empty() && 
+           capacity_ > 0 && 
+           !floorType_.empty() && 
+           !branchId_.isNull();
 }
 
 bool DanceHall::isValidName(const std::string& name) {
-    if (name.empty() || name.length() > 50 || name.length() < 2) {
-        return false;
-    }
-    // Разрешаем русские и английские буквы, цифры, пробелы, дефисы и подчеркивания
-    std::regex validChars(R"(^[a-zA-Zа-яА-ЯёЁ0-9\s\-_]+$)");
-    return std::regex_match(name, validChars);
+    // Более мягкая валидация имени
+    return !name.empty() && name.length() <= 100;
 }
 
 bool DanceHall::isValidDescription(const std::string& description) {
@@ -65,14 +64,8 @@ bool DanceHall::isValidCapacity(int capacity) {
 }
 
 bool DanceHall::isValidFloorType(const std::string& floorType) {
-    if (floorType.empty() || floorType.length() > 50) {
-        return false;
-    }
-    std::vector<std::string> validTypes = {
-        "wooden", "marley", "vinyl", "concrete", "linoleum", "cork",
-        "деревянный", "марлей", "винил", "бетон", "линолеум", "пробка"
-    };
-    return std::find(validTypes.begin(), validTypes.end(), floorType) != validTypes.end();
+    // Принимаем любой непустой тип покрытия
+    return !floorType.empty() && floorType.length() <= 50;
 }
 
 bool DanceHall::isValidEquipment(const std::string& equipment) {

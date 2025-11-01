@@ -3,6 +3,7 @@
 #include "../../services/AuthService.hpp"
 #include "../../dtos/AuthDTO.hpp"
 #include "../../models/Client.hpp"
+
 #include <memory>
 
 class AuthController {
@@ -16,9 +17,10 @@ public:
     bool registerClient(const std::string& name, const std::string& email,
                        const std::string& phone, const std::string& password,
                        AuthResponseDTO& response);
+    bool changePassword(const std::string& clientId, const std::string& oldPassword, 
+                       const std::string& newPassword);
+    void resetPassword(const std::string& email);
     
 private:
     void initializeServices();
-    bool validateEmail(const std::string& email) const;
-    bool validatePassword(const std::string& password) const;
 };

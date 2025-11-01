@@ -98,6 +98,8 @@ bin/DanceStudioWebUI: lib/libDataAccess.a
 bin/DanceStudioWebUI: /usr/local/lib/libwthttp.so
 bin/DanceStudioWebUI: /usr/local/lib/libwt.so
 bin/DanceStudioWebUI: lib/libBookingCore.a
+bin/DanceStudioWebUI: /usr/lib/x86_64-linux-gnu/libssl.so
+bin/DanceStudioWebUI: /usr/lib/x86_64-linux-gnu/libcrypto.so
 bin/DanceStudioWebUI: /usr/lib/x86_64-linux-gnu/libuuid.so
 bin/DanceStudioWebUI: CMakeFiles/DanceStudioWebUI.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable bin/DanceStudioWebUI"

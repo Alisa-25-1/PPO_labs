@@ -22,6 +22,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   src/models/Studio.hpp \
   src/types/uuid.hpp \
   src/repositories/IStudioRepository.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -41,9 +42,11 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/Enrollment.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -68,6 +71,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -78,7 +82,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   src/services/ScheduleService.hpp \
   src/services/StatisticsService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ReviewException.hpp \
@@ -259,6 +263,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -274,8 +279,36 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -296,8 +329,11 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -343,11 +379,13 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
@@ -365,14 +403,18 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o: src/tech_ui/InputHandlers.cpp \
   src/data/DateTimeUtils.hpp \
@@ -940,6 +982,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   src/models/Studio.hpp \
   src/types/uuid.hpp \
   src/repositories/IStudioRepository.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -959,9 +1002,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/Enrollment.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -986,6 +1031,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -996,7 +1042,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   src/services/ScheduleService.hpp \
   src/services/StatisticsService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ReviewException.hpp \
@@ -1163,6 +1209,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -1177,8 +1224,36 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -1199,8 +1274,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -1246,11 +1324,13 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -1266,14 +1346,18 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManagers.cpp \
   src/data/PostgreSQLRepositoryFactory.hpp \
@@ -1284,6 +1368,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   src/data/DatabaseConnection.hpp \
   src/data/exceptions/DataAccessException.hpp \
   src/repositories/impl/PostgreSQLEnrollmentRepository.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -1303,9 +1388,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/Enrollment.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -1330,6 +1417,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -1341,7 +1429,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   src/services/ScheduleService.hpp \
   src/services/StatisticsService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ReviewException.hpp \
@@ -1533,6 +1621,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -1551,8 +1640,36 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pqxx/array.hxx \
   /usr/include/pqxx/binarystring.hxx \
   /usr/include/pqxx/blob.hxx \
@@ -1632,8 +1749,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -1679,11 +1799,13 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -1699,14 +1821,18 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 
 /usr/include/string.h:
@@ -1741,19 +1867,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
 
 /usr/include/pqxx/internal/libpq-forward.hxx:
 
-/usr/include/pqxx/internal/header-pre.hxx:
-
 /usr/include/pqxx/internal/header-post.hxx:
 
 /usr/include/pqxx/internal/gates/connection-stream_from.hxx:
 
-/usr/include/pqxx/nontransaction.hxx:
-
-/usr/include/pqxx/internal/encoding_group.hxx:
-
 /usr/include/pqxx/internal/callgate.hxx:
-
-/usr/include/pqxx/field.hxx:
 
 /usr/include/pqxx/except.hxx:
 
@@ -1769,8 +1887,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
 
 /usr/include/c++/13/variant:
 
-/usr/include/c++/13/pstl/glue_numeric_defs.h:
-
 /usr/include/c++/13/pstl/glue_algorithm_defs.h:
 
 /usr/include/c++/13/functional:
@@ -1778,10 +1894,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
 /usr/include/pqxx/row.hxx:
 
 /usr/include/c++/13/cstring:
-
-/usr/include/pqxx/version.hxx:
-
-/usr/include/c++/13/bits/stream_iterator.h:
 
 /usr/include/c++/13/array:
 
@@ -1803,8 +1915,6 @@ src/tech_ui/InputHandlers.cpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
-
 /usr/include/c++/13/numeric:
 
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
@@ -1818,6 +1928,10 @@ src/tech_ui/InputHandlers.cpp:
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/openssl/opensslconf.h:
+
+/usr/include/x86_64-linux-gnu/openssl/configuration.h:
 
 /usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
@@ -1841,13 +1955,13 @@ src/tech_ui/InputHandlers.cpp:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
-
 /usr/include/pqxx/transactor.hxx:
 
 /usr/include/pqxx/internal/result_iterator.hxx:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
+
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h:
 
@@ -1855,7 +1969,11 @@ src/tech_ui/InputHandlers.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
 
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
+/usr/include/pqxx/version.hxx:
+
+/usr/include/c++/13/bits/stream_iterator.h:
+
+/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
@@ -1873,6 +1991,8 @@ src/tech_ui/InputHandlers.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
 /usr/include/pqxx/internal/ignore-deprecated-pre.hxx:
@@ -1885,17 +2005,11 @@ src/tech_ui/InputHandlers.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
-/usr/include/pqxx/largeobject.hxx:
-
-/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
-
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
 /usr/include/x86_64-linux-gnu/bits/timex.h:
 
@@ -1917,25 +2031,61 @@ src/tech_ui/InputHandlers.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
 
+/usr/include/c++/13/pstl/glue_numeric_defs.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
 /usr/include/pqxx/internal/cxx-features.hxx:
 
 /usr/include/x86_64-linux-gnu/bits/locale.h:
 
+/usr/include/pqxx/internal/header-pre.hxx:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
 
-/usr/include/c++/13/bits/exception_ptr.h:
+/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
-/usr/include/c++/13/bits/stl_multimap.h:
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
 
-/usr/include/c++/13/bits/regex.tcc:
+/usr/include/x86_64-linux-gnu/asm/errno.h:
 
-/usr/include/c++/13/ciso646:
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
 
-/usr/include/c++/13/bits/basic_string.h:
+/usr/include/time.h:
 
-/usr/include/libintl.h:
+/usr/include/stdlib.h:
+
+/usr/include/wctype.h:
+
+/usr/include/sched.h:
+
+/usr/include/pthread.h:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/openssl/types.h:
+
+/usr/include/openssl/safestack.h:
+
+/usr/include/openssl/randerr.h:
+
+/usr/include/openssl/params.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/openssl/opensslv.h:
+
+/usr/include/pqxx/nontransaction.hxx:
+
+/usr/include/pqxx/internal/encoding_group.hxx:
+
+/usr/include/openssl/objectserr.h:
+
+/usr/include/openssl/evperr.h:
 
 /usr/include/c++/13/bits/range_access.h:
 
@@ -1957,10 +2107,6 @@ src/tech_ui/InputHandlers.cpp:
 
 /usr/include/c++/13/bits/fs_fwd.h:
 
-/usr/include/x86_64-linux-gnu/bits/setjmp.h:
-
-/usr/include/time.h:
-
 /usr/include/c++/13/bits/postypes.h:
 
 /usr/include/c++/13/bits/parse_numbers.h:
@@ -1980,6 +2126,10 @@ src/tech_ui/InputHandlers.cpp:
 src/repositories/IEnrollmentRepository.hpp:
 
 /usr/include/c++/13/bits/locale_facets.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
+/usr/include/c++/13/bits/requires_hosted.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
@@ -2011,11 +2161,21 @@ src/models/Client.hpp:
 
 /usr/include/c++/13/bits/charconv.h:
 
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+src/dtos/EnrollmentDTO.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/c++/13/bits/stl_pair.h:
+
 /usr/include/c++/13/cstdio:
 
 /usr/include/c++/13/fstream:
 
 /usr/include/pqxx/config-public-compiler.h:
+
+/usr/include/openssl/macros.h:
 
 /usr/include/c++/13/bits/fs_ops.h:
 
@@ -2033,6 +2193,12 @@ src/repositories/IBranchRepository.hpp:
 
 /usr/include/c++/13/sstream:
 
+/usr/include/c++/13/bits/exception_ptr.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+
+/usr/include/c++/13/bits/stl_multimap.h:
+
 /usr/include/pqxx/zview.hxx:
 
 /usr/include/c++/13/bits/stl_list.h:
@@ -2046,10 +2212,6 @@ src/tech_ui/TechUIManagers.hpp:
 /usr/include/c++/13/bits/deque.tcc:
 
 src/models/Trainer.hpp:
-
-src/dtos/EnrollmentDTO.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/endian.h:
 
 /usr/include/c++/13/bits/hashtable_policy.h:
 
@@ -2069,13 +2231,21 @@ src/services/AuthService.hpp:
 
 src/services/SubscriptionService.hpp:
 
+/usr/include/c++/13/ciso646:
+
+/usr/include/c++/13/bits/basic_string.h:
+
+/usr/include/c++/13/bits/regex.tcc:
+
+/usr/include/libintl.h:
+
 /usr/include/c++/13/bits/basic_ios.tcc:
 
 /usr/include/c++/13/pstl/execution_defs.h:
 
 /usr/include/c++/13/bits/atomic_lockfree_defines.h:
 
-/usr/include/x86_64-linux-gnu/asm/errno.h:
+/usr/include/openssl/symhacks.h:
 
 /usr/include/c++/13/bits/concept_check.h:
 
@@ -2105,13 +2275,33 @@ src/models/Studio.hpp:
 
 /usr/include/c++/13/charconv:
 
-/usr/include/c++/13/backward/binders.h:
+/usr/include/openssl/obj_mac.h:
 
-/usr/include/c++/13/bits/regex_automaton.tcc:
+/usr/include/c++/13/backward/binders.h:
 
 /usr/include/c++/13/backward/auto_ptr.h:
 
 src/services/exceptions/ReviewException.hpp:
+
+/usr/include/c++/13/bits/basic_string.tcc:
+
+/usr/include/pqxx/internal/encodings.hxx:
+
+/usr/include/openssl/stack.h:
+
+/usr/include/c++/13/bits/allocated_ptr.h:
+
+/usr/include/c++/13/bit:
+
+src/models/Lesson.hpp:
+
+/usr/include/alloca.h:
+
+/usr/include/pqxx/largeobject.hxx:
+
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+
+/usr/include/openssl/core_dispatch.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h:
 
@@ -2141,9 +2331,17 @@ src/models/Enrollment.hpp:
 
 src/repositories/ISubscriptionTypeRepository.hpp:
 
-/usr/include/pthread.h:
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+/usr/include/c++/13/string:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h:
 
 src/repositories/IStudioRepository.hpp:
+
+/usr/include/wchar.h:
+
+/usr/include/c++/13/bits/shared_ptr_base.h:
 
 /usr/include/c++/13/bits/istream.tcc:
 
@@ -2155,21 +2353,9 @@ src/services/IBranchService.hpp:
 
 /usr/include/pqxx/transaction_focus.hxx:
 
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
 /usr/include/c++/13/bits/enable_special_members.h:
-
-/usr/include/pqxx/internal/encodings.hxx:
-
-/usr/include/c++/13/bits/allocated_ptr.h:
-
-/usr/include/c++/13/bit:
-
-src/models/Lesson.hpp:
-
-/usr/include/c++/13/bits/basic_string.tcc:
-
-src/core/Config.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
 src/core/Logger.hpp:
 
@@ -2177,13 +2363,25 @@ src/core/Logger.hpp:
 
 src/dtos/ReviewDTO.hpp:
 
+/usr/include/openssl/asn1err.h:
+
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
 src/repositories/IReviewRepository.hpp:
 
 src/models/Booking.hpp:
 
+src/core/PasswordHasher.hpp:
+
+/usr/include/c++/13/bits/regex_automaton.h:
+
+/usr/include/c++/13/pstl/pstl_config.h:
+
 src/dtos/BookingDTO.hpp:
+
+/usr/include/stdc-predef.h:
+
+src/models/Attendance.hpp:
 
 /usr/include/pqxx/range.hxx:
 
@@ -2198,6 +2396,10 @@ src/repositories/IAttendanceRepository.hpp:
 src/services/exceptions/ValidationException.hpp:
 
 src/dtos/ScheduleDTO.hpp:
+
+/usr/include/c++/13/bits/hash_bytes.h:
+
+src/services/StatisticsService.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/endianness.h:
 
@@ -2217,15 +2419,21 @@ src/services/exceptions/EnrollmentException.hpp:
 
 src/dtos/LessonDTO.hpp:
 
-/usr/include/pqxx/internal/array-composite.hxx:
+src/data/PostgreSQLRepositoryFactory.hpp:
 
-src/repositories/IBookingRepository.hpp:
+/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
-src/services/BookingService.hpp:
+/usr/include/asm-generic/errno.h:
 
-/usr/include/c++/13/bits/ostream.tcc:
+/usr/include/asm-generic/errno-base.h:
 
-src/services/exceptions/BookingException.hpp:
+/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+src/services/EnrollmentService.hpp:
+
+/usr/include/c++/13/debug/assertions.h:
 
 /usr/include/x86_64-linux-gnu/bits/waitstatus.h:
 
@@ -2235,35 +2443,37 @@ src/services/exceptions/BookingException.hpp:
 
 src/main.cpp:
 
-/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+/usr/include/pqxx/internal/array-composite.hxx:
 
-src/services/EnrollmentService.hpp:
+src/repositories/IBookingRepository.hpp:
 
-/usr/include/c++/13/debug/assertions.h:
+src/services/BookingService.hpp:
 
-src/data/PostgreSQLRepositoryFactory.hpp:
+/usr/include/openssl/evp.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
+/usr/include/c++/13/bits/ostream.tcc:
 
-/usr/include/asm-generic/errno.h:
+src/services/exceptions/BookingException.hpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
+
+src/services/TimeZoneService.hpp:
+
+/usr/include/openssl/bnerr.h:
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
 src/repositories/IDanceHallRepository.hpp:
 
+src/services/exceptions/AuthException.hpp:
+
 /usr/include/pqxx/internal/sql_cursor.hxx:
 
 src/services/LessonService.hpp:
 
-src/services/exceptions/AuthException.hpp:
-
 /usr/include/c++/13/streambuf:
 
 /usr/include/c++/13/bits/memory_resource.h:
-
-/usr/include/c++/13/bits/shared_ptr_base.h:
-
-/usr/include/wchar.h:
 
 src/models/TimeSlot.hpp:
 
@@ -2285,14 +2495,6 @@ src/data/DateTimeUtils.hpp:
 
 src/models/DanceHall.hpp:
 
-src/models/Attendance.hpp:
-
-/usr/include/stdc-predef.h:
-
-src/services/StatisticsService.hpp:
-
-/usr/include/c++/13/bits/hash_bytes.h:
-
 src/repositories/ISubscriptionRepository.hpp:
 
 src/types/enums.hpp:
@@ -2307,11 +2509,7 @@ src/tech_ui/StatisticsManager.hpp:
 
 /usr/include/c++/13/bits/ios_base.h:
 
-/usr/include/alloca.h:
-
-/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
-
-/usr/include/asm-generic/errno-base.h:
+/usr/include/c++/13/bits/regex_automaton.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
@@ -2341,9 +2539,9 @@ src/repositories/impl/PostgreSQLEnrollmentRepository.hpp:
 
 /usr/include/c++/13/bits/sstream.tcc:
 
-/usr/include/c++/13/cwctype:
+/usr/include/openssl/cryptoerr.h:
 
-/usr/include/c++/13/ratio:
+/usr/include/c++/13/cwctype:
 
 /usr/include/pqxx/subtransaction.hxx:
 
@@ -2385,9 +2583,9 @@ src/tech_ui/TechUI.hpp:
 
 /usr/include/c++/13/bits/stl_heap.h:
 
-/usr/include/c++/13/bits/regex_compiler.h:
-
 /usr/include/stdio.h:
+
+/usr/include/c++/13/bits/regex_compiler.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_types.h:
 
@@ -2414,6 +2612,12 @@ src/tech_ui/TechUI.hpp:
 /usr/include/c++/13/bits/stl_vector.h:
 
 /usr/include/c++/13/bits/streambuf.tcc:
+
+/usr/include/stdint.h:
+
+src/models/Address.hpp:
+
+/usr/include/endian.h:
 
 /usr/include/c++/13/bits/streambuf_iterator.h:
 
@@ -2461,10 +2665,6 @@ src/tech_ui/TechUIManagers.cpp:
 
 /usr/include/c++/13/debug/debug.h:
 
-/usr/include/c++/13/bits/stl_pair.h:
-
-/usr/include/x86_64-linux-gnu/bits/errno.h:
-
 /usr/include/c++/13/ext/aligned_buffer.h:
 
 /usr/include/locale.h:
@@ -2475,9 +2675,13 @@ src/tech_ui/TechUIManagers.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
+/usr/include/openssl/objects.h:
+
 /usr/include/c++/13/bits/stl_iterator.h:
 
 /usr/include/c++/13/ext/numeric_traits.h:
+
+/usr/include/openssl/rand.h:
 
 /usr/include/c++/13/ext/string_conversions.h:
 
@@ -2486,6 +2690,8 @@ src/tech_ui/TechUIManagers.cpp:
 /usr/include/pqxx/pipeline.hxx:
 
 /usr/include/uuid/uuid.h:
+
+/usr/include/limits.h:
 
 /usr/include/c++/13/initializer_list:
 
@@ -2509,19 +2715,13 @@ src/tech_ui/InputHandlers.hpp:
 
 /usr/include/c++/13/pstl/glue_memory_defs.h:
 
-/usr/include/c++/13/bits/regex_automaton.h:
-
-/usr/include/c++/13/pstl/pstl_config.h:
-
 /usr/include/c++/13/bits/stl_algobase.h:
 
 /usr/include/c++/13/regex:
 
 /usr/include/c++/13/stdexcept:
 
-/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
-
-/usr/include/c++/13/string:
+/usr/include/c++/13/stdlib.h:
 
 /usr/include/c++/13/map:
 
@@ -2543,20 +2743,28 @@ src/tech_ui/InputHandlers.hpp:
 
 /usr/include/features.h:
 
-/usr/include/wctype.h:
+/usr/include/c++/13/ratio:
 
-/usr/include/sched.h:
+/usr/include/linux/limits.h:
 
-/usr/include/endian.h:
+/usr/include/openssl/asn1.h:
 
-/usr/include/stdint.h:
+src/core/Config.hpp:
 
-/usr/include/stdlib.h:
+/usr/include/openssl/bio.h:
 
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+/usr/include/pqxx/field.hxx:
 
-/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+/usr/include/openssl/bioerr.h:
 
-/usr/include/c++/13/bits/requires_hosted.h:
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
 
-/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+/usr/include/openssl/bn.h:
+
+/usr/include/openssl/core.h:
+
+/usr/include/openssl/crypto.h:
+
+/usr/include/openssl/cryptoerr_legacy.h:
+
+/usr/include/openssl/e_os2.h:

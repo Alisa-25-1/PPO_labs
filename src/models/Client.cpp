@@ -14,31 +14,16 @@ Client::Client(const UUID& id, const std::string& name, const std::string& email
       registrationDate_(std::chrono::system_clock::now()), 
       status_(AccountStatus::ACTIVE) {
     
-    // Валидация при создании
     if (!isValid()) {
         throw std::invalid_argument("Invalid client data provided");
     }
 }
 
-UUID Client::getId() const { return id_; }
-std::string Client::getName() const { return name_; }
-std::string Client::getEmail() const { return email_; }
-std::string Client::getPhone() const { return phone_; }
-std::string Client::getPasswordHash() const { return passwordHash_; }
-std::chrono::system_clock::time_point Client::getRegistrationDate() const { return registrationDate_; }
-AccountStatus Client::getStatus() const { return status_; }
-
-bool Client::validatePassword(const std::string& password) const {
-    // Прямое сравнение паролей без хэширования
-    return !password.empty() && passwordHash_ == password;
-}
-
-void Client::changePassword(const std::string& newPassword) {
-    if (!isValidPassword(newPassword)) {
-        throw std::invalid_argument("Invalid password format");
+void Client::setPasswordHash(const std::string& passwordHash) {
+    if (passwordHash.empty()) {
+        throw std::invalid_argument("Password hash cannot be empty");
     }
-    // Сохраняем пароль напрямую без хэширования
-    passwordHash_ = newPassword;
+    passwordHash_ = passwordHash;
 }
 
 bool Client::isActive() const {
@@ -183,7 +168,6 @@ bool Client::isValidPassword(const std::string& password) {
     return hasUpper && hasLower && hasDigit;
 }
 
-// Операторы сравнения
 bool Client::operator==(const Client& other) const {
     return id_ == other.id_ && 
            name_ == other.name_ && 

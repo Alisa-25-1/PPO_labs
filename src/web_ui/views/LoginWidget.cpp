@@ -1,5 +1,6 @@
 #include "LoginWidget.hpp"
 #include "../WebApplication.hpp"
+#include <Wt/WBreak.h>
 #include <Wt/WTimer.h>
 #include <iostream>
 
@@ -14,8 +15,9 @@ LoginWidget::LoginWidget(WebApplication* app)
     // Заголовок
     auto header = card->addNew<Wt::WContainerWidget>();
     header->setStyleClass("auth-header");
-    auto headerText = header->addNew<Wt::WText>("<h1 class='auth-title'>Вход в систему</h1>");
+    auto headerText = header->addNew<Wt::WText>("<h1 class='auth-title'>🎭 Вход в систему</h1>");
     headerText->setTextFormat(Wt::TextFormat::UnsafeXHTML);
+    header->addNew<Wt::WText>("<p class='auth-subtitle'>Войдите в свою учетную запись</p>")->setTextFormat(Wt::TextFormat::UnsafeXHTML);
     
     // Форма
     auto form = card->addNew<Wt::WContainerWidget>();
@@ -48,7 +50,23 @@ LoginWidget::LoginWidget(WebApplication* app)
     loginButton_->setStyleClass("auth-button");
     loginButton_->clicked().connect(this, &LoginWidget::handleLogin);
     
-    // Ссылка на регистрацию
+    // Дополнительные ссылки
+    auto linksGroup = form->addNew<Wt::WContainerWidget>();
+    linksGroup->setStyleClass("auth-links");
+    
+    auto resetLink = linksGroup->addNew<Wt::WText>("<a href='#' class='auth-link'>Забыли пароль?</a>");
+    resetLink->setTextFormat(Wt::TextFormat::UnsafeXHTML);
+    resetLink->clicked().connect([this]() {
+        std::string email = emailEdit_->text().toUTF8();
+        if (!email.empty()) {
+            app_->getAuthController()->resetPassword(email);
+            updateStatus("📧 Запрос на сброс пароля отправлен на ваш email", false);
+        } else {
+            updateStatus("❌ Введите email для сброса пароля", true);
+        }
+    });
+    
+     // Ссылка на регистрацию
     auto registerLink = form->addNew<Wt::WContainerWidget>();
     registerLink->setStyleClass("auth-footer");
     auto registerText = registerLink->addNew<Wt::WText>("<p>Нет аккаунта? <a href='#' class='auth-link'>Создать аккаунт</a></p>");
@@ -97,5 +115,28 @@ void LoginWidget::handleLogin() {
         std::cerr << "Ошибка входа: " << e.what() << std::endl;
         statusText_->setText("❌ Ошибка входа: " + std::string(e.what()));
         statusText_->setStyleClass("auth-error-message");
+    }
+}
+
+void LoginWidget::updateStatus(const std::string& message, bool isError) {
+    statusText_->setText(message);
+    if (isError) {
+        statusText_->removeStyleClass("status-success");
+        statusText_->addStyleClass("status-error");
+    } else {
+        statusText_->removeStyleClass("status-error");
+        statusText_->addStyleClass("status-success");
+    }
+    
+    // Автоматически скрываем сообщение об успехе через 3 секунды
+    if (!isError) {
+        auto timer = addChild(std::make_unique<Wt::WTimer>());
+        timer->setSingleShot(true);
+        timer->setInterval(std::chrono::milliseconds(3000));
+        timer->timeout().connect([this, timer]() {
+            statusText_->setText("");
+            removeChild(timer);
+        });
+        timer->start();
     }
 }

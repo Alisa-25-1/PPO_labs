@@ -18,7 +18,8 @@ BookingCreateWidget::BookingCreateWidget(WebApplication* app)
       purposeEdit_(nullptr),
       createButton_(nullptr),
       backButton_(nullptr),
-      statusText_(nullptr) {
+      statusText_(nullptr),
+      currentTimezoneOffset_(std::chrono::hours(3)) {
     
     std::cout << "🔧 Создание BookingCreateWidget..." << std::endl;
     setupUI();
@@ -324,8 +325,14 @@ void BookingCreateWidget::handleCreate() {
         // Автоматическое обновление доступных слотов
         loadAvailableTimeSlots();
         
+    } catch (const BookingConflictException& e) {
+        updateStatus("❌ Это время уже занято другим занятием или бронированием", true);
+    } catch (const ValidationException& e) {
+        updateStatus("❌ Ошибка в данных: " + std::string(e.what()), true);
+    } catch (const BusinessRuleException& e) {
+        updateStatus("❌ Невозможно создать бронирование: " + std::string(e.what()), true);
     } catch (const std::exception& e) {
-        updateStatus("❌ Ошибка при создании бронирования: " + std::string(e.what()), true);
+        updateStatus("❌ Системная ошибка: " + std::string(e.what()), true);
     }
 }
 
@@ -352,6 +359,9 @@ void BookingCreateWidget::updateStatus(const std::string& message, bool isError)
 
 void BookingCreateWidget::loadAvailableTimeSlots() {
     try {
+        // Обновляем текущий часовой пояс
+        currentTimezoneOffset_ = getTimezoneOffsetForCurrentHall();
+        
         // Сбрасываем комбобокс времени
         timeComboBox_->clear();
         timeComboBox_->addItem("-- Выберите время --");
@@ -377,10 +387,10 @@ void BookingCreateWidget::loadAvailableTimeSlots() {
         // Получаем доступные временные слоты для выбранной даты
         auto availableSlots = getAvailableTimeSlotsFromService(hallId, selectedDate);
         
-        // Заполняем комбобокс доступными временами
+        // Заполняем комбобокс доступными временами с учетом часового пояса
         for (const auto& slot : availableSlots) {
             auto timePoint = slot.getStartTime();
-            std::string timeStr = DateTimeUtils::formatTime(timePoint);
+            std::string timeStr = formatTimeWithOffset(timePoint);
             timeComboBox_->addItem(timeStr);
         }
         
@@ -489,8 +499,31 @@ UUID BookingCreateWidget::getCurrentClientId() {
 }
 
 std::chrono::system_clock::time_point BookingCreateWidget::createDateTime(const Wt::WDate& date, int hours, int minutes) {
-    return DateTimeUtils::createDateTime(
+    // Создаем время в UTC
+    auto localTime = DateTimeUtils::createDateTime(
         date.year(), date.month(), date.day(), 
         hours, minutes, 0
     );
+    
+    // Преобразуем локальное время в UTC, вычитая смещение
+    return localTime - currentTimezoneOffset_;
+}
+
+std::chrono::minutes BookingCreateWidget::getTimezoneOffsetForCurrentHall() const {
+    try {
+        if (hallComboBox_->currentIndex() > 0) {
+            int hallIndex = hallComboBox_->currentIndex() - 1;
+            if (hallIndex >= 0 && hallIndex < halls_.size()) {
+                UUID hallId = halls_[hallIndex].getId();
+                return app_->getBookingController()->getTimezoneOffsetForHall(hallId);
+            }
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка получения часового пояса: " << e.what() << std::endl;
+    }
+    return std::chrono::hours(3); // По умолчанию UTC+3
+}
+
+std::string BookingCreateWidget::formatTimeWithOffset(const std::chrono::system_clock::time_point& timePoint) const {
+    return DateTimeUtils::formatTimeWithOffset(timePoint, currentTimezoneOffset_);
 }

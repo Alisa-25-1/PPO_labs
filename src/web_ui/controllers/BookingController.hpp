@@ -23,6 +23,7 @@ public:
                                           const std::chrono::system_clock::time_point& startTime);
     std::vector<Branch> getBranches();
     std::vector<DanceHall> getHallsByBranch(const UUID& branchId);
+    std::chrono::minutes getTimezoneOffsetForHall(const UUID& hallId);
     
     // Валидация
     bool validateBookingRequest(const BookingRequestDTO& request) const;

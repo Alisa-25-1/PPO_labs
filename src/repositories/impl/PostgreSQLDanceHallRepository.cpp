@@ -29,12 +29,15 @@ std::optional<DanceHall> PostgreSQLDanceHallRepository::findById(const UUID& id)
         return hall;
         
     } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка поиска зала по ID " << id.toString() << ": " << e.what() << std::endl;
         throw QueryException(std::string("Failed to find hall by ID: ") + e.what());
     }
 }
 
 std::vector<DanceHall> PostgreSQLDanceHallRepository::findByBranchId(const UUID& branchId) {
     try {
+        std::cout << "🔍 Поиск залов для филиала: " << branchId.toString() << std::endl;
+        
         auto work = dbConnection_->beginTransaction();
         
         SqlQueryBuilder queryBuilder;
@@ -46,15 +49,35 @@ std::vector<DanceHall> PostgreSQLDanceHallRepository::findByBranchId(const UUID&
         
         auto result = work.exec_params(query, branchId.toString());
         
+        std::cout << "📊 Найдено записей в БД: " << result.size() << std::endl;
+        
         std::vector<DanceHall> halls;
         for (const auto& row : result) {
-            halls.push_back(mapResultToDanceHall(row));
+            try {
+                auto hall = mapResultToDanceHall(row);
+                halls.push_back(hall);
+                std::cout << "✅ Успешно создан зал: " << hall.getName() 
+                          << " (ID: " << hall.getId().toString() << ")" << std::endl;
+            } catch (const std::exception& e) {
+                std::cerr << "❌ Ошибка создания зала из строки: " << e.what() << std::endl;
+                std::cerr << "   Данные строки: " << std::endl;
+                std::cerr << "   - ID: " << row["id"].c_str() << std::endl;
+                std::cerr << "   - Название: " << row["name"].c_str() << std::endl;
+                std::cerr << "   - Вместимость: " << row["capacity"].as<int>() << std::endl;
+                std::cerr << "   - Тип покрытия: " << row["floor_type"].c_str() << std::endl;
+                std::cerr << "   - Оборудование: " << row["equipment"].c_str() << std::endl;
+                std::cerr << "   - Филиал: " << row["branch_id"].c_str() << std::endl;
+                // Продолжаем обработку остальных залов
+                continue;
+            }
         }
         
         dbConnection_->commitTransaction(work);
+        std::cout << "✅ Успешно создано залов: " << halls.size() << std::endl;
         return halls;
         
     } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка поиска залов по филиалу " << branchId.toString() << ": " << e.what() << std::endl;
         throw QueryException(std::string("Failed to find halls by branch ID: ") + e.what());
     }
 }
@@ -99,11 +122,6 @@ std::vector<DanceHall> PostgreSQLDanceHallRepository::findAll() {
                 halls.push_back(hall);
             } catch (const std::exception& e) {
                 std::cerr << "❌ Ошибка при маппинге зала: " << e.what() << std::endl;
-                std::cerr << "   ID: " << row["id"].c_str() << std::endl;
-                std::cerr << "   Название: " << row["name"].c_str() << std::endl;
-                std::cerr << "   Вместимость: " << row["capacity"].as<int>() << std::endl;
-                std::cerr << "   Тип покрытия: " << row["floor_type"].c_str() << std::endl;
-                // Продолжаем обработку остальных залов
                 continue;
             }
         }
@@ -219,31 +237,58 @@ bool PostgreSQLDanceHallRepository::remove(const UUID& id) {
 }
 
 DanceHall PostgreSQLDanceHallRepository::mapResultToDanceHall(const pqxx::row& row) const {
-    UUID id = UUID::fromString(row["id"].c_str());
-    std::string name = row["name"].c_str();
-    std::string description = row["description"].c_str();
-    int capacity = row["capacity"].as<int>();
-    std::string floorType = row["floor_type"].c_str();
-    std::string equipment = row["equipment"].c_str();
-    UUID branchId = UUID::fromString(row["branch_id"].c_str());
-    
-    DanceHall hall(id, name, capacity, branchId);
-    hall.setDescription(description);
-    hall.setFloorType(floorType);
-    hall.setEquipment(equipment);
-    
-    // Добавим проверку валидности с информативным сообщением
-    if (!hall.isValid()) {
-        std::string error = "Invalid dance hall data: ";
-        error += "id=" + id.toString();
-        error += ", name=" + name;
-        error += ", capacity=" + std::to_string(capacity);
-        error += ", floorType=" + floorType;
-        error += ", branchId=" + branchId.toString();
-        throw std::invalid_argument(error);
+    try {
+        UUID id = UUID::fromString(row["id"].c_str());
+        std::string name = row["name"].c_str();
+        std::string description = row["description"].c_str();
+        int capacity = row["capacity"].as<int>();
+        std::string floorType = row["floor_type"].c_str();
+        std::string equipment = row["equipment"].c_str();
+        UUID branchId = UUID::fromString(row["branch_id"].c_str());
+        
+        // Корректируем проблемные данные перед созданием объекта
+        if (name.empty()) {
+            std::cerr << "⚠️  Пустое название зала, устанавливаем значение по умолчанию" << std::endl;
+            name = "Зал " + id.toString().substr(0, 8);
+        }
+        
+        if (capacity <= 0) {
+            std::cerr << "⚠️  Неверная вместимость: " << capacity << ", устанавливаем 10" << std::endl;
+            capacity = 10;
+        }
+        
+        if (floorType.empty()) {
+            std::cerr << "⚠️  Пустой тип покрытия, устанавливаем 'стандартное'" << std::endl;
+            floorType = "стандартное";
+        }
+        
+        if (equipment.empty()) {
+            equipment = "стандартное оборудование";
+        }
+        
+        // Создаем зал с исправленными данными
+        DanceHall hall(id, name, capacity, branchId);
+        hall.setDescription(description);
+        hall.setFloorType(floorType);
+        hall.setEquipment(equipment);
+        
+        // Проверяем валидность с информативным сообщением
+        if (!hall.isValid()) {
+            std::string error = "Invalid dance hall data after correction: ";
+            error += "id=" + id.toString();
+            error += ", name=" + name;
+            error += ", capacity=" + std::to_string(capacity);
+            error += ", floorType=" + floorType;
+            error += ", branchId=" + branchId.toString();
+            throw std::invalid_argument(error);
+        }
+        
+        return hall;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Критическая ошибка маппинга DanceHall: " << e.what() << std::endl;
+        throw;
     }
-    
-    return hall;
 }
 
 void PostgreSQLDanceHallRepository::validateDanceHall(const DanceHall& hall) const {

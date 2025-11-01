@@ -4,12 +4,14 @@
 #include "../repositories/IDanceHallRepository.hpp"
 #include "../repositories/IBranchRepository.hpp"
 #include "../repositories/IAttendanceRepository.hpp"
+#include "../repositories/ILessonRepository.hpp"
 #include "IBranchService.hpp" 
 #include "../dtos/BookingDTO.hpp"
 #include "../types/uuid.hpp"
 #include "exceptions/BookingException.hpp"
 #include "exceptions/ValidationException.hpp"
 #include "../data/DateTimeUtils.hpp"
+#include "TimeZoneService.hpp"
 #include <memory>
 #include <vector>
 #include <iostream>
@@ -22,6 +24,7 @@ private:
     std::shared_ptr<IBranchRepository> branchRepository_;
     std::shared_ptr<IBranchService> branchService_; 
     std::shared_ptr<IAttendanceRepository> attendanceRepository_;
+    std::shared_ptr<ILessonRepository> lessonRepository_;
 
     // Validation methods
     void validateBookingRequest(const BookingRequestDTO& request) const;
@@ -31,9 +34,9 @@ private:
     void validateWorkingHours(const UUID& hallId, const TimeSlot& timeSlot) const;
     void checkBookingConflicts(const UUID& hallId, const TimeSlot& timeSlot, 
                               const UUID& excludeBookingId = UUID()) const;
+    void checkLessonConflicts(const UUID& hallId, const TimeSlot& timeSlot) const;
 
     // Вспомогательные методы
-    std::optional<Branch> getBranchForHall(const UUID& hallId) const;
     bool isWithinWorkingHours(const TimeSlot& timeSlot, 
                              const std::chrono::hours& openTime, 
                              const std::chrono::hours& closeTime) const;
@@ -50,6 +53,12 @@ private:
         const std::chrono::hours& closeTime,
         const std::vector<Booking>& existingBookings,
         const UUID& hallId) const;
+    std::vector<TimeSlot> generateAvailableSlotsWithTimezone(
+        const std::chrono::system_clock::time_point& date,
+        const WorkingHours& workingHours,
+        const std::vector<Booking>& existingBookings,
+        const UUID& hallId,
+        const std::chrono::minutes& timezoneOffset) const;
 
 public:
     // Constructor with dependency injection
@@ -59,7 +68,8 @@ public:
         std::shared_ptr<IDanceHallRepository> hallRepo,
         std::shared_ptr<IBranchRepository> branchRepo,
         std::shared_ptr<IBranchService> branchService,
-        std::shared_ptr<IAttendanceRepository> attendanceRepo
+        std::shared_ptr<IAttendanceRepository> attendanceRepo,
+        std::shared_ptr<ILessonRepository> lessonRepo
     );
 
     // Main business logic methods
@@ -82,4 +92,8 @@ public:
     // Business rules
     bool canClientBook(const UUID& clientId) const;
     int getClientActiveBookingsCount(const UUID& clientId) const;   
+
+    // Вспомогательные методы
+    std::optional<Branch> getBranchForHall(const UUID& hallId) const;
+    std::chrono::minutes getTimezoneOffsetForHall(const UUID& hallId) const;
 };

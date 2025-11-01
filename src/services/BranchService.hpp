@@ -25,4 +25,5 @@ public:
     std::vector<DanceHall> getHallsByBranch(const UUID& branchId) override;
     std::string getBranchName(const UUID& branchId) override;
     std::optional<Branch> getBranchForHall(const UUID& hallId) override;
+    std::chrono::minutes getTimezoneOffsetForBranch(const UUID& branchId) override;
 };

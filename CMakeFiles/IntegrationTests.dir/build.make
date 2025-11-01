@@ -97,6 +97,8 @@ bin/IntegrationTests: lib/libDataAccess.a
 bin/IntegrationTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 bin/IntegrationTests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 bin/IntegrationTests: lib/libBookingCore.a
+bin/IntegrationTests: /usr/lib/x86_64-linux-gnu/libssl.so
+bin/IntegrationTests: /usr/lib/x86_64-linux-gnu/libcrypto.so
 bin/IntegrationTests: /usr/lib/x86_64-linux-gnu/libuuid.so
 bin/IntegrationTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 bin/IntegrationTests: CMakeFiles/IntegrationTests.dir/link.txt

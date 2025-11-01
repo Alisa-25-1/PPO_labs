@@ -278,4 +278,5 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/exceptions/DataAccessException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/SqlQueryBuilder.hpp \
  /usr/include/c++/13/iostream \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/DateTimeUtils.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../data/DateTimeUtils.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../services/exceptions/ValidationException.hpp

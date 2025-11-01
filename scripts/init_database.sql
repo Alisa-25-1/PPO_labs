@@ -10,6 +10,7 @@ DROP TABLE IF EXISTS subscription_types CASCADE;
 DROP TABLE IF EXISTS clients CASCADE;
 DROP TABLE IF EXISTS dance_halls CASCADE;
 DROP TABLE IF EXISTS branches CASCADE;
+DROP TABLE IF EXISTS addresses CASCADE; 
 DROP TABLE IF EXISTS studios CASCADE;
 
 -- Расширение для UUID
@@ -23,15 +24,27 @@ CREATE TABLE studios (
     contact_email VARCHAR(255) NOT NULL
 );
 
--- Таблица филиалов - ИСПРАВЛЕНО: используем INTEGER для часов
+-- ТАБЛИЦА АДРЕСОВ 
+CREATE TABLE addresses (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    country VARCHAR(50) NOT NULL DEFAULT 'Россия',
+    city VARCHAR(50) NOT NULL,
+    street VARCHAR(100) NOT NULL,
+    building VARCHAR(10) NOT NULL,
+    apartment VARCHAR(10),
+    postal_code VARCHAR(10),
+    timezone_offset INTEGER NOT NULL DEFAULT 180 -- Смещение в минутах (UTC+3 по умолчанию)
+);
+
+-- Таблица филиалов 
 CREATE TABLE branches (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     name VARCHAR(255) NOT NULL,
-    address TEXT NOT NULL,
     phone VARCHAR(50) NOT NULL,
     open_time INTEGER NOT NULL CHECK (open_time >= 0 AND open_time <= 23),
     close_time INTEGER NOT NULL CHECK (close_time >= 0 AND close_time <= 23),
-    studio_id UUID NOT NULL REFERENCES studios(id)
+    studio_id UUID NOT NULL REFERENCES studios(id),
+    address_id UUID NOT NULL REFERENCES addresses(id) 
 );
 
 -- Таблица залов
@@ -146,6 +159,24 @@ CREATE TABLE reviews (
     UNIQUE(client_id, lesson_id)
 );
 
+-- Таблица для отслеживания посещаемости
+CREATE TABLE IF NOT EXISTS attendance (
+    id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
+    client_id UUID NOT NULL REFERENCES clients(id) ON DELETE CASCADE,
+    entity_id UUID NOT NULL, -- ID занятия или бронирования
+    type VARCHAR(20) NOT NULL CHECK (type IN ('LESSON', 'BOOKING')),
+    status VARCHAR(20) NOT NULL CHECK (status IN ('SCHEDULED', 'VISITED', 'CANCELLED', 'NO_SHOW')),
+    scheduled_time TIMESTAMP NOT NULL,
+    actual_time TIMESTAMP NOT NULL,
+    notes TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    
+    INDEX idx_attendance_client_id (client_id),
+    INDEX idx_attendance_entity_id (entity_id),
+    INDEX idx_attendance_type_status (type, status),
+    INDEX idx_attendance_scheduled_time (scheduled_time)
+);
+
 -- Индексы для улучшения производительности
 CREATE INDEX idx_bookings_client_id ON bookings(client_id);
 CREATE INDEX idx_bookings_hall_id ON bookings(hall_id);
@@ -162,6 +193,12 @@ CREATE INDEX idx_enrollments_status ON enrollments(status);
 CREATE INDEX idx_reviews_status ON reviews(status);
 CREATE INDEX idx_reviews_rating ON reviews(rating);
 CREATE INDEX idx_trainers_active ON trainers(is_active);
+
+-- Индекс для быстрого поиска по клиенту и статусу
+CREATE INDEX IF NOT EXISTS idx_attendance_client_status ON attendance(client_id, status);
+
+-- Индекс для статистических запросов
+CREATE INDEX IF NOT EXISTS idx_attendance_type_client ON attendance(type, client_id, status);
 
 -- Права доступа
 GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO dance_user;

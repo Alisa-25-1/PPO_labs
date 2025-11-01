@@ -27,9 +27,12 @@
 #include "services/BookingService.hpp"
 #include "services/SubscriptionService.hpp"
 #include "services/LessonService.hpp"
+#include "services/BranchService.hpp"
+#include "services/EnrollmentService.hpp"
 
 // Данные
-#include "data/DatabaseConnection.hpp"
+#include "data/ResilientDatabaseConnection.hpp"  
+#include "services/DatabaseHealthService.hpp"
 
 #include <Wt/WPushButton.h>
 #include <iostream>
@@ -46,22 +49,17 @@ WebApplication::WebApplication(const Wt::WEnvironment& env)
     
     setTitle("Dance Studio");
     
-    // Инициализируем контроллеры
     initializeControllers();
     
-    // Создаем главный контейнер
     auto container = root()->addNew<Wt::WContainerWidget>();
     container->setStyleClass("app-container");
     
-    // Создаем стек для контента
     mainStack_ = container->addNew<Wt::WStackedWidget>();
     mainStack_->setStyleClass("main-stack");
     
-    // Создаем только необходимые виджеты изначально
     loginView_ = mainStack_->addNew<LoginWidget>(this);
     registrationView_ = mainStack_->addNew<RegistrationWidget>(this);
     
-    // Dashboard и BookingView создадим позже, когда пользователь войдет
     dashboardView_ = nullptr;
     bookingView_ = nullptr;
     subscriptionView_ = nullptr;
@@ -69,26 +67,50 @@ WebApplication::WebApplication(const Wt::WEnvironment& env)
     
     setupStyles();
     
-    // Всегда показываем логин при запуске
     showLogin();
     
     std::cout << "✅ WebApplication создан" << std::endl;
+}
+
+void WebApplication::handleDatabaseError(const std::string& context) {
+    std::cerr << "❌ Database error in " << context << std::endl;
+    
+    // Показываем пользователю сообщение об ошибке
+    auto errorContainer = root()->addNew<Wt::WContainerWidget>();
+    errorContainer->setStyleClass("error-container");
+    
+    errorContainer->addNew<Wt::WText>(
+        "<div style='text-align: center; padding: 2rem;'>"
+        "<h2>😔 Временные неполадки</h2>"
+        "<p>Система временно недоступна. Пожалуйста, попробуйте позже.</p>"
+        "<p><small>Мы уже работаем над решением проблемы</small></p>"
+        "</div>"
+    )->setTextFormat(Wt::TextFormat::UnsafeXHTML);
+    
+    // Скрываем основной интерфейс
+    if (mainStack_) {
+        mainStack_->hide();
+    }
 }
 
 void WebApplication::initializeControllers() {
     try {
         std::cout << "🔧 Инициализация контроллеров..." << std::endl;
         
-        // Создаем подключение к базе данных
+        // Проверяем состояние БД перед инициализацией
+        if (!DatabaseHealthService::isDatabaseHealthy()) {
+            throw std::runtime_error("Database is currently unavailable");
+        }
+        
         auto connectionString = "postgresql://dance_user:dance_password@localhost/dance_studio";
-        auto dbConnection = std::make_shared<DatabaseConnection>(connectionString);
-        std::cout << "✅ Подключение к БД создано" << std::endl;
+        auto dbConnection = std::make_shared<ResilientDatabaseConnection>(connectionString); 
+        std::cout << "✅ Устойчивое подключение к БД создано" << std::endl;
         
         // Инициализируем AuthController
         authController_ = std::make_unique<AuthController>();
         std::cout << "✅ AuthController создан" << std::endl;
         
-        // Создаем репозитории для BookingService
+        // Создаем репозитории для Services
         auto lessonRepo = std::make_shared<PostgreSQLLessonRepository>(dbConnection);
         auto enrollmentRepo = std::make_shared<PostgreSQLEnrollmentRepository>(dbConnection);
         auto trainerRepo = std::make_shared<PostgreSQLTrainerRepository>(dbConnection);
@@ -99,42 +121,31 @@ void WebApplication::initializeControllers() {
         auto hallRepo = std::make_shared<PostgreSQLDanceHallRepository>(dbConnection);
         auto branchRepo = std::make_shared<PostgreSQLBranchRepository>(dbConnection);
         auto attendanceRepo = std::make_shared<PostgreSQLAttendanceRepository>(dbConnection);
-        
-        std::cout << "✅ Репозитории созданы:" << std::endl;
-        std::cout << "   - BookingRepository: " << (bookingRepo ? "OK" : "NULL") << std::endl;
-        std::cout << "   - ClientRepository: " << (clientRepo ? "OK" : "NULL") << std::endl;
-        std::cout << "   - DanceHallRepository: " << (hallRepo ? "OK" : "NULL") << std::endl;
-        std::cout << "   - BranchRepository: " << (branchRepo ? "OK" : "NULL") << std::endl;
 
-        // Создаем lessonService и enrollmentService с реальными репозиториями
+        auto branchService = std::make_shared<BranchService>(branchRepo, hallRepo);
         auto lessonService = std::make_shared<LessonService>(lessonRepo, enrollmentRepo, trainerRepo, hallRepo);
         auto enrollmentService = std::make_shared<EnrollmentService>(enrollmentRepo, clientRepo, lessonRepo, attendanceRepo);
-        auto branchService = std::make_shared<BranchService>(branchRepo, hallRepo);
 
-        // Создаем lessonController_ с реальными сервисами
         lessonController_ = std::make_unique<LessonController>(lessonService, enrollmentService, branchService);
         std::cout << "✅ LessonController создан" << std::endl;
 
-        // Создаем subscriptionService с реальными репозиториями
         auto subscriptionService = std::make_shared<SubscriptionService>(
             subscriptionRepo, subscriptionTypeRepo, clientRepo);
 
-        // Создаем subscriptionController с реальным сервисом
         subscriptionController_ = std::make_unique<SubscriptionController>(subscriptionService);
         std::cout << "✅ SubscriptionController создан" << std::endl;
         
-        // Создаем BookingService с реальными репозиториями
         auto bookingService = std::make_shared<BookingService>(
             bookingRepo, 
             clientRepo, 
             hallRepo, 
             branchRepo,
             branchService,
-            attendanceRepo
+            attendanceRepo,
+            lessonRepo
         );
         std::cout << "✅ BookingService создан" << std::endl;
         
-        // Создаем BookingController с реальным сервисом
         bookingController_ = std::make_unique<BookingController>(bookingService);
         std::cout << "✅ BookingController создан" << std::endl;
         
@@ -142,10 +153,12 @@ void WebApplication::initializeControllers() {
         
     } catch (const std::exception& e) {
         std::cerr << "❌ Ошибка инициализации контроллеров: " << e.what() << std::endl;
+        handleDatabaseError("initializeControllers");
         throw;
     }
 }
 
+// Остальные методы без изменений...
 void WebApplication::setupStyles() {
     useStyleSheet("styles/main.css");
 }
@@ -153,12 +166,10 @@ void WebApplication::setupStyles() {
 void WebApplication::loginUser(const AuthResponseDTO& authResponse) {
     try {
         std::cout << "🔐 Вход пользователя: " << authResponse.name << " (" << authResponse.email << ")" << std::endl;
-        
-        // Сохраняем данные в сессию
+    
         userSession_.login(authResponse.clientId, authResponse.name, 
                           authResponse.email, UserRole::CLIENT);
-        
-        // Создаем дашборд если еще не создан
+
         if (!dashboardView_) {
             dashboardView_ = mainStack_->addNew<ClientDashboard>(this);
         }
@@ -174,7 +185,6 @@ void WebApplication::loginUser(const AuthResponseDTO& authResponse) {
 void WebApplication::logoutUser() {
     userSession_.logout();
     
-    // Очищаем виджеты, которые зависят от сессии
     dashboardView_ = nullptr;
     bookingView_ = nullptr;
     subscriptionView_ = nullptr;
@@ -217,7 +227,7 @@ void WebApplication::showBookingView() {
         
     } catch (const std::exception& e) {
         std::cerr << "❌ КРИТИЧЕСКАЯ ОШИБКА при создании BookingView: " << e.what() << std::endl;
-        showDashboard();
+        handleDatabaseError("showBookingView");
     }
 }
 
@@ -237,7 +247,7 @@ void WebApplication::showSubscriptionView() {
         
     } catch (const std::exception& e) {
         std::cerr << "❌ КРИТИЧЕСКАЯ ОШИБКА при создании BookingView: " << e.what() << std::endl;
-        showDashboard();
+        handleDatabaseError("showSubscriptionView");
     }
 }
 
@@ -257,6 +267,6 @@ void WebApplication::showLessonView() {
         
     } catch (const std::exception& e) {
         std::cerr << "❌ Ошибка при создании LessonView: " << e.what() << std::endl;
-        showDashboard();
+        handleDatabaseError("showLessonView");
     }
 }

@@ -18,6 +18,6 @@ private:
     Wt::WPasswordEdit* passwordEdit_; 
     Wt::WPushButton* loginButton_;
     Wt::WText* statusText_;
-    
     void handleLogin();
+    void updateStatus(const std::string& message, bool isError = false);
 };

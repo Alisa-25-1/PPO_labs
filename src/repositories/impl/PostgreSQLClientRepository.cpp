@@ -3,6 +3,7 @@
 #include <iostream>
 #include "../../data/DateTimeUtils.hpp"
 #include "../../data/SqlQueryBuilder.hpp"
+#include "../../services/exceptions/ValidationException.hpp" 
 
 PostgreSQLClientRepository::PostgreSQLClientRepository(
     std::shared_ptr<DatabaseConnection> dbConnection)
@@ -35,6 +36,8 @@ std::optional<Client> PostgreSQLClientRepository::findById(const UUID& id) {
 }
 
 std::optional<Client> PostgreSQLClientRepository::findByEmail(const std::string& email) {
+    std::cout << "🔍 PostgreSQLClientRepository::findByEmail - Поиск по email: " << email << std::endl;
+    
     try {
         auto work = dbConnection_->beginTransaction();
         
@@ -42,20 +45,39 @@ std::optional<Client> PostgreSQLClientRepository::findByEmail(const std::string&
         std::string query = queryBuilder
             .select({"id", "name", "email", "phone", "password_hash", "registration_date", "status"})
             .from("clients")
-            .where("email = $1")
+            .where("LOWER(email) = LOWER($1)")
             .build();
+        
+        std::cout << "🔍 PostgreSQLClientRepository::findByEmail - SQL запрос: " << query << std::endl;
         
         auto result = work.exec_params(query, email);
         
         if (result.empty()) {
+            std::cout << "❌ PostgreSQLClientRepository::findByEmail - Клиент не найден в БД: " << email << std::endl;
+            dbConnection_->commitTransaction(work);
             return std::nullopt;
         }
         
+        std::cout << "✅ PostgreSQLClientRepository::findByEmail - Найдена запись в БД" << std::endl;
+        std::cout << "🔍 PostgreSQLClientRepository::findByEmail - Данные из БД:" << std::endl;
+        std::cout << "   ID: " << result[0]["id"].c_str() << std::endl;
+        std::cout << "   Name: " << result[0]["name"].c_str() << std::endl;
+        std::cout << "   Email: " << result[0]["email"].c_str() << std::endl;
+        std::cout << "   Password Hash: " << result[0]["password_hash"].c_str() << std::endl;
+        std::cout << "   Status: " << result[0]["status"].c_str() << std::endl;
+        
         auto client = mapResultToClient(result[0]);
         dbConnection_->commitTransaction(work);
+        
+        std::cout << "✅ PostgreSQLClientRepository::findByEmail - Успешно создан объект Client" << std::endl;
         return client;
         
+    } catch (const pqxx::unique_violation& e) {
+        throw UniqueViolationException("Email already exists: " + std::string(e.what()));
+    } catch (const pqxx::foreign_key_violation& e) {
+        throw ForeignKeyViolationException("Foreign key violation: " + std::string(e.what()));
     } catch (const std::exception& e) {
+        std::cerr << "❌ PostgreSQLClientRepository::findByEmail - Ошибка: " << e.what() << std::endl;
         throw QueryException(std::string("Failed to find client by email: ") + e.what());
     }
 }
@@ -68,7 +90,7 @@ std::vector<Client> PostgreSQLClientRepository::findAll() {
         std::string query = queryBuilder
             .select({"id", "name", "email", "phone", "password_hash", "registration_date", "status"})
             .from("clients")
-            .orderBy("registration_date", false) // Сначала новые
+            .orderBy("registration_date", false)
             .build();
         
         auto result = work.exec(query);
@@ -108,16 +130,15 @@ bool PostgreSQLClientRepository::save(const Client& client) {
             .values(values)
             .build();
         
-        // Используем реальный пароль клиента вместо хардкода
         work.exec_params(
             query,
             client.getId().toString(),
             client.getName(),
             client.getEmail(),
             client.getPhone(),
-            client.getPasswordHash(),  // Используем реальный пароль
+            client.getPasswordHash(),
             DateTimeUtils::formatTimeForPostgres(client.getRegistrationDate()),
-            clientStatusToString(client.getStatus())  // Используем реальный статус
+            clientStatusToString(client.getStatus())
         );
         
         dbConnection_->commitTransaction(work);
@@ -155,8 +176,8 @@ bool PostgreSQLClientRepository::update(const Client& client) {
             client.getName(),
             client.getEmail(),
             client.getPhone(),
-            client.getPasswordHash(),  // Используем реальный пароль
-            clientStatusToString(client.getStatus())  // Используем реальный статус
+            client.getPasswordHash(),
+            clientStatusToString(client.getStatus())
         );
         
         dbConnection_->commitTransaction(work);
@@ -208,6 +229,27 @@ bool PostgreSQLClientRepository::exists(const UUID& id) {
     }
 }
 
+bool PostgreSQLClientRepository::emailExists(const std::string& email) {
+    try {
+        auto work = dbConnection_->beginTransaction();
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"1"})
+            .from("clients")
+            .where("email = $1")
+            .build();
+            
+        auto result = work.exec_params(query, email);
+        
+        dbConnection_->commitTransaction(work);
+        return !result.empty();
+        
+    } catch (const std::exception& e) {
+        throw QueryException(std::string("Failed to check email existence: ") + e.what());
+    }
+}
+
 Client PostgreSQLClientRepository::mapResultToClient(const pqxx::row& row) const {
     UUID id = UUID::fromString(row["id"].c_str());
     std::string name = row["name"].c_str();
@@ -215,34 +257,23 @@ Client PostgreSQLClientRepository::mapResultToClient(const pqxx::row& row) const
     std::string phone = row["phone"].c_str();
     std::string passwordHash = row["password_hash"].c_str();
     
-    // Создаем клиента
+    // Создаем клиента с базовыми данными (4 параметра)
     Client client(id, name, email, phone);
     
-    // Восстанавливаем пароль - используем changePassword с обходом валидации
-    // Если пароль уже был сохранен в БД, значит он прошел валидацию ранее
-    try {
-        // Пытаемся установить пароль через changePassword
-        client.changePassword(passwordHash);
-    } catch (const std::exception& e) {
-        // Если пароль не проходит валидацию, значит в БД некорректные данные
-        // В этом случае устанавливаем пустой пароль
-        client.changePassword("TemporaryPassword123");
-        std::cerr << "Warning: Invalid password format in database for client " 
-                  << id.toString() << ". Setting temporary password." << std::endl;
-    }
+    // Устанавливаем хеш пароля
+    client.setPasswordHash(passwordHash);
     
-    // Восстанавливаем статус
+    // Статус устанавливаем через соответствующие методы
     AccountStatus status = stringToClientStatus(row["status"].c_str());
     switch (status) {
+        case AccountStatus::ACTIVE:
+            client.activate();
+            break;
         case AccountStatus::INACTIVE:
             client.deactivate();
             break;
         case AccountStatus::SUSPENDED:
             client.suspend();
-            break;
-        default:
-            // ACTIVE по умолчанию
-            client.activate();
             break;
     }
     
@@ -255,7 +286,6 @@ void PostgreSQLClientRepository::validateClient(const Client& client) const {
     }
 }
 
-// Вспомогательные методы для преобразования статуса
 std::string PostgreSQLClientRepository::clientStatusToString(AccountStatus status) const {
     switch (status) {
         case AccountStatus::ACTIVE: return "ACTIVE";

@@ -96,6 +96,8 @@ bin/SubscriptionServiceTests: lib/libBookingCore.a
 bin/SubscriptionServiceTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 bin/SubscriptionServiceTests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 bin/SubscriptionServiceTests: /usr/lib/x86_64-linux-gnu/libgmock.a
+bin/SubscriptionServiceTests: /usr/lib/x86_64-linux-gnu/libssl.so
+bin/SubscriptionServiceTests: /usr/lib/x86_64-linux-gnu/libcrypto.so
 bin/SubscriptionServiceTests: /usr/lib/x86_64-linux-gnu/libuuid.so
 bin/SubscriptionServiceTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 bin/SubscriptionServiceTests: CMakeFiles/SubscriptionServiceTests.dir/link.txt

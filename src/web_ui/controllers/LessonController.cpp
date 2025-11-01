@@ -90,3 +90,13 @@ std::string LessonController::getBranchName(const UUID& branchId) {
         return "Ошибка получения названия";
     }
 }
+
+// Новый метод для получения часового пояса филиала
+std::chrono::minutes LessonController::getTimezoneOffsetForBranch(const UUID& branchId) {
+    try {
+        return branchService_->getTimezoneOffsetForBranch(branchId);
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка получения часового пояса филиала: " << e.what() << std::endl;
+        return std::chrono::hours(3); // UTC+3 по умолчанию
+    }
+}

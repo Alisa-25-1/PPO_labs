@@ -28,6 +28,7 @@ private:
     // Добавляем объявления вспомогательных методов
     std::string clientStatusToString(AccountStatus status) const;
     AccountStatus stringToClientStatus(const std::string& status) const;
+    bool emailExists(const std::string& email);
 };
 
 #endif // POSTGRESQLCLIENTREPOSITORY_HPP

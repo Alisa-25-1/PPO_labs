@@ -220,6 +220,7 @@ CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/DanceHall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IBranchRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Branch.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Address.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IStudioRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Studio.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/ITrainerRepository.hpp \

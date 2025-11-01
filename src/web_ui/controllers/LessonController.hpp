@@ -37,4 +37,7 @@ public:
     std::vector<Branch> getBranches();
     std::string getBranchName(const UUID& branchId);
     std::vector<DanceHall> getHallsByBranch(const UUID& branchId);
+    
+    // Новый метод для получения часового пояса филиала
+    std::chrono::minutes getTimezoneOffsetForBranch(const UUID& branchId);
 };

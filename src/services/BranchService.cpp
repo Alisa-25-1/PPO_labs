@@ -58,3 +58,16 @@ std::optional<Branch> BranchService::getBranchForHall(const UUID& hallId) {
         return std::nullopt;
     }
 }
+
+std::chrono::minutes BranchService::getTimezoneOffsetForBranch(const UUID& branchId) {
+    try {
+        auto branch = getBranchById(branchId);
+        if (branch) {
+            return branch->getTimezoneOffset();
+        }
+        return std::chrono::hours(3); // По умолчанию UTC+3
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка получения часового пояса филиала: " << e.what() << std::endl;
+        return std::chrono::hours(3);
+    }
+}

@@ -96,6 +96,8 @@ bin/AuthServiceTests: lib/libBookingCore.a
 bin/AuthServiceTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 bin/AuthServiceTests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 bin/AuthServiceTests: /usr/lib/x86_64-linux-gnu/libgmock.a
+bin/AuthServiceTests: /usr/lib/x86_64-linux-gnu/libssl.so
+bin/AuthServiceTests: /usr/lib/x86_64-linux-gnu/libcrypto.so
 bin/AuthServiceTests: /usr/lib/x86_64-linux-gnu/libuuid.so
 bin/AuthServiceTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 bin/AuthServiceTests: CMakeFiles/AuthServiceTests.dir/link.txt

@@ -4,37 +4,29 @@
 #include "../types/uuid.hpp"
 #include <string>
 
+// Pure Data Transfer Objects - только данные, без логики
 struct AuthRequestDTO {
     std::string name;
     std::string email;
     std::string phone;
     std::string password;
     
-    // Конструктор по умолчанию
     AuthRequestDTO() = default;
-    
-    // Конструктор для регистрации
     AuthRequestDTO(const std::string& name, const std::string& email, 
                    const std::string& phone, const std::string& password)
         : name(name), email(email), phone(phone), password(password) {}
     
-    // Конструктор для входа
     AuthRequestDTO(const std::string& email, const std::string& password)
         : email(email), password(password) {}
-    
-    bool validate() const;
 };
 
 struct AuthResponseDTO {
     UUID clientId;
     std::string name;
     std::string email;
-    std::string token;
     std::string status;
     
-    // Конструктор по умолчанию
     AuthResponseDTO() = default;
-    
     AuthResponseDTO(const UUID& clientId, const std::string& name, 
                    const std::string& email, const std::string& status)
         : clientId(clientId), name(name), email(email), status(status) {}

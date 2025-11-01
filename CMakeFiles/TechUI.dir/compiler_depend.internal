@@ -23,6 +23,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Studio.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IStudioRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/core/PasswordHasher.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
@@ -42,9 +43,11 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Address.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
@@ -69,6 +72,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionTypeRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
@@ -79,7 +83,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ScheduleService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/StatisticsService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/TimeZoneService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/EnrollmentException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ReviewException.hpp
@@ -260,6 +264,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /usr/include/c++/13/sstream
  /usr/include/c++/13/stack
  /usr/include/c++/13/stdexcept
+ /usr/include/c++/13/stdlib.h
  /usr/include/c++/13/streambuf
  /usr/include/c++/13/string
  /usr/include/c++/13/string_view
@@ -275,8 +280,36 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /usr/include/features-time64.h
  /usr/include/features.h
  /usr/include/libintl.h
+ /usr/include/limits.h
  /usr/include/linux/errno.h
+ /usr/include/linux/limits.h
  /usr/include/locale.h
+ /usr/include/openssl/asn1.h
+ /usr/include/openssl/asn1err.h
+ /usr/include/openssl/bio.h
+ /usr/include/openssl/bioerr.h
+ /usr/include/openssl/bn.h
+ /usr/include/openssl/bnerr.h
+ /usr/include/openssl/core.h
+ /usr/include/openssl/core_dispatch.h
+ /usr/include/openssl/crypto.h
+ /usr/include/openssl/cryptoerr.h
+ /usr/include/openssl/cryptoerr_legacy.h
+ /usr/include/openssl/e_os2.h
+ /usr/include/openssl/evp.h
+ /usr/include/openssl/evperr.h
+ /usr/include/openssl/macros.h
+ /usr/include/openssl/obj_mac.h
+ /usr/include/openssl/objects.h
+ /usr/include/openssl/objectserr.h
+ /usr/include/openssl/opensslv.h
+ /usr/include/openssl/params.h
+ /usr/include/openssl/rand.h
+ /usr/include/openssl/randerr.h
+ /usr/include/openssl/safestack.h
+ /usr/include/openssl/stack.h
+ /usr/include/openssl/symhacks.h
+ /usr/include/openssl/types.h
  /usr/include/pthread.h
  /usr/include/sched.h
  /usr/include/stdc-predef.h
@@ -297,8 +330,11 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h
  /usr/include/x86_64-linux-gnu/bits/locale.h
  /usr/include/x86_64-linux-gnu/bits/long-double.h
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h
@@ -344,11 +380,13 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h
  /usr/include/x86_64-linux-gnu/bits/typesizes.h
  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/x86_64-linux-gnu/bits/wchar.h
  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h
  /usr/include/x86_64-linux-gnu/bits/wordsize.h
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h
@@ -366,14 +404,18 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h
  /usr/include/x86_64-linux-gnu/gnu/stubs.h
+ /usr/include/x86_64-linux-gnu/openssl/configuration.h
+ /usr/include/x86_64-linux-gnu/openssl/opensslconf.h
  /usr/include/x86_64-linux-gnu/sys/cdefs.h
  /usr/include/x86_64-linux-gnu/sys/select.h
  /usr/include/x86_64-linux-gnu/sys/single_threaded.h
  /usr/include/x86_64-linux-gnu/sys/time.h
  /usr/include/x86_64-linux-gnu/sys/types.h
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.cpp
@@ -944,6 +986,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Studio.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IStudioRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/core/PasswordHasher.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
@@ -963,9 +1006,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Address.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
@@ -990,6 +1035,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionTypeRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
@@ -1000,7 +1046,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ScheduleService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/StatisticsService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/TimeZoneService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/EnrollmentException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ReviewException.hpp
@@ -1167,6 +1213,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /usr/include/c++/13/sstream
  /usr/include/c++/13/stack
  /usr/include/c++/13/stdexcept
+ /usr/include/c++/13/stdlib.h
  /usr/include/c++/13/streambuf
  /usr/include/c++/13/string
  /usr/include/c++/13/string_view
@@ -1181,8 +1228,36 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /usr/include/features-time64.h
  /usr/include/features.h
  /usr/include/libintl.h
+ /usr/include/limits.h
  /usr/include/linux/errno.h
+ /usr/include/linux/limits.h
  /usr/include/locale.h
+ /usr/include/openssl/asn1.h
+ /usr/include/openssl/asn1err.h
+ /usr/include/openssl/bio.h
+ /usr/include/openssl/bioerr.h
+ /usr/include/openssl/bn.h
+ /usr/include/openssl/bnerr.h
+ /usr/include/openssl/core.h
+ /usr/include/openssl/core_dispatch.h
+ /usr/include/openssl/crypto.h
+ /usr/include/openssl/cryptoerr.h
+ /usr/include/openssl/cryptoerr_legacy.h
+ /usr/include/openssl/e_os2.h
+ /usr/include/openssl/evp.h
+ /usr/include/openssl/evperr.h
+ /usr/include/openssl/macros.h
+ /usr/include/openssl/obj_mac.h
+ /usr/include/openssl/objects.h
+ /usr/include/openssl/objectserr.h
+ /usr/include/openssl/opensslv.h
+ /usr/include/openssl/params.h
+ /usr/include/openssl/rand.h
+ /usr/include/openssl/randerr.h
+ /usr/include/openssl/safestack.h
+ /usr/include/openssl/stack.h
+ /usr/include/openssl/symhacks.h
+ /usr/include/openssl/types.h
  /usr/include/pthread.h
  /usr/include/sched.h
  /usr/include/stdc-predef.h
@@ -1203,8 +1278,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h
  /usr/include/x86_64-linux-gnu/bits/locale.h
  /usr/include/x86_64-linux-gnu/bits/long-double.h
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h
@@ -1250,11 +1328,13 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h
  /usr/include/x86_64-linux-gnu/bits/typesizes.h
  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/x86_64-linux-gnu/bits/wchar.h
  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h
  /usr/include/x86_64-linux-gnu/bits/wordsize.h
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h
@@ -1270,14 +1350,18 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h
  /usr/include/x86_64-linux-gnu/gnu/stubs.h
+ /usr/include/x86_64-linux-gnu/openssl/configuration.h
+ /usr/include/x86_64-linux-gnu/openssl/opensslconf.h
  /usr/include/x86_64-linux-gnu/sys/cdefs.h
  /usr/include/x86_64-linux-gnu/sys/select.h
  /usr/include/x86_64-linux-gnu/sys/single_threaded.h
  /usr/include/x86_64-linux-gnu/sys/time.h
  /usr/include/x86_64-linux-gnu/sys/types.h
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.cpp
@@ -1289,6 +1373,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/exceptions/DataAccessException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLEnrollmentRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/core/PasswordHasher.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
@@ -1308,9 +1393,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Address.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
@@ -1335,6 +1422,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ISubscriptionTypeRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
@@ -1346,7 +1434,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/ScheduleService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/StatisticsService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/TimeZoneService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/EnrollmentException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ReviewException.hpp
@@ -1538,6 +1626,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/c++/13/sstream
  /usr/include/c++/13/stack
  /usr/include/c++/13/stdexcept
+ /usr/include/c++/13/stdlib.h
  /usr/include/c++/13/streambuf
  /usr/include/c++/13/string
  /usr/include/c++/13/string_view
@@ -1556,8 +1645,36 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/features-time64.h
  /usr/include/features.h
  /usr/include/libintl.h
+ /usr/include/limits.h
  /usr/include/linux/errno.h
+ /usr/include/linux/limits.h
  /usr/include/locale.h
+ /usr/include/openssl/asn1.h
+ /usr/include/openssl/asn1err.h
+ /usr/include/openssl/bio.h
+ /usr/include/openssl/bioerr.h
+ /usr/include/openssl/bn.h
+ /usr/include/openssl/bnerr.h
+ /usr/include/openssl/core.h
+ /usr/include/openssl/core_dispatch.h
+ /usr/include/openssl/crypto.h
+ /usr/include/openssl/cryptoerr.h
+ /usr/include/openssl/cryptoerr_legacy.h
+ /usr/include/openssl/e_os2.h
+ /usr/include/openssl/evp.h
+ /usr/include/openssl/evperr.h
+ /usr/include/openssl/macros.h
+ /usr/include/openssl/obj_mac.h
+ /usr/include/openssl/objects.h
+ /usr/include/openssl/objectserr.h
+ /usr/include/openssl/opensslv.h
+ /usr/include/openssl/params.h
+ /usr/include/openssl/rand.h
+ /usr/include/openssl/randerr.h
+ /usr/include/openssl/safestack.h
+ /usr/include/openssl/stack.h
+ /usr/include/openssl/symhacks.h
+ /usr/include/openssl/types.h
  /usr/include/pqxx/array.hxx
  /usr/include/pqxx/binarystring.hxx
  /usr/include/pqxx/blob.hxx
@@ -1637,8 +1754,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/x86_64-linux-gnu/bits/floatn-common.h
  /usr/include/x86_64-linux-gnu/bits/floatn.h
  /usr/include/x86_64-linux-gnu/bits/libc-header-start.h
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h
  /usr/include/x86_64-linux-gnu/bits/locale.h
  /usr/include/x86_64-linux-gnu/bits/long-double.h
+ /usr/include/x86_64-linux-gnu/bits/posix1_lim.h
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h
  /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h
  /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h
@@ -1684,11 +1804,13 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/x86_64-linux-gnu/bits/types/wint_t.h
  /usr/include/x86_64-linux-gnu/bits/typesizes.h
  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h
  /usr/include/x86_64-linux-gnu/bits/waitflags.h
  /usr/include/x86_64-linux-gnu/bits/waitstatus.h
  /usr/include/x86_64-linux-gnu/bits/wchar.h
  /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h
  /usr/include/x86_64-linux-gnu/bits/wordsize.h
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h
@@ -1704,12 +1826,16 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h
  /usr/include/x86_64-linux-gnu/gnu/stubs-64.h
  /usr/include/x86_64-linux-gnu/gnu/stubs.h
+ /usr/include/x86_64-linux-gnu/openssl/configuration.h
+ /usr/include/x86_64-linux-gnu/openssl/opensslconf.h
  /usr/include/x86_64-linux-gnu/sys/cdefs.h
  /usr/include/x86_64-linux-gnu/sys/select.h
  /usr/include/x86_64-linux-gnu/sys/single_threaded.h
  /usr/include/x86_64-linux-gnu/sys/time.h
  /usr/include/x86_64-linux-gnu/sys/types.h
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 

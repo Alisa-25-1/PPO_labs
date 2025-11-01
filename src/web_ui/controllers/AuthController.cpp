@@ -1,7 +1,7 @@
 #include "AuthController.hpp"
+#include "../../services/exceptions/AuthException.hpp"
 #include "../../repositories/impl/PostgreSQLClientRepository.hpp"
 #include "../../data/DatabaseConnection.hpp"
-#include <regex>
 #include <iostream>
 
 AuthController::AuthController() {
@@ -13,29 +13,30 @@ void AuthController::initializeServices() {
         auto connectionString = "postgresql://dance_user:dance_password@localhost/dance_studio";
         auto dbConnection = std::make_shared<DatabaseConnection>(connectionString);
         
-        auto clientRepo = std::make_unique<PostgreSQLClientRepository>(dbConnection);
-        authService_ = std::make_unique<AuthService>(std::move(clientRepo));
+        auto clientRepo = std::make_shared<PostgreSQLClientRepository>(dbConnection);
+        authService_ = std::make_unique<AuthService>(clientRepo);
         
-        std::cout << "✅ AuthController инициализирован" << std::endl;
+        std::cout << "✅ AuthController инициализирован (без ValidationService)" << std::endl;
     } catch (const std::exception& e) {
         std::cerr << "❌ Ошибка инициализации AuthController: " << e.what() << std::endl;
         throw;
     }
 }
 
-bool AuthController::login(const std::string& email, const std::string& password, 
-                          AuthResponseDTO& response) {
+bool AuthController::login(const std::string& email, const std::string& password, AuthResponseDTO& response) {
     try {
-        if (!validateEmail(email) || password.empty()) {
-            return false;
-        }
-        
         AuthRequestDTO request(email, password);
         response = authService_->login(request);
+        std::cout << "✅ Успешный вход для: " << email << std::endl;
         return true;
-        
+    } catch (const InvalidCredentialsException& e) {
+        std::cerr << "❌ Неверные учетные данные: " << email << std::endl;
+        return false;
+    } catch (const AccountInactiveException& e) {
+        std::cerr << "❌ Аккаунт неактивен: " << email << std::endl;
+        return false;
     } catch (const std::exception& e) {
-        std::cerr << "Ошибка входа: " << e.what() << std::endl;
+        std::cerr << "❌ Ошибка входа: " << e.what() << std::endl;
         return false;
     }
 }
@@ -44,28 +45,41 @@ bool AuthController::registerClient(const std::string& name, const std::string& 
                                    const std::string& phone, const std::string& password,
                                    AuthResponseDTO& response) {
     try {
-        // Используем упрощенную валидацию
-        if (!validateEmail(email) || !validatePassword(password) || 
-            !Client::isValidName(name) || 
-            !Client::isValidPhone(phone)) {
-            return false;
-        }
+        std::cout << "🔧 AuthController::registerClient - Начало регистрации: " << email << std::endl;
         
         AuthRequestDTO request(name, email, phone, password);
         response = authService_->registerClient(request);
-        return true;
         
+        std::cout << "✅ Успешная регистрация: " << email << " (" << name << ")" << std::endl;
+        return true;
+    } catch (const EmailAlreadyExistsException& e) {
+        std::cerr << "❌ Email уже зарегистрирован: " << email << std::endl;
+        return false;
+    } catch (const std::invalid_argument& e) {
+        std::cerr << "❌ Ошибка валидации при регистрации: " << e.what() << std::endl;
+        return false;
     } catch (const std::exception& e) {
-        std::cerr << "Ошибка регистрации: " << e.what() << std::endl;
+        std::cerr << "❌ Неизвестная ошибка регистрации: " << e.what() << std::endl;
         return false;
     }
 }
 
-bool AuthController::validateEmail(const std::string& email) const {
-    std::regex pattern(R"(^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$)");
-    return std::regex_match(email, pattern);
+bool AuthController::changePassword(const std::string& clientId, const std::string& oldPassword, 
+                                  const std::string& newPassword) {
+    try {
+        UUID clientUUID = UUID::fromString(clientId);
+        return authService_->changePassword(clientUUID, oldPassword, newPassword);
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка смены пароля: " << e.what() << std::endl;
+        return false;
+    }
 }
 
-bool AuthController::validatePassword(const std::string& password) const {
-    return password.length() >= 8;
+void AuthController::resetPassword(const std::string& email) {
+    try {
+        authService_->resetPassword(email);
+        std::cout << "✅ Запрос на сброс пароля отправлен: " << email << std::endl;
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка сброса пароля: " << e.what() << std::endl;
+    }
 }

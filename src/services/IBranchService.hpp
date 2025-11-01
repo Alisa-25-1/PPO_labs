@@ -1,11 +1,11 @@
 #pragma once
 
+#include "../types/uuid.hpp"
 #include "../models/Branch.hpp"
 #include "../models/DanceHall.hpp"
-#include "../types/uuid.hpp"
+#include <chrono>
 #include <vector>
 #include <optional>
-#include <memory>
 
 class IBranchService {
 public:
@@ -16,4 +16,5 @@ public:
     virtual std::vector<DanceHall> getHallsByBranch(const UUID& branchId) = 0;
     virtual std::string getBranchName(const UUID& branchId) = 0;
     virtual std::optional<Branch> getBranchForHall(const UUID& hallId) = 0;
+    virtual std::chrono::minutes getTimezoneOffsetForBranch(const UUID& branchId) = 0;
 };

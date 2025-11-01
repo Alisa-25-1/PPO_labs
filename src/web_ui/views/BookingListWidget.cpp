@@ -59,7 +59,7 @@ void BookingListWidget::loadBookings() {
         // Очищаем таблицу
         bookingsTable_->clear();
         
-        // Заголовки таблицы - уменьшаем количество столбцов и объединяем некоторые
+        // Заголовки таблицы
         bookingsTable_->elementAt(0, 0)->addNew<Wt::WText>("<strong>Зал</strong>")->setTextFormat(Wt::TextFormat::UnsafeXHTML);
         bookingsTable_->elementAt(0, 1)->addNew<Wt::WText>("<strong>Дата и время</strong>")->setTextFormat(Wt::TextFormat::UnsafeXHTML);
         bookingsTable_->elementAt(0, 2)->addNew<Wt::WText>("<strong>Продолжительность</strong>")->setTextFormat(Wt::TextFormat::UnsafeXHTML);
@@ -75,7 +75,7 @@ void BookingListWidget::loadBookings() {
         
         if (bookings.empty()) {
             auto noBookingsRow = bookingsTable_->elementAt(1, 0);
-            noBookingsRow->setColumnSpan(6); // обновляем на 6 столбцов
+            noBookingsRow->setColumnSpan(6);
             noBookingsRow->addNew<Wt::WText>("<div style='text-align: center; padding: 2rem; color: #6c757d;'>У вас пока нет бронирований</div>")->setTextFormat(Wt::TextFormat::UnsafeXHTML);
             return;
         }
@@ -88,7 +88,7 @@ void BookingListWidget::loadBookings() {
             hallCell->setStyleClass("cell-hall-name");
             
             // Дата и время
-            std::string datetimeStr = formatDateTime(booking.timeSlot.getStartTime());
+            std::string datetimeStr = formatDateTime(booking.timeSlot.getStartTime(), booking.hallId);
             bookingsTable_->elementAt(row, 1)->addNew<Wt::WText>(datetimeStr);
             
             // Продолжительность
@@ -279,6 +279,12 @@ std::string BookingListWidget::getHallNameById(const UUID& hallId) {
     }
 }
 
-std::string BookingListWidget::formatDateTime(const std::chrono::system_clock::time_point& timePoint) {
-    return DateTimeUtils::formatDateTime(timePoint);
+std::string BookingListWidget::formatDateTime(const std::chrono::system_clock::time_point& timePoint, const UUID& hallId) {
+    try {
+        auto offset = app_->getBookingController()->getTimezoneOffsetForHall(hallId);
+        return DateTimeUtils::formatDateTimeWithOffset(timePoint, offset);
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка получения часового пояса для зала: " << e.what() << std::endl;
+        return DateTimeUtils::formatDateTime(timePoint);
+    }
 }

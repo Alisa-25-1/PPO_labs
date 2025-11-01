@@ -269,8 +269,33 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/AuthDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../types/uuid.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/exceptions/ValidationException.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/exceptions/AuthException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../services/exceptions/AuthException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../core/PasswordHasher.hpp \
+ /usr/include/openssl/evp.h /usr/include/openssl/macros.h \
+ /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
+ /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+ /usr/include/openssl/opensslv.h /usr/include/openssl/types.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+ /usr/include/openssl/e_os2.h /usr/include/openssl/safestack.h \
+ /usr/include/openssl/stack.h /usr/include/openssl/core.h \
+ /usr/include/openssl/core_dispatch.h /usr/include/openssl/symhacks.h \
+ /usr/include/openssl/bio.h /usr/include/openssl/crypto.h \
+ /usr/include/c++/13/stdlib.h /usr/include/openssl/cryptoerr.h \
+ /usr/include/openssl/cryptoerr_legacy.h /usr/include/openssl/bioerr.h \
+ /usr/include/openssl/evperr.h /usr/include/openssl/params.h \
+ /usr/include/openssl/bn.h /usr/include/openssl/bnerr.h \
+ /usr/include/openssl/objects.h /usr/include/openssl/obj_mac.h \
+ /usr/include/openssl/asn1.h /usr/include/openssl/asn1err.h \
+ /usr/include/openssl/objectserr.h /usr/include/openssl/rand.h \
+ /usr/include/openssl/randerr.h /usr/include/c++/13/iomanip \
+ /usr/include/c++/13/bits/quoted_string.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../dtos/AuthDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../models/Client.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/BookingController.hpp \
@@ -283,8 +308,12 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/DanceHall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/IBranchRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Branch.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Address.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/IAttendanceRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Attendance.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/ILessonRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Lesson.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/IBranchService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../models/DanceHall.hpp \
@@ -292,7 +321,10 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/exceptions/BookingException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/exceptions/ValidationException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../data/DateTimeUtils.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/TimeZoneService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../dtos/BookingDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/SubscriptionController.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/SubscriptionService.hpp \
@@ -303,13 +335,9 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/SubscriptionDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/Subscription.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../dtos/../models/SubscriptionType.hpp \
- /usr/include/c++/13/iomanip /usr/include/c++/13/bits/quoted_string.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../dtos/SubscriptionDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/LessonController.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/LessonService.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/ILessonRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Lesson.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/IEnrollmentRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/../models/Enrollment.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/views/../controllers/../../services/../repositories/ITrainerRepository.hpp \

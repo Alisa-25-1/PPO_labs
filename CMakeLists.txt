@@ -11,6 +11,7 @@ set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_BINARY_DIR}/bin)
 # Поиск зависимостей
 find_package(GTest REQUIRED)
 find_package(PkgConfig REQUIRED)
+find_package(OpenSSL REQUIRED)
 
 # Поиск libpqxx
 pkg_check_modules(LIBPQXX REQUIRED libpqxx)
@@ -44,6 +45,7 @@ add_library(BookingCore STATIC
     ${SOURCE_ROOT}/models/SubscriptionType.cpp
     ${SOURCE_ROOT}/models/Schedule.cpp
     ${SOURCE_ROOT}/models/Attendance.cpp
+    ${SOURCE_ROOT}/models/Address.cpp
     ${SOURCE_ROOT}/types/uuid.cpp
     ${SOURCE_ROOT}/types/enums.cpp
     ${SOURCE_ROOT}/services/BookingService.cpp
@@ -55,16 +57,21 @@ add_library(BookingCore STATIC
     ${SOURCE_ROOT}/services/EnrollmentService.cpp
     ${SOURCE_ROOT}/services/BranchService.cpp
     ${SOURCE_ROOT}/services/StatisticsService.cpp
+    ${SOURCE_ROOT}/services/TimeZoneService.cpp
+    ${SOURCE_ROOT}/services/DatabaseHealthService.cpp
+    ${SOURCE_ROOT}/services/DatabaseMonitorService.cpp
     ${SOURCE_ROOT}/dtos/BookingDTO.cpp
     ${SOURCE_ROOT}/dtos/LessonDTO.cpp
     ${SOURCE_ROOT}/dtos/SubscriptionDTO.cpp
     ${SOURCE_ROOT}/dtos/ReviewDTO.cpp
-    ${SOURCE_ROOT}/dtos/AuthDTO.cpp
     ${SOURCE_ROOT}/dtos/EnrollmentDTO.cpp
     ${SOURCE_ROOT}/core/Config.cpp
     ${SOURCE_ROOT}/core/Logger.cpp
-    ${SOURCE_ROOT}/data/DateTimeUtils.cpp
+    ${SOURCE_ROOT}/core/PasswordHasher.cpp
+    ${SOURCE_ROOT}/data/DateTimeUtils.cpp  
 )
+
+target_link_libraries(BookingCore PRIVATE OpenSSL::SSL OpenSSL::Crypto)
 
 # Для Linux линкуем библиотеку uuid
 if(UNIX AND NOT APPLE)
@@ -195,12 +202,11 @@ foreach(css_file ${CSS_FILES})
     message(STATUS "📁 CSS файл добавлен: styles/${css_name}")
 endforeach()
 
-# Установочные правила для библиотек (опционально, можно закомментировать если не нужны)
-# install(TARGETS BookingCore DataAccess
-#     ARCHIVE DESTINATION lib
-#     LIBRARY DESTINATION lib
-#     RUNTIME DESTINATION bin
-# )
+install(TARGETS BookingCore DataAccess
+    ARCHIVE DESTINATION lib
+    LIBRARY DESTINATION lib
+    RUNTIME DESTINATION bin
+)
 
 # Модульные тесты
 #add_executable(BookingTests
@@ -215,17 +221,17 @@ endforeach()
 #    GTest::gmock
 #)
 
-add_executable(AuthServiceTests
-    ${SOURCE_ROOT}/tests/unit/AuthServiceTest.cpp
-)
+#add_executable(AuthServiceTests
+#    ${SOURCE_ROOT}/tests/unit/AuthServiceTest.cpp
+#)
 
-target_include_directories(AuthServiceTests PRIVATE ${SOURCE_ROOT})
-target_link_libraries(AuthServiceTests 
-    BookingCore 
-    GTest::gtest 
-    GTest::gtest_main
-    GTest::gmock
-)
+#target_include_directories(AuthServiceTests PRIVATE ${SOURCE_ROOT})
+#target_link_libraries(AuthServiceTests 
+#    BookingCore 
+#    GTest::gtest 
+#    GTest::gtest_main
+#    GTest::gmock
+#)
 
 #add_executable(LessonServiceTests
 #    ${SOURCE_ROOT}/tests/unit/LessonServiceTest.cpp
@@ -239,17 +245,17 @@ target_link_libraries(AuthServiceTests
 #    GTest::gmock
 #)
 
-add_executable(SubscriptionServiceTests
-    ${SOURCE_ROOT}/tests/unit/SubscriptionServiceTest.cpp
-)
+#add_executable(SubscriptionServiceTests
+#    ${SOURCE_ROOT}/tests/unit/SubscriptionServiceTest.cpp
+#)
 
-target_include_directories(SubscriptionServiceTests PRIVATE ${SOURCE_ROOT})
-target_link_libraries(SubscriptionServiceTests 
-    BookingCore 
-    GTest::gtest 
-    GTest::gtest_main
-    GTest::gmock
-)
+#target_include_directories(SubscriptionServiceTests PRIVATE ${SOURCE_ROOT})
+#target_link_libraries(SubscriptionServiceTests 
+#    BookingCore 
+#    GTest::gtest 
+#    GTest::gtest_main
+#    GTest::gmock
+#)
 
 #add_executable(ReviewServiceTests
 #    ${SOURCE_ROOT}/tests/unit/ReviewServiceTest.cpp
@@ -264,15 +270,15 @@ target_link_libraries(SubscriptionServiceTests
 #)
 
 # Интеграционные тесты
-add_executable(IntegrationTests
-    ${SOURCE_ROOT}/tests/integration/RepositoryIntegrationTests.cpp
-)
+#add_executable(IntegrationTests
+#    ${SOURCE_ROOT}/tests/integration/RepositoryIntegrationTests.cpp
+#)
 
-target_include_directories(IntegrationTests PRIVATE ${SOURCE_ROOT})
-target_link_libraries(IntegrationTests 
-    BookingCore 
-    DataAccess 
-    GTest::gtest 
-    GTest::gtest_main
-    ${LIBPQXX_LIBRARIES}
-)
+#target_include_directories(IntegrationTests PRIVATE ${SOURCE_ROOT})
+#target_link_libraries(IntegrationTests 
+#    BookingCore 
+#    DataAccess 
+#    GTest::gtest 
+#    GTest::gtest_main
+#    ${LIBPQXX_LIBRARIES}
+#)

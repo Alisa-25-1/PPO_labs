@@ -41,6 +41,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/usr/share/cmake-3.28/Modules/Compiler/GNU-CXX.cmake"
   "/usr/share/cmake-3.28/Modules/Compiler/GNU.cmake"
   "/usr/share/cmake-3.28/Modules/FindGTest.cmake"
+  "/usr/share/cmake-3.28/Modules/FindOpenSSL.cmake"
   "/usr/share/cmake-3.28/Modules/FindPackageHandleStandardArgs.cmake"
   "/usr/share/cmake-3.28/Modules/FindPackageMessage.cmake"
   "/usr/share/cmake-3.28/Modules/FindPkgConfig.cmake"
@@ -80,7 +81,4 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/TechUI.dir/DependInfo.cmake"
   "CMakeFiles/WebUIComponent.dir/DependInfo.cmake"
   "CMakeFiles/DanceStudioWebUI.dir/DependInfo.cmake"
-  "CMakeFiles/AuthServiceTests.dir/DependInfo.cmake"
-  "CMakeFiles/SubscriptionServiceTests.dir/DependInfo.cmake"
-  "CMakeFiles/IntegrationTests.dir/DependInfo.cmake"
   )

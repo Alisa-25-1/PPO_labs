@@ -244,6 +244,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/IBranchService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../models/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../models/Address.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../models/DanceHall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/IBranchRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/Branch.hpp \

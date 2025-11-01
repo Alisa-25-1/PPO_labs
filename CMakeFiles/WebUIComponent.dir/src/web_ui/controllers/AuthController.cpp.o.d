@@ -217,8 +217,33 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/AuthDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../types/uuid.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/exceptions/ValidationException.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/exceptions/AuthException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../services/exceptions/AuthException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../core/PasswordHasher.hpp \
+ /usr/include/openssl/evp.h /usr/include/openssl/macros.h \
+ /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
+ /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+ /usr/include/openssl/opensslv.h /usr/include/openssl/types.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+ /usr/include/openssl/e_os2.h /usr/include/openssl/safestack.h \
+ /usr/include/openssl/stack.h /usr/include/openssl/core.h \
+ /usr/include/openssl/core_dispatch.h /usr/include/openssl/symhacks.h \
+ /usr/include/openssl/bio.h /usr/include/openssl/crypto.h \
+ /usr/include/c++/13/stdlib.h /usr/include/openssl/cryptoerr.h \
+ /usr/include/openssl/cryptoerr_legacy.h /usr/include/openssl/bioerr.h \
+ /usr/include/openssl/evperr.h /usr/include/openssl/params.h \
+ /usr/include/openssl/bn.h /usr/include/openssl/bnerr.h \
+ /usr/include/openssl/objects.h /usr/include/openssl/obj_mac.h \
+ /usr/include/openssl/asn1.h /usr/include/openssl/asn1err.h \
+ /usr/include/openssl/objectserr.h /usr/include/openssl/rand.h \
+ /usr/include/openssl/randerr.h /usr/include/c++/13/iomanip \
+ /usr/include/c++/13/bits/quoted_string.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../dtos/AuthDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../models/Client.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../repositories/impl/PostgreSQLClientRepository.hpp \
@@ -252,8 +277,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o: \
  /usr/include/pqxx/params.hxx \
  /usr/include/pqxx/internal/statement_parameters.hxx \
  /usr/include/pqxx/binarystring.hxx /usr/include/pqxx/result.hxx \
- /usr/include/pqxx/internal/encodings.hxx /usr/include/c++/13/iomanip \
- /usr/include/c++/13/bits/quoted_string.h \
+ /usr/include/pqxx/internal/encodings.hxx \
  /usr/include/pqxx/internal/encoding_group.hxx \
  /usr/include/pqxx/internal/ignore-deprecated-pre.hxx \
  /usr/include/pqxx/internal/ignore-deprecated-post.hxx \

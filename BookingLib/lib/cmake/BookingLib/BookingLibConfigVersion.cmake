@@ -1,7 +1,5 @@
-# Проверяет совместимость версий
 set(PACKAGE_VERSION "1.0.0")
 
-# Проверяем совместимость с CMake
 if("${PACKAGE_FIND_VERSION}" VERSION_EQUAL "1.0.0")
     set(PACKAGE_VERSION_COMPATIBLE TRUE)
     set(PACKAGE_VERSION_EXACT TRUE)

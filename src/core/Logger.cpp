@@ -2,6 +2,8 @@
 #include <iomanip>
 #include <sstream>
 #include <ctime>
+#include <sys/stat.h>
+#include <unistd.h>
 
 std::unique_ptr<Logger> Logger::instance_ = nullptr;
 
@@ -22,6 +24,18 @@ Logger& Logger::getInstance() {
 void Logger::initialize(const std::string& filePath, LogLevel level) { 
     std::lock_guard<std::mutex> lock(logMutex_);
     
+    struct stat fileStat;
+    if (stat(filePath.c_str(), &fileStat) == 0) {
+        if (access(filePath.c_str(), W_OK) != 0) {
+            throw std::runtime_error("No write permissions for log file: " + filePath);
+        }
+    } else {
+        std::string dirPath = filePath.substr(0, filePath.find_last_of('/'));
+        if (access(dirPath.c_str(), W_OK) != 0) {
+            throw std::runtime_error("No write permissions for log directory: " + dirPath);
+        }
+    }
+    
     if (logFile_.is_open()) {
         logFile_.close();
     }
@@ -32,10 +46,15 @@ void Logger::initialize(const std::string& filePath, LogLevel level) {
         throw std::runtime_error("Cannot open log file: " + filePath);
     }
     
+    logFile_ << "[INIT] Logger initialized successfully" << std::endl;
+    if (logFile_.fail()) {
+        logFile_.close();
+        throw std::runtime_error("Cannot write to log file: " + filePath);
+    }
+    
     logFilePath_ = filePath;
     currentLevel_ = level;
     
-    // Простая запись без вызова getCurrentTimestamp()
     logFile_.flush();
 }
 
@@ -48,7 +67,6 @@ void Logger::shutdown() {
 }
 
 std::string Logger::levelToString(LogLevel level) {
-    // Упрощенная версия без отладки
     switch (level) {
         case LogLevel::DEBUG: return "DEBUG";
         case LogLevel::INFO: return "INFO";
@@ -107,17 +125,14 @@ void Logger::log(LogLevel level, const std::string& message, const std::string& 
             logFile_.flush();
         }
         
-        // Также выводим в консоль для ошибок и предупреждений
         if (level >= LogLevel::WARNING) {
             std::cerr << logEntry.str() << std::endl;
         }
     } catch (const std::exception& e) {
-        // Если логирование не работает, выводим в консоль
         std::cerr << "[LOGGER ERROR] " << e.what() << std::endl;
     }
 }
 
-// Реализации удобных методов
 void Logger::debug(const std::string& message, const std::string& module) {
     log(LogLevel::DEBUG, message, module);
 }

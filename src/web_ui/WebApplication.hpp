@@ -58,4 +58,5 @@ private:
     
     void setupStyles();
     void initializeControllers();
+    void handleDatabaseError(const std::string& context); 
 };

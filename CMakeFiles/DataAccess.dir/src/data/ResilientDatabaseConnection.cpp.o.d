@@ -259,4 +259,7 @@ CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o: \
  /usr/include/pqxx/internal/header-post.hxx /usr/include/c++/13/thread \
  /usr/include/c++/13/bits/std_thread.h \
  /usr/include/c++/13/bits/this_thread_sleep.h /usr/include/c++/13/atomic \
- /usr/include/c++/13/iostream
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../services/DatabaseHealthService.hpp \
+ /usr/include/c++/13/mutex /usr/include/c++/13/bits/std_mutex.h \
+ /usr/include/c++/13/bits/unique_lock.h \
+ /usr/include/c++/13/condition_variable /usr/include/c++/13/iostream

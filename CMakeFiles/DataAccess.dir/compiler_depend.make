@@ -340,6 +340,7 @@ CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: src/data/P
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -884,6 +885,7 @@ CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.o: src/data/QueryFactory.cpp
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
 
 CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o: src/data/ResilientDatabaseConnection.cpp \
+  src/services/DatabaseHealthService.hpp \
   src/data/DatabaseConnection.hpp \
   src/data/ResilientDatabaseConnection.hpp \
   /usr/include/alloca.h \
@@ -963,6 +965,7 @@ CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o: src/data/R
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/std_thread.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
@@ -991,6 +994,7 @@ CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o: src/data/R
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/this_thread_sleep.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
+  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -1006,6 +1010,7 @@ CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o: src/data/R
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/codecvt \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/condition_variable \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -1038,6 +1043,7 @@ CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o: src/data/R
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
+  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/numeric \
   /usr/include/c++/13/optional \
@@ -2192,6 +2198,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o
   src/data/SqlQueryBuilder.hpp \
   src/data/exceptions/DataAccessException.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Branch.hpp \
   src/types/uuid.hpp \
   src/repositories/IBranchRepository.hpp \
@@ -2558,6 +2565,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o
   src/types/enums.hpp \
   src/types/uuid.hpp \
   src/models/Client.hpp \
+  src/services/exceptions/ValidationException.hpp \
   src/types/uuid.hpp \
   src/repositories/IClientRepository.hpp \
   src/repositories/impl/PostgreSQLClientRepository.hpp \
@@ -5845,15 +5853,23 @@ src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp:
 
 src/repositories/impl/PostgreSQLStudioRepository.cpp:
 
+src/repositories/impl/PostgreSQLDanceHallRepository.cpp:
+
 src/repositories/impl/PostgreSQLEnrollmentRepository.cpp:
 
-src/repositories/impl/PostgreSQLDanceHallRepository.cpp:
+src/services/exceptions/ValidationException.hpp:
 
 src/repositories/impl/PostgreSQLBranchRepository.cpp:
 
 src/repositories/impl/PostgreSQLBookingRepository.cpp:
 
+/usr/include/c++/13/mutex:
+
 /usr/include/c++/13/iostream:
+
+/usr/include/c++/13/bits/std_mutex.h:
+
+src/services/DatabaseHealthService.hpp:
 
 src/data/QueryFactory.cpp:
 
@@ -6018,6 +6034,8 @@ src/models/Booking.hpp:
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+/usr/include/c++/13/condition_variable:
 
 /usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
 
@@ -6439,6 +6457,8 @@ src/models/TimeSlot.hpp:
 
 /usr/include/c++/13/bits/memory_resource.h:
 
+/usr/include/c++/13/bits/unique_lock.h:
+
 /usr/include/pqxx/range.hxx:
 
 /usr/include/c++/13/bits/shared_ptr_base.h:
@@ -6662,6 +6682,8 @@ src/repositories/IEnrollmentRepository.hpp:
 src/models/Attendance.hpp:
 
 /usr/include/stdc-predef.h:
+
+src/models/Address.hpp:
 
 /usr/include/endian.h:
 

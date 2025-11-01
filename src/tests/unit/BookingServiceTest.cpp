@@ -21,7 +21,7 @@ protected:
         auto mockHallRepo = std::make_shared<MockDanceHallRepository>();
         auto mockBranchRepo = std::make_shared<MockBranchRepository>();
         auto mockBranchService = std::make_shared<MockBranchService>();
-        auto mockAttendanceRepo = std::make_shared<MockAttendanceRepository>(); // ДОБАВЛЕНО
+        auto mockAttendanceRepo = std::make_shared<MockAttendanceRepository>();
 
         // Сохраняем указатели для доступа в тестах
         mockBookingRepo_ = mockBookingRepo.get();
@@ -29,7 +29,7 @@ protected:
         mockHallRepo_ = mockHallRepo.get();
         mockBranchRepo_ = mockBranchRepo.get();
         mockBranchService_ = mockBranchService.get();
-        mockAttendanceRepo_ = mockAttendanceRepo.get(); // ДОБАВЛЕНО
+        mockAttendanceRepo_ = mockAttendanceRepo.get();
 
         // Создаем сервис с передачей всех моков как shared_ptr (6 параметров)
         bookingService_ = std::make_unique<BookingService>(
@@ -72,7 +72,7 @@ protected:
     
     // ИСПРАВЛЕНО: правильный конструктор Client (4 параметра)
     Client createTestClient(const UUID& id, bool active = true) {
-        return Client(id, "Test Client", "test@email.com", "+123456789");
+        return Client(id, "Test Client", "test@email.com", "+74956743212");
     }
     
     // ИСПРАВЛЕНО: правильный конструктор DanceHall (4 параметра)
@@ -80,7 +80,6 @@ protected:
         return DanceHall(id, "Test Hall", 20, branchId);
     }
     
-    // ИСПРАВЛЕНО: правильный конструктор Branch (6 параметров)
     Branch createTestBranch(const UUID& id) {
         using namespace std::chrono;
         UUID studioId = createTestStudioId();

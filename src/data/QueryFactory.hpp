@@ -26,7 +26,7 @@ public:
     static std::string createGetTrainerSpecializationsQuery();
 
     // Branch queries
-    static std::string createFindByStudioIdQuery(); 
+    static std::string createFindBranchesWithAddressQuery();
 
     // Studios queries
     static std::string createFindMainStudioQuery(); 

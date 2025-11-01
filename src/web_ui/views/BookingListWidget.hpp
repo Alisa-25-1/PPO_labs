@@ -30,7 +30,7 @@ private:
     bool cancelBookingThroughService(const UUID& bookingId);
     UUID getCurrentClientId();
     std::string getHallNameById(const UUID& hallId);
-    std::string formatDateTime(const std::chrono::system_clock::time_point& timePoint);
+    std::string formatDateTime(const std::chrono::system_clock::time_point& timePoint, const UUID& hallId);
     std::string getStatusDisplayName(const std::string& status);
     std::string getStatusStyleClass(const std::string& status);
 };

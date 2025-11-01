@@ -159,6 +159,8 @@ bin/TechUI: CMakeFiles/TechUI.dir/build.make
 bin/TechUI: lib/libBookingCore.a
 bin/TechUI: lib/libDataAccess.a
 bin/TechUI: lib/libBookingCore.a
+bin/TechUI: /usr/lib/x86_64-linux-gnu/libssl.so
+bin/TechUI: /usr/lib/x86_64-linux-gnu/libcrypto.so
 bin/TechUI: /usr/lib/x86_64-linux-gnu/libuuid.so
 bin/TechUI: CMakeFiles/TechUI.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX executable bin/TechUI"

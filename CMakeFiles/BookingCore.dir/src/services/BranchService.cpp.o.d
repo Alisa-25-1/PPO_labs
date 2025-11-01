@@ -3,8 +3,7 @@ CMakeFiles/BookingCore.dir/src/services/BranchService.cpp.o: \
  /usr/include/stdc-predef.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/Branch.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../types/uuid.hpp \
  /usr/include/c++/13/string /usr/include/c++/13/bits/requires_hosted.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
  /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h \
@@ -194,17 +193,22 @@ CMakeFiles/BookingCore.dir/src/services/BranchService.cpp.o: \
  /usr/include/c++/13/bits/regex.h /usr/include/c++/13/bits/regex.tcc \
  /usr/include/c++/13/bits/regex_executor.h \
  /usr/include/c++/13/bits/regex_executor.tcc /usr/include/uuid/uuid.h \
- /usr/include/x86_64-linux-gnu/sys/time.h /usr/include/c++/13/chrono \
- /usr/include/c++/13/bits/chrono.h /usr/include/c++/13/ratio \
- /usr/include/c++/13/cstdint \
+ /usr/include/x86_64-linux-gnu/sys/time.h \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/Branch.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/Address.hpp \
+ /usr/include/c++/13/chrono /usr/include/c++/13/bits/chrono.h \
+ /usr/include/c++/13/ratio /usr/include/c++/13/cstdint \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h \
  /usr/include/x86_64-linux-gnu/bits/stdint-least.h \
  /usr/include/c++/13/limits /usr/include/c++/13/bits/parse_numbers.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/DanceHall.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../types/uuid.hpp \
  /usr/include/c++/13/vector /usr/include/c++/13/optional \
  /usr/include/c++/13/bits/enable_special_members.h \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IBranchRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Branch.hpp \
  /usr/include/c++/13/memory \
  /usr/include/c++/13/bits/stl_raw_storage_iter.h \
  /usr/include/c++/13/bits/align.h \
@@ -214,9 +218,6 @@ CMakeFiles/BookingCore.dir/src/services/BranchService.cpp.o: \
  /usr/include/c++/13/backward/auto_ptr.h \
  /usr/include/c++/13/pstl/glue_memory_defs.h \
  /usr/include/c++/13/pstl/execution_defs.h \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IBranchRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../types/uuid.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IDanceHallRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/DanceHall.hpp \
  /usr/include/c++/13/iostream

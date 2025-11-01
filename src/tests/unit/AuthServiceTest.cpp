@@ -21,7 +21,7 @@ protected:
         authService_ = std::make_unique<AuthService>(std::move(mockClientRepo));
         
         // Создаем тестового клиента
-        testClient_ = std::make_unique<Client>(testClientId_, "John Doe", testEmail_, "+1234567890");
+        testClient_ = std::make_unique<Client>(testClientId_, "John Doe", testEmail_, "+74955678903");
         testClient_->changePassword(testPassword_);
         testClient_->activate();
     }
@@ -43,8 +43,8 @@ TEST_F(AuthServiceTest, RegisterClient_Success) {
     AuthRequestDTO request;
     request.name = "New User";
     request.email = "new@example.com";
-    request.phone = "+1234567890";
-    request.password = "NewPassword123";  // Исправленный пароль
+    request.phone = "+74955678907";
+    request.password = "NewPassword123";  
     
     EXPECT_CALL(*mockClientRepo_, findByEmail("new@example.com"))
         .WillOnce(Return(std::optional<Client>{}));
@@ -63,7 +63,7 @@ TEST_F(AuthServiceTest, RegisterClient_EmailExists) {
     AuthRequestDTO request;
     request.name = "John Doe";
     request.email = testEmail_;
-    request.phone = "+1234567890";
+    request.phone = "+74955678903";
     request.password = "Password123";
     
     EXPECT_CALL(*mockClientRepo_, findByEmail(testEmail_))
@@ -137,9 +137,8 @@ TEST_F(AuthServiceTest, ChangePassword_WrongOldPassword) {
     EXPECT_FALSE(result);
 }
 
-// ИСПРАВЛЕННЫЙ ТЕСТ - используем валидный временный пароль
 TEST_F(AuthServiceTest, ResetPassword_SetsTemporaryPassword) {
-    std::string tempPassword = "TempPass123";  // Исправленный временный пароль
+    std::string tempPassword = "TempPass123";
     
     EXPECT_CALL(*mockClientRepo_, findByEmail(testEmail_))
         .WillOnce(Return(*testClient_));
@@ -160,7 +159,7 @@ TEST_F(AuthServiceTest, ValidateSession_ActiveClient) {
 }
 
 TEST_F(AuthServiceTest, ValidateSession_InactiveClient) {
-    auto inactiveClient = Client(testClientId_, "Inactive John", "inactive@example.com", "+1234567890");
+    auto inactiveClient = Client(testClientId_, "Inactive John", "inactive@example.com", "+74955678903");
     inactiveClient.deactivate();
     
     EXPECT_CALL(*mockClientRepo_, findById(testClientId_))

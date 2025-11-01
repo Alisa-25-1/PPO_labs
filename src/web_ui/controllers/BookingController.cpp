@@ -143,3 +143,12 @@ std::vector<DanceHall> BookingController::getHallsByBranch(const UUID& branchId)
         throw std::runtime_error("Failed to get halls by branch: " + std::string(e.what()));
     }
 }
+
+std::chrono::minutes BookingController::getTimezoneOffsetForHall(const UUID& hallId) {
+    try {
+        return bookingService_->getTimezoneOffsetForHall(hallId);
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка получения часового пояса для зала: " << e.what() << std::endl;
+        return std::chrono::hours(3);
+    }
+}

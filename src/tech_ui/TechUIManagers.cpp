@@ -32,7 +32,8 @@ TechUIManagers::TechUIManagers(const std::string& connectionString) {
             hallRepo_,
             branchRepo_,
             branchService,
-            attendanceRepo_  
+            attendanceRepo_,
+            lessonRepo_
         );
         
         lessonService_ = std::make_unique<LessonService>(

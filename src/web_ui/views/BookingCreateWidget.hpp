@@ -33,8 +33,8 @@ private:
     Wt::WPushButton* createButton_;
     Wt::WPushButton* backButton_;
     Wt::WText* statusText_;
+    std::chrono::minutes currentTimezoneOffset_;
 
-    // ДОБАВЛЕНО: хранилища данных
     std::vector<Branch> branches_;
     std::vector<DanceHall> halls_;
 
@@ -56,4 +56,6 @@ private:
     BookingResponseDTO createBookingThroughService(const BookingRequestDTO& request);
     UUID getCurrentClientId();
     std::chrono::system_clock::time_point createDateTime(const Wt::WDate& date, int hours, int minutes);
+    std::chrono::minutes getTimezoneOffsetForCurrentHall() const;
+    std::string formatTimeWithOffset(const std::chrono::system_clock::time_point& timePoint) const;
 };

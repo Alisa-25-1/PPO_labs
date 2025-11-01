@@ -264,8 +264,32 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/AuthDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../types/uuid.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/exceptions/ValidationException.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/exceptions/AuthException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../services/exceptions/AuthException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../core/PasswordHasher.hpp \
+ /usr/include/openssl/evp.h /usr/include/openssl/macros.h \
+ /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
+ /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+ /usr/include/openssl/opensslv.h /usr/include/openssl/types.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
+ /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
+ /usr/include/limits.h /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/local_lim.h \
+ /usr/include/linux/limits.h \
+ /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
+ /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+ /usr/include/openssl/e_os2.h /usr/include/openssl/safestack.h \
+ /usr/include/openssl/stack.h /usr/include/openssl/core.h \
+ /usr/include/openssl/core_dispatch.h /usr/include/openssl/symhacks.h \
+ /usr/include/openssl/bio.h /usr/include/openssl/crypto.h \
+ /usr/include/c++/13/stdlib.h /usr/include/openssl/cryptoerr.h \
+ /usr/include/openssl/cryptoerr_legacy.h /usr/include/openssl/bioerr.h \
+ /usr/include/openssl/evperr.h /usr/include/openssl/params.h \
+ /usr/include/openssl/bn.h /usr/include/openssl/bnerr.h \
+ /usr/include/openssl/objects.h /usr/include/openssl/obj_mac.h \
+ /usr/include/openssl/asn1.h /usr/include/openssl/asn1err.h \
+ /usr/include/openssl/objectserr.h /usr/include/openssl/rand.h \
+ /usr/include/openssl/randerr.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../dtos/AuthDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../models/Client.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/BookingController.hpp \
@@ -278,8 +302,12 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/DanceHall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/IBranchRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/Branch.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/Address.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/IAttendanceRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/Attendance.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/ILessonRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/Lesson.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/IBranchService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../models/DanceHall.hpp \
@@ -287,7 +315,10 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../dtos/../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/exceptions/BookingException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/exceptions/ValidationException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../data/DateTimeUtils.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/TimeZoneService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../dtos/BookingDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/SubscriptionController.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/SubscriptionService.hpp \
@@ -301,9 +332,6 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../dtos/SubscriptionDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/LessonController.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/LessonService.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/ILessonRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/Lesson.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/IEnrollmentRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/../models/Enrollment.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../services/../repositories/ITrainerRepository.hpp \
@@ -319,4 +347,8 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../dtos/EnrollmentDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/controllers/../../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/models/UserSession.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/models/../../types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/models/../../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/DatabaseHealthService.hpp \
+ /usr/include/c++/13/thread /usr/include/c++/13/bits/std_thread.h \
+ /usr/include/c++/13/bits/this_thread_sleep.h \
+ /usr/include/c++/13/condition_variable

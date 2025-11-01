@@ -3,6 +3,7 @@
 
 CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApplication.cpp \
   src/data/DatabaseConnection.hpp \
+  src/data/ResilientDatabaseConnection.hpp \
   src/data/DatabaseConnection.hpp \
   src/data/SqlQueryBuilder.hpp \
   src/data/exceptions/DataAccessException.hpp \
@@ -16,6 +17,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   src/repositories/impl/PostgreSQLSubscriptionRepository.hpp \
   src/repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp \
   src/repositories/impl/PostgreSQLTrainerRepository.hpp \
+  src/services/DatabaseHealthService.hpp \
   src/web_ui/WebApplication.hpp \
   src/dtos/AuthDTO.hpp \
   src/dtos/BookingDTO.hpp \
@@ -23,6 +25,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -38,9 +41,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -63,6 +68,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -71,7 +77,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -180,6 +186,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
   /usr/include/c++/13/bits/std_mutex.h \
+  /usr/include/c++/13/bits/std_thread.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -209,6 +216,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
+  /usr/include/c++/13/bits/this_thread_sleep.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
@@ -227,6 +235,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/codecvt \
   /usr/include/c++/13/compare \
+  /usr/include/c++/13/condition_variable \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
@@ -276,10 +285,12 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
+  /usr/include/c++/13/thread \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
@@ -294,8 +305,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pqxx/array.hxx \
   /usr/include/pqxx/binarystring.hxx \
   /usr/include/pqxx/blob.hxx \
@@ -375,8 +414,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -422,11 +464,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -442,14 +486,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -511,6 +559,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o: src/w
   src/data/SqlQueryBuilder.hpp \
   src/data/exceptions/DataAccessException.hpp \
   src/repositories/impl/PostgreSQLClientRepository.hpp \
+  src/core/PasswordHasher.hpp \
   src/types/uuid.hpp \
   src/dtos/AuthDTO.hpp \
   src/types/enums.hpp \
@@ -518,10 +567,9 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o: src/w
   src/models/Client.hpp \
   src/types/uuid.hpp \
   src/repositories/IClientRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
-  src/services/exceptions/AuthException.hpp \
-  src/services/exceptions/ValidationException.hpp \
   src/web_ui/controllers/AuthController.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -703,6 +751,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o: src/w
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -721,8 +770,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o: src/w
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pqxx/array.hxx \
   /usr/include/pqxx/binarystring.hxx \
   /usr/include/pqxx/blob.hxx \
@@ -802,8 +879,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o: src/w
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -849,11 +929,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o: src/w
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -869,14 +951,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/AuthController.cpp.o: src/w
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
-  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o: src/web_ui/controllers/BookingController.cpp \
   src/data/DatabaseConnection.hpp \
@@ -895,14 +981,17 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o: sr
   src/dtos/BookingDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
   src/models/Client.hpp \
   src/models/DanceHall.hpp \
+  src/models/Lesson.hpp \
   src/models/TimeSlot.hpp \
   src/types/uuid.hpp \
   src/repositories/IAttendanceRepository.hpp \
@@ -910,9 +999,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o: sr
   src/repositories/IBranchRepository.hpp \
   src/repositories/IClientRepository.hpp \
   src/repositories/IDanceHallRepository.hpp \
+  src/repositories/ILessonRepository.hpp \
   src/types/uuid.hpp \
   src/services/BookingService.hpp \
   src/services/IBranchService.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/ValidationException.hpp \
   src/web_ui/controllers/BookingController.hpp \
@@ -1281,6 +1372,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.o: src
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/data/DateTimeUtils.hpp \
@@ -2111,6 +2203,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/we
   src/types/uuid.hpp \
   src/dtos/BookingDTO.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -2122,6 +2215,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/we
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Enrollment.hpp \
   src/models/Lesson.hpp \
@@ -2136,6 +2230,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/we
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
   src/models/Attendance.hpp \
@@ -2160,6 +2255,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/we
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -2168,7 +2264,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/we
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -2351,6 +2447,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/we
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -2366,8 +2463,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/we
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -2390,8 +2515,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/we
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -2437,11 +2565,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/we
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -2457,14 +2587,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/we
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -2542,6 +2676,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: src/web_
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Enrollment.hpp \
   src/models/Lesson.hpp \
@@ -2556,8 +2691,10 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: src/web_
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -2580,6 +2717,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: src/web_
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -2588,7 +2726,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: src/web_
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -2771,6 +2909,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: src/web_
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -2786,8 +2925,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: src/web_
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -2810,8 +2977,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: src/web_
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -2857,11 +3027,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: src/web_
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -2877,14 +3049,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: src/web_
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -2956,6 +3132,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: src/web_ui/vie
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -2971,9 +3148,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: src/web_ui/vie
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -2996,6 +3175,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: src/web_ui/vie
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -3004,7 +3184,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: src/web_ui/vie
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -3189,6 +3369,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: src/web_ui/vie
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -3204,8 +3385,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: src/web_ui/vie
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -3228,8 +3437,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: src/web_ui/vie
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -3275,11 +3487,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: src/web_ui/vie
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -3295,14 +3509,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: src/web_ui/vie
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -3371,6 +3589,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: src/web_ui
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -3386,9 +3605,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: src/web_ui
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -3411,6 +3632,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: src/web_ui
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -3419,7 +3641,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: src/web_ui
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -3602,6 +3824,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: src/web_ui
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -3617,8 +3840,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: src/web_ui
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -3641,8 +3892,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: src/web_ui
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -3688,11 +3942,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: src/web_ui
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -3708,14 +3964,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: src/web_ui
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -3774,6 +4034,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: sr
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -3789,9 +4050,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: sr
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -3814,6 +4077,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: sr
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -3822,7 +4086,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: sr
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -4005,6 +4269,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: sr
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -4020,8 +4285,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: sr
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -4044,8 +4337,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: sr
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -4091,11 +4387,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: sr
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -4111,14 +4409,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: sr
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -4181,6 +4483,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o: src/w
   src/types/uuid.hpp \
   src/dtos/LessonDTO.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Branch.hpp \
   src/types/uuid.hpp \
   src/web_ui/WebApplication.hpp \
@@ -4190,6 +4493,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o: src/w
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -4204,6 +4508,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o: src/w
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
   src/models/Attendance.hpp \
@@ -4228,6 +4533,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o: src/w
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -4236,7 +4542,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o: src/w
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -4419,6 +4725,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o: src/w
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -4434,8 +4741,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o: src/w
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -4458,8 +4793,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o: src/w
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -4505,11 +4843,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o: src/w
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -4525,14 +4865,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o: src/w
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -4606,6 +4950,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o: src/web_ui/view
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -4621,9 +4966,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o: src/web_ui/view
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -4646,6 +4993,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o: src/web_ui/view
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -4654,7 +5002,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o: src/web_ui/view
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -4840,6 +5188,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o: src/web_ui/view
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -4855,8 +5204,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o: src/web_ui/view
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -4879,8 +5256,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o: src/web_ui/view
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -4926,11 +5306,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o: src/web_ui/view
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -4946,14 +5328,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o: src/web_ui/view
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -5022,6 +5408,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: src/web_ui/vie
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -5037,9 +5424,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: src/web_ui/vie
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -5062,6 +5451,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: src/web_ui/vie
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -5070,7 +5460,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: src/web_ui/vie
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -5253,6 +5643,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: src/web_ui/vie
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -5268,8 +5659,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: src/web_ui/vie
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -5292,8 +5711,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: src/web_ui/vie
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -5339,11 +5761,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: src/web_ui/vie
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -5359,14 +5783,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: src/web_ui/vie
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -5436,6 +5864,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o: src/we
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Lesson.hpp \
@@ -5450,9 +5879,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o: src/we
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -5475,6 +5906,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o: src/we
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -5483,7 +5915,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o: src/we
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -5666,6 +6098,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o: src/we
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -5681,8 +6114,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o: src/we
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -5705,8 +6166,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o: src/we
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -5752,11 +6216,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o: src/we
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -5772,14 +6238,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o: src/we
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -5851,6 +6321,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o:
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -5864,9 +6335,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o:
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -5889,6 +6362,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o:
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -5897,7 +6371,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o:
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -6080,6 +6554,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o:
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -6095,8 +6570,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o:
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -6119,8 +6622,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o:
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -6166,11 +6672,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o:
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -6186,14 +6694,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o:
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -6254,6 +6766,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: src/web
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -6269,9 +6782,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: src/web
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -6294,6 +6809,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: src/web
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -6302,7 +6818,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: src/web
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -6485,6 +7001,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: src/web
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -6500,8 +7017,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: src/web
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -6524,8 +7069,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: src/web
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -6571,11 +7119,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: src/web
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -6591,14 +7141,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: src/web
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -6668,6 +7222,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: src
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -6681,9 +7236,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: src
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -6706,6 +7263,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: src
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -6714,7 +7272,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: src
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -6897,6 +7455,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: src
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -6912,8 +7471,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: src
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -6936,8 +7523,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: src
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -6983,11 +7573,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: src
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -7003,14 +7595,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: src
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -7078,6 +7674,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_u
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
   src/models/Client.hpp \
+  src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
   src/models/Enrollment.hpp \
@@ -7093,9 +7690,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_u
   src/dtos/SubscriptionDTO.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
+  src/models/TimeSlot.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
+  src/models/Address.hpp \
   src/models/Attendance.hpp \
   src/models/Booking.hpp \
   src/models/Branch.hpp \
@@ -7118,6 +7717,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_u
   src/repositories/ISubscriptionRepository.hpp \
   src/repositories/ISubscriptionTypeRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
+  src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
@@ -7126,7 +7726,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_u
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
-  src/services/exceptions/AuthException.hpp \
+  src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
@@ -7311,6 +7911,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_u
   /usr/include/c++/13/sstream \
   /usr/include/c++/13/stack \
   /usr/include/c++/13/stdexcept \
+  /usr/include/c++/13/stdlib.h \
   /usr/include/c++/13/streambuf \
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
@@ -7326,8 +7927,36 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_u
   /usr/include/features-time64.h \
   /usr/include/features.h \
   /usr/include/libintl.h \
+  /usr/include/limits.h \
   /usr/include/linux/errno.h \
+  /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/openssl/asn1.h \
+  /usr/include/openssl/asn1err.h \
+  /usr/include/openssl/bio.h \
+  /usr/include/openssl/bioerr.h \
+  /usr/include/openssl/bn.h \
+  /usr/include/openssl/bnerr.h \
+  /usr/include/openssl/core.h \
+  /usr/include/openssl/core_dispatch.h \
+  /usr/include/openssl/crypto.h \
+  /usr/include/openssl/cryptoerr.h \
+  /usr/include/openssl/cryptoerr_legacy.h \
+  /usr/include/openssl/e_os2.h \
+  /usr/include/openssl/evp.h \
+  /usr/include/openssl/evperr.h \
+  /usr/include/openssl/macros.h \
+  /usr/include/openssl/obj_mac.h \
+  /usr/include/openssl/objects.h \
+  /usr/include/openssl/objectserr.h \
+  /usr/include/openssl/opensslv.h \
+  /usr/include/openssl/params.h \
+  /usr/include/openssl/rand.h \
+  /usr/include/openssl/randerr.h \
+  /usr/include/openssl/safestack.h \
+  /usr/include/openssl/stack.h \
+  /usr/include/openssl/symhacks.h \
+  /usr/include/openssl/types.h \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
@@ -7350,8 +7979,11 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_u
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
+  /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
+  /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -7397,11 +8029,13 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_u
   /usr/include/x86_64-linux-gnu/bits/types/wint_t.h \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wctype-wchar.h \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
+  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
@@ -7417,14 +8051,18 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_u
   /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs-64.h \
   /usr/include/x86_64-linux-gnu/gnu/stubs.h \
+  /usr/include/x86_64-linux-gnu/openssl/configuration.h \
+  /usr/include/x86_64-linux-gnu/openssl/opensslconf.h \
   /usr/include/x86_64-linux-gnu/sys/cdefs.h \
   /usr/include/x86_64-linux-gnu/sys/select.h \
   /usr/include/x86_64-linux-gnu/sys/single_threaded.h \
   /usr/include/x86_64-linux-gnu/sys/time.h \
   /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h \
+  /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h \
   /usr/local/include/Wt/Core/observable.hpp \
   /usr/local/include/Wt/Core/observable_impl.hpp \
   /usr/local/include/Wt/Core/observing_ptr.hpp \
@@ -7481,1038 +8119,1132 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_u
 
 src/web_ui/views/SubscriptionListWidget.hpp:
 
-src/web_ui/views/SubscriptionListWidget.cpp:
+src/web_ui/views/PurchaseSubscriptionWidget.hpp:
 
 src/web_ui/views/MyEnrollmentsWidget.cpp:
+
+src/web_ui/views/LoginWidget.cpp:
+
+src/web_ui/views/MyEnrollmentsWidget.hpp:
+
+src/web_ui/views/LessonView.cpp:
+
+src/web_ui/views/LessonScheduleWidget.hpp:
 
 src/web_ui/views/LessonScheduleWidget.cpp:
 
 src/web_ui/views/EnrollmentHistoryWidget.cpp:
 
+src/web_ui/views/ClientDashboard.cpp:
+
 src/web_ui/views/BookingView.cpp:
-
-/usr/local/include/Wt/WTableRow.h:
-
-/usr/local/include/Wt/WTableCell.h:
 
 /usr/local/include/Wt/WTable.h:
 
+src/web_ui/views/BookingListWidget.cpp:
+
 /usr/local/include/Wt/WPopupWidget.h:
-
-/usr/local/include/Wt/WDialog.h:
-
-/usr/local/include/Wt/WDateValidator.h:
-
-/usr/local/include/Wt/WDateTime.h:
-
-/usr/local/include/Wt/WCompositeWidget.h:
-
-/usr/local/include/Wt/WCalendar.h:
-
-src/web_ui/views/BookingCreateWidget.cpp:
-
-src/web_ui/models/UserSession.cpp:
-
-src/web_ui/controllers/BookingController.cpp:
-
-src/web_ui/controllers/AuthController.cpp:
-
-/usr/local/include/Wt/WWidget.h:
-
-/usr/local/include/Wt/WText.h:
-
-/usr/local/include/Wt/WStackedValidator.h:
-
-/usr/local/include/Wt/WSignal.h:
-
-/usr/local/include/Wt/WPushButton.h:
-
-/usr/local/include/Wt/WPasswordEdit.h:
-
-/usr/local/include/Wt/WMessageResourceBundle.h:
-
-/usr/local/include/Wt/WLogSink.h:
-
-/usr/local/include/Wt/WJavaScriptSlot.h:
-
-src/web_ui/views/PurchaseSubscriptionWidget.hpp:
-
-/usr/local/include/Wt/WJavaScript.h:
-
-/usr/local/include/Wt/WCssStyleSheet.h:
-
-/usr/local/include/Wt/WConfig.h:
-
-/usr/local/include/Wt/WColor.h:
-
-/usr/local/include/Wt/WBorder.h:
-
-src/web_ui/views/PurchaseSubscriptionWidget.cpp:
-
-/usr/local/include/Wt/WApplication.h:
-
-/usr/local/include/Wt/WAnimation.h:
-
-/usr/local/include/Wt/WFont.h:
-
-/usr/local/include/Wt/WAnchor.h:
-
-/usr/local/include/Wt/Http/Message.h:
-
-/usr/local/include/Wt/Core/observing_ptr_impl.hpp:
-
-/usr/local/include/Wt/Core/observable_impl.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
-
-/usr/include/x86_64-linux-gnu/sys/time.h:
-
-/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
-
-/usr/include/x86_64-linux-gnu/sys/cdefs.h:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs.h:
-
-/usr/local/include/Wt/WStackedWidget.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h:
-
-/usr/local/include/Wt/WFlags.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
-
-src/web_ui/controllers/LessonController.cpp:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h:
-
-/usr/include/x86_64-linux-gnu/bits/wordsize.h:
-
-/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
-
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
-
-/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
-
-/usr/local/include/Wt/WLogger.h:
-
-/usr/include/x86_64-linux-gnu/bits/typesizes.h:
-
-/usr/local/include/Wt/Signals/signals.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
-
-/usr/local/include/Wt/WPasswordValidator.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
-
-/usr/local/include/Wt/WTableColumn.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
-
-src/web_ui/views/LoginWidget.cpp:
-
-/usr/include/x86_64-linux-gnu/bits/types.h:
-
-/usr/local/include/Wt/WBreak.h:
-
-/usr/include/x86_64-linux-gnu/bits/time64.h:
-
-/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
-
-/usr/local/include/Wt/WObject.h:
-
-/usr/include/x86_64-linux-gnu/bits/timex.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
-
-/usr/include/x86_64-linux-gnu/bits/time.h:
-
-/usr/include/x86_64-linux-gnu/bits/select.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
-
-/usr/include/x86_64-linux-gnu/bits/floatn.h:
-
-/usr/include/x86_64-linux-gnu/bits/byteswap.h:
-
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
-src/web_ui/views/BookingCreateWidget.hpp:
-
-/usr/include/x86_64-linux-gnu/asm/errno.h:
-
-/usr/include/x86_64-linux-gnu/bits/setjmp.h:
-
-/usr/include/time.h:
-
-/usr/include/string.h:
-
-/usr/include/stdlib.h:
-
-src/web_ui/views/ClientDashboard.cpp:
-
-/usr/include/wctype.h:
-
-/usr/include/sched.h:
-
-/usr/include/pthread.h:
-
-/usr/include/pqxx/util.hxx:
-
-/usr/include/pqxx/transaction_base.hxx:
-
-/usr/include/pqxx/time.hxx:
-
-/usr/include/pqxx/stream_to.hxx:
-
-/usr/include/pqxx/stream_from.hxx:
-
-/usr/include/x86_64-linux-gnu/sys/types.h:
-
-/usr/include/pqxx/strconv.hxx:
-
-/usr/include/pqxx/separated_list.hxx:
-
-/usr/include/pqxx/robusttransaction.hxx:
-
-/usr/local/include/Wt/WValidator.h:
-
-/usr/include/pqxx/result.hxx:
-
-/usr/include/pqxx/prepared_statement.hxx:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h:
-
-/usr/include/pqxx/pqxx:
-
-/usr/include/pqxx/params.hxx:
-
-/usr/include/pqxx/notification.hxx:
-
-src/web_ui/controllers/SubscriptionController.cpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
-
-/usr/include/pqxx/largeobject.hxx:
-
-/usr/include/pqxx/isolation.hxx:
-
-src/web_ui/views/MyEnrollmentsWidget.hpp:
-
-/usr/include/pqxx/internal/stream_query_impl.hxx:
-
-/usr/include/pqxx/internal/stream_iterator.hxx:
-
-/usr/local/include/Wt/WLocalizedStrings.h:
-
-/usr/include/pqxx/internal/statement_parameters.hxx:
-
-/usr/include/pqxx/transactor.hxx:
-
-/usr/include/pqxx/internal/result_iterator.hxx:
-
-/usr/include/pqxx/internal/libpq-forward.hxx:
-
-/usr/include/pqxx/internal/header-pre.hxx:
-
-/usr/local/include/Wt/WRegExpValidator.h:
-
-/usr/include/pqxx/internal/header-post.hxx:
-
-/usr/local/include/Wt/WLocale.h:
-
-/usr/include/pqxx/internal/gates/connection-stream_from.hxx:
-
-/usr/include/pqxx/nontransaction.hxx:
-
-/usr/include/pqxx/internal/encoding_group.hxx:
-
-/usr/include/x86_64-linux-gnu/bits/locale.h:
-
-/usr/include/pqxx/internal/cxx-features.hxx:
-
-/usr/include/pqxx/internal/callgate.hxx:
-
-/usr/include/pqxx/field.hxx:
-
-/usr/include/pqxx/except.hxx:
-
-/usr/include/pqxx/errorhandler.hxx:
-
-/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
-
-/usr/include/pqxx/internal/ignore-deprecated-pre.hxx:
-
-/usr/include/pqxx/dbtransaction.hxx:
-
-/usr/include/pqxx/connection.hxx:
-
-/usr/include/pqxx/composite.hxx:
-
-/usr/include/pqxx/array.hxx:
-
-/usr/include/locale.h:
-
-/usr/include/libintl.h:
-
-/usr/include/features-time64.h:
-
-/usr/include/errno.h:
-
-/usr/include/stdint.h:
-
-/usr/include/endian.h:
-
-/usr/include/ctype.h:
-
-/usr/include/c++/13/version:
-
-/usr/include/c++/13/vector:
-
-src/web_ui/views/LessonView.cpp:
-
-/usr/include/c++/13/variant:
-
-/usr/include/c++/13/type_traits:
-
-/usr/local/include/Wt/WLink.h:
-
-/usr/include/c++/13/bits/atomic_base.h:
-
-/usr/include/c++/13/bits/uses_allocator_args.h:
-
-/usr/include/c++/13/bits/move.h:
-
-/usr/include/c++/13/bits/locale_facets_nonio.tcc:
-
-/usr/include/pqxx/binarystring.hxx:
-
-src/repositories/IEnrollmentRepository.hpp:
-
-src/web_ui/views/EnrollmentHistoryWidget.hpp:
-
-/usr/include/pqxx/cursor.hxx:
-
-/usr/include/c++/13/clocale:
-
-src/web_ui/views/BookingListWidget.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
-
-/usr/include/c++/13/bits/hashtable.h:
-
-/usr/local/include/Wt/WStringStream.h:
-
-/usr/include/c++/13/bits/functional_hash.h:
-
-/usr/include/c++/13/bits/functexcept.h:
-
-/usr/include/c++/13/bits/fs_path.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
-
-/usr/include/c++/13/bits/charconv.h:
-
-/usr/include/x86_64-linux-gnu/bits/endian.h:
-
-src/dtos/EnrollmentDTO.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/errno.h:
-
-/usr/include/c++/13/bits/stl_pair.h:
 
 /usr/local/include/Wt/WMessageBox.h:
 
-/usr/include/c++/13/cstdio:
+/usr/include/c++/13/pstl/glue_numeric_defs.h:
 
-/usr/include/pqxx/config-public-compiler.h:
+/usr/include/c++/13/exception:
 
-/usr/include/c++/13/bits/fs_ops.h:
+/usr/include/c++/13/memory:
 
-/usr/include/x86_64-linux-gnu/bits/timesize.h:
+/usr/include/c++/13/list:
 
-/usr/include/c++/13/bits/locale_classes.h:
+/usr/include/c++/13/ext/alloc_traits.h:
 
-/usr/include/c++/13/bits/exception_ptr.h:
+/usr/include/c++/13/limits:
 
-/usr/include/c++/13/bits/locale_conv.h:
+/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
-/usr/include/c++/13/bits/istream.tcc:
+/usr/local/include/Wt/WComboBox.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+/usr/include/c++/13/iterator:
 
-/usr/include/c++/13/bits/stl_multimap.h:
+/usr/include/c++/13/bits/ios_base.h:
 
-/usr/include/c++/13/bits/localefwd.h:
+/usr/include/c++/13/istream:
 
-/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+/usr/include/c++/13/bits/std_thread.h:
 
-/usr/include/c++/13/bits/exception_defines.h:
+/usr/include/uuid/uuid.h:
 
-/usr/include/c++/13/bits/cxxabi_forced.h:
+/usr/local/include/Wt/WDateEdit.h:
 
-src/services/AuthService.hpp:
+/usr/include/c++/13/functional:
 
-/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+/usr/include/c++/13/ext/string_conversions.h:
 
-src/services/SubscriptionService.hpp:
+/usr/include/openssl/rand.h:
 
-/usr/include/x86_64-linux-gnu/bits/endianness.h:
+/usr/include/c++/13/pstl/glue_algorithm_defs.h:
 
-/usr/include/c++/13/bits/chrono.h:
+/usr/include/c++/13/ext/concurrence.h:
 
-/usr/include/c++/13/bits/basic_ios.tcc:
+/usr/include/pqxx/types.hxx:
 
-/usr/include/c++/13/pstl/execution_defs.h:
+/usr/include/c++/13/cwchar:
 
-/usr/include/c++/13/bits/atomic_lockfree_defines.h:
+/usr/local/include/Wt/Core/observable.hpp:
 
-/usr/include/c++/13/bits/concept_check.h:
+/usr/include/c++/13/filesystem:
 
-/usr/include/c++/13/bits/alloc_traits.h:
+/usr/include/c++/13/compare:
 
-/usr/include/c++/13/unordered_map:
+/usr/include/c++/13/ctime:
 
-/usr/include/c++/13/bits/allocator.h:
+/usr/include/c++/13/codecvt:
 
-/usr/include/c++/13/bits/stl_bvector.h:
+/usr/include/c++/13/chrono:
 
-/usr/include/pqxx/internal/encodings.hxx:
+/usr/include/c++/13/backward/binders.h:
 
-/usr/include/c++/13/bits/allocated_ptr.h:
+/usr/include/openssl/obj_mac.h:
 
-/usr/include/c++/13/bit:
+/usr/local/include/Wt/WLineEdit.h:
 
-/usr/include/c++/13/bits/basic_string.tcc:
+/usr/include/c++/13/ext/atomicity.h:
 
-src/models/Lesson.hpp:
+/usr/include/c++/13/deque:
 
-src/web_ui/views/ClientDashboard.hpp:
+/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
-src/repositories/ILessonRepository.hpp:
+/usr/include/c++/13/cctype:
 
-/usr/include/c++/13/bits/regex.tcc:
+/usr/include/c++/13/bits/cpp_type_traits.h:
+
+/usr/include/c++/13/bitset:
+
+/usr/include/c++/13/bits/vector.tcc:
+
+/usr/include/c++/13/optional:
+
+/usr/include/c++/13/ostream:
+
+/usr/local/include/Wt/WDllDefs.h:
+
+/usr/include/c++/13/bits/streambuf_iterator.h:
+
+/usr/include/c++/13/bits/streambuf.tcc:
+
+/usr/include/c++/13/bits/stl_vector.h:
+
+/usr/include/c++/13/bits/stl_tree.h:
+
+/usr/include/c++/13/bits/codecvt.h:
+
+/usr/include/c++/13/bits/uniform_int_dist.h:
+
+/usr/include/c++/13/bits/locale_classes.tcc:
+
+/usr/include/pqxx/internal/concat.hxx:
+
+/usr/include/pqxx/internal/conversions.hxx:
+
+/usr/include/c++/13/bits/stl_set.h:
+
+/usr/include/c++/13/system_error:
+
+/usr/include/c++/13/bits/ostream_insert.h:
+
+src/dtos/AuthDTO.hpp:
+
+/usr/include/c++/13/bits/stl_relops.h:
+
+/usr/include/c++/13/stack:
+
+/usr/include/c++/13/bits/stl_raw_storage_iter.h:
+
+/usr/include/c++/13/bits/stl_iterator_base_types.h:
+
+/usr/include/c++/13/bits/regex_compiler.h:
+
+/usr/include/c++/13/utility:
+
+/usr/include/c++/13/bits/utility.h:
+
+/usr/include/c++/13/bits/stl_deque.h:
+
+/usr/include/c++/13/bits/stl_algobase.h:
+
+/usr/include/c++/13/cstddef:
+
+/usr/include/c++/13/bits/stl_algo.h:
+
+/usr/include/c++/13/bits/stl_construct.h:
+
+/usr/include/limits.h:
+
+/usr/include/c++/13/cstdlib:
+
+/usr/include/c++/13/bits/regex_scanner.h:
+
+/usr/include/c++/13/regex:
+
+/usr/include/c++/13/cstdint:
+
+/usr/include/pqxx/internal/ignore-deprecated-post.hxx:
+
+/usr/include/c++/13/bits/std_function.h:
+
+/usr/include/c++/13/bits/char_traits.h:
+
+/usr/include/pqxx/subtransaction.hxx:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
+
+/usr/include/c++/13/ratio:
+
+/usr/include/linux/limits.h:
+
+/usr/include/openssl/cryptoerr.h:
+
+/usr/include/c++/13/bits/sstream.tcc:
+
+src/repositories/impl/PostgreSQLTrainerRepository.hpp:
+
+src/web_ui/views/PurchaseSubscriptionWidget.cpp:
+
+/usr/include/c++/13/bits/shared_ptr_base.h:
+
+/usr/local/include/Wt/WCssDecorationStyle.h:
+
+/usr/include/c++/13/bits/new_allocator.h:
 
 src/web_ui/views/RegistrationWidget.cpp:
 
-/usr/include/c++/13/atomic:
+/usr/include/c++/13/bits/stl_tempbuf.h:
 
-/usr/include/c++/13/backward/auto_ptr.h:
+/usr/include/c++/13/bits/regex_executor.tcc:
 
-src/models/Client.hpp:
-
-/usr/include/assert.h:
-
-/usr/include/c++/13/bits/hash_bytes.h:
-
-/usr/include/c++/13/array:
-
-/usr/include/alloca.h:
-
-src/web_ui/views/SubscriptionView.hpp:
-
-/usr/include/c++/13/algorithm:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
-
-src/web_ui/views/LoginWidget.hpp:
-
-src/data/DateTimeUtils.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-least.h:
-
-src/web_ui/models/UserSession.hpp:
-
-/usr/local/include/Wt/WString.h:
-
-/usr/local/include/Wt/WException.h:
-
-/usr/include/c++/13/bits/basic_string.h:
-
-/usr/include/c++/13/ciso646:
-
-/usr/include/c++/13/typeinfo:
-
-src/models/SubscriptionType.hpp:
-
-/usr/include/c++/13/new:
-
-/usr/include/c++/13/bits/memoryfwd.h:
-
-/usr/include/c++/13/bits/fs_fwd.h:
-
-src/repositories/impl/PostgreSQLBranchRepository.hpp:
-
-/usr/include/c++/13/bits/align.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
-
-/usr/include/c++/13/bits/unique_ptr.h:
-
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
-
-/usr/include/c++/13/bits/algorithmfwd.h:
-
-/usr/local/include/Wt/WDate.h:
-
-src/models/Branch.hpp:
-
-src/models/Enrollment.hpp:
-
-src/repositories/ISubscriptionTypeRepository.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
-
-src/models/Booking.hpp:
-
-/usr/include/c++/13/bits/locale_facets.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
-
-/usr/include/c++/13/bits/requires_hosted.h:
-
-src/web_ui/views/LessonView.hpp:
-
-src/data/SqlQueryBuilder.hpp:
-
-/usr/include/c++/13/bits/regex_automaton.tcc:
-
-src/repositories/IBranchRepository.hpp:
-
-/usr/include/c++/13/bits/fs_dir.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
-
-/usr/include/c++/13/sstream:
-
-src/dtos/BookingDTO.hpp:
-
-src/web_ui/views/SubscriptionView.cpp:
-
-src/services/exceptions/ValidationException.hpp:
-
-/usr/local/include/Wt/WLength.h:
-
-src/web_ui/WebApplication.cpp:
-
-/usr/include/pqxx/internal/sql_cursor.hxx:
-
-src/services/LessonService.hpp:
-
-/usr/include/c++/13/bits/hashtable_policy.h:
-
-src/models/Subscription.hpp:
-
-src/services/exceptions/AuthException.hpp:
-
-src/services/exceptions/EnrollmentException.hpp:
-
-/usr/local/include/Wt/Http/Request.h:
-
-/usr/include/c++/13/bits/locale_facets.h:
-
-src/data/DatabaseConnection.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
-
-/usr/include/c++/13/bits/string_view.tcc:
-
-src/dtos/LessonDTO.hpp:
-
-/usr/include/pqxx/row.hxx:
-
-/usr/include/c++/13/cstring:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
-
-/usr/include/asm-generic/errno.h:
-
-/usr/include/asm-generic/errno-base.h:
-
-/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
-
-/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
-
-src/services/EnrollmentService.hpp:
-
-/usr/include/pqxx/zview.hxx:
-
-/usr/include/c++/13/bits/erase_if.h:
-
-/usr/include/c++/13/bits/stl_list.h:
-
-/usr/include/c++/13/debug/assertions.h:
-
-src/models/TimeSlot.hpp:
-
-/usr/include/c++/13/bits/invoke.h:
-
-/usr/include/c++/13/bits/exception.h:
-
-/usr/include/c++/13/bits/memory_resource.h:
-
-/usr/include/c++/13/streambuf:
-
-/usr/include/c++/13/bits/cxxabi_init_exception.h:
-
-src/repositories/IClientRepository.hpp:
-
-/usr/include/pqxx/transaction.hxx:
-
-src/data/exceptions/DataAccessException.hpp:
-
-/usr/local/include/Wt/WWebWidget.h:
-
-src/repositories/impl/PostgreSQLAttendanceRepository.hpp:
-
-/usr/include/pqxx/internal/result_iter.hxx:
-
-/usr/include/c++/13/cerrno:
-
-/usr/include/features.h:
-
-src/web_ui/WebApplication.hpp:
-
-src/repositories/impl/PostgreSQLBookingRepository.hpp:
-
-/usr/include/c++/13/bits/locale_facets_nonio.h:
-
-/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
-
-src/web_ui/controllers/SubscriptionController.hpp:
-
-src/repositories/impl/PostgreSQLDanceHallRepository.hpp:
-
-/usr/include/c++/13/bits/deque.tcc:
-
-src/models/Trainer.hpp:
-
-src/repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp:
-
-/usr/include/c++/13/bits/range_access.h:
-
-src/web_ui/views/BookingListWidget.cpp:
-
-src/repositories/impl/PostgreSQLClientRepository.hpp:
-
-src/repositories/impl/PostgreSQLLessonRepository.hpp:
-
-src/types/enums.hpp:
-
-src/repositories/ISubscriptionRepository.hpp:
-
-src/repositories/impl/PostgreSQLSubscriptionRepository.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
-
-src/repositories/IAttendanceRepository.hpp:
-
-/usr/include/stdc-predef.h:
-
-src/models/Attendance.hpp:
-
-/usr/include/pqxx/range.hxx:
-
-/usr/include/c++/13/bits/unique_lock.h:
-
-/usr/include/c++/13/mutex:
-
-src/models/DanceHall.hpp:
-
-/usr/include/pqxx/transaction_focus.hxx:
-
-/usr/include/c++/13/bits/enable_special_members.h:
-
-/usr/include/pqxx/version.hxx:
-
-/usr/include/c++/13/bits/stream_iterator.h:
-
-/usr/include/pqxx/internal/array-composite.hxx:
-
-src/repositories/IBookingRepository.hpp:
-
-src/services/BookingService.hpp:
-
-/usr/include/c++/13/bits/shared_ptr_atomic.h:
-
-/usr/include/c++/13/set:
-
-src/services/exceptions/BookingException.hpp:
-
-src/repositories/ITrainerRepository.hpp:
-
-src/types/uuid.hpp:
-
-/usr/include/c++/13/bits/stl_numeric.h:
-
-src/web_ui/controllers/LessonController.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/sched.h:
-
-src/web_ui/views/BookingView.hpp:
-
-src/repositories/IDanceHallRepository.hpp:
-
-src/services/BranchService.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
-
-/usr/include/c++/13/bits/stl_iterator.h:
-
-/usr/include/c++/13/ext/numeric_traits.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
-
-/usr/include/c++/13/string:
-
-/usr/local/include/Wt/WFormWidget.h:
-
-/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
-
-src/services/IBranchService.hpp:
-
-src/web_ui/controllers/BookingController.hpp:
-
-/usr/local/include/Wt/WGlobal.h:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
-
-/usr/include/c++/13/bits/node_handle.h:
-
-/usr/include/c++/13/bits/ostream.tcc:
-
-/usr/local/include/Wt/WJavaScriptPreamble.h:
-
-/usr/local/include/Wt/Core/observing_ptr.hpp:
-
-/usr/include/c++/13/bits/postypes.h:
-
-/usr/include/c++/13/bits/parse_numbers.h:
-
-/usr/include/c++/13/bits/std_abs.h:
-
-/usr/include/c++/13/bits/stl_multiset.h:
-
-/usr/include/c++/13/bits/uses_allocator.h:
-
-/usr/include/strings.h:
-
-/usr/include/c++/13/iomanip:
-
-/usr/include/c++/13/bits/predefined_ops.h:
-
-src/web_ui/views/LessonScheduleWidget.hpp:
-
-/usr/include/c++/13/iosfwd:
-
-/usr/include/c++/13/bits/ptr_traits.h:
-
-/usr/include/c++/13/bits/quoted_string.h:
-
-/usr/include/c++/13/tuple:
-
-/usr/include/c++/13/bits/list.tcc:
-
-/usr/include/c++/13/bits/nested_exception.h:
-
-/usr/include/c++/13/bits/regex_executor.h:
-
-/usr/include/c++/13/bits/unordered_map.h:
-
-/usr/include/c++/13/bits/refwrap.h:
-
-/usr/include/c++/13/bits/regex.h:
-
-/usr/local/include/Wt/WInteractWidget.h:
-
-/usr/local/include/Wt/WEvent.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
-
-/usr/include/c++/13/bits/regex_compiler.tcc:
-
-/usr/local/include/Wt/WEnvironment.h:
-
-/usr/include/c++/13/bits/regex_constants.h:
+/usr/include/c++/13/bits/regex_error.h:
 
 /usr/include/c++/13/bits/basic_ios.h:
 
 src/repositories/impl/PostgreSQLEnrollmentRepository.hpp:
 
-/usr/include/c++/13/bits/regex_error.h:
-
-/usr/include/c++/13/bits/regex_executor.tcc:
-
-/usr/include/c++/13/bits/stl_map.h:
-
-/usr/include/c++/13/bits/new_allocator.h:
-
-/usr/include/c++/13/bits/stl_uninitialized.h:
-
-/usr/local/include/Wt/WCssDecorationStyle.h:
-
-/usr/include/c++/13/locale:
-
-/usr/include/c++/13/bits/shared_ptr.h:
-
-/usr/include/wchar.h:
-
-/usr/include/c++/13/bits/shared_ptr_base.h:
-
-src/repositories/impl/PostgreSQLTrainerRepository.hpp:
-
-/usr/include/c++/13/bits/sstream.tcc:
-
-/usr/include/c++/13/cwctype:
-
-/usr/include/c++/13/ratio:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
-
-/usr/include/pqxx/subtransaction.hxx:
-
-/usr/include/c++/13/bits/char_traits.h:
-
-/usr/include/c++/13/bits/std_function.h:
-
-/usr/include/pqxx/internal/ignore-deprecated-post.hxx:
-
-src/web_ui/views/RegistrationWidget.hpp:
-
-/usr/include/c++/13/cstdint:
-
-src/web_ui/controllers/AuthController.hpp:
-
-/usr/include/c++/13/bits/regex_scanner.h:
-
-/usr/include/c++/13/cstdlib:
-
-src/dtos/SubscriptionDTO.hpp:
-
-/usr/include/c++/13/bits/std_mutex.h:
-
-/usr/include/c++/13/bits/stl_construct.h:
-
-/usr/include/c++/13/bits/stl_algo.h:
-
-/usr/include/c++/13/cstddef:
-
-/usr/include/c++/13/regex:
-
-/usr/include/c++/13/bits/stl_algobase.h:
-
-/usr/include/c++/13/bits/stl_deque.h:
-
-/usr/include/c++/13/bits/stl_function.h:
-
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
-
-/usr/include/c++/13/bits/utility.h:
-
-/usr/include/c++/13/utility:
-
-/usr/include/c++/13/bits/stl_heap.h:
-
-/usr/include/stdio.h:
-
-/usr/include/c++/13/bits/regex_compiler.h:
-
-/usr/include/c++/13/bits/stl_iterator_base_types.h:
-
-/usr/include/c++/13/bits/stl_raw_storage_iter.h:
-
-/usr/include/c++/13/stack:
-
-/usr/include/c++/13/bits/stl_relops.h:
-
-/usr/include/pqxx/internal/stream_query.hxx:
-
-src/dtos/AuthDTO.hpp:
-
-/usr/include/c++/13/bits/ostream_insert.h:
-
-/usr/include/c++/13/bits/stl_set.h:
-
-/usr/include/pqxx/internal/conversions.hxx:
-
-/usr/include/pqxx/internal/concat.hxx:
-
-/usr/include/c++/13/bits/stl_stack.h:
-
-/usr/include/c++/13/bits/stringfwd.h:
-
-/usr/include/c++/13/bits/locale_classes.tcc:
-
-/usr/include/c++/13/bits/uniform_int_dist.h:
-
-/usr/include/c++/13/bits/stl_tempbuf.h:
-
-/usr/include/c++/13/bits/codecvt.h:
-
-/usr/include/c++/13/bits/stl_tree.h:
-
-/usr/include/c++/13/bits/stl_vector.h:
-
-/usr/include/c++/13/bits/streambuf.tcc:
-
-/usr/include/c++/13/bits/streambuf_iterator.h:
-
-/usr/local/include/Wt/WDllDefs.h:
-
-/usr/include/c++/13/ostream:
-
-/usr/include/c++/13/optional:
-
-/usr/include/c++/13/bits/vector.tcc:
-
-/usr/local/include/Wt/WTimer.h:
-
-/usr/include/c++/13/bitset:
-
-/usr/include/c++/13/bits/cpp_type_traits.h:
-
-/usr/include/c++/13/cassert:
-
-/usr/include/c++/13/cctype:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
-
-/usr/include/pqxx/blob.hxx:
-
-/usr/include/c++/13/ext/atomicity.h:
-
-/usr/local/include/Wt/WLineEdit.h:
-
-/usr/include/c++/13/backward/binders.h:
-
-/usr/include/c++/13/charconv:
-
-/usr/include/c++/13/chrono:
-
-/usr/include/c++/13/codecvt:
-
-/usr/include/c++/13/ctime:
-
-/usr/include/c++/13/deque:
-
-/usr/include/c++/13/system_error:
-
-/usr/include/c++/13/compare:
-
-/usr/include/c++/13/filesystem:
-
-/usr/include/x86_64-linux-gnu/sys/select.h:
-
-/usr/include/c++/13/cwchar:
-
-/usr/include/linux/errno.h:
-
-/usr/include/c++/13/debug/debug.h:
-
-/usr/include/c++/13/ext/aligned_buffer.h:
-
-/usr/include/pqxx/types.hxx:
-
-/usr/include/c++/13/ext/concurrence.h:
-
-/usr/include/c++/13/pstl/glue_algorithm_defs.h:
-
-/usr/include/c++/13/ext/string_conversions.h:
-
-/usr/include/c++/13/ext/type_traits.h:
-
-/usr/include/c++/13/functional:
-
-/usr/local/include/Wt/WDateEdit.h:
-
-/usr/include/uuid/uuid.h:
-
-/usr/include/pqxx/pipeline.hxx:
-
-/usr/include/c++/13/initializer_list:
+/usr/include/c++/13/bits/regex_constants.h:
 
 /usr/local/include/Wt/WImage.h:
 
-/usr/include/c++/13/ios:
+/usr/include/c++/13/bits/regex_compiler.tcc:
 
-/usr/include/c++/13/iostream:
+/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
-/usr/local/include/Wt/Core/observable.hpp:
-
-/usr/include/c++/13/bits/regex_scanner.tcc:
-
-/usr/include/c++/13/istream:
-
-/usr/include/c++/13/bits/ios_base.h:
-
-/usr/include/c++/13/iterator:
-
-/usr/local/include/Wt/WComboBox.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
-
-/usr/include/c++/13/limits:
-
-/usr/include/c++/13/ext/alloc_traits.h:
-
-/usr/include/c++/13/list:
-
-/usr/include/c++/13/memory:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
-
-/usr/include/c++/13/numeric:
-
-/usr/include/c++/13/exception:
-
-/usr/include/c++/13/pstl/glue_memory_defs.h:
-
-/usr/include/c++/13/pstl/glue_numeric_defs.h:
-
-/usr/include/c++/13/bits/regex_automaton.h:
-
-/usr/include/c++/13/pstl/pstl_config.h:
-
-/usr/local/include/Wt/WContainerWidget.h:
-
-/usr/include/c++/13/stdexcept:
+/usr/local/include/Wt/WEvent.h:
 
 /usr/include/c++/13/map:
 
 /usr/include/c++/13/string_view:
+
+/usr/include/c++/13/bits/refwrap.h:
+
+/usr/include/c++/13/bits/regex_executor.h:
+
+/usr/include/c++/13/bits/quoted_string.h:
+
+/usr/include/c++/13/bits/ptr_traits.h:
+
+/usr/include/c++/13/iosfwd:
+
+/usr/include/wchar.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/c++/13/iomanip:
+
+/usr/include/strings.h:
+
+/usr/include/c++/13/bits/uses_allocator.h:
+
+/usr/include/c++/13/bits/stl_multiset.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/c++/13/bits/std_abs.h:
+
+/usr/include/c++/13/bits/parse_numbers.h:
+
+/usr/include/c++/13/bits/node_handle.h:
+
+/usr/local/include/Wt/WTableCell.h:
+
+/usr/include/c++/13/bits/move.h:
+
+src/models/Trainer.hpp:
+
+/usr/include/c++/13/pstl/glue_memory_defs.h:
+
+/usr/include/c++/13/bits/memory_resource.h:
+
+/usr/include/c++/13/streambuf:
+
+/usr/include/c++/13/ext/numeric_traits.h:
+
+/usr/include/c++/13/bits/stl_iterator.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
+
+src/repositories/IDanceHallRepository.hpp:
+
+src/web_ui/views/BookingView.hpp:
+
+/usr/include/c++/13/bits/stl_numeric.h:
+
+src/types/uuid.hpp:
+
+src/repositories/ITrainerRepository.hpp:
+
+src/web_ui/views/SubscriptionListWidget.cpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
+
+src/services/exceptions/BookingException.hpp:
+
+/usr/include/c++/13/bits/shared_ptr.h:
+
+src/services/BookingService.hpp:
+
+src/repositories/IBookingRepository.hpp:
+
+/usr/include/pqxx/internal/array-composite.hxx:
+
+/usr/include/c++/13/bits/stream_iterator.h:
+
+/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
+
+/usr/include/c++/13/bits/enable_special_members.h:
+
+/usr/include/pqxx/transaction_focus.hxx:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+src/services/IBranchService.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+/usr/local/include/Wt/WFormWidget.h:
+
+src/models/TimeSlot.hpp:
+
+/usr/include/c++/13/cwctype:
+
+/usr/include/c++/13/ciso646:
+
+/usr/local/include/Wt/WJavaScriptPreamble.h:
+
+/usr/include/c++/13/bits/basic_string.h:
+
+/usr/local/include/Wt/WException.h:
+
+/usr/local/include/Wt/WString.h:
+
+src/models/Branch.hpp:
+
+/usr/local/include/Wt/WDate.h:
+
+src/models/Enrollment.hpp:
+
+/usr/include/c++/13/new:
+
+src/models/SubscriptionType.hpp:
+
+/usr/local/include/Wt/WGlobal.h:
+
+/usr/include/c++/13/typeinfo:
+
+/usr/include/c++/13/mutex:
+
+/usr/include/pqxx/range.hxx:
+
+src/web_ui/views/EnrollmentHistoryWidget.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+
+src/repositories/impl/PostgreSQLSubscriptionRepository.hpp:
+
+src/types/enums.hpp:
+
+/usr/include/c++/13/bits/range_access.h:
+
+src/repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp:
+
+/usr/include/c++/13/bits/deque.tcc:
+
+src/repositories/impl/PostgreSQLBookingRepository.hpp:
+
+src/web_ui/WebApplication.hpp:
+
+src/models/Address.hpp:
+
+/usr/include/endian.h:
+
+/usr/include/openssl/evp.h:
+
+/usr/include/stdint.h:
+
+/usr/include/c++/13/bits/stringfwd.h:
+
+/usr/include/c++/13/cerrno:
+
+/usr/include/c++/13/bits/invoke.h:
+
+src/repositories/impl/PostgreSQLAttendanceRepository.hpp:
+
+/usr/local/include/Wt/WWebWidget.h:
+
+src/data/exceptions/DataAccessException.hpp:
+
+/usr/include/pqxx/transaction.hxx:
+
+src/repositories/IClientRepository.hpp:
+
+/usr/include/pqxx/pipeline.hxx:
+
+/usr/include/c++/13/bits/exception.h:
+
+/usr/include/c++/13/debug/assertions.h:
+
+src/web_ui/views/BookingListWidget.hpp:
+
+/usr/include/c++/13/condition_variable:
+
+src/services/EnrollmentService.hpp:
+
+src/repositories/impl/PostgreSQLLessonRepository.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
+
+src/web_ui/views/RegistrationWidget.hpp:
+
+/usr/include/c++/13/bits/stl_iterator_base_funcs.h:
+
+/usr/include/c++/13/iostream:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/c++/13/numeric:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
+
+/usr/include/pqxx/row.hxx:
+
+src/dtos/LessonDTO.hpp:
+
+/usr/include/c++/13/bits/memoryfwd.h:
+
+src/repositories/impl/PostgreSQLClientRepository.hpp:
+
+/usr/include/c++/13/bits/fs_fwd.h:
+
+src/services/LessonService.hpp:
+
+/usr/include/pqxx/internal/sql_cursor.hxx:
+
+src/models/Subscription.hpp:
+
+/usr/include/c++/13/bits/hashtable_policy.h:
+
+/usr/include/x86_64-linux-gnu/bits/cpu-set.h:
+
+/usr/include/c++/13/bits/locale_facets_nonio.h:
+
+/usr/include/c++/13/bits/string_view.tcc:
+
+/usr/include/c++/13/bits/locale_facets.h:
+
+/usr/local/include/Wt/Http/Request.h:
+
+src/dtos/BookingDTO.hpp:
+
+/usr/include/c++/13/pstl/pstl_config.h:
+
+/usr/include/c++/13/bits/regex_automaton.h:
+
+src/core/PasswordHasher.hpp:
+
+/usr/include/c++/13/bits/stl_uninitialized.h:
+
+/usr/include/c++/13/bits/regex_automaton.tcc:
+
+/usr/local/include/Wt/WInteractWidget.h:
+
+src/web_ui/views/LessonView.hpp:
+
+/usr/include/c++/13/bits/requires_hosted.h:
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
+
+/usr/include/c++/13/bits/locale_facets.tcc:
+
+src/models/Booking.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+src/repositories/ISubscriptionTypeRepository.hpp:
+
+/usr/include/c++/13/bits/algorithmfwd.h:
+
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
+
+/usr/include/c++/13/bits/unique_ptr.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+
+/usr/include/c++/13/bits/align.h:
+
+src/repositories/impl/PostgreSQLBranchRepository.hpp:
+
+src/web_ui/WebApplication.cpp:
+
+/usr/local/include/Wt/WLength.h:
+
+src/services/exceptions/ValidationException.hpp:
+
+/usr/include/c++/13/bits/regex_scanner.tcc:
+
+src/web_ui/controllers/LessonController.hpp:
+
+/usr/include/openssl/asn1err.h:
+
+src/web_ui/controllers/SubscriptionController.hpp:
+
+src/web_ui/models/UserSession.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-least.h:
+
+src/repositories/IBranchRepository.hpp:
+
+src/data/DateTimeUtils.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+
+/usr/include/c++/13/algorithm:
+
+src/web_ui/views/SubscriptionView.hpp:
+
+/usr/include/alloca.h:
+
+/usr/include/c++/13/array:
+
+/usr/include/c++/13/bits/hash_bytes.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/pqxx/internal/result_iter.hxx:
+
+src/models/Client.hpp:
+
+/usr/include/c++/13/atomic:
+
+/usr/include/c++/13/bits/regex.tcc:
+
+src/web_ui/views/ClientDashboard.hpp:
+
+src/models/Lesson.hpp:
+
+/usr/include/c++/13/bit:
+
+/usr/include/c++/13/bits/allocated_ptr.h:
+
+/usr/include/pqxx/internal/encodings.hxx:
+
+/usr/local/include/Wt/WTableColumn.h:
+
+/usr/include/c++/13/bits/stl_bvector.h:
+
+/usr/include/c++/13/bits/allocator.h:
+
+/usr/include/pqxx/version.hxx:
+
+/usr/include/c++/13/unordered_map:
+
+/usr/include/pqxx/zview.hxx:
+
+/usr/include/c++/13/bits/uses_allocator_args.h:
+
+/usr/local/include/Wt/WLink.h:
+
+/usr/include/c++/13/bits/alloc_traits.h:
+
+/usr/include/c++/13/bits/concept_check.h:
+
+/usr/include/openssl/symhacks.h:
+
+/usr/include/c++/13/bits/stl_heap.h:
+
+/usr/include/c++/13/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/13/pstl/execution_defs.h:
+
+src/services/BranchService.hpp:
+
+/usr/include/c++/13/bits/basic_ios.tcc:
+
+src/services/TimeZoneService.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
+
+/usr/include/assert.h:
+
+src/services/SubscriptionService.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
+
+src/services/AuthService.hpp:
+
+/usr/include/c++/13/bits/cxxabi_forced.h:
+
+/usr/include/c++/13/bits/shared_ptr_atomic.h:
+
+/usr/include/c++/13/set:
+
+/usr/include/c++/13/bits/exception_defines.h:
+
+/usr/include/c++/13/bits/localefwd.h:
+
+/usr/include/c++/13/bits/stl_multimap.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+
+/usr/include/c++/13/bits/istream.tcc:
+
+src/web_ui/controllers/AuthController.hpp:
+
+/usr/include/c++/13/bits/this_thread_sleep.h:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/c++/13/bits/exception_ptr.h:
+
+/usr/include/c++/13/bits/locale_classes.h:
+
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
+
+/usr/include/c++/13/bits/fs_ops.h:
+
+/usr/include/pqxx/config-public-compiler.h:
+
+/usr/include/c++/13/bits/stl_pair.h:
+
+src/dtos/EnrollmentDTO.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
+
+/usr/include/c++/13/bits/fs_path.h:
+
+/usr/include/c++/13/bits/functional_hash.h:
+
+/usr/include/c++/13/bits/fs_dir.h:
+
+/usr/local/include/Wt/WStringStream.h:
+
+src/services/DatabaseHealthService.hpp:
+
+/usr/include/c++/13/bits/hashtable.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/usr/include/pqxx/cursor.hxx:
+
+/usr/include/pqxx/internal/stream_query.hxx:
+
+src/web_ui/controllers/BookingController.hpp:
+
+src/repositories/IEnrollmentRepository.hpp:
+
+/usr/include/pqxx/binarystring.hxx:
+
+/usr/include/c++/13/bits/locale_facets_nonio.tcc:
+
+src/web_ui/views/LoginWidget.hpp:
+
+/usr/include/c++/13/sstream:
+
+/usr/include/c++/13/clocale:
+
+/usr/include/c++/13/stdexcept:
+
+/usr/local/include/Wt/WContainerWidget.h:
+
+/usr/include/c++/13/stdlib.h:
+
+/usr/include/features.h:
+
+/usr/include/c++/13/string:
+
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
+
+src/models/DanceHall.hpp:
+
+/usr/include/c++/13/thread:
+
+/usr/include/c++/13/bits/atomic_base.h:
+
+/usr/include/c++/13/variant:
+
+/usr/include/c++/13/vector:
+
+/usr/include/c++/13/bits/regex.h:
+
+/usr/include/c++/13/version:
+
+src/services/exceptions/EnrollmentException.hpp:
+
+/usr/include/ctype.h:
+
+/usr/include/errno.h:
+
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+
+/usr/include/libintl.h:
+
+/usr/include/locale.h:
+
+/usr/include/openssl/asn1.h:
+
+src/web_ui/views/SubscriptionView.cpp:
+
+/usr/include/c++/13/bits/stl_function.h:
+
+/usr/include/openssl/bioerr.h:
+
+/usr/include/c++/13/bits/std_mutex.h:
+
+/usr/include/pqxx/field.hxx:
+
+/usr/include/openssl/bn.h:
+
+/usr/include/c++/13/ext/aligned_buffer.h:
+
+/usr/include/openssl/objects.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
+
+/usr/include/c++/13/debug/debug.h:
+
+src/repositories/IAttendanceRepository.hpp:
+
+/usr/include/c++/13/bits/stl_list.h:
+
+/usr/include/openssl/bnerr.h:
+
+/usr/include/openssl/core.h:
+
+/usr/include/openssl/core_dispatch.h:
+
+/usr/include/pqxx/largeobject.hxx:
+
+src/web_ui/controllers/SubscriptionController.cpp:
+
+/usr/include/openssl/crypto.h:
+
+/usr/include/openssl/cryptoerr_legacy.h:
+
+/usr/include/c++/13/bits/unordered_map.h:
+
+/usr/include/openssl/e_os2.h:
+
+/usr/local/include/Wt/WTimer.h:
+
+/usr/include/c++/13/initializer_list:
+
+/usr/include/c++/13/bits/stl_stack.h:
+
+/usr/include/openssl/evperr.h:
+
+/usr/local/include/Wt/WCompositeWidget.h:
+
+/usr/include/c++/13/bits/unique_lock.h:
+
+/usr/include/openssl/objectserr.h:
+
+/usr/include/pqxx/internal/encoding_group.hxx:
+
+src/repositories/ILessonRepository.hpp:
+
+/usr/include/pqxx/nontransaction.hxx:
+
+/usr/include/openssl/params.h:
+
+/usr/include/openssl/randerr.h:
+
+/usr/local/include/Wt/WJavaScriptSlot.h:
+
+/usr/include/openssl/safestack.h:
+
+/usr/local/include/Wt/Core/observing_ptr_impl.hpp:
+
+/usr/include/openssl/types.h:
+
+/usr/include/pqxx/composite.hxx:
+
+/usr/include/pqxx/connection.hxx:
+
+/usr/include/c++/13/bits/nested_exception.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
+
+/usr/include/pqxx/dbtransaction.hxx:
+
+/usr/include/pqxx/internal/ignore-deprecated-pre.hxx:
+
+/usr/include/c++/13/cstdio:
+
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+
+/usr/include/pqxx/errorhandler.hxx:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/pqxx/array.hxx:
+
+/usr/include/pqxx/except.hxx:
+
+/usr/include/pqxx/internal/callgate.hxx:
+
+/usr/include/pqxx/internal/cxx-features.hxx:
+
+/usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/locale.h:
+
+src/models/Attendance.hpp:
+
+/usr/include/pqxx/internal/gates/connection-stream_from.hxx:
+
+src/dtos/SubscriptionDTO.hpp:
+
+/usr/local/include/Wt/WLocale.h:
+
+/usr/include/stdc-predef.h:
+
+/usr/include/pqxx/internal/header-post.hxx:
+
+/usr/local/include/Wt/WRegExpValidator.h:
+
+/usr/include/c++/13/bits/functexcept.h:
+
+/usr/include/pqxx/internal/header-pre.hxx:
+
+/usr/include/x86_64-linux-gnu/bits/local_lim.h:
+
+/usr/include/openssl/stack.h:
+
+/usr/include/pqxx/internal/libpq-forward.hxx:
+
+/usr/include/pqxx/internal/result_iterator.hxx:
+
+/usr/include/pqxx/transactor.hxx:
+
+/usr/local/include/Wt/WLocalizedStrings.h:
+
+/usr/include/pqxx/internal/stream_iterator.hxx:
+
+/usr/include/openssl/macros.h:
+
+/usr/include/pqxx/internal/stream_query_impl.hxx:
+
+/usr/include/c++/13/locale:
+
+/usr/include/c++/13/bits/stl_map.h:
+
+src/services/exceptions/AuthException.hpp:
+
+/usr/include/pqxx/isolation.hxx:
+
+/usr/include/asm-generic/errno-base.h:
+
+/usr/include/pqxx/notification.hxx:
+
+/usr/include/pqxx/params.hxx:
+
+/usr/include/pqxx/pqxx:
+
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h:
+
+/usr/include/pqxx/prepared_statement.hxx:
+
+/usr/include/c++/13/backward/auto_ptr.h:
+
+/usr/include/pqxx/result.hxx:
+
+/usr/include/c++/13/bits/postypes.h:
+
+/usr/include/pqxx/robusttransaction.hxx:
+
+/usr/include/pqxx/separated_list.hxx:
+
+/usr/include/c++/13/bits/cxxabi_init_exception.h:
+
+/usr/include/pqxx/strconv.hxx:
+
+/usr/include/x86_64-linux-gnu/sys/types.h:
+
+/usr/include/pqxx/stream_to.hxx:
+
+/usr/include/pqxx/time.hxx:
+
+/usr/include/pqxx/transaction_base.hxx:
+
+/usr/include/pthread.h:
+
+/usr/include/sched.h:
+
+/usr/include/wctype.h:
+
+/usr/include/stdlib.h:
+
+/usr/include/string.h:
+
+/usr/local/include/Wt/WTableRow.h:
+
+/usr/include/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+src/repositories/impl/PostgreSQLDanceHallRepository.hpp:
+
+/usr/include/x86_64-linux-gnu/asm/errno.h:
+
+src/web_ui/views/BookingCreateWidget.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/x86_64-linux-gnu/bits/floatn.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
+
+/usr/include/pqxx/stream_from.hxx:
+
+/usr/include/x86_64-linux-gnu/bits/select.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
+
+/usr/include/c++/13/bits/locale_conv.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/timex.h:
+
+/usr/local/include/Wt/WObject.h:
+
+/usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
+
+/usr/include/c++/13/ext/type_traits.h:
+
+/usr/include/x86_64-linux-gnu/bits/time64.h:
+
+/usr/include/stdio.h:
+
+/usr/local/include/Wt/Core/observing_ptr.hpp:
+
+/usr/local/include/Wt/WBreak.h:
+
+/usr/include/x86_64-linux-gnu/bits/types.h:
+
+src/data/SqlQueryBuilder.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/include/c++/13/bits/basic_string.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
+
+/usr/local/include/Wt/WPasswordValidator.h:
+
+/usr/include/c++/13/bits/list.tcc:
+
+/usr/include/c++/13/type_traits:
+
+/usr/include/features-time64.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+
+/usr/include/c++/13/tuple:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
+
+/usr/include/c++/13/ios:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
+
+/usr/local/include/Wt/Signals/signals.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/typesizes.h:
+
+/usr/local/include/Wt/WLogger.h:
+
+/usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
+
+/usr/include/c++/13/charconv:
+
+/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
+
+/usr/include/x86_64-linux-gnu/bits/wordsize.h:
+
+/usr/include/c++/13/bits/charconv.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h:
+
+/usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
+
+src/data/ResilientDatabaseConnection.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h:
+
+/usr/include/c++/13/bits/ostream.tcc:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h:
+
+src/web_ui/controllers/LessonController.cpp:
+
+/usr/include/c++/13/cstring:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
+
+/usr/local/include/Wt/WEnvironment.h:
+
+/usr/local/include/Wt/WFlags.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h:
+
+/usr/local/include/Wt/WStackedWidget.h:
+
+/usr/include/c++/13/bits/erase_if.h:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/x86_64-linux-gnu/openssl/configuration.h:
+
+/usr/include/pqxx/util.hxx:
+
+/usr/include/x86_64-linux-gnu/openssl/opensslconf.h:
+
+/usr/include/x86_64-linux-gnu/sys/cdefs.h:
+
+/usr/include/x86_64-linux-gnu/sys/single_threaded.h:
+
+/usr/include/x86_64-linux-gnu/sys/time.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h:
+
+/usr/local/include/Wt/Core/observable_impl.hpp:
+
+src/repositories/ISubscriptionRepository.hpp:
+
+/usr/local/include/Wt/Http/Message.h:
+
+/usr/local/include/Wt/WValidator.h:
+
+/usr/local/include/Wt/WAnchor.h:
+
+/usr/local/include/Wt/WFont.h:
+
+/usr/local/include/Wt/WAnimation.h:
+
+/usr/include/openssl/opensslv.h:
+
+/usr/include/c++/13/bits/predefined_ops.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h:
+
+/usr/local/include/Wt/WApplication.h:
+
+/usr/local/include/Wt/WBorder.h:
+
+/usr/include/c++/13/bits/chrono.h:
+
+/usr/local/include/Wt/WColor.h:
+
+/usr/local/include/Wt/WConfig.h:
+
+/usr/include/c++/13/cassert:
+
+/usr/local/include/Wt/WCssStyleSheet.h:
+
+/usr/local/include/Wt/WLogSink.h:
+
+/usr/local/include/Wt/WMessageResourceBundle.h:
+
+/usr/local/include/Wt/WPasswordEdit.h:
+
+/usr/local/include/Wt/WPushButton.h:
+
+/usr/local/include/Wt/WSignal.h:
+
+/usr/local/include/Wt/WStackedValidator.h:
+
+/usr/local/include/Wt/WText.h:
+
+/usr/local/include/Wt/WWidget.h:
+
+src/web_ui/controllers/AuthController.cpp:
+
+/usr/local/include/Wt/WJavaScript.h:
+
+src/web_ui/controllers/BookingController.cpp:
+
+src/web_ui/models/UserSession.cpp:
+
+src/web_ui/views/BookingCreateWidget.cpp:
+
+/usr/include/pqxx/blob.hxx:
+
+src/data/DatabaseConnection.hpp:
+
+/usr/local/include/Wt/WCalendar.h:
+
+/usr/local/include/Wt/WDateTime.h:
+
+/usr/include/openssl/bio.h:
+
+/usr/local/include/Wt/WDateValidator.h:
+
+/usr/include/pqxx/internal/statement_parameters.hxx:
+
+/usr/local/include/Wt/WDialog.h:

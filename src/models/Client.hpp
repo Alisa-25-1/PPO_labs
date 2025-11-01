@@ -20,28 +20,31 @@ public:
     Client();
     Client(const UUID& id, const std::string& name, const std::string& email, const std::string& phone);
     
-    // Геттеры
-    UUID getId() const;
-    std::string getName() const;
-    std::string getEmail() const;
-    std::string getPhone() const;
-    std::string getPasswordHash() const;  // Добавляем публичный геттер
-    std::chrono::system_clock::time_point getRegistrationDate() const;
-    AccountStatus getStatus() const;
-    
-    // Бизнес-логика
-    bool validatePassword(const std::string& password) const;
-    void changePassword(const std::string& newPassword);
+    // Геттеры (inline определения)
+    UUID getId() const { return id_; }
+    std::string getName() const { return name_; }
+    std::string getEmail() const { return email_; }
+    std::string getPhone() const { return phone_; }
+    std::string getPasswordHash() const { return passwordHash_; }
+    std::chrono::system_clock::time_point getRegistrationDate() const { return registrationDate_; }
+    AccountStatus getStatus() const { return status_; }
+
+    // Установка хеша пароля
+    void setPasswordHash(const std::string& passwordHash);
+
+    // Методы для работы со статусом
     bool isActive() const;
     void activate();
     void deactivate();
     void suspend();
-    
+
     // Валидация
     bool isValid() const;
+    
+    // Статические методы валидации
     static bool isValidName(const std::string& name);
-    static bool isValidEmail(const std::string& email);
     static bool isValidPhone(const std::string& phone);
+    static bool isValidEmail(const std::string& email);
     static bool isValidPassword(const std::string& password);
 
     // Операторы сравнения

@@ -3,6 +3,14 @@
 #include <stdexcept>
 #include <sstream>
 #include <iomanip>
+#include <random>
+
+#ifdef _WIN32
+    #include <windows.h>
+    #include <rpcdce.h>
+#else
+    #include <uuid/uuid.h>
+#endif
 
 UUID::UUID() : value_("00000000-0000-0000-0000-000000000000") {}
 
@@ -14,24 +22,23 @@ UUID::UUID(const std::string& uuid) : value_(uuid) {
 
 UUID UUID::generate() {
 #ifdef _WIN32
-    // Реализация для Windows с использованием UuidCreate
     UUID uuid;
-    UuidCreate((UUID*)&uuid);
+    UuidCreate((::UUID*)&uuid);
     
-    // Преобразуем UUID в строку
-    RPC_CSTR str;
-    UuidToStringA((UUID*)&uuid, &str);
-    std::string result((char*)str);
+    unsigned char* str;
+    UuidToStringA((::UUID*)&uuid, &str);
+    std::string result(reinterpret_cast<char*>(str));
     RpcStringFreeA(&str);
     
+    // Приводим к нижнему регистру для консистентности
+    std::transform(result.begin(), result.end(), result.begin(), ::tolower);
     return UUID(result);
 #else
-    // Реализация для Linux с использованием libuuid
     uuid_t native_uuid;
     uuid_generate(native_uuid);
     
-    char str[37]; // 36 символов + null terminator
-    uuid_unparse(native_uuid, str);
+    char str[37];
+    uuid_unparse_lower(native_uuid, str);
     
     return UUID(std::string(str));
 #endif

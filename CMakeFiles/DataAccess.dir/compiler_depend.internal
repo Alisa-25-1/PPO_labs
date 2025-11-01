@@ -342,6 +342,7 @@ CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Address.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
@@ -888,6 +889,7 @@ CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.o
 
 CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.cpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/DatabaseHealthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.hpp
  /usr/include/alloca.h
@@ -967,6 +969,7 @@ CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o
  /usr/include/c++/13/bits/sstream.tcc
  /usr/include/c++/13/bits/std_abs.h
  /usr/include/c++/13/bits/std_function.h
+ /usr/include/c++/13/bits/std_mutex.h
  /usr/include/c++/13/bits/std_thread.h
  /usr/include/c++/13/bits/stl_algo.h
  /usr/include/c++/13/bits/stl_algobase.h
@@ -995,6 +998,7 @@ CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o
  /usr/include/c++/13/bits/stringfwd.h
  /usr/include/c++/13/bits/this_thread_sleep.h
  /usr/include/c++/13/bits/uniform_int_dist.h
+ /usr/include/c++/13/bits/unique_lock.h
  /usr/include/c++/13/bits/unique_ptr.h
  /usr/include/c++/13/bits/unordered_map.h
  /usr/include/c++/13/bits/uses_allocator.h
@@ -1010,6 +1014,7 @@ CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o
  /usr/include/c++/13/clocale
  /usr/include/c++/13/codecvt
  /usr/include/c++/13/compare
+ /usr/include/c++/13/condition_variable
  /usr/include/c++/13/cstddef
  /usr/include/c++/13/cstdint
  /usr/include/c++/13/cstdio
@@ -1042,6 +1047,7 @@ CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnection.cpp.o
  /usr/include/c++/13/locale
  /usr/include/c++/13/map
  /usr/include/c++/13/memory
+ /usr/include/c++/13/mutex
  /usr/include/c++/13/new
  /usr/include/c++/13/numeric
  /usr/include/c++/13/optional
@@ -2200,6 +2206,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/SqlQueryBuilder.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/exceptions/DataAccessException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Address.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp
@@ -2567,6 +2574,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLClientRepository.hpp

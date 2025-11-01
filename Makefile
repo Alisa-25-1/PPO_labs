@@ -105,6 +105,51 @@ rebuild_cache:
 rebuild_cache/fast: rebuild_cache
 .PHONY : rebuild_cache/fast
 
+# Special rule for the target list_install_components
+list_install_components:
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Available install components are: \"Unspecified\""
+.PHONY : list_install_components
+
+# Special rule for the target list_install_components
+list_install_components/fast: list_install_components
+.PHONY : list_install_components/fast
+
+# Special rule for the target install
+install: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install
+
+# Special rule for the target install
+install/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Install the project..."
+	/usr/bin/cmake -P cmake_install.cmake
+.PHONY : install/fast
+
+# Special rule for the target install/local
+install/local: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local
+
+# Special rule for the target install/local
+install/local/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing only the local directory..."
+	/usr/bin/cmake -DCMAKE_INSTALL_LOCAL_ONLY=1 -P cmake_install.cmake
+.PHONY : install/local/fast
+
+# Special rule for the target install/strip
+install/strip: preinstall
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip
+
+# Special rule for the target install/strip
+install/strip/fast: preinstall/fast
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Installing the project stripped..."
+	/usr/bin/cmake -DCMAKE_INSTALL_DO_STRIP=1 -P cmake_install.cmake
+.PHONY : install/strip/fast
+
 # The main all target
 all: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles /home/nikita/Общедоступные/PPO/PPO_labs//CMakeFiles/progress.marks
@@ -201,45 +246,6 @@ DanceStudioWebUI/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioWebUI.dir/build.make CMakeFiles/DanceStudioWebUI.dir/build
 .PHONY : DanceStudioWebUI/fast
 
-#=============================================================================
-# Target rules for targets named AuthServiceTests
-
-# Build rule for target.
-AuthServiceTests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AuthServiceTests
-.PHONY : AuthServiceTests
-
-# fast build rule for target.
-AuthServiceTests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AuthServiceTests.dir/build.make CMakeFiles/AuthServiceTests.dir/build
-.PHONY : AuthServiceTests/fast
-
-#=============================================================================
-# Target rules for targets named SubscriptionServiceTests
-
-# Build rule for target.
-SubscriptionServiceTests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 SubscriptionServiceTests
-.PHONY : SubscriptionServiceTests
-
-# fast build rule for target.
-SubscriptionServiceTests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SubscriptionServiceTests.dir/build.make CMakeFiles/SubscriptionServiceTests.dir/build
-.PHONY : SubscriptionServiceTests/fast
-
-#=============================================================================
-# Target rules for targets named IntegrationTests
-
-# Build rule for target.
-IntegrationTests: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 IntegrationTests
-.PHONY : IntegrationTests
-
-# fast build rule for target.
-IntegrationTests/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/build
-.PHONY : IntegrationTests/fast
-
 src/core/Config.o: src/core/Config.cpp.o
 .PHONY : src/core/Config.o
 
@@ -287,6 +293,30 @@ src/core/Logger.s: src/core/Logger.cpp.s
 src/core/Logger.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/core/Logger.cpp.s
 .PHONY : src/core/Logger.cpp.s
+
+src/core/PasswordHasher.o: src/core/PasswordHasher.cpp.o
+.PHONY : src/core/PasswordHasher.o
+
+# target to build an object file
+src/core/PasswordHasher.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/core/PasswordHasher.cpp.o
+.PHONY : src/core/PasswordHasher.cpp.o
+
+src/core/PasswordHasher.i: src/core/PasswordHasher.cpp.i
+.PHONY : src/core/PasswordHasher.i
+
+# target to preprocess a source file
+src/core/PasswordHasher.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/core/PasswordHasher.cpp.i
+.PHONY : src/core/PasswordHasher.cpp.i
+
+src/core/PasswordHasher.s: src/core/PasswordHasher.cpp.s
+.PHONY : src/core/PasswordHasher.s
+
+# target to generate assembly for a file
+src/core/PasswordHasher.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/core/PasswordHasher.cpp.s
+.PHONY : src/core/PasswordHasher.cpp.s
 
 src/data/DatabaseConnection.o: src/data/DatabaseConnection.cpp.o
 .PHONY : src/data/DatabaseConnection.o
@@ -432,30 +462,6 @@ src/data/SqlQueryBuilder.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/SqlQueryBuilder.cpp.s
 .PHONY : src/data/SqlQueryBuilder.cpp.s
 
-src/dtos/AuthDTO.o: src/dtos/AuthDTO.cpp.o
-.PHONY : src/dtos/AuthDTO.o
-
-# target to build an object file
-src/dtos/AuthDTO.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.o
-.PHONY : src/dtos/AuthDTO.cpp.o
-
-src/dtos/AuthDTO.i: src/dtos/AuthDTO.cpp.i
-.PHONY : src/dtos/AuthDTO.i
-
-# target to preprocess a source file
-src/dtos/AuthDTO.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.i
-.PHONY : src/dtos/AuthDTO.cpp.i
-
-src/dtos/AuthDTO.s: src/dtos/AuthDTO.cpp.s
-.PHONY : src/dtos/AuthDTO.s
-
-# target to generate assembly for a file
-src/dtos/AuthDTO.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/dtos/AuthDTO.cpp.s
-.PHONY : src/dtos/AuthDTO.cpp.s
-
 src/dtos/BookingDTO.o: src/dtos/BookingDTO.cpp.o
 .PHONY : src/dtos/BookingDTO.o
 
@@ -599,6 +605,30 @@ src/main.s: src/main.cpp.s
 src/main.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/main.cpp.s
 .PHONY : src/main.cpp.s
+
+src/models/Address.o: src/models/Address.cpp.o
+.PHONY : src/models/Address.o
+
+# target to build an object file
+src/models/Address.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Address.cpp.o
+.PHONY : src/models/Address.cpp.o
+
+src/models/Address.i: src/models/Address.cpp.i
+.PHONY : src/models/Address.i
+
+# target to preprocess a source file
+src/models/Address.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Address.cpp.i
+.PHONY : src/models/Address.cpp.i
+
+src/models/Address.s: src/models/Address.cpp.s
+.PHONY : src/models/Address.s
+
+# target to generate assembly for a file
+src/models/Address.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Address.cpp.s
+.PHONY : src/models/Address.cpp.s
 
 src/models/Attendance.o: src/models/Attendance.cpp.o
 .PHONY : src/models/Attendance.o
@@ -1296,6 +1326,54 @@ src/services/BranchService.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/BranchService.cpp.s
 .PHONY : src/services/BranchService.cpp.s
 
+src/services/DatabaseHealthService.o: src/services/DatabaseHealthService.cpp.o
+.PHONY : src/services/DatabaseHealthService.o
+
+# target to build an object file
+src/services/DatabaseHealthService.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/DatabaseHealthService.cpp.o
+.PHONY : src/services/DatabaseHealthService.cpp.o
+
+src/services/DatabaseHealthService.i: src/services/DatabaseHealthService.cpp.i
+.PHONY : src/services/DatabaseHealthService.i
+
+# target to preprocess a source file
+src/services/DatabaseHealthService.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/DatabaseHealthService.cpp.i
+.PHONY : src/services/DatabaseHealthService.cpp.i
+
+src/services/DatabaseHealthService.s: src/services/DatabaseHealthService.cpp.s
+.PHONY : src/services/DatabaseHealthService.s
+
+# target to generate assembly for a file
+src/services/DatabaseHealthService.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/DatabaseHealthService.cpp.s
+.PHONY : src/services/DatabaseHealthService.cpp.s
+
+src/services/DatabaseMonitorService.o: src/services/DatabaseMonitorService.cpp.o
+.PHONY : src/services/DatabaseMonitorService.o
+
+# target to build an object file
+src/services/DatabaseMonitorService.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/DatabaseMonitorService.cpp.o
+.PHONY : src/services/DatabaseMonitorService.cpp.o
+
+src/services/DatabaseMonitorService.i: src/services/DatabaseMonitorService.cpp.i
+.PHONY : src/services/DatabaseMonitorService.i
+
+# target to preprocess a source file
+src/services/DatabaseMonitorService.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/DatabaseMonitorService.cpp.i
+.PHONY : src/services/DatabaseMonitorService.cpp.i
+
+src/services/DatabaseMonitorService.s: src/services/DatabaseMonitorService.cpp.s
+.PHONY : src/services/DatabaseMonitorService.s
+
+# target to generate assembly for a file
+src/services/DatabaseMonitorService.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/DatabaseMonitorService.cpp.s
+.PHONY : src/services/DatabaseMonitorService.cpp.s
+
 src/services/EnrollmentService.o: src/services/EnrollmentService.cpp.o
 .PHONY : src/services/EnrollmentService.o
 
@@ -1440,6 +1518,30 @@ src/services/SubscriptionService.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/SubscriptionService.cpp.s
 .PHONY : src/services/SubscriptionService.cpp.s
 
+src/services/TimeZoneService.o: src/services/TimeZoneService.cpp.o
+.PHONY : src/services/TimeZoneService.o
+
+# target to build an object file
+src/services/TimeZoneService.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/TimeZoneService.cpp.o
+.PHONY : src/services/TimeZoneService.cpp.o
+
+src/services/TimeZoneService.i: src/services/TimeZoneService.cpp.i
+.PHONY : src/services/TimeZoneService.i
+
+# target to preprocess a source file
+src/services/TimeZoneService.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/TimeZoneService.cpp.i
+.PHONY : src/services/TimeZoneService.cpp.i
+
+src/services/TimeZoneService.s: src/services/TimeZoneService.cpp.s
+.PHONY : src/services/TimeZoneService.s
+
+# target to generate assembly for a file
+src/services/TimeZoneService.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/TimeZoneService.cpp.s
+.PHONY : src/services/TimeZoneService.cpp.s
+
 src/tech_ui/InputHandlers.o: src/tech_ui/InputHandlers.cpp.o
 .PHONY : src/tech_ui/InputHandlers.o
 
@@ -1535,78 +1637,6 @@ src/tech_ui/TechUIManagers.s: src/tech_ui/TechUIManagers.cpp.s
 src/tech_ui/TechUIManagers.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.s
 .PHONY : src/tech_ui/TechUIManagers.cpp.s
-
-src/tests/integration/RepositoryIntegrationTests.o: src/tests/integration/RepositoryIntegrationTests.cpp.o
-.PHONY : src/tests/integration/RepositoryIntegrationTests.o
-
-# target to build an object file
-src/tests/integration/RepositoryIntegrationTests.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.o
-.PHONY : src/tests/integration/RepositoryIntegrationTests.cpp.o
-
-src/tests/integration/RepositoryIntegrationTests.i: src/tests/integration/RepositoryIntegrationTests.cpp.i
-.PHONY : src/tests/integration/RepositoryIntegrationTests.i
-
-# target to preprocess a source file
-src/tests/integration/RepositoryIntegrationTests.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.i
-.PHONY : src/tests/integration/RepositoryIntegrationTests.cpp.i
-
-src/tests/integration/RepositoryIntegrationTests.s: src/tests/integration/RepositoryIntegrationTests.cpp.s
-.PHONY : src/tests/integration/RepositoryIntegrationTests.s
-
-# target to generate assembly for a file
-src/tests/integration/RepositoryIntegrationTests.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/IntegrationTests.dir/build.make CMakeFiles/IntegrationTests.dir/src/tests/integration/RepositoryIntegrationTests.cpp.s
-.PHONY : src/tests/integration/RepositoryIntegrationTests.cpp.s
-
-src/tests/unit/AuthServiceTest.o: src/tests/unit/AuthServiceTest.cpp.o
-.PHONY : src/tests/unit/AuthServiceTest.o
-
-# target to build an object file
-src/tests/unit/AuthServiceTest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AuthServiceTests.dir/build.make CMakeFiles/AuthServiceTests.dir/src/tests/unit/AuthServiceTest.cpp.o
-.PHONY : src/tests/unit/AuthServiceTest.cpp.o
-
-src/tests/unit/AuthServiceTest.i: src/tests/unit/AuthServiceTest.cpp.i
-.PHONY : src/tests/unit/AuthServiceTest.i
-
-# target to preprocess a source file
-src/tests/unit/AuthServiceTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AuthServiceTests.dir/build.make CMakeFiles/AuthServiceTests.dir/src/tests/unit/AuthServiceTest.cpp.i
-.PHONY : src/tests/unit/AuthServiceTest.cpp.i
-
-src/tests/unit/AuthServiceTest.s: src/tests/unit/AuthServiceTest.cpp.s
-.PHONY : src/tests/unit/AuthServiceTest.s
-
-# target to generate assembly for a file
-src/tests/unit/AuthServiceTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/AuthServiceTests.dir/build.make CMakeFiles/AuthServiceTests.dir/src/tests/unit/AuthServiceTest.cpp.s
-.PHONY : src/tests/unit/AuthServiceTest.cpp.s
-
-src/tests/unit/SubscriptionServiceTest.o: src/tests/unit/SubscriptionServiceTest.cpp.o
-.PHONY : src/tests/unit/SubscriptionServiceTest.o
-
-# target to build an object file
-src/tests/unit/SubscriptionServiceTest.cpp.o:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SubscriptionServiceTests.dir/build.make CMakeFiles/SubscriptionServiceTests.dir/src/tests/unit/SubscriptionServiceTest.cpp.o
-.PHONY : src/tests/unit/SubscriptionServiceTest.cpp.o
-
-src/tests/unit/SubscriptionServiceTest.i: src/tests/unit/SubscriptionServiceTest.cpp.i
-.PHONY : src/tests/unit/SubscriptionServiceTest.i
-
-# target to preprocess a source file
-src/tests/unit/SubscriptionServiceTest.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SubscriptionServiceTests.dir/build.make CMakeFiles/SubscriptionServiceTests.dir/src/tests/unit/SubscriptionServiceTest.cpp.i
-.PHONY : src/tests/unit/SubscriptionServiceTest.cpp.i
-
-src/tests/unit/SubscriptionServiceTest.s: src/tests/unit/SubscriptionServiceTest.cpp.s
-.PHONY : src/tests/unit/SubscriptionServiceTest.s
-
-# target to generate assembly for a file
-src/tests/unit/SubscriptionServiceTest.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/SubscriptionServiceTests.dir/build.make CMakeFiles/SubscriptionServiceTests.dir/src/tests/unit/SubscriptionServiceTest.cpp.s
-.PHONY : src/tests/unit/SubscriptionServiceTest.cpp.s
 
 src/types/enums.o: src/types/enums.cpp.o
 .PHONY : src/types/enums.o
@@ -2143,15 +2173,16 @@ help:
 	@echo "... clean"
 	@echo "... depend"
 	@echo "... edit_cache"
+	@echo "... install"
+	@echo "... install/local"
+	@echo "... install/strip"
+	@echo "... list_install_components"
 	@echo "... package"
 	@echo "... package_source"
 	@echo "... rebuild_cache"
-	@echo "... AuthServiceTests"
 	@echo "... BookingCore"
 	@echo "... DanceStudioWebUI"
 	@echo "... DataAccess"
-	@echo "... IntegrationTests"
-	@echo "... SubscriptionServiceTests"
 	@echo "... TechUI"
 	@echo "... WebUIComponent"
 	@echo "... src/core/Config.o"
@@ -2160,6 +2191,9 @@ help:
 	@echo "... src/core/Logger.o"
 	@echo "... src/core/Logger.i"
 	@echo "... src/core/Logger.s"
+	@echo "... src/core/PasswordHasher.o"
+	@echo "... src/core/PasswordHasher.i"
+	@echo "... src/core/PasswordHasher.s"
 	@echo "... src/data/DatabaseConnection.o"
 	@echo "... src/data/DatabaseConnection.i"
 	@echo "... src/data/DatabaseConnection.s"
@@ -2178,9 +2212,6 @@ help:
 	@echo "... src/data/SqlQueryBuilder.o"
 	@echo "... src/data/SqlQueryBuilder.i"
 	@echo "... src/data/SqlQueryBuilder.s"
-	@echo "... src/dtos/AuthDTO.o"
-	@echo "... src/dtos/AuthDTO.i"
-	@echo "... src/dtos/AuthDTO.s"
 	@echo "... src/dtos/BookingDTO.o"
 	@echo "... src/dtos/BookingDTO.i"
 	@echo "... src/dtos/BookingDTO.s"
@@ -2199,6 +2230,9 @@ help:
 	@echo "... src/main.o"
 	@echo "... src/main.i"
 	@echo "... src/main.s"
+	@echo "... src/models/Address.o"
+	@echo "... src/models/Address.i"
+	@echo "... src/models/Address.s"
 	@echo "... src/models/Attendance.o"
 	@echo "... src/models/Attendance.i"
 	@echo "... src/models/Attendance.s"
@@ -2286,6 +2320,12 @@ help:
 	@echo "... src/services/BranchService.o"
 	@echo "... src/services/BranchService.i"
 	@echo "... src/services/BranchService.s"
+	@echo "... src/services/DatabaseHealthService.o"
+	@echo "... src/services/DatabaseHealthService.i"
+	@echo "... src/services/DatabaseHealthService.s"
+	@echo "... src/services/DatabaseMonitorService.o"
+	@echo "... src/services/DatabaseMonitorService.i"
+	@echo "... src/services/DatabaseMonitorService.s"
 	@echo "... src/services/EnrollmentService.o"
 	@echo "... src/services/EnrollmentService.i"
 	@echo "... src/services/EnrollmentService.s"
@@ -2304,6 +2344,9 @@ help:
 	@echo "... src/services/SubscriptionService.o"
 	@echo "... src/services/SubscriptionService.i"
 	@echo "... src/services/SubscriptionService.s"
+	@echo "... src/services/TimeZoneService.o"
+	@echo "... src/services/TimeZoneService.i"
+	@echo "... src/services/TimeZoneService.s"
 	@echo "... src/tech_ui/InputHandlers.o"
 	@echo "... src/tech_ui/InputHandlers.i"
 	@echo "... src/tech_ui/InputHandlers.s"
@@ -2316,15 +2359,6 @@ help:
 	@echo "... src/tech_ui/TechUIManagers.o"
 	@echo "... src/tech_ui/TechUIManagers.i"
 	@echo "... src/tech_ui/TechUIManagers.s"
-	@echo "... src/tests/integration/RepositoryIntegrationTests.o"
-	@echo "... src/tests/integration/RepositoryIntegrationTests.i"
-	@echo "... src/tests/integration/RepositoryIntegrationTests.s"
-	@echo "... src/tests/unit/AuthServiceTest.o"
-	@echo "... src/tests/unit/AuthServiceTest.i"
-	@echo "... src/tests/unit/AuthServiceTest.s"
-	@echo "... src/tests/unit/SubscriptionServiceTest.o"
-	@echo "... src/tests/unit/SubscriptionServiceTest.i"
-	@echo "... src/tests/unit/SubscriptionServiceTest.s"
 	@echo "... src/types/enums.o"
 	@echo "... src/types/enums.i"
 	@echo "... src/types/enums.s"

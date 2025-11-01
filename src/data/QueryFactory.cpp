@@ -65,10 +65,13 @@ std::string QueryFactory::createGetTrainerSpecializationsQuery() {
         "SELECT specialization FROM trainer_specializations WHERE trainer_id = $1";
 }
 
-std::string QueryFactory::createFindByStudioIdQuery() {
+std::string QueryFactory::createFindBranchesWithAddressQuery() {
     return 
-        "SELECT id, name, address, phone, open_time, close_time, studio_id "
-        "FROM branches WHERE studio_id = $1";
+        "SELECT b.id, b.name, b.phone, b.open_time, b.close_time, b.studio_id, "
+        "a.id as address_id, a.country, a.city, a.street, a.building, a.apartment, a.postal_code, a.timezone_offset "
+        "FROM branches b "
+        "JOIN addresses a ON b.address_id = a.id "
+        "WHERE b.studio_id = $1";
 }
 
 std::string QueryFactory::createFindMainStudioQuery() {

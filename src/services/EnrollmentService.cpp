@@ -5,11 +5,11 @@ EnrollmentService::EnrollmentService(
     std::shared_ptr<IEnrollmentRepository> enrollmentRepo,
     std::shared_ptr<IClientRepository> clientRepo,
     std::shared_ptr<ILessonRepository> lessonRepo,
-    std::shared_ptr<IAttendanceRepository> attendanceRepo // ДОБАВЛЕНО
+    std::shared_ptr<IAttendanceRepository> attendanceRepo
 ) : enrollmentRepository_(std::move(enrollmentRepo)),
     clientRepository_(std::move(clientRepo)),
     lessonRepository_(std::move(lessonRepo)),
-    attendanceRepository_(std::move(attendanceRepo)) {} // ДОБАВЛЕНО
+    attendanceRepository_(std::move(attendanceRepo)) {} 
 
 void EnrollmentService::validateEnrollmentRequest(const EnrollmentRequestDTO& request) const {
     if (!request.validate()) {

@@ -10,6 +10,7 @@ DROP TABLE IF EXISTS subscription_types CASCADE;
 DROP TABLE IF EXISTS clients CASCADE;
 DROP TABLE IF EXISTS dance_halls CASCADE;
 DROP TABLE IF EXISTS branches CASCADE;
+DROP TABLE IF EXISTS addresses CASCADE; 
 DROP TABLE IF EXISTS studios CASCADE;
 
 -- Расширение для UUID
@@ -23,15 +24,27 @@ CREATE TABLE studios (
     contact_email VARCHAR(255) NOT NULL
 );
 
--- Таблица филиалов - ИСПРАВЛЕНО: используем INTEGER для часов
+-- ТАБЛИЦА АДРЕСОВ 
+CREATE TABLE addresses (
+    id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
+    country VARCHAR(50) NOT NULL DEFAULT 'Россия',
+    city VARCHAR(50) NOT NULL,
+    street VARCHAR(100) NOT NULL,
+    building VARCHAR(10) NOT NULL,
+    apartment VARCHAR(10),
+    postal_code VARCHAR(10),
+    timezone_offset INTEGER NOT NULL DEFAULT 180 -- Смещение в минутах (UTC+3 по умолчанию)
+);
+
+-- Таблица филиалов 
 CREATE TABLE branches (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     name VARCHAR(255) NOT NULL,
-    address TEXT NOT NULL,
     phone VARCHAR(50) NOT NULL,
     open_time INTEGER NOT NULL CHECK (open_time >= 0 AND open_time <= 23),
     close_time INTEGER NOT NULL CHECK (close_time >= 0 AND close_time <= 23),
-    studio_id UUID NOT NULL REFERENCES studios(id)
+    studio_id UUID NOT NULL REFERENCES studios(id),
+    address_id UUID NOT NULL REFERENCES addresses(id) 
 );
 
 -- Таблица залов

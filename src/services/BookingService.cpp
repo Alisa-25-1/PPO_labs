@@ -8,13 +8,15 @@ BookingService::BookingService(
     std::shared_ptr<IDanceHallRepository> hallRepo,
     std::shared_ptr<IBranchRepository> branchRepo,
     std::shared_ptr<IBranchService> branchService,
-    std::shared_ptr<IAttendanceRepository> attendanceRepo  
+    std::shared_ptr<IAttendanceRepository> attendanceRepo,
+    std::shared_ptr<ILessonRepository> lessonRepo
 ) : bookingRepository_(std::move(bookingRepo)),
     clientRepository_(std::move(clientRepo)),
     hallRepository_(std::move(hallRepo)),
     branchRepository_(std::move(branchRepo)),
     branchService_(std::move(branchService)),
-    attendanceRepository_(std::move(attendanceRepo)) {}
+    attendanceRepository_(std::move(attendanceRepo)),
+    lessonRepository_(std::move(lessonRepo)) {}
 
 // Validation methods
 void BookingService::validateBookingRequest(const BookingRequestDTO& request) const {
@@ -61,20 +63,17 @@ void BookingService::validateTimeSlot(const TimeSlot& timeSlot) const {
 }
 
 void BookingService::validateWorkingHours(const UUID& hallId, const TimeSlot& timeSlot) const {
-    // Получаем филиал для зала
     auto branch = getBranchForHall(hallId);
     if (!branch) {
         throw ValidationException("Не удалось найти филиал для указанного зала");
     }
     
-    // Получаем время работы филиала
-    auto workingHours = branch->getWorkingHours();
-    
-    // Проверяем, что временной слот находится в пределах рабочего времени
-    if (!isWithinWorkingHours(timeSlot, workingHours.openTime, workingHours.closeTime)) {
+    // Преобразуем UTC время в локальное время филиала и проверяем
+    if (!TimeZoneService::isWithinLocalWorkingHours(timeSlot, branch->getWorkingHours(), branch->getTimezoneOffset())) {
         std::string error = "Время бронирования выходит за пределы рабочего времени филиала. ";
-        error += "Филиал работает с " + std::to_string(workingHours.openTime.count()) + 
-                ":00 до " + std::to_string(workingHours.closeTime.count()) + ":00";
+        error += "Филиал работает с " + std::to_string(branch->getWorkingHours().openTime.count()) + 
+                ":00 до " + std::to_string(branch->getWorkingHours().closeTime.count()) + ":00 " +
+                "(локальное время филиала)";
         throw BusinessRuleException(error);
     }
 }
@@ -123,6 +122,7 @@ BookingResponseDTO BookingService::createBooking(const BookingRequestDTO& reques
     }
     
     checkBookingConflicts(request.hallId, request.timeSlot);
+    checkLessonConflicts(request.hallId, request.timeSlot);
     
     UUID newId = UUID::generate();
     Booking booking(newId, request.clientId, request.hallId, request.timeSlot, request.purpose);
@@ -218,9 +218,24 @@ bool BookingService::isTimeSlotAvailable(const UUID& hallId, const TimeSlot& tim
     // Проверяем конфликты
     try {
         checkBookingConflicts(hallId, timeSlot);
-        return true;
     } catch (const BookingConflictException&) {
         return false;
+    }
+
+    try {
+        checkLessonConflicts(hallId, timeSlot);
+    } catch (const BookingConflictException&) {
+        return false;
+    }
+
+    return true;
+}
+
+void BookingService::checkLessonConflicts(const UUID& hallId, const TimeSlot& timeSlot) const {
+    auto conflictingLessons = lessonRepository_->findConflictingLessons(hallId, timeSlot);
+    
+    if (!conflictingLessons.empty()) {
+        throw BookingConflictException("Time slot conflicts with existing lesson");
     }
 }
 
@@ -336,22 +351,19 @@ std::vector<TimeSlot> BookingService::getAvailableTimeSlots(const UUID& hallId,
     try {
         validateDanceHall(hallId);
         
+        auto branch = getBranchForHall(hallId);
+        if (!branch) {
+            throw ValidationException("Не удалось определить филиал зала");
+        }
+        
         // Получаем все бронирования для зала
         auto bookings = bookingRepository_->findByHallId(hallId);
         
-        // Фильтруем бронирования по дате с помощью DateTimeUtils
+        // Фильтруем бронирования по дате
         auto dayBookings = filterBookingsByDate(bookings, date);
         
-        // Получаем рабочие часы филиала
-        auto branch = getBranchForHall(hallId);
-        if (!branch) {
-            throw ValidationException("Не удалось определить рабочие часы зала");
-        }
-        
-        auto workingHours = branch->getWorkingHours();
-        
-        // Генерируем доступные слоты с учетом максимальной продолжительности
-        return generateAvailableSlotsWithDuration(date, workingHours.openTime, workingHours.closeTime, dayBookings, hallId);
+        // Генерируем доступные слоты с учетом часового пояса филиала
+        return generateAvailableSlotsWithTimezone(date, branch->getWorkingHours(), dayBookings, hallId, branch->getTimezoneOffset());
         
     } catch (const std::exception& e) {
         std::cerr << "Ошибка получения доступных слотов: " << e.what() << std::endl;
@@ -427,5 +439,64 @@ std::vector<DanceHall> BookingService::getHallsByBranch(const UUID& branchId) co
     } catch (const std::exception& e) {
         std::cerr << "Ошибка получения залов филиала: " << e.what() << std::endl;
         return {};
+    }
+}
+
+std::vector<TimeSlot> BookingService::generateAvailableSlotsWithTimezone(
+    const std::chrono::system_clock::time_point& date,
+    const WorkingHours& workingHours,
+    const std::vector<Booking>& existingBookings,
+    const UUID& hallId,
+    const std::chrono::minutes& timezoneOffset) const {
+    
+    std::vector<TimeSlot> availableSlots;
+    
+    // Преобразуем дату в локальное время филиала
+    auto localDate = date + timezoneOffset;
+    auto local_time_t = std::chrono::system_clock::to_time_t(localDate);
+    std::tm local_tm = *std::gmtime(&local_time_t); // Используем gmtime для консистентности
+    
+    int startHour = workingHours.openTime.count();
+    int endHour = workingHours.closeTime.count();
+    
+    std::cout << "🕐 Генерация слотов с " << startHour << ":00 до " << endHour << ":00 (локальное время филиала)" << std::endl;
+    
+    for (int hour = startHour; hour < endHour; hour++) {
+        for (int minute = 0; minute < 60; minute += 60) {
+            local_tm.tm_hour = hour;
+            local_tm.tm_min = minute;
+            local_tm.tm_sec = 0;
+            
+            // Используем нашу реализацию timegm
+            auto localSlotStart = std::chrono::system_clock::from_time_t(DateTimeUtils::timegm(&local_tm));
+            
+            // Преобразуем обратно в UTC для хранения
+            auto utcSlotStart = localSlotStart - timezoneOffset;
+            
+            // Проверяем доступные продолжительности
+            auto availableDurations = getAvailableDurations(hallId, utcSlotStart);
+            
+            if (!availableDurations.empty()) {
+                int minDuration = *std::min_element(availableDurations.begin(), availableDurations.end());
+                TimeSlot slot(utcSlotStart, minDuration);
+                availableSlots.push_back(slot);
+            }
+        }
+    }
+    
+    std::cout << "✅ Сгенерировано слотов: " << availableSlots.size() << std::endl;
+    return availableSlots;
+}
+
+std::chrono::minutes BookingService::getTimezoneOffsetForHall(const UUID& hallId) const {
+    try {
+        auto branch = getBranchForHall(hallId);
+        if (branch) {
+            return branch->getTimezoneOffset();
+        }
+        return std::chrono::hours(3);
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Ошибка получения часового пояса для зала: " << e.what() << std::endl;
+        return std::chrono::hours(3);
     }
 }

@@ -29,7 +29,7 @@ void LessonScheduleWidget::setupUI() {
     auto headerText = header->addNew<Wt::WText>("<h2>📅 Запись на занятие</h2>");
     headerText->setTextFormat(Wt::TextFormat::UnsafeXHTML);
     
-    // Форма поиска
+    // Форма поиска - ДОБАВЛЕНО ОБЪЯВЛЕНИЕ ПЕРЕМЕННОЙ
     auto form = card->addNew<Wt::WContainerWidget>();
     form->setStyleClass("lesson-search-form");
     
@@ -106,6 +106,9 @@ void LessonScheduleWidget::handleSearch() {
         
         UUID branchId = it->second;
         Wt::WDate selectedDate = dateEdit_->date();
+
+        // Получаем часовой пояс филиала
+        auto branchTimezoneOffset = app_->getLessonController()->getTimezoneOffsetForBranch(branchId);
         
         // Получаем занятия для выбранного филиала
         auto allLessons = app_->getLessonController()->getLessonsByBranch(branchId);
@@ -153,10 +156,11 @@ void LessonScheduleWidget::handleSearch() {
             nameCell->addNew<Wt::WText>(lesson.name);
             nameCell->setStyleClass("cell-lesson-name");
             
-            // Время
-            std::string timeStr = DateTimeUtils::formatTimeSlot(
+            // Время с учетом часового пояса филиала
+            std::string timeStr = DateTimeUtils::formatTimeSlotWithOffset(
                 lesson.timeSlot.getStartTime(), 
-                lesson.timeSlot.getDurationMinutes()
+                lesson.timeSlot.getDurationMinutes(),
+                branchTimezoneOffset
             );
             lessonsTable_->elementAt(row, 1)->addNew<Wt::WText>(timeStr);
             
@@ -218,7 +222,6 @@ void LessonScheduleWidget::handleSearch() {
             row++;
         }
         
-        // ИСПРАВЛЕНИЕ: Правильная конкатенация строк
         std::string statusMessage = "✅ Найдено занятий на " + 
                                    selectedDate.toString("dd.MM.yyyy").toUTF8() + 
                                    ": " + std::to_string(filteredLessons.size());

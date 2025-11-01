@@ -196,6 +196,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o
  /usr/include/x86_64-linux-gnu/sys/time.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../models/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/../../models/Address.hpp \
  /usr/include/c++/13/chrono /usr/include/c++/13/bits/chrono.h \
  /usr/include/c++/13/ratio /usr/include/c++/13/cstdint \
  /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h /usr/include/stdint.h \

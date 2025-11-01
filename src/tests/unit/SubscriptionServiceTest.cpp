@@ -33,7 +33,7 @@ protected:
             std::move(mockClientRepo)
         );
 
-        testClient_ = std::make_unique<Client>(testClientId_, "John Doe", "john@example.com", "+1234567890");
+        testClient_ = std::make_unique<Client>(testClientId_, "John Doe", "john@example.com", "+74952345678");
         testClient_->activate();
         
         // Обычная подписка с лимитом
