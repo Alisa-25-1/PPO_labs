@@ -1,4 +1,3 @@
-// tech_ui/TechUI.hpp
 #ifndef TECHUI_HPP
 #define TECHUI_HPP
 
@@ -22,6 +21,7 @@
 #include "../dtos/SubscriptionDTO.hpp"
 #include "../dtos/ReviewDTO.hpp"
 #include "../dtos/EnrollmentDTO.hpp"
+#include "../core/Config.hpp" 
 
 class TechUI {
 private:
@@ -112,7 +112,7 @@ private:
     std::string formatTimeSlot(const TimeSlot& timeSlot);
 
 public:
-    TechUI(const std::string& connectionString);
+    TechUI(const Config& config);
     
     void run();
     bool isClientLoggedIn() const { return !currentClientId_.isNull(); }

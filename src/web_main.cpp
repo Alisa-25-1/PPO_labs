@@ -13,7 +13,7 @@ int main(int argc, char** argv) {
         
         // Создаем аргументы командной строки с docroot
         std::vector<const char*> args;
-        args.push_back(argv[0]); // имя программы
+        args.push_back(argv[0]); 
         
         // Добавляем параметр docroot - указываем текущую директорию
         args.push_back("--docroot");

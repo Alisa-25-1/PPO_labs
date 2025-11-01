@@ -3,6 +3,7 @@
 
 CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_main.cpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/DatabaseHealthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/WebApplication.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp
@@ -163,6 +164,7 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o
  /usr/include/c++/13/bits/std_abs.h
  /usr/include/c++/13/bits/std_function.h
  /usr/include/c++/13/bits/std_mutex.h
+ /usr/include/c++/13/bits/std_thread.h
  /usr/include/c++/13/bits/stl_algo.h
  /usr/include/c++/13/bits/stl_algobase.h
  /usr/include/c++/13/bits/stl_bvector.h
@@ -189,6 +191,7 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o
  /usr/include/c++/13/bits/streambuf_iterator.h
  /usr/include/c++/13/bits/string_view.tcc
  /usr/include/c++/13/bits/stringfwd.h
+ /usr/include/c++/13/bits/this_thread_sleep.h
  /usr/include/c++/13/bits/uniform_int_dist.h
  /usr/include/c++/13/bits/unique_lock.h
  /usr/include/c++/13/bits/unique_ptr.h
@@ -205,6 +208,7 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o
  /usr/include/c++/13/clocale
  /usr/include/c++/13/codecvt
  /usr/include/c++/13/compare
+ /usr/include/c++/13/condition_variable
  /usr/include/c++/13/cstddef
  /usr/include/c++/13/cstdint
  /usr/include/c++/13/cstdio
@@ -255,6 +259,7 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o
  /usr/include/c++/13/string
  /usr/include/c++/13/string_view
  /usr/include/c++/13/system_error
+ /usr/include/c++/13/thread
  /usr/include/c++/13/tuple
  /usr/include/c++/13/type_traits
  /usr/include/c++/13/typeinfo

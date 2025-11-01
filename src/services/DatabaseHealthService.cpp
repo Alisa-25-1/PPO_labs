@@ -15,7 +15,7 @@ const std::chrono::seconds DatabaseHealthService::MONITORING_INTERVAL_{10};
 
 void DatabaseHealthService::startMonitoring() {
     if (monitoringActive_.exchange(true)) {
-        return; // Уже запущено
+        return; 
     }
     
     monitoringThread_ = std::thread(&DatabaseHealthService::monitoringLoop);

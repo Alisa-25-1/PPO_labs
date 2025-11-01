@@ -1,26 +1,29 @@
 #include "TechUIManagers.hpp"
-#include "../data/PostgreSQLRepositoryFactory.hpp"
 #include "../services/BranchService.hpp"
-#include "../repositories/impl/PostgreSQLEnrollmentRepository.hpp"
 
-TechUIManagers::TechUIManagers(const std::string& connectionString) {
+TechUIManagers::TechUIManagers(const Config& config) {
     try {
-        // Используем фабрику для создания всех репозиториев
-        auto factory = std::make_shared<PostgreSQLRepositoryFactory>(connectionString);
+        // Создаем фабрику репозиториев на основе конфигурации
+        repositoryFactory_ = RepositoryFactoryCreator::createFactory(config);
         
         // Создаем все репозитории через фабрику
-        clientRepo_ = factory->createClientRepository();
-        hallRepo_ = factory->createDanceHallRepository();
-        bookingRepo_ = factory->createBookingRepository();
-        lessonRepo_ = factory->createLessonRepository();
-        trainerRepo_ = factory->createTrainerRepository();
-        enrollmentRepo_ = factory->createEnrollmentRepository();
-        subscriptionRepo_ = factory->createSubscriptionRepository();
-        subscriptionTypeRepo_ = factory->createSubscriptionTypeRepository();
-        reviewRepo_ = factory->createReviewRepository();
-        branchRepo_ = factory->createBranchRepository();
-        studioRepo_ = factory->createStudioRepository();
-        attendanceRepo_ = factory->createAttendanceRepository(); 
+        clientRepo_ = repositoryFactory_->createClientRepository();
+        hallRepo_ = repositoryFactory_->createDanceHallRepository();
+        bookingRepo_ = repositoryFactory_->createBookingRepository();
+        lessonRepo_ = repositoryFactory_->createLessonRepository();
+        trainerRepo_ = repositoryFactory_->createTrainerRepository();
+        enrollmentRepo_ = repositoryFactory_->createEnrollmentRepository();
+        subscriptionRepo_ = repositoryFactory_->createSubscriptionRepository();
+        subscriptionTypeRepo_ = repositoryFactory_->createSubscriptionTypeRepository();
+        reviewRepo_ = repositoryFactory_->createReviewRepository();
+        branchRepo_ = repositoryFactory_->createBranchRepository();
+        studioRepo_ = repositoryFactory_->createStudioRepository();
+        attendanceRepo_ = repositoryFactory_->createAttendanceRepository(); 
+
+        // Тестируем соединение
+        if (!repositoryFactory_->testConnection()) {
+            throw std::runtime_error("Database connection test failed");
+        }
         
         auto branchService = std::make_shared<BranchService>(branchRepo_, hallRepo_);
         
@@ -79,7 +82,8 @@ TechUIManagers::TechUIManagers(const std::string& connectionString) {
         
         statisticsManager_ = std::make_unique<StatisticsManager>(statisticsService_.get());
         
-        std::cout << "✅ Все менеджеры TechUI инициализированы" << std::endl;
+        std::cout << "✅ Все менеджеры TechUI инициализированы с БД: " 
+                  << config.getDatabaseType() << std::endl;
         
     } catch (const std::exception& e) {
         std::cerr << "❌ Ошибка инициализации TechUIManagers: " << e.what() << std::endl;

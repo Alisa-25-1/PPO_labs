@@ -3,9 +3,9 @@
 #include <sstream>
 #include <ctime>
 
-TechUI::TechUI(const std::string& connectionString) {
+TechUI::TechUI(const Config& config) {
     try {
-        managers_ = std::make_unique<TechUIManagers>(connectionString);
+        managers_ = std::make_unique<TechUIManagers>(config);  
         std::cout << "✅ Технологический UI инициализирован" << std::endl;
     } catch (const std::exception& e) {
         std::cerr << "❌ Ошибка инициализации TechUI: " << e.what() << std::endl;

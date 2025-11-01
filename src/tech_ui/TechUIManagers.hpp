@@ -9,22 +9,16 @@
 #include "../services/ReviewService.hpp"
 #include "../services/ScheduleService.hpp"
 #include "../services/StatisticsService.hpp"
-#include "StatisticsManager.hpp" // ДОБАВЛЕНО
-#include "../repositories/IBookingRepository.hpp"
-#include "../repositories/IClientRepository.hpp"
-#include "../repositories/IDanceHallRepository.hpp"
-#include "../repositories/ILessonRepository.hpp"
-#include "../repositories/ITrainerRepository.hpp"
-#include "../repositories/IEnrollmentRepository.hpp"
-#include "../repositories/ISubscriptionRepository.hpp"
-#include "../repositories/ISubscriptionTypeRepository.hpp"
-#include "../repositories/IReviewRepository.hpp"
-#include "../repositories/IBranchRepository.hpp"
-#include "../repositories/IStudioRepository.hpp"
-#include "../repositories/IAttendanceRepository.hpp"
+#include "StatisticsManager.hpp" 
+#include "../data/IRepositoryFactory.hpp"
+#include "../data/RepositoryFactoryCreator.hpp"
+#include "../core/Config.hpp"
 
 class TechUIManagers {
 private:
+    // Фабрика репозиториев
+    std::shared_ptr<IRepositoryFactory> repositoryFactory_;
+    
     // Репозитории
     std::shared_ptr<IClientRepository> clientRepo_;
     std::shared_ptr<IDanceHallRepository> hallRepo_;
@@ -50,10 +44,10 @@ private:
     std::unique_ptr<StatisticsService> statisticsService_;
 
     // Менеджеры UI
-    std::unique_ptr<StatisticsManager> statisticsManager_; // ДОБАВЛЕНО
+    std::unique_ptr<StatisticsManager> statisticsManager_;
 
 public:
-    explicit TechUIManagers(const std::string& connectionString);
+    explicit TechUIManagers(const Config& config);
     
     // Геттеры для сервисов
     AuthService* getAuthService() const { return authService_.get(); }
@@ -73,7 +67,7 @@ public:
     std::shared_ptr<IEnrollmentRepository> getEnrollmentRepo() const { return enrollmentRepo_; }
     
     // Геттер для StatisticsManager
-    StatisticsManager* getStatisticsManager() const { return statisticsManager_.get(); } // ДОБАВЛЕНО
+    StatisticsManager* getStatisticsManager() const { return statisticsManager_.get(); } 
     
     // Методы для получения данных
     std::vector<DanceHall> getAvailableHalls() const;

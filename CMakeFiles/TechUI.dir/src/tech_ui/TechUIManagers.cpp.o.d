@@ -307,70 +307,19 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../tech_ui/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../tech_ui/../types/enums.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../tech_ui/../models/DanceHall.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/IStudioRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/../types/uuid.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/../models/Studio.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/../models/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/IRepositoryFactory.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/../repositories/IStudioRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/../repositories/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/../repositories/../models/Studio.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/../repositories/../models/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/RepositoryFactoryCreator.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/PostgreSQLRepositoryFactory.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/BranchService.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/PostgreSQLEnrollmentRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/../../data/DatabaseConnection.hpp \
- /usr/include/pqxx/pqxx /usr/include/pqxx/internal/header-pre.hxx \
- /usr/include/c++/13/version /usr/include/pqxx/internal/cxx-features.hxx \
- /usr/include/pqxx/config-public-compiler.h /usr/include/c++/13/ciso646 \
- /usr/include/pqxx/array.hxx /usr/include/c++/13/algorithm \
- /usr/include/c++/13/pstl/glue_algorithm_defs.h \
- /usr/include/c++/13/cassert /usr/include/assert.h \
- /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
- /usr/include/pqxx/connection.hxx /usr/include/c++/13/list \
- /usr/include/c++/13/bits/stl_list.h /usr/include/c++/13/bits/list.tcc \
- /usr/include/pqxx/errorhandler.hxx /usr/include/pqxx/types.hxx \
- /usr/include/c++/13/iterator /usr/include/c++/13/bits/stream_iterator.h \
- /usr/include/pqxx/except.hxx /usr/include/pqxx/internal/concat.hxx \
- /usr/include/pqxx/strconv.hxx /usr/include/c++/13/cstring \
- /usr/include/string.h /usr/include/strings.h \
- /usr/include/c++/13/charconv /usr/include/pqxx/util.hxx \
- /usr/include/c++/13/functional /usr/include/c++/13/unordered_map \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/../core/Config.hpp \
+ /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
  /usr/include/c++/13/bits/hashtable.h \
- /usr/include/c++/13/bits/hashtable_policy.h /usr/include/c++/13/array \
- /usr/include/c++/13/compare /usr/include/pqxx/version.hxx \
- /usr/include/pqxx/internal/libpq-forward.hxx /usr/include/pqxx/zview.hxx \
- /usr/include/pqxx/internal/conversions.hxx /usr/include/c++/13/numeric \
- /usr/include/c++/13/bits/stl_numeric.h \
- /usr/include/c++/13/pstl/glue_numeric_defs.h /usr/include/c++/13/variant \
- /usr/include/pqxx/params.hxx \
- /usr/include/pqxx/internal/statement_parameters.hxx \
- /usr/include/pqxx/binarystring.hxx /usr/include/pqxx/result.hxx \
- /usr/include/pqxx/internal/encodings.hxx \
- /usr/include/pqxx/internal/encoding_group.hxx \
- /usr/include/pqxx/internal/ignore-deprecated-pre.hxx \
- /usr/include/pqxx/internal/ignore-deprecated-post.hxx \
- /usr/include/pqxx/separated_list.hxx \
- /usr/include/pqxx/internal/array-composite.hxx \
- /usr/include/pqxx/blob.hxx /usr/include/c++/13/filesystem \
- /usr/include/c++/13/bits/fs_fwd.h /usr/include/c++/13/bits/fs_path.h \
- /usr/include/c++/13/codecvt /usr/include/c++/13/bits/fs_dir.h \
- /usr/include/c++/13/bits/fs_ops.h /usr/include/pqxx/dbtransaction.hxx \
- /usr/include/pqxx/transaction_base.hxx \
- /usr/include/pqxx/internal/stream_query.hxx \
- /usr/include/pqxx/internal/gates/connection-stream_from.hxx \
- /usr/include/pqxx/internal/callgate.hxx \
- /usr/include/pqxx/internal/stream_iterator.hxx \
- /usr/include/pqxx/transaction_focus.hxx /usr/include/pqxx/isolation.hxx \
- /usr/include/pqxx/row.hxx /usr/include/pqxx/field.hxx \
- /usr/include/pqxx/composite.hxx \
- /usr/include/pqxx/internal/stream_query_impl.hxx \
- /usr/include/pqxx/cursor.hxx /usr/include/pqxx/internal/sql_cursor.hxx \
- /usr/include/pqxx/largeobject.hxx /usr/include/pqxx/nontransaction.hxx \
- /usr/include/pqxx/transaction.hxx /usr/include/pqxx/notification.hxx \
- /usr/include/pqxx/pipeline.hxx /usr/include/pqxx/prepared_statement.hxx \
- /usr/include/pqxx/params.hxx /usr/include/pqxx/range.hxx \
- /usr/include/pqxx/internal/result_iterator.hxx \
- /usr/include/pqxx/internal/result_iter.hxx \
- /usr/include/pqxx/robusttransaction.hxx \
- /usr/include/pqxx/stream_from.hxx /usr/include/pqxx/stream_to.hxx \
- /usr/include/pqxx/subtransaction.hxx /usr/include/pqxx/time.hxx \
- /usr/include/pqxx/transactor.hxx \
- /usr/include/pqxx/internal/header-post.hxx \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../repositories/impl/../../data/exceptions/DataAccessException.hpp
+ /usr/include/c++/13/bits/hashtable_policy.h /usr/include/c++/13/fstream \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
+ /usr/include/c++/13/bits/fstream.tcc \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/BranchService.hpp

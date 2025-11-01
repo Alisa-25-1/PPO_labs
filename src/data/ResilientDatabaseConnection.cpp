@@ -53,26 +53,12 @@ pqxx::connection& ResilientDatabaseConnection::getConnection() {
 }
 
 pqxx::work ResilientDatabaseConnection::beginTransaction() {
-    // Используем ту же логику ретраев, но для транзакций
-    for (int attempt = 1; attempt <= maxRetries_; ++attempt) {
-        try {
-            return DatabaseConnection::beginTransaction(); 
-        } catch (const std::exception& e) {
-            std::cerr << "⚠️ Transaction attempt " << attempt << "/" << maxRetries_ 
-                      << " failed: " << e.what() << std::endl;
-            
-            if (attempt < maxRetries_) {
-                std::cout << "🔄 Retrying transaction in " << retryDelay_.count() << "ms..." << std::endl;
-                std::this_thread::sleep_for(retryDelay_);
-            } else {
-                DatabaseHealthService::markDatabaseUnhealthy();
-                throw;
-            }
-        }
+    try {
+        return DatabaseConnection::beginTransaction(); 
+    } catch (const std::exception& e) {
+        std::cerr << "❌ Transaction failed: " << e.what() << std::endl;
+        throw;
     }
-    
-    throw std::runtime_error("Failed to begin transaction after " + 
-                           std::to_string(maxRetries_) + " attempts");
 }
 
 bool ResilientDatabaseConnection::executeWithRetry(const std::function<void()>& operation) {

@@ -152,7 +152,8 @@ CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: \
  /usr/include/c++/13/bits/basic_string.tcc \
  /usr/include/c++/13/bits/memory_resource.h /usr/include/c++/13/cstddef \
  /usr/include/c++/13/bits/uses_allocator_args.h \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IBookingRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/IRepositoryFactory.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IClientRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../types/uuid.hpp \
  /usr/include/c++/13/regex /usr/include/c++/13/bitset \
  /usr/include/c++/13/locale /usr/include/c++/13/bits/locale_classes.h \
@@ -203,42 +204,42 @@ CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: \
  /usr/include/c++/13/bits/regex_executor.h \
  /usr/include/c++/13/bits/regex_executor.tcc /usr/include/uuid/uuid.h \
  /usr/include/x86_64-linux-gnu/sys/time.h \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Booking.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/TimeSlot.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Client.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/../types/enums.hpp \
  /usr/include/c++/13/chrono /usr/include/c++/13/bits/chrono.h \
  /usr/include/c++/13/ratio /usr/include/c++/13/cstdint \
  /usr/include/c++/13/limits /usr/include/c++/13/bits/parse_numbers.h \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/../data/DateTimeUtils.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/../types/uuid.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/../types/enums.hpp \
  /usr/include/c++/13/optional \
  /usr/include/c++/13/bits/enable_special_members.h \
- /usr/include/c++/13/vector \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IClientRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Client.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IDanceHallRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/DanceHall.hpp \
+ /usr/include/c++/13/vector \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IBookingRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Booking.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/TimeSlot.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/../data/DateTimeUtils.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/ILessonRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Lesson.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/TimeSlot.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/ITrainerRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Trainer.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IEnrollmentRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Enrollment.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/ISubscriptionRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Subscription.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/ISubscriptionTypeRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/SubscriptionType.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IReviewRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Review.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IBranchRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Address.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IStudioRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Studio.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/ITrainerRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Trainer.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/ILessonRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Lesson.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/TimeSlot.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IEnrollmentRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Enrollment.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IReviewRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Review.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/ISubscriptionRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Subscription.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/ISubscriptionTypeRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/SubscriptionType.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/IAttendanceRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/../models/Attendance.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../data/DatabaseConnection.hpp \
  /usr/include/pqxx/pqxx /usr/include/pqxx/internal/header-pre.hxx \
  /usr/include/c++/13/version /usr/include/pqxx/internal/cxx-features.hxx \
  /usr/include/pqxx/config-public-compiler.h /usr/include/c++/13/ciso646 \
@@ -299,9 +300,6 @@ CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: \
  /usr/include/pqxx/subtransaction.hxx /usr/include/pqxx/time.hxx \
  /usr/include/pqxx/transactor.hxx \
  /usr/include/pqxx/internal/header-post.hxx \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/ResilientDatabaseConnection.hpp \
- /usr/include/c++/13/thread /usr/include/c++/13/bits/std_thread.h \
- /usr/include/c++/13/bits/this_thread_sleep.h /usr/include/c++/13/atomic \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/PostgreSQLBookingRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/../../data/DatabaseConnection.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/../../data/exceptions/DataAccessException.hpp \

@@ -337,6 +337,7 @@ CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o: src/data/DatabaseCo
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: src/data/PostgreSQLRepositoryFactory.cpp \
+  src/data/DatabaseConnection.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
@@ -382,16 +383,14 @@ CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: src/data/P
   src/repositories/impl/PostgreSQLSubscriptionRepository.hpp \
   src/repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp \
   src/repositories/impl/PostgreSQLTrainerRepository.hpp \
-  src/data/DatabaseConnection.hpp \
+  src/data/IRepositoryFactory.hpp \
   src/data/PostgreSQLRepositoryFactory.hpp \
-  src/data/ResilientDatabaseConnection.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
   /usr/include/assert.h \
   /usr/include/c++/13/algorithm \
   /usr/include/c++/13/array \
-  /usr/include/c++/13/atomic \
   /usr/include/c++/13/backward/auto_ptr.h \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
@@ -475,7 +474,6 @@ CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: src/data/P
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_thread.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -503,7 +501,6 @@ CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: src/data/P
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
-  /usr/include/c++/13/bits/this_thread_sleep.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
@@ -571,7 +568,6 @@ CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: src/data/P
   /usr/include/c++/13/string \
   /usr/include/c++/13/string_view \
   /usr/include/c++/13/system_error \
-  /usr/include/c++/13/thread \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
@@ -5863,19 +5859,23 @@ src/repositories/impl/PostgreSQLBranchRepository.cpp:
 
 src/repositories/impl/PostgreSQLBookingRepository.cpp:
 
+/usr/include/c++/13/thread:
+
 /usr/include/c++/13/mutex:
 
 /usr/include/c++/13/iostream:
 
 /usr/include/c++/13/bits/std_mutex.h:
 
+/usr/include/c++/13/atomic:
+
+src/data/ResilientDatabaseConnection.hpp:
+
 src/services/DatabaseHealthService.hpp:
 
 src/data/QueryFactory.cpp:
 
 /usr/include/x86_64-linux-gnu/sys/time.h:
-
-/usr/include/c++/13/thread:
 
 /usr/include/c++/13/deque:
 
@@ -5894,10 +5894,6 @@ src/data/QueryFactory.cpp:
 /usr/include/c++/13/bits/regex.h:
 
 /usr/include/c++/13/bits/deque.tcc:
-
-/usr/include/c++/13/atomic:
-
-src/data/ResilientDatabaseConnection.hpp:
 
 src/repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp:
 
@@ -6170,6 +6166,8 @@ src/repositories/impl/PostgreSQLTrainerRepository.hpp:
 /usr/include/c++/13/bits/sstream.tcc:
 
 /usr/include/c++/13/cwctype:
+
+src/data/IRepositoryFactory.hpp:
 
 /usr/include/c++/13/ratio:
 
@@ -6641,9 +6639,9 @@ src/repositories/IEnrollmentRepository.hpp:
 
 /usr/include/pqxx/params.hxx:
 
-/usr/include/uuid/uuid.h:
-
 /usr/include/c++/13/bits/std_thread.h:
+
+/usr/include/uuid/uuid.h:
 
 /usr/include/c++/13/initializer_list:
 

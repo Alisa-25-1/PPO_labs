@@ -138,8 +138,8 @@ CMakeFiles/DataAccess.dir/clean:
 # Target rules for target CMakeFiles/TechUI.dir
 
 # All Build rule for target.
-CMakeFiles/TechUI.dir/all: CMakeFiles/BookingCore.dir/all
 CMakeFiles/TechUI.dir/all: CMakeFiles/DataAccess.dir/all
+CMakeFiles/TechUI.dir/all: CMakeFiles/BookingCore.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=60,61,62,63,64,65 "Built target TechUI"
@@ -191,9 +191,9 @@ CMakeFiles/WebUIComponent.dir/clean:
 # Target rules for target CMakeFiles/DanceStudioWebUI.dir
 
 # All Build rule for target.
+CMakeFiles/DanceStudioWebUI.dir/all: CMakeFiles/DataAccess.dir/all
 CMakeFiles/DanceStudioWebUI.dir/all: CMakeFiles/WebUIComponent.dir/all
 CMakeFiles/DanceStudioWebUI.dir/all: CMakeFiles/BookingCore.dir/all
-CMakeFiles/DanceStudioWebUI.dir/all: CMakeFiles/DataAccess.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioWebUI.dir/build.make CMakeFiles/DanceStudioWebUI.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioWebUI.dir/build.make CMakeFiles/DanceStudioWebUI.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=40,41 "Built target DanceStudioWebUI"

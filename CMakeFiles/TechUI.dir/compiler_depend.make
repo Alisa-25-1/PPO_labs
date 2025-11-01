@@ -964,6 +964,14 @@ CMakeFiles/TechUI.dir/src/tech_ui/StatisticsManager.cpp.o: src/tech_ui/Statistic
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
+  src/core/Config.hpp \
+  src/types/uuid.hpp \
+  src/models/Studio.hpp \
+  src/types/uuid.hpp \
+  src/repositories/IStudioRepository.hpp \
+  src/data/IRepositoryFactory.hpp \
+  src/data/PostgreSQLRepositoryFactory.hpp \
+  src/data/RepositoryFactoryCreator.hpp \
   src/dtos/AuthDTO.hpp \
   src/dtos/BookingDTO.hpp \
   src/dtos/EnrollmentDTO.hpp \
@@ -978,10 +986,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   src/models/Review.hpp \
   src/models/Subscription.hpp \
   src/models/Trainer.hpp \
-  src/types/uuid.hpp \
-  src/models/Studio.hpp \
-  src/types/uuid.hpp \
-  src/repositories/IStudioRepository.hpp \
   src/core/PasswordHasher.hpp \
   src/data/DateTimeUtils.hpp \
   src/models/Booking.hpp \
@@ -1088,9 +1092,12 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/c++/13/bits/exception.h \
   /usr/include/c++/13/bits/exception_defines.h \
   /usr/include/c++/13/bits/exception_ptr.h \
+  /usr/include/c++/13/bits/fstream.tcc \
   /usr/include/c++/13/bits/functexcept.h \
   /usr/include/c++/13/bits/functional_hash.h \
   /usr/include/c++/13/bits/hash_bytes.h \
+  /usr/include/c++/13/bits/hashtable.h \
+  /usr/include/c++/13/bits/hashtable_policy.h \
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
@@ -1161,6 +1168,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
   /usr/include/c++/13/bits/unique_ptr.h \
+  /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
   /usr/include/c++/13/bits/uses_allocator_args.h \
   /usr/include/c++/13/bits/utility.h \
@@ -1188,6 +1196,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/c++/13/ext/numeric_traits.h \
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
+  /usr/include/c++/13/fstream \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
   /usr/include/c++/13/ios \
@@ -1217,6 +1226,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/c++/13/tuple \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
+  /usr/include/c++/13/unordered_map \
   /usr/include/c++/13/vector \
   /usr/include/ctype.h \
   /usr/include/endian.h \
@@ -1332,8 +1342,10 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/x86_64-linux-gnu/bits/wordsize.h \
   /usr/include/x86_64-linux-gnu/bits/xopen_lim.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h \
+  /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h \
   /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h \
@@ -1906,6 +1918,8 @@ src/services/BranchService.hpp:
 src/data/exceptions/DataAccessException.hpp:
 
 src/data/DatabaseConnection.hpp:
+
+src/data/RepositoryFactoryCreator.hpp:
 
 src/tech_ui/TechUI.cpp:
 
@@ -2742,6 +2756,8 @@ src/tech_ui/InputHandlers.hpp:
 /usr/include/ctype.h:
 
 /usr/include/features.h:
+
+src/data/IRepositoryFactory.hpp:
 
 /usr/include/c++/13/ratio:
 

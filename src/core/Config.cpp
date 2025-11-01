@@ -128,3 +128,85 @@ void Config::setBool(const std::string& key, bool value) {
 bool Config::hasKey(const std::string& key) const {
     return configMap_.find(key) != configMap_.end();
 }
+
+// Database configuration methods
+std::string Config::getDatabaseType() const {
+    return getString("database.type", "postgres");
+}
+
+std::string Config::getPostgresConnectionString() const {
+    return getString("database.postgres.connection_string", 
+        "postgresql://dance_user:dance_password@localhost:5432/dance_studio");
+}
+
+std::string Config::getMongoConnectionString() const {
+    return getString("database.mongodb.connection_string", 
+        "mongodb://localhost:27017");
+}
+
+std::string Config::getMongoDatabaseName() const {
+    return getString("database.mongodb.database_name", "dance_studio");
+}
+
+int Config::getMaxConnections() const {
+    if (getDatabaseType() == "postgres") {
+        return getInt("database.postgres.max_connections", 10);
+    } else {
+        return getInt("database.mongodb.pool_size", 10);
+    }
+}
+
+int Config::getConnectionTimeoutSeconds() const {
+    if (getDatabaseType() == "postgres") {
+        return getInt("database.postgres.connection_timeout_seconds", 30);
+    } else {
+        return getInt("database.mongodb.timeout_ms", 5000) / 1000;
+    }
+}
+
+// Business logic configuration
+int Config::getMaxBookingDaysAhead() const {
+    return getInt("business_logic.max_booking_days_ahead", 30);
+}
+
+int Config::getLessonCancellationHours() const {
+    return getInt("business_logic.lesson_cancellation_hours", 24);
+}
+
+int Config::getMaxParticipantsPerLesson() const {
+    return getInt("business_logic.max_participants_per_lesson", 50);
+}
+
+int Config::getDefaultLessonDurationMinutes() const {
+    return getInt("business_logic.default_lesson_duration_minutes", 60);
+}
+
+// Logging configuration
+std::string Config::getLogLevel() const {
+    return getString("logging.level", "INFO");
+}
+
+std::string Config::getLogFilePath() const {
+    return getString("logging.file_path", "logs/dance_studio.log");
+}
+
+int Config::getMaxLogFileSizeMB() const {
+    return getInt("logging.max_file_size_mb", 10);
+}
+
+int Config::getLogBackupCount() const {
+    return getInt("logging.backup_count", 5);
+}
+
+// Application configuration
+std::string Config::getApplicationName() const {
+    return getString("application.name", "Dance Studio Management System");
+}
+
+std::string Config::getApplicationVersion() const {
+    return getString("application.version", "1.0.0");
+}
+
+bool Config::isTechUIEnabled() const {
+    return getBool("application.tech_ui_enabled", true);
+}

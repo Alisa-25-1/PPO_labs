@@ -1,8 +1,5 @@
 #include "PostgreSQLRepositoryFactory.hpp"
-#include "DatabaseConnection.hpp"
-#include "ResilientDatabaseConnection.hpp"
-
-// Реализации репозиториев
+#include "../data/DatabaseConnection.hpp"
 #include "../repositories/impl/PostgreSQLBookingRepository.hpp"
 #include "../repositories/impl/PostgreSQLClientRepository.hpp"
 #include "../repositories/impl/PostgreSQLDanceHallRepository.hpp"
@@ -17,10 +14,7 @@
 #include "../repositories/impl/PostgreSQLAttendanceRepository.hpp"
 
 PostgreSQLRepositoryFactory::PostgreSQLRepositoryFactory(const std::string& connectionString) {
-    // Используем ResilientConnection по умолчанию
-    auto resilientConnection = std::make_shared<ResilientDatabaseConnection>(connectionString);
-    resilientConnection->setRetryPolicy(3, std::chrono::milliseconds(1000));
-    dbConnection_ = resilientConnection;
+    dbConnection_ = std::make_shared<DatabaseConnection>(connectionString);
 }
 
 std::shared_ptr<IBookingRepository> PostgreSQLRepositoryFactory::createBookingRepository() {
@@ -72,12 +66,15 @@ std::shared_ptr<IAttendanceRepository> PostgreSQLRepositoryFactory::createAttend
 }
 
 bool PostgreSQLRepositoryFactory::testConnection() const {
-    return dbConnection_->isConnected();
+    try {
+        pqxx::connection& conn = dbConnection_->getConnection();
+        return conn.is_open();
+    } catch (...) {
+        return false;
+    }
 }
 
 void PostgreSQLRepositoryFactory::reconnect() {
-    if (auto resilient = std::dynamic_pointer_cast<ResilientDatabaseConnection>(dbConnection_)) {
-        // Реализация переподключения для resilient соединения
-        // В реальной реализации здесь может быть логика переподключения
+    if (dbConnection_) {
     }
 }

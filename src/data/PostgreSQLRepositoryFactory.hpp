@@ -3,6 +3,7 @@
 
 #include <memory>
 #include <string>
+#include "IRepositoryFactory.hpp"
 
 // Интерфейсы репозиториев
 #include "../repositories/IBookingRepository.hpp"
@@ -16,40 +17,41 @@
 #include "../repositories/IReviewRepository.hpp"
 #include "../repositories/ISubscriptionRepository.hpp"
 #include "../repositories/ISubscriptionTypeRepository.hpp"
-#include "../repositories/IAttendanceRepository.hpp" // ДОБАВЛЕНО
+#include "../repositories/IAttendanceRepository.hpp"
 
 // Forward declaration
 class DatabaseConnection;
 
-class PostgreSQLRepositoryFactory {
+// НАСЛЕДУЕМСЯ ОТ IRepositoryFactory
+class PostgreSQLRepositoryFactory : public IRepositoryFactory {
 private:
     std::shared_ptr<DatabaseConnection> dbConnection_;
 
 public:
     explicit PostgreSQLRepositoryFactory(const std::string& connectionString);
-    ~PostgreSQLRepositoryFactory() = default;
+    ~PostgreSQLRepositoryFactory() override = default;
 
     // Запрещаем копирование
     PostgreSQLRepositoryFactory(const PostgreSQLRepositoryFactory&) = delete;
     PostgreSQLRepositoryFactory& operator=(const PostgreSQLRepositoryFactory&) = delete;
 
-    // Фабричные методы
-    std::shared_ptr<IBookingRepository> createBookingRepository();
-    std::shared_ptr<IClientRepository> createClientRepository();
-    std::shared_ptr<IDanceHallRepository> createDanceHallRepository();
-    std::shared_ptr<IBranchRepository> createBranchRepository();
-    std::shared_ptr<IStudioRepository> createStudioRepository();
-    std::shared_ptr<ITrainerRepository> createTrainerRepository();
-    std::shared_ptr<ILessonRepository> createLessonRepository();
-    std::shared_ptr<IEnrollmentRepository> createEnrollmentRepository();
-    std::shared_ptr<IReviewRepository> createReviewRepository();
-    std::shared_ptr<ISubscriptionRepository> createSubscriptionRepository();
-    std::shared_ptr<ISubscriptionTypeRepository> createSubscriptionTypeRepository();
-    std::shared_ptr<IAttendanceRepository> createAttendanceRepository(); // ДОБАВЛЕНО
+    // Фабричные методы (ПЕРЕОПРЕДЕЛЯЕМ ВСЕ ВИРТУАЛЬНЫЕ МЕТОДЫ)
+    std::shared_ptr<IBookingRepository> createBookingRepository() override;
+    std::shared_ptr<IClientRepository> createClientRepository() override;
+    std::shared_ptr<IDanceHallRepository> createDanceHallRepository() override;
+    std::shared_ptr<IBranchRepository> createBranchRepository() override;
+    std::shared_ptr<IStudioRepository> createStudioRepository() override;
+    std::shared_ptr<ITrainerRepository> createTrainerRepository() override;
+    std::shared_ptr<ILessonRepository> createLessonRepository() override;
+    std::shared_ptr<IEnrollmentRepository> createEnrollmentRepository() override;
+    std::shared_ptr<IReviewRepository> createReviewRepository() override;
+    std::shared_ptr<ISubscriptionRepository> createSubscriptionRepository() override;
+    std::shared_ptr<ISubscriptionTypeRepository> createSubscriptionTypeRepository() override;
+    std::shared_ptr<IAttendanceRepository> createAttendanceRepository() override;
 
-    // Управление соединением
-    bool testConnection() const;
-    void reconnect();
+    // Управление соединением (ПЕРЕОПРЕДЕЛЯЕМ)
+    bool testConnection() const override;
+    void reconnect() override;
     
     // Получение соединения (для advanced использования)
     std::shared_ptr<DatabaseConnection> getConnection() const { return dbConnection_; }

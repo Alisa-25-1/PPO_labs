@@ -12,14 +12,14 @@ void ensureDirectoriesExist() {
     fs::create_directories("config");
 }
 
-std::string loadConfiguration() {
+void loadConfiguration() {
     auto& config = Config::getInstance();
     
     std::vector<std::string> configPaths = {
-        "config/config.json",
-        "../config/config.json", 
-        "../../config/config.json",
-        "./config.json"
+        "config/config.properties",  
+        "../config/config.properties", 
+        "../../config/config.properties",
+        "./config.properties"
     };
     
     bool configLoaded = false;
@@ -27,29 +27,29 @@ std::string loadConfiguration() {
         if (fs::exists(path)) {
             config.loadFromFile(path);
             configLoaded = true;
+            std::cout << "✅ Конфигурация загружена из: " << path << std::endl;
+            std::cout << "🔧 Тип БД: " << config.getDatabaseType() << std::endl;
             break;
         }
     }
     
     if (!configLoaded) {
-        config.setString("database.connection_string", 
+        std::cout << "⚠️  Конфигурационный файл не найден, используются значения по умолчанию" << std::endl;
+        // Устанавливаем значения по умолчанию
+        config.setString("database.type", "postgres");
+        config.setString("database.postgres.connection_string", 
             "postgresql://dance_user:dance_password@localhost/dance_studio");
         config.setString("logging.level", "INFO");
         config.setString("logging.file_path", "logs/dance_studio.log");
     }
-    
-    return config.getString(
-        "database.connection_string",
-        "postgresql://dance_user:dance_password@localhost/dance_studio"
-    );
 }
 
 void initializeLogging() {
     auto& config = Config::getInstance();
     auto& logger = Logger::getInstance();
     
-    std::string logLevelStr = config.getString("logging.level", "INFO");
-    std::string logFilePath = config.getString("logging.file_path", "logs/dance_studio.log");
+    std::string logLevelStr = config.getLogLevel();
+    std::string logFilePath = config.getLogFilePath();
     
     LogLevel logLevel = LogLevel::INFO;
     if (logLevelStr == "DEBUG") logLevel = LogLevel::DEBUG;
@@ -64,15 +64,16 @@ int main() {
     
     try {
         ensureDirectoriesExist();
-        
-        std::string connectionString = loadConfiguration();
-        
+        loadConfiguration();
         initializeLogging();
         
         auto& logger = Logger::getInstance();
-        logger.info("Приложение запущено", "Main");
+        auto& config = Config::getInstance();
         
-        TechUI techUI(connectionString);
+        logger.info("Приложение запущено с БД: " + config.getDatabaseType(), "Main");
+        
+        // Теперь передаем Config в TechUI
+        TechUI techUI(config);
         techUI.run();
         
         logger.info("Приложение завершено", "Main");
