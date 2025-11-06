@@ -70,12 +70,12 @@ AuthResponseDTO AuthService::login(const AuthRequestDTO& request) {
 bool AuthService::changePassword(const UUID& clientId, const std::string& oldPassword, const std::string& newPassword) {
     auto client = clientRepository_->findById(clientId);
     if (!client) {
-        return false;
+        return false; // Клиент не найден
     }
     
     // Проверяем старый пароль с хешированием
     if (!passwordHasher_->verifySecurePassword(oldPassword, client->getPasswordHash())) {
-        throw InvalidCredentialsException();
+        throw InvalidCredentialsException(); // Бросаем исключение вместо возврата false
     }
     
     // Проверяем новый пароль

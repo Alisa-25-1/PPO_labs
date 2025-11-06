@@ -16,6 +16,8 @@ private:
     std::chrono::system_clock::time_point scheduledTime_;
     std::chrono::system_clock::time_point actualTime_;
     std::string notes_;
+    double amountPaid_; // Сумма оплаты (для статистики доходов)
+    int durationMinutes_; // Фактическая продолжительность
 
 public:
     Attendance();
@@ -31,6 +33,13 @@ public:
     std::chrono::system_clock::time_point getScheduledTime() const;
     std::chrono::system_clock::time_point getActualTime() const;
     std::string getNotes() const;
+    double getAmountPaid() const;
+    int getDurationMinutes() const;
+    
+    // Сеттеры
+    void setAmountPaid(double amount);
+    void setDurationMinutes(int minutes);
+    void setNotes(const std::string& notes);
     
     // Бизнес-логика
     void markVisited(const std::string& notes = "");
@@ -41,8 +50,13 @@ public:
     bool isNoShow() const;
     bool isValid() const;
     
+    // Финансовые методы
+    bool isPaid() const;
+    double calculateRevenue() const;
+    
     // Валидация
     static bool isValidNotes(const std::string& notes);
+    static bool isValidAmount(double amount);
     
     // Операторы сравнения
     bool operator==(const Attendance& other) const;

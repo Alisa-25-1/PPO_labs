@@ -5,6 +5,7 @@
 #include "../repositories/IBranchRepository.hpp"
 #include "../repositories/IAttendanceRepository.hpp"
 #include "../repositories/ILessonRepository.hpp"
+#include "AttendanceService.hpp"
 #include "IBranchService.hpp" 
 #include "../dtos/BookingDTO.hpp"
 #include "../types/uuid.hpp"
@@ -23,8 +24,8 @@ private:
     std::shared_ptr<IDanceHallRepository> hallRepository_;
     std::shared_ptr<IBranchRepository> branchRepository_;
     std::shared_ptr<IBranchService> branchService_; 
-    std::shared_ptr<IAttendanceRepository> attendanceRepository_;
     std::shared_ptr<ILessonRepository> lessonRepository_;
+    std::shared_ptr<AttendanceService> attendanceService_;
 
     // Validation methods
     void validateBookingRequest(const BookingRequestDTO& request) const;
@@ -68,8 +69,8 @@ public:
         std::shared_ptr<IDanceHallRepository> hallRepo,
         std::shared_ptr<IBranchRepository> branchRepo,
         std::shared_ptr<IBranchService> branchService,
-        std::shared_ptr<IAttendanceRepository> attendanceRepo,
-        std::shared_ptr<ILessonRepository> lessonRepo
+        std::shared_ptr<ILessonRepository> lessonRepo,
+        std::shared_ptr<AttendanceService> attendanceService
     );
 
     // Main business logic methods
@@ -91,7 +92,8 @@ public:
     
     // Business rules
     bool canClientBook(const UUID& clientId) const;
-    int getClientActiveBookingsCount(const UUID& clientId) const;   
+    int getClientActiveBookingsCount(const UUID& clientId) const;  
+    BookingResponseDTO completeBooking(const UUID& bookingId); 
 
     // Вспомогательные методы
     std::optional<Branch> getBranchForHall(const UUID& hallId) const;

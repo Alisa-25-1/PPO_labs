@@ -10,4 +10,5 @@ public:
     MOCK_METHOD(std::vector<DanceHall>, getHallsByBranch, (const UUID& branchId), (override));
     MOCK_METHOD(std::string, getBranchName, (const UUID& branchId), (override));
     MOCK_METHOD(std::optional<Branch>, getBranchForHall, (const UUID& hallId), (override));
+    MOCK_METHOD(std::chrono::minutes, getTimezoneOffsetForBranch, (const UUID& branchId), (override));
 };

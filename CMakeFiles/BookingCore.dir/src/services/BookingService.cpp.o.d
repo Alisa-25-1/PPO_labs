@@ -228,8 +228,13 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/ILessonRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Lesson.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/TimeSlot.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/Attendance.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IEnrollmentRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Enrollment.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/DanceHall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/BookingDTO.hpp \

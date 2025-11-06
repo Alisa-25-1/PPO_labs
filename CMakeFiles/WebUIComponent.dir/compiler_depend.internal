@@ -18,6 +18,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLSubscriptionRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLTrainerRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/DatabaseHealthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/web_ui/WebApplication.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp
@@ -71,6 +72,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -994,6 +996,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Lesson.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
@@ -1002,8 +1005,10 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IEnrollmentRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ILessonRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/TimeZoneService.hpp
@@ -1383,6 +1388,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Client.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
@@ -1392,6 +1398,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IAttendanceRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBookingRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IBranchRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IClientRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IDanceHallRepository.hpp
@@ -1399,6 +1406,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ILessonRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
@@ -2264,6 +2272,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -2727,6 +2736,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -3186,6 +3196,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -3644,6 +3655,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -4090,6 +4102,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -4547,6 +4560,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -5008,6 +5022,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -5467,6 +5482,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -5923,6 +5939,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -6380,6 +6397,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -6828,6 +6846,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -7283,6 +7302,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -7738,6 +7758,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp

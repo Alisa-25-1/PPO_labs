@@ -22,7 +22,7 @@ class Branch {
 private:
     UUID id_;
     std::string name_;
-    Address address_;  // Теперь используем объект Address вместо строки
+    BranchAddress address_;
     std::string phone_;
     WorkingHours workingHours_;
     UUID studioId_;
@@ -30,7 +30,7 @@ private:
 public:
     Branch();
     Branch(const UUID& id, const std::string& name, const std::string& phone, 
-           const WorkingHours& workingHours, const UUID& studioId, const Address& address);
+           const WorkingHours& workingHours, const UUID& studioId, const BranchAddress& address);
     
     // Геттеры
     UUID getId() const;
@@ -38,12 +38,12 @@ public:
     std::string getPhone() const;
     WorkingHours getWorkingHours() const;
     UUID getStudioId() const;
-    Address getAddress() const;
+    BranchAddress getAddress() const;
     std::chrono::minutes getTimezoneOffset() const;
     
     // Сеттеры
     void setName(const std::string& name);
-    void setAddress(const Address& address);
+    void setAddress(const BranchAddress& address);
     void setPhone(const std::string& phone);
     void setWorkingHours(const WorkingHours& hours);
     

@@ -64,3 +64,31 @@
 [2025-11-01 12:09:25.891] [INFO] [Main] Приложение запущено с БД: postgres
 [2025-11-01 12:09:37.715] [INFO] [Main] Приложение завершено
 [SHUTDOWN] Logger shutting down
+[INIT] Logger initialized successfully
+[2025-11-01 12:43:27.389] [INFO] [Main] Приложение запущено с БД: postgres
+[2025-11-01 12:52:02.600] [INFO] [Main] Приложение завершено
+[SHUTDOWN] Logger shutting down
+[INIT] Logger initialized successfully
+[2025-11-01 13:02:31.936] [INFO] [Main] Приложение запущено с БД: postgres
+[2025-11-01 13:03:07.987] [INFO] [Main] Приложение завершено
+[SHUTDOWN] Logger shutting down
+[INIT] Logger initialized successfully
+[2025-11-01 13:03:09.104] [INFO] [Main] Приложение запущено с БД: postgres
+[2025-11-01 13:03:22.175] [INFO] [Main] Приложение завершено
+[SHUTDOWN] Logger shutting down
+[INIT] Logger initialized successfully
+[2025-11-01 13:03:32.990] [INFO] [Main] Приложение запущено с БД: postgres
+[2025-11-01 13:04:04.578] [INFO] [Main] Приложение завершено
+[SHUTDOWN] Logger shutting down
+[INIT] Logger initialized successfully
+[2025-11-06 04:30:51.798] [INFO] [Main] Приложение запущено с БД: postgres
+[2025-11-06 04:31:32.192] [INFO] [Main] Приложение завершено
+[SHUTDOWN] Logger shutting down
+[INIT] Logger initialized successfully
+[2025-11-06 04:31:45.271] [INFO] [Main] Приложение запущено с БД: postgres
+[2025-11-06 04:32:39.928] [INFO] [Main] Приложение завершено
+[SHUTDOWN] Logger shutting down
+[INIT] Logger initialized successfully
+[2025-11-06 05:59:22.906] [INFO] [Main] Приложение запущено с БД: postgres
+[2025-11-06 05:59:38.752] [INFO] [Main] Приложение завершено
+[SHUTDOWN] Logger shutting down

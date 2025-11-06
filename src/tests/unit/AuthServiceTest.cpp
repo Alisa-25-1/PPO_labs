@@ -13,17 +13,22 @@ protected:
     void SetUp() override {
         testClientId_ = UUID::fromString("11111111-1111-1111-1111-111111111111");
         testEmail_ = "test@example.com";
-        testPassword_ = "Password123";  // Исправленный пароль
+        testPassword_ = "Password123";
+        testPlainPassword_ = "Password123"; 
         
         auto mockClientRepo = std::make_unique<NiceMock<MockClientRepository>>();
         mockClientRepo_ = mockClientRepo.get();
         
         authService_ = std::make_unique<AuthService>(std::move(mockClientRepo));
         
-        // Создаем тестового клиента
         testClient_ = std::make_unique<Client>(testClientId_, "John Doe", testEmail_, "+74955678903");
-        testClient_->changePassword(testPassword_);
+        
+        PasswordHasher hasher;
+        std::string passwordHash = hasher.generateSecurePasswordHash(testPlainPassword_);
+        testClient_->setPasswordHash(passwordHash);
         testClient_->activate();
+        
+        testPasswordHash_ = passwordHash;
     }
 
     void TearDown() override {
@@ -35,6 +40,8 @@ protected:
     UUID testClientId_;
     std::string testEmail_;
     std::string testPassword_;
+    std::string testPlainPassword_; 
+    std::string testPasswordHash_;
     std::unique_ptr<Client> testClient_;
     MockClientRepository* mockClientRepo_;
 };
@@ -48,7 +55,7 @@ TEST_F(AuthServiceTest, RegisterClient_Success) {
     
     EXPECT_CALL(*mockClientRepo_, findByEmail("new@example.com"))
         .WillOnce(Return(std::optional<Client>{}));
-    // Исправляем ожидание - проверяем что пароль не пустой вместо точного значения
+    
     EXPECT_CALL(*mockClientRepo_, save(Truly([](const Client& client) { 
         return !client.getPasswordHash().empty(); 
     }))).WillOnce(Return(true));
@@ -78,7 +85,7 @@ TEST_F(AuthServiceTest, RegisterClient_EmailExists) {
 TEST_F(AuthServiceTest, Login_Success) {
     AuthRequestDTO request;
     request.email = testEmail_;
-    request.password = testPassword_;
+    request.password = testPlainPassword_; 
     
     EXPECT_CALL(*mockClientRepo_, findByEmail(testEmail_))
         .WillOnce(Return(*testClient_));
@@ -92,7 +99,7 @@ TEST_F(AuthServiceTest, Login_Success) {
 TEST_F(AuthServiceTest, Login_InvalidCredentials) {
     AuthRequestDTO request;
     request.email = testEmail_;
-    request.password = "WrongPass123";  // Валидный, но неверный пароль
+    request.password = "WrongPass123";
     
     EXPECT_CALL(*mockClientRepo_, findByEmail(testEmail_))
         .WillOnce(Return(*testClient_));
@@ -120,10 +127,12 @@ TEST_F(AuthServiceTest, Login_ClientNotFound) {
 TEST_F(AuthServiceTest, ChangePassword_Success) {
     EXPECT_CALL(*mockClientRepo_, findById(testClientId_))
         .WillOnce(Return(*testClient_));
-    EXPECT_CALL(*mockClientRepo_, update(_))
-        .WillOnce(Return(true));
+    EXPECT_CALL(*mockClientRepo_, update(Truly([](const Client& client) {
+        return !client.getPasswordHash().empty();
+    }))).WillOnce(Return(true));
 
-    bool result = authService_->changePassword(testClientId_, testPassword_, "NewPassword123");
+    // Используем исходный пароль для проверки
+    bool result = authService_->changePassword(testClientId_, testPlainPassword_, "NewPassword123");
     
     EXPECT_TRUE(result);
 }
@@ -132,17 +141,17 @@ TEST_F(AuthServiceTest, ChangePassword_WrongOldPassword) {
     EXPECT_CALL(*mockClientRepo_, findById(testClientId_))
         .WillOnce(Return(*testClient_));
 
-    bool result = authService_->changePassword(testClientId_, "WrongPass123", "NewPassword123");
-    
-    EXPECT_FALSE(result);
+    // Используем неверный пароль
+    EXPECT_THROW(
+        authService_->changePassword(testClientId_, "WrongOldPassword", "NewPassword123"),
+        InvalidCredentialsException
+    );
 }
 
 TEST_F(AuthServiceTest, ResetPassword_SetsTemporaryPassword) {
-    std::string tempPassword = "TempPass123";
-    
     EXPECT_CALL(*mockClientRepo_, findByEmail(testEmail_))
         .WillOnce(Return(*testClient_));
-    EXPECT_CALL(*mockClientRepo_, update(Truly([&](const Client& client) { 
+    EXPECT_CALL(*mockClientRepo_, update(Truly([](const Client& client) { 
         return !client.getPasswordHash().empty(); 
     }))).WillOnce(Return(true));
 
@@ -177,6 +186,24 @@ TEST_F(AuthServiceTest, ValidateSession_ClientNotFound) {
     bool result = authService_->validateSession(testClientId_);
     
     EXPECT_FALSE(result);
+}
+
+TEST_F(AuthServiceTest, ChangePassword_ClientNotFound) {
+    UUID nonExistentId = UUID::generate();
+    
+    EXPECT_CALL(*mockClientRepo_, findById(nonExistentId))
+        .WillOnce(Return(std::optional<Client>{}));
+
+    bool result = authService_->changePassword(nonExistentId, "OldPass", "NewPass");
+    
+    EXPECT_FALSE(result);
+}
+
+TEST_F(AuthServiceTest, ResetPassword_ClientNotFound) {
+    EXPECT_CALL(*mockClientRepo_, findByEmail("nonexistent@example.com"))
+        .WillOnce(Return(std::optional<Client>{}));
+
+    EXPECT_NO_THROW(authService_->resetPassword("nonexistent@example.com"));
 }
 
 int main(int argc, char **argv) {

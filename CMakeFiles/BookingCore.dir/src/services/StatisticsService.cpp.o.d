@@ -225,7 +225,10 @@ CMakeFiles/BookingCore.dir/src/services/StatisticsService.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IEnrollmentRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Enrollment.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/Attendance.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/Enrollment.hpp \
  /usr/include/c++/13/map /usr/include/c++/13/bits/stl_multimap.h \
  /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/iostream \

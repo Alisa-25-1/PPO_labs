@@ -246,6 +246,32 @@ DanceStudioWebUI/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioWebUI.dir/build.make CMakeFiles/DanceStudioWebUI.dir/build
 .PHONY : DanceStudioWebUI/fast
 
+#=============================================================================
+# Target rules for targets named BookingTests
+
+# Build rule for target.
+BookingTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 BookingTests
+.PHONY : BookingTests
+
+# fast build rule for target.
+BookingTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/build
+.PHONY : BookingTests/fast
+
+#=============================================================================
+# Target rules for targets named AuthServiceTests
+
+# Build rule for target.
+AuthServiceTests: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 AuthServiceTests
+.PHONY : AuthServiceTests
+
+# fast build rule for target.
+AuthServiceTests/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AuthServiceTests.dir/build.make CMakeFiles/AuthServiceTests.dir/build
+.PHONY : AuthServiceTests/fast
+
 src/core/Config.o: src/core/Config.cpp.o
 .PHONY : src/core/Config.o
 
@@ -1254,6 +1280,30 @@ src/repositories/impl/PostgreSQLTrainerRepository.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.s
 .PHONY : src/repositories/impl/PostgreSQLTrainerRepository.cpp.s
 
+src/services/AttendanceService.o: src/services/AttendanceService.cpp.o
+.PHONY : src/services/AttendanceService.o
+
+# target to build an object file
+src/services/AttendanceService.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/AttendanceService.cpp.o
+.PHONY : src/services/AttendanceService.cpp.o
+
+src/services/AttendanceService.i: src/services/AttendanceService.cpp.i
+.PHONY : src/services/AttendanceService.i
+
+# target to preprocess a source file
+src/services/AttendanceService.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/AttendanceService.cpp.i
+.PHONY : src/services/AttendanceService.cpp.i
+
+src/services/AttendanceService.s: src/services/AttendanceService.cpp.s
+.PHONY : src/services/AttendanceService.s
+
+# target to generate assembly for a file
+src/services/AttendanceService.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/services/AttendanceService.cpp.s
+.PHONY : src/services/AttendanceService.cpp.s
+
 src/services/AuthService.o: src/services/AuthService.cpp.o
 .PHONY : src/services/AuthService.o
 
@@ -1637,6 +1687,54 @@ src/tech_ui/TechUIManagers.s: src/tech_ui/TechUIManagers.cpp.s
 src/tech_ui/TechUIManagers.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.s
 .PHONY : src/tech_ui/TechUIManagers.cpp.s
+
+src/tests/unit/AuthServiceTest.o: src/tests/unit/AuthServiceTest.cpp.o
+.PHONY : src/tests/unit/AuthServiceTest.o
+
+# target to build an object file
+src/tests/unit/AuthServiceTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AuthServiceTests.dir/build.make CMakeFiles/AuthServiceTests.dir/src/tests/unit/AuthServiceTest.cpp.o
+.PHONY : src/tests/unit/AuthServiceTest.cpp.o
+
+src/tests/unit/AuthServiceTest.i: src/tests/unit/AuthServiceTest.cpp.i
+.PHONY : src/tests/unit/AuthServiceTest.i
+
+# target to preprocess a source file
+src/tests/unit/AuthServiceTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AuthServiceTests.dir/build.make CMakeFiles/AuthServiceTests.dir/src/tests/unit/AuthServiceTest.cpp.i
+.PHONY : src/tests/unit/AuthServiceTest.cpp.i
+
+src/tests/unit/AuthServiceTest.s: src/tests/unit/AuthServiceTest.cpp.s
+.PHONY : src/tests/unit/AuthServiceTest.s
+
+# target to generate assembly for a file
+src/tests/unit/AuthServiceTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/AuthServiceTests.dir/build.make CMakeFiles/AuthServiceTests.dir/src/tests/unit/AuthServiceTest.cpp.s
+.PHONY : src/tests/unit/AuthServiceTest.cpp.s
+
+src/tests/unit/BookingServiceTest.o: src/tests/unit/BookingServiceTest.cpp.o
+.PHONY : src/tests/unit/BookingServiceTest.o
+
+# target to build an object file
+src/tests/unit/BookingServiceTest.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o
+.PHONY : src/tests/unit/BookingServiceTest.cpp.o
+
+src/tests/unit/BookingServiceTest.i: src/tests/unit/BookingServiceTest.cpp.i
+.PHONY : src/tests/unit/BookingServiceTest.i
+
+# target to preprocess a source file
+src/tests/unit/BookingServiceTest.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.i
+.PHONY : src/tests/unit/BookingServiceTest.cpp.i
+
+src/tests/unit/BookingServiceTest.s: src/tests/unit/BookingServiceTest.cpp.s
+.PHONY : src/tests/unit/BookingServiceTest.s
+
+# target to generate assembly for a file
+src/tests/unit/BookingServiceTest.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.s
+.PHONY : src/tests/unit/BookingServiceTest.cpp.s
 
 src/types/enums.o: src/types/enums.cpp.o
 .PHONY : src/types/enums.o
@@ -2180,7 +2278,9 @@ help:
 	@echo "... package"
 	@echo "... package_source"
 	@echo "... rebuild_cache"
+	@echo "... AuthServiceTests"
 	@echo "... BookingCore"
+	@echo "... BookingTests"
 	@echo "... DanceStudioWebUI"
 	@echo "... DataAccess"
 	@echo "... TechUI"
@@ -2311,6 +2411,9 @@ help:
 	@echo "... src/repositories/impl/PostgreSQLTrainerRepository.o"
 	@echo "... src/repositories/impl/PostgreSQLTrainerRepository.i"
 	@echo "... src/repositories/impl/PostgreSQLTrainerRepository.s"
+	@echo "... src/services/AttendanceService.o"
+	@echo "... src/services/AttendanceService.i"
+	@echo "... src/services/AttendanceService.s"
 	@echo "... src/services/AuthService.o"
 	@echo "... src/services/AuthService.i"
 	@echo "... src/services/AuthService.s"
@@ -2359,6 +2462,12 @@ help:
 	@echo "... src/tech_ui/TechUIManagers.o"
 	@echo "... src/tech_ui/TechUIManagers.i"
 	@echo "... src/tech_ui/TechUIManagers.s"
+	@echo "... src/tests/unit/AuthServiceTest.o"
+	@echo "... src/tests/unit/AuthServiceTest.i"
+	@echo "... src/tests/unit/AuthServiceTest.s"
+	@echo "... src/tests/unit/BookingServiceTest.o"
+	@echo "... src/tests/unit/BookingServiceTest.i"
+	@echo "... src/tests/unit/BookingServiceTest.s"
 	@echo "... src/types/enums.o"
 	@echo "... src/types/enums.i"
 	@echo "... src/types/enums.s"

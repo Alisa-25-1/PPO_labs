@@ -8,15 +8,15 @@ BookingService::BookingService(
     std::shared_ptr<IDanceHallRepository> hallRepo,
     std::shared_ptr<IBranchRepository> branchRepo,
     std::shared_ptr<IBranchService> branchService,
-    std::shared_ptr<IAttendanceRepository> attendanceRepo,
-    std::shared_ptr<ILessonRepository> lessonRepo
+    std::shared_ptr<ILessonRepository> lessonRepo,
+    std::shared_ptr<AttendanceService> attendanceService 
 ) : bookingRepository_(std::move(bookingRepo)),
     clientRepository_(std::move(clientRepo)),
     hallRepository_(std::move(hallRepo)),
     branchRepository_(std::move(branchRepo)),
     branchService_(std::move(branchService)),
-    attendanceRepository_(std::move(attendanceRepo)),
-    lessonRepository_(std::move(lessonRepo)) {}
+    lessonRepository_(std::move(lessonRepo)),
+    attendanceService_(std::move(attendanceService)) {} 
 
 // Validation methods
 void BookingService::validateBookingRequest(const BookingRequestDTO& request) const {
@@ -131,18 +131,6 @@ BookingResponseDTO BookingService::createBooking(const BookingRequestDTO& reques
     if (!bookingRepository_->save(booking)) {
         throw BookingException("Failed to save booking");
     }
-
-    // Создаем запись посещаемости для бронирования
-    try {
-        UUID attendanceId = UUID::generate();
-        Attendance attendance(attendanceId, request.clientId, newId, 
-                            AttendanceType::BOOKING, request.timeSlot.getStartTime());
-        attendanceRepository_->save(attendance);
-        
-    } catch (const std::exception& e) {
-        // Логируем, но не прерываем выполнение
-        std::cerr << "Ошибка создания записи посещаемости для бронирования: " << e.what() << std::endl;
-    }
     
     return BookingResponseDTO(booking);
 }
@@ -169,6 +157,41 @@ BookingResponseDTO BookingService::cancelBooking(const UUID& bookingId, const UU
     
     if (!bookingRepository_->update(*booking)) {
         throw BookingException("Failed to cancel booking");
+    }
+
+    try {
+        if (!attendanceService_->createAttendanceForBooking(bookingId, BookingStatus::CANCELLED, "Отменено клиентом")) {
+            std::cerr << "Failed to create attendance record for cancelled booking" << std::endl;
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error creating attendance for cancelled booking: " << e.what() << std::endl;
+    }
+    
+    return BookingResponseDTO(*booking);
+}
+
+BookingResponseDTO BookingService::completeBooking(const UUID& bookingId) {
+    auto booking = bookingRepository_->findById(bookingId);
+    if (!booking) {
+        throw BookingNotFoundException("Booking not found");
+    }
+    
+    if (booking->isCompleted() || booking->isCancelled()) {
+        throw BusinessRuleException("Cannot complete already finished booking");
+    }
+    
+    booking->complete();
+    
+    if (!bookingRepository_->update(*booking)) {
+        throw BookingException("Failed to complete booking");
+    }
+
+    try {
+        if (!attendanceService_->createAttendanceForBooking(bookingId, BookingStatus::COMPLETED, "Завершено")) {
+            std::cerr << "Failed to create attendance record for completed booking" << std::endl;
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error creating attendance for completed booking: " << e.what() << std::endl;
     }
     
     return BookingResponseDTO(*booking);

@@ -3,8 +3,15 @@
 
 CMakeFiles/TechUI.dir/src/main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/main.cpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/core/Config.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/core/Logger.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/core/Config.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Studio.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IStudioRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/IRepositoryFactory.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/PostgreSQLRepositoryFactory.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/RepositoryFactoryCreator.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/AuthDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
@@ -19,10 +26,6 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Review.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Subscription.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Studio.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IStudioRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/core/PasswordHasher.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
@@ -74,6 +77,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
@@ -694,6 +698,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/StatisticsManager.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IEnrollmentRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ILessonRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/StatisticsService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
@@ -1041,6 +1046,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
@@ -1377,14 +1383,14 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o
 
 CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUIManagers.cpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/PostgreSQLRepositoryFactory.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/core/Config.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Studio.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/IStudioRepository.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/exceptions/DataAccessException.hpp
- /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLEnrollmentRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/IRepositoryFactory.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/PostgreSQLRepositoryFactory.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/RepositoryFactoryCreator.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/core/PasswordHasher.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Booking.hpp
@@ -1436,6 +1442,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
@@ -1461,9 +1468,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h
- /usr/include/assert.h
- /usr/include/c++/13/algorithm
- /usr/include/c++/13/array
  /usr/include/c++/13/backward/auto_ptr.h
  /usr/include/c++/13/backward/binders.h
  /usr/include/c++/13/bit
@@ -1492,10 +1496,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/c++/13/bits/exception.h
  /usr/include/c++/13/bits/exception_defines.h
  /usr/include/c++/13/bits/exception_ptr.h
- /usr/include/c++/13/bits/fs_dir.h
- /usr/include/c++/13/bits/fs_fwd.h
- /usr/include/c++/13/bits/fs_ops.h
- /usr/include/c++/13/bits/fs_path.h
+ /usr/include/c++/13/bits/fstream.tcc
  /usr/include/c++/13/bits/functexcept.h
  /usr/include/c++/13/bits/functional_hash.h
  /usr/include/c++/13/bits/hash_bytes.h
@@ -1504,7 +1505,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/c++/13/bits/invoke.h
  /usr/include/c++/13/bits/ios_base.h
  /usr/include/c++/13/bits/istream.tcc
- /usr/include/c++/13/bits/list.tcc
  /usr/include/c++/13/bits/locale_classes.h
  /usr/include/c++/13/bits/locale_classes.tcc
  /usr/include/c++/13/bits/locale_conv.h
@@ -1557,19 +1557,15 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/c++/13/bits/stl_iterator.h
  /usr/include/c++/13/bits/stl_iterator_base_funcs.h
  /usr/include/c++/13/bits/stl_iterator_base_types.h
- /usr/include/c++/13/bits/stl_list.h
  /usr/include/c++/13/bits/stl_map.h
  /usr/include/c++/13/bits/stl_multimap.h
- /usr/include/c++/13/bits/stl_numeric.h
  /usr/include/c++/13/bits/stl_pair.h
  /usr/include/c++/13/bits/stl_raw_storage_iter.h
- /usr/include/c++/13/bits/stl_relops.h
  /usr/include/c++/13/bits/stl_stack.h
  /usr/include/c++/13/bits/stl_tempbuf.h
  /usr/include/c++/13/bits/stl_tree.h
  /usr/include/c++/13/bits/stl_uninitialized.h
  /usr/include/c++/13/bits/stl_vector.h
- /usr/include/c++/13/bits/stream_iterator.h
  /usr/include/c++/13/bits/streambuf.tcc
  /usr/include/c++/13/bits/streambuf_iterator.h
  /usr/include/c++/13/bits/string_view.tcc
@@ -1582,20 +1578,14 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/c++/13/bits/utility.h
  /usr/include/c++/13/bits/vector.tcc
  /usr/include/c++/13/bitset
- /usr/include/c++/13/cassert
  /usr/include/c++/13/cctype
  /usr/include/c++/13/cerrno
- /usr/include/c++/13/charconv
  /usr/include/c++/13/chrono
- /usr/include/c++/13/ciso646
  /usr/include/c++/13/clocale
- /usr/include/c++/13/codecvt
- /usr/include/c++/13/compare
  /usr/include/c++/13/cstddef
  /usr/include/c++/13/cstdint
  /usr/include/c++/13/cstdio
  /usr/include/c++/13/cstdlib
- /usr/include/c++/13/cstring
  /usr/include/c++/13/ctime
  /usr/include/c++/13/cwchar
  /usr/include/c++/13/cwctype
@@ -1610,28 +1600,22 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/c++/13/ext/numeric_traits.h
  /usr/include/c++/13/ext/string_conversions.h
  /usr/include/c++/13/ext/type_traits.h
- /usr/include/c++/13/filesystem
- /usr/include/c++/13/functional
+ /usr/include/c++/13/fstream
  /usr/include/c++/13/initializer_list
  /usr/include/c++/13/iomanip
  /usr/include/c++/13/ios
  /usr/include/c++/13/iosfwd
  /usr/include/c++/13/iostream
  /usr/include/c++/13/istream
- /usr/include/c++/13/iterator
  /usr/include/c++/13/limits
- /usr/include/c++/13/list
  /usr/include/c++/13/locale
  /usr/include/c++/13/map
  /usr/include/c++/13/memory
  /usr/include/c++/13/new
- /usr/include/c++/13/numeric
  /usr/include/c++/13/optional
  /usr/include/c++/13/ostream
  /usr/include/c++/13/pstl/execution_defs.h
- /usr/include/c++/13/pstl/glue_algorithm_defs.h
  /usr/include/c++/13/pstl/glue_memory_defs.h
- /usr/include/c++/13/pstl/glue_numeric_defs.h
  /usr/include/c++/13/pstl/pstl_config.h
  /usr/include/c++/13/ratio
  /usr/include/c++/13/regex
@@ -1647,10 +1631,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/c++/13/type_traits
  /usr/include/c++/13/typeinfo
  /usr/include/c++/13/unordered_map
- /usr/include/c++/13/utility
- /usr/include/c++/13/variant
  /usr/include/c++/13/vector
- /usr/include/c++/13/version
  /usr/include/ctype.h
  /usr/include/endian.h
  /usr/include/errno.h
@@ -1687,71 +1668,12 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/openssl/stack.h
  /usr/include/openssl/symhacks.h
  /usr/include/openssl/types.h
- /usr/include/pqxx/array.hxx
- /usr/include/pqxx/binarystring.hxx
- /usr/include/pqxx/blob.hxx
- /usr/include/pqxx/composite.hxx
- /usr/include/pqxx/config-public-compiler.h
- /usr/include/pqxx/connection.hxx
- /usr/include/pqxx/cursor.hxx
- /usr/include/pqxx/dbtransaction.hxx
- /usr/include/pqxx/errorhandler.hxx
- /usr/include/pqxx/except.hxx
- /usr/include/pqxx/field.hxx
- /usr/include/pqxx/internal/array-composite.hxx
- /usr/include/pqxx/internal/callgate.hxx
- /usr/include/pqxx/internal/concat.hxx
- /usr/include/pqxx/internal/conversions.hxx
- /usr/include/pqxx/internal/cxx-features.hxx
- /usr/include/pqxx/internal/encoding_group.hxx
- /usr/include/pqxx/internal/encodings.hxx
- /usr/include/pqxx/internal/gates/connection-stream_from.hxx
- /usr/include/pqxx/internal/header-post.hxx
- /usr/include/pqxx/internal/header-pre.hxx
- /usr/include/pqxx/internal/ignore-deprecated-post.hxx
- /usr/include/pqxx/internal/ignore-deprecated-pre.hxx
- /usr/include/pqxx/internal/libpq-forward.hxx
- /usr/include/pqxx/internal/result_iter.hxx
- /usr/include/pqxx/internal/result_iterator.hxx
- /usr/include/pqxx/internal/sql_cursor.hxx
- /usr/include/pqxx/internal/statement_parameters.hxx
- /usr/include/pqxx/internal/stream_iterator.hxx
- /usr/include/pqxx/internal/stream_query.hxx
- /usr/include/pqxx/internal/stream_query_impl.hxx
- /usr/include/pqxx/isolation.hxx
- /usr/include/pqxx/largeobject.hxx
- /usr/include/pqxx/nontransaction.hxx
- /usr/include/pqxx/notification.hxx
- /usr/include/pqxx/params.hxx
- /usr/include/pqxx/pipeline.hxx
- /usr/include/pqxx/pqxx
- /usr/include/pqxx/prepared_statement.hxx
- /usr/include/pqxx/range.hxx
- /usr/include/pqxx/result.hxx
- /usr/include/pqxx/robusttransaction.hxx
- /usr/include/pqxx/row.hxx
- /usr/include/pqxx/separated_list.hxx
- /usr/include/pqxx/strconv.hxx
- /usr/include/pqxx/stream_from.hxx
- /usr/include/pqxx/stream_to.hxx
- /usr/include/pqxx/subtransaction.hxx
- /usr/include/pqxx/time.hxx
- /usr/include/pqxx/transaction.hxx
- /usr/include/pqxx/transaction_base.hxx
- /usr/include/pqxx/transaction_focus.hxx
- /usr/include/pqxx/transactor.hxx
- /usr/include/pqxx/types.hxx
- /usr/include/pqxx/util.hxx
- /usr/include/pqxx/version.hxx
- /usr/include/pqxx/zview.hxx
  /usr/include/pthread.h
  /usr/include/sched.h
  /usr/include/stdc-predef.h
  /usr/include/stdint.h
  /usr/include/stdio.h
  /usr/include/stdlib.h
- /usr/include/string.h
- /usr/include/strings.h
  /usr/include/time.h
  /usr/include/uuid/uuid.h
  /usr/include/wchar.h
@@ -1824,8 +1746,10 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o
  /usr/include/x86_64-linux-gnu/bits/wordsize.h
  /usr/include/x86_64-linux-gnu/bits/xopen_lim.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h
+ /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h
  /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h

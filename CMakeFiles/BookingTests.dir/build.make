@@ -96,6 +96,8 @@ bin/BookingTests: lib/libBookingCore.a
 bin/BookingTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 bin/BookingTests: /usr/lib/x86_64-linux-gnu/libgtest_main.a
 bin/BookingTests: /usr/lib/x86_64-linux-gnu/libgmock.a
+bin/BookingTests: /usr/lib/x86_64-linux-gnu/libssl.so
+bin/BookingTests: /usr/lib/x86_64-linux-gnu/libcrypto.so
 bin/BookingTests: /usr/lib/x86_64-linux-gnu/libuuid.so
 bin/BookingTests: /usr/lib/x86_64-linux-gnu/libgtest.a
 bin/BookingTests: CMakeFiles/BookingTests.dir/link.txt

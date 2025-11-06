@@ -17,11 +17,11 @@ static const std::map<std::string, std::chrono::minutes> CITY_TIMEZONES = {
     {"default", std::chrono::hours(3)} // UTC+3 по умолчанию для России
 };
 
-Address::Address() 
+BranchAddress::BranchAddress() 
     : id_(UUID()), country_("Россия"), city_(""), street_(""), building_(""),
       apartment_(""), postalCode_(""), timezoneOffset_(std::chrono::hours(3)) {}
 
-Address::Address(const UUID& id, const std::string& country, const std::string& city,
+BranchAddress::BranchAddress(const UUID& id, const std::string& country, const std::string& city,
                  const std::string& street, const std::string& building,
                  const std::chrono::minutes& timezoneOffset)
     : id_(id), country_(country), city_(city), street_(street), building_(building),
@@ -32,16 +32,16 @@ Address::Address(const UUID& id, const std::string& country, const std::string& 
     }
 }
 
-UUID Address::getId() const { return id_; }
-std::string Address::getCountry() const { return country_; }
-std::string Address::getCity() const { return city_; }
-std::string Address::getStreet() const { return street_; }
-std::string Address::getBuilding() const { return building_; }
-std::string Address::getApartment() const { return apartment_; }
-std::string Address::getPostalCode() const { return postalCode_; }
-std::chrono::minutes Address::getTimezoneOffset() const { return timezoneOffset_; }
+UUID BranchAddress::getId() const { return id_; }
+std::string BranchAddress::getCountry() const { return country_; }
+std::string BranchAddress::getCity() const { return city_; }
+std::string BranchAddress::getStreet() const { return street_; }
+std::string BranchAddress::getBuilding() const { return building_; }
+std::string BranchAddress::getApartment() const { return apartment_; }
+std::string BranchAddress::getPostalCode() const { return postalCode_; }
+std::chrono::minutes BranchAddress::getTimezoneOffset() const { return timezoneOffset_; }
 
-std::string Address::getFullAddress() const {
+std::string BranchAddress::getFullAddress() const {
     std::string result = country_ + ", " + city_ + ", " + street_ + ", " + building_;
     if (!apartment_.empty()) {
         result += ", кв. " + apartment_;
@@ -52,18 +52,18 @@ std::string Address::getFullAddress() const {
     return result;
 }
 
-void Address::setApartment(const std::string& apartment) {
+void BranchAddress::setApartment(const std::string& apartment) {
     apartment_ = apartment;
 }
 
-void Address::setPostalCode(const std::string& postalCode) {
+void BranchAddress::setPostalCode(const std::string& postalCode) {
     if (!isValidPostalCode(postalCode)) {
         throw std::invalid_argument("Invalid postal code");
     }
     postalCode_ = postalCode;
 }
 
-bool Address::isValid() const {
+bool BranchAddress::isValid() const {
     return !id_.isNull() && id_.isValid() &&
            isValidCountry(country_) &&
            isValidCity(city_) &&
@@ -72,33 +72,33 @@ bool Address::isValid() const {
            isValidTimezoneOffset(timezoneOffset_);
 }
 
-bool Address::isValidCountry(const std::string& country) {
+bool BranchAddress::isValidCountry(const std::string& country) {
     return !country.empty() && country.length() <= 50;
 }
 
-bool Address::isValidCity(const std::string& city) {
+bool BranchAddress::isValidCity(const std::string& city) {
     return !city.empty() && city.length() <= 50;
 }
 
-bool Address::isValidStreet(const std::string& street) {
+bool BranchAddress::isValidStreet(const std::string& street) {
     return !street.empty() && street.length() <= 100;
 }
 
-bool Address::isValidBuilding(const std::string& building) {
+bool BranchAddress::isValidBuilding(const std::string& building) {
     return !building.empty() && building.length() <= 10;
 }
 
-bool Address::isValidTimezoneOffset(const std::chrono::minutes& offset) {
+bool BranchAddress::isValidTimezoneOffset(const std::chrono::minutes& offset) {
     // Допустимые смещения от UTC-12 до UTC+14
     return offset >= std::chrono::hours(-12) && offset <= std::chrono::hours(14);
 }
 
-bool Address::isValidPostalCode(const std::string& postalCode) {
+bool BranchAddress::isValidPostalCode(const std::string& postalCode) {
     std::regex postalCodePattern(R"(^\d{6}$)");
     return postalCode.empty() || std::regex_match(postalCode, postalCodePattern);
 }
 
-std::chrono::minutes Address::getTimezoneOffsetForCity(const std::string& city) {
+std::chrono::minutes BranchAddress::getTimezoneOffsetForCity(const std::string& city) {
     auto it = CITY_TIMEZONES.find(city);
     if (it != CITY_TIMEZONES.end()) {
         return it->second;

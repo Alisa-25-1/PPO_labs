@@ -4,7 +4,7 @@
 #include <string>
 #include <chrono>
 
-class Address {
+class BranchAddress {
 private:
     UUID id_;
     std::string country_;
@@ -16,8 +16,8 @@ private:
     std::chrono::minutes timezoneOffset_; // Смещение от UTC в минутах
 
 public:
-    Address();
-    Address(const UUID& id, const std::string& country, const std::string& city, 
+    BranchAddress();
+    BranchAddress(const UUID& id, const std::string& country, const std::string& city, 
             const std::string& street, const std::string& building,
             const std::chrono::minutes& timezoneOffset);
     

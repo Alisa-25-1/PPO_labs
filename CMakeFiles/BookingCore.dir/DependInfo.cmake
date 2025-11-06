@@ -32,6 +32,7 @@ set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/models/SubscriptionType.cpp" "CMakeFiles/BookingCore.dir/src/models/SubscriptionType.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/models/SubscriptionType.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.cpp" "CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/models/Trainer.cpp" "CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.o.d"
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.cpp" "CMakeFiles/BookingCore.dir/src/services/AttendanceService.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/services/AttendanceService.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.cpp" "CMakeFiles/BookingCore.dir/src/services/AuthService.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/services/AuthService.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.cpp" "CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.cpp" "CMakeFiles/BookingCore.dir/src/services/BranchService.cpp.o" "gcc" "CMakeFiles/BookingCore.dir/src/services/BranchService.cpp.o.d"

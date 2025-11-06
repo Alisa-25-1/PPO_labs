@@ -3,17 +3,20 @@
 #include <iomanip>
 #include <sstream>
 
+// Constructor 
 StatisticsService::StatisticsService(
     std::shared_ptr<IAttendanceRepository> attendanceRepo,
     std::shared_ptr<IClientRepository> clientRepo,
     std::shared_ptr<ILessonRepository> lessonRepo,
     std::shared_ptr<IBookingRepository> bookingRepo,
-    std::shared_ptr<IEnrollmentRepository> enrollmentRepo
+    std::shared_ptr<IEnrollmentRepository> enrollmentRepo,
+    std::shared_ptr<AttendanceService> attendanceService  
 ) : attendanceRepo_(std::move(attendanceRepo)),
     clientRepo_(std::move(clientRepo)),
     lessonRepo_(std::move(lessonRepo)),
     bookingRepo_(std::move(bookingRepo)),
-    enrollmentRepo_(std::move(enrollmentRepo)) {}
+    enrollmentRepo_(std::move(enrollmentRepo)),
+    attendanceService_(std::move(attendanceService)) {} 
 
 StudioStatsDTO StatisticsService::getStudioStats() {
     StudioStatsDTO stats{};
@@ -161,38 +164,19 @@ bool StatisticsService::migrateBookingsToAttendance() {
         int migrated = 0;
         
         for (const auto& booking : allBookings) {
-            // Проверяем, существует ли уже запись посещаемости
-            auto existingAttendances = attendanceRepo_->findByEntityId(booking.getId());
-            bool exists = false;
-            
-            for (const auto& att : existingAttendances) {
-                if (att.getClientId() == booking.getClientId() && 
-                    att.getType() == AttendanceType::BOOKING) {
-                    exists = true;
-                    break;
-                }
-            }
-            
-            if (!exists) {
-                // Создаем новую запись посещаемости
-                UUID attendanceId = UUID::generate();
-                Attendance attendance(attendanceId, booking.getClientId(), booking.getId(),
-                                    AttendanceType::BOOKING, booking.getTimeSlot().getStartTime());
+            // Мигрируем только бронирования с финальными статусами
+            if (booking.isCompleted() || booking.isCancelled()) {
+                auto status = booking.isCompleted() ? BookingStatus::COMPLETED : BookingStatus::CANCELLED;
+                std::string notes = "Миграция: исторические данные";
                 
-                // Устанавливаем начальный статус на основе статуса бронирования
-                if (booking.isCancelled()) {
-                    attendance.markCancelled("Миграция: исторические данные");
-                } else if (booking.isCompleted()) {
-                    attendance.markVisited("Миграция: исторические данные");
+                // Используем AttendanceService для создания записей
+                if (attendanceService_->createAttendanceForBooking(booking.getId(), status, notes)) {
+                    migrated++;
                 }
-                // Активные бронирования остаются SCHEDULED по умолчанию
-                
-                attendanceRepo_->save(attendance);
-                migrated++;
             }
         }
         
-        std::cout << "📊 Мигрировано бронирований: " << migrated << std::endl;
+        std::cout << "📊 Мигрировано бронирований в посещаемость: " << migrated << std::endl;
         return true;
         
     } catch (const std::exception& e) {
@@ -207,45 +191,14 @@ bool StatisticsService::migrateEnrollmentsToAttendance() {
         int migrated = 0;
         
         for (const auto& enrollment : allEnrollments) {
-            // Получаем информацию о занятии для времени
-            auto lesson = lessonRepo_->findById(enrollment.getLessonId());
-            if (!lesson) continue;
-            
-            // Проверяем существование записи
-            auto existingAttendances = attendanceRepo_->findByEntityId(enrollment.getLessonId());
-            bool exists = false;
-            
-            for (const auto& att : existingAttendances) {
-                if (att.getClientId() == enrollment.getClientId() && 
-                    att.getType() == AttendanceType::LESSON) {
-                    exists = true;
-                    break;
-                }
-            }
-            
-            if (!exists) {
-                UUID attendanceId = UUID::generate();
-                Attendance attendance(attendanceId, enrollment.getClientId(), enrollment.getLessonId(),
-                                    AttendanceType::LESSON, lesson->getStartTime());
+            // Мигрируем только записи с финальными статусами
+            if (enrollment.getStatus() != EnrollmentStatus::REGISTERED) {
+                std::string notes = "Миграция: исторические данные";
                 
-                // Устанавливаем статус на основе enrollment
-                switch (enrollment.getStatus()) {
-                    case EnrollmentStatus::CANCELLED:
-                        attendance.markCancelled("Миграция: исторические данные");
-                        break;
-                    case EnrollmentStatus::ATTENDED:
-                        attendance.markVisited("Миграция: исторические данные");
-                        break;
-                    case EnrollmentStatus::MISSED:
-                        attendance.markNoShow("Миграция: исторические данные");
-                        break;
-                    case EnrollmentStatus::REGISTERED:
-                        // Будущие занятия остаются SCHEDULED
-                        break;
+                // Используем AttendanceService для создания записей
+                if (attendanceService_->createAttendanceForEnrollment(enrollment.getId(), enrollment.getStatus(), notes)) {
+                    migrated++;
                 }
-                
-                attendanceRepo_->save(attendance);
-                migrated++;
             }
         }
         

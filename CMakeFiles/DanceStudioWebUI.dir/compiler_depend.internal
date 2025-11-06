@@ -56,6 +56,7 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ITrainerRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/AuthException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AuthService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp

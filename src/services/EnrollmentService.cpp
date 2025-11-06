@@ -5,11 +5,11 @@ EnrollmentService::EnrollmentService(
     std::shared_ptr<IEnrollmentRepository> enrollmentRepo,
     std::shared_ptr<IClientRepository> clientRepo,
     std::shared_ptr<ILessonRepository> lessonRepo,
-    std::shared_ptr<IAttendanceRepository> attendanceRepo
+    std::shared_ptr<AttendanceService> attendanceService 
 ) : enrollmentRepository_(std::move(enrollmentRepo)),
     clientRepository_(std::move(clientRepo)),
     lessonRepository_(std::move(lessonRepo)),
-    attendanceRepository_(std::move(attendanceRepo)) {} 
+    attendanceService_(std::move(attendanceService)) {}
 
 void EnrollmentService::validateEnrollmentRequest(const EnrollmentRequestDTO& request) const {
     if (!request.validate()) {
@@ -75,20 +75,6 @@ EnrollmentResponseDTO EnrollmentService::enrollClient(const EnrollmentRequestDTO
         enrollmentRepository_->remove(newId);
         throw EnrollmentException("Failed to update lesson participants count");
     }
-
-    // Создаем запись посещаемости
-    try {
-        UUID attendanceId = UUID::generate();
-        auto lesson = lessonRepository_->findById(request.lessonId);
-        if (lesson) {
-            Attendance attendance(attendanceId, request.clientId, request.lessonId, 
-                                AttendanceType::LESSON, lesson->getStartTime());
-            attendanceRepository_->save(attendance); 
-        }
-    } catch (const std::exception& e) {
-        // Логируем, но не прерываем выполнение
-        std::cerr << "Ошибка создания записи посещаемости: " << e.what() << std::endl;
-    }
     
     return EnrollmentResponseDTO(enrollment);
 }
@@ -119,6 +105,14 @@ EnrollmentResponseDTO EnrollmentService::cancelEnrollment(const UUID& enrollment
         lesson->removeParticipant();
         lessonRepository_->update(*lesson);
     }
+
+    try {
+        if (!attendanceService_->createAttendanceForEnrollment(enrollmentId, EnrollmentStatus::CANCELLED, "Отменено клиентом")) {
+            std::cerr << "Failed to create attendance record for cancelled enrollment" << std::endl;
+        }
+    } catch (const std::exception& e) {
+        std::cerr << "Error creating attendance for cancelled enrollment: " << e.what() << std::endl;
+    }
     
     return EnrollmentResponseDTO(*enrollment);
 }
@@ -143,26 +137,15 @@ EnrollmentResponseDTO EnrollmentService::markAttendance(const UUID& enrollmentId
         throw EnrollmentException("Failed to update enrollment attendance");
     }
 
-     // Обновляем запись посещаемости
     try {
-        auto enrollment = enrollmentRepository_->findById(enrollmentId);
-        if (enrollment) {
-            // Находим запись посещаемости по entityId (lessonId)
-            auto attendances = attendanceRepository_->findByEntityId(enrollment->getLessonId()); 
-            for (auto& attendance : attendances) {
-                if (attendance.getClientId() == enrollment->getClientId()) {
-                    if (attended) {
-                        attendance.markVisited("Отмечено администратором");
-                    } else {
-                        attendance.markNoShow("Не явился");
-                    }
-                    attendanceRepository_->update(attendance); 
-                    break;
-                }
-            }
+        auto status = attended ? EnrollmentStatus::ATTENDED : EnrollmentStatus::MISSED;
+        std::string notes = attended ? "Посещено" : "Не явился";
+        
+        if (!attendanceService_->createAttendanceForEnrollment(enrollmentId, status, notes)) {
+            std::cerr << "Failed to create attendance record for enrollment" << std::endl;
         }
     } catch (const std::exception& e) {
-        std::cerr << "Ошибка обновления посещаемости: " << e.what() << std::endl;
+        std::cerr << "Error creating attendance for enrollment: " << e.what() << std::endl;
     }
     
     return EnrollmentResponseDTO(*enrollment);

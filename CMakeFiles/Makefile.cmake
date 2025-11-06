@@ -81,4 +81,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/TechUI.dir/DependInfo.cmake"
   "CMakeFiles/WebUIComponent.dir/DependInfo.cmake"
   "CMakeFiles/DanceStudioWebUI.dir/DependInfo.cmake"
+  "CMakeFiles/BookingTests.dir/DependInfo.cmake"
+  "CMakeFiles/AuthServiceTests.dir/DependInfo.cmake"
   )

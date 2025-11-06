@@ -25,6 +25,13 @@ TechUIManagers::TechUIManagers(const Config& config) {
             throw std::runtime_error("Database connection test failed");
         }
         
+        auto attendanceService = std::make_shared<AttendanceService>(
+            attendanceRepo_,
+            bookingRepo_,
+            enrollmentRepo_,
+            lessonRepo_
+        );
+
         auto branchService = std::make_shared<BranchService>(branchRepo_, hallRepo_);
         
         authService_ = std::make_unique<AuthService>(clientRepo_);
@@ -35,8 +42,8 @@ TechUIManagers::TechUIManagers(const Config& config) {
             hallRepo_,
             branchRepo_,
             branchService,
-            attendanceRepo_,
-            lessonRepo_
+            lessonRepo_,
+            attendanceService
         );
         
         lessonService_ = std::make_unique<LessonService>(
@@ -50,7 +57,7 @@ TechUIManagers::TechUIManagers(const Config& config) {
             enrollmentRepo_,
             clientRepo_,
             lessonRepo_,
-            attendanceRepo_  
+            attendanceService  
         );
         
         subscriptionService_ = std::make_unique<SubscriptionService>(
@@ -77,7 +84,8 @@ TechUIManagers::TechUIManagers(const Config& config) {
             clientRepo_,
             lessonRepo_,
             bookingRepo_,
-            enrollmentRepo_
+            enrollmentRepo_,
+            attendanceService
         );
         
         statisticsManager_ = std::make_unique<StatisticsManager>(statisticsService_.get());

@@ -261,6 +261,11 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/ILessonRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/../models/Lesson.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/../models/TimeSlot.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/AttendanceService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/IAttendanceService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../models/Attendance.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/IEnrollmentRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/../models/Enrollment.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/IBranchService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../models/DanceHall.hpp \
@@ -273,8 +278,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/TimeZoneService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/LessonService.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/IEnrollmentRepository.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/../models/Enrollment.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/ITrainerRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/../models/Trainer.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../dtos/LessonDTO.hpp \
@@ -303,6 +306,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../models/Enrollment.hpp \
  /usr/include/c++/13/map /usr/include/c++/13/bits/stl_multimap.h \
  /usr/include/c++/13/bits/erase_if.h \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/AttendanceService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/StatisticsManager.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../tech_ui/InputHandlers.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../tech_ui/../types/uuid.hpp \

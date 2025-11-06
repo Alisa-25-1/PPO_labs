@@ -24,11 +24,11 @@ private:
     std::shared_ptr<DatabaseConnection> dbConnection_;
     
     // Вспомогательные методы
-    std::optional<Address> findAddressById(const UUID& addressId, pqxx::work& work);
-    Branch mapResultToBranch(const pqxx::row& row, const Address& address) const;
-    Address mapResultToAddress(const pqxx::row& row) const;
-    bool saveAddress(const Address& address, pqxx::work& work);
-    bool updateAddress(const Address& address, pqxx::work& work);
+    std::optional<BranchAddress> findAddressById(const UUID& addressId, pqxx::work& work);
+    Branch mapResultToBranch(const pqxx::row& row, const BranchAddress& address) const;
+    BranchAddress mapResultToAddress(const pqxx::row& row) const;
+    bool saveAddress(const BranchAddress& address, pqxx::work& work);
+    bool updateAddress(const BranchAddress& address, pqxx::work& work);
     void validateBranch(const Branch& branch) const;
 };
 

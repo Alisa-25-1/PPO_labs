@@ -55,6 +55,7 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -658,13 +659,9 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
 
 /usr/include/openssl/bnerr.h:
 
-/usr/local/include/Wt/WInteractWidget.h:
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
 
-/usr/local/include/Wt/WEvent.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
-
-/usr/include/c++/13/bits/regex_compiler.tcc:
+/usr/include/openssl/bn.h:
 
 /usr/local/include/Wt/WLink.h:
 
@@ -836,10 +833,6 @@ src/services/SubscriptionService.hpp:
 
 /usr/include/c++/13/bits/alloc_traits.h:
 
-/usr/include/c++/13/unordered_map:
-
-/usr/include/c++/13/bits/allocator.h:
-
 /usr/include/c++/13/bits/stl_bvector.h:
 
 /usr/include/c++/13/bits/predefined_ops.h:
@@ -867,6 +860,12 @@ src/services/SubscriptionService.hpp:
 src/models/Lesson.hpp:
 
 /usr/include/c++/13/bits/basic_string.tcc:
+
+/usr/include/c++/13/bits/regex.h:
+
+/usr/include/openssl/obj_mac.h:
+
+/usr/include/c++/13/backward/binders.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
@@ -1006,6 +1005,10 @@ src/services/exceptions/AuthException.hpp:
 
 src/services/LessonService.hpp:
 
+/usr/local/include/Wt/WContainerWidget.h:
+
+/usr/include/c++/13/stdexcept:
+
 src/services/BranchService.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
@@ -1026,12 +1029,6 @@ src/services/IBranchService.hpp:
 
 src/web_ui/controllers/BookingController.hpp:
 
-/usr/include/c++/13/bits/regex.h:
-
-/usr/include/openssl/obj_mac.h:
-
-/usr/include/c++/13/backward/binders.h:
-
 /usr/include/x86_64-linux-gnu/bits/stdint-least.h:
 
 src/web_ui/models/UserSession.hpp:
@@ -1049,6 +1046,18 @@ src/models/Client.hpp:
 /usr/include/c++/13/bits/hash_bytes.h:
 
 /usr/include/c++/13/array:
+
+/usr/local/include/Wt/WInteractWidget.h:
+
+/usr/local/include/Wt/WEvent.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
+
+/usr/include/c++/13/bits/regex_compiler.tcc:
+
+/usr/include/c++/13/bits/allocator.h:
+
+/usr/include/c++/13/unordered_map:
 
 /usr/local/include/Wt/WEnvironment.h:
 
@@ -1107,6 +1116,8 @@ src/dtos/SubscriptionDTO.hpp:
 /usr/include/c++/13/cstddef:
 
 /usr/include/c++/13/bits/stl_deque.h:
+
+src/services/AttendanceService.hpp:
 
 /usr/include/c++/13/bits/stl_function.h:
 
@@ -1258,10 +1269,6 @@ src/models/Address.hpp:
 
 /usr/include/c++/13/regex:
 
-/usr/local/include/Wt/WContainerWidget.h:
-
-/usr/include/c++/13/stdexcept:
-
 /usr/include/c++/13/stdlib.h:
 
 /usr/include/c++/13/map:
@@ -1297,7 +1304,3 @@ src/web_ui/controllers/LessonController.hpp:
 /usr/include/openssl/bio.h:
 
 /usr/include/openssl/bioerr.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
-
-/usr/include/openssl/bn.h:

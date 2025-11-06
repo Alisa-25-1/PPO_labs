@@ -226,7 +226,10 @@ CMakeFiles/TechUI.dir/src/tech_ui/StatisticsManager.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/IEnrollmentRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../repositories/../models/Enrollment.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/AttendanceService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/IAttendanceService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../models/Attendance.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../services/../models/Enrollment.hpp \
  /usr/include/c++/13/map /usr/include/c++/13/bits/stl_multimap.h \
  /usr/include/c++/13/bits/erase_if.h /usr/include/c++/13/iostream \

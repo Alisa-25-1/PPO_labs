@@ -70,7 +70,7 @@ std::vector<Branch> PostgreSQLBranchRepository::findByStudioId(const UUID& studi
     }
 }
 
-std::optional<Address> PostgreSQLBranchRepository::findAddressById(const UUID& addressId, pqxx::work& work) {
+std::optional<BranchAddress> PostgreSQLBranchRepository::findAddressById(const UUID& addressId, pqxx::work& work) {
     try {
         SqlQueryBuilder queryBuilder;
         std::string query = queryBuilder
@@ -271,7 +271,7 @@ bool PostgreSQLBranchRepository::exists(const UUID& id) {
     }
 }
 
-Branch PostgreSQLBranchRepository::mapResultToBranch(const pqxx::row& row, const Address& address) const {
+Branch PostgreSQLBranchRepository::mapResultToBranch(const pqxx::row& row, const BranchAddress& address) const {
     UUID id = UUID::fromString(row["id"].c_str());
     std::string name = row["name"].c_str();
     std::string phone = row["phone"].c_str();
@@ -285,7 +285,7 @@ Branch PostgreSQLBranchRepository::mapResultToBranch(const pqxx::row& row, const
     return Branch(id, name, phone, workingHours, studioId, address);
 }
 
-Address PostgreSQLBranchRepository::mapResultToAddress(const pqxx::row& row) const {
+BranchAddress PostgreSQLBranchRepository::mapResultToAddress(const pqxx::row& row) const {
     UUID id = UUID::fromString(row["id"].c_str());
     std::string country = row["country"].c_str();
     std::string city = row["city"].c_str();
@@ -295,7 +295,7 @@ Address PostgreSQLBranchRepository::mapResultToAddress(const pqxx::row& row) con
     std::string postalCode = row["postal_code"].c_str();
     auto timezoneOffset = std::chrono::minutes(row["timezone_offset"].as<int>());
     
-    Address address(id, country, city, street, building, timezoneOffset);
+    BranchAddress address(id, country, city, street, building, timezoneOffset);
     if (!apartment.empty()) {
         address.setApartment(apartment);
     }
@@ -312,7 +312,7 @@ void PostgreSQLBranchRepository::validateBranch(const Branch& branch) const {
     }
 }
 
-bool PostgreSQLBranchRepository::saveAddress(const Address& address, pqxx::work& work) {
+bool PostgreSQLBranchRepository::saveAddress(const BranchAddress& address, pqxx::work& work) {
     try {
         std::map<std::string, std::string> values = {
             {"id", "$1"},
@@ -350,7 +350,7 @@ bool PostgreSQLBranchRepository::saveAddress(const Address& address, pqxx::work&
     }
 }
 
-bool PostgreSQLBranchRepository::updateAddress(const Address& address, pqxx::work& work) {
+bool PostgreSQLBranchRepository::updateAddress(const BranchAddress& address, pqxx::work& work) {
     try {
         std::map<std::string, std::string> values = {
             {"country", "$2"},

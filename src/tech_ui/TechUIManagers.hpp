@@ -9,6 +9,7 @@
 #include "../services/ReviewService.hpp"
 #include "../services/ScheduleService.hpp"
 #include "../services/StatisticsService.hpp"
+#include "../services/AttendanceService.hpp"
 #include "StatisticsManager.hpp" 
 #include "../data/IRepositoryFactory.hpp"
 #include "../data/RepositoryFactoryCreator.hpp"
@@ -42,6 +43,7 @@ private:
     std::unique_ptr<ReviewService> reviewService_;
     std::unique_ptr<ScheduleService> scheduleService_;
     std::unique_ptr<StatisticsService> statisticsService_;
+    std::unique_ptr<StatisticsService> attendanceService_;
 
     // Менеджеры UI
     std::unique_ptr<StatisticsManager> statisticsManager_;

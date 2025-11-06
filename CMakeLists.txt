@@ -62,6 +62,7 @@ add_library(BookingCore STATIC
     ${SOURCE_ROOT}/services/EnrollmentService.cpp
     ${SOURCE_ROOT}/services/BranchService.cpp
     ${SOURCE_ROOT}/services/StatisticsService.cpp
+    ${SOURCE_ROOT}/services/AttendanceService.cpp
     ${SOURCE_ROOT}/services/TimeZoneService.cpp
     ${SOURCE_ROOT}/services/DatabaseHealthService.cpp
     ${SOURCE_ROOT}/services/DatabaseMonitorService.cpp
@@ -214,29 +215,29 @@ install(TARGETS BookingCore DataAccess
 )
 
 # Модульные тесты
-#add_executable(BookingTests
-#    ${SOURCE_ROOT}/tests/unit/BookingServiceTest.cpp
-#)
+add_executable(BookingTests
+    ${SOURCE_ROOT}/tests/unit/BookingServiceTest.cpp
+)
 
-#target_include_directories(BookingTests PRIVATE ${SOURCE_ROOT})
-#target_link_libraries(BookingTests 
-#    BookingCore 
-#    GTest::gtest 
-#    GTest::gtest_main
-#    GTest::gmock
-#)
+target_include_directories(BookingTests PRIVATE ${SOURCE_ROOT})
+target_link_libraries(BookingTests 
+    BookingCore 
+    GTest::gtest 
+    GTest::gtest_main
+    GTest::gmock
+)
 
-#add_executable(AuthServiceTests
-#    ${SOURCE_ROOT}/tests/unit/AuthServiceTest.cpp
-#)
+add_executable(AuthServiceTests
+    ${SOURCE_ROOT}/tests/unit/AuthServiceTest.cpp
+)
 
-#target_include_directories(AuthServiceTests PRIVATE ${SOURCE_ROOT})
-#target_link_libraries(AuthServiceTests 
-#    BookingCore 
-#    GTest::gtest 
-#    GTest::gtest_main
-#    GTest::gmock
-#)
+target_include_directories(AuthServiceTests PRIVATE ${SOURCE_ROOT})
+target_link_libraries(AuthServiceTests 
+    BookingCore 
+    GTest::gtest 
+    GTest::gtest_main
+    GTest::gmock
+)
 
 #add_executable(LessonServiceTests
 #    ${SOURCE_ROOT}/tests/unit/LessonServiceTest.cpp

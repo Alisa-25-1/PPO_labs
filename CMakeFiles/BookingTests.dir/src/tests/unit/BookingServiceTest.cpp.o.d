@@ -350,12 +350,21 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/DanceHall.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/IBranchRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/Branch.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/Address.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/IAttendanceRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/Attendance.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/ILessonRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/Lesson.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/TimeSlot.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/AttendanceService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/IAttendanceService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../models/Attendance.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/IEnrollmentRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../repositories/../models/Enrollment.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/IBranchService.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../models/Branch.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../models/DanceHall.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../dtos/BookingDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../dtos/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../dtos/../models/TimeSlot.hpp \
@@ -363,9 +372,15 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/exceptions/BookingException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/exceptions/ValidationException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../data/DateTimeUtils.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/TimeZoneService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/../../services/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockBookingRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockClientRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockDanceHallRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockBranchRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockBranchService.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockAttendanceRepository.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockAttendanceService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/../../../services/AttendanceService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockLessonRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockAttendanceRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tests/unit/mocks/MockEnrollmentRepository.hpp

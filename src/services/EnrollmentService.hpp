@@ -3,6 +3,7 @@
 #include "../repositories/IClientRepository.hpp"
 #include "../repositories/ILessonRepository.hpp"
 #include "../repositories/IAttendanceRepository.hpp"
+#include "AttendanceService.hpp"
 #include "../dtos/EnrollmentDTO.hpp"
 #include "../types/uuid.hpp"
 #include "exceptions/ValidationException.hpp"
@@ -16,7 +17,8 @@ private:
     std::shared_ptr<IEnrollmentRepository> enrollmentRepository_;
     std::shared_ptr<IClientRepository> clientRepository_;
     std::shared_ptr<ILessonRepository> lessonRepository_;
-    std::shared_ptr<IAttendanceRepository> attendanceRepository_; 
+    std::shared_ptr<AttendanceService> attendanceService_;  
+    
 
     void validateEnrollmentRequest(const EnrollmentRequestDTO& request) const;
     void validateClient(const UUID& clientId) const;
@@ -27,7 +29,7 @@ public:
         std::shared_ptr<IEnrollmentRepository> enrollmentRepo,
         std::shared_ptr<IClientRepository> clientRepo,
         std::shared_ptr<ILessonRepository> lessonRepo,
-        std::shared_ptr<IAttendanceRepository> attendanceRepo
+        std::shared_ptr<AttendanceService> attendanceService
     );
 
     EnrollmentResponseDTO enrollClient(const EnrollmentRequestDTO& request);

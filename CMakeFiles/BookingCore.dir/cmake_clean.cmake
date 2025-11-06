@@ -47,6 +47,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/BookingCore.dir/src/models/TimeSlot.cpp.o.d"
   "CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.o"
   "CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.o.d"
+  "CMakeFiles/BookingCore.dir/src/services/AttendanceService.cpp.o"
+  "CMakeFiles/BookingCore.dir/src/services/AttendanceService.cpp.o.d"
   "CMakeFiles/BookingCore.dir/src/services/AuthService.cpp.o"
   "CMakeFiles/BookingCore.dir/src/services/AuthService.cpp.o.d"
   "CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o"

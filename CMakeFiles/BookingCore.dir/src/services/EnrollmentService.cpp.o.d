@@ -223,11 +223,16 @@ CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/TimeSlot.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IAttendanceRepository.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Attendance.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../types/uuid.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../models/Attendance.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/IBookingRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../repositories/../models/Booking.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/EnrollmentDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../dtos/../models/Enrollment.hpp \
  /usr/include/c++/13/iomanip /usr/include/c++/13/bits/quoted_string.h \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/services/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/EnrollmentException.hpp \
  /usr/include/c++/13/iostream /usr/include/c++/13/algorithm \

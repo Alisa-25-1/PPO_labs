@@ -4,6 +4,7 @@
 #include "../repositories/ILessonRepository.hpp"
 #include "../repositories/IBookingRepository.hpp"
 #include "../repositories/IEnrollmentRepository.hpp"
+#include "AttendanceService.hpp"
 #include "../types/uuid.hpp"
 #include "../models/Enrollment.hpp" 
 #include <memory>
@@ -46,6 +47,7 @@ private:
     std::shared_ptr<ILessonRepository> lessonRepo_;
     std::shared_ptr<IBookingRepository> bookingRepo_;
     std::shared_ptr<IEnrollmentRepository> enrollmentRepo_;
+    std::shared_ptr<AttendanceService> attendanceService_;
 
 public:
     StatisticsService(
@@ -53,7 +55,8 @@ public:
         std::shared_ptr<IClientRepository> clientRepo,
         std::shared_ptr<ILessonRepository> lessonRepo,
         std::shared_ptr<IBookingRepository> bookingRepo,
-        std::shared_ptr<IEnrollmentRepository> enrollmentRepo
+        std::shared_ptr<IEnrollmentRepository> enrollmentRepo,
+        std::shared_ptr<AttendanceService> attendanceService
     );
 
     StudioStatsDTO getStudioStats();

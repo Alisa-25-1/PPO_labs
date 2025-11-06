@@ -29,6 +29,7 @@
 #include "services/LessonService.hpp"
 #include "services/BranchService.hpp"
 #include "services/EnrollmentService.hpp"
+#include "services/AttendanceService.hpp"
 
 // Данные
 #include "data/ResilientDatabaseConnection.hpp"  
@@ -122,9 +123,10 @@ void WebApplication::initializeControllers() {
         auto branchRepo = std::make_shared<PostgreSQLBranchRepository>(dbConnection);
         auto attendanceRepo = std::make_shared<PostgreSQLAttendanceRepository>(dbConnection);
 
+        auto attendanceService = std::make_shared<AttendanceService>(attendanceRepo, bookingRepo, enrollmentRepo, lessonRepo);
         auto branchService = std::make_shared<BranchService>(branchRepo, hallRepo);
         auto lessonService = std::make_shared<LessonService>(lessonRepo, enrollmentRepo, trainerRepo, hallRepo);
-        auto enrollmentService = std::make_shared<EnrollmentService>(enrollmentRepo, clientRepo, lessonRepo, attendanceRepo);
+        auto enrollmentService = std::make_shared<EnrollmentService>(enrollmentRepo, clientRepo, lessonRepo, attendanceService);
 
         lessonController_ = std::make_unique<LessonController>(lessonService, enrollmentService, branchService);
         std::cout << "✅ LessonController создан" << std::endl;
@@ -141,8 +143,8 @@ void WebApplication::initializeControllers() {
             hallRepo, 
             branchRepo,
             branchService,
-            attendanceRepo,
-            lessonRepo
+            lessonRepo,
+            attendanceService
         );
         std::cout << "✅ BookingService создан" << std::endl;
         
@@ -158,7 +160,6 @@ void WebApplication::initializeControllers() {
     }
 }
 
-// Остальные методы без изменений...
 void WebApplication::setupStyles() {
     useStyleSheet("styles/main.css");
 }

@@ -8,7 +8,7 @@ Branch::Branch()
       studioId_(UUID()), address_() {}
 
 Branch::Branch(const UUID& id, const std::string& name, const std::string& phone,
-               const WorkingHours& workingHours, const UUID& studioId, const Address& address)
+               const WorkingHours& workingHours, const UUID& studioId, const BranchAddress& address)
     : id_(id), name_(name), phone_(phone), workingHours_(workingHours),
       studioId_(studioId), address_(address) {
     
@@ -22,7 +22,7 @@ std::string Branch::getName() const { return name_; }
 std::string Branch::getPhone() const { return phone_; }
 WorkingHours Branch::getWorkingHours() const { return workingHours_; }
 UUID Branch::getStudioId() const { return studioId_; }
-Address Branch::getAddress() const { return address_; }
+BranchAddress Branch::getAddress() const { return address_; }
 std::chrono::minutes Branch::getTimezoneOffset() const { 
     return address_.getTimezoneOffset(); 
 }
@@ -48,7 +48,7 @@ void Branch::setWorkingHours(const WorkingHours& hours) {
     workingHours_ = hours;
 }
 
-void Branch::setAddress(const Address& address) {
+void Branch::setAddress(const BranchAddress& address) {
     address_ = address;
 }
 

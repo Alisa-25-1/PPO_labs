@@ -17,6 +17,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   src/repositories/impl/PostgreSQLSubscriptionRepository.hpp \
   src/repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp \
   src/repositories/impl/PostgreSQLTrainerRepository.hpp \
+  src/services/AttendanceService.hpp \
   src/services/DatabaseHealthService.hpp \
   src/web_ui/WebApplication.hpp \
   src/dtos/AuthDTO.hpp \
@@ -70,6 +71,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -991,6 +993,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o: sr
   src/models/Branch.hpp \
   src/models/Client.hpp \
   src/models/DanceHall.hpp \
+  src/models/Enrollment.hpp \
   src/models/Lesson.hpp \
   src/models/TimeSlot.hpp \
   src/types/uuid.hpp \
@@ -999,8 +1002,10 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o: sr
   src/repositories/IBranchRepository.hpp \
   src/repositories/IClientRepository.hpp \
   src/repositories/IDanceHallRepository.hpp \
+  src/repositories/IEnrollmentRepository.hpp \
   src/repositories/ILessonRepository.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/BookingService.hpp \
   src/services/IBranchService.hpp \
   src/services/TimeZoneService.hpp \
@@ -1379,6 +1384,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.o: src
   src/types/enums.hpp \
   src/types/uuid.hpp \
   src/models/Attendance.hpp \
+  src/models/Booking.hpp \
   src/models/Branch.hpp \
   src/models/Client.hpp \
   src/models/DanceHall.hpp \
@@ -1388,6 +1394,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.o: src
   src/models/Trainer.hpp \
   src/types/uuid.hpp \
   src/repositories/IAttendanceRepository.hpp \
+  src/repositories/IBookingRepository.hpp \
   src/repositories/IBranchRepository.hpp \
   src/repositories/IClientRepository.hpp \
   src/repositories/IDanceHallRepository.hpp \
@@ -1395,6 +1402,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.o: src
   src/repositories/ILessonRepository.hpp \
   src/repositories/ITrainerRepository.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
   src/services/IBranchService.hpp \
@@ -2257,6 +2265,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/we
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -2719,6 +2728,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: src/web_
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -3177,6 +3187,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: src/web_ui/vie
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -3634,6 +3645,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: src/web_ui
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -4079,6 +4091,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: sr
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -4535,6 +4548,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o: src/w
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -4995,6 +5009,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o: src/web_ui/view
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -5453,6 +5468,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: src/web_ui/vie
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -5908,6 +5924,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o: src/we
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -6364,6 +6381,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o:
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -6811,6 +6829,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: src/web
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -7265,6 +7284,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: src
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -7719,6 +7739,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_u
   src/repositories/ITrainerRepository.hpp \
   src/services/exceptions/AuthException.hpp \
   src/types/uuid.hpp \
+  src/services/AttendanceService.hpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
@@ -8267,6 +8288,8 @@ src/dtos/AuthDTO.hpp:
 
 /usr/include/c++/13/bits/utility.h:
 
+src/services/AttendanceService.hpp:
+
 /usr/include/c++/13/bits/stl_deque.h:
 
 /usr/include/c++/13/bits/stl_algobase.h:
@@ -8382,6 +8405,8 @@ src/models/Trainer.hpp:
 /usr/include/c++/13/bits/memory_resource.h:
 
 /usr/include/c++/13/streambuf:
+
+/usr/include/c++/13/bits/localefwd.h:
 
 /usr/include/c++/13/ext/numeric_traits.h:
 
@@ -8707,8 +8732,6 @@ src/services/AuthService.hpp:
 
 /usr/include/c++/13/bits/exception_defines.h:
 
-/usr/include/c++/13/bits/localefwd.h:
-
 /usr/include/c++/13/bits/stl_multimap.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
@@ -8946,6 +8969,10 @@ src/dtos/SubscriptionDTO.hpp:
 /usr/include/pqxx/internal/result_iterator.hxx:
 
 /usr/include/pqxx/transactor.hxx:
+
+/usr/local/include/Wt/WDialog.h:
+
+/usr/include/pqxx/internal/statement_parameters.hxx:
 
 /usr/local/include/Wt/WLocalizedStrings.h:
 
@@ -9244,7 +9271,3 @@ src/data/DatabaseConnection.hpp:
 /usr/include/openssl/bio.h:
 
 /usr/local/include/Wt/WDateValidator.h:
-
-/usr/include/pqxx/internal/statement_parameters.hxx:
-
-/usr/local/include/Wt/WDialog.h:
