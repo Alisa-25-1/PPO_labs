@@ -5,6 +5,7 @@
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/DanceStudioWebUI.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/BookingTests.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/AuthServiceTests.dir
+/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/TestMongoDB.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/package.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/package_source.dir
 /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles/edit_cache.dir

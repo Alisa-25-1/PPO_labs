@@ -63,7 +63,7 @@ bool Trainer::isValid() const {
 }
 
 bool Trainer::isValidName(const std::string& name) {
-    if (name.empty() && name.length() > 100 && name.length() < 2) {
+    if (name.empty() || name.length() > 100 || name.length() < 2) {
         std::cout << "❌ Имя должно быть от 2 до 100 символов" << std::endl;
         return false;
     }

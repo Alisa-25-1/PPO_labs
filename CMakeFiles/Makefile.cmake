@@ -83,4 +83,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "CMakeFiles/DanceStudioWebUI.dir/DependInfo.cmake"
   "CMakeFiles/BookingTests.dir/DependInfo.cmake"
   "CMakeFiles/AuthServiceTests.dir/DependInfo.cmake"
+  "CMakeFiles/TestMongoDB.dir/DependInfo.cmake"
   )

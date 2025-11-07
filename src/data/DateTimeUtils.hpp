@@ -10,6 +10,10 @@ public:
     // Основные методы для работы с PostgreSQL
     static std::string formatTimeForPostgres(const std::chrono::system_clock::time_point& time_point);
     static std::chrono::system_clock::time_point parseTimeFromPostgres(const std::string& timeStr);
+
+    // Основные методы для работы с MongoDB
+    static std::string formatTimeForMongoDB(const std::chrono::system_clock::time_point& time);
+    static std::chrono::system_clock::time_point parseTimeFromMongoDB(const std::string& timeStr);
     
     // Методы для форматирования времени (работают с локальным временем системы)
     static std::string formatTime(const std::chrono::system_clock::time_point& timePoint);

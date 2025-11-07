@@ -13,7 +13,9 @@
                 "${workspaceFolder}/src/tests/mocks",
                 "/usr/local/include",
                 "/usr/include/x86_64-linux-gnu",
-                "/usr/include"
+                "/usr/include",
+                "/usr/local/include/mongocxx/v_noabi",
+                "/usr/local/include/bsoncxx/v_noabi"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/g++",

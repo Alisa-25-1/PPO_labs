@@ -5432,6 +5432,9 @@ CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.o: src/models/Trainer.cpp \
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h
 
 CMakeFiles/BookingCore.dir/src/services/AttendanceService.cpp.o: src/services/AttendanceService.cpp \
+  src/types/enums.hpp \
+  src/types/uuid.hpp \
+  src/models/Attendance.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
@@ -5447,6 +5450,7 @@ CMakeFiles/BookingCore.dir/src/services/AttendanceService.cpp.o: src/services/At
   src/repositories/ILessonRepository.hpp \
   src/types/uuid.hpp \
   src/services/AttendanceService.hpp \
+  src/services/IAttendanceService.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
@@ -6055,6 +6059,7 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: src/services/Booki
   src/models/TimeSlot.hpp \
   src/types/uuid.hpp \
   src/dtos/BookingDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -6081,6 +6086,7 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o: src/services/Booki
   src/types/uuid.hpp \
   src/services/AttendanceService.hpp \
   src/services/BookingService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
@@ -7312,6 +7318,7 @@ CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.o: src/services/En
   src/models/Enrollment.hpp \
   src/types/uuid.hpp \
   src/dtos/EnrollmentDTO.hpp \
+  src/models/Attendance.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
   src/types/uuid.hpp \
@@ -7330,6 +7337,7 @@ CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.o: src/services/En
   src/types/uuid.hpp \
   src/services/AttendanceService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/exceptions/EnrollmentException.hpp \
   src/services/exceptions/ValidationException.hpp \
   /usr/include/alloca.h \
@@ -8440,6 +8448,7 @@ CMakeFiles/BookingCore.dir/src/services/ScheduleService.cpp.o: src/services/Sche
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 CMakeFiles/BookingCore.dir/src/services/StatisticsService.cpp.o: src/services/StatisticsService.cpp \
+  src/models/Attendance.hpp \
   src/models/Enrollment.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
@@ -8458,6 +8467,7 @@ CMakeFiles/BookingCore.dir/src/services/StatisticsService.cpp.o: src/services/St
   src/repositories/ILessonRepository.hpp \
   src/types/uuid.hpp \
   src/services/AttendanceService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/StatisticsService.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -9819,6 +9829,10 @@ src/dtos/BookingDTO.cpp:
 
 /usr/include/openssl/randerr.h:
 
+src/services/ReviewService.cpp:
+
+/usr/include/c++/13/cwchar:
+
 /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
 
 /usr/include/time.h:
@@ -10345,6 +10359,8 @@ src/core/PasswordHasher.hpp:
 
 /usr/include/openssl/asn1err.h:
 
+src/services/IAttendanceService.hpp:
+
 /usr/include/c++/13/bits/stl_function.h:
 
 /usr/include/openssl/bioerr.h:
@@ -10790,7 +10806,3 @@ src/services/DatabaseMonitorService.hpp:
 src/services/exceptions/EnrollmentException.hpp:
 
 src/dtos/LessonDTO.hpp:
-
-/usr/include/c++/13/cwchar:
-
-src/services/ReviewService.cpp:

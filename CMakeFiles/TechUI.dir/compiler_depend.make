@@ -42,6 +42,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   src/dtos/ReviewDTO.hpp \
   src/dtos/ScheduleDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/Enrollment.hpp \
@@ -80,6 +81,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/ReviewService.hpp \
@@ -678,6 +680,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/InputHandlers.cpp.o: src/tech_ui/InputHandlers
   /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h
 
 CMakeFiles/TechUI.dir/src/tech_ui/StatisticsManager.cpp.o: src/tech_ui/StatisticsManager.cpp \
+  src/models/Attendance.hpp \
   src/models/Enrollment.hpp \
   src/data/DateTimeUtils.hpp \
   src/types/enums.hpp \
@@ -696,6 +699,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/StatisticsManager.cpp.o: src/tech_ui/Statistic
   src/repositories/ILessonRepository.hpp \
   src/types/uuid.hpp \
   src/services/AttendanceService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/StatisticsService.hpp \
   src/types/uuid.hpp \
   src/models/DanceHall.hpp \
@@ -1008,6 +1012,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   src/dtos/ReviewDTO.hpp \
   src/dtos/ScheduleDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/Enrollment.hpp \
@@ -1046,6 +1051,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   src/services/AuthService.hpp \
   src/services/BookingService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/ReviewService.hpp \
@@ -1403,6 +1409,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   src/dtos/ReviewDTO.hpp \
   src/dtos/ScheduleDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/Enrollment.hpp \
@@ -1442,6 +1449,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/ReviewService.hpp \
@@ -1931,7 +1939,9 @@ src/tech_ui/InputHandlers.cpp:
 
 /usr/include/openssl/crypto.h:
 
-/usr/include/c++/13/bits/ptr_traits.h:
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+
+/usr/include/openssl/core_dispatch.h:
 
 /usr/include/c++/13/bits/atomic_base.h:
 
@@ -2021,10 +2031,6 @@ src/tech_ui/TechUIManagers.hpp:
 
 /usr/include/c++/13/bits/shared_ptr_atomic.h:
 
-/usr/include/c++/13/bits/deque.tcc:
-
-src/models/Trainer.hpp:
-
 /usr/include/c++/13/bits/hashtable_policy.h:
 
 src/models/Subscription.hpp:
@@ -2095,10 +2101,6 @@ src/models/Lesson.hpp:
 
 /usr/include/alloca.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
-
-/usr/include/openssl/core_dispatch.h:
-
 /usr/include/c++/13/bits/ios_base.h:
 
 /usr/include/c++/13/bits/locale_facets.h:
@@ -2106,6 +2108,8 @@ src/models/Lesson.hpp:
 src/tech_ui/StatisticsManager.hpp:
 
 /usr/include/c++/13/bits/regex_constants.h:
+
+src/services/exceptions/ValidationException.hpp:
 
 src/services/ScheduleService.hpp:
 
@@ -2149,8 +2153,6 @@ src/dtos/ReviewDTO.hpp:
 
 src/core/Logger.hpp:
 
-/usr/include/openssl/asn1err.h:
-
 /usr/include/c++/13/backward/auto_ptr.h:
 
 src/services/exceptions/ReviewException.hpp:
@@ -2168,6 +2170,10 @@ src/models/Booking.hpp:
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
 /usr/include/c++/13/bits/enable_special_members.h:
+
+src/models/Trainer.hpp:
+
+/usr/include/c++/13/bits/deque.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
@@ -2220,8 +2226,6 @@ src/models/Attendance.hpp:
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 
 src/repositories/IAttendanceRepository.hpp:
-
-src/services/exceptions/ValidationException.hpp:
 
 /usr/include/c++/13/bits/cpp_type_traits.h:
 
@@ -2277,6 +2281,12 @@ src/services/exceptions/AuthException.hpp:
 
 src/services/LessonService.hpp:
 
+/usr/include/openssl/asn1err.h:
+
+src/services/IAttendanceService.hpp:
+
+/usr/include/ctype.h:
+
 /usr/include/c++/13/streambuf:
 
 /usr/include/c++/13/bits/memory_resource.h:
@@ -2302,6 +2312,8 @@ src/models/DanceHall.hpp:
 src/repositories/ISubscriptionRepository.hpp:
 
 src/types/enums.hpp:
+
+/usr/include/c++/13/bits/ptr_traits.h:
 
 /usr/include/c++/13/bits/quoted_string.h:
 
@@ -2518,8 +2530,6 @@ src/tech_ui/InputHandlers.hpp:
 /usr/include/c++/13/tuple:
 
 /usr/include/c++/13/vector:
-
-/usr/include/ctype.h:
 
 /usr/include/features.h:
 

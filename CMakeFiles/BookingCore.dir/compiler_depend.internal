@@ -5457,6 +5457,9 @@ CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.o
 
 CMakeFiles/BookingCore.dir/src/services/AttendanceService.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.cpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
@@ -5472,6 +5475,7 @@ CMakeFiles/BookingCore.dir/src/services/AttendanceService.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ILessonRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h
  /usr/include/asm-generic/errno.h
@@ -6082,6 +6086,7 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -6108,6 +6113,7 @@ CMakeFiles/BookingCore.dir/src/services/BookingService.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/TimeZoneService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp
@@ -7343,6 +7349,7 @@ CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
@@ -7361,6 +7368,7 @@ CMakeFiles/BookingCore.dir/src/services/EnrollmentService.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/EnrollmentException.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/ValidationException.hpp
  /usr/include/alloca.h
@@ -8475,6 +8483,7 @@ CMakeFiles/BookingCore.dir/src/services/ScheduleService.cpp.o
 
 CMakeFiles/BookingCore.dir/src/services/StatisticsService.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/StatisticsService.cpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Enrollment.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/enums.hpp
@@ -8493,6 +8502,7 @@ CMakeFiles/BookingCore.dir/src/services/StatisticsService.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/ILessonRepository.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/StatisticsService.hpp
  /usr/include/alloca.h
  /usr/include/asm-generic/errno-base.h

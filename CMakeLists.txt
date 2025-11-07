@@ -13,11 +13,6 @@ find_package(GTest REQUIRED)
 find_package(PkgConfig REQUIRED)
 find_package(OpenSSL REQUIRED)
 
-# Поиск MongoDB C++ driver
-#find_package(PkgConfig REQUIRED)
-#pkg_check_modules(LIBMONGOCXX REQUIRED libmongocxx)
-#pkg_check_modules(LIBBSONCXX REQUIRED libbsoncxx)
-
 # Поиск libpqxx
 pkg_check_modules(LIBPQXX REQUIRED libpqxx)
 
@@ -30,6 +25,37 @@ if(UNIX AND NOT APPLE)
         message(FATAL_ERROR "UUID library not found. On Ubuntu/Debian, install with: sudo apt-get install uuid-dev")
     endif()
 endif()
+
+# sudo ln -sf /usr/local/include/mongocxx/v_noabi/mongocxx /usr/include/mongocxx
+# sudo ln -sf /usr/local/include/bsoncxx/v_noabi/bsoncxx /usr/include/bsoncxx
+
+# Прямое указание путей MongoDB (используем абсолютные пути)
+set(MONGOCXX_INCLUDE_DIRS 
+    "/usr/local/include/mongocxx/v_noabi"
+    "/usr/local/include/bsoncxx/v_noabi"
+)
+
+set(MONGOCXX_LIBRARIES 
+    "/usr/local/lib/libmongocxx.so"
+    "/usr/local/lib/libbsoncxx.so"
+)
+
+# Проверяем существование файлов
+foreach(include_dir ${MONGOCXX_INCLUDE_DIRS})
+    if(NOT EXISTS ${include_dir})
+        message(WARNING "MongoDB include directory not found: ${include_dir}")
+    else()
+        message(STATUS "Found MongoDB include: ${include_dir}")
+    endif()
+endforeach()
+
+foreach(lib_file ${MONGOCXX_LIBRARIES})
+    if(NOT EXISTS ${lib_file})
+        message(WARNING "MongoDB library not found: ${lib_file}")
+    else()
+        message(STATUS "Found MongoDB library: ${lib_file}")
+    endif()
+endforeach()
 
 # Указываем корневую директорию исходников
 set(SOURCE_ROOT ${CMAKE_CURRENT_SOURCE_DIR}/src)
@@ -95,6 +121,7 @@ add_library(DataAccess STATIC
     ${SOURCE_ROOT}/data/ResilientDatabaseConnection.cpp
     ${SOURCE_ROOT}/data/QueryFactory.cpp
     ${SOURCE_ROOT}/data/SqlQueryBuilder.cpp
+    # Postgres репозитории
     ${SOURCE_ROOT}/data/PostgreSQLRepositoryFactory.cpp
     ${SOURCE_ROOT}/repositories/impl/PostgreSQLClientRepository.cpp
     ${SOURCE_ROOT}/repositories/impl/PostgreSQLDanceHallRepository.cpp
@@ -108,6 +135,20 @@ add_library(DataAccess STATIC
     ${SOURCE_ROOT}/repositories/impl/PostgreSQLReviewRepository.cpp
     ${SOURCE_ROOT}/repositories/impl/PostgreSQLEnrollmentRepository.cpp
     ${SOURCE_ROOT}/repositories/impl/PostgreSQLAttendanceRepository.cpp
+    # MongoDB репозитории
+    ${SOURCE_ROOT}/data/MongoDBRepositoryFactory.cpp
+    ${SOURCE_ROOT}/repositories/impl/MongoDBClientRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/MongoDBBookingRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/MongoDBDanceHallRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/MongoDBBranchRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/MongoDBStudioRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/MongoDBTrainerRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/MongoDBSubscriptionTypeRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/MongoDBSubscriptionRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/MongoDBLessonRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/MongoDBEnrollmentRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/MongoDBReviewRepository.cpp
+    ${SOURCE_ROOT}/repositories/impl/MongoDBAttendanceRepository.cpp
 )
 
 target_include_directories(DataAccess PRIVATE 
@@ -288,3 +329,23 @@ target_link_libraries(AuthServiceTests
 #    GTest::gtest_main
 #    ${LIBPQXX_LIBRARIES}
 #)
+
+# Тестовое приложение MongoDB
+add_executable(TestMongoDB
+    ${SOURCE_ROOT}/test_mongo.cpp
+)
+
+target_include_directories(TestMongoDB PRIVATE ${SOURCE_ROOT})
+target_link_libraries(TestMongoDB 
+    PRIVATE 
+    ${LIBMONGOCXX_LIBRARIES}
+    ${LIBBSONCXX_LIBRARIES}
+)
+
+# Обновляем DataAccess для поддержки MongoDB
+target_link_libraries(DataAccess PRIVATE 
+    BookingCore 
+    ${LIBPQXX_LIBRARIES}
+    ${LIBMONGOCXX_LIBRARIES} 
+    ${LIBBSONCXX_LIBRARIES}
+)

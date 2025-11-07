@@ -11,13 +11,28 @@
 #include <bsoncxx/builder/stream/document.hpp>
 #include <bsoncxx/json.hpp>
 
-class MongoDBRepositoryFactory : public IRepositoryFactory {
+class MongoDBClientRepository;
+class MongoDBDanceHallRepository;
+class MongoDBBookingRepository;
+class MongoDBBranchRepository;
+class MongoDBStudioRepository;
+class MongoDBTrainerRepository;
+class MongoDBSubscriptionTypeRepository;
+class MongoDBSubscriptionRepository;
+class MongoDBLessonRepository;
+class MongoDBEnrollmentRepository;
+class MongoDBAttendanceRepository;
+
+class MongoDBRepositoryFactory : 
+    public IRepositoryFactory, 
+    public std::enable_shared_from_this<MongoDBRepositoryFactory>  
+{
 private:
     std::shared_ptr<mongocxx::client> client_;
     std::string database_name_;
     
-    // Ensure MongoDB instance is initialized
-    static mongocxx::instance& getInstance();
+    // Статический экземпляр MongoDB
+    static mongocxx::instance mongo_instance_;
 
 public:
     explicit MongoDBRepositoryFactory(const std::string& connection_string, 

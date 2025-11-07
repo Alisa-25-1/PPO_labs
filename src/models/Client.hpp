@@ -32,6 +32,11 @@ public:
     // Установка хеша пароля
     void setPasswordHash(const std::string& passwordHash);
 
+    // Установка даты регистрации
+    void setRegistrationDate(const std::chrono::system_clock::time_point& date) {
+        registrationDate_ = date;
+    }
+
     // Методы для работы со статусом
     bool isActive() const;
     void activate();

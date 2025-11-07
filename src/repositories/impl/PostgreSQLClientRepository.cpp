@@ -256,12 +256,15 @@ Client PostgreSQLClientRepository::mapResultToClient(const pqxx::row& row) const
     std::string email = row["email"].c_str();
     std::string phone = row["phone"].c_str();
     std::string passwordHash = row["password_hash"].c_str();
+
+    auto registrationDate = DateTimeUtils::parseTimeFromPostgres(row["registration_date"].c_str());
     
     // Создаем клиента с базовыми данными (4 параметра)
     Client client(id, name, email, phone);
     
-    // Устанавливаем хеш пароля
     client.setPasswordHash(passwordHash);
+
+    client.setRegistrationDate(registrationDate);
     
     // Статус устанавливаем через соответствующие методы
     AccountStatus status = stringToClientStatus(row["status"].c_str());

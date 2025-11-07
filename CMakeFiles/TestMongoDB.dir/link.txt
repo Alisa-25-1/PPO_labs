@@ -1,0 +1,1 @@
+/usr/bin/c++ CMakeFiles/TestMongoDB.dir/src/test_mongo.cpp.o -o bin/TestMongoDB  -lmongocxx -lbsoncxx -lbsoncxx 

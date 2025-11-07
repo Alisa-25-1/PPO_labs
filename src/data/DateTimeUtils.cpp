@@ -65,6 +65,27 @@ std::chrono::system_clock::time_point DateTimeUtils::parseTimeFromPostgres(const
     return std::chrono::system_clock::from_time_t(utc_time_t);
 }
 
+std::string DateTimeUtils::formatTimeForMongoDB(const std::chrono::system_clock::time_point& time) {
+    auto time_t = std::chrono::system_clock::to_time_t(time);
+    std::tm* tm = std::gmtime(&time_t);
+    
+    std::ostringstream oss;
+    oss << std::put_time(tm, "%Y-%m-%dT%H:%M:%SZ");
+    return oss.str();
+}
+
+std::chrono::system_clock::time_point DateTimeUtils::parseTimeFromMongoDB(const std::string& timeStr) {
+    std::tm tm = {};
+    std::istringstream ss(timeStr);
+    ss >> std::get_time(&tm, "%Y-%m-%dT%H:%M:%SZ");
+    
+    if (ss.fail()) {
+        throw std::runtime_error("Failed to parse MongoDB time string: " + timeStr);
+    }
+    
+    return std::chrono::system_clock::from_time_t(std::mktime(&tm));
+}
+
 std::string DateTimeUtils::formatTime(const std::chrono::system_clock::time_point& timePoint) {
     auto time_t = std::chrono::system_clock::to_time_t(timePoint);
     std::tm* tm = std::localtime(&time_t);

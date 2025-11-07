@@ -24,6 +24,7 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -60,6 +61,7 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -663,11 +665,7 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
 
 /usr/include/openssl/bn.h:
 
-/usr/local/include/Wt/WLink.h:
-
-/usr/include/c++/13/bits/atomic_base.h:
-
-/usr/include/c++/13/bits/uses_allocator_args.h:
+/usr/include/openssl/bioerr.h:
 
 /usr/include/c++/13/bits/exception_ptr.h:
 
@@ -684,6 +682,12 @@ CMakeFiles/DanceStudioWebUI.dir/src/web_main.cpp.o: src/web_main.cpp \
 /usr/include/c++/13/bits/unordered_map.h:
 
 /usr/include/c++/13/bits/ptr_traits.h:
+
+/usr/local/include/Wt/WLink.h:
+
+/usr/include/c++/13/bits/atomic_base.h:
+
+/usr/include/c++/13/bits/uses_allocator_args.h:
 
 /usr/include/c++/13/bits/move.h:
 
@@ -797,8 +801,6 @@ src/repositories/IBranchRepository.hpp:
 
 /usr/include/c++/13/bits/exception_defines.h:
 
-/usr/include/c++/13/bits/deque.tcc:
-
 /usr/include/c++/13/bits/hashtable_policy.h:
 
 src/models/Subscription.hpp:
@@ -870,6 +872,8 @@ src/models/Lesson.hpp:
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
 /usr/include/c++/13/bits/enable_special_members.h:
+
+/usr/include/c++/13/bits/deque.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
@@ -1018,6 +1022,8 @@ src/services/BranchService.hpp:
 /usr/include/c++/13/bits/stl_iterator.h:
 
 /usr/include/c++/13/ext/numeric_traits.h:
+
+/usr/include/ctype.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_funcs.h:
 
@@ -1287,8 +1293,6 @@ src/models/Address.hpp:
 
 /usr/include/c++/13/vector:
 
-/usr/include/ctype.h:
-
 src/web_ui/WebApplication.hpp:
 
 /usr/include/features.h:
@@ -1299,8 +1303,8 @@ src/web_ui/WebApplication.hpp:
 
 src/web_ui/controllers/LessonController.hpp:
 
+src/services/IAttendanceService.hpp:
+
 /usr/include/openssl/asn1err.h:
 
 /usr/include/openssl/bio.h:
-
-/usr/include/openssl/bioerr.h:

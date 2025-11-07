@@ -40,6 +40,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -76,6 +77,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o: src/web_ui/WebApp
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -981,6 +983,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o: sr
   src/models/TimeSlot.hpp \
   src/types/uuid.hpp \
   src/dtos/BookingDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -1007,6 +1010,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o: sr
   src/types/uuid.hpp \
   src/services/AttendanceService.hpp \
   src/services/BookingService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
@@ -1378,6 +1382,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.o: src
   src/dtos/LessonDTO.hpp \
   src/types/uuid.hpp \
   src/models/Address.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/data/DateTimeUtils.hpp \
@@ -1405,6 +1410,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.o: src
   src/services/AttendanceService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/exceptions/EnrollmentException.hpp \
@@ -2236,6 +2242,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/we
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -2270,6 +2277,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o: src/we
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -2698,6 +2706,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: src/web_
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -2733,6 +2742,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o: src/web_
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -3156,6 +3166,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: src/web_ui/vie
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -3192,6 +3203,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o: src/web_ui/vie
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -3614,6 +3626,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: src/web_ui
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -3650,6 +3663,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o: src/web_ui
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -4060,6 +4074,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: sr
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -4096,6 +4111,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o: sr
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -4519,6 +4535,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o: src/w
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -4553,6 +4570,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o: src/w
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -4978,6 +4996,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o: src/web_ui/view
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -5014,6 +5033,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o: src/web_ui/view
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -5437,6 +5457,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: src/web_ui/vie
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -5473,6 +5494,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o: src/web_ui/vie
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -5893,6 +5915,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o: src/we
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -5929,6 +5952,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o: src/we
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -6350,6 +6374,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o:
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -6386,6 +6411,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o:
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -6798,6 +6824,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: src/web
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -6834,6 +6861,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o: src/web
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -7253,6 +7281,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: src
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -7289,6 +7318,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o: src
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -7708,6 +7738,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_u
   src/dtos/EnrollmentDTO.hpp \
   src/dtos/LessonDTO.hpp \
   src/dtos/SubscriptionDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -7744,6 +7775,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o: src/web_u
   src/services/BookingService.hpp \
   src/services/BranchService.hpp \
   src/services/EnrollmentService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/LessonService.hpp \
   src/services/SubscriptionService.hpp \
@@ -8320,10 +8352,6 @@ src/services/AttendanceService.hpp:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
 
-/usr/include/c++/13/ratio:
-
-/usr/include/linux/limits.h:
-
 /usr/include/openssl/cryptoerr.h:
 
 /usr/include/c++/13/bits/sstream.tcc:
@@ -8408,27 +8436,31 @@ src/models/Trainer.hpp:
 
 /usr/include/c++/13/bits/localefwd.h:
 
+src/services/IAttendanceService.hpp:
+
+/usr/include/c++/13/bits/regex_scanner.tcc:
+
+src/web_ui/controllers/LessonController.hpp:
+
+/usr/include/openssl/asn1err.h:
+
+/usr/include/c++/13/bits/range_access.h:
+
+src/repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp:
+
 /usr/include/c++/13/ext/numeric_traits.h:
 
 /usr/include/c++/13/bits/stl_iterator.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
+/usr/include/c++/13/bits/locale_facets_nonio.tcc:
+
+/usr/include/pqxx/binarystring.hxx:
+
 src/repositories/IDanceHallRepository.hpp:
 
 src/web_ui/views/BookingView.hpp:
-
-/usr/include/c++/13/bits/stl_numeric.h:
-
-src/types/uuid.hpp:
-
-src/repositories/ITrainerRepository.hpp:
-
-src/web_ui/views/SubscriptionListWidget.cpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
-
-src/services/exceptions/BookingException.hpp:
 
 /usr/include/c++/13/bits/shared_ptr.h:
 
@@ -8437,6 +8469,8 @@ src/services/BookingService.hpp:
 src/repositories/IBookingRepository.hpp:
 
 /usr/include/pqxx/internal/array-composite.hxx:
+
+/usr/include/c++/13/bits/deque.tcc:
 
 /usr/include/c++/13/bits/stream_iterator.h:
 
@@ -8453,6 +8487,18 @@ src/services/IBranchService.hpp:
 /usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
 
 /usr/local/include/Wt/WFormWidget.h:
+
+/usr/include/pqxx/internal/stream_query.hxx:
+
+src/repositories/IEnrollmentRepository.hpp:
+
+src/web_ui/controllers/BookingController.hpp:
+
+src/types/uuid.hpp:
+
+src/repositories/ITrainerRepository.hpp:
+
+/usr/include/c++/13/bits/stl_numeric.h:
 
 src/models/TimeSlot.hpp:
 
@@ -8493,12 +8539,6 @@ src/web_ui/views/EnrollmentHistoryWidget.hpp:
 src/repositories/impl/PostgreSQLSubscriptionRepository.hpp:
 
 src/types/enums.hpp:
-
-/usr/include/c++/13/bits/range_access.h:
-
-src/repositories/impl/PostgreSQLSubscriptionTypeRepository.hpp:
-
-/usr/include/c++/13/bits/deque.tcc:
 
 src/repositories/impl/PostgreSQLBookingRepository.hpp:
 
@@ -8624,17 +8664,17 @@ src/repositories/ISubscriptionTypeRepository.hpp:
 
 src/repositories/impl/PostgreSQLBranchRepository.hpp:
 
+src/web_ui/views/SubscriptionListWidget.cpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
+
+src/services/exceptions/BookingException.hpp:
+
 src/web_ui/WebApplication.cpp:
 
 /usr/local/include/Wt/WLength.h:
 
 src/services/exceptions/ValidationException.hpp:
-
-/usr/include/c++/13/bits/regex_scanner.tcc:
-
-src/web_ui/controllers/LessonController.hpp:
-
-/usr/include/openssl/asn1err.h:
 
 src/web_ui/controllers/SubscriptionController.hpp:
 
@@ -8780,15 +8820,9 @@ src/services/DatabaseHealthService.hpp:
 
 /usr/include/pqxx/cursor.hxx:
 
-/usr/include/pqxx/internal/stream_query.hxx:
+/usr/include/c++/13/ratio:
 
-src/web_ui/controllers/BookingController.hpp:
-
-src/repositories/IEnrollmentRepository.hpp:
-
-/usr/include/pqxx/binarystring.hxx:
-
-/usr/include/c++/13/bits/locale_facets_nonio.tcc:
+/usr/include/linux/limits.h:
 
 src/web_ui/views/LoginWidget.hpp:
 
@@ -8835,6 +8869,10 @@ src/services/exceptions/EnrollmentException.hpp:
 /usr/include/locale.h:
 
 /usr/include/openssl/asn1.h:
+
+/usr/local/include/Wt/WDateValidator.h:
+
+/usr/include/openssl/bio.h:
 
 src/web_ui/views/SubscriptionView.cpp:
 
@@ -9267,7 +9305,3 @@ src/data/DatabaseConnection.hpp:
 /usr/local/include/Wt/WCalendar.h:
 
 /usr/local/include/Wt/WDateTime.h:
-
-/usr/include/openssl/bio.h:
-
-/usr/local/include/Wt/WDateValidator.h:

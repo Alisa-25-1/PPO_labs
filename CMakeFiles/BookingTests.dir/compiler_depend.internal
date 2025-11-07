@@ -8,6 +8,7 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -34,6 +35,7 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/TimeZoneService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp

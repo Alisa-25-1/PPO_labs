@@ -7,6 +7,7 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: src/tests/u
   src/models/TimeSlot.hpp \
   src/types/uuid.hpp \
   src/dtos/BookingDTO.hpp \
+  src/models/Attendance.hpp \
   src/models/Branch.hpp \
   src/models/DanceHall.hpp \
   src/models/TimeSlot.hpp \
@@ -33,6 +34,7 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: src/tests/u
   src/types/uuid.hpp \
   src/services/AttendanceService.hpp \
   src/services/BookingService.hpp \
+  src/services/IAttendanceService.hpp \
   src/services/IBranchService.hpp \
   src/services/TimeZoneService.hpp \
   src/services/exceptions/BookingException.hpp \
@@ -568,10 +570,6 @@ CMakeFiles/BookingTests.dir/src/tests/unit/BookingServiceTest.cpp.o: src/tests/u
 
 /usr/include/x86_64-linux-gnu/bits/statx-generic.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
-
-/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
-
 /usr/include/x86_64-linux-gnu/bits/sigthread.h:
 
 /usr/include/x86_64-linux-gnu/bits/stat.h:
@@ -858,9 +856,9 @@ src/dtos/BookingDTO.hpp:
 
 src/repositories/ILessonRepository.hpp:
 
-/usr/include/c++/13/bits/basic_string.h:
-
 /usr/include/c++/13/bits/regex.tcc:
+
+/usr/include/c++/13/bits/basic_string.h:
 
 /usr/include/c++/13/cxxabi.h:
 
@@ -918,14 +916,6 @@ src/services/IBranchService.hpp:
 
 src/types/uuid.hpp:
 
-src/tests/unit/mocks/MockAttendanceService.hpp:
-
-src/models/Branch.hpp:
-
-/usr/include/c++/13/atomic:
-
-src/types/enums.hpp:
-
 src/tests/unit/mocks/MockAttendanceRepository.hpp:
 
 /usr/include/c++/13/bits/locale_facets_nonio.tcc:
@@ -934,15 +924,15 @@ src/tests/unit/mocks/MockBranchService.hpp:
 
 /usr/include/c++/13/stdexcept:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
+/usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h:
 
-/usr/include/x86_64-linux-gnu/bits/signal_ext.h:
+/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
 
-/usr/include/c++/13/bits/char_traits.h:
+src/services/IAttendanceService.hpp:
 
-/usr/include/c++/13/bits/std_function.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/float.h:
 
-/usr/include/c++/13/cstdint:
+/usr/include/ctype.h:
 
 src/tests/unit/mocks/MockBranchRepository.hpp:
 
@@ -951,12 +941,6 @@ src/tests/unit/mocks/MockBranchRepository.hpp:
 /usr/include/c++/13/sstream:
 
 /usr/include/c++/13/bits/basic_string.tcc:
-
-/usr/include/gmock/gmock-spec-builders.h:
-
-/usr/include/c++/13/cstdlib:
-
-/usr/include/c++/13/bits/regex_scanner.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigval_t.h:
 
@@ -974,11 +958,9 @@ src/tests/unit/mocks/MockBranchRepository.hpp:
 
 /usr/include/gmock/gmock-matchers.h:
 
-/usr/include/c++/13/bits/atomic_lockfree_defines.h:
+src/types/enums.hpp:
 
-/usr/include/c++/13/bits/deque.tcc:
-
-src/tests/unit/BookingServiceTest.cpp:
+/usr/include/c++/13/atomic:
 
 src/repositories/IBranchRepository.hpp:
 
@@ -1030,12 +1012,6 @@ src/models/TimeSlot.hpp:
 
 /usr/include/c++/13/tr1/exp_integral.tcc:
 
-/usr/include/gtest/gtest-death-test.h:
-
-src/models/Enrollment.hpp:
-
-/usr/include/c++/13/algorithm:
-
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
 /usr/include/asm-generic/errno.h:
@@ -1053,6 +1029,22 @@ src/data/DateTimeUtils.hpp:
 /usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /usr/include/c++/13/string:
+
+/usr/include/c++/13/algorithm:
+
+src/models/Branch.hpp:
+
+/usr/include/gtest/gtest-death-test.h:
+
+src/models/Enrollment.hpp:
+
+src/tests/unit/mocks/MockAttendanceService.hpp:
+
+/usr/include/c++/13/bits/deque.tcc:
+
+src/tests/unit/BookingServiceTest.cpp:
+
+/usr/include/c++/13/bits/atomic_lockfree_defines.h:
 
 /usr/include/c++/13/bits/move.h:
 
@@ -1140,6 +1132,22 @@ src/models/Client.hpp:
 
 /usr/include/c++/13/clocale:
 
+/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
+
+/usr/include/x86_64-linux-gnu/bits/signal_ext.h:
+
+/usr/include/c++/13/bits/char_traits.h:
+
+/usr/include/c++/13/bits/std_function.h:
+
+/usr/include/c++/13/cstdint:
+
+/usr/include/gmock/gmock-spec-builders.h:
+
+/usr/include/c++/13/bits/regex_scanner.h:
+
+/usr/include/c++/13/cstdlib:
+
 /usr/include/c++/13/bits/std_mutex.h:
 
 /usr/include/c++/13/bits/stl_construct.h:
@@ -1219,6 +1227,10 @@ src/models/Address.hpp:
 /usr/include/c++/13/bits/streambuf_iterator.h:
 
 /usr/include/c++/13/ostream:
+
+/usr/include/gmock/internal/custom/gmock-matchers.h:
+
+/usr/include/c++/13/tr1/riemann_zeta.tcc:
 
 /usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
@@ -1352,16 +1364,8 @@ src/tests/unit/mocks/MockClientRepository.hpp:
 
 /usr/include/c++/13/vector:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/float.h:
-
-/usr/include/ctype.h:
-
 /usr/include/features.h:
 
 /usr/include/c++/13/cmath:
 
 /usr/include/gmock/gmock-function-mocker.h:
-
-/usr/include/c++/13/tr1/riemann_zeta.tcc:
-
-/usr/include/gmock/internal/custom/gmock-matchers.h:

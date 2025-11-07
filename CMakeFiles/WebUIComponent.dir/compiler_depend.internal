@@ -41,6 +41,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -77,6 +78,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/WebApplication.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
@@ -984,6 +986,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/BookingDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -1010,6 +1013,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/BookingController.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/TimeZoneService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/BookingException.hpp
@@ -1382,6 +1386,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/types/uuid.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Address.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DateTimeUtils.hpp
@@ -1409,6 +1414,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/controllers/LessonController.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/AttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/exceptions/EnrollmentException.hpp
@@ -2243,6 +2249,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -2277,6 +2284,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingCreateWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
@@ -2706,6 +2714,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -2741,6 +2750,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingListWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
@@ -3165,6 +3175,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -3201,6 +3212,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/BookingView.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
@@ -3624,6 +3636,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -3660,6 +3673,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/ClientDashboard.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
@@ -4071,6 +4085,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -4107,6 +4122,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/EnrollmentHistoryWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
@@ -4531,6 +4547,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -4565,6 +4582,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonScheduleWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
@@ -4991,6 +5009,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -5027,6 +5046,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LessonView.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
@@ -5451,6 +5471,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -5487,6 +5508,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/LoginWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
@@ -5908,6 +5930,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -5944,6 +5967,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/MyEnrollmentsWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
@@ -6366,6 +6390,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -6402,6 +6427,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/PurchaseSubscriptionWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
@@ -6815,6 +6841,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -6851,6 +6878,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/RegistrationWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
@@ -7271,6 +7299,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -7307,6 +7336,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionListWidget.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp
@@ -7727,6 +7757,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/EnrollmentDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/LessonDTO.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/dtos/SubscriptionDTO.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Attendance.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/Branch.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/DanceHall.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/models/TimeSlot.hpp
@@ -7763,6 +7794,7 @@ CMakeFiles/WebUIComponent.dir/src/web_ui/views/SubscriptionView.cpp.o
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BookingService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/BranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/EnrollmentService.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IAttendanceService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/IBranchService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/LessonService.hpp
  /home/nikita/Общедоступные/PPO/PPO_labs/src/services/SubscriptionService.hpp

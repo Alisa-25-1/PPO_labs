@@ -272,6 +272,19 @@ AuthServiceTests/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/AuthServiceTests.dir/build.make CMakeFiles/AuthServiceTests.dir/build
 .PHONY : AuthServiceTests/fast
 
+#=============================================================================
+# Target rules for targets named TestMongoDB
+
+# Build rule for target.
+TestMongoDB: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 TestMongoDB
+.PHONY : TestMongoDB
+
+# fast build rule for target.
+TestMongoDB/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestMongoDB.dir/build.make CMakeFiles/TestMongoDB.dir/build
+.PHONY : TestMongoDB/fast
+
 src/core/Config.o: src/core/Config.cpp.o
 .PHONY : src/core/Config.o
 
@@ -391,6 +404,30 @@ src/data/DateTimeUtils.s: src/data/DateTimeUtils.cpp.s
 src/data/DateTimeUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/data/DateTimeUtils.cpp.s
 .PHONY : src/data/DateTimeUtils.cpp.s
+
+src/data/MongoDBRepositoryFactory.o: src/data/MongoDBRepositoryFactory.cpp.o
+.PHONY : src/data/MongoDBRepositoryFactory.o
+
+# target to build an object file
+src/data/MongoDBRepositoryFactory.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o
+.PHONY : src/data/MongoDBRepositoryFactory.cpp.o
+
+src/data/MongoDBRepositoryFactory.i: src/data/MongoDBRepositoryFactory.cpp.i
+.PHONY : src/data/MongoDBRepositoryFactory.i
+
+# target to preprocess a source file
+src/data/MongoDBRepositoryFactory.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.i
+.PHONY : src/data/MongoDBRepositoryFactory.cpp.i
+
+src/data/MongoDBRepositoryFactory.s: src/data/MongoDBRepositoryFactory.cpp.s
+.PHONY : src/data/MongoDBRepositoryFactory.s
+
+# target to generate assembly for a file
+src/data/MongoDBRepositoryFactory.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.s
+.PHONY : src/data/MongoDBRepositoryFactory.cpp.s
 
 src/data/PostgreSQLRepositoryFactory.o: src/data/PostgreSQLRepositoryFactory.cpp.o
 .PHONY : src/data/PostgreSQLRepositoryFactory.o
@@ -991,6 +1028,294 @@ src/models/Trainer.s: src/models/Trainer.cpp.s
 src/models/Trainer.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/models/Trainer.cpp.s
 .PHONY : src/models/Trainer.cpp.s
+
+src/repositories/impl/MongoDBAttendanceRepository.o: src/repositories/impl/MongoDBAttendanceRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBAttendanceRepository.o
+
+# target to build an object file
+src/repositories/impl/MongoDBAttendanceRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBAttendanceRepository.cpp.o
+
+src/repositories/impl/MongoDBAttendanceRepository.i: src/repositories/impl/MongoDBAttendanceRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBAttendanceRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/MongoDBAttendanceRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBAttendanceRepository.cpp.i
+
+src/repositories/impl/MongoDBAttendanceRepository.s: src/repositories/impl/MongoDBAttendanceRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBAttendanceRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/MongoDBAttendanceRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBAttendanceRepository.cpp.s
+
+src/repositories/impl/MongoDBBookingRepository.o: src/repositories/impl/MongoDBBookingRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBBookingRepository.o
+
+# target to build an object file
+src/repositories/impl/MongoDBBookingRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBBookingRepository.cpp.o
+
+src/repositories/impl/MongoDBBookingRepository.i: src/repositories/impl/MongoDBBookingRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBBookingRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/MongoDBBookingRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBBookingRepository.cpp.i
+
+src/repositories/impl/MongoDBBookingRepository.s: src/repositories/impl/MongoDBBookingRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBBookingRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/MongoDBBookingRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBBookingRepository.cpp.s
+
+src/repositories/impl/MongoDBBranchRepository.o: src/repositories/impl/MongoDBBranchRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBBranchRepository.o
+
+# target to build an object file
+src/repositories/impl/MongoDBBranchRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBBranchRepository.cpp.o
+
+src/repositories/impl/MongoDBBranchRepository.i: src/repositories/impl/MongoDBBranchRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBBranchRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/MongoDBBranchRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBBranchRepository.cpp.i
+
+src/repositories/impl/MongoDBBranchRepository.s: src/repositories/impl/MongoDBBranchRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBBranchRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/MongoDBBranchRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBBranchRepository.cpp.s
+
+src/repositories/impl/MongoDBClientRepository.o: src/repositories/impl/MongoDBClientRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBClientRepository.o
+
+# target to build an object file
+src/repositories/impl/MongoDBClientRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBClientRepository.cpp.o
+
+src/repositories/impl/MongoDBClientRepository.i: src/repositories/impl/MongoDBClientRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBClientRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/MongoDBClientRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBClientRepository.cpp.i
+
+src/repositories/impl/MongoDBClientRepository.s: src/repositories/impl/MongoDBClientRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBClientRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/MongoDBClientRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBClientRepository.cpp.s
+
+src/repositories/impl/MongoDBDanceHallRepository.o: src/repositories/impl/MongoDBDanceHallRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBDanceHallRepository.o
+
+# target to build an object file
+src/repositories/impl/MongoDBDanceHallRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBDanceHallRepository.cpp.o
+
+src/repositories/impl/MongoDBDanceHallRepository.i: src/repositories/impl/MongoDBDanceHallRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBDanceHallRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/MongoDBDanceHallRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBDanceHallRepository.cpp.i
+
+src/repositories/impl/MongoDBDanceHallRepository.s: src/repositories/impl/MongoDBDanceHallRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBDanceHallRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/MongoDBDanceHallRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBDanceHallRepository.cpp.s
+
+src/repositories/impl/MongoDBEnrollmentRepository.o: src/repositories/impl/MongoDBEnrollmentRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBEnrollmentRepository.o
+
+# target to build an object file
+src/repositories/impl/MongoDBEnrollmentRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBEnrollmentRepository.cpp.o
+
+src/repositories/impl/MongoDBEnrollmentRepository.i: src/repositories/impl/MongoDBEnrollmentRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBEnrollmentRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/MongoDBEnrollmentRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBEnrollmentRepository.cpp.i
+
+src/repositories/impl/MongoDBEnrollmentRepository.s: src/repositories/impl/MongoDBEnrollmentRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBEnrollmentRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/MongoDBEnrollmentRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBEnrollmentRepository.cpp.s
+
+src/repositories/impl/MongoDBLessonRepository.o: src/repositories/impl/MongoDBLessonRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBLessonRepository.o
+
+# target to build an object file
+src/repositories/impl/MongoDBLessonRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBLessonRepository.cpp.o
+
+src/repositories/impl/MongoDBLessonRepository.i: src/repositories/impl/MongoDBLessonRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBLessonRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/MongoDBLessonRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBLessonRepository.cpp.i
+
+src/repositories/impl/MongoDBLessonRepository.s: src/repositories/impl/MongoDBLessonRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBLessonRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/MongoDBLessonRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBLessonRepository.cpp.s
+
+src/repositories/impl/MongoDBReviewRepository.o: src/repositories/impl/MongoDBReviewRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBReviewRepository.o
+
+# target to build an object file
+src/repositories/impl/MongoDBReviewRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBReviewRepository.cpp.o
+
+src/repositories/impl/MongoDBReviewRepository.i: src/repositories/impl/MongoDBReviewRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBReviewRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/MongoDBReviewRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBReviewRepository.cpp.i
+
+src/repositories/impl/MongoDBReviewRepository.s: src/repositories/impl/MongoDBReviewRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBReviewRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/MongoDBReviewRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBReviewRepository.cpp.s
+
+src/repositories/impl/MongoDBStudioRepository.o: src/repositories/impl/MongoDBStudioRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBStudioRepository.o
+
+# target to build an object file
+src/repositories/impl/MongoDBStudioRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBStudioRepository.cpp.o
+
+src/repositories/impl/MongoDBStudioRepository.i: src/repositories/impl/MongoDBStudioRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBStudioRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/MongoDBStudioRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBStudioRepository.cpp.i
+
+src/repositories/impl/MongoDBStudioRepository.s: src/repositories/impl/MongoDBStudioRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBStudioRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/MongoDBStudioRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBStudioRepository.cpp.s
+
+src/repositories/impl/MongoDBSubscriptionRepository.o: src/repositories/impl/MongoDBSubscriptionRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBSubscriptionRepository.o
+
+# target to build an object file
+src/repositories/impl/MongoDBSubscriptionRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBSubscriptionRepository.cpp.o
+
+src/repositories/impl/MongoDBSubscriptionRepository.i: src/repositories/impl/MongoDBSubscriptionRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBSubscriptionRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/MongoDBSubscriptionRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBSubscriptionRepository.cpp.i
+
+src/repositories/impl/MongoDBSubscriptionRepository.s: src/repositories/impl/MongoDBSubscriptionRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBSubscriptionRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/MongoDBSubscriptionRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBSubscriptionRepository.cpp.s
+
+src/repositories/impl/MongoDBSubscriptionTypeRepository.o: src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBSubscriptionTypeRepository.o
+
+# target to build an object file
+src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.o
+
+src/repositories/impl/MongoDBSubscriptionTypeRepository.i: src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBSubscriptionTypeRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.i
+
+src/repositories/impl/MongoDBSubscriptionTypeRepository.s: src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBSubscriptionTypeRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.s
+
+src/repositories/impl/MongoDBTrainerRepository.o: src/repositories/impl/MongoDBTrainerRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBTrainerRepository.o
+
+# target to build an object file
+src/repositories/impl/MongoDBTrainerRepository.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.o
+.PHONY : src/repositories/impl/MongoDBTrainerRepository.cpp.o
+
+src/repositories/impl/MongoDBTrainerRepository.i: src/repositories/impl/MongoDBTrainerRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBTrainerRepository.i
+
+# target to preprocess a source file
+src/repositories/impl/MongoDBTrainerRepository.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.i
+.PHONY : src/repositories/impl/MongoDBTrainerRepository.cpp.i
+
+src/repositories/impl/MongoDBTrainerRepository.s: src/repositories/impl/MongoDBTrainerRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBTrainerRepository.s
+
+# target to generate assembly for a file
+src/repositories/impl/MongoDBTrainerRepository.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.s
+.PHONY : src/repositories/impl/MongoDBTrainerRepository.cpp.s
 
 src/repositories/impl/PostgreSQLAttendanceRepository.o: src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o
 .PHONY : src/repositories/impl/PostgreSQLAttendanceRepository.o
@@ -1688,6 +2013,30 @@ src/tech_ui/TechUIManagers.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TechUI.dir/build.make CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.s
 .PHONY : src/tech_ui/TechUIManagers.cpp.s
 
+src/test_mongo.o: src/test_mongo.cpp.o
+.PHONY : src/test_mongo.o
+
+# target to build an object file
+src/test_mongo.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestMongoDB.dir/build.make CMakeFiles/TestMongoDB.dir/src/test_mongo.cpp.o
+.PHONY : src/test_mongo.cpp.o
+
+src/test_mongo.i: src/test_mongo.cpp.i
+.PHONY : src/test_mongo.i
+
+# target to preprocess a source file
+src/test_mongo.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestMongoDB.dir/build.make CMakeFiles/TestMongoDB.dir/src/test_mongo.cpp.i
+.PHONY : src/test_mongo.cpp.i
+
+src/test_mongo.s: src/test_mongo.cpp.s
+.PHONY : src/test_mongo.s
+
+# target to generate assembly for a file
+src/test_mongo.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestMongoDB.dir/build.make CMakeFiles/TestMongoDB.dir/src/test_mongo.cpp.s
+.PHONY : src/test_mongo.cpp.s
+
 src/tests/unit/AuthServiceTest.o: src/tests/unit/AuthServiceTest.cpp.o
 .PHONY : src/tests/unit/AuthServiceTest.o
 
@@ -2284,6 +2633,7 @@ help:
 	@echo "... DanceStudioWebUI"
 	@echo "... DataAccess"
 	@echo "... TechUI"
+	@echo "... TestMongoDB"
 	@echo "... WebUIComponent"
 	@echo "... src/core/Config.o"
 	@echo "... src/core/Config.i"
@@ -2300,6 +2650,9 @@ help:
 	@echo "... src/data/DateTimeUtils.o"
 	@echo "... src/data/DateTimeUtils.i"
 	@echo "... src/data/DateTimeUtils.s"
+	@echo "... src/data/MongoDBRepositoryFactory.o"
+	@echo "... src/data/MongoDBRepositoryFactory.i"
+	@echo "... src/data/MongoDBRepositoryFactory.s"
 	@echo "... src/data/PostgreSQLRepositoryFactory.o"
 	@echo "... src/data/PostgreSQLRepositoryFactory.i"
 	@echo "... src/data/PostgreSQLRepositoryFactory.s"
@@ -2375,6 +2728,42 @@ help:
 	@echo "... src/models/Trainer.o"
 	@echo "... src/models/Trainer.i"
 	@echo "... src/models/Trainer.s"
+	@echo "... src/repositories/impl/MongoDBAttendanceRepository.o"
+	@echo "... src/repositories/impl/MongoDBAttendanceRepository.i"
+	@echo "... src/repositories/impl/MongoDBAttendanceRepository.s"
+	@echo "... src/repositories/impl/MongoDBBookingRepository.o"
+	@echo "... src/repositories/impl/MongoDBBookingRepository.i"
+	@echo "... src/repositories/impl/MongoDBBookingRepository.s"
+	@echo "... src/repositories/impl/MongoDBBranchRepository.o"
+	@echo "... src/repositories/impl/MongoDBBranchRepository.i"
+	@echo "... src/repositories/impl/MongoDBBranchRepository.s"
+	@echo "... src/repositories/impl/MongoDBClientRepository.o"
+	@echo "... src/repositories/impl/MongoDBClientRepository.i"
+	@echo "... src/repositories/impl/MongoDBClientRepository.s"
+	@echo "... src/repositories/impl/MongoDBDanceHallRepository.o"
+	@echo "... src/repositories/impl/MongoDBDanceHallRepository.i"
+	@echo "... src/repositories/impl/MongoDBDanceHallRepository.s"
+	@echo "... src/repositories/impl/MongoDBEnrollmentRepository.o"
+	@echo "... src/repositories/impl/MongoDBEnrollmentRepository.i"
+	@echo "... src/repositories/impl/MongoDBEnrollmentRepository.s"
+	@echo "... src/repositories/impl/MongoDBLessonRepository.o"
+	@echo "... src/repositories/impl/MongoDBLessonRepository.i"
+	@echo "... src/repositories/impl/MongoDBLessonRepository.s"
+	@echo "... src/repositories/impl/MongoDBReviewRepository.o"
+	@echo "... src/repositories/impl/MongoDBReviewRepository.i"
+	@echo "... src/repositories/impl/MongoDBReviewRepository.s"
+	@echo "... src/repositories/impl/MongoDBStudioRepository.o"
+	@echo "... src/repositories/impl/MongoDBStudioRepository.i"
+	@echo "... src/repositories/impl/MongoDBStudioRepository.s"
+	@echo "... src/repositories/impl/MongoDBSubscriptionRepository.o"
+	@echo "... src/repositories/impl/MongoDBSubscriptionRepository.i"
+	@echo "... src/repositories/impl/MongoDBSubscriptionRepository.s"
+	@echo "... src/repositories/impl/MongoDBSubscriptionTypeRepository.o"
+	@echo "... src/repositories/impl/MongoDBSubscriptionTypeRepository.i"
+	@echo "... src/repositories/impl/MongoDBSubscriptionTypeRepository.s"
+	@echo "... src/repositories/impl/MongoDBTrainerRepository.o"
+	@echo "... src/repositories/impl/MongoDBTrainerRepository.i"
+	@echo "... src/repositories/impl/MongoDBTrainerRepository.s"
 	@echo "... src/repositories/impl/PostgreSQLAttendanceRepository.o"
 	@echo "... src/repositories/impl/PostgreSQLAttendanceRepository.i"
 	@echo "... src/repositories/impl/PostgreSQLAttendanceRepository.s"
@@ -2462,6 +2851,9 @@ help:
 	@echo "... src/tech_ui/TechUIManagers.o"
 	@echo "... src/tech_ui/TechUIManagers.i"
 	@echo "... src/tech_ui/TechUIManagers.s"
+	@echo "... src/test_mongo.o"
+	@echo "... src/test_mongo.i"
+	@echo "... src/test_mongo.s"
 	@echo "... src/tests/unit/AuthServiceTest.o"
 	@echo "... src/tests/unit/AuthServiceTest.i"
 	@echo "... src/tests/unit/AuthServiceTest.s"

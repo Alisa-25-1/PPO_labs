@@ -232,8 +232,6 @@ bool PostgreSQLBranchRepository::remove(const UUID& id) {
             
         auto result = work.exec_params(branchQuery, id.toString());
         
-        // Удаляем адрес (если больше никто не использует)
-        // TODO: Добавить проверку использования адреса другими сущностями
         SqlQueryBuilder addressQueryBuilder;
         std::string addressQuery = addressQueryBuilder
             .deleteFrom("addresses")
