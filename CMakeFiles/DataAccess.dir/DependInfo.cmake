@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DataMigrator.cpp" "CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.cpp" "CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o.d"
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/MongoDBGlobalInstance.cpp" "CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/MongoDBRepositoryFactory.cpp" "CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/PostgreSQLRepositoryFactory.cpp" "CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/QueryFactory.cpp" "CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.o.d"

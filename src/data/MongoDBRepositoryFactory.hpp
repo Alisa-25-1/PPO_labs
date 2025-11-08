@@ -3,7 +3,6 @@
 
 #include <memory>
 #include <string>
-#include <mutex>
 #include "IRepositoryFactory.hpp"
 
 // MongoDB includes
@@ -31,11 +30,6 @@ class MongoDBRepositoryFactory :
 private:
     std::shared_ptr<mongocxx::client> client_;
     std::string database_name_;
-    
-    // Статический instance для всего приложения
-    static std::unique_ptr<mongocxx::instance> instance_;
-    static std::mutex instance_mutex_;
-    static int instance_count_;
 
 public:
     explicit MongoDBRepositoryFactory(const std::string& connection_string, 
@@ -63,10 +57,6 @@ public:
     // Получение MongoDB-specific объектов
     mongocxx::database getDatabase() const;
     mongocxx::client& getClient() const;
-
-private:
-    void initializeInstance();
-    void cleanupInstance();
 };
 
 #endif // MONGODB_REPOSITORY_FACTORY_HPP

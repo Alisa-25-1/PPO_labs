@@ -319,8 +319,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/RepositoryFactoryCreator.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/PostgreSQLRepositoryFactory.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/MongoDBRepositoryFactory.hpp \
- /usr/include/c++/13/mutex /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h /usr/include/mongocxx/client.hpp \
+ /usr/include/mongocxx/client.hpp \
  /usr/include/mongocxx/client_session.hpp /usr/include/c++/13/functional \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \

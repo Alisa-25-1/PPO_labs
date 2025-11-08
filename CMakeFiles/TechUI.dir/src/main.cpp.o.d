@@ -328,8 +328,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/RepositoryFactoryCreator.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/PostgreSQLRepositoryFactory.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/MongoDBRepositoryFactory.hpp \
- /usr/include/c++/13/mutex /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h /usr/include/mongocxx/client.hpp \
+ /usr/include/mongocxx/client.hpp \
  /usr/include/mongocxx/client_session.hpp /usr/include/c++/13/functional \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
@@ -604,6 +603,8 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/ReviewDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/EnrollmentDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/core/Logger.hpp \
+ /usr/include/c++/13/mutex /usr/include/c++/13/bits/std_mutex.h \
+ /usr/include/c++/13/bits/unique_lock.h \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/RepositoryFactoryCreator.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DataMigrator.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../models/Client.hpp \
@@ -666,4 +667,5 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: \
  /usr/include/pqxx/transactor.hxx \
  /usr/include/pqxx/internal/header-post.hxx \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/../../data/exceptions/DataAccessException.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/../../data/SqlQueryBuilder.hpp
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/../../data/SqlQueryBuilder.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/MongoDBGlobalInstance.hpp

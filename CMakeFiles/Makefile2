@@ -121,12 +121,12 @@ CMakeFiles/BookingCore.dir/clean:
 CMakeFiles/DataAccess.dir/all: CMakeFiles/BookingCore.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73 "Built target DataAccess"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,61,62,63,64,65,66,67,68,69,70,71,72,73 "Built target DataAccess"
 .PHONY : CMakeFiles/DataAccess.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/DataAccess.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 68
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 69
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/DataAccess.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 0
 .PHONY : CMakeFiles/DataAccess.dir/rule
@@ -153,7 +153,7 @@ CMakeFiles/TechUI.dir/all: CMakeFiles/DataAccess.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TechUI.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 74
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 75
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TechUI.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 0
 .PHONY : CMakeFiles/TechUI.dir/rule
@@ -202,7 +202,7 @@ CMakeFiles/DanceStudioWebUI.dir/all: CMakeFiles/DataAccess.dir/all
 CMakeFiles/DanceStudioWebUI.dir/all: CMakeFiles/WebUIComponent.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioWebUI.dir/build.make CMakeFiles/DanceStudioWebUI.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/DanceStudioWebUI.dir/build.make CMakeFiles/DanceStudioWebUI.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=42,43 "Built target DanceStudioWebUI"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=42 "Built target DanceStudioWebUI"
 .PHONY : CMakeFiles/DanceStudioWebUI.dir/all
 
 # Build rule for subdir invocation for target.

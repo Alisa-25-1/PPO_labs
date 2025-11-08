@@ -429,6 +429,30 @@ src/data/DateTimeUtils.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/data/DateTimeUtils.cpp.s
 .PHONY : src/data/DateTimeUtils.cpp.s
 
+src/data/MongoDBGlobalInstance.o: src/data/MongoDBGlobalInstance.cpp.o
+.PHONY : src/data/MongoDBGlobalInstance.o
+
+# target to build an object file
+src/data/MongoDBGlobalInstance.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.o
+.PHONY : src/data/MongoDBGlobalInstance.cpp.o
+
+src/data/MongoDBGlobalInstance.i: src/data/MongoDBGlobalInstance.cpp.i
+.PHONY : src/data/MongoDBGlobalInstance.i
+
+# target to preprocess a source file
+src/data/MongoDBGlobalInstance.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.i
+.PHONY : src/data/MongoDBGlobalInstance.cpp.i
+
+src/data/MongoDBGlobalInstance.s: src/data/MongoDBGlobalInstance.cpp.s
+.PHONY : src/data/MongoDBGlobalInstance.s
+
+# target to generate assembly for a file
+src/data/MongoDBGlobalInstance.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.s
+.PHONY : src/data/MongoDBGlobalInstance.cpp.s
+
 src/data/MongoDBRepositoryFactory.o: src/data/MongoDBRepositoryFactory.cpp.o
 .PHONY : src/data/MongoDBRepositoryFactory.o
 
@@ -2677,6 +2701,9 @@ help:
 	@echo "... src/data/DateTimeUtils.o"
 	@echo "... src/data/DateTimeUtils.i"
 	@echo "... src/data/DateTimeUtils.s"
+	@echo "... src/data/MongoDBGlobalInstance.o"
+	@echo "... src/data/MongoDBGlobalInstance.i"
+	@echo "... src/data/MongoDBGlobalInstance.s"
 	@echo "... src/data/MongoDBRepositoryFactory.o"
 	@echo "... src/data/MongoDBRepositoryFactory.i"
 	@echo "... src/data/MongoDBRepositoryFactory.s"

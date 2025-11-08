@@ -793,6 +793,7 @@ CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o: src/data/Mong
   src/repositories/impl/MongoDBSubscriptionTypeRepository.hpp \
   src/repositories/impl/MongoDBTrainerRepository.hpp \
   src/data/IRepositoryFactory.hpp \
+  src/data/MongoDBGlobalInstance.hpp \
   src/data/MongoDBRepositoryFactory.hpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
@@ -2740,7 +2741,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -2767,7 +2767,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -2811,7 +2810,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -3322,7 +3320,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.o: 
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -3349,7 +3346,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.o: 
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -3393,7 +3389,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.o: 
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -3902,7 +3897,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.o: s
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -3929,7 +3923,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.o: s
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -3973,7 +3966,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.o: s
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -4483,7 +4475,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.o: s
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -4510,7 +4501,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.o: s
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -4554,7 +4544,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.o: s
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -5063,7 +5052,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.o
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -5090,7 +5078,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.o
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -5134,7 +5121,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.o
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -5644,7 +5630,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -5671,7 +5656,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -5715,7 +5699,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -6226,7 +6209,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.o: s
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -6253,7 +6235,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.o: s
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -6297,7 +6278,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.o: s
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -6807,7 +6787,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.o: s
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -6834,7 +6813,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.o: s
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -6878,7 +6856,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.o: s
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -7387,7 +7364,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.o: s
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -7414,7 +7390,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.o: s
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -7458,7 +7433,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.o: s
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -7968,7 +7942,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cp
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -7995,7 +7968,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cp
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -8039,7 +8011,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cp
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -8548,7 +8519,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepositor
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -8575,7 +8545,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepositor
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -8619,7 +8588,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepositor
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -9129,7 +9097,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.o: 
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -9156,7 +9123,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.o: 
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -9200,7 +9166,6 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.o: 
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -14033,6 +13998,8 @@ src/repositories/impl/PostgreSQLBranchRepository.hpp:
 
 /usr/include/bsoncxx/builder/basic/kvp.hpp:
 
+/usr/include/bsoncxx/builder/basic/helpers.hpp:
+
 /usr/include/pqxx/internal/concat.hxx:
 
 /usr/include/mongocxx/options/gridfs/bucket.hpp:
@@ -15053,8 +15020,6 @@ src/data/DatabaseConnection.cpp:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
 
-/usr/include/bsoncxx/builder/basic/helpers.hpp:
-
 /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h:
 
 src/repositories/impl/PostgreSQLReviewRepository.hpp:
@@ -15090,6 +15055,8 @@ src/repositories/impl/MongoDBEnrollmentRepository.hpp:
 src/repositories/impl/MongoDBSubscriptionTypeRepository.hpp:
 
 src/repositories/impl/MongoDBSubscriptionRepository.hpp:
+
+src/data/MongoDBGlobalInstance.hpp:
 
 src/data/SqlQueryBuilder.hpp:
 

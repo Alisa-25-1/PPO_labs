@@ -20,6 +20,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   src/data/exceptions/DataAccessException.hpp \
   src/repositories/impl/PostgreSQLClientRepository.hpp \
   src/data/DataMigrator.hpp \
+  src/data/MongoDBGlobalInstance.hpp \
   src/data/RepositoryFactoryCreator.hpp \
   src/core/Config.hpp \
   src/types/uuid.hpp \
@@ -1683,7 +1684,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -1710,7 +1710,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -1756,7 +1755,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -2355,7 +2353,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
-  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -2382,7 +2379,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
-  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -2428,7 +2424,6 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
-  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
@@ -3145,26 +3140,6 @@ src/repositories/IDanceHallRepository.hpp:
 
 /usr/include/boost/smart_ptr/make_unique.hpp:
 
-src/services/ReviewService.hpp:
-
-/usr/include/pqxx/nontransaction.hxx:
-
-src/repositories/ILessonRepository.hpp:
-
-src/types/uuid.hpp:
-
-src/repositories/ITrainerRepository.hpp:
-
-/usr/include/c++/13/bits/stl_numeric.h:
-
-/usr/include/unistd.h:
-
-/usr/include/boost/exception/exception.hpp:
-
-/usr/include/c++/13/bits/cpp_type_traits.h:
-
-/usr/include/c++/13/cassert:
-
 src/services/IAttendanceService.hpp:
 
 /usr/include/boost/optional/detail/optional_relops.hpp:
@@ -3233,14 +3208,6 @@ src/models/Address.hpp:
 
 /usr/include/boost/move/utility_core.hpp:
 
-src/services/ScheduleService.hpp:
-
-/usr/include/boost/optional/detail/optional_reference_spec.hpp:
-
-/usr/include/pqxx/params.hxx:
-
-/usr/include/boost/optional/detail/optional_trivially_copyable_base.hpp:
-
 /usr/include/strings.h:
 
 /usr/include/bsoncxx/builder/basic/impl.hpp:
@@ -3259,6 +3226,12 @@ src/services/AuthService.hpp:
 
 /usr/include/mongocxx/stdx.hpp:
 
+src/repositories/ITrainerRepository.hpp:
+
+src/types/uuid.hpp:
+
+/usr/include/c++/13/bits/stl_numeric.h:
+
 src/dtos/SubscriptionDTO.hpp:
 
 /usr/include/boost/type_traits/remove_extent.hpp:
@@ -3273,9 +3246,21 @@ src/data/PostgreSQLRepositoryFactory.hpp:
 
 /usr/include/mongocxx/options/distinct.hpp:
 
-/usr/include/c++/13/bits/char_traits.h:
+src/services/ReviewService.hpp:
 
-/usr/include/c++/13/bits/std_function.h:
+/usr/include/pqxx/nontransaction.hxx:
+
+src/repositories/ILessonRepository.hpp:
+
+/usr/include/unistd.h:
+
+/usr/include/boost/exception/exception.hpp:
+
+/usr/include/c++/13/bits/cpp_type_traits.h:
+
+/usr/include/c++/13/cassert:
+
+src/data/MongoDBGlobalInstance.hpp:
 
 src/models/Subscription.hpp:
 
@@ -3369,9 +3354,25 @@ src/models/Branch.hpp:
 
 src/dtos/LessonDTO.hpp:
 
-/usr/include/boost/move/detail/meta_utils_core.hpp:
-
 src/dtos/EnrollmentDTO.hpp:
+
+src/data/IRepositoryFactory.hpp:
+
+/usr/include/boost/type_traits/is_constructible.hpp:
+
+/usr/include/c++/13/ratio:
+
+/usr/include/linux/limits.h:
+
+/usr/include/mongocxx/cursor.hpp:
+
+/usr/include/boost/optional/optional_io.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
+
+/usr/include/c++/13/ios:
+
+/usr/include/boost/move/detail/meta_utils_core.hpp:
 
 /usr/include/bsoncxx/builder/basic/kvp.hpp:
 
@@ -3415,29 +3416,21 @@ src/main.cpp:
 
 /usr/include/c++/13/bits/predefined_ops.h:
 
+/usr/include/boost/config/detail/select_stdlib_config.hpp:
+
 /usr/include/boost/move/detail/meta_utils.hpp:
 
 src/models/Trainer.hpp:
 
 /usr/include/boost/optional/bad_optional_access.hpp:
 
-src/data/IRepositoryFactory.hpp:
+src/services/ScheduleService.hpp:
 
-/usr/include/boost/type_traits/is_constructible.hpp:
+/usr/include/boost/optional/detail/optional_reference_spec.hpp:
 
-/usr/include/c++/13/ratio:
+/usr/include/pqxx/params.hxx:
 
-/usr/include/linux/limits.h:
-
-/usr/include/mongocxx/cursor.hpp:
-
-/usr/include/boost/config/detail/select_stdlib_config.hpp:
-
-/usr/include/boost/optional/optional_io.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
-
-/usr/include/c++/13/ios:
+/usr/include/boost/optional/detail/optional_trivially_copyable_base.hpp:
 
 /usr/include/boost/move/detail/config_end.hpp:
 
@@ -3597,6 +3590,10 @@ src/models/Review.hpp:
 
 /usr/include/boost/none_t.hpp:
 
+/usr/include/boost/smart_ptr/detail/requires_cxx11.hpp:
+
+/usr/include/boost/core/addressof.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/environments.h:
 
 src/services/StatisticsService.hpp:
@@ -3619,11 +3616,11 @@ src/repositories/IEnrollmentRepository.hpp:
 
 /usr/include/boost/move/detail/workaround.hpp:
 
-/usr/include/boost/core/addressof.hpp:
-
-/usr/include/boost/smart_ptr/detail/requires_cxx11.hpp:
-
 /usr/include/boost/type_traits/remove_cv.hpp:
+
+/usr/include/c++/13/bits/char_traits.h:
+
+/usr/include/c++/13/bits/std_function.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h:
 

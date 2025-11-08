@@ -231,3 +231,36 @@
 [SHUTDOWN] Logger shutting down
 [INIT] Logger initialized successfully
 [2025-11-08 08:42:43.955] [INFO] [Main] Приложение запущено с БД: postgres
+[2025-11-08 08:45:25.517] [INFO] [Main] Приложение завершено
+[SHUTDOWN] Logger shutting down
+[INIT] Logger initialized successfully
+[2025-11-08 08:45:39.705] [INFO] [Main] Приложение запущено с БД: mongodb
+[2025-11-08 08:45:39.887] [INFO] [DataMigrator] Starting complete data migration between databases
+[2025-11-08 08:45:40.014] [INFO] [DataMigrator] Data migration completed successfully
+[SHUTDOWN] Logger shutting down
+[INIT] Logger initialized successfully
+[2025-11-08 08:54:27.659] [INFO] [Main] Приложение запущено с БД: mongodb
+[2025-11-08 08:54:51.613] [INFO] [Main] Приложение завершено
+[SHUTDOWN] Logger shutting down
+[INIT] Logger initialized successfully
+[2025-11-08 08:54:53.180] [INFO] [Main] Приложение запущено с БД: postgres
+[2025-11-08 08:54:53.702] [INFO] [DataMigrator] Starting complete data migration between databases
+[2025-11-08 08:54:54.139] [INFO] [DataMigrator] Data migration completed successfully
+[2025-11-08 08:55:01.541] [INFO] [Main] Приложение завершено
+[SHUTDOWN] Logger shutting down
+[INIT] Logger initialized successfully
+[2025-11-08 08:55:10.369] [INFO] [Main] Приложение запущено с БД: mongodb
+[2025-11-08 08:55:10.397] [INFO] [DataMigrator] Starting complete data migration between databases
+[2025-11-08 08:55:10.489] [INFO] [DataMigrator] Data migration completed successfully
+[2025-11-08 08:56:33.850] [INFO] [Main] Приложение завершено
+[SHUTDOWN] Logger shutting down
+[INIT] Logger initialized successfully
+[2025-11-08 08:56:46.509] [INFO] [Main] Приложение запущено с БД: postgres
+[2025-11-08 08:56:46.538] [INFO] [DataMigrator] Starting complete data migration between databases
+[2025-11-08 08:56:46.875] [INFO] [DataMigrator] Data migration completed successfully
+[2025-11-08 08:57:12.836] [INFO] [Main] Приложение завершено
+[SHUTDOWN] Logger shutting down
+[INIT] Logger initialized successfully
+[2025-11-08 08:57:23.091] [INFO] [Main] Приложение запущено с БД: mongodb
+[2025-11-08 08:57:23.270] [INFO] [DataMigrator] Starting complete data migration between databases
+[2025-11-08 08:57:23.452] [INFO] [DataMigrator] Data migration completed successfully

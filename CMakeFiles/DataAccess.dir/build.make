@@ -139,10 +139,24 @@ CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DataMigrator.cpp -o CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.s
 
+CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.o: CMakeFiles/DataAccess.dir/flags.make
+CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.o: src/data/MongoDBGlobalInstance.cpp
+CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.o -MF CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.o.d -o CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/data/MongoDBGlobalInstance.cpp
+
+CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/nikita/Общедоступные/PPO/PPO_labs/src/data/MongoDBGlobalInstance.cpp > CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.i
+
+CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/nikita/Общедоступные/PPO/PPO_labs/src/data/MongoDBGlobalInstance.cpp -o CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.s
+
 CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: src/data/PostgreSQLRepositoryFactory.cpp
 CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o -MF CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o.d -o CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/data/PostgreSQLRepositoryFactory.cpp
 
 CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.i: cmake_force
@@ -156,7 +170,7 @@ CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.s: cmake_forc
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o: src/repositories/impl/PostgreSQLClientRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLClientRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.i: cmake_force
@@ -170,7 +184,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.s
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o: src/repositories/impl/PostgreSQLDanceHallRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLDanceHallRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.i: cmake_force
@@ -184,7 +198,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cp
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o: src/repositories/impl/PostgreSQLBookingRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLBookingRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.i: cmake_force
@@ -198,7 +212,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBookingRepository.cpp.
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o: src/repositories/impl/PostgreSQLSubscriptionRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository.cpp.i: cmake_force
@@ -212,7 +226,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionRepository
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o: src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeRepository.cpp.i: cmake_force
@@ -226,7 +240,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLSubscriptionTypeReposi
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.o: src/repositories/impl/PostgreSQLStudioRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_12) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLStudioRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.i: cmake_force
@@ -240,7 +254,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLStudioRepository.cpp.s
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o: src/repositories/impl/PostgreSQLBranchRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_13) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLBranchRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.i: cmake_force
@@ -254,7 +268,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLBranchRepository.cpp.s
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o: src/repositories/impl/PostgreSQLTrainerRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_14) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLTrainerRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.i: cmake_force
@@ -268,7 +282,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLTrainerRepository.cpp.
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o: src/repositories/impl/PostgreSQLLessonRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_15) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLLessonRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.i: cmake_force
@@ -282,7 +296,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLLessonRepository.cpp.s
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o: src/repositories/impl/PostgreSQLReviewRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_16) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLReviewRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.i: cmake_force
@@ -296,7 +310,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLReviewRepository.cpp.s
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o: src/repositories/impl/PostgreSQLEnrollmentRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_17) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.cpp.i: cmake_force
@@ -310,7 +324,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLEnrollmentRepository.c
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o: src/repositories/impl/PostgreSQLAttendanceRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_18) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/PostgreSQLAttendanceRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.cpp.i: cmake_force
@@ -324,7 +338,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLAttendanceRepository.c
 CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o: src/data/MongoDBRepositoryFactory.cpp
 CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_19) "Building CXX object CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o -MF CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o.d -o CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/data/MongoDBRepositoryFactory.cpp
 
 CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.i: cmake_force
@@ -338,7 +352,7 @@ CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.s: cmake_force
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.o: src/repositories/impl/MongoDBClientRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_20) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/MongoDBClientRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.i: cmake_force
@@ -352,7 +366,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBClientRepository.cpp.s: c
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.o: src/repositories/impl/MongoDBBookingRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_21) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/MongoDBBookingRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.i: cmake_force
@@ -366,7 +380,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBookingRepository.cpp.s: 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.o: src/repositories/impl/MongoDBDanceHallRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_22) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/MongoDBDanceHallRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.i: cmake_force
@@ -380,7 +394,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBDanceHallRepository.cpp.s
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.o: src/repositories/impl/MongoDBBranchRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_23) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/MongoDBBranchRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.i: cmake_force
@@ -394,7 +408,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBBranchRepository.cpp.s: c
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.o: src/repositories/impl/MongoDBStudioRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_24) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/MongoDBStudioRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.i: cmake_force
@@ -408,7 +422,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBStudioRepository.cpp.s: c
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.o: src/repositories/impl/MongoDBTrainerRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_25) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/MongoDBTrainerRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.i: cmake_force
@@ -422,7 +436,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBTrainerRepository.cpp.s: 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.o: src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_26) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepository.cpp.i: cmake_force
@@ -436,7 +450,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionTypeRepositor
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cpp.o: src/repositories/impl/MongoDBSubscriptionRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_27) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/MongoDBSubscriptionRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cpp.i: cmake_force
@@ -450,7 +464,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBSubscriptionRepository.cp
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.o: src/repositories/impl/MongoDBLessonRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_28) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/MongoDBLessonRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.i: cmake_force
@@ -464,7 +478,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBLessonRepository.cpp.s: c
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.o: src/repositories/impl/MongoDBEnrollmentRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_29) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/MongoDBEnrollmentRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.i: cmake_force
@@ -478,7 +492,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBEnrollmentRepository.cpp.
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.o: src/repositories/impl/MongoDBReviewRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_30) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/MongoDBReviewRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.i: cmake_force
@@ -492,7 +506,7 @@ CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBReviewRepository.cpp.s: c
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.o: CMakeFiles/DataAccess.dir/flags.make
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.o: src/repositories/impl/MongoDBAttendanceRepository.cpp
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.o: CMakeFiles/DataAccess.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_31) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Building CXX object CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.o -MF CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.o.d -o CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.o -c /home/nikita/Общедоступные/PPO/PPO_labs/src/repositories/impl/MongoDBAttendanceRepository.cpp
 
 CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.i: cmake_force
@@ -510,6 +524,7 @@ DataAccess_OBJECTS = \
 "CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.o" \
 "CMakeFiles/DataAccess.dir/src/data/SqlQueryBuilder.cpp.o" \
 "CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.o" \
+"CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.o" \
 "CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o" \
 "CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o" \
 "CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o" \
@@ -545,6 +560,7 @@ lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/data/ResilientDatabaseConnect
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/data/QueryFactory.cpp.o
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/data/SqlQueryBuilder.cpp.o
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.o
+lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/data/MongoDBGlobalInstance.cpp.o
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLClientRepository.cpp.o
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/repositories/impl/PostgreSQLDanceHallRepository.cpp.o
@@ -573,7 +589,7 @@ lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBRevi
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/src/repositories/impl/MongoDBAttendanceRepository.cpp.o
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/build.make
 lib/libDataAccess.a: CMakeFiles/DataAccess.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_32) "Linking CXX static library lib/libDataAccess.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=$(CMAKE_PROGRESS_33) "Linking CXX static library lib/libDataAccess.a"
 	$(CMAKE_COMMAND) -P CMakeFiles/DataAccess.dir/cmake_clean_target.cmake
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/DataAccess.dir/link.txt --verbose=$(VERBOSE)
 

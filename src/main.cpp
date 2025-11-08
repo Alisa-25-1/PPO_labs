@@ -7,6 +7,7 @@
 #include "core/Config.hpp"
 #include "data/RepositoryFactoryCreator.hpp"
 #include "data/DataMigrator.hpp"
+#include "data/MongoDBGlobalInstance.hpp"  
 
 namespace fs = std::filesystem;
 
@@ -104,15 +105,18 @@ bool shouldMigrate(const Config& config) {
     std::string currentType = config.getDatabaseType();
     std::string lastType = getLastDatabaseType();
     
+    // Если файл с последним типом не существует, то это первый запуск, миграция не нужна.
     if (lastType.empty()) {
         setLastDatabaseType(currentType);
         return false;
     }
     
+    // Если тип базы не менялся, миграция не нужна.
     if (currentType == lastType) {
         return false;
     }
     
+    // Проверяем, разрешена ли автоматическая миграция.
     return config.getBool("database.auto_migrate", true);
 }
 
@@ -157,6 +161,10 @@ int main() {
         
         auto& logger = Logger::getInstance();
         auto& config = Config::getInstance();
+        
+        if (config.getDatabaseType() == "mongodb") {
+            MongoDBGlobalInstance::initialize();
+        }
         
         logger.info("Приложение запущено с БД: " + config.getDatabaseType(), "Main");
         

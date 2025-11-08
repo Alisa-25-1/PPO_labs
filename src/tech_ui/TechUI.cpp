@@ -6,7 +6,7 @@
 TechUI::TechUI(const Config& config) {
     try {
         managers_ = std::make_unique<TechUIManagers>(config);  
-        std::cout << "✅ Технологический UI инициализирован" << std::endl;
+        //std::cout << "✅ Технологический UI инициализирован" << std::endl;
     } catch (const std::exception& e) {
         std::cerr << "❌ Ошибка инициализации TechUI: " << e.what() << std::endl;
         throw;
