@@ -160,7 +160,6 @@ int main() {
         
         logger.info("Приложение запущено с БД: " + config.getDatabaseType(), "Main");
         
-        // Проверяем необходимость миграции
         if (shouldMigrate(config)) {
             std::cout << "🔄 Обнаружено изменение типа базы данных. Запуск миграции..." << std::endl;
             if (!performMigration(config)) {
@@ -169,7 +168,6 @@ int main() {
             }
         }
         
-        // Теперь передаем Config в TechUI
         TechUI techUI(config);
         techUI.run();
         
