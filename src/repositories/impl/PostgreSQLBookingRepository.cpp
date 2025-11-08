@@ -271,37 +271,55 @@ bool PostgreSQLBookingRepository::exists(const UUID& id) {
     }
 }
 
+
 Booking PostgreSQLBookingRepository::mapResultToBooking(const pqxx::row& row) const {
-    UUID id = UUID::fromString(row["id"].c_str());
-    UUID clientId = UUID::fromString(row["client_id"].c_str());
-    UUID hallId = UUID::fromString(row["hall_id"].c_str());
-    
-    std::string start_time_str = row["start_time"].c_str();    
-    auto startTime = DateTimeUtils::parseTimeFromPostgres(start_time_str);
-    
-    int duration = row["duration_minutes"].as<int>();
-    TimeSlot timeSlot(startTime, duration);
-    
-    std::string purpose = row["purpose"].c_str();
-    BookingStatus status = stringToBookingStatus(row["status"].c_str());
-    
-    Booking booking(id, clientId, hallId, timeSlot, purpose);
-    
-    switch (status) {
-        case BookingStatus::CONFIRMED:
-            booking.confirm();
-            break;
-        case BookingStatus::CANCELLED:
-            booking.cancel();
-            break;
-        case BookingStatus::COMPLETED:
-            booking.complete();
-            break;
-        default:
-            break;
+    try {
+        UUID id = UUID::fromString(row["id"].c_str());
+        UUID clientId = UUID::fromString(row["client_id"].c_str());
+        UUID hallId = UUID::fromString(row["hall_id"].c_str());
+        
+        std::string start_time_str = row["start_time"].c_str();    
+        auto startTime = DateTimeUtils::parseTimeFromPostgres(start_time_str);
+        
+        int duration = row["duration_minutes"].as<int>();
+        TimeSlot timeSlot(startTime, duration);
+        
+        std::string purpose = row["purpose"].c_str();
+        std::string status_str = row["status"].c_str();
+        
+        Booking booking(id, clientId, hallId, timeSlot, purpose);
+        
+        if (status_str == "CONFIRMED") {
+            try {
+                booking.confirm();
+            } catch (const std::exception& e) {
+                std::cerr << "⚠️  Cannot confirm booking " << id.toString() 
+                          << ": " << e.what() << ". Keeping as PENDING." << std::endl;
+            }
+        } else if (status_str == "CANCELLED") {
+            try {
+                booking.cancel();
+            } catch (const std::exception& e) {
+                std::cerr << "⚠️  Cannot cancel booking " << id.toString() 
+                          << ": " << e.what() << ". Keeping current status." << std::endl;
+            }
+        } else if (status_str == "COMPLETED") {
+            try {
+                if (booking.getStatus() == BookingStatus::PENDING) {
+                    booking.confirm();
+                }
+                booking.complete();
+            } catch (const std::exception& e) {
+                std::cerr << "⚠️  Cannot complete booking " << id.toString() 
+                          << ": " << e.what() << ". Keeping as CONFIRMED." << std::endl;
+            }
+        }
+        
+        return booking;
+        
+    } catch (const std::exception& e) {
+        throw QueryException(std::string("Failed to map result to booking: ") + e.what());
     }
-    
-    return booking;
 }
 
 std::string PostgreSQLBookingRepository::bookingStatusToString(BookingStatus status) const {

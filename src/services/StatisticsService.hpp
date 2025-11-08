@@ -69,4 +69,5 @@ private:
     double calculateAttendanceRate(int visited, int total) const;
     bool migrateBookingsToAttendance();
     bool migrateEnrollmentsToAttendance();
+    std::string attendanceStatusToString(AttendanceStatus status);
 };

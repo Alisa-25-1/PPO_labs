@@ -19,48 +19,29 @@ bool AttendanceService::createAttendanceForBooking(const UUID& bookingId, Bookin
             return false;
         }
 
-        // Проверяем, нужно ли создавать запись посещаемости
+        // Пропускаем создание записи, если статус не изменился на финальный
         if (!shouldCreateAttendance(booking->getStatus(), newStatus)) {
             return true; // Не нужно создавать запись
         }
 
-        // Ищем существующую запись
-        auto existingAttendance = findExistingAttendance(bookingId, AttendanceType::BOOKING);
+        // Создаем новую запись
+        UUID attendanceId = UUID::generate();
+        Attendance attendance(attendanceId, booking->getClientId(), bookingId, 
+                            AttendanceType::BOOKING, booking->getTimeSlot().getStartTime());
         
-        if (existingAttendance) {
-            // Обновляем существующую запись
-            switch (newStatus) {
-                case BookingStatus::COMPLETED:
-                    existingAttendance->markVisited(notes);
-                    break;
-                case BookingStatus::CANCELLED:
-                    existingAttendance->markCancelled(notes);
-                    break;
-                default:
-                    std::cerr << "❌ Неподдерживаемый статус бронирования для посещаемости: " << static_cast<int>(newStatus) << std::endl;
-                    return false;
-            }
-            return attendanceRepo_->update(*existingAttendance);
-        } else {
-            // Создаем новую запись
-            UUID attendanceId = UUID::generate();
-            Attendance attendance(attendanceId, booking->getClientId(), bookingId, 
-                                AttendanceType::BOOKING, booking->getTimeSlot().getStartTime());
-            
-            switch (newStatus) {
-                case BookingStatus::COMPLETED:
-                    attendance.markVisited(notes);
-                    break;
-                case BookingStatus::CANCELLED:
-                    attendance.markCancelled(notes);
-                    break;
-                default:
-                    std::cerr << "❌ Неподдерживаемый статус бронирования для посещаемости: " << static_cast<int>(newStatus) << std::endl;
-                    return false;
-            }
-            
-            return attendanceRepo_->save(attendance);
+        switch (newStatus) {
+            case BookingStatus::COMPLETED:
+                attendance.markVisited(notes);
+                break;
+            case BookingStatus::CANCELLED:
+                attendance.markCancelled(notes);
+                break;
+            default:
+                std::cerr << "❌ Неподдерживаемый статус бронирования для посещаемости: " << static_cast<int>(newStatus) << std::endl;
+                return false;
         }
+        
+        return attendanceRepo_->save(attendance);
         
     } catch (const std::exception& e) {
         std::cerr << "❌ Ошибка создания посещаемости для бронирования: " << e.what() << std::endl;
@@ -82,52 +63,32 @@ bool AttendanceService::createAttendanceForEnrollment(const UUID& enrollmentId, 
             return false;
         }
 
+        // Пропускаем создание записи, если статус не изменился на финальный
         if (!shouldCreateAttendance(enrollment->getStatus(), newStatus)) {
             return true;
         }
 
-        auto existingAttendance = findExistingAttendance(enrollment->getLessonId(), AttendanceType::LESSON);
+        // Создаем новую запись
+        UUID attendanceId = UUID::generate();
+        Attendance attendance(attendanceId, enrollment->getClientId(), enrollment->getLessonId(),
+                            AttendanceType::LESSON, lesson->getStartTime());
         
-        if (existingAttendance && existingAttendance->getClientId() == enrollment->getClientId()) {
-            // Обновляем существующую запись для этого клиента
-            switch (newStatus) {
-                case EnrollmentStatus::ATTENDED:
-                    existingAttendance->markVisited(notes);
-                    break;
-                case EnrollmentStatus::CANCELLED:
-                    existingAttendance->markCancelled(notes);
-                    break;
-                case EnrollmentStatus::MISSED:
-                    existingAttendance->markNoShow(notes);
-                    break;
-                default:
-                    std::cerr << "❌ Неподдерживаемый статус записи для посещаемости: " << static_cast<int>(newStatus) << std::endl;
-                    return false;
-            }
-            return attendanceRepo_->update(*existingAttendance);
-        } else {
-            // Создаем новую запись
-            UUID attendanceId = UUID::generate();
-            Attendance attendance(attendanceId, enrollment->getClientId(), enrollment->getLessonId(),
-                                AttendanceType::LESSON, lesson->getStartTime());
-            
-            switch (newStatus) {
-                case EnrollmentStatus::ATTENDED:
-                    attendance.markVisited(notes);
-                    break;
-                case EnrollmentStatus::CANCELLED:
-                    attendance.markCancelled(notes);
-                    break;
-                case EnrollmentStatus::MISSED:
-                    attendance.markNoShow(notes);
-                    break;
-                default:
-                    std::cerr << "❌ Неподдерживаемый статус записи для посещаемости: " << static_cast<int>(newStatus) << std::endl;
-                    return false;
-            }
-            
-            return attendanceRepo_->save(attendance);
+        switch (newStatus) {
+            case EnrollmentStatus::ATTENDED:
+                attendance.markVisited(notes);
+                break;
+            case EnrollmentStatus::CANCELLED:
+                attendance.markCancelled(notes);
+                break;
+            case EnrollmentStatus::MISSED:
+                attendance.markNoShow(notes);
+                break;
+            default:
+                std::cerr << "❌ Неподдерживаемый статус записи для посещаемости: " << static_cast<int>(newStatus) << std::endl;
+                return false;
         }
+        
+        return attendanceRepo_->save(attendance);
         
     } catch (const std::exception& e) {
         std::cerr << "❌ Ошибка создания посещаемости для записи на занятие: " << e.what() << std::endl;

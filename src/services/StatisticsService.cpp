@@ -22,7 +22,6 @@ StudioStatsDTO StatisticsService::getStudioStats() {
     StudioStatsDTO stats{};
     
     try {
-        // Получаем общую статистику
         auto clients = clientRepo_->findAll();
         stats.totalClients = clients.size();
         
@@ -42,15 +41,6 @@ StudioStatsDTO StatisticsService::getStudioStats() {
         int totalVisited = stats.visitedLessons + stats.visitedBookings;
         int totalScheduled = stats.totalLessons + stats.totalBookings;
         stats.overallAttendanceRate = calculateAttendanceRate(totalVisited, totalScheduled);
-        
-        // Топ клиентов
-        auto topClients = attendanceRepo_->getTopClientsByVisits(5);
-        for (const auto& [clientId, visits] : topClients) {
-            auto client = clientRepo_->findById(clientId);
-            if (client) {
-                stats.topClients.emplace_back(client->getName(), visits);
-            }
-        }
         
     } catch (const std::exception& e) {
         // Логируем ошибку, но возвращаем пустую статистику
@@ -78,7 +68,6 @@ ClientStatsDTO StatisticsService::getClientStats(const UUID& clientId) {
         stats.totalLessons = stats.visitedLessons + stats.cancelledLessons + stats.noShowLessons;
         
         // Статистика по бронированиям
-        // Для бронировний используем другой подход, так как они относятся к другому типу
         auto clientAttendances = attendanceRepo_->findByClientId(clientId);
         for (const auto& attendance : clientAttendances) {
             if (attendance.getType() == AttendanceType::BOOKING) {
@@ -88,10 +77,6 @@ ClientStatsDTO StatisticsService::getClientStats(const UUID& clientId) {
                 if (attendance.isNoShow()) stats.noShowBookings++;
             }
         }
-        
-        // Рейтинг посещаемости
-        stats.attendanceRate = calculateAttendanceRate(stats.visitedLessons + stats.visitedBookings, 
-                                                     stats.totalLessons + stats.totalBookings);
         
     } catch (const std::exception& e) {
         std::cerr << "Ошибка при получении статистики клиента: " << e.what() << std::endl;
@@ -126,8 +111,6 @@ std::vector<ClientStatsDTO> StatisticsService::getAllClientsStats() {
 std::map<std::string, int> StatisticsService::getMonthlyStats(int year, int month) {
     std::map<std::string, int> monthlyStats;
     
-    // Здесь можно реализовать получение статистики по месяцам
-    // Пока возвращаем заглушку
     monthlyStats["Занятий проведено"] = 0;
     monthlyStats["Бронирований использовано"] = 0;
     monthlyStats["Новых клиентов"] = 0;
@@ -162,22 +145,54 @@ bool StatisticsService::migrateBookingsToAttendance() {
     try {
         auto allBookings = bookingRepo_->findAll();
         int migrated = 0;
+        int skipped = 0;
+        
+        std::cout << "🔍 Найдено бронирований для миграции: " << allBookings.size() << std::endl;
         
         for (const auto& booking : allBookings) {
-            // Мигрируем только бронирования с финальными статусами
-            if (booking.isCompleted() || booking.isCancelled()) {
-                auto status = booking.isCompleted() ? BookingStatus::COMPLETED : BookingStatus::CANCELLED;
-                std::string notes = "Миграция: исторические данные";
-                
-                // Используем AttendanceService для создания записей
-                if (attendanceService_->createAttendanceForBooking(booking.getId(), status, notes)) {
-                    migrated++;
+            try {
+                if (booking.isCompleted() || booking.isCancelled()) {
+                    AttendanceStatus attendanceStatus;
+                    
+                    if (booking.isCompleted()) {
+                        attendanceStatus = AttendanceStatus::VISITED;
+                    } else if (booking.isCancelled()) {
+                        attendanceStatus = AttendanceStatus::CANCELLED;
+                    } else {
+                        skipped++;
+                        continue;
+                    }
+                    
+                    Attendance attendance(
+                        UUID::generate(),
+                        booking.getClientId(),
+                        booking.getId(),
+                        AttendanceType::BOOKING,
+                        booking.getTimeSlot().getStartTime()
+                    );
+                    attendance.markVisited("Миграция: исторические данные");
+                    
+                    if (attendanceRepo_->save(attendance)) {
+                        migrated++;
+                        std::cout << "✅ Мигрировано бронирование: " << booking.getId().toString() 
+                                  << " -> " << (attendanceStatus == AttendanceStatus::VISITED ? "VISITED" : "CANCELLED") 
+                                  << std::endl;
+                    } else {
+                        std::cerr << "❌ Не удалось сохранить посещаемость для бронирования: " 
+                                  << booking.getId().toString() << std::endl;
+                    }
+                } else {
+                    skipped++;
                 }
+            } catch (const std::exception& e) {
+                std::cerr << "❌ Ошибка при миграции бронирования " << booking.getId().toString() 
+                          << ": " << e.what() << std::endl;
             }
         }
         
-        std::cout << "📊 Мигрировано бронирований в посещаемость: " << migrated << std::endl;
-        return true;
+        std::cout << "📊 Мигрировано бронирований в посещаемость: " << migrated 
+                  << ", пропущено: " << skipped << std::endl;
+        return migrated > 0;
         
     } catch (const std::exception& e) {
         std::cerr << "❌ Ошибка миграции бронирований: " << e.what() << std::endl;
@@ -189,25 +204,93 @@ bool StatisticsService::migrateEnrollmentsToAttendance() {
     try {
         auto allEnrollments = enrollmentRepo_->findAll();
         int migrated = 0;
+        int skipped = 0;
+        
+        std::cout << "🔍 Найдено записей на занятия для миграции: " << allEnrollments.size() << std::endl;
         
         for (const auto& enrollment : allEnrollments) {
-            // Мигрируем только записи с финальными статусами
-            if (enrollment.getStatus() != EnrollmentStatus::REGISTERED) {
-                std::string notes = "Миграция: исторические данные";
-                
-                // Используем AttendanceService для создания записей
-                if (attendanceService_->createAttendanceForEnrollment(enrollment.getId(), enrollment.getStatus(), notes)) {
-                    migrated++;
+            try {
+                if (enrollment.getStatus() != EnrollmentStatus::REGISTERED) {
+                    AttendanceStatus attendanceStatus;
+                    
+                    switch (enrollment.getStatus()) {
+                        case EnrollmentStatus::ATTENDED:
+                            attendanceStatus = AttendanceStatus::VISITED;
+                            break;
+                        case EnrollmentStatus::CANCELLED:
+                            attendanceStatus = AttendanceStatus::CANCELLED;
+                            break;
+                        case EnrollmentStatus::MISSED:
+                            attendanceStatus = AttendanceStatus::NO_SHOW;
+                            break;
+                        default:
+                            skipped++;
+                            continue;
+                    }
+                    
+                    // Получаем информацию о занятии для времени
+                    auto lesson = lessonRepo_->findById(enrollment.getLessonId());
+                    if (!lesson) {
+                        std::cerr << "❌ Занятие не найдено для записи: " << enrollment.getId().toString() << std::endl;
+                        skipped++;
+                        continue;
+                    }
+                    
+                    Attendance attendance(
+                        UUID::generate(),
+                        enrollment.getClientId(),
+                        enrollment.getLessonId(),
+                        AttendanceType::LESSON,
+                        lesson->getStartTime()
+                    );
+
+                    switch (attendanceStatus) {
+                        case AttendanceStatus::VISITED:
+                            attendance.markVisited("Миграция: исторические данные");
+                            break;
+                        case AttendanceStatus::CANCELLED:
+                            attendance.markCancelled("Миграция: исторические данные");
+                            break;
+                        case AttendanceStatus::NO_SHOW:
+                            attendance.markNoShow("Миграция: исторические данные");
+                            break;
+                        default:
+                            break;
+                    }
+                    
+                    if (attendanceRepo_->save(attendance)) {
+                        migrated++;
+                        std::cout << "✅ Мигрирована запись на занятие: " << enrollment.getId().toString() 
+                                  << " -> " << attendanceStatusToString(attendanceStatus) << std::endl;
+                    } else {
+                        std::cerr << "❌ Не удалось сохранить посещаемость для записи: " 
+                                  << enrollment.getId().toString() << std::endl;
+                    }
+                } else {
+                    skipped++;
                 }
+            } catch (const std::exception& e) {
+                std::cerr << "❌ Ошибка при миграции записи " << enrollment.getId().toString() 
+                          << ": " << e.what() << std::endl;
             }
         }
         
-        std::cout << "📊 Мигрировано записей на занятия: " << migrated << std::endl;
-        return true;
+        std::cout << "📊 Мигрировано записей на занятия: " << migrated 
+                  << ", пропущено: " << skipped << std::endl;
+        return migrated > 0;
         
     } catch (const std::exception& e) {
         std::cerr << "❌ Ошибка миграции записей: " << e.what() << std::endl;
         return false;
+    }
+}
+
+std::string StatisticsService::attendanceStatusToString(AttendanceStatus status) {
+    switch (status) {
+        case AttendanceStatus::VISITED: return "VISITED";
+        case AttendanceStatus::CANCELLED: return "CANCELLED";
+        case AttendanceStatus::NO_SHOW: return "NO_SHOW";
+        default: return "SCHEDULED";
     }
 }
 
