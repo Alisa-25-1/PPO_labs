@@ -121,6 +121,7 @@ add_library(DataAccess STATIC
     ${SOURCE_ROOT}/data/ResilientDatabaseConnection.cpp
     ${SOURCE_ROOT}/data/QueryFactory.cpp
     ${SOURCE_ROOT}/data/SqlQueryBuilder.cpp
+    ${SOURCE_ROOT}/data/DataMigrator.cpp 
     # Postgres репозитории
     ${SOURCE_ROOT}/data/PostgreSQLRepositoryFactory.cpp
     ${SOURCE_ROOT}/repositories/impl/PostgreSQLClientRepository.cpp

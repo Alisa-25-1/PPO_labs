@@ -186,6 +186,36 @@ std::vector<Attendance> MongoDBAttendanceRepository::findByTypeAndStatus(
     }
 }
 
+std::vector<Attendance> MongoDBAttendanceRepository::findAll() {
+    std::vector<Attendance> attendances;
+    
+    try {
+        std::cout << "🔍 Получение всех записей посещаемости из MongoDB" << std::endl;
+        
+        auto collection = getCollection();
+        auto cursor = collection.find({});
+        
+        int count = 0;
+        for (auto&& doc : cursor) {
+            try {
+                auto attendance = mapDocumentToAttendance(doc);
+                attendances.push_back(attendance);
+                count++;
+            } catch (const std::exception& e) {
+                std::cerr << "❌ Ошибка при маппинге посещаемости из MongoDB: " << e.what() << std::endl;
+                continue;
+            }
+        }
+        
+        std::cout << "✅ Успешно загружено записей посещаемости из MongoDB: " << count << std::endl;
+        return attendances;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ MongoDB Error in findAll: " << e.what() << std::endl;
+        throw DataAccessException(std::string("Failed to find all attendance records: ") + e.what());
+    }
+}
+
 bool MongoDBAttendanceRepository::save(const Attendance& attendance) {
     validateAttendance(attendance);
     

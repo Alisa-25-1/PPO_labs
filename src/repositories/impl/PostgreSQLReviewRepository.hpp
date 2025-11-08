@@ -16,6 +16,7 @@ public:
     std::optional<Review> findByClientAndLesson(const UUID& clientId, const UUID& lessonId) override;
     std::vector<Review> findPendingModeration() override;
     double getAverageRatingForTrainer(const UUID& trainerId) override;
+    std::vector<Review> findAll() override;
     bool save(const Review& review) override;
     bool update(const Review& review) override;
     bool remove(const UUID& id) override;

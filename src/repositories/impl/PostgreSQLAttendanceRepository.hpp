@@ -18,6 +18,7 @@ public:
         const std::chrono::system_clock::time_point& start, 
         const std::chrono::system_clock::time_point& end) override;
     std::vector<Attendance> findByTypeAndStatus(AttendanceType type, AttendanceStatus status) override;
+    std::vector<Attendance> findAll() override;
     bool save(const Attendance& attendance) override;
     bool update(const Attendance& attendance) override;
     bool remove(const UUID& id) override;

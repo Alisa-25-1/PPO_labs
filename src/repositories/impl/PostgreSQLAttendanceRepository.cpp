@@ -158,6 +158,33 @@ std::vector<Attendance> PostgreSQLAttendanceRepository::findByTypeAndStatus(
     }
 }
 
+std::vector<Attendance> PostgreSQLAttendanceRepository::findAll() {
+    try {
+        auto work = dbConnection_->beginTransaction();
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "entity_id", "type", "status", 
+                    "scheduled_time", "actual_time", "notes"})
+            .from("attendance")
+            .orderBy("scheduled_time", false)
+            .build();
+        
+        auto result = work.exec(query);
+        
+        std::vector<Attendance> attendances;
+        for (const auto& row : result) {
+            attendances.push_back(mapResultToAttendance(row));
+        }
+        
+        dbConnection_->commitTransaction(work);
+        return attendances;
+        
+    } catch (const std::exception& e) {
+        throw QueryException(std::string("Failed to find all attendance records: ") + e.what());
+    }
+}
+
 bool PostgreSQLAttendanceRepository::save(const Attendance& attendance) {
     validateAttendance(attendance);
     

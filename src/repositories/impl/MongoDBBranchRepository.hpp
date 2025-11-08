@@ -30,7 +30,6 @@ private:
     Branch mapDocumentToBranch(const bsoncxx::document::view& doc) const;
     bsoncxx::document::value mapBranchToDocument(const Branch& branch) const;
     bsoncxx::document::value mapAddressToDocument(const BranchAddress& address) const;
-    BranchAddress mapDocumentToAddress(const bsoncxx::document::view& addressDoc) const;
     void validateBranch(const Branch& branch) const;
 };
 

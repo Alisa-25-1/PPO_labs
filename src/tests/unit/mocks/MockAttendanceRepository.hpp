@@ -11,6 +11,7 @@ public:
     MOCK_METHOD(std::vector<Attendance>, findByEntityId, (const UUID&), (override));
     MOCK_METHOD(std::vector<Attendance>, findByClientAndPeriod, (const UUID&, const std::chrono::system_clock::time_point&, const std::chrono::system_clock::time_point&), (override));
     MOCK_METHOD(std::vector<Attendance>, findByTypeAndStatus, (AttendanceType, AttendanceStatus), (override));
+    MOCK_METHOD(std::vector<Attendance>, findAll, (), (override));
     MOCK_METHOD(bool, save, (const Attendance&), (override));
     MOCK_METHOD(bool, update, (const Attendance&), (override));
     MOCK_METHOD(bool, remove, (const UUID&), (override));

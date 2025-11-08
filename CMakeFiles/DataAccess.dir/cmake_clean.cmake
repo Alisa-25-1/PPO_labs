@@ -1,4 +1,6 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.o"
+  "CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.o.d"
   "CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o"
   "CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o.d"
   "CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o"

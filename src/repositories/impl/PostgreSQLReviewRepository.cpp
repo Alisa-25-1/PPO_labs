@@ -138,6 +138,32 @@ std::vector<Review> PostgreSQLReviewRepository::findPendingModeration() {
     }
 }
 
+std::vector<Review> PostgreSQLReviewRepository::findAll() {
+    try {
+        auto work = dbConnection_->beginTransaction();
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({"id", "client_id", "lesson_id", "rating", "comment", "publication_date", "status"})
+            .from("reviews")
+            .orderBy("publication_date", false)
+            .build();
+        
+        auto result = work.exec(query);
+        
+        std::vector<Review> reviews;
+        for (const auto& row : result) {
+            reviews.push_back(mapResultToReview(row));
+        }
+        
+        dbConnection_->commitTransaction(work);
+        return reviews;
+        
+    } catch (const std::exception& e) {
+        throw QueryException(std::string("Failed to find all reviews: ") + e.what());
+    }
+}
+
 double PostgreSQLReviewRepository::getAverageRatingForTrainer(const UUID& trainerId) {
     try {
         auto work = dbConnection_->beginTransaction();

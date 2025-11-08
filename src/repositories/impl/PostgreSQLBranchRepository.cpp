@@ -121,47 +121,157 @@ std::vector<Branch> PostgreSQLBranchRepository::findAll() {
     }
 }
 
+bool PostgreSQLBranchRepository::addressExists(pqxx::work& work, const UUID& addressId) {
+    SqlQueryBuilder queryBuilder;
+    std::string query = queryBuilder
+        .select({"1"})
+        .from("addresses")
+        .where("id = $1")
+        .build();
+    
+    auto result = work.exec_params(query, addressId.toString());
+    return !result.empty();
+}
+
+void PostgreSQLBranchRepository::saveAddressWithUpsert(pqxx::work& work, const BranchAddress& address) {
+    try {
+        if (addressExists(work, address.getId())) {
+            // Обновляем адрес
+            std::map<std::string, std::string> values = {
+                {"country", "$2"},
+                {"city", "$3"},
+                {"street", "$4"},
+                {"building", "$5"},
+                {"apartment", "$6"},
+                {"postal_code", "$7"},
+                {"timezone_offset", "$8"}
+            };
+            
+            SqlQueryBuilder queryBuilder;
+            std::string query = queryBuilder
+                .update("addresses")
+                .set(values)
+                .where("id = $1")
+                .build();
+            
+            work.exec_params(
+                query,
+                address.getId().toString(),
+                address.getCountry(),
+                address.getCity(),
+                address.getStreet(),
+                address.getBuilding(),
+                address.getApartment(),
+                address.getPostalCode(),
+                std::to_string(address.getTimezoneOffset().count())
+            );
+        } else {
+            // Вставляем новый адрес
+            std::map<std::string, std::string> values = {
+                {"id", "$1"},
+                {"country", "$2"},
+                {"city", "$3"},
+                {"street", "$4"},
+                {"building", "$5"},
+                {"apartment", "$6"},
+                {"postal_code", "$7"},
+                {"timezone_offset", "$8"}
+            };
+            
+            SqlQueryBuilder queryBuilder;
+            std::string query = queryBuilder
+                .insertInto("addresses")
+                .values(values)
+                .build();
+            
+            work.exec_params(
+                query,
+                address.getId().toString(),
+                address.getCountry(),
+                address.getCity(),
+                address.getStreet(),
+                address.getBuilding(),
+                address.getApartment(),
+                address.getPostalCode(),
+                std::to_string(address.getTimezoneOffset().count())
+            );
+        }
+    } catch (const std::exception& e) {
+        throw QueryException(std::string("Failed to save address: ") + e.what());
+    }
+}
+
 bool PostgreSQLBranchRepository::save(const Branch& branch) {
     validateBranch(branch);
     
     try {
         auto work = dbConnection_->beginTransaction();
         
-        // Сначала сохраняем адрес
-        if (!saveAddress(branch.getAddress(), work)) {
-            throw DataAccessException("Failed to save address");
+        // Сначала сохраняем адрес с upsert
+        saveAddressWithUpsert(work, branch.getAddress());
+        
+        // Затем сохраняем филиал с upsert
+        if (exists(branch.getId())) {
+            std::map<std::string, std::string> values = {
+                {"name", "$2"},
+                {"phone", "$3"},
+                {"open_time", "$4"},
+                {"close_time", "$5"},
+                {"studio_id", "$6"},
+                {"address_id", "$7"}
+            };
+            
+            SqlQueryBuilder queryBuilder;
+            std::string query = queryBuilder
+                .update("branches")
+                .set(values)
+                .where("id = $1")
+                .build();
+            
+            auto result = work.exec_params(
+                query,
+                branch.getId().toString(),
+                branch.getName(),
+                branch.getPhone(),
+                std::to_string(static_cast<int>(branch.getWorkingHours().openTime.count())),
+                std::to_string(static_cast<int>(branch.getWorkingHours().closeTime.count())),
+                branch.getStudioId().toString(),
+                branch.getAddress().getId().toString()
+            );
+            
+            dbConnection_->commitTransaction(work);
+            return result.affected_rows() > 0;
+        } else {
+            std::map<std::string, std::string> values = {
+                {"id", "$1"},
+                {"name", "$2"},
+                {"phone", "$3"},
+                {"open_time", "$4"},
+                {"close_time", "$5"},
+                {"studio_id", "$6"},
+                {"address_id", "$7"}
+            };
+            
+            SqlQueryBuilder queryBuilder;
+            std::string query = queryBuilder
+                .insertInto("branches")
+                .values(values)
+                .build();
+            
+            work.exec_params(
+                query,
+                branch.getId().toString(),
+                branch.getName(),
+                branch.getPhone(),
+                std::to_string(static_cast<int>(branch.getWorkingHours().openTime.count())),
+                std::to_string(static_cast<int>(branch.getWorkingHours().closeTime.count())),
+                branch.getStudioId().toString(),
+                branch.getAddress().getId().toString()
+            );
+            
+            dbConnection_->commitTransaction(work);
+            return true;
         }
-        
-        // Затем сохраняем филиал
-        std::map<std::string, std::string> values = {
-            {"id", "$1"},
-            {"name", "$2"},
-            {"phone", "$3"},
-            {"open_time", "$4"},
-            {"close_time", "$5"},
-            {"studio_id", "$6"},
-            {"address_id", "$7"}
-        };
-        
-        SqlQueryBuilder queryBuilder;
-        std::string query = queryBuilder
-            .insertInto("branches")
-            .values(values)
-            .build();
-        
-        work.exec_params(
-            query,
-            branch.getId().toString(),
-            branch.getName(),
-            branch.getPhone(),
-            std::to_string(static_cast<int>(branch.getWorkingHours().openTime.count())),
-            std::to_string(static_cast<int>(branch.getWorkingHours().closeTime.count())),
-            branch.getStudioId().toString(),
-            branch.getAddress().getId().toString()
-        );
-        
-        dbConnection_->commitTransaction(work);
-        return true;
         
     } catch (const std::exception& e) {
         throw QueryException(std::string("Failed to save branch: ") + e.what());
@@ -307,44 +417,6 @@ BranchAddress PostgreSQLBranchRepository::mapResultToAddress(const pqxx::row& ro
 void PostgreSQLBranchRepository::validateBranch(const Branch& branch) const {
     if (!branch.isValid()) {
         throw DataAccessException("Invalid branch data");
-    }
-}
-
-bool PostgreSQLBranchRepository::saveAddress(const BranchAddress& address, pqxx::work& work) {
-    try {
-        std::map<std::string, std::string> values = {
-            {"id", "$1"},
-            {"country", "$2"},
-            {"city", "$3"},
-            {"street", "$4"},
-            {"building", "$5"},
-            {"apartment", "$6"},
-            {"postal_code", "$7"},
-            {"timezone_offset", "$8"}
-        };
-        
-        SqlQueryBuilder queryBuilder;
-        std::string query = queryBuilder
-            .insertInto("addresses")
-            .values(values)
-            .build();
-        
-        work.exec_params(
-            query,
-            address.getId().toString(),
-            address.getCountry(),
-            address.getCity(),
-            address.getStreet(),
-            address.getBuilding(),
-            address.getApartment(),
-            address.getPostalCode(),
-            std::to_string(static_cast<int>(address.getTimezoneOffset().count()))
-        );
-        
-        return true;
-        
-    } catch (const std::exception& e) {
-        throw QueryException(std::string("Failed to save address: ") + e.what());
     }
 }
 

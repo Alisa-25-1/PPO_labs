@@ -14,6 +14,7 @@ public:
     std::optional<Client> findById(const UUID& id) override;
     std::optional<Client> findByEmail(const std::string& email) override;
     std::vector<Client> findAll() override;
+    bool emailExists(const std::string& email);
     bool save(const Client& client) override;
     bool update(const Client& client) override;
     bool remove(const UUID& id) override;
@@ -28,7 +29,6 @@ private:
     // Добавляем объявления вспомогательных методов
     std::string clientStatusToString(AccountStatus status) const;
     AccountStatus stringToClientStatus(const std::string& status) const;
-    bool emailExists(const std::string& email);
 };
 
 #endif // POSTGRESQLCLIENTREPOSITORY_HPP

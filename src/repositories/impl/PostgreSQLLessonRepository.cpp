@@ -145,6 +145,36 @@ std::vector<Lesson> PostgreSQLLessonRepository::findUpcomingLessons(int days) {
     }
 }
 
+std::vector<Lesson> PostgreSQLLessonRepository::findAll() {
+    try {
+        auto work = dbConnection_->beginTransaction();
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({
+                "id", "type", "name", "description", "start_time", "duration_minutes",
+                "difficulty", "max_participants", "current_participants", "price", "status",
+                "trainer_id", "hall_id"
+            })
+            .from("lessons")
+            .orderBy("start_time", false)
+            .build();
+        
+        auto result = work.exec(query);
+        
+        std::vector<Lesson> lessons;
+        for (const auto& row : result) {
+            lessons.push_back(mapResultToLesson(row));
+        }
+        
+        dbConnection_->commitTransaction(work);
+        return lessons;
+        
+    } catch (const std::exception& e) {
+        throw QueryException(std::string("Failed to find all lessons: ") + e.what());
+    }
+}
+
 bool PostgreSQLLessonRepository::save(const Lesson& lesson) {
     validateLesson(lesson);
     

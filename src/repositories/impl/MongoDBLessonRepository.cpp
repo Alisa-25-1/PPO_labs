@@ -6,6 +6,10 @@
 #include <bsoncxx/builder/basic/kvp.hpp>
 #include <iostream>
 
+using bsoncxx::builder::basic::kvp;
+using bsoncxx::builder::basic::make_document;
+using bsoncxx::builder::basic::make_array;
+
 MongoDBLessonRepository::MongoDBLessonRepository(std::shared_ptr<MongoDBRepositoryFactory> factory)
     : factory_(std::move(factory)) {}
 
@@ -16,9 +20,7 @@ mongocxx::collection MongoDBLessonRepository::getCollection() const {
 std::optional<Lesson> MongoDBLessonRepository::findById(const UUID& id) {
     try {
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "id" << id.toString()
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(kvp("id", id.toString()));
         
         auto result = collection.find_one(filter.view());
         
@@ -43,9 +45,7 @@ std::vector<Lesson> MongoDBLessonRepository::findByTrainerId(const UUID& trainer
         std::cout << "🔍 Поиск уроков тренера в MongoDB: " << trainerId.toString() << std::endl;
         
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "trainerId" << trainerId.toString()
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(kvp("trainerId", trainerId.toString()));
         
         auto cursor = collection.find(filter.view());
         
@@ -78,9 +78,7 @@ std::vector<Lesson> MongoDBLessonRepository::findByHallId(const UUID& hallId) {
         std::cout << "🔍 Поиск уроков в зале в MongoDB: " << hallId.toString() << std::endl;
         
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "hallId" << hallId.toString()
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(kvp("hallId", hallId.toString()));
         
         auto cursor = collection.find(filter.view());
         
@@ -118,24 +116,16 @@ std::vector<Lesson> MongoDBLessonRepository::findConflictingLessons(const UUID& 
         auto endTime = timeSlot.getEndTime();
         
         // MongoDB query для поиска конфликтующих уроков
-        auto filter = bsoncxx::builder::stream::document{}
-            << "hallId" << hallId.toString()
-            << "status" << bsoncxx::builder::stream::open_document
-                << "$in" << bsoncxx::builder::stream::open_array
-                    << "SCHEDULED" << "ONGOING"
-                << bsoncxx::builder::stream::close_array
-            << bsoncxx::builder::stream::close_document
-            << "$or" << bsoncxx::builder::stream::open_array
-                << bsoncxx::builder::stream::open_document
-                    << "startTime" << bsoncxx::builder::stream::open_document
-                        << "$lt" << DateTimeUtils::formatTimeForMongoDB(endTime)
-                    << bsoncxx::builder::stream::close_document
-                    << "endTime" << bsoncxx::builder::stream::open_document
-                        << "$gt" << DateTimeUtils::formatTimeForMongoDB(startTime)
-                    << bsoncxx::builder::stream::close_document
-                << bsoncxx::builder::stream::close_document
-            << bsoncxx::builder::stream::close_array
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(
+            kvp("hallId", hallId.toString()),
+            kvp("status", make_document(kvp("$in", make_array("SCHEDULED", "ONGOING")))),
+            kvp("$or", make_array(
+                make_document(
+                    kvp("startTime", make_document(kvp("$lt", DateTimeUtils::formatTimeForMongoDB(endTime)))),
+                    kvp("endTime", make_document(kvp("$gt", DateTimeUtils::formatTimeForMongoDB(startTime))))
+                )
+            ))
+        );
         
         auto cursor = collection.find(filter.view());
         
@@ -173,17 +163,13 @@ std::vector<Lesson> MongoDBLessonRepository::findUpcomingLessons(int days) {
         auto futureDate = now + std::chrono::hours(24 * days);
         
         // Уроки, которые начнутся в течение указанного количества дней
-        auto filter = bsoncxx::builder::stream::document{}
-            << "startTime" << bsoncxx::builder::stream::open_document
-                << "$gte" << DateTimeUtils::formatTimeForMongoDB(now)
-                << "$lte" << DateTimeUtils::formatTimeForMongoDB(futureDate)
-            << bsoncxx::builder::stream::close_document
-            << "status" << bsoncxx::builder::stream::open_document
-                << "$in" << bsoncxx::builder::stream::open_array
-                    << "SCHEDULED" << "ONGOING"
-                << bsoncxx::builder::stream::close_array
-            << bsoncxx::builder::stream::close_document
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(
+            kvp("startTime", make_document(
+                kvp("$gte", DateTimeUtils::formatTimeForMongoDB(now)),
+                kvp("$lte", DateTimeUtils::formatTimeForMongoDB(futureDate))
+            )),
+            kvp("status", make_document(kvp("$in", make_array("SCHEDULED", "ONGOING"))))
+        );
         
         auto cursor = collection.find(filter.view());
         
@@ -205,6 +191,36 @@ std::vector<Lesson> MongoDBLessonRepository::findUpcomingLessons(int days) {
     } catch (const std::exception& e) {
         std::cerr << "❌ MongoDB Error in findUpcomingLessons: " << e.what() << std::endl;
         throw DataAccessException(std::string("Failed to find upcoming lessons: ") + e.what());
+    }
+}
+
+std::vector<Lesson> MongoDBLessonRepository::findAll() {
+    std::vector<Lesson> lessons;
+    
+    try {
+        std::cout << "🔍 Получение всех уроков из MongoDB" << std::endl;
+        
+        auto collection = getCollection();
+        auto cursor = collection.find({});
+        
+        int count = 0;
+        for (auto&& doc : cursor) {
+            try {
+                auto lesson = mapDocumentToLesson(doc);
+                lessons.push_back(lesson);
+                count++;
+            } catch (const std::exception& e) {
+                std::cerr << "❌ Ошибка при маппинге урока из MongoDB: " << e.what() << std::endl;
+                continue;
+            }
+        }
+        
+        std::cout << "✅ Успешно загружено уроков из MongoDB: " << count << std::endl;
+        return lessons;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ MongoDB Error in findAll: " << e.what() << std::endl;
+        throw DataAccessException(std::string("Failed to find all lessons: ") + e.what());
     }
 }
 
@@ -236,27 +252,25 @@ bool MongoDBLessonRepository::update(const Lesson& lesson) {
     
     try {
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "id" << lesson.getId().toString()
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(kvp("id", lesson.getId().toString()));
         
-        auto update_doc = bsoncxx::builder::stream::document{}
-            << "$set" << bsoncxx::builder::stream::open_document
-                << "type" << lessonTypeToString(lesson.getType())
-                << "name" << lesson.getName()
-                << "description" << lesson.getDescription()
-                << "startTime" << DateTimeUtils::formatTimeForMongoDB(lesson.getStartTime())
-                << "endTime" << DateTimeUtils::formatTimeForMongoDB(lesson.getTimeSlot().getEndTime())
-                << "durationMinutes" << lesson.getDurationMinutes()
-                << "difficulty" << difficultyLevelToString(lesson.getDifficulty())
-                << "maxParticipants" << lesson.getMaxParticipants()
-                << "currentParticipants" << lesson.getCurrentParticipants()
-                << "price" << lesson.getPrice()
-                << "status" << lessonStatusToString(lesson.getStatus())
-                << "trainerId" << lesson.getTrainerId().toString()
-                << "hallId" << lesson.getHallId().toString()
-            << bsoncxx::builder::stream::close_document
-            << bsoncxx::builder::stream::finalize;
+        auto update_doc = make_document(
+            kvp("$set", make_document(
+                kvp("type", lessonTypeToString(lesson.getType())),
+                kvp("name", lesson.getName()),
+                kvp("description", lesson.getDescription()),
+                kvp("startTime", DateTimeUtils::formatTimeForMongoDB(lesson.getStartTime())),
+                kvp("endTime", DateTimeUtils::formatTimeForMongoDB(lesson.getTimeSlot().getEndTime())),
+                kvp("durationMinutes", lesson.getDurationMinutes()),
+                kvp("difficulty", difficultyLevelToString(lesson.getDifficulty())),
+                kvp("maxParticipants", lesson.getMaxParticipants()),
+                kvp("currentParticipants", lesson.getCurrentParticipants()),
+                kvp("price", lesson.getPrice()),
+                kvp("status", lessonStatusToString(lesson.getStatus())),
+                kvp("trainerId", lesson.getTrainerId().toString()),
+                kvp("hallId", lesson.getHallId().toString())
+            ))
+        );
         
         auto result = collection.update_one(filter.view(), update_doc.view());
         
@@ -277,9 +291,7 @@ bool MongoDBLessonRepository::update(const Lesson& lesson) {
 bool MongoDBLessonRepository::remove(const UUID& id) {
     try {
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "id" << id.toString()
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(kvp("id", id.toString()));
         
         auto result = collection.delete_one(filter.view());
         
@@ -300,9 +312,7 @@ bool MongoDBLessonRepository::remove(const UUID& id) {
 bool MongoDBLessonRepository::exists(const UUID& id) {
     try {
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "id" << id.toString()
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(kvp("id", id.toString()));
         
         auto result = collection.count_documents(filter.view());
         return result > 0;
@@ -361,23 +371,22 @@ Lesson MongoDBLessonRepository::mapDocumentToLesson(const bsoncxx::document::vie
 }
 
 bsoncxx::document::value MongoDBLessonRepository::mapLessonToDocument(const Lesson& lesson) const {
-    auto builder = bsoncxx::builder::stream::document{}
-        << "id" << lesson.getId().toString()
-        << "type" << lessonTypeToString(lesson.getType())
-        << "name" << lesson.getName()
-        << "description" << lesson.getDescription()
-        << "startTime" << DateTimeUtils::formatTimeForMongoDB(lesson.getStartTime())
-        << "endTime" << DateTimeUtils::formatTimeForMongoDB(lesson.getTimeSlot().getEndTime())
-        << "durationMinutes" << lesson.getDurationMinutes()
-        << "difficulty" << difficultyLevelToString(lesson.getDifficulty())
-        << "maxParticipants" << lesson.getMaxParticipants()
-        << "currentParticipants" << lesson.getCurrentParticipants()
-        << "price" << lesson.getPrice()
-        << "status" << lessonStatusToString(lesson.getStatus())
-        << "trainerId" << lesson.getTrainerId().toString()
-        << "hallId" << lesson.getHallId().toString();
-    
-    return builder << bsoncxx::builder::stream::finalize;
+    return make_document(
+        kvp("id", lesson.getId().toString()),
+        kvp("type", lessonTypeToString(lesson.getType())),
+        kvp("name", lesson.getName()),
+        kvp("description", lesson.getDescription()),
+        kvp("startTime", DateTimeUtils::formatTimeForMongoDB(lesson.getStartTime())),
+        kvp("endTime", DateTimeUtils::formatTimeForMongoDB(lesson.getTimeSlot().getEndTime())),
+        kvp("durationMinutes", lesson.getDurationMinutes()),
+        kvp("difficulty", difficultyLevelToString(lesson.getDifficulty())),
+        kvp("maxParticipants", lesson.getMaxParticipants()),
+        kvp("currentParticipants", lesson.getCurrentParticipants()),
+        kvp("price", lesson.getPrice()),
+        kvp("status", lessonStatusToString(lesson.getStatus())),
+        kvp("trainerId", lesson.getTrainerId().toString()),
+        kvp("hallId", lesson.getHallId().toString())
+    );
 }
 
 void MongoDBLessonRepository::validateLesson(const Lesson& lesson) const {

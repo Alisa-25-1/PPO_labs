@@ -3,12 +3,31 @@
 
 CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   src/core/Logger.hpp \
+  src/models/Attendance.hpp \
+  src/models/Booking.hpp \
+  src/models/Branch.hpp \
+  src/models/Client.hpp \
+  src/models/DanceHall.hpp \
+  src/models/Enrollment.hpp \
+  src/models/Lesson.hpp \
+  src/models/Review.hpp \
+  src/models/Studio.hpp \
+  src/models/Subscription.hpp \
+  src/models/SubscriptionType.hpp \
+  src/models/Trainer.hpp \
+  src/data/DatabaseConnection.hpp \
+  src/data/SqlQueryBuilder.hpp \
+  src/data/exceptions/DataAccessException.hpp \
+  src/repositories/impl/PostgreSQLClientRepository.hpp \
+  src/data/DataMigrator.hpp \
+  src/data/RepositoryFactoryCreator.hpp \
   src/core/Config.hpp \
   src/types/uuid.hpp \
   src/models/Studio.hpp \
   src/types/uuid.hpp \
   src/repositories/IStudioRepository.hpp \
   src/data/IRepositoryFactory.hpp \
+  src/data/MongoDBRepositoryFactory.hpp \
   src/data/PostgreSQLRepositoryFactory.hpp \
   src/data/RepositoryFactoryCreator.hpp \
   src/dtos/AuthDTO.hpp \
@@ -106,6 +125,175 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
+  /usr/include/assert.h \
+  /usr/include/boost/assert.hpp \
+  /usr/include/boost/assert/source_location.hpp \
+  /usr/include/boost/config.hpp \
+  /usr/include/boost/config/compiler/gcc.hpp \
+  /usr/include/boost/config/detail/cxx_composite.hpp \
+  /usr/include/boost/config/detail/posix_features.hpp \
+  /usr/include/boost/config/detail/select_compiler_config.hpp \
+  /usr/include/boost/config/detail/select_platform_config.hpp \
+  /usr/include/boost/config/detail/select_stdlib_config.hpp \
+  /usr/include/boost/config/detail/suffix.hpp \
+  /usr/include/boost/config/helper_macros.hpp \
+  /usr/include/boost/config/platform/linux.hpp \
+  /usr/include/boost/config/pragma_message.hpp \
+  /usr/include/boost/config/stdlib/libstdcpp3.hpp \
+  /usr/include/boost/config/user.hpp \
+  /usr/include/boost/config/workaround.hpp \
+  /usr/include/boost/core/addressof.hpp \
+  /usr/include/boost/core/enable_if.hpp \
+  /usr/include/boost/core/explicit_operator_bool.hpp \
+  /usr/include/boost/core/swap.hpp \
+  /usr/include/boost/cstdint.hpp \
+  /usr/include/boost/current_function.hpp \
+  /usr/include/boost/detail/workaround.hpp \
+  /usr/include/boost/exception/exception.hpp \
+  /usr/include/boost/io/detail/buffer_fill.hpp \
+  /usr/include/boost/io/detail/ostream_guard.hpp \
+  /usr/include/boost/io/ostream_put.hpp \
+  /usr/include/boost/move/core.hpp \
+  /usr/include/boost/move/detail/addressof.hpp \
+  /usr/include/boost/move/detail/config_begin.hpp \
+  /usr/include/boost/move/detail/config_end.hpp \
+  /usr/include/boost/move/detail/meta_utils.hpp \
+  /usr/include/boost/move/detail/meta_utils_core.hpp \
+  /usr/include/boost/move/detail/type_traits.hpp \
+  /usr/include/boost/move/detail/workaround.hpp \
+  /usr/include/boost/move/traits.hpp \
+  /usr/include/boost/move/utility.hpp \
+  /usr/include/boost/move/utility_core.hpp \
+  /usr/include/boost/none.hpp \
+  /usr/include/boost/none_t.hpp \
+  /usr/include/boost/optional/bad_optional_access.hpp \
+  /usr/include/boost/optional/detail/optional_aligned_storage.hpp \
+  /usr/include/boost/optional/detail/optional_config.hpp \
+  /usr/include/boost/optional/detail/optional_factory_support.hpp \
+  /usr/include/boost/optional/detail/optional_hash.hpp \
+  /usr/include/boost/optional/detail/optional_reference_spec.hpp \
+  /usr/include/boost/optional/detail/optional_relops.hpp \
+  /usr/include/boost/optional/detail/optional_swap.hpp \
+  /usr/include/boost/optional/detail/optional_trivially_copyable_base.hpp \
+  /usr/include/boost/optional/optional.hpp \
+  /usr/include/boost/optional/optional_fwd.hpp \
+  /usr/include/boost/optional/optional_io.hpp \
+  /usr/include/boost/smart_ptr/detail/requires_cxx11.hpp \
+  /usr/include/boost/smart_ptr/make_unique.hpp \
+  /usr/include/boost/static_assert.hpp \
+  /usr/include/boost/throw_exception.hpp \
+  /usr/include/boost/type.hpp \
+  /usr/include/boost/type_traits/add_lvalue_reference.hpp \
+  /usr/include/boost/type_traits/add_pointer.hpp \
+  /usr/include/boost/type_traits/add_reference.hpp \
+  /usr/include/boost/type_traits/add_rvalue_reference.hpp \
+  /usr/include/boost/type_traits/alignment_of.hpp \
+  /usr/include/boost/type_traits/conditional.hpp \
+  /usr/include/boost/type_traits/conjunction.hpp \
+  /usr/include/boost/type_traits/decay.hpp \
+  /usr/include/boost/type_traits/declval.hpp \
+  /usr/include/boost/type_traits/detail/config.hpp \
+  /usr/include/boost/type_traits/detail/is_function_cxx_11.hpp \
+  /usr/include/boost/type_traits/detail/is_member_function_pointer_cxx_11.hpp \
+  /usr/include/boost/type_traits/detail/yes_no_type.hpp \
+  /usr/include/boost/type_traits/disjunction.hpp \
+  /usr/include/boost/type_traits/enable_if.hpp \
+  /usr/include/boost/type_traits/has_nothrow_assign.hpp \
+  /usr/include/boost/type_traits/has_nothrow_constructor.hpp \
+  /usr/include/boost/type_traits/has_trivial_move_assign.hpp \
+  /usr/include/boost/type_traits/integral_constant.hpp \
+  /usr/include/boost/type_traits/intrinsics.hpp \
+  /usr/include/boost/type_traits/is_abstract.hpp \
+  /usr/include/boost/type_traits/is_arithmetic.hpp \
+  /usr/include/boost/type_traits/is_array.hpp \
+  /usr/include/boost/type_traits/is_assignable.hpp \
+  /usr/include/boost/type_traits/is_base_and_derived.hpp \
+  /usr/include/boost/type_traits/is_base_of.hpp \
+  /usr/include/boost/type_traits/is_class.hpp \
+  /usr/include/boost/type_traits/is_complete.hpp \
+  /usr/include/boost/type_traits/is_const.hpp \
+  /usr/include/boost/type_traits/is_constructible.hpp \
+  /usr/include/boost/type_traits/is_convertible.hpp \
+  /usr/include/boost/type_traits/is_default_constructible.hpp \
+  /usr/include/boost/type_traits/is_destructible.hpp \
+  /usr/include/boost/type_traits/is_enum.hpp \
+  /usr/include/boost/type_traits/is_floating_point.hpp \
+  /usr/include/boost/type_traits/is_function.hpp \
+  /usr/include/boost/type_traits/is_integral.hpp \
+  /usr/include/boost/type_traits/is_lvalue_reference.hpp \
+  /usr/include/boost/type_traits/is_member_function_pointer.hpp \
+  /usr/include/boost/type_traits/is_member_pointer.hpp \
+  /usr/include/boost/type_traits/is_nothrow_move_assignable.hpp \
+  /usr/include/boost/type_traits/is_nothrow_move_constructible.hpp \
+  /usr/include/boost/type_traits/is_pod.hpp \
+  /usr/include/boost/type_traits/is_pointer.hpp \
+  /usr/include/boost/type_traits/is_reference.hpp \
+  /usr/include/boost/type_traits/is_rvalue_reference.hpp \
+  /usr/include/boost/type_traits/is_same.hpp \
+  /usr/include/boost/type_traits/is_scalar.hpp \
+  /usr/include/boost/type_traits/is_unbounded_array.hpp \
+  /usr/include/boost/type_traits/is_void.hpp \
+  /usr/include/boost/type_traits/is_volatile.hpp \
+  /usr/include/boost/type_traits/remove_bounds.hpp \
+  /usr/include/boost/type_traits/remove_const.hpp \
+  /usr/include/boost/type_traits/remove_cv.hpp \
+  /usr/include/boost/type_traits/remove_extent.hpp \
+  /usr/include/boost/type_traits/remove_reference.hpp \
+  /usr/include/boost/type_traits/type_identity.hpp \
+  /usr/include/boost/type_traits/type_with_alignment.hpp \
+  /usr/include/boost/utility/compare_pointees.hpp \
+  /usr/include/boost/utility/detail/result_of_variadic.hpp \
+  /usr/include/boost/utility/result_of.hpp \
+  /usr/include/boost/utility/string_view.hpp \
+  /usr/include/boost/utility/string_view_fwd.hpp \
+  /usr/include/boost/version.hpp \
+  /usr/include/bsoncxx/array/element.hpp \
+  /usr/include/bsoncxx/array/value.hpp \
+  /usr/include/bsoncxx/array/view.hpp \
+  /usr/include/bsoncxx/array/view_or_value.hpp \
+  /usr/include/bsoncxx/builder/basic/array.hpp \
+  /usr/include/bsoncxx/builder/basic/document.hpp \
+  /usr/include/bsoncxx/builder/basic/helpers.hpp \
+  /usr/include/bsoncxx/builder/basic/impl.hpp \
+  /usr/include/bsoncxx/builder/basic/kvp.hpp \
+  /usr/include/bsoncxx/builder/basic/sub_array.hpp \
+  /usr/include/bsoncxx/builder/basic/sub_document.hpp \
+  /usr/include/bsoncxx/builder/concatenate.hpp \
+  /usr/include/bsoncxx/builder/core.hpp \
+  /usr/include/bsoncxx/builder/stream/array_context.hpp \
+  /usr/include/bsoncxx/builder/stream/closed_context.hpp \
+  /usr/include/bsoncxx/builder/stream/document.hpp \
+  /usr/include/bsoncxx/builder/stream/helpers.hpp \
+  /usr/include/bsoncxx/builder/stream/key_context.hpp \
+  /usr/include/bsoncxx/builder/stream/single_context.hpp \
+  /usr/include/bsoncxx/builder/stream/value_context.hpp \
+  /usr/include/bsoncxx/config/compiler.hpp \
+  /usr/include/bsoncxx/config/config.hpp \
+  /usr/include/bsoncxx/config/export.hpp \
+  /usr/include/bsoncxx/config/postlude.hpp \
+  /usr/include/bsoncxx/config/prelude.hpp \
+  /usr/include/bsoncxx/config/version.hpp \
+  /usr/include/bsoncxx/decimal128.hpp \
+  /usr/include/bsoncxx/document/element.hpp \
+  /usr/include/bsoncxx/document/value.hpp \
+  /usr/include/bsoncxx/document/view.hpp \
+  /usr/include/bsoncxx/document/view_or_value.hpp \
+  /usr/include/bsoncxx/enums/binary_sub_type.hpp \
+  /usr/include/bsoncxx/enums/type.hpp \
+  /usr/include/bsoncxx/json.hpp \
+  /usr/include/bsoncxx/oid.hpp \
+  /usr/include/bsoncxx/stdx/make_unique.hpp \
+  /usr/include/bsoncxx/stdx/optional.hpp \
+  /usr/include/bsoncxx/stdx/string_view.hpp \
+  /usr/include/bsoncxx/string/view_or_value.hpp \
+  /usr/include/bsoncxx/types.hpp \
+  /usr/include/bsoncxx/types/bson_value/value.hpp \
+  /usr/include/bsoncxx/types/bson_value/view.hpp \
+  /usr/include/bsoncxx/types/bson_value/view_or_value.hpp \
+  /usr/include/bsoncxx/util/functor.hpp \
+  /usr/include/bsoncxx/view_or_value.hpp \
+  /usr/include/c++/13/algorithm \
+  /usr/include/c++/13/array \
   /usr/include/c++/13/backward/auto_ptr.h \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
@@ -147,6 +335,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/c++/13/bits/invoke.h \
   /usr/include/c++/13/bits/ios_base.h \
   /usr/include/c++/13/bits/istream.tcc \
+  /usr/include/c++/13/bits/list.tcc \
   /usr/include/c++/13/bits/locale_classes.h \
   /usr/include/c++/13/bits/locale_classes.tcc \
   /usr/include/c++/13/bits/locale_conv.h \
@@ -200,15 +389,19 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/c++/13/bits/stl_iterator.h \
   /usr/include/c++/13/bits/stl_iterator_base_funcs.h \
   /usr/include/c++/13/bits/stl_iterator_base_types.h \
+  /usr/include/c++/13/bits/stl_list.h \
   /usr/include/c++/13/bits/stl_map.h \
   /usr/include/c++/13/bits/stl_multimap.h \
+  /usr/include/c++/13/bits/stl_numeric.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/13/bits/stl_relops.h \
   /usr/include/c++/13/bits/stl_stack.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
   /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
+  /usr/include/c++/13/bits/stream_iterator.h \
   /usr/include/c++/13/bits/streambuf.tcc \
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
@@ -222,15 +415,20 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/c++/13/bits/utility.h \
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/bitset \
+  /usr/include/c++/13/cassert \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
+  /usr/include/c++/13/charconv \
   /usr/include/c++/13/chrono \
+  /usr/include/c++/13/ciso646 \
   /usr/include/c++/13/clocale \
   /usr/include/c++/13/codecvt \
+  /usr/include/c++/13/compare \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
+  /usr/include/c++/13/cstring \
   /usr/include/c++/13/ctime \
   /usr/include/c++/13/cwchar \
   /usr/include/c++/13/cwctype \
@@ -247,22 +445,28 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/filesystem \
   /usr/include/c++/13/fstream \
+  /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
   /usr/include/c++/13/ios \
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
+  /usr/include/c++/13/iterator \
   /usr/include/c++/13/limits \
+  /usr/include/c++/13/list \
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
   /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
+  /usr/include/c++/13/numeric \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
+  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
+  /usr/include/c++/13/pstl/glue_numeric_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/ratio \
   /usr/include/c++/13/regex \
@@ -278,7 +482,10 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
   /usr/include/c++/13/unordered_map \
+  /usr/include/c++/13/utility \
+  /usr/include/c++/13/variant \
   /usr/include/c++/13/vector \
+  /usr/include/c++/13/version \
   /usr/include/ctype.h \
   /usr/include/endian.h \
   /usr/include/errno.h \
@@ -286,9 +493,94 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/features.h \
   /usr/include/libintl.h \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/mongocxx/bulk_write.hpp \
+  /usr/include/mongocxx/change_stream.hpp \
+  /usr/include/mongocxx/client.hpp \
+  /usr/include/mongocxx/client_session.hpp \
+  /usr/include/mongocxx/collection.hpp \
+  /usr/include/mongocxx/config/compiler.hpp \
+  /usr/include/mongocxx/config/config.hpp \
+  /usr/include/mongocxx/config/export.hpp \
+  /usr/include/mongocxx/config/postlude.hpp \
+  /usr/include/mongocxx/config/prelude.hpp \
+  /usr/include/mongocxx/config/version.hpp \
+  /usr/include/mongocxx/cursor.hpp \
+  /usr/include/mongocxx/database.hpp \
+  /usr/include/mongocxx/events/command_failed_event.hpp \
+  /usr/include/mongocxx/events/command_started_event.hpp \
+  /usr/include/mongocxx/events/command_succeeded_event.hpp \
+  /usr/include/mongocxx/events/heartbeat_failed_event.hpp \
+  /usr/include/mongocxx/events/heartbeat_started_event.hpp \
+  /usr/include/mongocxx/events/heartbeat_succeeded_event.hpp \
+  /usr/include/mongocxx/events/server_changed_event.hpp \
+  /usr/include/mongocxx/events/server_closed_event.hpp \
+  /usr/include/mongocxx/events/server_description.hpp \
+  /usr/include/mongocxx/events/server_opening_event.hpp \
+  /usr/include/mongocxx/events/topology_changed_event.hpp \
+  /usr/include/mongocxx/events/topology_closed_event.hpp \
+  /usr/include/mongocxx/events/topology_description.hpp \
+  /usr/include/mongocxx/events/topology_opening_event.hpp \
+  /usr/include/mongocxx/gridfs/bucket.hpp \
+  /usr/include/mongocxx/gridfs/downloader.hpp \
+  /usr/include/mongocxx/gridfs/uploader.hpp \
+  /usr/include/mongocxx/hint.hpp \
+  /usr/include/mongocxx/index_model.hpp \
+  /usr/include/mongocxx/index_view.hpp \
+  /usr/include/mongocxx/instance.hpp \
+  /usr/include/mongocxx/model/delete_many.hpp \
+  /usr/include/mongocxx/model/delete_one.hpp \
+  /usr/include/mongocxx/model/insert_one.hpp \
+  /usr/include/mongocxx/model/replace_one.hpp \
+  /usr/include/mongocxx/model/update_many.hpp \
+  /usr/include/mongocxx/model/update_one.hpp \
+  /usr/include/mongocxx/model/write.hpp \
+  /usr/include/mongocxx/options/aggregate.hpp \
+  /usr/include/mongocxx/options/apm.hpp \
+  /usr/include/mongocxx/options/auto_encryption.hpp \
+  /usr/include/mongocxx/options/bulk_write.hpp \
+  /usr/include/mongocxx/options/change_stream.hpp \
+  /usr/include/mongocxx/options/client.hpp \
+  /usr/include/mongocxx/options/client_encryption.hpp \
+  /usr/include/mongocxx/options/client_session.hpp \
+  /usr/include/mongocxx/options/count.hpp \
+  /usr/include/mongocxx/options/create_collection.hpp \
+  /usr/include/mongocxx/options/delete.hpp \
+  /usr/include/mongocxx/options/distinct.hpp \
+  /usr/include/mongocxx/options/estimated_document_count.hpp \
+  /usr/include/mongocxx/options/find.hpp \
+  /usr/include/mongocxx/options/find_one_and_delete.hpp \
+  /usr/include/mongocxx/options/find_one_and_replace.hpp \
+  /usr/include/mongocxx/options/find_one_and_update.hpp \
+  /usr/include/mongocxx/options/find_one_common_options.hpp \
+  /usr/include/mongocxx/options/gridfs/bucket.hpp \
+  /usr/include/mongocxx/options/gridfs/upload.hpp \
+  /usr/include/mongocxx/options/index.hpp \
+  /usr/include/mongocxx/options/index_view.hpp \
+  /usr/include/mongocxx/options/insert.hpp \
+  /usr/include/mongocxx/options/replace.hpp \
+  /usr/include/mongocxx/options/server_api.hpp \
+  /usr/include/mongocxx/options/tls.hpp \
+  /usr/include/mongocxx/options/transaction.hpp \
+  /usr/include/mongocxx/options/update.hpp \
+  /usr/include/mongocxx/pipeline.hpp \
+  /usr/include/mongocxx/read_concern.hpp \
+  /usr/include/mongocxx/read_preference.hpp \
+  /usr/include/mongocxx/result/bulk_write.hpp \
+  /usr/include/mongocxx/result/delete.hpp \
+  /usr/include/mongocxx/result/gridfs/upload.hpp \
+  /usr/include/mongocxx/result/insert_many.hpp \
+  /usr/include/mongocxx/result/insert_one.hpp \
+  /usr/include/mongocxx/result/replace_one.hpp \
+  /usr/include/mongocxx/result/update.hpp \
+  /usr/include/mongocxx/stdx.hpp \
+  /usr/include/mongocxx/uri.hpp \
+  /usr/include/mongocxx/validation_criteria.hpp \
+  /usr/include/mongocxx/write_concern.hpp \
+  /usr/include/mongocxx/write_type.hpp \
   /usr/include/openssl/asn1.h \
   /usr/include/openssl/asn1err.h \
   /usr/include/openssl/bio.h \
@@ -315,31 +607,96 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/openssl/stack.h \
   /usr/include/openssl/symhacks.h \
   /usr/include/openssl/types.h \
+  /usr/include/pqxx/array.hxx \
+  /usr/include/pqxx/binarystring.hxx \
+  /usr/include/pqxx/blob.hxx \
+  /usr/include/pqxx/composite.hxx \
+  /usr/include/pqxx/config-public-compiler.h \
+  /usr/include/pqxx/connection.hxx \
+  /usr/include/pqxx/cursor.hxx \
+  /usr/include/pqxx/dbtransaction.hxx \
+  /usr/include/pqxx/errorhandler.hxx \
+  /usr/include/pqxx/except.hxx \
+  /usr/include/pqxx/field.hxx \
+  /usr/include/pqxx/internal/array-composite.hxx \
+  /usr/include/pqxx/internal/callgate.hxx \
+  /usr/include/pqxx/internal/concat.hxx \
+  /usr/include/pqxx/internal/conversions.hxx \
+  /usr/include/pqxx/internal/cxx-features.hxx \
+  /usr/include/pqxx/internal/encoding_group.hxx \
+  /usr/include/pqxx/internal/encodings.hxx \
+  /usr/include/pqxx/internal/gates/connection-stream_from.hxx \
+  /usr/include/pqxx/internal/header-post.hxx \
+  /usr/include/pqxx/internal/header-pre.hxx \
+  /usr/include/pqxx/internal/ignore-deprecated-post.hxx \
+  /usr/include/pqxx/internal/ignore-deprecated-pre.hxx \
+  /usr/include/pqxx/internal/libpq-forward.hxx \
+  /usr/include/pqxx/internal/result_iter.hxx \
+  /usr/include/pqxx/internal/result_iterator.hxx \
+  /usr/include/pqxx/internal/sql_cursor.hxx \
+  /usr/include/pqxx/internal/statement_parameters.hxx \
+  /usr/include/pqxx/internal/stream_iterator.hxx \
+  /usr/include/pqxx/internal/stream_query.hxx \
+  /usr/include/pqxx/internal/stream_query_impl.hxx \
+  /usr/include/pqxx/isolation.hxx \
+  /usr/include/pqxx/largeobject.hxx \
+  /usr/include/pqxx/nontransaction.hxx \
+  /usr/include/pqxx/notification.hxx \
+  /usr/include/pqxx/params.hxx \
+  /usr/include/pqxx/pipeline.hxx \
+  /usr/include/pqxx/pqxx \
+  /usr/include/pqxx/prepared_statement.hxx \
+  /usr/include/pqxx/range.hxx \
+  /usr/include/pqxx/result.hxx \
+  /usr/include/pqxx/robusttransaction.hxx \
+  /usr/include/pqxx/row.hxx \
+  /usr/include/pqxx/separated_list.hxx \
+  /usr/include/pqxx/strconv.hxx \
+  /usr/include/pqxx/stream_from.hxx \
+  /usr/include/pqxx/stream_to.hxx \
+  /usr/include/pqxx/subtransaction.hxx \
+  /usr/include/pqxx/time.hxx \
+  /usr/include/pqxx/transaction.hxx \
+  /usr/include/pqxx/transaction_base.hxx \
+  /usr/include/pqxx/transaction_focus.hxx \
+  /usr/include/pqxx/transactor.hxx \
+  /usr/include/pqxx/types.hxx \
+  /usr/include/pqxx/util.hxx \
+  /usr/include/pqxx/version.hxx \
+  /usr/include/pqxx/zview.hxx \
   /usr/include/pthread.h \
   /usr/include/sched.h \
   /usr/include/stdc-predef.h \
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/uuid/uuid.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -386,6 +743,7 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: src/main.cpp \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -979,6 +1337,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   src/types/uuid.hpp \
   src/repositories/IStudioRepository.hpp \
   src/data/IRepositoryFactory.hpp \
+  src/data/MongoDBRepositoryFactory.hpp \
   src/data/PostgreSQLRepositoryFactory.hpp \
   src/data/RepositoryFactoryCreator.hpp \
   src/dtos/AuthDTO.hpp \
@@ -1076,6 +1435,175 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
+  /usr/include/assert.h \
+  /usr/include/boost/assert.hpp \
+  /usr/include/boost/assert/source_location.hpp \
+  /usr/include/boost/config.hpp \
+  /usr/include/boost/config/compiler/gcc.hpp \
+  /usr/include/boost/config/detail/cxx_composite.hpp \
+  /usr/include/boost/config/detail/posix_features.hpp \
+  /usr/include/boost/config/detail/select_compiler_config.hpp \
+  /usr/include/boost/config/detail/select_platform_config.hpp \
+  /usr/include/boost/config/detail/select_stdlib_config.hpp \
+  /usr/include/boost/config/detail/suffix.hpp \
+  /usr/include/boost/config/helper_macros.hpp \
+  /usr/include/boost/config/platform/linux.hpp \
+  /usr/include/boost/config/pragma_message.hpp \
+  /usr/include/boost/config/stdlib/libstdcpp3.hpp \
+  /usr/include/boost/config/user.hpp \
+  /usr/include/boost/config/workaround.hpp \
+  /usr/include/boost/core/addressof.hpp \
+  /usr/include/boost/core/enable_if.hpp \
+  /usr/include/boost/core/explicit_operator_bool.hpp \
+  /usr/include/boost/core/swap.hpp \
+  /usr/include/boost/cstdint.hpp \
+  /usr/include/boost/current_function.hpp \
+  /usr/include/boost/detail/workaround.hpp \
+  /usr/include/boost/exception/exception.hpp \
+  /usr/include/boost/io/detail/buffer_fill.hpp \
+  /usr/include/boost/io/detail/ostream_guard.hpp \
+  /usr/include/boost/io/ostream_put.hpp \
+  /usr/include/boost/move/core.hpp \
+  /usr/include/boost/move/detail/addressof.hpp \
+  /usr/include/boost/move/detail/config_begin.hpp \
+  /usr/include/boost/move/detail/config_end.hpp \
+  /usr/include/boost/move/detail/meta_utils.hpp \
+  /usr/include/boost/move/detail/meta_utils_core.hpp \
+  /usr/include/boost/move/detail/type_traits.hpp \
+  /usr/include/boost/move/detail/workaround.hpp \
+  /usr/include/boost/move/traits.hpp \
+  /usr/include/boost/move/utility.hpp \
+  /usr/include/boost/move/utility_core.hpp \
+  /usr/include/boost/none.hpp \
+  /usr/include/boost/none_t.hpp \
+  /usr/include/boost/optional/bad_optional_access.hpp \
+  /usr/include/boost/optional/detail/optional_aligned_storage.hpp \
+  /usr/include/boost/optional/detail/optional_config.hpp \
+  /usr/include/boost/optional/detail/optional_factory_support.hpp \
+  /usr/include/boost/optional/detail/optional_hash.hpp \
+  /usr/include/boost/optional/detail/optional_reference_spec.hpp \
+  /usr/include/boost/optional/detail/optional_relops.hpp \
+  /usr/include/boost/optional/detail/optional_swap.hpp \
+  /usr/include/boost/optional/detail/optional_trivially_copyable_base.hpp \
+  /usr/include/boost/optional/optional.hpp \
+  /usr/include/boost/optional/optional_fwd.hpp \
+  /usr/include/boost/optional/optional_io.hpp \
+  /usr/include/boost/smart_ptr/detail/requires_cxx11.hpp \
+  /usr/include/boost/smart_ptr/make_unique.hpp \
+  /usr/include/boost/static_assert.hpp \
+  /usr/include/boost/throw_exception.hpp \
+  /usr/include/boost/type.hpp \
+  /usr/include/boost/type_traits/add_lvalue_reference.hpp \
+  /usr/include/boost/type_traits/add_pointer.hpp \
+  /usr/include/boost/type_traits/add_reference.hpp \
+  /usr/include/boost/type_traits/add_rvalue_reference.hpp \
+  /usr/include/boost/type_traits/alignment_of.hpp \
+  /usr/include/boost/type_traits/conditional.hpp \
+  /usr/include/boost/type_traits/conjunction.hpp \
+  /usr/include/boost/type_traits/decay.hpp \
+  /usr/include/boost/type_traits/declval.hpp \
+  /usr/include/boost/type_traits/detail/config.hpp \
+  /usr/include/boost/type_traits/detail/is_function_cxx_11.hpp \
+  /usr/include/boost/type_traits/detail/is_member_function_pointer_cxx_11.hpp \
+  /usr/include/boost/type_traits/detail/yes_no_type.hpp \
+  /usr/include/boost/type_traits/disjunction.hpp \
+  /usr/include/boost/type_traits/enable_if.hpp \
+  /usr/include/boost/type_traits/has_nothrow_assign.hpp \
+  /usr/include/boost/type_traits/has_nothrow_constructor.hpp \
+  /usr/include/boost/type_traits/has_trivial_move_assign.hpp \
+  /usr/include/boost/type_traits/integral_constant.hpp \
+  /usr/include/boost/type_traits/intrinsics.hpp \
+  /usr/include/boost/type_traits/is_abstract.hpp \
+  /usr/include/boost/type_traits/is_arithmetic.hpp \
+  /usr/include/boost/type_traits/is_array.hpp \
+  /usr/include/boost/type_traits/is_assignable.hpp \
+  /usr/include/boost/type_traits/is_base_and_derived.hpp \
+  /usr/include/boost/type_traits/is_base_of.hpp \
+  /usr/include/boost/type_traits/is_class.hpp \
+  /usr/include/boost/type_traits/is_complete.hpp \
+  /usr/include/boost/type_traits/is_const.hpp \
+  /usr/include/boost/type_traits/is_constructible.hpp \
+  /usr/include/boost/type_traits/is_convertible.hpp \
+  /usr/include/boost/type_traits/is_default_constructible.hpp \
+  /usr/include/boost/type_traits/is_destructible.hpp \
+  /usr/include/boost/type_traits/is_enum.hpp \
+  /usr/include/boost/type_traits/is_floating_point.hpp \
+  /usr/include/boost/type_traits/is_function.hpp \
+  /usr/include/boost/type_traits/is_integral.hpp \
+  /usr/include/boost/type_traits/is_lvalue_reference.hpp \
+  /usr/include/boost/type_traits/is_member_function_pointer.hpp \
+  /usr/include/boost/type_traits/is_member_pointer.hpp \
+  /usr/include/boost/type_traits/is_nothrow_move_assignable.hpp \
+  /usr/include/boost/type_traits/is_nothrow_move_constructible.hpp \
+  /usr/include/boost/type_traits/is_pod.hpp \
+  /usr/include/boost/type_traits/is_pointer.hpp \
+  /usr/include/boost/type_traits/is_reference.hpp \
+  /usr/include/boost/type_traits/is_rvalue_reference.hpp \
+  /usr/include/boost/type_traits/is_same.hpp \
+  /usr/include/boost/type_traits/is_scalar.hpp \
+  /usr/include/boost/type_traits/is_unbounded_array.hpp \
+  /usr/include/boost/type_traits/is_void.hpp \
+  /usr/include/boost/type_traits/is_volatile.hpp \
+  /usr/include/boost/type_traits/remove_bounds.hpp \
+  /usr/include/boost/type_traits/remove_const.hpp \
+  /usr/include/boost/type_traits/remove_cv.hpp \
+  /usr/include/boost/type_traits/remove_extent.hpp \
+  /usr/include/boost/type_traits/remove_reference.hpp \
+  /usr/include/boost/type_traits/type_identity.hpp \
+  /usr/include/boost/type_traits/type_with_alignment.hpp \
+  /usr/include/boost/utility/compare_pointees.hpp \
+  /usr/include/boost/utility/detail/result_of_variadic.hpp \
+  /usr/include/boost/utility/result_of.hpp \
+  /usr/include/boost/utility/string_view.hpp \
+  /usr/include/boost/utility/string_view_fwd.hpp \
+  /usr/include/boost/version.hpp \
+  /usr/include/bsoncxx/array/element.hpp \
+  /usr/include/bsoncxx/array/value.hpp \
+  /usr/include/bsoncxx/array/view.hpp \
+  /usr/include/bsoncxx/array/view_or_value.hpp \
+  /usr/include/bsoncxx/builder/basic/array.hpp \
+  /usr/include/bsoncxx/builder/basic/document.hpp \
+  /usr/include/bsoncxx/builder/basic/helpers.hpp \
+  /usr/include/bsoncxx/builder/basic/impl.hpp \
+  /usr/include/bsoncxx/builder/basic/kvp.hpp \
+  /usr/include/bsoncxx/builder/basic/sub_array.hpp \
+  /usr/include/bsoncxx/builder/basic/sub_document.hpp \
+  /usr/include/bsoncxx/builder/concatenate.hpp \
+  /usr/include/bsoncxx/builder/core.hpp \
+  /usr/include/bsoncxx/builder/stream/array_context.hpp \
+  /usr/include/bsoncxx/builder/stream/closed_context.hpp \
+  /usr/include/bsoncxx/builder/stream/document.hpp \
+  /usr/include/bsoncxx/builder/stream/helpers.hpp \
+  /usr/include/bsoncxx/builder/stream/key_context.hpp \
+  /usr/include/bsoncxx/builder/stream/single_context.hpp \
+  /usr/include/bsoncxx/builder/stream/value_context.hpp \
+  /usr/include/bsoncxx/config/compiler.hpp \
+  /usr/include/bsoncxx/config/config.hpp \
+  /usr/include/bsoncxx/config/export.hpp \
+  /usr/include/bsoncxx/config/postlude.hpp \
+  /usr/include/bsoncxx/config/prelude.hpp \
+  /usr/include/bsoncxx/config/version.hpp \
+  /usr/include/bsoncxx/decimal128.hpp \
+  /usr/include/bsoncxx/document/element.hpp \
+  /usr/include/bsoncxx/document/value.hpp \
+  /usr/include/bsoncxx/document/view.hpp \
+  /usr/include/bsoncxx/document/view_or_value.hpp \
+  /usr/include/bsoncxx/enums/binary_sub_type.hpp \
+  /usr/include/bsoncxx/enums/type.hpp \
+  /usr/include/bsoncxx/json.hpp \
+  /usr/include/bsoncxx/oid.hpp \
+  /usr/include/bsoncxx/stdx/make_unique.hpp \
+  /usr/include/bsoncxx/stdx/optional.hpp \
+  /usr/include/bsoncxx/stdx/string_view.hpp \
+  /usr/include/bsoncxx/string/view_or_value.hpp \
+  /usr/include/bsoncxx/types.hpp \
+  /usr/include/bsoncxx/types/bson_value/value.hpp \
+  /usr/include/bsoncxx/types/bson_value/view.hpp \
+  /usr/include/bsoncxx/types/bson_value/view_or_value.hpp \
+  /usr/include/bsoncxx/util/functor.hpp \
+  /usr/include/bsoncxx/view_or_value.hpp \
+  /usr/include/c++/13/algorithm \
+  /usr/include/c++/13/array \
   /usr/include/c++/13/backward/auto_ptr.h \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
@@ -1155,6 +1683,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -1169,16 +1698,19 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/13/bits/stl_relops.h \
   /usr/include/c++/13/bits/stl_stack.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
   /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
+  /usr/include/c++/13/bits/stream_iterator.h \
   /usr/include/c++/13/bits/streambuf.tcc \
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
+  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -1186,14 +1718,17 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/c++/13/bits/utility.h \
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/bitset \
+  /usr/include/c++/13/cassert \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/chrono \
   /usr/include/c++/13/clocale \
+  /usr/include/c++/13/compare \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
+  /usr/include/c++/13/cstring \
   /usr/include/c++/13/ctime \
   /usr/include/c++/13/cwchar \
   /usr/include/c++/13/cwctype \
@@ -1209,20 +1744,24 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/fstream \
+  /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
   /usr/include/c++/13/ios \
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
+  /usr/include/c++/13/iterator \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
+  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
+  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/ratio \
@@ -1239,7 +1778,9 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
   /usr/include/c++/13/unordered_map \
+  /usr/include/c++/13/utility \
   /usr/include/c++/13/vector \
+  /usr/include/c++/13/version \
   /usr/include/ctype.h \
   /usr/include/endian.h \
   /usr/include/errno.h \
@@ -1247,9 +1788,94 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/features.h \
   /usr/include/libintl.h \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/mongocxx/bulk_write.hpp \
+  /usr/include/mongocxx/change_stream.hpp \
+  /usr/include/mongocxx/client.hpp \
+  /usr/include/mongocxx/client_session.hpp \
+  /usr/include/mongocxx/collection.hpp \
+  /usr/include/mongocxx/config/compiler.hpp \
+  /usr/include/mongocxx/config/config.hpp \
+  /usr/include/mongocxx/config/export.hpp \
+  /usr/include/mongocxx/config/postlude.hpp \
+  /usr/include/mongocxx/config/prelude.hpp \
+  /usr/include/mongocxx/config/version.hpp \
+  /usr/include/mongocxx/cursor.hpp \
+  /usr/include/mongocxx/database.hpp \
+  /usr/include/mongocxx/events/command_failed_event.hpp \
+  /usr/include/mongocxx/events/command_started_event.hpp \
+  /usr/include/mongocxx/events/command_succeeded_event.hpp \
+  /usr/include/mongocxx/events/heartbeat_failed_event.hpp \
+  /usr/include/mongocxx/events/heartbeat_started_event.hpp \
+  /usr/include/mongocxx/events/heartbeat_succeeded_event.hpp \
+  /usr/include/mongocxx/events/server_changed_event.hpp \
+  /usr/include/mongocxx/events/server_closed_event.hpp \
+  /usr/include/mongocxx/events/server_description.hpp \
+  /usr/include/mongocxx/events/server_opening_event.hpp \
+  /usr/include/mongocxx/events/topology_changed_event.hpp \
+  /usr/include/mongocxx/events/topology_closed_event.hpp \
+  /usr/include/mongocxx/events/topology_description.hpp \
+  /usr/include/mongocxx/events/topology_opening_event.hpp \
+  /usr/include/mongocxx/gridfs/bucket.hpp \
+  /usr/include/mongocxx/gridfs/downloader.hpp \
+  /usr/include/mongocxx/gridfs/uploader.hpp \
+  /usr/include/mongocxx/hint.hpp \
+  /usr/include/mongocxx/index_model.hpp \
+  /usr/include/mongocxx/index_view.hpp \
+  /usr/include/mongocxx/instance.hpp \
+  /usr/include/mongocxx/model/delete_many.hpp \
+  /usr/include/mongocxx/model/delete_one.hpp \
+  /usr/include/mongocxx/model/insert_one.hpp \
+  /usr/include/mongocxx/model/replace_one.hpp \
+  /usr/include/mongocxx/model/update_many.hpp \
+  /usr/include/mongocxx/model/update_one.hpp \
+  /usr/include/mongocxx/model/write.hpp \
+  /usr/include/mongocxx/options/aggregate.hpp \
+  /usr/include/mongocxx/options/apm.hpp \
+  /usr/include/mongocxx/options/auto_encryption.hpp \
+  /usr/include/mongocxx/options/bulk_write.hpp \
+  /usr/include/mongocxx/options/change_stream.hpp \
+  /usr/include/mongocxx/options/client.hpp \
+  /usr/include/mongocxx/options/client_encryption.hpp \
+  /usr/include/mongocxx/options/client_session.hpp \
+  /usr/include/mongocxx/options/count.hpp \
+  /usr/include/mongocxx/options/create_collection.hpp \
+  /usr/include/mongocxx/options/delete.hpp \
+  /usr/include/mongocxx/options/distinct.hpp \
+  /usr/include/mongocxx/options/estimated_document_count.hpp \
+  /usr/include/mongocxx/options/find.hpp \
+  /usr/include/mongocxx/options/find_one_and_delete.hpp \
+  /usr/include/mongocxx/options/find_one_and_replace.hpp \
+  /usr/include/mongocxx/options/find_one_and_update.hpp \
+  /usr/include/mongocxx/options/find_one_common_options.hpp \
+  /usr/include/mongocxx/options/gridfs/bucket.hpp \
+  /usr/include/mongocxx/options/gridfs/upload.hpp \
+  /usr/include/mongocxx/options/index.hpp \
+  /usr/include/mongocxx/options/index_view.hpp \
+  /usr/include/mongocxx/options/insert.hpp \
+  /usr/include/mongocxx/options/replace.hpp \
+  /usr/include/mongocxx/options/server_api.hpp \
+  /usr/include/mongocxx/options/tls.hpp \
+  /usr/include/mongocxx/options/transaction.hpp \
+  /usr/include/mongocxx/options/update.hpp \
+  /usr/include/mongocxx/pipeline.hpp \
+  /usr/include/mongocxx/read_concern.hpp \
+  /usr/include/mongocxx/read_preference.hpp \
+  /usr/include/mongocxx/result/bulk_write.hpp \
+  /usr/include/mongocxx/result/delete.hpp \
+  /usr/include/mongocxx/result/gridfs/upload.hpp \
+  /usr/include/mongocxx/result/insert_many.hpp \
+  /usr/include/mongocxx/result/insert_one.hpp \
+  /usr/include/mongocxx/result/replace_one.hpp \
+  /usr/include/mongocxx/result/update.hpp \
+  /usr/include/mongocxx/stdx.hpp \
+  /usr/include/mongocxx/uri.hpp \
+  /usr/include/mongocxx/validation_criteria.hpp \
+  /usr/include/mongocxx/write_concern.hpp \
+  /usr/include/mongocxx/write_type.hpp \
   /usr/include/openssl/asn1.h \
   /usr/include/openssl/asn1err.h \
   /usr/include/openssl/bio.h \
@@ -1282,25 +1908,33 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/uuid/uuid.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -1347,6 +1981,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUI.cpp.o: src/tech_ui/TechUI.cpp \
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -1390,6 +2025,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   src/types/uuid.hpp \
   src/repositories/IStudioRepository.hpp \
   src/data/IRepositoryFactory.hpp \
+  src/data/MongoDBRepositoryFactory.hpp \
   src/data/PostgreSQLRepositoryFactory.hpp \
   src/data/RepositoryFactoryCreator.hpp \
   src/core/PasswordHasher.hpp \
@@ -1471,6 +2107,175 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/alloca.h \
   /usr/include/asm-generic/errno-base.h \
   /usr/include/asm-generic/errno.h \
+  /usr/include/assert.h \
+  /usr/include/boost/assert.hpp \
+  /usr/include/boost/assert/source_location.hpp \
+  /usr/include/boost/config.hpp \
+  /usr/include/boost/config/compiler/gcc.hpp \
+  /usr/include/boost/config/detail/cxx_composite.hpp \
+  /usr/include/boost/config/detail/posix_features.hpp \
+  /usr/include/boost/config/detail/select_compiler_config.hpp \
+  /usr/include/boost/config/detail/select_platform_config.hpp \
+  /usr/include/boost/config/detail/select_stdlib_config.hpp \
+  /usr/include/boost/config/detail/suffix.hpp \
+  /usr/include/boost/config/helper_macros.hpp \
+  /usr/include/boost/config/platform/linux.hpp \
+  /usr/include/boost/config/pragma_message.hpp \
+  /usr/include/boost/config/stdlib/libstdcpp3.hpp \
+  /usr/include/boost/config/user.hpp \
+  /usr/include/boost/config/workaround.hpp \
+  /usr/include/boost/core/addressof.hpp \
+  /usr/include/boost/core/enable_if.hpp \
+  /usr/include/boost/core/explicit_operator_bool.hpp \
+  /usr/include/boost/core/swap.hpp \
+  /usr/include/boost/cstdint.hpp \
+  /usr/include/boost/current_function.hpp \
+  /usr/include/boost/detail/workaround.hpp \
+  /usr/include/boost/exception/exception.hpp \
+  /usr/include/boost/io/detail/buffer_fill.hpp \
+  /usr/include/boost/io/detail/ostream_guard.hpp \
+  /usr/include/boost/io/ostream_put.hpp \
+  /usr/include/boost/move/core.hpp \
+  /usr/include/boost/move/detail/addressof.hpp \
+  /usr/include/boost/move/detail/config_begin.hpp \
+  /usr/include/boost/move/detail/config_end.hpp \
+  /usr/include/boost/move/detail/meta_utils.hpp \
+  /usr/include/boost/move/detail/meta_utils_core.hpp \
+  /usr/include/boost/move/detail/type_traits.hpp \
+  /usr/include/boost/move/detail/workaround.hpp \
+  /usr/include/boost/move/traits.hpp \
+  /usr/include/boost/move/utility.hpp \
+  /usr/include/boost/move/utility_core.hpp \
+  /usr/include/boost/none.hpp \
+  /usr/include/boost/none_t.hpp \
+  /usr/include/boost/optional/bad_optional_access.hpp \
+  /usr/include/boost/optional/detail/optional_aligned_storage.hpp \
+  /usr/include/boost/optional/detail/optional_config.hpp \
+  /usr/include/boost/optional/detail/optional_factory_support.hpp \
+  /usr/include/boost/optional/detail/optional_hash.hpp \
+  /usr/include/boost/optional/detail/optional_reference_spec.hpp \
+  /usr/include/boost/optional/detail/optional_relops.hpp \
+  /usr/include/boost/optional/detail/optional_swap.hpp \
+  /usr/include/boost/optional/detail/optional_trivially_copyable_base.hpp \
+  /usr/include/boost/optional/optional.hpp \
+  /usr/include/boost/optional/optional_fwd.hpp \
+  /usr/include/boost/optional/optional_io.hpp \
+  /usr/include/boost/smart_ptr/detail/requires_cxx11.hpp \
+  /usr/include/boost/smart_ptr/make_unique.hpp \
+  /usr/include/boost/static_assert.hpp \
+  /usr/include/boost/throw_exception.hpp \
+  /usr/include/boost/type.hpp \
+  /usr/include/boost/type_traits/add_lvalue_reference.hpp \
+  /usr/include/boost/type_traits/add_pointer.hpp \
+  /usr/include/boost/type_traits/add_reference.hpp \
+  /usr/include/boost/type_traits/add_rvalue_reference.hpp \
+  /usr/include/boost/type_traits/alignment_of.hpp \
+  /usr/include/boost/type_traits/conditional.hpp \
+  /usr/include/boost/type_traits/conjunction.hpp \
+  /usr/include/boost/type_traits/decay.hpp \
+  /usr/include/boost/type_traits/declval.hpp \
+  /usr/include/boost/type_traits/detail/config.hpp \
+  /usr/include/boost/type_traits/detail/is_function_cxx_11.hpp \
+  /usr/include/boost/type_traits/detail/is_member_function_pointer_cxx_11.hpp \
+  /usr/include/boost/type_traits/detail/yes_no_type.hpp \
+  /usr/include/boost/type_traits/disjunction.hpp \
+  /usr/include/boost/type_traits/enable_if.hpp \
+  /usr/include/boost/type_traits/has_nothrow_assign.hpp \
+  /usr/include/boost/type_traits/has_nothrow_constructor.hpp \
+  /usr/include/boost/type_traits/has_trivial_move_assign.hpp \
+  /usr/include/boost/type_traits/integral_constant.hpp \
+  /usr/include/boost/type_traits/intrinsics.hpp \
+  /usr/include/boost/type_traits/is_abstract.hpp \
+  /usr/include/boost/type_traits/is_arithmetic.hpp \
+  /usr/include/boost/type_traits/is_array.hpp \
+  /usr/include/boost/type_traits/is_assignable.hpp \
+  /usr/include/boost/type_traits/is_base_and_derived.hpp \
+  /usr/include/boost/type_traits/is_base_of.hpp \
+  /usr/include/boost/type_traits/is_class.hpp \
+  /usr/include/boost/type_traits/is_complete.hpp \
+  /usr/include/boost/type_traits/is_const.hpp \
+  /usr/include/boost/type_traits/is_constructible.hpp \
+  /usr/include/boost/type_traits/is_convertible.hpp \
+  /usr/include/boost/type_traits/is_default_constructible.hpp \
+  /usr/include/boost/type_traits/is_destructible.hpp \
+  /usr/include/boost/type_traits/is_enum.hpp \
+  /usr/include/boost/type_traits/is_floating_point.hpp \
+  /usr/include/boost/type_traits/is_function.hpp \
+  /usr/include/boost/type_traits/is_integral.hpp \
+  /usr/include/boost/type_traits/is_lvalue_reference.hpp \
+  /usr/include/boost/type_traits/is_member_function_pointer.hpp \
+  /usr/include/boost/type_traits/is_member_pointer.hpp \
+  /usr/include/boost/type_traits/is_nothrow_move_assignable.hpp \
+  /usr/include/boost/type_traits/is_nothrow_move_constructible.hpp \
+  /usr/include/boost/type_traits/is_pod.hpp \
+  /usr/include/boost/type_traits/is_pointer.hpp \
+  /usr/include/boost/type_traits/is_reference.hpp \
+  /usr/include/boost/type_traits/is_rvalue_reference.hpp \
+  /usr/include/boost/type_traits/is_same.hpp \
+  /usr/include/boost/type_traits/is_scalar.hpp \
+  /usr/include/boost/type_traits/is_unbounded_array.hpp \
+  /usr/include/boost/type_traits/is_void.hpp \
+  /usr/include/boost/type_traits/is_volatile.hpp \
+  /usr/include/boost/type_traits/remove_bounds.hpp \
+  /usr/include/boost/type_traits/remove_const.hpp \
+  /usr/include/boost/type_traits/remove_cv.hpp \
+  /usr/include/boost/type_traits/remove_extent.hpp \
+  /usr/include/boost/type_traits/remove_reference.hpp \
+  /usr/include/boost/type_traits/type_identity.hpp \
+  /usr/include/boost/type_traits/type_with_alignment.hpp \
+  /usr/include/boost/utility/compare_pointees.hpp \
+  /usr/include/boost/utility/detail/result_of_variadic.hpp \
+  /usr/include/boost/utility/result_of.hpp \
+  /usr/include/boost/utility/string_view.hpp \
+  /usr/include/boost/utility/string_view_fwd.hpp \
+  /usr/include/boost/version.hpp \
+  /usr/include/bsoncxx/array/element.hpp \
+  /usr/include/bsoncxx/array/value.hpp \
+  /usr/include/bsoncxx/array/view.hpp \
+  /usr/include/bsoncxx/array/view_or_value.hpp \
+  /usr/include/bsoncxx/builder/basic/array.hpp \
+  /usr/include/bsoncxx/builder/basic/document.hpp \
+  /usr/include/bsoncxx/builder/basic/helpers.hpp \
+  /usr/include/bsoncxx/builder/basic/impl.hpp \
+  /usr/include/bsoncxx/builder/basic/kvp.hpp \
+  /usr/include/bsoncxx/builder/basic/sub_array.hpp \
+  /usr/include/bsoncxx/builder/basic/sub_document.hpp \
+  /usr/include/bsoncxx/builder/concatenate.hpp \
+  /usr/include/bsoncxx/builder/core.hpp \
+  /usr/include/bsoncxx/builder/stream/array_context.hpp \
+  /usr/include/bsoncxx/builder/stream/closed_context.hpp \
+  /usr/include/bsoncxx/builder/stream/document.hpp \
+  /usr/include/bsoncxx/builder/stream/helpers.hpp \
+  /usr/include/bsoncxx/builder/stream/key_context.hpp \
+  /usr/include/bsoncxx/builder/stream/single_context.hpp \
+  /usr/include/bsoncxx/builder/stream/value_context.hpp \
+  /usr/include/bsoncxx/config/compiler.hpp \
+  /usr/include/bsoncxx/config/config.hpp \
+  /usr/include/bsoncxx/config/export.hpp \
+  /usr/include/bsoncxx/config/postlude.hpp \
+  /usr/include/bsoncxx/config/prelude.hpp \
+  /usr/include/bsoncxx/config/version.hpp \
+  /usr/include/bsoncxx/decimal128.hpp \
+  /usr/include/bsoncxx/document/element.hpp \
+  /usr/include/bsoncxx/document/value.hpp \
+  /usr/include/bsoncxx/document/view.hpp \
+  /usr/include/bsoncxx/document/view_or_value.hpp \
+  /usr/include/bsoncxx/enums/binary_sub_type.hpp \
+  /usr/include/bsoncxx/enums/type.hpp \
+  /usr/include/bsoncxx/json.hpp \
+  /usr/include/bsoncxx/oid.hpp \
+  /usr/include/bsoncxx/stdx/make_unique.hpp \
+  /usr/include/bsoncxx/stdx/optional.hpp \
+  /usr/include/bsoncxx/stdx/string_view.hpp \
+  /usr/include/bsoncxx/string/view_or_value.hpp \
+  /usr/include/bsoncxx/types.hpp \
+  /usr/include/bsoncxx/types/bson_value/value.hpp \
+  /usr/include/bsoncxx/types/bson_value/view.hpp \
+  /usr/include/bsoncxx/types/bson_value/view_or_value.hpp \
+  /usr/include/bsoncxx/util/functor.hpp \
+  /usr/include/bsoncxx/view_or_value.hpp \
+  /usr/include/c++/13/algorithm \
+  /usr/include/c++/13/array \
   /usr/include/c++/13/backward/auto_ptr.h \
   /usr/include/c++/13/backward/binders.h \
   /usr/include/c++/13/bit \
@@ -1550,6 +2355,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/c++/13/bits/sstream.tcc \
   /usr/include/c++/13/bits/std_abs.h \
   /usr/include/c++/13/bits/std_function.h \
+  /usr/include/c++/13/bits/std_mutex.h \
   /usr/include/c++/13/bits/stl_algo.h \
   /usr/include/c++/13/bits/stl_algobase.h \
   /usr/include/c++/13/bits/stl_bvector.h \
@@ -1564,16 +2370,19 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/c++/13/bits/stl_multimap.h \
   /usr/include/c++/13/bits/stl_pair.h \
   /usr/include/c++/13/bits/stl_raw_storage_iter.h \
+  /usr/include/c++/13/bits/stl_relops.h \
   /usr/include/c++/13/bits/stl_stack.h \
   /usr/include/c++/13/bits/stl_tempbuf.h \
   /usr/include/c++/13/bits/stl_tree.h \
   /usr/include/c++/13/bits/stl_uninitialized.h \
   /usr/include/c++/13/bits/stl_vector.h \
+  /usr/include/c++/13/bits/stream_iterator.h \
   /usr/include/c++/13/bits/streambuf.tcc \
   /usr/include/c++/13/bits/streambuf_iterator.h \
   /usr/include/c++/13/bits/string_view.tcc \
   /usr/include/c++/13/bits/stringfwd.h \
   /usr/include/c++/13/bits/uniform_int_dist.h \
+  /usr/include/c++/13/bits/unique_lock.h \
   /usr/include/c++/13/bits/unique_ptr.h \
   /usr/include/c++/13/bits/unordered_map.h \
   /usr/include/c++/13/bits/uses_allocator.h \
@@ -1581,14 +2390,17 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/c++/13/bits/utility.h \
   /usr/include/c++/13/bits/vector.tcc \
   /usr/include/c++/13/bitset \
+  /usr/include/c++/13/cassert \
   /usr/include/c++/13/cctype \
   /usr/include/c++/13/cerrno \
   /usr/include/c++/13/chrono \
   /usr/include/c++/13/clocale \
+  /usr/include/c++/13/compare \
   /usr/include/c++/13/cstddef \
   /usr/include/c++/13/cstdint \
   /usr/include/c++/13/cstdio \
   /usr/include/c++/13/cstdlib \
+  /usr/include/c++/13/cstring \
   /usr/include/c++/13/ctime \
   /usr/include/c++/13/cwchar \
   /usr/include/c++/13/cwctype \
@@ -1604,20 +2416,24 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/c++/13/ext/string_conversions.h \
   /usr/include/c++/13/ext/type_traits.h \
   /usr/include/c++/13/fstream \
+  /usr/include/c++/13/functional \
   /usr/include/c++/13/initializer_list \
   /usr/include/c++/13/iomanip \
   /usr/include/c++/13/ios \
   /usr/include/c++/13/iosfwd \
   /usr/include/c++/13/iostream \
   /usr/include/c++/13/istream \
+  /usr/include/c++/13/iterator \
   /usr/include/c++/13/limits \
   /usr/include/c++/13/locale \
   /usr/include/c++/13/map \
   /usr/include/c++/13/memory \
+  /usr/include/c++/13/mutex \
   /usr/include/c++/13/new \
   /usr/include/c++/13/optional \
   /usr/include/c++/13/ostream \
   /usr/include/c++/13/pstl/execution_defs.h \
+  /usr/include/c++/13/pstl/glue_algorithm_defs.h \
   /usr/include/c++/13/pstl/glue_memory_defs.h \
   /usr/include/c++/13/pstl/pstl_config.h \
   /usr/include/c++/13/ratio \
@@ -1634,7 +2450,9 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/c++/13/type_traits \
   /usr/include/c++/13/typeinfo \
   /usr/include/c++/13/unordered_map \
+  /usr/include/c++/13/utility \
   /usr/include/c++/13/vector \
+  /usr/include/c++/13/version \
   /usr/include/ctype.h \
   /usr/include/endian.h \
   /usr/include/errno.h \
@@ -1642,9 +2460,94 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/features.h \
   /usr/include/libintl.h \
   /usr/include/limits.h \
+  /usr/include/linux/close_range.h \
   /usr/include/linux/errno.h \
   /usr/include/linux/limits.h \
   /usr/include/locale.h \
+  /usr/include/mongocxx/bulk_write.hpp \
+  /usr/include/mongocxx/change_stream.hpp \
+  /usr/include/mongocxx/client.hpp \
+  /usr/include/mongocxx/client_session.hpp \
+  /usr/include/mongocxx/collection.hpp \
+  /usr/include/mongocxx/config/compiler.hpp \
+  /usr/include/mongocxx/config/config.hpp \
+  /usr/include/mongocxx/config/export.hpp \
+  /usr/include/mongocxx/config/postlude.hpp \
+  /usr/include/mongocxx/config/prelude.hpp \
+  /usr/include/mongocxx/config/version.hpp \
+  /usr/include/mongocxx/cursor.hpp \
+  /usr/include/mongocxx/database.hpp \
+  /usr/include/mongocxx/events/command_failed_event.hpp \
+  /usr/include/mongocxx/events/command_started_event.hpp \
+  /usr/include/mongocxx/events/command_succeeded_event.hpp \
+  /usr/include/mongocxx/events/heartbeat_failed_event.hpp \
+  /usr/include/mongocxx/events/heartbeat_started_event.hpp \
+  /usr/include/mongocxx/events/heartbeat_succeeded_event.hpp \
+  /usr/include/mongocxx/events/server_changed_event.hpp \
+  /usr/include/mongocxx/events/server_closed_event.hpp \
+  /usr/include/mongocxx/events/server_description.hpp \
+  /usr/include/mongocxx/events/server_opening_event.hpp \
+  /usr/include/mongocxx/events/topology_changed_event.hpp \
+  /usr/include/mongocxx/events/topology_closed_event.hpp \
+  /usr/include/mongocxx/events/topology_description.hpp \
+  /usr/include/mongocxx/events/topology_opening_event.hpp \
+  /usr/include/mongocxx/gridfs/bucket.hpp \
+  /usr/include/mongocxx/gridfs/downloader.hpp \
+  /usr/include/mongocxx/gridfs/uploader.hpp \
+  /usr/include/mongocxx/hint.hpp \
+  /usr/include/mongocxx/index_model.hpp \
+  /usr/include/mongocxx/index_view.hpp \
+  /usr/include/mongocxx/instance.hpp \
+  /usr/include/mongocxx/model/delete_many.hpp \
+  /usr/include/mongocxx/model/delete_one.hpp \
+  /usr/include/mongocxx/model/insert_one.hpp \
+  /usr/include/mongocxx/model/replace_one.hpp \
+  /usr/include/mongocxx/model/update_many.hpp \
+  /usr/include/mongocxx/model/update_one.hpp \
+  /usr/include/mongocxx/model/write.hpp \
+  /usr/include/mongocxx/options/aggregate.hpp \
+  /usr/include/mongocxx/options/apm.hpp \
+  /usr/include/mongocxx/options/auto_encryption.hpp \
+  /usr/include/mongocxx/options/bulk_write.hpp \
+  /usr/include/mongocxx/options/change_stream.hpp \
+  /usr/include/mongocxx/options/client.hpp \
+  /usr/include/mongocxx/options/client_encryption.hpp \
+  /usr/include/mongocxx/options/client_session.hpp \
+  /usr/include/mongocxx/options/count.hpp \
+  /usr/include/mongocxx/options/create_collection.hpp \
+  /usr/include/mongocxx/options/delete.hpp \
+  /usr/include/mongocxx/options/distinct.hpp \
+  /usr/include/mongocxx/options/estimated_document_count.hpp \
+  /usr/include/mongocxx/options/find.hpp \
+  /usr/include/mongocxx/options/find_one_and_delete.hpp \
+  /usr/include/mongocxx/options/find_one_and_replace.hpp \
+  /usr/include/mongocxx/options/find_one_and_update.hpp \
+  /usr/include/mongocxx/options/find_one_common_options.hpp \
+  /usr/include/mongocxx/options/gridfs/bucket.hpp \
+  /usr/include/mongocxx/options/gridfs/upload.hpp \
+  /usr/include/mongocxx/options/index.hpp \
+  /usr/include/mongocxx/options/index_view.hpp \
+  /usr/include/mongocxx/options/insert.hpp \
+  /usr/include/mongocxx/options/replace.hpp \
+  /usr/include/mongocxx/options/server_api.hpp \
+  /usr/include/mongocxx/options/tls.hpp \
+  /usr/include/mongocxx/options/transaction.hpp \
+  /usr/include/mongocxx/options/update.hpp \
+  /usr/include/mongocxx/pipeline.hpp \
+  /usr/include/mongocxx/read_concern.hpp \
+  /usr/include/mongocxx/read_preference.hpp \
+  /usr/include/mongocxx/result/bulk_write.hpp \
+  /usr/include/mongocxx/result/delete.hpp \
+  /usr/include/mongocxx/result/gridfs/upload.hpp \
+  /usr/include/mongocxx/result/insert_many.hpp \
+  /usr/include/mongocxx/result/insert_one.hpp \
+  /usr/include/mongocxx/result/replace_one.hpp \
+  /usr/include/mongocxx/result/update.hpp \
+  /usr/include/mongocxx/stdx.hpp \
+  /usr/include/mongocxx/uri.hpp \
+  /usr/include/mongocxx/validation_criteria.hpp \
+  /usr/include/mongocxx/write_concern.hpp \
+  /usr/include/mongocxx/write_type.hpp \
   /usr/include/openssl/asn1.h \
   /usr/include/openssl/asn1err.h \
   /usr/include/openssl/bio.h \
@@ -1677,25 +2580,33 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/stdint.h \
   /usr/include/stdio.h \
   /usr/include/stdlib.h \
+  /usr/include/string.h \
+  /usr/include/strings.h \
   /usr/include/time.h \
+  /usr/include/unistd.h \
   /usr/include/uuid/uuid.h \
   /usr/include/wchar.h \
   /usr/include/wctype.h \
   /usr/include/x86_64-linux-gnu/asm/errno.h \
   /usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h \
   /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/confname.h \
   /usr/include/x86_64-linux-gnu/bits/cpu-set.h \
   /usr/include/x86_64-linux-gnu/bits/endian.h \
   /usr/include/x86_64-linux-gnu/bits/endianness.h \
+  /usr/include/x86_64-linux-gnu/bits/environments.h \
   /usr/include/x86_64-linux-gnu/bits/errno.h \
   /usr/include/x86_64-linux-gnu/bits/floatn-common.h \
   /usr/include/x86_64-linux-gnu/bits/floatn.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+  /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
   /usr/include/x86_64-linux-gnu/bits/libc-header-start.h \
   /usr/include/x86_64-linux-gnu/bits/local_lim.h \
   /usr/include/x86_64-linux-gnu/bits/locale.h \
   /usr/include/x86_64-linux-gnu/bits/long-double.h \
   /usr/include/x86_64-linux-gnu/bits/posix1_lim.h \
   /usr/include/x86_64-linux-gnu/bits/posix2_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
   /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h \
   /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h \
@@ -1742,6 +2653,7 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/include/x86_64-linux-gnu/bits/typesizes.h \
   /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
   /usr/include/x86_64-linux-gnu/bits/uio_lim.h \
+  /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
   /usr/include/x86_64-linux-gnu/bits/waitflags.h \
   /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
   /usr/include/x86_64-linux-gnu/bits/wchar.h \
@@ -1779,113 +2691,99 @@ CMakeFiles/TechUI.dir/src/tech_ui/TechUIManagers.cpp.o: src/tech_ui/TechUIManage
   /usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h
 
 
-src/services/BranchService.hpp:
-
 src/tech_ui/TechUI.cpp:
-
-src/tech_ui/StatisticsManager.cpp:
 
 src/tech_ui/InputHandlers.cpp:
 
+/usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h:
+
 /usr/lib/gcc/x86_64-linux-gnu/13/include/stdint.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
+/usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h:
 
 /usr/include/x86_64-linux-gnu/sys/types.h:
-
-/usr/include/x86_64-linux-gnu/sys/time.h:
 
 /usr/include/x86_64-linux-gnu/sys/single_threaded.h:
 
 /usr/include/x86_64-linux-gnu/sys/cdefs.h:
 
-/usr/include/x86_64-linux-gnu/openssl/opensslconf.h:
-
 /usr/include/x86_64-linux-gnu/openssl/configuration.h:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/time_members.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
+/usr/include/x86_64-linux-gnu/sys/select.h:
 
 /usr/include/x86_64-linux-gnu/c++/13/bits/messages_members.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
+/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
 
 /usr/include/x86_64-linux-gnu/bits/xopen_lim.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h:
-
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
-/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
-
-/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
+/usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
 /usr/include/x86_64-linux-gnu/bits/uintn-identity.h:
 
 /usr/include/x86_64-linux-gnu/bits/typesizes.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
+/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
+/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
+/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/clockid_t.h:
 
-/usr/lib/gcc/x86_64-linux-gnu/13/include/syslimits.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/clock_t.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/os_defines.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/time_t.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
-/usr/include/x86_64-linux-gnu/bits/time64.h:
+/usr/include/x86_64-linux-gnu/bits/timex.h:
+
+/usr/include/x86_64-linux-gnu/bits/timesize.h:
+
+/usr/include/x86_64-linux-gnu/bits/time.h:
 
 /usr/include/x86_64-linux-gnu/bits/struct_rwlock.h:
 
-/usr/include/x86_64-linux-gnu/bits/timex.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_timespec.h:
+/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:
 
 /usr/include/x86_64-linux-gnu/bits/stdint-least.h:
 
-/usr/include/x86_64-linux-gnu/bits/time.h:
-
-/usr/include/x86_64-linux-gnu/bits/select.h:
+/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
 
+/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+
+/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+
 /usr/include/x86_64-linux-gnu/bits/pthread_stack_min-dynamic.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
+
+/usr/include/x86_64-linux-gnu/bits/long-double.h:
 
 /usr/include/x86_64-linux-gnu/bits/posix1_lim.h:
 
@@ -1893,559 +2791,1081 @@ src/tech_ui/InputHandlers.cpp:
 
 /usr/include/x86_64-linux-gnu/bits/local_lim.h:
 
+src/tech_ui/TechUIManagers.cpp:
+
 /usr/include/x86_64-linux-gnu/bits/floatn.h:
+
+/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
 
 /usr/include/x86_64-linux-gnu/bits/cpu-set.h:
 
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
 
-/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
-
 /usr/include/x86_64-linux-gnu/asm/errno.h:
 
-/usr/include/x86_64-linux-gnu/bits/setjmp.h:
+/usr/include/wctype.h:
+
+/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+
+/usr/include/wchar.h:
 
 /usr/include/time.h:
 
+/usr/include/string.h:
+
 /usr/include/stdlib.h:
 
-/usr/include/wctype.h:
+/usr/include/stdio.h:
 
 /usr/include/sched.h:
 
 /usr/include/pthread.h:
 
-/usr/include/x86_64-linux-gnu/bits/wchar.h:
+/usr/include/pqxx/types.hxx:
 
-/usr/include/openssl/types.h:
+/usr/include/pqxx/transactor.hxx:
 
-/usr/include/openssl/safestack.h:
+/usr/include/pqxx/transaction_base.hxx:
 
-/usr/include/openssl/randerr.h:
+/usr/include/pqxx/transaction.hxx:
 
-/usr/include/openssl/params.h:
+/usr/include/pqxx/time.hxx:
 
-/usr/include/x86_64-linux-gnu/bits/stdlib-float.h:
+/usr/include/pqxx/subtransaction.hxx:
 
-/usr/include/openssl/opensslv.h:
+/usr/include/x86_64-linux-gnu/c++/13/bits/gthr-default.h:
 
-/usr/include/openssl/objectserr.h:
+/usr/include/x86_64-linux-gnu/bits/select.h:
 
-/usr/include/openssl/evperr.h:
+/usr/include/pqxx/stream_from.hxx:
 
-/usr/include/openssl/e_os2.h:
+/usr/include/pqxx/separated_list.hxx:
 
-/usr/include/openssl/cryptoerr_legacy.h:
+/usr/include/pqxx/range.hxx:
 
-/usr/include/openssl/crypto.h:
+/usr/include/pqxx/prepared_statement.hxx:
 
-/usr/include/x86_64-linux-gnu/bits/types/FILE.h:
+/usr/include/pqxx/pqxx:
 
-/usr/include/openssl/core_dispatch.h:
+/usr/include/pqxx/largeobject.hxx:
 
-/usr/include/c++/13/bits/atomic_base.h:
+/usr/include/pqxx/internal/stream_iterator.hxx:
 
-/usr/include/c++/13/bits/uses_allocator_args.h:
+/usr/include/pqxx/internal/sql_cursor.hxx:
 
-/usr/include/c++/13/bits/memoryfwd.h:
+/usr/include/pqxx/internal/result_iterator.hxx:
 
-/usr/include/c++/13/bits/fs_fwd.h:
+/usr/include/pqxx/internal/ignore-deprecated-pre.hxx:
 
-/usr/include/c++/13/bits/postypes.h:
-
-/usr/include/c++/13/bits/parse_numbers.h:
-
-/usr/include/c++/13/bits/std_abs.h:
-
-/usr/include/c++/13/bits/uses_allocator.h:
-
-/usr/include/c++/13/iomanip:
-
-/usr/include/c++/13/bits/locale_facets_nonio.tcc:
-
-src/repositories/IEnrollmentRepository.hpp:
-
-/usr/include/c++/13/bits/locale_facets.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/floatn-common.h:
-
-/usr/include/c++/13/bits/requires_hosted.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/error_t.h:
-
-/usr/include/c++/13/bits/hashtable.h:
-
-src/models/Client.hpp:
-
-/usr/include/c++/13/bits/functional_hash.h:
-
-/usr/include/c++/13/stack:
-
-/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
-
-/usr/include/c++/13/bits/node_handle.h:
-
-/usr/include/c++/13/bits/functexcept.h:
-
-/usr/include/c++/13/bits/fstream.tcc:
-
-/usr/include/c++/13/bits/fs_path.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__sigset_t.h:
-
-/usr/include/c++/13/bits/charconv.h:
-
-/usr/include/x86_64-linux-gnu/bits/endian.h:
-
-src/dtos/EnrollmentDTO.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/errno.h:
-
-/usr/include/c++/13/bits/stl_pair.h:
-
-/usr/include/c++/13/cstdio:
-
-/usr/include/c++/13/fstream:
-
-/usr/include/openssl/macros.h:
-
-/usr/include/c++/13/bits/fs_ops.h:
-
-/usr/include/x86_64-linux-gnu/bits/timesize.h:
-
-/usr/include/c++/13/bits/locale_classes.h:
-
-/usr/include/c++/13/bits/locale_facets_nonio.h:
-
-/usr/include/c++/13/bits/fs_dir.h:
-
-src/repositories/IBranchRepository.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
-
-/usr/include/c++/13/sstream:
-
-/usr/include/c++/13/bits/erase_if.h:
-
-src/tech_ui/TechUIManagers.hpp:
-
-/usr/include/c++/13/bits/shared_ptr_atomic.h:
-
-/usr/include/c++/13/bits/hashtable_policy.h:
-
-src/models/Subscription.hpp:
-
-/usr/include/c++/13/bits/exception.h:
-
-/usr/include/c++/13/bits/cxxabi_init_exception.h:
-
-src/repositories/IClientRepository.hpp:
-
-/usr/include/c++/13/bits/cxxabi_forced.h:
-
-src/services/AuthService.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/waitflags.h:
-
-src/services/SubscriptionService.hpp:
-
-/usr/include/c++/13/bits/basic_string.h:
-
-/usr/include/c++/13/bits/regex.tcc:
-
-/usr/include/libintl.h:
-
-/usr/include/c++/13/bits/basic_ios.tcc:
-
-/usr/include/c++/13/pstl/execution_defs.h:
-
-/usr/include/c++/13/bits/atomic_lockfree_defines.h:
-
-/usr/include/openssl/symhacks.h:
-
-/usr/include/c++/13/bits/concept_check.h:
-
-/usr/include/c++/13/bits/alloc_traits.h:
-
-/usr/include/c++/13/bits/stl_bvector.h:
-
-src/models/Review.hpp:
-
-/usr/include/c++/13/clocale:
-
-/usr/include/c++/13/iosfwd:
-
-/usr/include/c++/13/bits/align.h:
-
-/usr/include/c++/13/bits/move.h:
-
-src/models/Studio.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
-
-/usr/include/c++/13/bits/unique_ptr.h:
-
-/usr/include/openssl/obj_mac.h:
-
-/usr/include/c++/13/backward/binders.h:
-
-/usr/include/c++/13/bits/basic_string.tcc:
-
-/usr/include/openssl/stack.h:
-
-/usr/include/c++/13/bits/allocated_ptr.h:
-
-/usr/include/c++/13/bit:
-
-src/models/Lesson.hpp:
-
-/usr/include/alloca.h:
-
-/usr/include/c++/13/bits/ios_base.h:
-
-/usr/include/c++/13/bits/locale_facets.h:
-
-src/tech_ui/StatisticsManager.hpp:
-
-/usr/include/c++/13/bits/regex_constants.h:
-
-src/services/exceptions/ValidationException.hpp:
-
-src/services/ScheduleService.hpp:
-
-/usr/include/c++/13/bits/localefwd.h:
-
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h:
-
-/usr/include/c++/13/typeinfo:
-
-src/models/SubscriptionType.hpp:
-
-/usr/include/c++/13/ext/alloc_traits.h:
-
-/usr/include/c++/13/new:
-
-src/models/Branch.hpp:
-
-src/models/Enrollment.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/long-double.h:
-
-/usr/include/c++/13/bits/algorithmfwd.h:
-
-src/repositories/ISubscriptionTypeRepository.hpp:
-
-src/dtos/ScheduleDTO.hpp:
-
-/usr/include/c++/13/bits/hash_bytes.h:
-
-src/services/StatisticsService.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/endianness.h:
-
-/usr/include/c++/13/bits/chrono.h:
-
-/usr/include/c++/13/stdexcept:
-
-/usr/include/errno.h:
-
-src/dtos/ReviewDTO.hpp:
-
-src/core/Logger.hpp:
-
-/usr/include/c++/13/backward/auto_ptr.h:
-
-src/services/exceptions/ReviewException.hpp:
-
-/usr/include/c++/13/bits/range_access.h:
-
-/usr/include/c++/13/system_error:
-
-/usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h:
-
-src/repositories/IReviewRepository.hpp:
-
-src/models/Booking.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
-
-/usr/include/c++/13/bits/enable_special_members.h:
-
-src/models/Trainer.hpp:
-
-/usr/include/c++/13/bits/deque.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
-
-src/services/IBranchService.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/limits.h:
-
-src/repositories/IStudioRepository.hpp:
-
-/usr/include/wchar.h:
-
-/usr/include/c++/13/bits/shared_ptr_base.h:
-
-/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
-
-/usr/include/c++/13/bits/exception_defines.h:
-
-/usr/include/c++/13/bits/predefined_ops.h:
-
-src/main.cpp:
-
-/usr/include/c++/13/bits/exception_ptr.h:
-
-/usr/include/c++/13/bits/locale_conv.h:
-
-/usr/include/c++/13/bits/istream.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
-/usr/include/c++/13/bits/stl_multimap.h:
-
-src/data/RepositoryFactoryCreator.hpp:
-
-src/core/PasswordHasher.hpp:
-
-/usr/include/c++/13/bits/regex_automaton.h:
-
-/usr/include/c++/13/pstl/pstl_config.h:
-
-src/dtos/BookingDTO.hpp:
+/usr/include/pqxx/internal/ignore-deprecated-post.hxx:
 
 /usr/include/stdc-predef.h:
 
-src/models/Attendance.hpp:
+/usr/include/pqxx/internal/header-post.hxx:
 
-/usr/include/c++/13/bits/unique_lock.h:
+/usr/include/pqxx/internal/encoding_group.hxx:
+
+/usr/include/pqxx/internal/cxx-features.hxx:
+
+/usr/include/pqxx/internal/concat.hxx:
+
+/usr/include/pqxx/internal/callgate.hxx:
+
+/usr/include/pqxx/errorhandler.hxx:
+
+/usr/include/x86_64-linux-gnu/bits/sched.h:
+
+/usr/include/pqxx/cursor.hxx:
+
+/usr/include/pqxx/config-public-compiler.h:
+
+/usr/include/pqxx/composite.hxx:
+
+/usr/include/pqxx/binarystring.hxx:
+
+/usr/include/openssl/symhacks.h:
+
+/usr/include/pqxx/internal/libpq-forward.hxx:
+
+/usr/include/openssl/stack.h:
+
+/usr/include/openssl/safestack.h:
+
+/usr/include/x86_64-linux-gnu/bits/confname.h:
+
+/usr/include/openssl/rand.h:
+
+/usr/include/openssl/params.h:
+
+/usr/include/pqxx/internal/stream_query_impl.hxx:
+
+/usr/include/openssl/macros.h:
+
+/usr/include/stdint.h:
+
+/usr/include/openssl/evp.h:
+
+/usr/include/bsoncxx/view_or_value.hpp:
+
+/usr/include/boost/type_traits/is_member_function_pointer.hpp:
+
+/usr/include/c++/13/bits/alloc_traits.h:
+
+/usr/include/c++/13/bits/uses_allocator.h:
+
+/usr/include/mongocxx/client.hpp:
+
+/usr/include/bsoncxx/string/view_or_value.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct___jmp_buf_tag.h:
+
+/usr/include/mongocxx/model/replace_one.hpp:
+
+/usr/include/bsoncxx/stdx/optional.hpp:
+
+src/data/RepositoryFactoryCreator.hpp:
+
+/usr/include/bsoncxx/json.hpp:
+
+/usr/include/pqxx/strconv.hxx:
+
+/usr/include/c++/13/bits/cxxabi_init_exception.h:
+
+src/repositories/IBookingRepository.hpp:
+
+/usr/include/bsoncxx/config/version.hpp:
+
+src/tech_ui/TechUIManagers.hpp:
+
+/usr/include/mongocxx/config/prelude.hpp:
+
+/usr/include/bsoncxx/builder/stream/value_context.hpp:
+
+/usr/include/bsoncxx/builder/stream/helpers.hpp:
+
+/usr/include/bsoncxx/builder/stream/document.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/wctype-wchar.h:
+
+/usr/include/c++/13/charconv:
+
+/usr/include/bsoncxx/types/bson_value/view.hpp:
+
+/usr/include/bsoncxx/builder/concatenate.hpp:
+
+/usr/include/c++/13/bits/atomic_base.h:
+
+/usr/include/bsoncxx/config/prelude.hpp:
+
+/usr/include/c++/13/variant:
+
+/usr/include/bsoncxx/builder/basic/helpers.hpp:
+
+/usr/include/bsoncxx/array/view_or_value.hpp:
+
+/usr/include/boost/optional/optional_fwd.hpp:
+
+/usr/include/c++/13/ext/alloc_traits.h:
+
+/usr/include/c++/13/list:
+
+/usr/include/openssl/types.h:
+
+/usr/include/bsoncxx/stdx/make_unique.hpp:
+
+/usr/include/bsoncxx/array/view.hpp:
 
 /usr/include/c++/13/mutex:
 
-/usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
+/usr/include/boost/version.hpp:
 
-src/repositories/IAttendanceRepository.hpp:
+/usr/include/boost/io/detail/buffer_fill.hpp:
 
-/usr/include/c++/13/bits/cpp_type_traits.h:
+src/services/BranchService.hpp:
 
-/usr/include/c++/13/bits/ostream_insert.h:
+/usr/include/c++/13/bits/basic_ios.tcc:
 
-src/dtos/AuthDTO.hpp:
+/usr/include/mongocxx/result/insert_one.hpp:
 
-src/services/exceptions/EnrollmentException.hpp:
+/usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
-src/dtos/LessonDTO.hpp:
+/usr/include/c++/13/bits/basic_string.tcc:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
+/usr/include/boost/type_traits/is_default_constructible.hpp:
 
-src/data/PostgreSQLRepositoryFactory.hpp:
+/usr/include/boost/utility/compare_pointees.hpp:
 
-/usr/include/asm-generic/errno.h:
+/usr/include/boost/utility/detail/result_of_variadic.hpp:
+
+/usr/include/boost/type_traits/has_nothrow_constructor.hpp:
+
+/usr/include/boost/type_traits/type_identity.hpp:
+
+src/services/AttendanceService.hpp:
+
+/usr/include/mongocxx/read_preference.hpp:
+
+/usr/include/boost/type_traits/remove_bounds.hpp:
+
+/usr/include/pqxx/notification.hxx:
 
 /usr/include/asm-generic/errno-base.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_funcs.h:
 
-/usr/include/x86_64-linux-gnu/bits/struct_mutex.h:
-
-src/services/EnrollmentService.hpp:
-
-/usr/include/c++/13/debug/assertions.h:
-
-/usr/include/x86_64-linux-gnu/bits/stdint-intn.h:
-
-/usr/include/c++/13/string:
-
-src/repositories/IBookingRepository.hpp:
-
-src/services/BookingService.hpp:
-
-/usr/include/openssl/evp.h:
-
-/usr/include/c++/13/bits/ostream.tcc:
-
-src/services/exceptions/BookingException.hpp:
-
-/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
-
-src/services/TimeZoneService.hpp:
-
-/usr/include/openssl/bnerr.h:
-
-/usr/include/x86_64-linux-gnu/bits/sched.h:
-
-src/repositories/IDanceHallRepository.hpp:
-
-src/services/exceptions/AuthException.hpp:
-
-src/services/LessonService.hpp:
-
-/usr/include/openssl/asn1err.h:
-
-src/services/IAttendanceService.hpp:
-
-/usr/include/ctype.h:
-
-/usr/include/c++/13/streambuf:
-
-/usr/include/c++/13/bits/memory_resource.h:
-
-src/models/TimeSlot.hpp:
-
-/usr/include/c++/13/bits/invoke.h:
-
-src/repositories/ITrainerRepository.hpp:
-
-src/types/uuid.hpp:
-
-src/repositories/ILessonRepository.hpp:
-
-src/services/ReviewService.hpp:
-
-/usr/include/c++/13/filesystem:
-
-src/data/DateTimeUtils.hpp:
-
-src/models/DanceHall.hpp:
-
-src/repositories/ISubscriptionRepository.hpp:
-
-src/types/enums.hpp:
-
-/usr/include/c++/13/bits/ptr_traits.h:
-
-/usr/include/c++/13/bits/quoted_string.h:
-
-/usr/include/c++/13/bits/unordered_map.h:
-
-/usr/include/c++/13/bits/refwrap.h:
-
-/usr/include/c++/13/bits/regex.h:
-
-/usr/include/c++/13/bits/regex_automaton.tcc:
-
-/usr/include/x86_64-linux-gnu/bits/types/timer_t.h:
-
-/usr/include/c++/13/bits/regex_compiler.tcc:
-
-/usr/include/c++/13/bits/allocator.h:
-
-/usr/include/c++/13/unordered_map:
-
 /usr/include/c++/13/bits/basic_ios.h:
 
 /usr/include/c++/13/bits/regex_error.h:
 
-/usr/include/c++/13/bits/regex_executor.tcc:
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++config.h:
 
-/usr/include/c++/13/bits/stl_map.h:
+/usr/include/x86_64-linux-gnu/bits/wchar.h:
 
-/usr/include/c++/13/bits/new_allocator.h:
+/usr/include/bsoncxx/enums/binary_sub_type.hpp:
 
-/usr/include/c++/13/bits/stl_uninitialized.h:
+src/services/IBranchService.hpp:
 
-/usr/include/c++/13/locale:
+/usr/include/boost/type_traits/is_scalar.hpp:
 
-/usr/include/c++/13/bits/shared_ptr.h:
+src/models/Studio.hpp:
 
-/usr/include/c++/13/bits/sstream.tcc:
+/usr/include/c++/13/bits/move.h:
 
-/usr/include/openssl/cryptoerr.h:
+/usr/include/mongocxx/model/insert_one.hpp:
 
-/usr/include/c++/13/cwctype:
+/usr/include/boost/type_traits/is_reference.hpp:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_inline.h:
+/usr/include/boost/type_traits/is_pointer.hpp:
+
+/usr/include/bsoncxx/array/element.hpp:
+
+/usr/include/c++/13/bits/stl_iterator.h:
+
+/usr/include/c++/13/ext/numeric_traits.h:
+
+/usr/include/boost/type_traits/is_member_pointer.hpp:
+
+/usr/include/mongocxx/options/apm.hpp:
+
+/usr/include/boost/type_traits/is_lvalue_reference.hpp:
+
+/usr/include/boost/config/stdlib/libstdcpp3.hpp:
+
+/usr/include/boost/type_traits/is_assignable.hpp:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stddef.h:
+
+/usr/include/boost/type_traits/is_function.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/waitstatus.h:
+
+/usr/include/c++/13/bits/exception_ptr.h:
+
+/usr/include/boost/type_traits/is_enum.hpp:
+
+/usr/include/c++/13/array:
+
+/usr/include/boost/type_traits/is_nothrow_move_constructible.hpp:
+
+/usr/include/c++/13/bits/locale_facets_nonio.h:
+
+/usr/include/boost/type_traits/is_const.hpp:
+
+/usr/include/boost/type_traits/is_complete.hpp:
+
+/usr/include/boost/move/core.hpp:
+
+/usr/include/boost/type_traits/intrinsics.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/libc-header-start.h:
+
+/usr/include/bsoncxx/array/value.hpp:
+
+/usr/include/pqxx/robusttransaction.hxx:
+
+/usr/include/c++/13/bits/postypes.h:
+
+/usr/include/boost/type_traits/has_nothrow_assign.hpp:
+
+/usr/include/openssl/bn.h:
+
+/usr/include/mongocxx/config/compiler.hpp:
+
+/usr/include/boost/type_traits/disjunction.hpp:
+
+/usr/include/c++/13/bits/shared_ptr_atomic.h:
+
+/usr/include/boost/type_traits/detail/is_function_cxx_11.hpp:
+
+/usr/include/mongocxx/result/update.hpp:
+
+/usr/include/openssl/core_dispatch.h:
+
+/usr/include/boost/type_traits/is_convertible.hpp:
+
+/usr/include/boost/type_traits/add_rvalue_reference.hpp:
+
+src/services/EnrollmentService.hpp:
+
+/usr/include/boost/type_traits/decay.hpp:
+
+/usr/include/boost/optional/detail/optional_aligned_storage.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/mbstate_t.h:
+
+/usr/include/boost/type_traits/conditional.hpp:
+
+/usr/include/c++/13/limits:
+
+/usr/include/c++/13/bits/allocator.h:
+
+/usr/include/pqxx/version.hxx:
+
+/usr/include/c++/13/unordered_map:
+
+/usr/include/boost/utility/string_view_fwd.hpp:
+
+/usr/include/boost/type_traits/alignment_of.hpp:
+
+/usr/include/boost/type_traits/add_lvalue_reference.hpp:
+
+/usr/include/c++/13/algorithm:
+
+/usr/include/boost/type.hpp:
+
+/usr/include/boost/throw_exception.hpp:
+
+/usr/include/boost/type_traits/remove_const.hpp:
+
+/usr/include/c++/13/bits/quoted_string.h:
+
+src/repositories/IDanceHallRepository.hpp:
+
+/usr/include/pqxx/transaction_focus.hxx:
+
+/usr/include/boost/smart_ptr/make_unique.hpp:
+
+src/services/ReviewService.hpp:
+
+/usr/include/pqxx/nontransaction.hxx:
+
+src/repositories/ILessonRepository.hpp:
+
+src/types/uuid.hpp:
+
+src/repositories/ITrainerRepository.hpp:
+
+/usr/include/c++/13/bits/stl_numeric.h:
+
+/usr/include/unistd.h:
+
+/usr/include/boost/exception/exception.hpp:
+
+/usr/include/c++/13/bits/cpp_type_traits.h:
+
+/usr/include/c++/13/cassert:
+
+src/services/IAttendanceService.hpp:
+
+/usr/include/boost/optional/detail/optional_relops.hpp:
+
+/usr/include/openssl/asn1err.h:
+
+/usr/include/boost/type_traits/conjunction.hpp:
+
+/usr/include/bsoncxx/config/config.hpp:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
+
+/usr/include/openssl/objects.h:
+
+/usr/include/c++/13/ext/aligned_buffer.h:
+
+/usr/include/mongocxx/client_session.hpp:
+
+/usr/include/pqxx/stream_to.hxx:
+
+/usr/include/boost/config/helper_macros.hpp:
+
+src/tech_ui/TechUI.hpp:
+
+/usr/include/pqxx/field.hxx:
+
+/usr/include/c++/13/bits/std_mutex.h:
+
+/usr/include/c++/13/vector:
+
+src/tech_ui/StatisticsManager.cpp:
+
+/usr/include/pqxx/row.hxx:
+
+/usr/include/bsoncxx/builder/basic/array.hpp:
+
+/usr/include/c++/13/map:
+
+/usr/include/c++/13/string_view:
+
+src/services/LessonService.hpp:
+
+/usr/include/bsoncxx/builder/core.hpp:
+
+src/repositories/impl/PostgreSQLClientRepository.hpp:
+
+/usr/include/c++/13/bits/fs_fwd.h:
+
+/usr/include/x86_64-linux-gnu/bits/uio_lim.h:
+
+/usr/include/boost/type_traits/is_pod.hpp:
+
+/usr/include/bsoncxx/builder/basic/sub_document.hpp:
+
+/usr/include/openssl/evperr.h:
+
+/usr/include/c++/13/bits/stl_stack.h:
+
+/usr/include/c++/13/initializer_list:
+
+/usr/include/mongocxx/events/heartbeat_started_event.hpp:
+
+src/models/Address.hpp:
+
+/usr/include/bsoncxx/types/bson_value/view_or_value.hpp:
+
+/usr/include/boost/move/utility_core.hpp:
+
+src/services/ScheduleService.hpp:
+
+/usr/include/boost/optional/detail/optional_reference_spec.hpp:
+
+/usr/include/pqxx/params.hxx:
+
+/usr/include/boost/optional/detail/optional_trivially_copyable_base.hpp:
+
+/usr/include/strings.h:
+
+/usr/include/bsoncxx/builder/basic/impl.hpp:
+
+src/repositories/IStudioRepository.hpp:
+
+/usr/include/bsoncxx/decimal128.hpp:
+
+/usr/include/mongocxx/events/server_closed_event.hpp:
+
+/usr/include/bsoncxx/builder/basic/document.hpp:
+
+/usr/include/boost/type_traits/detail/config.hpp:
+
+src/services/AuthService.hpp:
+
+/usr/include/mongocxx/stdx.hpp:
+
+src/dtos/SubscriptionDTO.hpp:
+
+/usr/include/boost/type_traits/remove_extent.hpp:
+
+/usr/include/boost/type_traits/has_trivial_move_assign.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+src/models/DanceHall.hpp:
+
+src/data/PostgreSQLRepositoryFactory.hpp:
+
+/usr/include/mongocxx/options/distinct.hpp:
 
 /usr/include/c++/13/bits/char_traits.h:
 
 /usr/include/c++/13/bits/std_function.h:
 
-/usr/include/c++/13/cstdint:
+src/models/Subscription.hpp:
 
-/usr/include/c++/13/bits/regex_scanner.h:
+/usr/include/boost/type_traits/is_array.hpp:
 
-/usr/include/c++/13/cstdlib:
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h:
 
-src/tech_ui/TechUI.hpp:
+/usr/include/pqxx/internal/gates/connection-stream_from.hxx:
 
-src/dtos/SubscriptionDTO.hpp:
+src/models/Attendance.hpp:
 
-/usr/include/c++/13/bits/std_mutex.h:
+/usr/include/bsoncxx/document/value.hpp:
 
-/usr/include/c++/13/bits/stl_construct.h:
+/usr/include/mongocxx/events/topology_description.hpp:
 
-/usr/include/c++/13/bits/stl_algo.h:
+src/dtos/BookingDTO.hpp:
 
-/usr/include/c++/13/cstddef:
+/usr/include/boost/config/detail/posix_features.hpp:
 
-/usr/include/c++/13/bits/stl_deque.h:
+src/types/enums.hpp:
 
-src/services/AttendanceService.hpp:
+src/repositories/ISubscriptionRepository.hpp:
 
-/usr/include/c++/13/bits/stl_function.h:
+/usr/include/c++/13/bit:
 
-/usr/include/x86_64-linux-gnu/bits/pthreadtypes-arch.h:
+/usr/include/c++/13/bits/allocated_ptr.h:
 
-/usr/include/c++/13/bits/utility.h:
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
 
-/usr/include/c++/13/bits/stl_heap.h:
+/usr/include/boost/assert.hpp:
 
-/usr/include/stdio.h:
+src/data/SqlQueryBuilder.hpp:
+
+/usr/include/boost/type_traits/is_arithmetic.hpp:
+
+/usr/include/boost/current_function.hpp:
+
+src/repositories/ISubscriptionTypeRepository.hpp:
+
+/usr/include/pqxx/internal/array-composite.hxx:
+
+/usr/include/mongocxx/options/find_one_and_update.hpp:
+
+src/models/Enrollment.hpp:
+
+/usr/include/openssl/obj_mac.h:
+
+src/repositories/IReviewRepository.hpp:
+
+src/models/Booking.hpp:
+
+src/services/SubscriptionService.hpp:
+
+/usr/include/assert.h:
+
+/usr/include/mongocxx/result/insert_many.hpp:
+
+/usr/include/mongocxx/events/topology_closed_event.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/usr/include/pqxx/except.hxx:
+
+/usr/include/pqxx/array.hxx:
+
+/usr/include/mongocxx/options/estimated_document_count.hpp:
+
+src/models/SubscriptionType.hpp:
+
+/usr/include/c++/13/typeinfo:
+
+src/models/Lesson.hpp:
+
+/usr/include/boost/type_traits/is_unbounded_array.hpp:
+
+/usr/include/pqxx/blob.hxx:
+
+src/data/DatabaseConnection.hpp:
+
+/usr/include/c++/13/bits/algorithmfwd.h:
+
+src/tech_ui/StatisticsManager.hpp:
+
+/usr/include/bsoncxx/config/compiler.hpp:
+
+src/data/exceptions/DataAccessException.hpp:
+
+src/models/Branch.hpp:
+
+/usr/include/boost/move/detail/type_traits.hpp:
+
+src/dtos/LessonDTO.hpp:
+
+/usr/include/boost/move/detail/meta_utils_core.hpp:
+
+src/dtos/EnrollmentDTO.hpp:
+
+/usr/include/bsoncxx/builder/basic/kvp.hpp:
 
 /usr/include/c++/13/bits/regex_compiler.h:
 
 /usr/include/c++/13/bits/stl_iterator_base_types.h:
 
-/usr/include/c++/13/bits/stl_raw_storage_iter.h:
+/usr/include/mongocxx/gridfs/bucket.hpp:
 
-/usr/include/c++/13/bits/stl_stack.h:
+src/dtos/ReviewDTO.hpp:
 
-/usr/include/c++/13/bits/stringfwd.h:
+/usr/include/errno.h:
 
-/usr/include/c++/13/bits/locale_classes.tcc:
+src/core/Logger.hpp:
 
-/usr/include/c++/13/bits/uniform_int_dist.h:
+/usr/include/boost/move/detail/config_begin.hpp:
 
-/usr/include/c++/13/bits/stl_tempbuf.h:
+/usr/include/boost/type_traits/is_nothrow_move_assignable.hpp:
+
+/usr/include/mongocxx/collection.hpp:
+
+/usr/include/openssl/bio.h:
+
+src/models/TimeSlot.hpp:
+
+/usr/include/mongocxx/change_stream.hpp:
+
+src/data/DataMigrator.hpp:
+
+/usr/include/bsoncxx/types/bson_value/value.hpp:
+
+/usr/include/boost/move/utility.hpp:
+
+/usr/include/c++/13/backward/binders.h:
+
+src/main.cpp:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/error_constants.h:
+
+/usr/include/openssl/opensslv.h:
+
+/usr/include/c++/13/bits/predefined_ops.h:
+
+/usr/include/boost/move/detail/meta_utils.hpp:
+
+src/models/Trainer.hpp:
+
+/usr/include/boost/optional/bad_optional_access.hpp:
+
+src/data/IRepositoryFactory.hpp:
+
+/usr/include/boost/type_traits/is_constructible.hpp:
+
+/usr/include/c++/13/ratio:
+
+/usr/include/linux/limits.h:
+
+/usr/include/mongocxx/cursor.hpp:
+
+/usr/include/boost/config/detail/select_stdlib_config.hpp:
+
+/usr/include/boost/optional/optional_io.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_itimerspec.h:
+
+/usr/include/c++/13/ios:
+
+/usr/include/boost/move/detail/config_end.hpp:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs.h:
+
+/usr/include/c++/13/bits/erase_if.h:
+
+/usr/include/x86_64-linux-gnu/bits/endianness.h:
+
+src/services/TimeZoneService.hpp:
+
+src/services/exceptions/BookingException.hpp:
+
+/usr/include/bsoncxx/builder/stream/array_context.hpp:
+
+/usr/include/boost/io/detail/ostream_guard.hpp:
+
+/usr/include/boost/config/user.hpp:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h:
+
+/usr/include/boost/none.hpp:
+
+/usr/include/boost/type_traits/declval.hpp:
+
+/usr/include/c++/13/bits/stl_relops.h:
+
+/usr/include/mongocxx/gridfs/uploader.hpp:
+
+src/dtos/AuthDTO.hpp:
+
+src/core/PasswordHasher.hpp:
+
+/usr/include/c++/13/stack:
+
+/usr/include/boost/config.hpp:
+
+/usr/include/c++/13/bits/stl_multimap.h:
+
+/usr/include/uuid/uuid.h:
+
+/usr/include/boost/type_traits/is_rvalue_reference.hpp:
+
+/usr/include/boost/optional/detail/optional_config.hpp:
+
+src/services/exceptions/ValidationException.hpp:
+
+/usr/include/boost/type_traits/is_base_of.hpp:
+
+/usr/include/c++/13/bits/locale_classes.h:
+
+src/tech_ui/InputHandlers.hpp:
+
+/usr/include/asm-generic/errno.h:
+
+/usr/include/c++/13/iostream:
+
+/usr/include/boost/core/explicit_operator_bool.hpp:
+
+src/repositories/IBranchRepository.hpp:
+
+src/data/DateTimeUtils.hpp:
+
+/usr/include/boost/optional/detail/optional_factory_support.hpp:
+
+/usr/include/mongocxx/options/server_api.hpp:
+
+/usr/include/boost/core/enable_if.hpp:
+
+/usr/include/alloca.h:
+
+/usr/include/bsoncxx/document/element.hpp:
+
+/usr/include/boost/assert/source_location.hpp:
+
+src/repositories/IClientRepository.hpp:
+
+/usr/include/boost/type_traits/enable_if.hpp:
+
+/usr/include/boost/config/compiler/gcc.hpp:
+
+/usr/include/bsoncxx/builder/stream/closed_context.hpp:
+
+/usr/include/c++/13/bits/locale_facets.tcc:
+
+/usr/include/c++/13/bits/regex_compiler.tcc:
+
+/usr/include/mongocxx/options/insert.hpp:
+
+/usr/include/boost/config/detail/select_platform_config.hpp:
+
+/usr/include/boost/detail/workaround.hpp:
+
+/usr/include/c++/13/bits/basic_string.h:
+
+/usr/include/boost/type_traits/type_with_alignment.hpp:
+
+/usr/include/bsoncxx/util/functor.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_core.h:
+
+/usr/include/bsoncxx/config/export.hpp:
+
+/usr/include/boost/utility/result_of.hpp:
+
+/usr/include/c++/13/bits/stl_vector.h:
+
+/usr/include/mongocxx/options/find_one_common_options.hpp:
+
+src/models/Review.hpp:
+
+/usr/include/bsoncxx/builder/stream/key_context.hpp:
+
+/usr/include/boost/config/platform/linux.hpp:
+
+/usr/include/boost/type_traits/is_class.hpp:
+
+/usr/include/boost/optional/detail/optional_hash.hpp:
+
+/usr/include/bsoncxx/document/view.hpp:
+
+/usr/include/boost/utility/string_view.hpp:
+
+/usr/include/mongocxx/options/find_one_and_replace.hpp:
+
+/usr/include/boost/type_traits/is_base_and_derived.hpp:
+
+/usr/include/bsoncxx/stdx/string_view.hpp:
+
+/usr/include/c++/13/ctime:
+
+/usr/include/mongocxx/bulk_write.hpp:
+
+/usr/include/bsoncxx/builder/stream/single_context.hpp:
+
+/usr/include/c++/13/bits/invoke.h:
+
+/usr/include/boost/optional/detail/optional_swap.hpp:
+
+/usr/include/c++/13/bits/enable_special_members.h:
+
+/usr/include/pqxx/result.hxx:
+
+/usr/include/boost/type_traits/remove_reference.hpp:
+
+/usr/include/c++/13/backward/auto_ptr.h:
+
+/usr/include/boost/move/traits.hpp:
+
+/usr/include/c++/13/bits/regex_scanner.tcc:
+
+/usr/include/c++/13/istream:
+
+/usr/include/boost/type_traits/is_destructible.hpp:
+
+/usr/include/c++/13/bits/streambuf.tcc:
+
+/usr/include/boost/none_t.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/environments.h:
+
+src/services/StatisticsService.hpp:
+
+/usr/include/boost/core/swap.hpp:
+
+/usr/include/c++/13/bits/stl_pair.h:
+
+/usr/include/boost/io/ostream_put.hpp:
+
+/usr/include/boost/type_traits/add_pointer.hpp:
+
+src/services/BookingService.hpp:
+
+/usr/include/c++/13/bits/shared_ptr.h:
+
+/usr/include/pqxx/internal/stream_query.hxx:
+
+src/repositories/IEnrollmentRepository.hpp:
+
+/usr/include/boost/move/detail/workaround.hpp:
+
+/usr/include/boost/core/addressof.hpp:
+
+/usr/include/boost/smart_ptr/detail/requires_cxx11.hpp:
+
+/usr/include/boost/type_traits/remove_cv.hpp:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/atomic_word.h:
+
+/usr/include/boost/type_traits/add_reference.hpp:
+
+/usr/include/boost/type_traits/integral_constant.hpp:
+
+/usr/include/c++/13/bits/charconv.h:
+
+/usr/include/pqxx/connection.hxx:
+
+/usr/include/mongocxx/events/server_opening_event.hpp:
+
+/usr/include/boost/move/detail/addressof.hpp:
+
+/usr/include/c++/13/bits/chrono.h:
+
+/usr/include/boost/type_traits/is_floating_point.hpp:
 
 /usr/include/c++/13/bits/codecvt.h:
 
 /usr/include/c++/13/bits/stl_tree.h:
 
-/usr/include/c++/13/bits/stl_vector.h:
+/usr/include/boost/type_traits/is_volatile.hpp:
 
-/usr/include/c++/13/bits/streambuf.tcc:
+/usr/include/c++/13/bits/concept_check.h:
 
-/usr/include/stdint.h:
+/usr/include/c++/13/bits/cxxabi_forced.h:
 
-src/models/Address.hpp:
+/usr/include/c++/13/bits/deque.tcc:
 
-/usr/include/endian.h:
+/usr/include/pqxx/pipeline.hxx:
+
+/usr/include/c++/13/bits/exception.h:
+
+/usr/include/c++/13/bits/exception_defines.h:
+
+/usr/include/c++/13/bits/fs_dir.h:
+
+/usr/include/c++/13/bits/fs_ops.h:
+
+/usr/include/boost/type_traits/is_same.hpp:
+
+/usr/include/c++/13/bits/fs_path.h:
+
+/usr/include/c++/13/bits/fstream.tcc:
+
+/usr/include/pqxx/internal/header-pre.hxx:
+
+/usr/include/c++/13/bits/functexcept.h:
+
+/usr/include/c++/13/bits/functional_hash.h:
+
+/usr/include/boost/optional/optional.hpp:
+
+/usr/include/c++/13/bits/hash_bytes.h:
+
+/usr/include/c++/13/bits/hashtable.h:
+
+/usr/include/pqxx/internal/conversions.hxx:
+
+/usr/include/mongocxx/options/gridfs/bucket.hpp:
+
+/usr/include/c++/13/bits/hashtable_policy.h:
+
+/usr/include/c++/13/bits/ios_base.h:
+
+/usr/include/c++/13/iterator:
+
+/usr/include/bsoncxx/oid.hpp:
+
+/usr/include/boost/config/detail/cxx_composite.hpp:
+
+/usr/include/c++/13/bits/istream.tcc:
+
+/usr/include/x86_64-linux-gnu/bits/stdio_lim.h:
+
+/usr/include/c++/13/bits/locale_conv.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h:
+
+/usr/include/pqxx/dbtransaction.hxx:
+
+/usr/include/c++/13/bits/nested_exception.h:
+
+/usr/include/c++/13/bits/regex_executor.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h:
+
+/usr/include/boost/config/detail/select_compiler_config.hpp:
+
+/usr/include/c++/13/tuple:
+
+/usr/include/boost/cstdint.hpp:
+
+/usr/include/c++/13/bits/locale_classes.tcc:
+
+src/core/Config.hpp:
+
+/usr/include/c++/13/bits/uniform_int_dist.h:
+
+/usr/include/boost/config/detail/suffix.hpp:
+
+/usr/include/mongocxx/options/auto_encryption.hpp:
+
+/usr/include/c++/13/bits/locale_facets.h:
+
+/usr/include/c++/13/bits/locale_facets_nonio.tcc:
+
+/usr/include/c++/13/bits/localefwd.h:
+
+/usr/include/c++/13/streambuf:
+
+/usr/include/mongocxx/events/heartbeat_failed_event.hpp:
+
+/usr/include/c++/13/bits/memoryfwd.h:
+
+/usr/include/boost/type_traits/is_abstract.hpp:
+
+/usr/include/c++/13/bits/new_allocator.h:
+
+/usr/include/c++/13/bits/regex_automaton.tcc:
+
+/usr/include/c++/13/bits/stl_uninitialized.h:
+
+/usr/include/c++/13/bits/node_handle.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/c++locale.h:
+
+/usr/include/c++/13/bits/ostream.tcc:
+
+/usr/include/c++/13/bits/parse_numbers.h:
+
+/usr/include/c++/13/bits/ptr_traits.h:
+
+/usr/include/c++/13/bits/range_access.h:
+
+/usr/include/c++/13/bits/refwrap.h:
+
+/usr/include/c++/13/bits/regex.tcc:
+
+/usr/include/x86_64-linux-gnu/sys/time.h:
+
+/usr/include/mongocxx/read_concern.hpp:
+
+/usr/include/c++/13/bits/regex_automaton.h:
+
+/usr/include/c++/13/pstl/pstl_config.h:
+
+/usr/include/c++/13/bits/regex_constants.h:
+
+src/services/exceptions/ReviewException.hpp:
+
+/usr/include/c++/13/bits/regex_scanner.h:
+
+/usr/include/c++/13/bits/requires_hosted.h:
+
+/usr/include/c++/13/bits/shared_ptr_base.h:
+
+/usr/include/mongocxx/options/gridfs/upload.hpp:
+
+/usr/include/c++/13/bits/sstream.tcc:
+
+/usr/include/c++/13/bits/stl_algo.h:
+
+/usr/include/c++/13/bits/stl_algobase.h:
+
+/usr/include/boost/type_traits/detail/is_member_function_pointer_cxx_11.hpp:
+
+/usr/include/c++/13/cstdint:
+
+/usr/include/c++/13/regex:
+
+/usr/include/mongocxx/config/export.hpp:
+
+/usr/include/c++/13/bits/stl_bvector.h:
+
+/usr/include/c++/13/bits/stl_construct.h:
+
+/usr/include/c++/13/bits/stl_deque.h:
+
+/usr/include/c++/13/bits/atomic_lockfree_defines.h:
+
+/usr/include/c++/13/bits/stl_heap.h:
+
+/usr/include/c++/13/utility:
+
+/usr/include/x86_64-linux-gnu/bits/getopt_posix.h:
+
+/usr/include/pqxx/isolation.hxx:
+
+/usr/include/bsoncxx/document/view_or_value.hpp:
+
+/usr/include/c++/13/locale:
+
+src/services/exceptions/AuthException.hpp:
+
+/usr/include/c++/13/bits/stl_map.h:
+
+/usr/include/c++/13/bits/stl_raw_storage_iter.h:
+
+/usr/include/mongocxx/options/client.hpp:
+
+/usr/include/bsoncxx/config/postlude.hpp:
+
+/usr/include/c++/13/bits/regex_executor.tcc:
+
+/usr/include/c++/13/bits/stl_tempbuf.h:
 
 /usr/include/c++/13/bits/streambuf_iterator.h:
 
-/usr/include/c++/13/ostream:
+/usr/include/openssl/objectserr.h:
 
-/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
+/usr/include/c++/13/bits/unique_lock.h:
 
-/usr/include/c++/13/bits/string_view.tcc:
+src/dtos/ScheduleDTO.hpp:
 
-/usr/include/c++/13/optional:
+/usr/include/c++/13/bits/unique_ptr.h:
+
+/usr/include/openssl/e_os2.h:
+
+/usr/include/c++/13/bits/unordered_map.h:
+
+/usr/include/pqxx/zview.hxx:
+
+/usr/include/boost/static_assert.hpp:
+
+/usr/include/c++/13/bits/uses_allocator_args.h:
+
+/usr/include/mongocxx/config/postlude.hpp:
+
+/usr/include/c++/13/bits/utility.h:
 
 /usr/include/c++/13/bits/vector.tcc:
 
+/usr/include/c++/13/optional:
+
 /usr/include/c++/13/bitset:
-
-/usr/include/c++/13/type_traits:
-
-src/tech_ui/TechUIManagers.cpp:
 
 /usr/include/c++/13/cctype:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
-
-/usr/include/c++/13/ext/atomicity.h:
+/usr/include/c++/13/bits/stringfwd.h:
 
 /usr/include/c++/13/cerrno:
 
@@ -2453,102 +3873,284 @@ src/tech_ui/TechUIManagers.cpp:
 
 /usr/include/c++/13/codecvt:
 
-/usr/include/c++/13/ctime:
+/usr/include/c++/13/compare:
 
-/usr/include/c++/13/deque:
+/usr/include/bsoncxx/builder/basic/sub_array.hpp:
 
-/usr/include/x86_64-linux-gnu/sys/select.h:
+/usr/include/c++/13/bits/ostream_insert.h:
+
+/usr/include/c++/13/system_error:
+
+/usr/include/c++/13/cstddef:
+
+/usr/include/x86_64-linux-gnu/bits/types/__mbstate_t.h:
+
+/usr/include/c++/13/cstdio:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/gthr.h:
+
+/usr/include/c++/13/cstring:
 
 /usr/include/c++/13/cwchar:
 
-/usr/include/linux/errno.h:
+/usr/include/c++/13/ciso646:
+
+/usr/include/c++/13/cwctype:
+
+/usr/include/openssl/cryptoerr.h:
+
+/usr/include/c++/13/debug/assertions.h:
+
+src/repositories/IAttendanceRepository.hpp:
+
+/usr/include/openssl/bnerr.h:
+
+/usr/include/c++/13/bits/stl_list.h:
 
 /usr/include/c++/13/debug/debug.h:
 
-/usr/include/c++/13/ext/aligned_buffer.h:
+/usr/include/c++/13/bits/std_abs.h:
 
-/usr/include/locale.h:
+/usr/include/linux/errno.h:
 
-/usr/include/c++/13/ext/concurrence.h:
+/usr/include/x86_64-linux-gnu/bits/types/struct_tm.h:
 
-/usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
-
-/usr/include/openssl/objects.h:
-
-/usr/include/c++/13/bits/stl_iterator.h:
-
-/usr/include/c++/13/ext/numeric_traits.h:
-
-/usr/include/openssl/rand.h:
-
-/usr/include/c++/13/ext/string_conversions.h:
-
-/usr/include/c++/13/ext/type_traits.h:
-
-/usr/include/uuid/uuid.h:
-
-/usr/include/limits.h:
-
-/usr/include/c++/13/initializer_list:
-
-/usr/include/c++/13/ios:
-
-src/tech_ui/InputHandlers.hpp:
-
-/usr/include/c++/13/iostream:
-
-/usr/include/c++/13/bits/regex_scanner.tcc:
-
-/usr/include/c++/13/istream:
-
-/usr/include/x86_64-linux-gnu/bits/types/wint_t.h:
-
-/usr/include/c++/13/limits:
-
-/usr/include/c++/13/memory:
+/usr/include/c++/13/deque:
 
 /usr/include/c++/13/exception:
 
+/usr/include/c++/13/bits/memory_resource.h:
+
 /usr/include/c++/13/pstl/glue_memory_defs.h:
 
-/usr/include/c++/13/bits/stl_algobase.h:
+/usr/include/c++/13/ext/atomicity.h:
 
-/usr/include/c++/13/regex:
+/usr/include/c++/13/ext/concurrence.h:
+
+/usr/include/x86_64-linux-gnu/bits/time64.h:
+
+/usr/include/c++/13/ext/type_traits.h:
+
+/usr/include/c++/13/filesystem:
+
+/usr/include/c++/13/fstream:
+
+/usr/include/mongocxx/options/delete.hpp:
+
+/usr/include/c++/13/functional:
+
+/usr/include/c++/13/iomanip:
+
+/usr/include/c++/13/iosfwd:
+
+/usr/include/mongocxx/options/transaction.hpp:
+
+/usr/include/c++/13/memory:
+
+/usr/include/c++/13/new:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
+
+/usr/include/c++/13/numeric:
+
+/usr/include/c++/13/ostream:
+
+src/data/MongoDBRepositoryFactory.hpp:
+
+/usr/include/c++/13/pstl/execution_defs.h:
+
+/usr/include/c++/13/pstl/glue_algorithm_defs.h:
+
+/usr/include/c++/13/pstl/glue_numeric_defs.h:
+
+/usr/include/c++/13/sstream:
+
+/usr/include/c++/13/clocale:
+
+/usr/include/c++/13/stdexcept:
+
+/usr/include/mongocxx/options/index.hpp:
+
+/usr/include/openssl/randerr.h:
+
+/usr/include/mongocxx/result/gridfs/upload.hpp:
+
+/usr/include/mongocxx/result/replace_one.hpp:
 
 /usr/include/c++/13/stdlib.h:
 
-/usr/include/c++/13/map:
+/usr/include/pqxx/internal/encodings.hxx:
 
-/usr/include/c++/13/string_view:
+/usr/include/mongocxx/events/topology_changed_event.hpp:
+
+/usr/include/c++/13/bits/regex.h:
+
+/usr/include/c++/13/version:
+
+src/services/exceptions/EnrollmentException.hpp:
+
+/usr/include/ctype.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/13/include/stdarg.h:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/cpu_defines.h:
+
+/usr/include/mongocxx/options/tls.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/types/locale_t.h:
+
+/usr/include/c++/13/type_traits:
+
+/usr/include/mongocxx/options/update.hpp:
+
+/usr/include/c++/13/bits/list.tcc:
 
 /usr/include/features-time64.h:
 
-/usr/include/c++/13/bits/nested_exception.h:
-
-/usr/include/c++/13/bits/regex_executor.h:
-
-/usr/include/c++/13/tuple:
-
-/usr/include/c++/13/vector:
+/usr/include/c++/13/string:
 
 /usr/include/features.h:
 
-src/data/IRepositoryFactory.hpp:
+/usr/include/x86_64-linux-gnu/bits/thread-shared-types.h:
 
-/usr/include/c++/13/ratio:
+/usr/include/libintl.h:
 
-/usr/include/linux/limits.h:
+/usr/include/linux/close_range.h:
+
+/usr/include/locale.h:
+
+/usr/include/mongocxx/config/config.hpp:
+
+/usr/include/x86_64-linux-gnu/openssl/opensslconf.h:
+
+/usr/include/pqxx/util.hxx:
+
+/usr/include/mongocxx/config/version.hpp:
+
+/usr/include/mongocxx/database.hpp:
+
+/usr/include/endian.h:
+
+/usr/include/mongocxx/events/command_failed_event.hpp:
+
+/usr/include/pqxx/internal/statement_parameters.hxx:
+
+/usr/include/mongocxx/events/command_succeeded_event.hpp:
+
+/usr/include/x86_64-linux-gnu/c++/13/bits/ctype_base.h:
+
+/usr/include/boost/config/pragma_message.hpp:
+
+/usr/include/mongocxx/events/command_started_event.hpp:
+
+/usr/include/mongocxx/events/heartbeat_succeeded_event.hpp:
+
+/usr/include/mongocxx/events/server_changed_event.hpp:
+
+/usr/include/mongocxx/events/server_description.hpp:
+
+/usr/include/boost/type_traits/detail/yes_no_type.hpp:
+
+/usr/include/mongocxx/events/topology_opening_event.hpp:
+
+/usr/include/mongocxx/gridfs/downloader.hpp:
+
+/usr/include/mongocxx/hint.hpp:
+
+/usr/include/c++/13/bits/stream_iterator.h:
+
+/usr/include/mongocxx/index_model.hpp:
+
+/usr/include/mongocxx/index_view.hpp:
+
+/usr/include/limits.h:
+
+/usr/include/c++/13/cstdlib:
+
+/usr/include/mongocxx/instance.hpp:
+
+/usr/include/mongocxx/model/delete_many.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/atomic_wide_counter.h:
+
+/usr/include/mongocxx/model/delete_one.hpp:
+
+/usr/include/boost/type_traits/is_void.hpp:
+
+/usr/include/c++/13/bits/align.h:
+
+/usr/include/mongocxx/model/update_many.hpp:
+
+/usr/include/mongocxx/model/update_one.hpp:
+
+/usr/include/mongocxx/model/write.hpp:
+
+/usr/include/c++/13/ext/string_conversions.h:
+
+/usr/include/mongocxx/options/client_session.hpp:
+
+/usr/include/c++/13/bits/string_view.tcc:
+
+/usr/include/mongocxx/options/aggregate.hpp:
+
+/usr/include/boost/type_traits/is_integral.hpp:
+
+/usr/include/mongocxx/options/bulk_write.hpp:
+
+/usr/include/mongocxx/options/change_stream.hpp:
+
+/usr/include/mongocxx/options/client_encryption.hpp:
+
+/usr/include/mongocxx/options/count.hpp:
+
+/usr/include/mongocxx/options/replace.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/endian.h:
+
+/usr/include/mongocxx/options/create_collection.hpp:
+
+/usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
+
+/usr/include/pqxx/internal/result_iter.hxx:
+
+src/models/Client.hpp:
+
+/usr/include/mongocxx/options/find.hpp:
+
+/usr/include/mongocxx/options/find_one_and_delete.hpp:
+
+/usr/include/bsoncxx/enums/type.hpp:
+
+/usr/include/mongocxx/options/index_view.hpp:
+
+/usr/include/mongocxx/pipeline.hpp:
+
+/usr/include/mongocxx/result/bulk_write.hpp:
+
+/usr/include/mongocxx/result/delete.hpp:
+
+/usr/include/bsoncxx/types.hpp:
+
+/usr/include/boost/config/workaround.hpp:
+
+/usr/include/mongocxx/uri.hpp:
+
+/usr/include/mongocxx/validation_criteria.hpp:
+
+/usr/include/mongocxx/write_concern.hpp:
+
+/usr/include/mongocxx/write_type.hpp:
 
 /usr/include/openssl/asn1.h:
 
-src/core/Config.hpp:
-
-/usr/include/openssl/bio.h:
+/usr/include/c++/13/bits/stl_function.h:
 
 /usr/include/openssl/bioerr.h:
 
-/usr/include/x86_64-linux-gnu/c++/13/bits/c++allocator.h:
-
-/usr/include/openssl/bn.h:
-
 /usr/include/openssl/core.h:
+
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
+
+/usr/include/openssl/crypto.h:
+
+/usr/include/openssl/cryptoerr_legacy.h:

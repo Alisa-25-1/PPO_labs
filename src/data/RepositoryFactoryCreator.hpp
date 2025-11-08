@@ -5,7 +5,7 @@
 #include <iostream>
 #include "IRepositoryFactory.hpp"
 #include "PostgreSQLRepositoryFactory.hpp"
-//#include "MongoDBRepositoryFactory.hpp"
+#include "MongoDBRepositoryFactory.hpp"
 #include "../core/Config.hpp"
 
 class RepositoryFactoryCreator {
@@ -23,11 +23,10 @@ public:
         }
         else if (dbType == "mongodb") {
             // Временно возвращаем PostgreSQL, но с правильным типом
-            std::string connectionString = config.getPostgresConnectionString();
-            std::cout << "🔧 Creating MongoDB repository factory (fallback to PostgreSQL)" << std::endl;
-            return std::static_pointer_cast<IRepositoryFactory>(
-                std::make_shared<PostgreSQLRepositoryFactory>(connectionString)
-            );
+            std::string connectionString = config.getMongoConnectionString();
+            std::string databaseName = config.getMongoDatabaseName();
+            std::cout << "🔧 Creating MongoDB repository factory" << std::endl;
+            return std::make_shared<MongoDBRepositoryFactory>(connectionString, databaseName);
         }
         else {
             throw std::runtime_error("Unsupported database type: " + dbType);

@@ -183,6 +183,10 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: \
  /usr/include/c++/13/bits/quoted_string.h /usr/include/c++/13/sstream \
  /usr/include/c++/13/bits/sstream.tcc /usr/include/c++/13/codecvt \
  /usr/include/c++/13/bits/fs_dir.h /usr/include/c++/13/bits/fs_ops.h \
+ /usr/include/c++/13/fstream \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
+ /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
+ /usr/include/c++/13/bits/fstream.tcc \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/TechUI.hpp \
  /usr/include/c++/13/vector /usr/include/c++/13/bits/stl_vector.h \
  /usr/include/c++/13/bits/stl_bvector.h \
@@ -323,14 +327,266 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/../repositories/../models/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/RepositoryFactoryCreator.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/PostgreSQLRepositoryFactory.hpp \
- /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/../core/Config.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/MongoDBRepositoryFactory.hpp \
+ /usr/include/c++/13/mutex /usr/include/c++/13/bits/std_mutex.h \
+ /usr/include/c++/13/bits/unique_lock.h /usr/include/mongocxx/client.hpp \
+ /usr/include/mongocxx/client_session.hpp /usr/include/c++/13/functional \
  /usr/include/c++/13/unordered_map \
  /usr/include/c++/13/bits/unordered_map.h \
  /usr/include/c++/13/bits/hashtable.h \
- /usr/include/c++/13/bits/hashtable_policy.h /usr/include/c++/13/fstream \
- /usr/include/x86_64-linux-gnu/c++/13/bits/basic_file.h \
- /usr/include/x86_64-linux-gnu/c++/13/bits/c++io.h \
- /usr/include/c++/13/bits/fstream.tcc \
+ /usr/include/c++/13/bits/hashtable_policy.h /usr/include/c++/13/array \
+ /usr/include/c++/13/compare /usr/include/bsoncxx/document/view.hpp \
+ /usr/include/c++/13/iterator /usr/include/c++/13/bits/stream_iterator.h \
+ /usr/include/bsoncxx/document/element.hpp \
+ /usr/include/bsoncxx/stdx/string_view.hpp \
+ /usr/include/bsoncxx/config/prelude.hpp \
+ /usr/include/bsoncxx/config/compiler.hpp \
+ /usr/include/bsoncxx/config/config.hpp \
+ /usr/include/bsoncxx/config/export.hpp \
+ /usr/include/bsoncxx/config/version.hpp /usr/include/boost/version.hpp \
+ /usr/include/boost/utility/string_view.hpp /usr/include/boost/config.hpp \
+ /usr/include/boost/config/user.hpp \
+ /usr/include/boost/config/detail/select_compiler_config.hpp \
+ /usr/include/boost/config/compiler/gcc.hpp \
+ /usr/include/boost/config/detail/select_stdlib_config.hpp \
+ /usr/include/c++/13/version \
+ /usr/include/boost/config/stdlib/libstdcpp3.hpp /usr/include/unistd.h \
+ /usr/include/x86_64-linux-gnu/bits/posix_opt.h \
+ /usr/include/x86_64-linux-gnu/bits/environments.h \
+ /usr/include/x86_64-linux-gnu/bits/confname.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_posix.h \
+ /usr/include/x86_64-linux-gnu/bits/getopt_core.h \
+ /usr/include/x86_64-linux-gnu/bits/unistd_ext.h \
+ /usr/include/linux/close_range.h \
+ /usr/include/boost/config/detail/select_platform_config.hpp \
+ /usr/include/boost/config/platform/linux.hpp \
+ /usr/include/boost/config/detail/posix_features.hpp \
+ /usr/include/boost/config/detail/suffix.hpp \
+ /usr/include/boost/config/helper_macros.hpp \
+ /usr/include/boost/config/detail/cxx_composite.hpp \
+ /usr/include/boost/detail/workaround.hpp \
+ /usr/include/boost/config/workaround.hpp \
+ /usr/include/boost/io/ostream_put.hpp \
+ /usr/include/boost/io/detail/buffer_fill.hpp \
+ /usr/include/boost/io/detail/ostream_guard.hpp \
+ /usr/include/boost/utility/string_view_fwd.hpp \
+ /usr/include/boost/throw_exception.hpp \
+ /usr/include/boost/exception/exception.hpp \
+ /usr/include/boost/assert/source_location.hpp \
+ /usr/include/boost/current_function.hpp /usr/include/boost/cstdint.hpp \
+ /usr/include/c++/13/cstring /usr/include/string.h /usr/include/strings.h \
+ /usr/include/c++/13/utility /usr/include/c++/13/bits/stl_relops.h \
+ /usr/include/boost/assert.hpp /usr/include/assert.h \
+ /usr/include/c++/13/algorithm \
+ /usr/include/c++/13/pstl/glue_algorithm_defs.h \
+ /usr/include/bsoncxx/config/postlude.hpp \
+ /usr/include/bsoncxx/stdx/optional.hpp /usr/include/boost/none.hpp \
+ /usr/include/boost/none_t.hpp /usr/include/boost/optional/optional.hpp \
+ /usr/include/boost/core/addressof.hpp \
+ /usr/include/boost/core/enable_if.hpp \
+ /usr/include/boost/core/explicit_operator_bool.hpp \
+ /usr/include/boost/core/swap.hpp \
+ /usr/include/boost/optional/bad_optional_access.hpp \
+ /usr/include/boost/static_assert.hpp /usr/include/boost/type.hpp \
+ /usr/include/boost/type_traits/alignment_of.hpp \
+ /usr/include/boost/type_traits/intrinsics.hpp \
+ /usr/include/boost/type_traits/detail/config.hpp \
+ /usr/include/boost/type_traits/integral_constant.hpp \
+ /usr/include/boost/type_traits/conditional.hpp \
+ /usr/include/boost/type_traits/conjunction.hpp \
+ /usr/include/boost/type_traits/disjunction.hpp \
+ /usr/include/boost/type_traits/has_nothrow_constructor.hpp \
+ /usr/include/boost/type_traits/is_default_constructible.hpp \
+ /usr/include/boost/type_traits/is_complete.hpp \
+ /usr/include/boost/type_traits/declval.hpp \
+ /usr/include/boost/type_traits/add_rvalue_reference.hpp \
+ /usr/include/boost/type_traits/is_void.hpp \
+ /usr/include/boost/type_traits/is_reference.hpp \
+ /usr/include/boost/type_traits/is_lvalue_reference.hpp \
+ /usr/include/boost/type_traits/is_rvalue_reference.hpp \
+ /usr/include/boost/type_traits/remove_reference.hpp \
+ /usr/include/boost/type_traits/is_function.hpp \
+ /usr/include/boost/type_traits/detail/is_function_cxx_11.hpp \
+ /usr/include/boost/type_traits/detail/yes_no_type.hpp \
+ /usr/include/boost/type_traits/type_with_alignment.hpp \
+ /usr/include/boost/type_traits/is_pod.hpp \
+ /usr/include/boost/type_traits/is_scalar.hpp \
+ /usr/include/boost/type_traits/is_arithmetic.hpp \
+ /usr/include/boost/type_traits/is_integral.hpp \
+ /usr/include/boost/type_traits/is_floating_point.hpp \
+ /usr/include/boost/type_traits/is_enum.hpp \
+ /usr/include/boost/type_traits/is_pointer.hpp \
+ /usr/include/boost/type_traits/is_member_pointer.hpp \
+ /usr/include/boost/type_traits/is_member_function_pointer.hpp \
+ /usr/include/boost/type_traits/detail/is_member_function_pointer_cxx_11.hpp \
+ /usr/include/boost/type_traits/remove_const.hpp \
+ /usr/include/boost/type_traits/decay.hpp \
+ /usr/include/boost/type_traits/is_array.hpp \
+ /usr/include/boost/type_traits/remove_bounds.hpp \
+ /usr/include/boost/type_traits/remove_extent.hpp \
+ /usr/include/boost/type_traits/add_pointer.hpp \
+ /usr/include/boost/type_traits/remove_cv.hpp \
+ /usr/include/boost/type_traits/is_assignable.hpp \
+ /usr/include/boost/type_traits/is_base_of.hpp \
+ /usr/include/boost/type_traits/is_base_and_derived.hpp \
+ /usr/include/boost/type_traits/is_same.hpp \
+ /usr/include/boost/type_traits/is_class.hpp \
+ /usr/include/boost/type_traits/is_const.hpp \
+ /usr/include/boost/type_traits/is_constructible.hpp \
+ /usr/include/boost/type_traits/is_destructible.hpp \
+ /usr/include/boost/type_traits/is_convertible.hpp \
+ /usr/include/boost/type_traits/is_abstract.hpp \
+ /usr/include/boost/type_traits/add_lvalue_reference.hpp \
+ /usr/include/boost/type_traits/add_reference.hpp \
+ /usr/include/boost/type_traits/is_nothrow_move_assignable.hpp \
+ /usr/include/boost/type_traits/has_trivial_move_assign.hpp \
+ /usr/include/boost/type_traits/is_volatile.hpp \
+ /usr/include/boost/type_traits/has_nothrow_assign.hpp \
+ /usr/include/boost/type_traits/enable_if.hpp \
+ /usr/include/boost/type_traits/is_nothrow_move_constructible.hpp \
+ /usr/include/boost/move/utility.hpp \
+ /usr/include/boost/move/detail/config_begin.hpp \
+ /usr/include/boost/move/detail/workaround.hpp \
+ /usr/include/boost/move/utility_core.hpp \
+ /usr/include/boost/move/core.hpp \
+ /usr/include/boost/move/detail/config_end.hpp \
+ /usr/include/boost/move/detail/meta_utils.hpp \
+ /usr/include/boost/move/detail/meta_utils_core.hpp \
+ /usr/include/boost/move/detail/addressof.hpp \
+ /usr/include/boost/move/traits.hpp \
+ /usr/include/boost/move/detail/type_traits.hpp \
+ /usr/include/c++/13/cassert \
+ /usr/include/boost/utility/compare_pointees.hpp \
+ /usr/include/boost/utility/result_of.hpp \
+ /usr/include/boost/type_traits/type_identity.hpp \
+ /usr/include/boost/utility/detail/result_of_variadic.hpp \
+ /usr/include/boost/optional/optional_fwd.hpp \
+ /usr/include/boost/optional/detail/optional_config.hpp \
+ /usr/include/boost/optional/detail/optional_factory_support.hpp \
+ /usr/include/boost/optional/detail/optional_aligned_storage.hpp \
+ /usr/include/boost/optional/detail/optional_hash.hpp \
+ /usr/include/boost/optional/detail/optional_trivially_copyable_base.hpp \
+ /usr/include/boost/optional/detail/optional_reference_spec.hpp \
+ /usr/include/boost/optional/detail/optional_relops.hpp \
+ /usr/include/boost/optional/detail/optional_swap.hpp \
+ /usr/include/boost/optional/optional_io.hpp \
+ /usr/include/mongocxx/options/client_session.hpp \
+ /usr/include/mongocxx/options/transaction.hpp \
+ /usr/include/mongocxx/stdx.hpp /usr/include/mongocxx/config/prelude.hpp \
+ /usr/include/mongocxx/config/compiler.hpp \
+ /usr/include/mongocxx/config/config.hpp \
+ /usr/include/mongocxx/config/export.hpp \
+ /usr/include/mongocxx/config/version.hpp \
+ /usr/include/mongocxx/config/postlude.hpp \
+ /usr/include/mongocxx/database.hpp \
+ /usr/include/bsoncxx/document/view_or_value.hpp \
+ /usr/include/bsoncxx/document/value.hpp \
+ /usr/include/bsoncxx/array/view.hpp \
+ /usr/include/bsoncxx/array/element.hpp \
+ /usr/include/bsoncxx/view_or_value.hpp \
+ /usr/include/bsoncxx/string/view_or_value.hpp \
+ /usr/include/mongocxx/collection.hpp \
+ /usr/include/bsoncxx/builder/basic/array.hpp \
+ /usr/include/bsoncxx/array/value.hpp \
+ /usr/include/bsoncxx/builder/basic/impl.hpp \
+ /usr/include/bsoncxx/builder/basic/sub_array.hpp \
+ /usr/include/bsoncxx/builder/basic/helpers.hpp \
+ /usr/include/bsoncxx/builder/concatenate.hpp \
+ /usr/include/bsoncxx/array/view_or_value.hpp \
+ /usr/include/bsoncxx/builder/core.hpp /usr/include/bsoncxx/types.hpp \
+ /usr/include/bsoncxx/decimal128.hpp /usr/include/bsoncxx/oid.hpp \
+ /usr/include/bsoncxx/enums/type.hpp \
+ /usr/include/bsoncxx/enums/binary_sub_type.hpp \
+ /usr/include/bsoncxx/builder/basic/sub_document.hpp \
+ /usr/include/bsoncxx/util/functor.hpp \
+ /usr/include/bsoncxx/builder/basic/kvp.hpp \
+ /usr/include/bsoncxx/builder/basic/document.hpp \
+ /usr/include/mongocxx/bulk_write.hpp \
+ /usr/include/mongocxx/model/write.hpp \
+ /usr/include/mongocxx/model/delete_many.hpp \
+ /usr/include/mongocxx/hint.hpp \
+ /usr/include/bsoncxx/types/bson_value/view.hpp \
+ /usr/include/mongocxx/model/delete_one.hpp \
+ /usr/include/mongocxx/model/insert_one.hpp \
+ /usr/include/mongocxx/model/replace_one.hpp \
+ /usr/include/mongocxx/model/update_many.hpp \
+ /usr/include/mongocxx/pipeline.hpp \
+ /usr/include/mongocxx/model/update_one.hpp \
+ /usr/include/mongocxx/write_type.hpp \
+ /usr/include/mongocxx/options/bulk_write.hpp \
+ /usr/include/bsoncxx/types/bson_value/view_or_value.hpp \
+ /usr/include/bsoncxx/types/bson_value/value.hpp \
+ /usr/include/bsoncxx/stdx/make_unique.hpp \
+ /usr/include/boost/smart_ptr/make_unique.hpp \
+ /usr/include/boost/smart_ptr/detail/requires_cxx11.hpp \
+ /usr/include/boost/config/pragma_message.hpp \
+ /usr/include/boost/type_traits/is_unbounded_array.hpp \
+ /usr/include/mongocxx/write_concern.hpp \
+ /usr/include/mongocxx/result/bulk_write.hpp \
+ /usr/include/mongocxx/change_stream.hpp /usr/include/mongocxx/cursor.hpp \
+ /usr/include/mongocxx/index_view.hpp \
+ /usr/include/mongocxx/index_model.hpp \
+ /usr/include/mongocxx/options/index.hpp \
+ /usr/include/mongocxx/options/index_view.hpp \
+ /usr/include/mongocxx/options/aggregate.hpp \
+ /usr/include/mongocxx/read_concern.hpp \
+ /usr/include/mongocxx/read_preference.hpp \
+ /usr/include/mongocxx/options/change_stream.hpp \
+ /usr/include/mongocxx/options/count.hpp \
+ /usr/include/mongocxx/options/delete.hpp \
+ /usr/include/mongocxx/options/distinct.hpp \
+ /usr/include/mongocxx/options/estimated_document_count.hpp \
+ /usr/include/mongocxx/options/find.hpp \
+ /usr/include/mongocxx/options/find_one_and_delete.hpp \
+ /usr/include/mongocxx/options/find_one_and_replace.hpp \
+ /usr/include/mongocxx/options/find_one_common_options.hpp \
+ /usr/include/mongocxx/options/find_one_and_update.hpp \
+ /usr/include/mongocxx/options/insert.hpp \
+ /usr/include/mongocxx/options/replace.hpp \
+ /usr/include/mongocxx/options/update.hpp \
+ /usr/include/mongocxx/result/delete.hpp \
+ /usr/include/mongocxx/result/insert_many.hpp \
+ /usr/include/mongocxx/result/insert_one.hpp \
+ /usr/include/mongocxx/result/replace_one.hpp \
+ /usr/include/mongocxx/result/update.hpp \
+ /usr/include/mongocxx/gridfs/bucket.hpp \
+ /usr/include/mongocxx/gridfs/downloader.hpp \
+ /usr/include/mongocxx/gridfs/uploader.hpp \
+ /usr/include/mongocxx/result/gridfs/upload.hpp \
+ /usr/include/mongocxx/options/gridfs/bucket.hpp \
+ /usr/include/mongocxx/options/gridfs/upload.hpp \
+ /usr/include/mongocxx/options/create_collection.hpp \
+ /usr/include/mongocxx/validation_criteria.hpp \
+ /usr/include/mongocxx/options/client.hpp \
+ /usr/include/mongocxx/options/apm.hpp \
+ /usr/include/mongocxx/events/command_failed_event.hpp \
+ /usr/include/mongocxx/events/command_started_event.hpp \
+ /usr/include/mongocxx/events/command_succeeded_event.hpp \
+ /usr/include/mongocxx/events/heartbeat_failed_event.hpp \
+ /usr/include/mongocxx/events/heartbeat_started_event.hpp \
+ /usr/include/mongocxx/events/heartbeat_succeeded_event.hpp \
+ /usr/include/mongocxx/events/server_changed_event.hpp \
+ /usr/include/mongocxx/events/server_description.hpp \
+ /usr/include/mongocxx/events/server_closed_event.hpp \
+ /usr/include/mongocxx/events/server_opening_event.hpp \
+ /usr/include/mongocxx/events/topology_changed_event.hpp \
+ /usr/include/mongocxx/events/topology_description.hpp \
+ /usr/include/mongocxx/events/topology_closed_event.hpp \
+ /usr/include/mongocxx/events/topology_opening_event.hpp \
+ /usr/include/mongocxx/options/auto_encryption.hpp \
+ /usr/include/mongocxx/options/server_api.hpp \
+ /usr/include/mongocxx/options/tls.hpp \
+ /usr/include/mongocxx/options/client_encryption.hpp \
+ /usr/include/mongocxx/uri.hpp /usr/include/mongocxx/instance.hpp \
+ /usr/include/bsoncxx/builder/stream/document.hpp \
+ /usr/include/bsoncxx/builder/stream/key_context.hpp \
+ /usr/include/bsoncxx/builder/stream/closed_context.hpp \
+ /usr/include/bsoncxx/builder/stream/value_context.hpp \
+ /usr/include/bsoncxx/builder/stream/array_context.hpp \
+ /usr/include/bsoncxx/builder/stream/helpers.hpp \
+ /usr/include/bsoncxx/builder/stream/single_context.hpp \
+ /usr/include/bsoncxx/json.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../data/../core/Config.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/InputHandlers.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../types/uuid.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../models/Client.hpp \
@@ -348,5 +604,66 @@ CMakeFiles/TechUI.dir/src/main.cpp.o: \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/ReviewDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/tech_ui/../dtos/EnrollmentDTO.hpp \
  /home/nikita/Общедоступные/PPO/PPO_labs/src/core/Logger.hpp \
- /usr/include/c++/13/mutex /usr/include/c++/13/bits/std_mutex.h \
- /usr/include/c++/13/bits/unique_lock.h
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/RepositoryFactoryCreator.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/DataMigrator.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../models/Client.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../models/DanceHall.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../models/Booking.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../models/Lesson.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../models/Trainer.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../models/Enrollment.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../models/Review.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../models/Subscription.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../models/SubscriptionType.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../models/Attendance.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../models/Studio.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../models/Branch.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/PostgreSQLClientRepository.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/../../data/DatabaseConnection.hpp \
+ /usr/include/pqxx/pqxx /usr/include/pqxx/internal/header-pre.hxx \
+ /usr/include/pqxx/internal/cxx-features.hxx \
+ /usr/include/pqxx/config-public-compiler.h /usr/include/c++/13/ciso646 \
+ /usr/include/pqxx/array.hxx /usr/include/pqxx/connection.hxx \
+ /usr/include/c++/13/list /usr/include/c++/13/bits/stl_list.h \
+ /usr/include/c++/13/bits/list.tcc /usr/include/pqxx/errorhandler.hxx \
+ /usr/include/pqxx/types.hxx /usr/include/pqxx/except.hxx \
+ /usr/include/pqxx/internal/concat.hxx /usr/include/pqxx/strconv.hxx \
+ /usr/include/c++/13/charconv /usr/include/pqxx/util.hxx \
+ /usr/include/pqxx/version.hxx \
+ /usr/include/pqxx/internal/libpq-forward.hxx /usr/include/pqxx/zview.hxx \
+ /usr/include/pqxx/internal/conversions.hxx /usr/include/c++/13/numeric \
+ /usr/include/c++/13/bits/stl_numeric.h \
+ /usr/include/c++/13/pstl/glue_numeric_defs.h /usr/include/c++/13/variant \
+ /usr/include/pqxx/params.hxx \
+ /usr/include/pqxx/internal/statement_parameters.hxx \
+ /usr/include/pqxx/binarystring.hxx /usr/include/pqxx/result.hxx \
+ /usr/include/pqxx/internal/encodings.hxx \
+ /usr/include/pqxx/internal/encoding_group.hxx \
+ /usr/include/pqxx/internal/ignore-deprecated-pre.hxx \
+ /usr/include/pqxx/internal/ignore-deprecated-post.hxx \
+ /usr/include/pqxx/separated_list.hxx \
+ /usr/include/pqxx/internal/array-composite.hxx \
+ /usr/include/pqxx/blob.hxx /usr/include/pqxx/dbtransaction.hxx \
+ /usr/include/pqxx/transaction_base.hxx \
+ /usr/include/pqxx/internal/stream_query.hxx \
+ /usr/include/pqxx/internal/gates/connection-stream_from.hxx \
+ /usr/include/pqxx/internal/callgate.hxx \
+ /usr/include/pqxx/internal/stream_iterator.hxx \
+ /usr/include/pqxx/transaction_focus.hxx /usr/include/pqxx/isolation.hxx \
+ /usr/include/pqxx/row.hxx /usr/include/pqxx/field.hxx \
+ /usr/include/pqxx/composite.hxx \
+ /usr/include/pqxx/internal/stream_query_impl.hxx \
+ /usr/include/pqxx/cursor.hxx /usr/include/pqxx/internal/sql_cursor.hxx \
+ /usr/include/pqxx/largeobject.hxx /usr/include/pqxx/nontransaction.hxx \
+ /usr/include/pqxx/transaction.hxx /usr/include/pqxx/notification.hxx \
+ /usr/include/pqxx/pipeline.hxx /usr/include/pqxx/prepared_statement.hxx \
+ /usr/include/pqxx/params.hxx /usr/include/pqxx/range.hxx \
+ /usr/include/pqxx/internal/result_iterator.hxx \
+ /usr/include/pqxx/internal/result_iter.hxx \
+ /usr/include/pqxx/robusttransaction.hxx \
+ /usr/include/pqxx/stream_from.hxx /usr/include/pqxx/stream_to.hxx \
+ /usr/include/pqxx/subtransaction.hxx /usr/include/pqxx/time.hxx \
+ /usr/include/pqxx/transactor.hxx \
+ /usr/include/pqxx/internal/header-post.hxx \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/../../data/exceptions/DataAccessException.hpp \
+ /home/nikita/Общедоступные/PPO/PPO_labs/src/data/../repositories/impl/../../data/SqlQueryBuilder.hpp

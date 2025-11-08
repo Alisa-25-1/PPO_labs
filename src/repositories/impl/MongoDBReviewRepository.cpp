@@ -166,6 +166,36 @@ std::vector<Review> MongoDBReviewRepository::findPendingModeration() {
     }
 }
 
+std::vector<Review> MongoDBReviewRepository::findAll() {
+    std::vector<Review> reviews;
+    
+    try {
+        std::cout << "🔍 Получение всех отзывов из MongoDB" << std::endl;
+        
+        auto collection = getCollection();
+        auto cursor = collection.find({});
+        
+        int count = 0;
+        for (auto&& doc : cursor) {
+            try {
+                auto review = mapDocumentToReview(doc);
+                reviews.push_back(review);
+                count++;
+            } catch (const std::exception& e) {
+                std::cerr << "❌ Ошибка при маппинге отзыва из MongoDB: " << e.what() << std::endl;
+                continue;
+            }
+        }
+        
+        std::cout << "✅ Успешно загружено отзывов из MongoDB: " << count << std::endl;
+        return reviews;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ MongoDB Error in findAll: " << e.what() << std::endl;
+        throw DataAccessException(std::string("Failed to find all reviews: ") + e.what());
+    }
+}
+
 double MongoDBReviewRepository::getAverageRatingForTrainer(const UUID& trainerId) {
     try {
         auto collection = getCollection();

@@ -24,6 +24,7 @@ public:
     std::vector<Subscription> findByClientId(const UUID& clientId) override;
     std::vector<Subscription> findActiveSubscriptions() override;
     std::vector<Subscription> findExpiringSubscriptions(int days = 7) override;
+    std::vector<Subscription> findAll() override;
     bool save(const Subscription& subscription) override;
     bool update(const Subscription& subscription) override;
     bool remove(const UUID& id) override;

@@ -13,14 +13,45 @@
 #include "../repositories/impl/MongoDBAttendanceRepository.hpp"
 #include <iostream>
 
-// Статическая инициализация MongoDB instance
-mongocxx::instance MongoDBRepositoryFactory::mongo_instance_{};
+// Инициализация статических членов
+std::unique_ptr<mongocxx::instance> MongoDBRepositoryFactory::instance_ = nullptr;
+std::mutex MongoDBRepositoryFactory::instance_mutex_;
+int MongoDBRepositoryFactory::instance_count_ = 0;
+
+void MongoDBRepositoryFactory::initializeInstance() {
+    std::lock_guard<std::mutex> lock(instance_mutex_);
+    
+    if (instance_count_ == 0) {
+        // Первое использование - создаем instance
+        instance_ = std::make_unique<mongocxx::instance>();
+        std::cout << "✅ MongoDB instance created" << std::endl;
+    }
+    
+    instance_count_++;
+    std::cout << "🔧 MongoDB instance count: " << instance_count_ << std::endl;
+}
+
+void MongoDBRepositoryFactory::cleanupInstance() {
+    std::lock_guard<std::mutex> lock(instance_mutex_);
+    
+    instance_count_--;
+    std::cout << "🔧 MongoDB instance count: " << instance_count_ << std::endl;
+    
+    if (instance_count_ == 0) {
+        // Последнее использование - уничтожаем instance
+        instance_.reset();
+        std::cout << "✅ MongoDB instance destroyed" << std::endl;
+    }
+}
 
 MongoDBRepositoryFactory::MongoDBRepositoryFactory(const std::string& connection_string, 
                                                  const std::string& database_name)
     : database_name_(database_name) {
     
     try {
+        // Инициализируем instance (с подсчетом ссылок)
+        initializeInstance();
+        
         // Initialize MongoDB client
         client_ = std::make_shared<mongocxx::client>(mongocxx::uri(connection_string));
         
@@ -34,9 +65,18 @@ MongoDBRepositoryFactory::MongoDBRepositoryFactory(const std::string& connection
                   << database_name_ << std::endl;
         
     } catch (const std::exception& e) {
+        // В случае ошибки очищаем instance
+        cleanupInstance();
         std::cerr << "❌ MongoDB connection failed: " << e.what() << std::endl;
         throw;
     }
+}
+
+MongoDBRepositoryFactory::~MongoDBRepositoryFactory() {
+    // Явно уничтожаем клиент перед instance
+    client_.reset();
+    // Очищаем instance (с подсчетом ссылок)
+    cleanupInstance();
 }
 
 std::shared_ptr<IClientRepository> MongoDBRepositoryFactory::createClientRepository() {

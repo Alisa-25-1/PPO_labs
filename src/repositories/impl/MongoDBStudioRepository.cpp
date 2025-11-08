@@ -2,6 +2,11 @@
 #include "../../data/MongoDBRepositoryFactory.hpp"
 #include "../../data/DateTimeUtils.hpp"
 #include <iostream>
+#include <bsoncxx/builder/basic/document.hpp>
+#include <bsoncxx/builder/basic/array.hpp>
+
+using bsoncxx::builder::basic::kvp;
+using bsoncxx::builder::basic::sub_array;
 
 MongoDBStudioRepository::MongoDBStudioRepository(std::shared_ptr<MongoDBRepositoryFactory> factory)
     : factory_(std::move(factory)) {}
@@ -185,6 +190,27 @@ bool MongoDBStudioRepository::exists(const UUID& id) {
     }
 }
 
+bsoncxx::document::value MongoDBStudioRepository::mapStudioToDocument(const Studio& studio) const {
+    bsoncxx::builder::basic::document builder;
+    
+    builder.append(
+        kvp("id", studio.getId().toString()),
+        kvp("name", studio.getName()),
+        kvp("description", studio.getDescription()),
+        kvp("contactEmail", studio.getContactEmail())
+    );
+    
+    // Создаем массив branchIds
+    bsoncxx::builder::basic::array branch_ids_array;
+    for (const auto& branchId : studio.getBranchIds()) {
+        branch_ids_array.append(branchId.toString());
+    }
+    
+    builder.append(kvp("branchIds", branch_ids_array));
+    
+    return builder.extract();
+}
+
 Studio MongoDBStudioRepository::mapDocumentToStudio(const bsoncxx::document::view& doc) const {
     try {
         UUID id = UUID::fromString(doc["id"].get_string().value.to_string());
@@ -220,27 +246,6 @@ Studio MongoDBStudioRepository::mapDocumentToStudio(const bsoncxx::document::vie
         std::cerr << "❌ Критическая ошибка маппинга Studio из MongoDB: " << e.what() << std::endl;
         throw DataAccessException("Failed to map MongoDB document to Studio");
     }
-}
-
-bsoncxx::document::value MongoDBStudioRepository::mapStudioToDocument(const Studio& studio) const {
-    auto builder = bsoncxx::builder::basic::document{};
-    
-    builder.append(
-        bsoncxx::builder::basic::kvp("id", studio.getId().toString()),
-        bsoncxx::builder::basic::kvp("name", studio.getName()),
-        bsoncxx::builder::basic::kvp("description", studio.getDescription()),
-        bsoncxx::builder::basic::kvp("contactEmail", studio.getContactEmail())
-    );
-    
-    // Создаем массив branchIds
-    auto branch_ids_array = bsoncxx::builder::basic::array{};
-    for (const auto& branchId : studio.getBranchIds()) {
-        branch_ids_array.append(branchId.toString());
-    }
-    
-    builder.append(bsoncxx::builder::basic::kvp("branchIds", branch_ids_array));
-    
-    return builder.extract();
 }
 
 void MongoDBStudioRepository::validateStudio(const Studio& studio) const {

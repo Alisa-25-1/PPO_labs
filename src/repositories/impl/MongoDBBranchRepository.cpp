@@ -2,6 +2,13 @@
 #include "../../data/DateTimeUtils.hpp"
 #include "../../data/MongoDBRepositoryFactory.hpp"
 #include <iostream>
+#include <bsoncxx/builder/basic/document.hpp>
+#include <bsoncxx/builder/basic/array.hpp>
+#include <bsoncxx/json.hpp>
+
+using bsoncxx::builder::basic::kvp;
+using bsoncxx::builder::basic::sub_array;
+using bsoncxx::builder::basic::sub_document;
 
 MongoDBBranchRepository::MongoDBBranchRepository(std::shared_ptr<MongoDBRepositoryFactory> factory)
     : factory_(std::move(factory)) {}
@@ -197,6 +204,39 @@ bool MongoDBBranchRepository::exists(const UUID& id) {
     }
 }
 
+bsoncxx::document::value MongoDBBranchRepository::mapBranchToDocument(const Branch& branch) const {
+    bsoncxx::builder::basic::document builder;
+    
+    builder.append(
+        kvp("id", branch.getId().toString()),
+        kvp("name", branch.getName()),
+        kvp("phone", branch.getPhone()),
+        kvp("openTime", static_cast<int>(branch.getWorkingHours().openTime.count())),
+        kvp("closeTime", static_cast<int>(branch.getWorkingHours().closeTime.count())),
+        kvp("studioId", branch.getStudioId().toString()),
+        kvp("address", [&branch](sub_document sub_doc) {
+            sub_doc.append(
+                kvp("id", branch.getAddress().getId().toString()),
+                kvp("country", branch.getAddress().getCountry()),
+                kvp("city", branch.getAddress().getCity()),
+                kvp("street", branch.getAddress().getStreet()),
+                kvp("building", branch.getAddress().getBuilding()),
+                kvp("timezoneOffset", static_cast<int>(branch.getAddress().getTimezoneOffset().count()))
+            );
+            
+            if (!branch.getAddress().getApartment().empty()) {
+                sub_doc.append(kvp("apartment", branch.getAddress().getApartment()));
+            }
+            
+            if (!branch.getAddress().getPostalCode().empty()) {
+                sub_doc.append(kvp("postalCode", branch.getAddress().getPostalCode()));
+            }
+        })
+    );
+    
+    return builder.extract();
+}
+
 Branch MongoDBBranchRepository::mapDocumentToBranch(const bsoncxx::document::view& doc) const {
     try {
         UUID id = UUID::fromString(doc["id"].get_string().value.to_string());
@@ -211,7 +251,26 @@ Branch MongoDBBranchRepository::mapDocumentToBranch(const bsoncxx::document::vie
         
         // Получаем адрес как вложенный документ
         auto addressDoc = doc["address"].get_document().view();
-        BranchAddress address = mapDocumentToAddress(addressDoc);
+        
+        UUID addressId = UUID::fromString(addressDoc["id"].get_string().value.to_string());
+        std::string country = addressDoc["country"].get_string().value.to_string();
+        std::string city = addressDoc["city"].get_string().value.to_string();
+        std::string street = addressDoc["street"].get_string().value.to_string();
+        std::string building = addressDoc["building"].get_string().value.to_string();
+        
+        int timezoneOffsetMinutes = addressDoc["timezoneOffset"].get_int32();
+        auto timezoneOffset = std::chrono::minutes(timezoneOffsetMinutes);
+        
+        BranchAddress address(addressId, country, city, street, building, timezoneOffset);
+        
+        // Опциональные поля
+        if (addressDoc["apartment"]) {
+            address.setApartment(addressDoc["apartment"].get_string().value.to_string());
+        }
+        
+        if (addressDoc["postalCode"]) {
+            address.setPostalCode(addressDoc["postalCode"].get_string().value.to_string());
+        }
         
         // Создаем филиал
         Branch branch(id, name, phone, workingHours, studioId, address);
@@ -234,18 +293,6 @@ Branch MongoDBBranchRepository::mapDocumentToBranch(const bsoncxx::document::vie
     }
 }
 
-bsoncxx::document::value MongoDBBranchRepository::mapBranchToDocument(const Branch& branch) const {
-    return bsoncxx::builder::stream::document{}
-        << "id" << branch.getId().toString()
-        << "name" << branch.getName()
-        << "phone" << branch.getPhone()
-        << "openTime" << static_cast<int>(branch.getWorkingHours().openTime.count())
-        << "closeTime" << static_cast<int>(branch.getWorkingHours().closeTime.count())
-        << "studioId" << branch.getStudioId().toString()
-        << "address" << mapAddressToDocument(branch.getAddress())
-        << bsoncxx::builder::stream::finalize;
-}
-
 bsoncxx::document::value MongoDBBranchRepository::mapAddressToDocument(const BranchAddress& address) const {
     auto builder = bsoncxx::builder::stream::document{}
         << "id" << address.getId().toString()
@@ -264,36 +311,6 @@ bsoncxx::document::value MongoDBBranchRepository::mapAddressToDocument(const Bra
     }
     
     return builder << bsoncxx::builder::stream::finalize;
-}
-
-BranchAddress MongoDBBranchRepository::mapDocumentToAddress(const bsoncxx::document::view& addressDoc) const {
-    try {
-        UUID id = UUID::fromString(addressDoc["id"].get_string().value.to_string());
-        std::string country = addressDoc["country"].get_string().value.to_string();
-        std::string city = addressDoc["city"].get_string().value.to_string();
-        std::string street = addressDoc["street"].get_string().value.to_string();
-        std::string building = addressDoc["building"].get_string().value.to_string();
-        
-        int timezoneOffsetMinutes = addressDoc["timezoneOffset"].get_int32();
-        auto timezoneOffset = std::chrono::minutes(timezoneOffsetMinutes);
-        
-        BranchAddress address(id, country, city, street, building, timezoneOffset);
-        
-        // Опциональные поля
-        if (addressDoc["apartment"]) {
-            address.setApartment(addressDoc["apartment"].get_string().value.to_string());
-        }
-        
-        if (addressDoc["postalCode"]) {
-            address.setPostalCode(addressDoc["postalCode"].get_string().value.to_string());
-        }
-        
-        return address;
-        
-    } catch (const std::exception& e) {
-        std::cerr << "❌ Ошибка маппинга Address из MongoDB: " << e.what() << std::endl;
-        throw DataAccessException("Failed to map MongoDB document to Address");
-    }
 }
 
 void MongoDBBranchRepository::validateBranch(const Branch& branch) const {

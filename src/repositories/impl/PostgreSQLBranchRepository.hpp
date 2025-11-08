@@ -27,7 +27,8 @@ private:
     std::optional<BranchAddress> findAddressById(const UUID& addressId, pqxx::work& work);
     Branch mapResultToBranch(const pqxx::row& row, const BranchAddress& address) const;
     BranchAddress mapResultToAddress(const pqxx::row& row) const;
-    bool saveAddress(const BranchAddress& address, pqxx::work& work);
+    void saveAddressWithUpsert(pqxx::work& work, const BranchAddress& address);
+    bool addressExists(pqxx::work& work, const UUID& addressId);
     bool updateAddress(const BranchAddress& address, pqxx::work& work);
     void validateBranch(const Branch& branch) const;
 };

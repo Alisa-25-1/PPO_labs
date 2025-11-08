@@ -90,29 +90,56 @@ bool PostgreSQLStudioRepository::save(const Studio& studio) {
     try {
         auto work = dbConnection_->beginTransaction();
         
-        std::map<std::string, std::string> values = {
-            {"id", "$1"},
-            {"name", "$2"},
-            {"description", "$3"},
-            {"contact_email", "$4"}
-        };
-        
-        SqlQueryBuilder queryBuilder;
-        std::string query = queryBuilder
-            .insertInto("studios")
-            .values(values)
-            .build();
-        
-        work.exec_params(
-            query,
-            studio.getId().toString(),
-            studio.getName(),
-            studio.getDescription(),
-            studio.getContactEmail()
-        );
-        
-        dbConnection_->commitTransaction(work);
-        return true;
+        // Проверяем, существует ли уже студия
+        if (exists(studio.getId())) {
+            std::map<std::string, std::string> values = {
+                {"name", "$2"},
+                {"description", "$3"},
+                {"email", "$4"}
+            };
+            
+            SqlQueryBuilder queryBuilder;
+            std::string query = queryBuilder
+                .update("studios")
+                .set(values)
+                .where("id = $1")
+                .build();
+            
+            auto result = work.exec_params(
+                query,
+                studio.getId().toString(),
+                studio.getName(),
+                studio.getDescription(),
+                studio.getContactEmail()
+            );
+            
+            dbConnection_->commitTransaction(work);
+            return result.affected_rows() > 0;
+        } else {
+            std::map<std::string, std::string> values = {
+                {"id", "$1"},
+                {"name", "$2"},
+                {"description", "$3"},
+                {"email", "$4"}
+            };
+            
+            SqlQueryBuilder queryBuilder;
+            std::string query = queryBuilder
+                .insertInto("studios")
+                .values(values)
+                .build();
+            
+            work.exec_params(
+                query,
+                studio.getId().toString(),
+                studio.getName(),
+                studio.getDescription(),
+                studio.getContactEmail()
+            );
+            
+            dbConnection_->commitTransaction(work);
+            return true;
+        }
         
     } catch (const std::exception& e) {
         throw QueryException(std::string("Failed to save studio: ") + e.what());

@@ -13,6 +13,7 @@ public:
     virtual std::vector<Subscription> findByClientId(const UUID& clientId) = 0;
     virtual std::vector<Subscription> findActiveSubscriptions() = 0;
     virtual std::vector<Subscription> findExpiringSubscriptions(int days = 7) = 0;
+    virtual std::vector<Subscription> findAll() = 0;
     virtual bool save(const Subscription& subscription) = 0;
     virtual bool update(const Subscription& subscription) = 0;
     virtual bool remove(const UUID& id) = 0;

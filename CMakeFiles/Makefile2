@@ -95,12 +95,12 @@ clean: CMakeFiles/TestMongoDB.dir/clean
 CMakeFiles/BookingCore.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39,40 "Built target BookingCore"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,34,35,36,37,38,39 "Built target BookingCore"
 .PHONY : CMakeFiles/BookingCore.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/BookingCore.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 39
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 38
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/BookingCore.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 0
 .PHONY : CMakeFiles/BookingCore.dir/rule
@@ -126,7 +126,7 @@ CMakeFiles/DataAccess.dir/all: CMakeFiles/BookingCore.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/DataAccess.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 69
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 68
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/DataAccess.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 0
 .PHONY : CMakeFiles/DataAccess.dir/rule
@@ -153,7 +153,7 @@ CMakeFiles/TechUI.dir/all: CMakeFiles/DataAccess.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TechUI.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 75
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 74
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TechUI.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 0
 .PHONY : CMakeFiles/TechUI.dir/rule
@@ -174,12 +174,12 @@ CMakeFiles/TechUI.dir/clean:
 CMakeFiles/WebUIComponent.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/WebUIComponent.dir/build.make CMakeFiles/WebUIComponent.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=81,82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100 "Built target WebUIComponent"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=82,83,84,85,86,87,88,89,90,91,92,93,94,95,96,97,98,99,100 "Built target WebUIComponent"
 .PHONY : CMakeFiles/WebUIComponent.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/WebUIComponent.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 20
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 19
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/WebUIComponent.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 0
 .PHONY : CMakeFiles/WebUIComponent.dir/rule
@@ -207,7 +207,7 @@ CMakeFiles/DanceStudioWebUI.dir/all: CMakeFiles/WebUIComponent.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/DanceStudioWebUI.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 91
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 89
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/DanceStudioWebUI.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 0
 .PHONY : CMakeFiles/DanceStudioWebUI.dir/rule
@@ -228,7 +228,7 @@ CMakeFiles/DanceStudioWebUI.dir/clean:
 CMakeFiles/BookingTests.dir/all: CMakeFiles/BookingCore.dir/all
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingTests.dir/build.make CMakeFiles/BookingTests.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=41 "Built target BookingTests"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=40,41 "Built target BookingTests"
 .PHONY : CMakeFiles/BookingTests.dir/all
 
 # Build rule for subdir invocation for target.
@@ -259,7 +259,7 @@ CMakeFiles/AuthServiceTests.dir/all: CMakeFiles/BookingCore.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/AuthServiceTests.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 40
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 39
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/AuthServiceTests.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 0
 .PHONY : CMakeFiles/AuthServiceTests.dir/rule
@@ -280,12 +280,12 @@ CMakeFiles/AuthServiceTests.dir/clean:
 CMakeFiles/TestMongoDB.dir/all:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestMongoDB.dir/build.make CMakeFiles/TestMongoDB.dir/depend
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/TestMongoDB.dir/build.make CMakeFiles/TestMongoDB.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=80 "Built target TestMongoDB"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles --progress-num=80,81 "Built target TestMongoDB"
 .PHONY : CMakeFiles/TestMongoDB.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/TestMongoDB.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 1
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 2
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 CMakeFiles/TestMongoDB.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/nikita/Общедоступные/PPO/PPO_labs/CMakeFiles 0
 .PHONY : CMakeFiles/TestMongoDB.dir/rule

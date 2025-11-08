@@ -22,7 +22,6 @@
 // Forward declaration
 class DatabaseConnection;
 
-// НАСЛЕДУЕМСЯ ОТ IRepositoryFactory
 class PostgreSQLRepositoryFactory : public IRepositoryFactory {
 private:
     std::shared_ptr<DatabaseConnection> dbConnection_;
@@ -35,7 +34,7 @@ public:
     PostgreSQLRepositoryFactory(const PostgreSQLRepositoryFactory&) = delete;
     PostgreSQLRepositoryFactory& operator=(const PostgreSQLRepositoryFactory&) = delete;
 
-    // Фабричные методы (ПЕРЕОПРЕДЕЛЯЕМ ВСЕ ВИРТУАЛЬНЫЕ МЕТОДЫ)
+    // Фабричные методы
     std::shared_ptr<IBookingRepository> createBookingRepository() override;
     std::shared_ptr<IClientRepository> createClientRepository() override;
     std::shared_ptr<IDanceHallRepository> createDanceHallRepository() override;
@@ -49,11 +48,11 @@ public:
     std::shared_ptr<ISubscriptionTypeRepository> createSubscriptionTypeRepository() override;
     std::shared_ptr<IAttendanceRepository> createAttendanceRepository() override;
 
-    // Управление соединением (ПЕРЕОПРЕДЕЛЯЕМ)
+    // Управление соединением 
     bool testConnection() const override;
     void reconnect() override;
     
-    // Получение соединения (для advanced использования)
+    // Получение соединения 
     std::shared_ptr<DatabaseConnection> getConnection() const { return dbConnection_; }
 };
 

@@ -357,6 +357,30 @@ src/core/PasswordHasher.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/BookingCore.dir/build.make CMakeFiles/BookingCore.dir/src/core/PasswordHasher.cpp.s
 .PHONY : src/core/PasswordHasher.cpp.s
 
+src/data/DataMigrator.o: src/data/DataMigrator.cpp.o
+.PHONY : src/data/DataMigrator.o
+
+# target to build an object file
+src/data/DataMigrator.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.o
+.PHONY : src/data/DataMigrator.cpp.o
+
+src/data/DataMigrator.i: src/data/DataMigrator.cpp.i
+.PHONY : src/data/DataMigrator.i
+
+# target to preprocess a source file
+src/data/DataMigrator.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.i
+.PHONY : src/data/DataMigrator.cpp.i
+
+src/data/DataMigrator.s: src/data/DataMigrator.cpp.s
+.PHONY : src/data/DataMigrator.s
+
+# target to generate assembly for a file
+src/data/DataMigrator.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/DataAccess.dir/build.make CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.s
+.PHONY : src/data/DataMigrator.cpp.s
+
 src/data/DatabaseConnection.o: src/data/DatabaseConnection.cpp.o
 .PHONY : src/data/DatabaseConnection.o
 
@@ -2644,6 +2668,9 @@ help:
 	@echo "... src/core/PasswordHasher.o"
 	@echo "... src/core/PasswordHasher.i"
 	@echo "... src/core/PasswordHasher.s"
+	@echo "... src/data/DataMigrator.o"
+	@echo "... src/data/DataMigrator.i"
+	@echo "... src/data/DataMigrator.s"
 	@echo "... src/data/DatabaseConnection.o"
 	@echo "... src/data/DatabaseConnection.i"
 	@echo "... src/data/DatabaseConnection.s"

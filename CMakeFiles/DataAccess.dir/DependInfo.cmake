@@ -8,6 +8,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DataMigrator.cpp" "CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/DataMigrator.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/DatabaseConnection.cpp" "CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/DatabaseConnection.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/MongoDBRepositoryFactory.cpp" "CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/MongoDBRepositoryFactory.cpp.o.d"
   "/home/nikita/Общедоступные/PPO/PPO_labs/src/data/PostgreSQLRepositoryFactory.cpp" "CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o" "gcc" "CMakeFiles/DataAccess.dir/src/data/PostgreSQLRepositoryFactory.cpp.o.d"

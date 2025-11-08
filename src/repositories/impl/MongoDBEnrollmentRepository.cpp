@@ -6,6 +6,10 @@
 #include <bsoncxx/builder/basic/kvp.hpp>
 #include <iostream>
 
+using bsoncxx::builder::basic::kvp;
+using bsoncxx::builder::basic::make_document;
+using bsoncxx::builder::basic::make_array;
+
 MongoDBEnrollmentRepository::MongoDBEnrollmentRepository(std::shared_ptr<MongoDBRepositoryFactory> factory)
     : factory_(std::move(factory)) {}
 
@@ -16,9 +20,7 @@ mongocxx::collection MongoDBEnrollmentRepository::getCollection() const {
 std::optional<Enrollment> MongoDBEnrollmentRepository::findById(const UUID& id) {
     try {
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "id" << id.toString()
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(kvp("id", id.toString()));
         
         auto result = collection.find_one(filter.view());
         
@@ -43,9 +45,7 @@ std::vector<Enrollment> MongoDBEnrollmentRepository::findByClientId(const UUID& 
         std::cout << "🔍 Поиск записей клиента в MongoDB: " << clientId.toString() << std::endl;
         
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "clientId" << clientId.toString()
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(kvp("clientId", clientId.toString()));
         
         auto cursor = collection.find(filter.view());
         
@@ -78,9 +78,7 @@ std::vector<Enrollment> MongoDBEnrollmentRepository::findByLessonId(const UUID& 
         std::cout << "🔍 Поиск записей на занятие в MongoDB: " << lessonId.toString() << std::endl;
         
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "lessonId" << lessonId.toString()
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(kvp("lessonId", lessonId.toString()));
         
         auto cursor = collection.find(filter.view());
         
@@ -111,10 +109,10 @@ std::optional<Enrollment> MongoDBEnrollmentRepository::findByClientAndLesson(
     
     try {
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "clientId" << clientId.toString()
-            << "lessonId" << lessonId.toString()
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(
+            kvp("clientId", clientId.toString()),
+            kvp("lessonId", lessonId.toString())
+        );
         
         auto result = collection.find_one(filter.view());
         
@@ -135,10 +133,10 @@ std::optional<Enrollment> MongoDBEnrollmentRepository::findByClientAndLesson(
 int MongoDBEnrollmentRepository::countByLessonId(const UUID& lessonId) {
     try {
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "lessonId" << lessonId.toString()
-            << "status" << "REGISTERED"  // Считаем только активные записи
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(
+            kvp("lessonId", lessonId.toString()),
+            kvp("status", "REGISTERED")  // Считаем только активные записи
+        );
         
         auto count = collection.count_documents(filter.view());
         
@@ -209,18 +207,16 @@ bool MongoDBEnrollmentRepository::update(const Enrollment& enrollment) {
     
     try {
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "id" << enrollment.getId().toString()
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(kvp("id", enrollment.getId().toString()));
         
-        auto update_doc = bsoncxx::builder::stream::document{}
-            << "$set" << bsoncxx::builder::stream::open_document
-                << "clientId" << enrollment.getClientId().toString()
-                << "lessonId" << enrollment.getLessonId().toString()
-                << "status" << enrollmentStatusToString(enrollment.getStatus())
-                << "enrollmentDate" << DateTimeUtils::formatTimeForMongoDB(enrollment.getEnrollmentDate())
-            << bsoncxx::builder::stream::close_document
-            << bsoncxx::builder::stream::finalize;
+        auto update_doc = make_document(
+            kvp("$set", make_document(
+                kvp("clientId", enrollment.getClientId().toString()),
+                kvp("lessonId", enrollment.getLessonId().toString()),
+                kvp("status", enrollmentStatusToString(enrollment.getStatus())),
+                kvp("enrollmentDate", DateTimeUtils::formatTimeForMongoDB(enrollment.getEnrollmentDate()))
+            ))
+        );
         
         auto result = collection.update_one(filter.view(), update_doc.view());
         
@@ -241,9 +237,7 @@ bool MongoDBEnrollmentRepository::update(const Enrollment& enrollment) {
 bool MongoDBEnrollmentRepository::remove(const UUID& id) {
     try {
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "id" << id.toString()
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(kvp("id", id.toString()));
         
         auto result = collection.delete_one(filter.view());
         
@@ -264,9 +258,7 @@ bool MongoDBEnrollmentRepository::remove(const UUID& id) {
 bool MongoDBEnrollmentRepository::exists(const UUID& id) {
     try {
         auto collection = getCollection();
-        auto filter = bsoncxx::builder::stream::document{}
-            << "id" << id.toString()
-            << bsoncxx::builder::stream::finalize;
+        auto filter = make_document(kvp("id", id.toString()));
         
         auto result = collection.count_documents(filter.view());
         return result > 0;
@@ -321,13 +313,13 @@ Enrollment MongoDBEnrollmentRepository::mapDocumentToEnrollment(const bsoncxx::d
 }
 
 bsoncxx::document::value MongoDBEnrollmentRepository::mapEnrollmentToDocument(const Enrollment& enrollment) const {
-    return bsoncxx::builder::stream::document{}
-        << "id" << enrollment.getId().toString()
-        << "clientId" << enrollment.getClientId().toString()
-        << "lessonId" << enrollment.getLessonId().toString()
-        << "status" << enrollmentStatusToString(enrollment.getStatus())
-        << "enrollmentDate" << DateTimeUtils::formatTimeForMongoDB(enrollment.getEnrollmentDate())
-        << bsoncxx::builder::stream::finalize;
+    return make_document(
+        kvp("id", enrollment.getId().toString()),
+        kvp("clientId", enrollment.getClientId().toString()),
+        kvp("lessonId", enrollment.getLessonId().toString()),
+        kvp("status", enrollmentStatusToString(enrollment.getStatus())),
+        kvp("enrollmentDate", DateTimeUtils::formatTimeForMongoDB(enrollment.getEnrollmentDate()))
+    );
 }
 
 void MongoDBEnrollmentRepository::validateEnrollment(const Enrollment& enrollment) const {

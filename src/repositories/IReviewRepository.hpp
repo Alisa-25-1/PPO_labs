@@ -15,6 +15,7 @@ public:
     virtual std::optional<Review> findByClientAndLesson(const UUID& clientId, const UUID& lessonId) = 0;
     virtual std::vector<Review> findPendingModeration() = 0;
     virtual double getAverageRatingForTrainer(const UUID& trainerId) = 0;
+    virtual std::vector<Review> findAll() = 0;
     virtual bool save(const Review& review) = 0;
     virtual bool update(const Review& review) = 0;
     virtual bool remove(const UUID& id) = 0;

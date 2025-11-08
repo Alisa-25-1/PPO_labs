@@ -16,6 +16,7 @@ public:
         const std::chrono::system_clock::time_point& start, 
         const std::chrono::system_clock::time_point& end) = 0;
     virtual std::vector<Attendance> findByTypeAndStatus(AttendanceType type, AttendanceStatus status) = 0;
+    virtual std::vector<Attendance> findAll() = 0;
     virtual bool save(const Attendance& attendance) = 0;
     virtual bool update(const Attendance& attendance) = 0;
     virtual bool remove(const UUID& id) = 0;

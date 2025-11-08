@@ -108,6 +108,35 @@ std::vector<Subscription> PostgreSQLSubscriptionRepository::findExpiringSubscrip
     }
 }
 
+std::vector<Subscription> PostgreSQLSubscriptionRepository::findAll() {
+    try {
+        auto work = dbConnection_->beginTransaction();
+        
+        SqlQueryBuilder queryBuilder;
+        std::string query = queryBuilder
+            .select({
+                "id", "client_id", "subscription_type_id", "start_date", 
+                "end_date", "remaining_visits", "status", "purchase_date"
+            })
+            .from("subscriptions")
+            .orderBy("purchase_date", false)
+            .build();
+        
+        auto result = work.exec(query);
+        
+        std::vector<Subscription> subscriptions;
+        for (const auto& row : result) {
+            subscriptions.push_back(mapResultToSubscription(row));
+        }
+        
+        dbConnection_->commitTransaction(work);
+        return subscriptions;
+        
+    } catch (const std::exception& e) {
+        throw QueryException(std::string("Failed to find all subscriptions: ") + e.what());
+    }
+}
+
 bool PostgreSQLSubscriptionRepository::save(const Subscription& subscription) {
     validateSubscription(subscription);
     

@@ -9,6 +9,7 @@ public:
     MOCK_METHOD(std::vector<Lesson>, findByHallId, (const UUID& hallId), (override)); 
     MOCK_METHOD(std::vector<Lesson>, findConflictingLessons, (const UUID& hallId, const TimeSlot& timeSlot), (override));
     MOCK_METHOD(std::vector<Lesson>, findUpcomingLessons, (int days), (override)); 
+    MOCK_METHOD(std::vector<Lesson>, findAll, (), (override));
     MOCK_METHOD(bool, save, (const Lesson& lesson), (override));
     MOCK_METHOD(bool, update, (const Lesson& lesson), (override));
     MOCK_METHOD(bool, remove, (const UUID& id), (override));

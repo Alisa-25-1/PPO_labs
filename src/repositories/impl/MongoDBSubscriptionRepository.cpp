@@ -154,6 +154,36 @@ std::vector<Subscription> MongoDBSubscriptionRepository::findExpiringSubscriptio
     }
 }
 
+std::vector<Subscription> MongoDBSubscriptionRepository::findAll() {
+    std::vector<Subscription> subscriptions;
+    
+    try {
+        std::cout << "🔍 Получение всех подписок из MongoDB" << std::endl;
+        
+        auto collection = getCollection();
+        auto cursor = collection.find({});
+        
+        int count = 0;
+        for (auto&& doc : cursor) {
+            try {
+                auto subscription = mapDocumentToSubscription(doc);
+                subscriptions.push_back(subscription);
+                count++;
+            } catch (const std::exception& e) {
+                std::cerr << "❌ Ошибка при маппинге подписки из MongoDB: " << e.what() << std::endl;
+                continue;
+            }
+        }
+        
+        std::cout << "✅ Успешно загружено подписок из MongoDB: " << count << std::endl;
+        return subscriptions;
+        
+    } catch (const std::exception& e) {
+        std::cerr << "❌ MongoDB Error in findAll: " << e.what() << std::endl;
+        throw DataAccessException(std::string("Failed to find all subscriptions: ") + e.what());
+    }
+}
+
 bool MongoDBSubscriptionRepository::save(const Subscription& subscription) {
     validateSubscription(subscription);
     

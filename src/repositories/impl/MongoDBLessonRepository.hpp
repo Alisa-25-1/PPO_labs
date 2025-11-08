@@ -5,7 +5,7 @@
 #include "../../data/exceptions/DataAccessException.hpp"
 #include <mongocxx/client.hpp>
 #include <mongocxx/collection.hpp>
-#include <bsoncxx/builder/stream/document.hpp>
+#include <bsoncxx/builder/basic/document.hpp>
 #include <bsoncxx/json.hpp>
 #include <iostream>
 
@@ -25,6 +25,7 @@ public:
     std::vector<Lesson> findByHallId(const UUID& hallId) override;
     std::vector<Lesson> findConflictingLessons(const UUID& hallId, const TimeSlot& timeSlot) override;
     std::vector<Lesson> findUpcomingLessons(int days = 7) override;
+    std::vector<Lesson> findAll() override;
     bool save(const Lesson& lesson) override;
     bool update(const Lesson& lesson) override;
     bool remove(const UUID& id) override;
